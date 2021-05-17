@@ -21,6 +21,9 @@ namespace EngineeringUnits
 
 
         public static UnknownUnit operator *(UnknownUnit a, double b) => BaseUnit.Multiply(a.baseUnit, b);
+        public static UnknownUnit operator *(double a, UnknownUnit b) => BaseUnit.Multiply(b.baseUnit, a);
+        public static UnknownUnit operator /(UnknownUnit a, double b) => BaseUnit.Divide(a.baseUnit, b);
+        public static UnknownUnit operator /(double a, UnknownUnit b) => BaseUnit.Divide(a, b.baseUnit);
 
 
         public override string ToString()

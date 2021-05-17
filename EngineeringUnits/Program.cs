@@ -9,36 +9,67 @@ namespace EngineeringUnits
         {
 
             //TODO Lav sådan at samme enhed nemt kan have flere navne
-            //TODO Lav egen Enum class
+
+
+            //Lav special case til temperature
             //TODO hvis man ganger en double på, skal vi huske at regne tilbage til SI først (mest pga temperature..)
 
-
-            Length L1 = new Length(LengthUnits.);
-
-
-            Length L1 = new Length(1, LengthUnits.Meter);
-
-            Length L2 = new Length(1, LengthUnits.Centimeter);
+            //TODO Lav egen Enum class -> bliver ikke helt det samme...
 
 
-            var L3 = L2 + L1;
-            var L4 =  L1 - L2;
+            //TODO length > length?
 
-            Area A1 = L1 * L1 * 10.992;
-            Area A2 = L2 * L2;
 
-            //Area A3 = (A1 * A2) / (L1 * L1);
+            //Kan man lave beregningerne i et mere præcist format og så regne tilbage til Double tilsidst?
 
-            var L7 = L1 / L2;
+
+            //Kunne være sjovt at lave ingeniør konstanter som standard
+
+
+            Length L1 = new Length(100, LengthUnit.Meter);
+            Length L2 = new Length(100, LengthUnit.Foot);
+
+
+
+            Area test1 = L1 * L1;
+
+            var test2 = L1 * L1 * L1;
+
+            var test3 = L1 * L1 * L1 * L1;
+
+            var test4 = L1 * L1 * L1 * L1 * L1;
+
+            var test5 = L1 * L1 * L1 * L1 * L1 * 50;
+
+            var test6 = L1 * L1 * L1 * L1 * L1 / 100;
+
+            var test7 = L1 / 100;
+
+            var test8 = 100 / L1;
+
+            var test9 = 100 * L1;
+
+            var test10 = L1 * 100;
+
+
+
 
             Debug.WriteLine($"{L2} + {L1} = {L2 + L1}");
             Debug.WriteLine($"{L2} - {L1} = {L2 - L1}");
             Debug.WriteLine($"{L2} * {L1} = {L2 * L1}");
             Debug.WriteLine($"{L2} / {L1} = {L2 / L1}");
 
-            Debug.WriteLine($"{L1} * {L1} = {L1 * L1}");
-            Debug.WriteLine($"{L2} * {L2} = {L2 * L2}");
-            Debug.WriteLine($"{A1} - {A2} = {A1 - A2}");
+            Debug.WriteLine($"{test1}");
+            Debug.WriteLine($"{test2}");
+            Debug.WriteLine($"{test3}");
+            Debug.WriteLine($"{test4}");
+            Debug.WriteLine($"{test5}");
+            Debug.WriteLine($"{test6}");
+            Debug.WriteLine($"{test7}");
+            Debug.WriteLine($"{test8}");
+            Debug.WriteLine($"{test9}");
+            Debug.WriteLine($"{test10}");
+
         }
     }
 }

@@ -6,21 +6,21 @@ namespace EngineeringUnits
 {
     public class BaseUnit
     {
-        public UnitStore UnitList { get; set;}
+        public UnitSystem UnitList { get; set;}
 
         public double Value { get; set; }
 
         public BaseUnit()
         {
-            UnitList = new UnitStore();
+            UnitList = new UnitSystem();
         }
 
         public static UnknownUnit Add(BaseUnit a, BaseUnit b)
         {
             return new BaseUnit
             {
-                UnitList = UnitStore.Add(a.UnitList, b.UnitList),
-                Value = a.Value + (b.Value * UnitStore.VectorDifferent(b.UnitList, a.UnitList))
+                UnitList = UnitSystem.Add(a.UnitList, b.UnitList),
+                Value = a.Value + (b.Value * (double)UnitSystem.VectorDifferent(b.UnitList, a.UnitList))
             };
 
         }
@@ -28,8 +28,8 @@ namespace EngineeringUnits
         {
             return new BaseUnit
             {
-                UnitList = UnitStore.Subtract(a.UnitList, b.UnitList),
-                Value = a.Value - (b.Value * UnitStore.VectorDifferent(b.UnitList, a.UnitList))
+                UnitList = UnitSystem.Subtract(a.UnitList, b.UnitList),
+                Value = a.Value - (b.Value * (double)UnitSystem.VectorDifferent(b.UnitList, a.UnitList))
             };
 
         }
@@ -37,8 +37,8 @@ namespace EngineeringUnits
         {
             return new BaseUnit
             {
-                UnitList = UnitStore.Multiply(a.UnitList, b.UnitList),
-                Value = a.Value * (b.Value * UnitStore.VectorDifferent(b.UnitList, a.UnitList))
+                UnitList = UnitSystem.Multiply(a.UnitList, b.UnitList),
+                Value = a.Value * (b.Value * (double)UnitSystem.VectorDifferent(b.UnitList, a.UnitList))
             };
 
         }
@@ -57,8 +57,8 @@ namespace EngineeringUnits
         {
             return new BaseUnit
             {
-                UnitList = UnitStore.Divide(a.UnitList, b.UnitList),
-                Value = a.Value / (b.Value * UnitStore.VectorDifferent(b.UnitList, a.UnitList))
+                UnitList = UnitSystem.Divide(a.UnitList, b.UnitList),
+                Value = a.Value / (b.Value * (double)UnitSystem.VectorDifferent(b.UnitList, a.UnitList))
             };
         }
 
@@ -82,7 +82,7 @@ namespace EngineeringUnits
 
         public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
         {
-            return a.Value / (b.Value * UnitStore.VectorDifferent(b.UnitList, a.UnitList));
+            return a.Value / (b.Value * (double)UnitSystem.VectorDifferent(b.UnitList, a.UnitList));
         }
 
         public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => BaseUnit.Multiply(a, b);

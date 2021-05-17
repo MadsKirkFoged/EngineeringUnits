@@ -10,7 +10,7 @@ namespace EngineeringUnits
         public double Factor { get; set; }
         public string Name { get; set; }
 
-        public UnitSystem Type { get; set; }
+
         public double ToSIFactor { get; set; }
 
         public Vector()
@@ -19,11 +19,10 @@ namespace EngineeringUnits
 
         }
 
-        public Vector(double factor, string name, UnitSystem type, double toSIFactor)
+        public Vector(double factor, string name, double toSIFactor)
         {
             Factor = factor;
             Name = name;
-            Type = type;
             ToSIFactor = toSIFactor;
         }
 
@@ -33,7 +32,6 @@ namespace EngineeringUnits
             {
                 Factor = a.Factor,
                 Name = a.Name,
-                Type = a.Type,
                 ToSIFactor = a.ToSIFactor,
 
             };

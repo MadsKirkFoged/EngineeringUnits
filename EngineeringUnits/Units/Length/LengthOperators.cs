@@ -8,7 +8,7 @@ namespace EngineeringUnits
     {
 
         //Optional for units
-        public static Speed operator /(Length a, Duration b) => BaseUnit.Divide(a, b);
-        public static Area operator *(Length a, Length b) => BaseUnit.Multiply(a, b);
+        //public static Speed operator /(Length a, Duration b) => BaseUnit.Divide(a, b);
+        //public static Area operator *(Length a, Length b) => BaseUnit.Divide(a, b);
     }
 }
