@@ -25,7 +25,7 @@ namespace EngineeringUnits
             Area A1 = L1 * L1 * 10.992;
             Area A2 = L2 * L2;
 
-            Area A3 = (A1 * A2) / (L1 * L1);
+            //Area A3 = (A1 * A2) / (L1 * L1);
 
             var L7 = L1 / L2;
 
