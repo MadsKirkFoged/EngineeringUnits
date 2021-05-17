@@ -19,6 +19,7 @@ namespace EngineeringUnits
             UnitList.LengthCount = 1;
         }
 
+
         public Length(double value, LengthUnits? unit) :this()
         {
             SelectedUnit = unit;

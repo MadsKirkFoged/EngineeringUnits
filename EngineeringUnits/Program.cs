@@ -8,11 +8,13 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
-            //Upload til github og lav pipeline
             //TODO Lav sådan at samme enhed nemt kan have flere navne
             //TODO Lav egen Enum class
             //TODO hvis man ganger en double på, skal vi huske at regne tilbage til SI først (mest pga temperature..)
-            
+
+
+            Length L1 = new Length(LengthUnits.);
+
 
             Length L1 = new Length(1, LengthUnits.Meter);
 
