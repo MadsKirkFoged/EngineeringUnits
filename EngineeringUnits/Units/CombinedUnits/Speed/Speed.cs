@@ -10,15 +10,15 @@ namespace EngineeringUnits
 
         public Speed()
         {
-            UnitList.LengthCount = 1;
-            UnitList.DurationCount = -1;
+            unitsystem.LengthCount = 1;
+            unitsystem.DurationCount = -1;
         }
 
 
         public Speed(double value, LengthUnit? a, DurationUnit? b) : this()
         {
-            UnitList.SelectedLengthUnit = a;
-            UnitList.SelectedDurationUnit = b;
+            unitsystem.SelectedLengthUnit = a;
+            unitsystem.SelectedDurationUnit = b;
             base.Value = value;
         }
 
@@ -34,7 +34,7 @@ namespace EngineeringUnits
             local.SetUnit(a);
             local.SetUnit(b);
 
-            return (double)UnitSystem.VectorDifferent(UnitList, local) * Value;
+            return (double)UnitSystem.VectorDifferent(unitsystem, local) * Value;
         }
 
         public void ChangeUnitTo(LengthUnit a, DurationUnit b)
@@ -44,10 +44,10 @@ namespace EngineeringUnits
             local.SetUnit(a);
             local.SetUnit(b);
 
-            Value = (double)UnitSystem.VectorDifferent(UnitList, local) * Value;
+            Value = (double)UnitSystem.VectorDifferent(unitsystem, local) * Value;
 
-            UnitList.SetUnit(a);
-            UnitList.SetUnit(b);
+            unitsystem.SetUnit(a);
+            unitsystem.SetUnit(b);
            
         }
 
@@ -57,13 +57,13 @@ namespace EngineeringUnits
         {
             Speed local = new Speed();
 
-            if (local.UnitList != Unit.baseUnit.UnitList)
+            if (local.unitsystem != Unit.baseUnit.unitsystem)
             {
                 throw new InvalidOperationException("Units did not result in Length!");
             }
 
             local.Value = Unit.baseUnit.Value;
-            local.UnitList = Unit.baseUnit.UnitList;
+            local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;
         }

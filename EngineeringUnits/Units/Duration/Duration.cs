@@ -9,13 +9,13 @@ namespace EngineeringUnits
 
         public Duration()
         {
-            UnitList.DurationCount = 1;
+            unitsystem.DurationCount = 1;
         }
 
 
         public Duration(double value, DurationUnit? unit) : this()
         {
-            UnitList.SetUnit(unit);
+            unitsystem.SetUnit(unit);
             base.Value = value;
         }
 
@@ -26,15 +26,15 @@ namespace EngineeringUnits
 
         public double As(DurationUnit ReturnInThisUnit)
         {
-            return UnitSystem.VectorDifferent(UnitList.SelectedDurationUnit, ReturnInThisUnit) * Value;
+            return UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit) * Value;
         }
 
         public void ChangeUnitTo(DurationUnit ReturnInThisUnit)
         {
-            double Vector = UnitSystem.VectorDifferent(UnitList.SelectedDurationUnit, ReturnInThisUnit);
+            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit);
             Value *= Vector;
 
-            UnitList.SetUnit(ReturnInThisUnit);
+            unitsystem.SetUnit(ReturnInThisUnit);
         }
 
 
@@ -43,13 +43,13 @@ namespace EngineeringUnits
         {
             Duration local = new Duration();
 
-            if (local.UnitList != Unit.baseUnit.UnitList)
+            if (local.unitsystem != Unit.baseUnit.unitsystem)
             {
                 throw new InvalidOperationException("Units did not result in Duration!");
             }
 
             local.Value = Unit.baseUnit.Value;
-            local.UnitList = Unit.baseUnit.UnitList;
+            local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;
         }

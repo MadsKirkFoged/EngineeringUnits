@@ -26,8 +26,103 @@ namespace EngineeringUnits
             //Kunne være sjovt at lave ingeniør konstanter som standard
 
 
-            Length L1 = new Length(100, LengthUnit.Meter);
-            Length L2 = new Length(100, LengthUnit.Foot);
+            Temperature T1 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            //Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            //Temperature T3 = new Temperature(10, TemperatureUnit.DegreeFahrenheit);
+
+
+            //Debug.WriteLine($"{T1}");
+            //Debug.WriteLine($"{T2}");
+            //Debug.WriteLine($"{T3}");
+
+            T1.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
+            //T2.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
+            //T3.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
+
+
+            Debug.WriteLine($"{T1}");
+            //Debug.WriteLine($"{T2}");
+            //Debug.WriteLine($"{T3}");
+
+
+
+
+
+
+
+
+
+            Length L1 = new Length(5, LengthUnit.Meter);
+            Length L2 = new Length(2, LengthUnit.Inch);
+
+            Length L3 = L1;
+
+            //if (L1 == L3)
+            //{
+            //    Debug.Print("Ja");
+            //}
+
+            //if (L3 == L1)
+            //{
+            //    Debug.Print("Ja");
+            //}
+
+            //if (L1 > L2)
+            //{
+            //    Debug.Print("Ja");
+            //}
+            //if (L1 >= L2)
+            //{
+            //    Debug.Print("Ja");
+            //}
+            //if (L1 < L2)
+            //{
+            //    Debug.Print("Ja");
+            //}
+            //if (L1 <= L2)
+            //{
+            //    Debug.Print("Ja");
+            //}
+
+            var A1 = L1 * L1;
+            var A2 = L3 * L3;
+
+
+            if (A1 == A2)
+            {
+                Debug.Print("Ja");
+            }
+            if (L3 * L3 == L1 * L1)
+            {
+                Debug.Print("Ja");
+            }
+
+            if (L1 * L1 > L2 * L2)
+            {
+                Debug.Print("Ja");
+            }
+            if (L1 * L1 >= L2 * L2)
+            {
+                Debug.Print("Ja");
+            }
+            if (L1 * L1 < L2 * L2)
+            {
+                Debug.Print("Ja");
+            }
+
+            if (L1 * L1 <= L2 * L2)
+            {
+                Debug.Print("Ja");
+            }
+
+
+
+
+
+
+
+            //Length L1 = new Length(100, LengthUnit.Meter);
+            //Length L2 = new Length(100, LengthUnit.Foot);
 
 
 

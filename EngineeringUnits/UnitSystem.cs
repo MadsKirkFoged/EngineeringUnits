@@ -207,42 +207,42 @@ namespace EngineeringUnits
         public void SetUnit(LuminousIntensityUnit? x) => SelectedLuminousIntensityUnit = x;
 
 
-        public static Decimal VectorDifferent(UnitSystem a, UnitSystem b)
+        public static double VectorDifferent(UnitSystem a, UnitSystem b)
         {
 
-            Decimal LocalLenght = 1;
-            Decimal LocalTime = 1;
-            Decimal LocalMass = 1;
-            Decimal LocalElectriccurrent = 1;
-            Decimal LocalTemperature = 1;
-            Decimal LocalMole = 1;
-            Decimal LocalLuminousIntensity = 1;
+            double LocalLenght = 1;
+            double LocalTime = 1;
+            double LocalMass = 1;
+            double LocalElectriccurrent = 1;
+            double LocalTemperature = 1;
+            double LocalMole = 1;
+            double LocalLuminousIntensity = 1;
 
             if (a.SelectedLengthUnit is object && b.SelectedLengthUnit is object)            
-                LocalLenght = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedLengthUnit, b.SelectedLengthUnit), a.LengthCount);
+                LocalLenght = Math.Pow(UnitSystem.VectorDifferent(a.SelectedLengthUnit, b.SelectedLengthUnit), a.LengthCount);
             
 
             if (a.SelectedDurationUnit is object && b.SelectedDurationUnit is object)            
-                LocalTime = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedDurationUnit, b.SelectedDurationUnit), a.DurationCount);
+                LocalTime = Math.Pow(UnitSystem.VectorDifferent(a.SelectedDurationUnit, b.SelectedDurationUnit), a.DurationCount);
             
 
             if (a.SelectedMassUnit is object && b.SelectedMassUnit is object)            
-                LocalMass = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedMassUnit, b.SelectedMassUnit), a.MassCount);
+                LocalMass = Math.Pow(UnitSystem.VectorDifferent(a.SelectedMassUnit, b.SelectedMassUnit), a.MassCount);
             
 
             if (a.SelectedElectriccurrentUnit is object && b.SelectedElectriccurrentUnit is object)            
-                LocalElectriccurrent = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedElectriccurrentUnit, b.SelectedElectriccurrentUnit), a.ElectriccurrentCount);
+                LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(a.SelectedElectriccurrentUnit, b.SelectedElectriccurrentUnit), a.ElectriccurrentCount);
             
 
             if (a.SelectedTemperatureUnit is object && b.SelectedTemperatureUnit is object)            
-                LocalTemperature = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedTemperatureUnit, b.SelectedTemperatureUnit), a.TemperatureCount);
+                LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(a.SelectedTemperatureUnit, b.SelectedTemperatureUnit), a.TemperatureCount) + UnitSystem.VectorFixed(a.SelectedLengthUnit, b.SelectedLengthUnit);
             
             if (a.SelectedAmountUnit is object && b.SelectedAmountUnit is object)            
-                LocalMole = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedAmountUnit, b.SelectedAmountUnit), a.AmountCount);
+                LocalMole = Math.Pow(UnitSystem.VectorDifferent(a.SelectedAmountUnit, b.SelectedAmountUnit), a.AmountCount);
             
 
             if (a.SelectedLuminousIntensityUnit is object && b.SelectedLuminousIntensityUnit is object)            
-                LocalLuminousIntensity = (Decimal)Math.Pow(UnitSystem.VectorDifferent(a.SelectedLuminousIntensityUnit, b.SelectedLuminousIntensityUnit), a.LuminousIntensityCount);
+                LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(a.SelectedLuminousIntensityUnit, b.SelectedLuminousIntensityUnit), a.LuminousIntensityCount);
             
 
 
@@ -254,14 +254,30 @@ namespace EngineeringUnits
 
             //TODO Check that they are same kind!
 
-            Decimal factor = ((Decimal)Vector(FromUnit).Factor / (Decimal)Vector(ToUnit).Factor);
-            Decimal SIfactor = ((Decimal)Vector(FromUnit).ToSIFactor / (Decimal)Vector(ToUnit).ToSIFactor);
+            double factor = (Vector(FromUnit).Factor / Vector(ToUnit).Factor);
+            double SIfactor = (Vector(FromUnit).ToSIFactor / Vector(ToUnit).ToSIFactor);
 
-            Decimal result = factor * SIfactor;
+
+            double result = factor * SIfactor;
 
 
             return (double)result;
         }
+
+        public static double VectorFixed(Enum FromUnit, Enum ToUnit)
+        {
+
+            //TODO Check that they are same kind!
+            return Vector(FromUnit).FixedFactor1 - Vector(ToUnit).FixedFactor1;   
+        }
+
+        public static double VectorFixed2(Enum FromUnit, Enum ToUnit)
+        {
+
+            //TODO Check that they are same kind!
+            return Vector(FromUnit).FixedFactor2 - Vector(ToUnit).FixedFactor2;
+        }
+
         private static Vector Vector(Enum Type)
         {
             //This Converts Enum object to Vector object
@@ -300,6 +316,20 @@ namespace EngineeringUnits
 
                 if (DurationCount > 1)
                     local += $"{ToSuperScript(DurationCount)}";
+
+
+
+            }
+
+            if (SelectedTemperatureUnit is object && TemperatureCount > 0)
+            {
+                //if (local != "")
+                //local += " * ";
+
+                local += Vector(SelectedTemperatureUnit).Name;
+
+                if (TemperatureCount > 1)
+                    local += $"{ToSuperScript(TemperatureCount)}";
 
 
 
@@ -344,6 +374,20 @@ namespace EngineeringUnits
 
             }
 
+
+            if (SelectedTemperatureUnit is object && TemperatureCount < 0)
+            {
+                //if (local != "" && local.Last() != '/')
+                //local += " * ";
+
+                local += Vector(SelectedTemperatureUnit).Name;
+
+                if (TemperatureCount < -1)
+                    local += $"{ToSuperScript(TemperatureCount * -1)}";
+
+
+
+            }
 
 
             return local;

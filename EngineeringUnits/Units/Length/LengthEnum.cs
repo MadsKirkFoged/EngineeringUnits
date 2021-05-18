@@ -10,13 +10,15 @@ namespace EngineeringUnits
 
 
     public enum LengthUnit
-    {        
-        [Vector(1000, "km", 1)] Kilometer,
-        [Vector(1, "m", 1)] Meter,
-        [Vector(0.1, "dm",  1)] Decimeter,
-        [Vector(0.01, "cm",  1)] Centimeter,
-        [Vector(0.001, "mm",  1)] Millimeter,
-        [Vector(0.000000001, "nm",  1)] Nanometer,
+    {
+
+
+        [Vector(PreFix.kilo, BaseUnits.length)] Kilometer,
+        [Vector(PreFix.SI, BaseUnits.length)] Meter,
+        [Vector(PreFix.deci, BaseUnits.length)] Decimeter,
+        [Vector(PreFix.centi, BaseUnits.length)] Centimeter,
+        [Vector(PreFix.milli, BaseUnits.length)] Millimeter,
+        [Vector(PreFix.nano, BaseUnits.length)] Nanometer,
 
 
         [Vector(1/12.0, "in",  0.3048)] Inch,

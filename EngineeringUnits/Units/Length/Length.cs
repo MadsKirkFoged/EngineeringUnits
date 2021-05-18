@@ -11,13 +11,13 @@ namespace EngineeringUnits
 
         public Length()
         {
-            UnitList.LengthCount = 1;
+            unitsystem.LengthCount = 1;
         }
 
 
         public Length(double value, LengthUnit? unit) :this()
         {
-            UnitList.SetUnit(unit);
+            unitsystem.SetUnit(unit);
             base.Value = value;
         }
 
@@ -28,16 +28,16 @@ namespace EngineeringUnits
 
         public double As(LengthUnit ReturnInThisUnit)
         {
-            return UnitSystem.VectorDifferent(UnitList.SelectedLengthUnit, ReturnInThisUnit) * Value;
+            return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
         }
 
 
-        public void ChangeUnitTo(LengthUnit ReturnInThisUnit)
+        public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
         {
-            double Vector = UnitSystem.VectorDifferent(UnitList.SelectedLengthUnit, ReturnInThisUnit);
+            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit);
             Value *= Vector;
 
-            UnitList.SelectedLengthUnit = ReturnInThisUnit;
+            unitsystem.SelectedLengthUnit = ReturnInThisUnit;
         }
 
 
@@ -46,28 +46,18 @@ namespace EngineeringUnits
         {
             Length local = new Length();
 
-            if (local.UnitList != Unit.baseUnit.UnitList)
+            if (local.unitsystem != Unit.baseUnit.unitsystem)
             {
                 throw new InvalidOperationException("Units did not result in Length!");
             }
 
             local.Value = Unit.baseUnit.Value;
-            local.UnitList = Unit.baseUnit.UnitList;
+            local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;
         }
-        
-        //Every units needs this
 
-        //public static UnknownUnit operator *(Length a, BaseUnit b) => BaseUnit.Multiply(a,b);
-        //public static UnknownUnit operator *(Length a, double b) => BaseUnit.Multiply(a,b);
-        //public static UnknownUnit operator *(double a, Length b) => BaseUnit.Multiply(b,a);
-        //public static UnknownUnit operator /(Length a, BaseUnit b) => BaseUnit.Divide(a,b);
-        //public static UnknownUnit operator /(Length a, double b) => BaseUnit.Divide(a,b);
-        //public static UnknownUnit operator /(double a, Length b) => BaseUnit.Divide(a,b);
-        //public static double operator /(Length a, Length b) => BaseUnit.DivideResultsInDouble(a, b);
-        //public static Length operator +(Length a, Length b) => BaseUnit.Add(a, b);
-        //public static Length operator -(Length a, Length b) => BaseUnit.Subtract(a, b);
+
 
     }
 }

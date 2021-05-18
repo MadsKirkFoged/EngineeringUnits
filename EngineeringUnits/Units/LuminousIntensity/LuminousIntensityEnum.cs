@@ -12,6 +12,9 @@ namespace EngineeringUnits
     public enum LuminousIntensityUnit
     {
 
+        [Vector(PreFix.SI, BaseUnits.luminousIntensity)] Candela,
+
+
 
     }
 
