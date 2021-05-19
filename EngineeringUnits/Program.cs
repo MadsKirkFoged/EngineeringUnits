@@ -26,21 +26,53 @@ namespace EngineeringUnits
             //Kunne være sjovt at lave ingeniør konstanter som standard
 
 
-            Temperature T1 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            //Mangler at kunne Devide
+            //Her bliver vi vist nød til at regne om i SI før vi gør det
+
+
+
+            //Length l1 = new Length(39.37007875, LengthUnit.Inch);
+            //Length l2 = new Length(1, LengthUnit.Meter);
+
+            //Length l3 = l1 + l2;
+
+
+
+
+
+            //double c = 0.3048564654646484987897987986654;
+
+            //double a = (7 / (12.0 * 0.3048564)) * c;
+            //double b = (7 / (3.0 * 0.3048564)) * c;
+
+
+            //double d = a / b;
+
+
+
+
+
+
+
+
+
+
+            //Temperature T1 = new Temperature(100, TemperatureUnit.DegreeCelsius);
             //Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            //Temperature T3 = new Temperature(10, TemperatureUnit.DegreeFahrenheit);
+
+            //var T3 = T1 / T2;
 
 
             //Debug.WriteLine($"{T1}");
-            //Debug.WriteLine($"{T2}");
+
             //Debug.WriteLine($"{T3}");
 
-            T1.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
+            //T1.PermanentChangeUnitTo(TemperatureUnit.DegreeCelsius);
             //T2.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
             //T3.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
 
-
-            Debug.WriteLine($"{T1}");
+            //Debug.WriteLine($"{T1}");
+            //Debug.WriteLine($"{T1} / {T2} = {T3}");
             //Debug.WriteLine($"{T2}");
             //Debug.WriteLine($"{T3}");
 
@@ -53,70 +85,15 @@ namespace EngineeringUnits
 
 
             Length L1 = new Length(5, LengthUnit.Meter);
-            Length L2 = new Length(2, LengthUnit.Inch);
-
-            Length L3 = L1;
-
-            //if (L1 == L3)
-            //{
-            //    Debug.Print("Ja");
-            //}
-
-            //if (L3 == L1)
-            //{
-            //    Debug.Print("Ja");
-            //}
-
-            //if (L1 > L2)
-            //{
-            //    Debug.Print("Ja");
-            //}
-            //if (L1 >= L2)
-            //{
-            //    Debug.Print("Ja");
-            //}
-            //if (L1 < L2)
-            //{
-            //    Debug.Print("Ja");
-            //}
-            //if (L1 <= L2)
-            //{
-            //    Debug.Print("Ja");
-            //}
-
-            var A1 = L1 * L1;
-            var A2 = L3 * L3;
+            Length L2 = new Length(1, LengthUnit.Yard);
 
 
-            if (A1 == A2)
-            {
-                Debug.Print("Ja");
-            }
-            if (L3 * L3 == L1 * L1)
-            {
-                Debug.Print("Ja");
-            }
-
-            if (L1 * L1 > L2 * L2)
-            {
-                Debug.Print("Ja");
-            }
-            if (L1 * L1 >= L2 * L2)
-            {
-                Debug.Print("Ja");
-            }
-            if (L1 * L1 < L2 * L2)
-            {
-                Debug.Print("Ja");
-            }
-
-            if (L1 * L1 <= L2 * L2)
-            {
-                Debug.Print("Ja");
-            }
+            Length A4 = L1 + L2;
+            Length A5 = L2 + L1;
 
 
-
+            Debug.WriteLine($"{A4.As(LengthUnit.Meter)}");
+            Debug.WriteLine($"{A4.As(LengthUnit.Yard)}");
 
 
 

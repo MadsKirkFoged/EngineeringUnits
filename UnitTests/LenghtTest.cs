@@ -48,8 +48,8 @@ namespace UnitTests
 
             Length L3 = L1 + L2;
 
-            Assert.AreEqual(287.82979999999986, L3.As(LengthUnit.Centimeter), 0.000000001);
-            Assert.AreEqual(113.31881889763777, L3.As(LengthUnit.Inch), 0.000000001);
+            Assert.AreEqual(287.8298, L3.As(LengthUnit.Centimeter), 0.0001);
+            Assert.AreEqual(113.318819, L3.As(LengthUnit.Inch), 0.00001);
 
         }
 

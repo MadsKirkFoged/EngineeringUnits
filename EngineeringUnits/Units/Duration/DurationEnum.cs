@@ -11,14 +11,14 @@ namespace EngineeringUnits
 
     public enum DurationUnit
     {
-        [Vector(1e-9d, "ns", 1)] Nanosecond,
-        [Vector(1e-6d, "μs", 1)] Microsecond,
-        [Vector(1e-3d, "ms",  1)] Millisecond,
-        [Vector(1, "s", 1)] Second,
-        [Vector(60, "min",  1)] Minute,
-        [Vector(3600, "h", 1)] Hour,
-        [Vector(24*3600, "d",  1)] Day,
-        [Vector(7*24*3600, "w", 1)] Week,
+        [Vector( "ns", 1e-9d)] Nanosecond,
+        [Vector("μs", 1e-6d)] Microsecond,
+        [Vector("ms", 1e-3d)] Millisecond,
+        [Vector("s", 1)] Second,
+        [Vector("min", 60)] Minute,
+        [Vector("h", 3600)] Hour,
+        [Vector("d", 24 * 3600)] Day,
+        [Vector("w", 7 * 24 * 3600)] Week,
 
     }
 

@@ -34,28 +34,29 @@ namespace EngineeringUnits
 
         public void PermanentChangeUnitTo(TemperatureUnit ReturnInThisUnit)
         {
-            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
+            //double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
 
-            double FixedFactor = UnitSystem.VectorFixed(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-            double FixedFactor2 = UnitSystem.VectorFixed2(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-
-
-            if (ReturnInThisUnit == TemperatureUnit.DegreeFahrenheit)
-            {
-                Value += FixedFactor;
-                Value *= Vector;
-                Value += FixedFactor2;
-            }
-            else
-            {
-                Value += FixedFactor2;
-               Value *= Vector;
-                Value += FixedFactor;
-            }
+            //double FixedFactor = UnitSystem.VectorFixed(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
+            //double FixedFactor2 = UnitSystem.VectorFixed2(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
 
 
 
 
+
+            double y2 = Value;
+
+            double a1 = UnitSystem.Vector(ReturnInThisUnit).AFactor;
+            double a2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).AFactor;
+
+            double b1 = UnitSystem.Vector(ReturnInThisUnit).BFactor; 
+            double b2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).BFactor; 
+
+            double factor = a1 / a2;
+
+
+            double y1 = (y2 * factor) - b2 * factor + b1;
+
+            Value = y1;
 
             unitsystem.SelectedTemperatureUnit = ReturnInThisUnit;
         }

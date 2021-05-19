@@ -13,25 +13,25 @@ namespace EngineeringUnits
     {
 
 
-        [Vector(PreFix.kilo, BaseUnits.length)] Kilometer,
-        [Vector(PreFix.SI, BaseUnits.length)] Meter,
-        [Vector(PreFix.deci, BaseUnits.length)] Decimeter,
-        [Vector(PreFix.centi, BaseUnits.length)] Centimeter,
-        [Vector(PreFix.milli, BaseUnits.length)] Millimeter,
-        [Vector(PreFix.nano, BaseUnits.length)] Nanometer,
+        [Vector(PreFix.kilo, BaseUnits.length)]     Kilometer,
+        [Vector(PreFix.SI, BaseUnits.length)]       Meter,
+        [Vector(PreFix.deci, BaseUnits.length)]     Decimeter,
+        [Vector(PreFix.centi, BaseUnits.length)]    Centimeter,
+        [Vector(PreFix.milli, BaseUnits.length)]    Millimeter,
+        [Vector(PreFix.nano, BaseUnits.length)]     Nanometer,
 
 
-        [Vector(1/12.0, "in",  0.3048)] Inch,
-        [Vector(1/3.0, "hand",  0.3048)] Hand,
-        [Vector(1, "ft",  0.3048)] Foot,
-        [Vector(3, "yd",  0.3048)] Yard,
-        [Vector(66, "ch",  0.3048)] Chain,
-        [Vector(5280, "mi",  0.3048)] Mile,
-        [Vector(6076, "nmi",  0.3048)] Nauticalmile,
+        [Vector("in",   12/(0.3048))]               Inch,
+        [Vector("hand", 3/(0.3048))]                Hand,
+        [Vector("ft",   1/(0.3048 * 1))]            Foot,
+        [Vector("yd",   1/(0.3048 * 3))]            Yard,
+        [Vector("ch",   1/(0.3048 * 66))]           Chain,
+        [Vector("mi",   1/(0.3048 * 5280))]         Mile,
+        [Vector("nmi",  1/(0.3048 * 6076))]         Nauticalmile,
 
-        [Vector(1, "ly",  9460730472580800)] LightYear,
-        [Vector(1, "au",  149597870700)] AstronomicalUnit,
-        [Vector(1, "pc", 30856775814913673)] Parsec,
+        [Vector("ly",  9460730472580800)]           LightYear,
+        [Vector("au",  149597870700)]               AstronomicalUnit,
+        [Vector("pc", 30856775814913673)]           Parsec,
 
     }
 

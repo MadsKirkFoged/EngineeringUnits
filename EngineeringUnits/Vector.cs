@@ -54,14 +54,13 @@ namespace EngineeringUnits
     public class Vector : Attribute
     {
 
-        public double Factor { get; set; }
-        public string Name { get; set; }
+        public string Symbol { get; set; }
 
 
-        public double ToSIFactor { get; set; }
+        public double AFactor { get; set; }
 
-        public double FixedFactor1 { get; set; }
-        public double FixedFactor2 { get; set; }
+        public double BFactor { get; set; }
+
 
 
         public Vector()
@@ -69,53 +68,44 @@ namespace EngineeringUnits
 
 
         }
+        public Vector(string symbol)
+        {
+            Symbol = symbol;
+            AFactor = 1;
+            BFactor = 0;
 
-        public Vector(double factor, string name, double toSIFactor)
-        {
-            Factor = factor;
-            Name = name;
-            ToSIFactor = toSIFactor;
-            FixedFactor1 = 0;
-            FixedFactor2 = 0;
-        }
-        public Vector(double factor, string name, double toSIFactor, double fixedfactor)
-        {
-            Factor = factor;
-            Name = name;
-            ToSIFactor = toSIFactor;
-            FixedFactor1 = fixedfactor;
-            FixedFactor2 = 0;
         }
 
-        public Vector(double factor, string name, double toSIFactor, double fixedfactor, double fixedfactor2)
+        public Vector(string symbol, double aFactor)
         {
-            Factor = factor;
-            Name = name;
-            ToSIFactor = toSIFactor;
-            FixedFactor1 = fixedfactor;
-            FixedFactor2 = fixedfactor2;
+            Symbol = symbol;
+            AFactor = aFactor;
+            BFactor = 0;
+
         }
+        public Vector(string symbol, double aFactor, double bFactor)
+        {
+            Symbol = symbol;
+            AFactor = aFactor;
+            BFactor = bFactor;
+
+        }
+
 
         public Vector(PreFix SI, BaseUnits baseunit)
         {
-
-
-            Factor = PrefixSISize(SI);
-            Name = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
-            ToSIFactor = 1;
-            FixedFactor1 = 0;
-
-
+            AFactor = PrefixSISize(SI);
+            Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
+            BFactor = 0;
         }
 
         public Vector Copy(Vector a)
         {
             return new Vector()
             {
-                Factor = a.Factor,
-                Name = a.Name,
-                ToSIFactor = a.ToSIFactor,
-
+                Symbol = a.Symbol,
+                AFactor = a.AFactor,
+                BFactor = a.BFactor,
             };
 
 
@@ -126,27 +116,27 @@ namespace EngineeringUnits
         public double PrefixSISize(PreFix preFix) =>
             preFix switch
             {
-                PreFix.yotta => 10e24,
-                PreFix.zetta => 1021,
-                PreFix.exa => 10e18,
-                PreFix.peta => 10e15,
-                PreFix.tera => 10e12,
-                PreFix.giga => 10e9,
-                PreFix.mega => 10e6,
-                PreFix.kilo => 10e3,
-                PreFix.hecto => 10e2,
-                PreFix.deka => 10e1,
-                PreFix.SI => 10e1,
-                PreFix.deci => 10e-1,
-                PreFix.centi => 10e-2,
-                PreFix.milli => 10e-3,
-                PreFix.micro => 10e-6,
-                PreFix.nano => 10e-9,
-                PreFix.pico => 10e-12,
-                PreFix.femto => 10e-15,
-                PreFix.atto => 10e-18,
-                PreFix.zepto => 10e-21,
-                PreFix.yocto => 10e-24,
+                PreFix.yotta => 1e24,
+                PreFix.zetta => 121,
+                PreFix.exa => 1e18,
+                PreFix.peta => 1e15,
+                PreFix.tera => 1e12,
+                PreFix.giga => 1e9,
+                PreFix.mega => 1e6,
+                PreFix.kilo => 1e3,
+                PreFix.hecto => 1e2,
+                PreFix.deka => 1e1,
+                PreFix.SI => 1e0,
+                PreFix.deci => 1e-1,
+                PreFix.centi => 1e-2,
+                PreFix.milli => 1e-3,
+                PreFix.micro => 1e-6,
+                PreFix.nano => 1e-9,
+                PreFix.pico => 1e-12,
+                PreFix.femto => 1e-15,
+                PreFix.atto => 1e-18,
+                PreFix.zepto => 1e-21,
+                PreFix.yocto => 1e-24,
 
                 _ => 0
             };

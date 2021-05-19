@@ -56,15 +56,15 @@ namespace EngineeringUnits
 
         //Every units needs this
 
-        public static UnknownUnit operator *(Duration a, BaseUnit b) => BaseUnit.Multiply(a, b);
-        public static UnknownUnit operator *(Duration a, double b) => BaseUnit.Multiply(a, b);
-        public static UnknownUnit operator *(double a, Duration b) => BaseUnit.Multiply(b, a);
-        public static UnknownUnit operator /(Duration a, BaseUnit b) => BaseUnit.Divide(a, b);
-        public static UnknownUnit operator /(Duration a, double b) => BaseUnit.Divide(a, b);
-        public static UnknownUnit operator /(double a, Duration b) => BaseUnit.Divide(a, b);
-        public static double operator /(Duration a, Duration b) => BaseUnit.DivideResultsInDouble(a, b);
-        public static Duration operator +(Duration a, Duration b) => BaseUnit.Add(a, b);
-        public static Duration operator -(Duration a, Duration b) => BaseUnit.Subtract(a, b);
+        //public static UnknownUnit operator *(Duration a, BaseUnit b) => BaseUnit.Multiply(a, b);
+        //public static UnknownUnit operator *(Duration a, double b) => BaseUnit.Multiply(a, b);
+        //public static UnknownUnit operator *(double a, Duration b) => BaseUnit.Multiply(b, a);
+        //public static UnknownUnit operator /(Duration a, BaseUnit b) => BaseUnit.Divide(a, b);
+        //public static UnknownUnit operator /(Duration a, double b) => BaseUnit.Divide(a, b);
+        //public static UnknownUnit operator /(double a, Duration b) => BaseUnit.Divide(a, b);
+        //public static double operator /(Duration a, Duration b) => BaseUnit.DivideResultsInDouble(a, b);
+        //public static Duration operator +(Duration a, Duration b) => BaseUnit.Add(a, b);
+        //public static Duration operator -(Duration a, Duration b) => BaseUnit.Subtract(a, b);
 
     }
 }

@@ -18,30 +18,31 @@ namespace EngineeringUnits
 
         public double As(UnitSystem a)
         {
-            return Value * UnitSystem.VectorDifferent(unitsystem, a);
+            return UnitSystem.ValueConvert(Value, unitsystem, a);
         }
 
         public double As(BaseUnit a)
         {
-            return Value * UnitSystem.VectorDifferent(unitsystem, a.unitsystem);
+            return UnitSystem.ValueConvert(Value, unitsystem, a.unitsystem);
         }
 
 
-        public static UnknownUnit Add(BaseUnit a, BaseUnit b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = UnitSystem.Add(a.unitsystem, b.unitsystem),
-                Value = a.Value + (b.Value * UnitSystem.VectorDifferent(b.unitsystem, a.unitsystem))
-            };
+        //public static UnknownUnit Add(BaseUnit a, BaseUnit b)
+        //{
+        //    return new BaseUnit
+        //    {
+        //        unitsystem = UnitSystem.Add(a.unitsystem, b.unitsystem),
+        //        Value = a.Value + UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
+        //    };
 
-        }
+        //}
+
         public static UnknownUnit Subtract(BaseUnit a, BaseUnit b)
         {
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Subtract(a.unitsystem, b.unitsystem),
-                Value = a.Value - (b.Value * UnitSystem.VectorDifferent(b.unitsystem, a.unitsystem))
+                Value = a.Value - (UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem))
             };
 
         }
@@ -50,7 +51,7 @@ namespace EngineeringUnits
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Multiply(a.unitsystem, b.unitsystem),
-                Value = a.Value * (b.Value * UnitSystem.VectorDifferent(b.unitsystem, a.unitsystem))
+                Value = a.Value * UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
             };
 
         }
@@ -68,7 +69,7 @@ namespace EngineeringUnits
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Divide(a.unitsystem, b.unitsystem),
-                Value = a.Value / (b.Value * UnitSystem.VectorDifferent(b.unitsystem, a.unitsystem))
+                Value = a.Value / UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
             };
         }
         public static UnknownUnit Divide(BaseUnit a, double b)
@@ -89,13 +90,13 @@ namespace EngineeringUnits
         }
         public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
         {
-            return a.Value / (b.Value * UnitSystem.VectorDifferent(b.unitsystem, a.unitsystem));
+            return a.Value / UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem);
         }
 
 
 
-        public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => BaseUnit.Multiply(a, b);
-        public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => BaseUnit.Divide(a, b);
+        public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => UnitSystem.Multiply(a, b);
+        public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => UnitSystem.Divide(a, b);
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.unitsystem != right.unitsystem)
@@ -103,7 +104,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '+' on two differnt units!");
             }
 
-            return BaseUnit.Add(left, right);
+            return UnitSystem.Add(left, right);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
@@ -113,7 +114,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '-' on two differnt units!");
             }
 
-            return BaseUnit.Subtract(left, right);
+            return UnitSystem.Subtract(left, right);
         }
         
         

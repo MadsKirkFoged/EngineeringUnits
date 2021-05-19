@@ -14,9 +14,9 @@ namespace EngineeringUnits
 
 
 
-        [Vector(1, "k", 1, 0)] Kelvin,
-        [Vector(1, "°C", 1, 273.15)] DegreeCelsius,
-        [Vector(1, "°F", 5/9d, 273.15, -32)] DegreeFahrenheit,
+        [Vector("k" , 1         , 0)]                       Kelvin,
+        [Vector("°C", 1         , -273.15)]                 DegreeCelsius,
+        [Vector("°F", (9/5d)    ,  (-273.15*(9/5d))+32)]    DegreeFahrenheit,
 
     }
 
