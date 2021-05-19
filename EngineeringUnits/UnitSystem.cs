@@ -373,19 +373,17 @@ namespace EngineeringUnits
         }
 
 
-        public static double Convert(BaseUnit To, BaseUnit From)
+        public static double Convert(double Value,Enum To, Enum From)
         {
 
 
+            double y2 = Value;
 
-            double y1 = To.Value;
-            double y2 = From.Value;
+            double a1 = UnitSystem.Vector(To).AFactor;
+            double a2 = UnitSystem.Vector(From).AFactor;
 
-            double a1 = UnitSystem.Vector(To.unitsystem.SelectedLengthUnit).AFactor;
-            double a2 = UnitSystem.Vector(From.unitsystem.SelectedLengthUnit).AFactor;
-
-            double b1 = UnitSystem.Vector(To.unitsystem.SelectedLengthUnit).BFactor;
-            double b2 = UnitSystem.Vector(From.unitsystem.SelectedLengthUnit).BFactor;
+            double b1 = UnitSystem.Vector(To).BFactor;
+            double b2 = UnitSystem.Vector(From).BFactor;
 
             double factor = a1 / a2;
 

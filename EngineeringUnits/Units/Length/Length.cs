@@ -28,7 +28,7 @@ namespace EngineeringUnits
 
         public double As(LengthUnit ReturnInThisUnit)
         {
-            return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
+            return UnitSystem.Convert(Value,unitsystem.SelectedLengthUnit, ReturnInThisUnit);
         }
 
 
