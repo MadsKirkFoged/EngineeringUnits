@@ -9,6 +9,16 @@ namespace EngineeringUnits
     public class UnitSystem
     {
 
+        public BaseUnitClass Length { get; set; }
+        public BaseUnitClass Mass { get; set; }
+        public BaseUnitClass Duration { get; set; }
+        public BaseUnitClass Electriccurrent { get; set; }
+        public BaseUnitClass Temperature { get; set; }
+        public BaseUnitClass Amount { get; set; }
+        public BaseUnitClass LuminousIntensity { get; set; }
+
+        public List<BaseUnitClass> UnitList { get; set; }
+
         public int LengthCount { get; set;}
         public LengthUnit? SelectedLengthUnit { get; set; }
 
@@ -38,32 +48,37 @@ namespace EngineeringUnits
 
         public UnitSystem()
         {
-            LengthCount = 0;
-            MassCount = 0;
-            DurationCount = 0;
-            ElectriccurrentCount = 0;
-            TemperatureCount = 0;
-            AmountCount = 0;
-            LuminousIntensityCount = 0;
+
+            Length = new BaseUnitClass(BaseUnits.length);
+            Mass = new BaseUnitClass(BaseUnits.mass);
+            Duration = new BaseUnitClass(BaseUnits.time);
+            Electriccurrent = new BaseUnitClass(BaseUnits.electricCurrent);
+            Temperature = new BaseUnitClass(BaseUnits.temperature);
+            Amount = new BaseUnitClass(BaseUnits.amountOfSubstance);
+            LuminousIntensity = new BaseUnitClass(BaseUnits.luminousIntensity);
+
+            UnitList = new List<BaseUnitClass>();
+
+            UnitList.Add(Length);
+            UnitList.Add(Mass);
+            UnitList.Add(Duration);
+            UnitList.Add(Electriccurrent);
+            UnitList.Add(Temperature);
+            UnitList.Add(Amount);
+            UnitList.Add(LuminousIntensity);
         }
 
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
-            if (a.LengthCount == b.LengthCount &&
-                a.MassCount == b.MassCount &&
-                a.DurationCount == b.DurationCount &&
-                a.ElectriccurrentCount == b.ElectriccurrentCount &&
-                a.TemperatureCount == b.TemperatureCount &&
-                a.AmountCount == b.AmountCount &&
-                a.LuminousIntensityCount == b.LuminousIntensityCount)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return  a.Length == b.Length &&
+                    a.Mass == b.Mass &&
+                    a.Duration == b.Duration &&
+                    a.Electriccurrent == b.Electriccurrent &&
+                    a.Temperature == b.Temperature &&
+                    a.Amount == b.Amount &&
+                    a.LuminousIntensity == b.LuminousIntensity;
+   
         }
 
         public static bool operator !=(UnitSystem a, UnitSystem b)
@@ -321,51 +336,59 @@ namespace EngineeringUnits
         {
 
             UnitSystem local = new UnitSystem();
-            
-                
+
+
             //a has priority!
-          
-
-            if (a.SelectedLengthUnit is object)
-                local.SelectedLengthUnit = a.SelectedLengthUnit;
-            else if (b.SelectedLengthUnit is object)
-                local.SelectedLengthUnit = b.SelectedLengthUnit;
-
-            if (a.SelectedMassUnit is object)
-                local.SelectedMassUnit = a.SelectedMassUnit;
-            else if (b.SelectedMassUnit is object)
-                local.SelectedMassUnit = b.SelectedMassUnit;
 
 
-            if (a.SelectedDurationUnit is object)
-                local.SelectedDurationUnit = a.SelectedDurationUnit;
-            else if (b.SelectedDurationUnit is object)
-                local.SelectedDurationUnit = b.SelectedDurationUnit;
+            //if ()
+            //{
+
+            //}
 
 
 
-            if (a.SelectedElectriccurrentUnit is object)
-                local.SelectedElectriccurrentUnit = a.SelectedElectriccurrentUnit;
-            else if (b.SelectedElectriccurrentUnit is object)
-                local.SelectedElectriccurrentUnit = b.SelectedElectriccurrentUnit;
+
+            if (a.Length.SelectedUnit is object)
+                local.Length.SelectedUnit = a.Length.SelectedUnit;
+            else if (b.Length.SelectedUnit is object)
+                local.Length.SelectedUnit = b.Length.SelectedUnit;
+
+            if (a.Mass.SelectedUnit is object)
+                local.Mass.SelectedUnit = a.Mass.SelectedUnit;
+            else if (b.Mass.SelectedUnit is object)
+                local.Mass.SelectedUnit = b.Mass.SelectedUnit;
 
 
-            if (a.SelectedTemperatureUnit is object)
-                local.SelectedTemperatureUnit = a.SelectedTemperatureUnit;
-            else if (b.SelectedTemperatureUnit is object)
-                local.SelectedTemperatureUnit = b.SelectedTemperatureUnit;
+            if (a.Duration.SelectedUnit is object)
+                local.Duration.SelectedUnit = a.Duration.SelectedUnit;
+            else if (b.Duration.SelectedUnit is object)
+                local.Duration.SelectedUnit = b.Duration.SelectedUnit;
 
 
-            if (a.SelectedAmountUnit is object)
-                local.SelectedAmountUnit = a.SelectedAmountUnit;
-            else if (b.SelectedAmountUnit is object)
-                local.SelectedAmountUnit = b.SelectedAmountUnit;
+
+            if (a.Electriccurrent.SelectedUnit is object)
+                local.Electriccurrent.SelectedUnit = a.Electriccurrent.SelectedUnit;
+            else if (b.Electriccurrent.SelectedUnit is object)
+                local.Electriccurrent.SelectedUnit = b.Electriccurrent.SelectedUnit;
 
 
-            if (a.SelectedLuminousIntensityUnit is object)
-                local.SelectedLuminousIntensityUnit = a.SelectedLuminousIntensityUnit;
-            else if (b.SelectedLuminousIntensityUnit is object)
-                local.SelectedLuminousIntensityUnit = b.SelectedLuminousIntensityUnit;
+            if (a.Temperature.SelectedUnit is object)
+                local.Temperature.SelectedUnit = a.Temperature.SelectedUnit;
+            else if (b.Temperature.SelectedUnit is object)
+                local.Temperature.SelectedUnit = b.Temperature.SelectedUnit;
+
+
+            if (a.Amount.SelectedUnit is object)
+                local.Amount.SelectedUnit = a.Amount.SelectedUnit;
+            else if (b.Amount.SelectedUnit is object)
+                local.Amount.SelectedUnit = b.Amount.SelectedUnit;
+
+
+            if (a.LuminousIntensity.SelectedUnit is object)
+                local.LuminousIntensity.SelectedUnit = a.LuminousIntensity.SelectedUnit;
+            else if (b.LuminousIntensity.SelectedUnit is object)
+                local.LuminousIntensity.SelectedUnit = b.LuminousIntensity.SelectedUnit;
 
 
             return local;
@@ -373,11 +396,11 @@ namespace EngineeringUnits
         }
 
 
-        public static double Convert(double Value,Enum To, Enum From)
+        public static double Convert(double ValueFrom ,Enum From, Enum To)
         {
 
 
-            double y2 = Value;
+            double y2 = ValueFrom;
 
             double a1 = UnitSystem.Vector(To).AFactor;
             double a2 = UnitSystem.Vector(From).AFactor;
@@ -390,65 +413,96 @@ namespace EngineeringUnits
             //I Left's system..
            return (y2 - b2) * factor + b1;
 
-
         }
 
 
-        public void SetUnit(LengthUnit? x) => SelectedLengthUnit = x;
-        public void SetUnit(MassUnit? x) => SelectedMassUnit = x;
-        public void SetUnit(DurationUnit? x) => SelectedDurationUnit = x;
+        public void SetUnit(LengthUnit? x) => Length.SelectedUnit = x;
+        public void SetUnit(MassUnit? x) => Mass.SelectedUnit = x;
+        public void SetUnit(DurationUnit? x) => Duration.SelectedUnit = x;
 
-        public void SetUnit(ElectriccurrentUnit? x) => SelectedElectriccurrentUnit = x;
-        public void SetUnit(TemperatureUnit? x) => SelectedTemperatureUnit = x;
-        public void SetUnit(AmountUnit? x) => SelectedAmountUnit = x;
-        public void SetUnit(LuminousIntensityUnit? x) => SelectedLuminousIntensityUnit = x;
+        public void SetUnit(ElectriccurrentUnit? x) => Electriccurrent.SelectedUnit = x;
+        public void SetUnit(TemperatureUnit? x) => Temperature.SelectedUnit = x;
+        public void SetUnit(AmountUnit? x) => Amount.SelectedUnit = x;
+        public void SetUnit(LuminousIntensityUnit? x) => LuminousIntensity.SelectedUnit = x;
+
+
+
+        private static BaseUnitClass GetMatchingBaseType(BaseUnitClass from, UnitSystem In)
+        {
+            foreach (var item in In.UnitList)
+            {
+
+                if (from.BaseUnitType == item.BaseUnitType)
+                {
+                    return item;
+                }
+
+            }
+
+            return null;
+        }
 
 
         public static double ValueConvert(double value, UnitSystem From, UnitSystem To)
         {
+            double Local = 0;
 
-            double LocalLenght = 0;
-            double LocalTime = 0;
-            double LocalMass = 0;
-            double LocalElectriccurrent = 0;
-            double LocalTemperature = 0;
-            double LocalMole = 0;
-            double LocalLuminousIntensity = 0;
-
-            if (From.SelectedLengthUnit is object && To.SelectedLengthUnit is object)            
-                LocalLenght = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLengthUnit, To.SelectedLengthUnit), From.LengthCount) * value;
-            
-
-            if (From.SelectedDurationUnit is object && To.SelectedDurationUnit is object)            
-                LocalTime = Math.Pow(UnitSystem.VectorDifferent(From.SelectedDurationUnit, To.SelectedDurationUnit), From.DurationCount) * value;
-            
-
-            if (From.SelectedMassUnit is object && To.SelectedMassUnit is object)            
-                LocalMass = Math.Pow(UnitSystem.VectorDifferent(From.SelectedMassUnit, To.SelectedMassUnit), From.MassCount) * value;
-            
-
-            if (From.SelectedElectriccurrentUnit is object && To.SelectedElectriccurrentUnit is object)            
-                LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(From.SelectedElectriccurrentUnit, To.SelectedElectriccurrentUnit), From.ElectriccurrentCount) * value;
-            
-
-            if (From.SelectedTemperatureUnit is object && To.SelectedTemperatureUnit is object)
+            foreach (var FromBaseUnit in From.UnitList)
             {
+                if (FromBaseUnit.SelectedUnit is object)
+                {
+                    
+                    BaseUnitClass ToBaseUnit = GetMatchingBaseType(FromBaseUnit, To);
+                    Local += Convert(value, FromBaseUnit.SelectedUnit, ToBaseUnit.SelectedUnit);
 
-                //LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit), From.TemperatureCount) + UnitSystem.VectorFixed(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit) * value;
 
+                }
             }
-            
-            if (From.SelectedAmountUnit is object && To.SelectedAmountUnit is object)            
-                LocalMole = Math.Pow(UnitSystem.VectorDifferent(From.SelectedAmountUnit, To.SelectedAmountUnit), From.AmountCount) * value;
-            
 
-            if (From.SelectedLuminousIntensityUnit is object && To.SelectedLuminousIntensityUnit is object)            
-                LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLuminousIntensityUnit, To.SelectedLuminousIntensityUnit), From.LuminousIntensityCount) * value;
-            
+            return Local;
+
+            //double LocalLenght = 0;
+            //double LocalTime = 0;
+            //double LocalMass = 0;
+            //double LocalElectriccurrent = 0;
+            //double LocalTemperature = 0;
+            //double LocalMole = 0;
+            //double LocalLuminousIntensity = 0;
+
+            //if (From.SelectedLengthUnit is object && To.SelectedLengthUnit is object)            
+            //    LocalLenght = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLengthUnit, To.SelectedLengthUnit), From.LengthCount) * value;
+
+
+            //if (From.SelectedDurationUnit is object && To.SelectedDurationUnit is object)            
+            //    LocalTime = Math.Pow(UnitSystem.VectorDifferent(From.SelectedDurationUnit, To.SelectedDurationUnit), From.DurationCount) * value;
+
+
+            //if (From.SelectedMassUnit is object && To.SelectedMassUnit is object)            
+            //    LocalMass = Math.Pow(UnitSystem.VectorDifferent(From.SelectedMassUnit, To.SelectedMassUnit), From.MassCount) * value;
+
+
+            //if (From.SelectedElectriccurrentUnit is object && To.SelectedElectriccurrentUnit is object)            
+            //    LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(From.SelectedElectriccurrentUnit, To.SelectedElectriccurrentUnit), From.ElectriccurrentCount) * value;
+
+
+            //if (From.SelectedTemperatureUnit is object && To.SelectedTemperatureUnit is object)
+            //{
+
+            //    //LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit), From.TemperatureCount) + UnitSystem.VectorFixed(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit) * value;
+
+            //}
+
+            //if (From.SelectedAmountUnit is object && To.SelectedAmountUnit is object)            
+            //    LocalMole = Math.Pow(UnitSystem.VectorDifferent(From.SelectedAmountUnit, To.SelectedAmountUnit), From.AmountCount) * value;
+
+
+            //if (From.SelectedLuminousIntensityUnit is object && To.SelectedLuminousIntensityUnit is object)            
+            //    LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLuminousIntensityUnit, To.SelectedLuminousIntensityUnit), From.LuminousIntensityCount) * value;
 
 
 
-            return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
+
+            //return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
         }
         public static double VectorDifferent(Enum FromUnit, Enum ToUnit)
         {

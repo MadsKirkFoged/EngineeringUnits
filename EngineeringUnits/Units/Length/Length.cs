@@ -34,9 +34,8 @@ namespace EngineeringUnits
 
         public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
         {
-            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit);
-            Value *= Vector;
 
+            Value = As(ReturnInThisUnit);
             unitsystem.SelectedLengthUnit = ReturnInThisUnit;
         }
 

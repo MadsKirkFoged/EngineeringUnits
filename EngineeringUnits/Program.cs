@@ -89,11 +89,10 @@ namespace EngineeringUnits
 
 
             Length A4 = L1 + L2;
-            Length A5 = L2 + L1;
 
 
-            Debug.WriteLine($"{A4.As(LengthUnit.Meter)}");
             Debug.WriteLine($"{A4.As(LengthUnit.Yard)}");
+            Debug.WriteLine($"{A4.As(LengthUnit.Meter)}");
 
 
 
