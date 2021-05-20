@@ -9,7 +9,7 @@ namespace EngineeringUnits
 
         public Duration()
         {
-            unitsystem.DurationCount = 1;
+            unitsystem.Duration.Count = 1;
         }
 
 
@@ -24,18 +24,18 @@ namespace EngineeringUnits
             return new Duration(value, unit);
         }
 
-        public double As(DurationUnit ReturnInThisUnit)
-        {
-            return UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit) * Value;
-        }
+        //public double As(DurationUnit ReturnInThisUnit)
+        //{
+        //    return UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit) * Value;
+        //}
 
-        public void ChangeUnitTo(DurationUnit ReturnInThisUnit)
-        {
-            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit);
-            Value *= Vector;
+        //public void ChangeUnitTo(DurationUnit ReturnInThisUnit)
+        //{
+        //    double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit);
+        //    Value *= Vector;
 
-            unitsystem.SetUnit(ReturnInThisUnit);
-        }
+        //    unitsystem.SetUnit(ReturnInThisUnit);
+        //}
 
 
         //Every units needs this

@@ -82,17 +82,28 @@ namespace EngineeringUnits
 
 
 
+            Temperature T1 = new Temperature(10,TemperatureUnit.Kelvin);
+            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+
+
+            var T3 = T1 * T2;
+
+            Debug.Print($"{T3}");
+
+            
+
+
 
 
             Length L1 = new Length(5, LengthUnit.Meter);
             Length L2 = new Length(1, LengthUnit.Yard);
 
 
-            Length A4 = L1 + L2;
+            var L3 = L2 * L1;
 
 
-            Debug.WriteLine($"{A4.As(LengthUnit.Yard)}");
-            Debug.WriteLine($"{A4.As(LengthUnit.Meter)}");
+
+            Debug.Print($"{L3}");
 
 
 

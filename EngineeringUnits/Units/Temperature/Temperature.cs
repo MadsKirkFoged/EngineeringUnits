@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
         public Temperature()
         {
-            unitsystem.TemperatureCount = 1;
+            unitsystem.Temperature.Count = 1;
         }
 
 
@@ -26,40 +26,40 @@ namespace EngineeringUnits
             return new Temperature(value, unit);
         }
 
-        public double As(TemperatureUnit ReturnInThisUnit)
-        {
-            return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
-        }
+        //public double As(TemperatureUnit ReturnInThisUnit)
+        //{
+        //    return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
+        //}
 
 
-        public void PermanentChangeUnitTo(TemperatureUnit ReturnInThisUnit)
-        {
-            //double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
+        //public void PermanentChangeUnitTo(TemperatureUnit ReturnInThisUnit)
+        //{
+        //    //double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
 
-            //double FixedFactor = UnitSystem.VectorFixed(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-            //double FixedFactor2 = UnitSystem.VectorFixed2(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-
-
+        //    //double FixedFactor = UnitSystem.VectorFixed(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
+        //    //double FixedFactor2 = UnitSystem.VectorFixed2(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
 
 
 
-            double y2 = Value;
-
-            double a1 = UnitSystem.Vector(ReturnInThisUnit).AFactor;
-            double a2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).AFactor;
-
-            double b1 = UnitSystem.Vector(ReturnInThisUnit).BFactor; 
-            double b2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).BFactor; 
-
-            double factor = a1 / a2;
 
 
-            double y1 = (y2 * factor) - b2 * factor + b1;
+        //    double y2 = Value;
 
-            Value = y1;
+        //    double a1 = UnitSystem.Vector(ReturnInThisUnit).AFactor;
+        //    double a2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).AFactor;
 
-            unitsystem.SelectedTemperatureUnit = ReturnInThisUnit;
-        }
+        //    double b1 = UnitSystem.Vector(ReturnInThisUnit).BFactor; 
+        //    double b2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).BFactor; 
+
+        //    double factor = a1 / a2;
+
+
+        //    double y1 = (y2 * factor) - b2 * factor + b1;
+
+        //    Value = y1;
+
+        //    unitsystem.SelectedTemperatureUnit = ReturnInThisUnit;
+        //}
 
 
         //Every units needs this

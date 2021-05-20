@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
         public Length()
         {
-            unitsystem.LengthCount = 1;
+            unitsystem.Length.Count = 1;
         }
 
 
@@ -28,7 +28,13 @@ namespace EngineeringUnits
 
         public double As(LengthUnit ReturnInThisUnit)
         {
-            return UnitSystem.Convert(Value,unitsystem.SelectedLengthUnit, ReturnInThisUnit);
+
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+
+            ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
+
+
+            return UnitSystem.Convert(Value, ReturnInThisUnitSystem, this.unitsystem);
         }
 
 
@@ -36,7 +42,7 @@ namespace EngineeringUnits
         {
 
             Value = As(ReturnInThisUnit);
-            unitsystem.SelectedLengthUnit = ReturnInThisUnit;
+            unitsystem.Length.SelectedUnit = ReturnInThisUnit;
         }
 
 

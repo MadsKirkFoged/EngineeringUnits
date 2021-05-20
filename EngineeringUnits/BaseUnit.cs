@@ -18,12 +18,12 @@ namespace EngineeringUnits
 
         public double As(UnitSystem a)
         {
-            return UnitSystem.ValueConvert(Value, unitsystem, a);
+            return UnitSystem.Convert(Value, unitsystem, a);
         }
 
         public double As(BaseUnit a)
         {
-            return UnitSystem.ValueConvert(Value, unitsystem, a.unitsystem);
+            return UnitSystem.Convert(Value, unitsystem, a.unitsystem);
         }
 
 
@@ -42,7 +42,7 @@ namespace EngineeringUnits
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Subtract(a.unitsystem, b.unitsystem),
-                Value = a.Value - (UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem))
+                Value = a.Value - (UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem))
             };
 
         }
@@ -51,7 +51,7 @@ namespace EngineeringUnits
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Multiply(a.unitsystem, b.unitsystem),
-                Value = a.Value * UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
+                Value = a.Value * UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
             };
 
         }
@@ -69,7 +69,7 @@ namespace EngineeringUnits
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Divide(a.unitsystem, b.unitsystem),
-                Value = a.Value / UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
+                Value = a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
             };
         }
         public static UnknownUnit Divide(BaseUnit a, double b)
@@ -90,7 +90,7 @@ namespace EngineeringUnits
         }
         public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
         {
-            return a.Value / UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem);
+            return a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem);
         }
 
 
@@ -104,6 +104,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '+' on two differnt units!");
             }
 
+  
             return UnitSystem.Add(left, right);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)

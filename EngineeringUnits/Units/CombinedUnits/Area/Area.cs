@@ -9,12 +9,12 @@ namespace EngineeringUnits
 
         public Area()
         {
-            unitsystem.LengthCount = 2;
+            unitsystem.Length.Count = 2;
         }
 
         public Area(double value, LengthUnit? unit) : this()
         {
-            unitsystem.SelectedLengthUnit = unit;
+            //unitsystem.SelectedLengthUnit = unit;
             base.Value = value;
         }
 
@@ -23,18 +23,18 @@ namespace EngineeringUnits
             return new Area(value, unit);
         }
 
-        public double As(LengthUnit ReturnInThisUnit)
-        {
-            return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
-        }
+        //public double As(LengthUnit ReturnInThisUnit)
+        //{
+        //    return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
+        //}
 
-        public void ChangeUnitTo(LengthUnit ReturnInThisUnit)
-        {
-            double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit);
-            Value *= Vector;
+        //public void ChangeUnitTo(LengthUnit ReturnInThisUnit)
+        //{
+        //    double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit);
+        //    Value *= Vector;
 
-            unitsystem.SelectedLengthUnit = ReturnInThisUnit;
-        }
+        //    unitsystem.SelectedLengthUnit = ReturnInThisUnit;
+        //}
 
 
         //Every units needs this

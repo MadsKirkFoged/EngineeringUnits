@@ -10,15 +10,15 @@ namespace EngineeringUnits
 
         public Speed()
         {
-            unitsystem.LengthCount = 1;
-            unitsystem.DurationCount = -1;
+            unitsystem.Length.Count = 1;
+            unitsystem.Duration.Count = -1;
         }
 
 
         public Speed(double value, LengthUnit? a, DurationUnit? b) : this()
         {
-            unitsystem.SelectedLengthUnit = a;
-            unitsystem.SelectedDurationUnit = b;
+            //unitsystem.SelectedLengthUnit = a;
+            //unitsystem.SelectedDurationUnit = b;
             base.Value = value;
         }
 

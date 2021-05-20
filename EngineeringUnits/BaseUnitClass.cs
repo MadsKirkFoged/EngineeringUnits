@@ -22,9 +22,10 @@ namespace EngineeringUnits
 
         public static bool operator ==(BaseUnitClass a, BaseUnitClass b)
         {
-            return a.BaseUnitType == b.BaseUnitType &&
-                    a.Count == b.Count;
+            //return a.BaseUnitType == b.BaseUnitType &&
+            //       a.Count == b.Count;
 
+            return   a.Count == b.Count;
 
         }
 

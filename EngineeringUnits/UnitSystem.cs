@@ -19,31 +19,31 @@ namespace EngineeringUnits
 
         public List<BaseUnitClass> UnitList { get; set; }
 
-        public int LengthCount { get; set;}
-        public LengthUnit? SelectedLengthUnit { get; set; }
+        //public int LengthCount { get; set;}
+        //public LengthUnit? SelectedLengthUnit { get; set; }
 
-        public int MassCount { get; set; }
-        public MassUnit? SelectedMassUnit { get; set; }
+        //public int MassCount { get; set; }
+        //public MassUnit? SelectedMassUnit { get; set; }
 
-        public int DurationCount { get; set; }
-        public DurationUnit? SelectedDurationUnit { get; set; }
-
-
-        public int ElectriccurrentCount { get; set; }
-        public ElectriccurrentUnit? SelectedElectriccurrentUnit { get; set; }
+        //public int DurationCount { get; set; }
+        //public DurationUnit? SelectedDurationUnit { get; set; }
 
 
-
-        public int TemperatureCount { get; set; }
-        public TemperatureUnit? SelectedTemperatureUnit { get; set; }
-
-
-        public int AmountCount { get; set; }
-        public AmountUnit? SelectedAmountUnit { get; set; }
+        //public int ElectriccurrentCount { get; set; }
+        //public ElectriccurrentUnit? SelectedElectriccurrentUnit { get; set; }
 
 
-        public int LuminousIntensityCount { get; set; }
-        public LuminousIntensityUnit? SelectedLuminousIntensityUnit { get; set; }
+
+        //public int TemperatureCount { get; set; }
+        //public TemperatureUnit? SelectedTemperatureUnit { get; set; }
+
+
+        //public int AmountCount { get; set; }
+        //public AmountUnit? SelectedAmountUnit { get; set; }
+
+
+        //public int LuminousIntensityCount { get; set; }
+        //public LuminousIntensityUnit? SelectedLuminousIntensityUnit { get; set; }
 
 
         public UnitSystem()
@@ -71,13 +71,13 @@ namespace EngineeringUnits
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
-            return  a.Length == b.Length &&
-                    a.Mass == b.Mass &&
-                    a.Duration == b.Duration &&
-                    a.Electriccurrent == b.Electriccurrent &&
-                    a.Temperature == b.Temperature &&
-                    a.Amount == b.Amount &&
-                    a.LuminousIntensity == b.LuminousIntensity;
+            return  a.Length.Count == b.Length.Count &&
+                    a.Mass.Count == b.Mass.Count &&
+                    a.Duration.Count == b.Duration.Count &&
+                    a.Electriccurrent.Count == b.Electriccurrent.Count &&
+                    a.Temperature.Count == b.Temperature.Count &&
+                    a.Amount.Count == b.Amount.Count &&
+                    a.LuminousIntensity.Count == b.LuminousIntensity.Count;
    
         }
 
@@ -90,23 +90,23 @@ namespace EngineeringUnits
         public static UnknownUnit Add(BaseUnit Left, BaseUnit Right)
         {
 
-
+            double y3 = 0;
 
             double y1 = Left.Value;
             double y2 = Right.Value;
 
-            double a1 = UnitSystem.Vector(Left.unitsystem.SelectedLengthUnit).AFactor;
-            double a2 = UnitSystem.Vector(Right.unitsystem.SelectedLengthUnit).AFactor;
+            double a1 = SumOfAConstants(Left.unitsystem);
+            double b1 = SumOfBConstants(Left.unitsystem);
 
-            double b1 = UnitSystem.Vector(Left.unitsystem.SelectedLengthUnit).BFactor;
-            double b2 = UnitSystem.Vector(Right.unitsystem.SelectedLengthUnit).BFactor;
+            double a2 = SumOfAConstants(Right.unitsystem);
+            double b2 = SumOfBConstants(Right.unitsystem);
 
             double factor = a1 / a2;
 
             //I Left's system..
-            double y3 = y1 + (y2 - b2) * factor;
+            y3 = y1 + (y2 - b2) * factor;
 
-
+           
 
             return new BaseUnit
             {
@@ -115,100 +115,76 @@ namespace EngineeringUnits
             };
 
 
-
-
-
-
         }
 
         public static UnknownUnit Subtract(BaseUnit Left, BaseUnit Right)
         {
 
-            if (Left.unitsystem.SelectedTemperatureUnit is null)
+            double y3 = 0;
+
+            double y1 = Left.Value;
+            double y2 = Right.Value;
+
+            double a1 = SumOfAConstants(Left.unitsystem);
+            double b1 = SumOfBConstants(Left.unitsystem);
+
+            double a2 = SumOfAConstants(Right.unitsystem);
+            double b2 = SumOfBConstants(Right.unitsystem);
+
+            double factor = a1 / a2;
+
+
+            y3 = y1 - (y2 - b2) * factor;
+
+
+
+            return new BaseUnit
             {
-                return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Add(Left.unitsystem, Right.unitsystem),
-                    Value = Left.Value + UnitSystem.ValueConvert(Right.Value, Right.unitsystem, Left.unitsystem)
-                };
-
-            }
-            else
-            {
-
-                //special case for temperature
-
-                double y1 = Left.Value;
-                double y2 = Right.Value;
-
-                double a1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).AFactor;
-                double a2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).AFactor;
-
-                double b1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).BFactor;
-                double b2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).BFactor;
-
-                double factor = a1 / a2;
-
-                //I Left's system..
-                double y3 = y1 - (y2 - b2) * factor;
-
-
-
-                return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Subtract(Left.unitsystem, Right.unitsystem),
-                    Value = y3
-                };
-
-
-
-            }
+                unitsystem = UnitSystem.Subtract(Left.unitsystem, Right.unitsystem),
+                Value = y3
+            };            
 
 
         }
 
         public static UnknownUnit Multiply(BaseUnit Left, BaseUnit Right)
         {
+            double y3 = 0;
 
-            if (Left.unitsystem.SelectedTemperatureUnit is null)
+            double y1 = Left.Value;
+            double y2 = Right.Value;
+
+            double a1 = SumOfAConstants(Left.unitsystem);
+            double b1 = SumOfBConstants(Left.unitsystem);
+
+            double a2 = SumOfAConstants(Right.unitsystem);
+            double b2 = SumOfBConstants(Right.unitsystem);
+
+
+
+
+            y3 = (y1 - b1) * ((y2-b2)/a2) + b1;
+
+
+            double otherunit = Convert(y2, Left.unitsystem, Right.unitsystem);
+
+            y3 = y1 * otherunit;
+
+            //Så har vi det i baseunit
+            double x3 = ((y1 - b1) / (a1)) * ((y2 - b2) / (a2));
+
+            Debug.Print($"{x3}"); 
+
+
+            return new BaseUnit
             {
-                return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Add(Left.unitsystem, Right.unitsystem),
-                    Value = Left.Value + UnitSystem.ValueConvert(Right.Value, Right.unitsystem, Left.unitsystem)
-                };
-
-            }
-            else
-            {
-
-                //special case for temperature
-
-                double y1 = Left.Value;
-                double y2 = Right.Value;
-
-                double a1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).AFactor;
-                double a2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).AFactor;
-
-                double b1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).BFactor;
-                double b2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).BFactor;
-
-                double factor = a1 / a2;
-
-                //I Left's system..
-                double y3 = (y1 - b1) * ((y2-b2)/a2) + b1;
+                unitsystem = UnitSystem.Multiply(Left.unitsystem, Right.unitsystem),
+                Value = y3
+            };
 
 
 
-                return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Multiply(Left.unitsystem, Right.unitsystem),
-                    Value = y3
-                };
-
-
-
-            }
+            
 
 
         }
@@ -216,16 +192,21 @@ namespace EngineeringUnits
         public static UnknownUnit Divide(BaseUnit Left, BaseUnit Right)
         {
 
-            if (Left.unitsystem.SelectedTemperatureUnit is null)
+
+            //TODO I need to think more about this!!
+
+
+
+           // if (Left.unitsystem.SelectedTemperatureUnit is null)
             {
                 return new BaseUnit
                 {
                     unitsystem = UnitSystem.Add(Left.unitsystem, Right.unitsystem),
-                    Value = Left.Value + UnitSystem.ValueConvert(Right.Value, Right.unitsystem, Left.unitsystem)
+                    Value = Left.Value + UnitSystem.Convert(Right.Value, Right.unitsystem, Left.unitsystem)
                 };
 
             }
-            else
+            //else
             {
 
                 //special case for temperature
@@ -273,14 +254,13 @@ namespace EngineeringUnits
 
             UnitSystem local = Merge(a, b);
 
-            //Unit math
-            local.LengthCount = a.LengthCount;
-            local.MassCount = a.MassCount;
-            local.DurationCount = a.DurationCount;
-            local.ElectriccurrentCount = a.ElectriccurrentCount;
-            local.TemperatureCount = a.TemperatureCount;
-            local.AmountCount = a.AmountCount;
-            local.LuminousIntensityCount = a.LuminousIntensityCount;
+            local.Length.Count = a.Length.Count;
+            local.Mass.Count = a.Mass.Count;
+            local.Duration.Count = a.Duration.Count;
+            local.Electriccurrent.Count = a.Electriccurrent.Count;
+            local.Temperature.Count = a.Temperature.Count;
+            local.Amount.Count = a.Amount.Count;
+            local.LuminousIntensity.Count = a.LuminousIntensity.Count;
 
 
             return local;
@@ -299,15 +279,15 @@ namespace EngineeringUnits
             
             UnitSystem local = Merge(a, b);
 
-            //Unit math
-            local.LengthCount = a.LengthCount + b.LengthCount;
-            local.MassCount = a.MassCount + b.MassCount;
-            local.DurationCount = a.DurationCount + b.DurationCount;
-            local.ElectriccurrentCount = a.ElectriccurrentCount + b.ElectriccurrentCount;
-            local.TemperatureCount = a.TemperatureCount + b.TemperatureCount;
-            local.AmountCount = a.AmountCount + a.AmountCount;
-            local.LuminousIntensityCount = a.LuminousIntensityCount + b.LuminousIntensityCount;        
-           
+            ////Unit math
+            local.Length.Count = a.Length.Count + b.Length.Count;
+            local.Mass.Count = a.Mass.Count + b.Mass.Count;
+            local.Duration.Count = a.Duration.Count + b.Duration.Count;
+            local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
+            local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
+            local.Amount.Count = a.Amount.Count + a.Amount.Count;
+            local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
+
 
             return local;
 
@@ -317,14 +297,14 @@ namespace EngineeringUnits
         {
             UnitSystem local = Merge(a, b);
 
-            //Unit math
-            local.LengthCount = a.LengthCount - b.LengthCount;
-            local.MassCount = a.MassCount - b.MassCount;
-            local.DurationCount = a.DurationCount - b.DurationCount;
-            local.ElectriccurrentCount = a.ElectriccurrentCount - b.ElectriccurrentCount;
-            local.TemperatureCount = a.TemperatureCount - b.TemperatureCount;
-            local.AmountCount = a.AmountCount - a.AmountCount;
-            local.LuminousIntensityCount = a.LuminousIntensityCount - b.LuminousIntensityCount;
+            ////Unit math
+            //local.LengthCount = a.LengthCount - b.LengthCount;
+            //local.MassCount = a.MassCount - b.MassCount;
+            //local.DurationCount = a.DurationCount - b.DurationCount;
+            //local.ElectriccurrentCount = a.ElectriccurrentCount - b.ElectriccurrentCount;
+            //local.TemperatureCount = a.TemperatureCount - b.TemperatureCount;
+            //local.AmountCount = a.AmountCount - a.AmountCount;
+            //local.LuminousIntensityCount = a.LuminousIntensityCount - b.LuminousIntensityCount;
 
 
             return local;
@@ -396,24 +376,46 @@ namespace EngineeringUnits
         }
 
 
-        public static double Convert(double ValueFrom ,Enum From, Enum To)
+        //public static double Convert(double ValueFrom ,Enum From, Enum To)
+        //{
+
+        //    double y2 = ValueFrom;
+
+        //    double a1 = UnitSystem.Vector(To).AFactor;
+        //    double a2 = UnitSystem.Vector(From).AFactor;
+
+        //    double b1 = UnitSystem.Vector(To).BFactor;
+        //    double b2 = UnitSystem.Vector(From).BFactor;
+
+        //    double factor = a1 / a2;
+
+        //    //I Left's system..
+        //   return (y2 - b2) * factor + b1;
+
+        //}
+
+        public static double Convert(double ValueFrom, UnitSystem From, UnitSystem To)
         {
 
+            //Samle konstanter
+            double a1 = SumOfAConstants(From);
+            double b1 = SumOfBConstants(From);
+
+            double a2 = SumOfAConstants(To);
+            double b2 = SumOfBConstants(To);
 
             double y2 = ValueFrom;
 
-            double a1 = UnitSystem.Vector(To).AFactor;
-            double a2 = UnitSystem.Vector(From).AFactor;
-
-            double b1 = UnitSystem.Vector(To).BFactor;
-            double b2 = UnitSystem.Vector(From).BFactor;
 
             double factor = a1 / a2;
 
-            //I Left's system..
-           return (y2 - b2) * factor + b1;
+            
+            return (y2 - b2) * factor + b1;
 
         }
+
+
+
 
 
         public void SetUnit(LengthUnit? x) => Length.SelectedUnit = x;
@@ -442,68 +444,69 @@ namespace EngineeringUnits
             return null;
         }
 
+        //This convert a whole system into another system
 
-        public static double ValueConvert(double value, UnitSystem From, UnitSystem To)
-        {
-            double Local = 0;
+        //public static double ValueConvert(double value, UnitSystem From, UnitSystem To)
+        //{
+        //    double Local = 0;
 
-            foreach (var FromBaseUnit in From.UnitList)
-            {
-                if (FromBaseUnit.SelectedUnit is object)
-                {
+        //    foreach (var FromBaseUnit in From.UnitList)
+        //    {
+        //        if (FromBaseUnit.SelectedUnit is object)
+        //        {
                     
-                    BaseUnitClass ToBaseUnit = GetMatchingBaseType(FromBaseUnit, To);
-                    Local += Convert(value, FromBaseUnit.SelectedUnit, ToBaseUnit.SelectedUnit);
+        //            BaseUnitClass ToBaseUnit = GetMatchingBaseType(FromBaseUnit, To);
+        //            Local += Convert(value, FromBaseUnit.SelectedUnit, ToBaseUnit.SelectedUnit);
 
 
-                }
-            }
+        //        }
+        //    }
 
-            return Local;
+        //    return Local;
 
-            //double LocalLenght = 0;
-            //double LocalTime = 0;
-            //double LocalMass = 0;
-            //double LocalElectriccurrent = 0;
-            //double LocalTemperature = 0;
-            //double LocalMole = 0;
-            //double LocalLuminousIntensity = 0;
+        //    //double LocalLenght = 0;
+        //    //double LocalTime = 0;
+        //    //double LocalMass = 0;
+        //    //double LocalElectriccurrent = 0;
+        //    //double LocalTemperature = 0;
+        //    //double LocalMole = 0;
+        //    //double LocalLuminousIntensity = 0;
 
-            //if (From.SelectedLengthUnit is object && To.SelectedLengthUnit is object)            
-            //    LocalLenght = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLengthUnit, To.SelectedLengthUnit), From.LengthCount) * value;
-
-
-            //if (From.SelectedDurationUnit is object && To.SelectedDurationUnit is object)            
-            //    LocalTime = Math.Pow(UnitSystem.VectorDifferent(From.SelectedDurationUnit, To.SelectedDurationUnit), From.DurationCount) * value;
+        //    //if (From.SelectedLengthUnit is object && To.SelectedLengthUnit is object)            
+        //    //    LocalLenght = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLengthUnit, To.SelectedLengthUnit), From.LengthCount) * value;
 
 
-            //if (From.SelectedMassUnit is object && To.SelectedMassUnit is object)            
-            //    LocalMass = Math.Pow(UnitSystem.VectorDifferent(From.SelectedMassUnit, To.SelectedMassUnit), From.MassCount) * value;
+        //    //if (From.SelectedDurationUnit is object && To.SelectedDurationUnit is object)            
+        //    //    LocalTime = Math.Pow(UnitSystem.VectorDifferent(From.SelectedDurationUnit, To.SelectedDurationUnit), From.DurationCount) * value;
 
 
-            //if (From.SelectedElectriccurrentUnit is object && To.SelectedElectriccurrentUnit is object)            
-            //    LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(From.SelectedElectriccurrentUnit, To.SelectedElectriccurrentUnit), From.ElectriccurrentCount) * value;
+        //    //if (From.SelectedMassUnit is object && To.SelectedMassUnit is object)            
+        //    //    LocalMass = Math.Pow(UnitSystem.VectorDifferent(From.SelectedMassUnit, To.SelectedMassUnit), From.MassCount) * value;
 
 
-            //if (From.SelectedTemperatureUnit is object && To.SelectedTemperatureUnit is object)
-            //{
-
-            //    //LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit), From.TemperatureCount) + UnitSystem.VectorFixed(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit) * value;
-
-            //}
-
-            //if (From.SelectedAmountUnit is object && To.SelectedAmountUnit is object)            
-            //    LocalMole = Math.Pow(UnitSystem.VectorDifferent(From.SelectedAmountUnit, To.SelectedAmountUnit), From.AmountCount) * value;
+        //    //if (From.SelectedElectriccurrentUnit is object && To.SelectedElectriccurrentUnit is object)            
+        //    //    LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(From.SelectedElectriccurrentUnit, To.SelectedElectriccurrentUnit), From.ElectriccurrentCount) * value;
 
 
-            //if (From.SelectedLuminousIntensityUnit is object && To.SelectedLuminousIntensityUnit is object)            
-            //    LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLuminousIntensityUnit, To.SelectedLuminousIntensityUnit), From.LuminousIntensityCount) * value;
+        //    //if (From.SelectedTemperatureUnit is object && To.SelectedTemperatureUnit is object)
+        //    //{
+
+        //    //    //LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit), From.TemperatureCount) + UnitSystem.VectorFixed(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit) * value;
+
+        //    //}
+
+        //    //if (From.SelectedAmountUnit is object && To.SelectedAmountUnit is object)            
+        //    //    LocalMole = Math.Pow(UnitSystem.VectorDifferent(From.SelectedAmountUnit, To.SelectedAmountUnit), From.AmountCount) * value;
+
+
+        //    //if (From.SelectedLuminousIntensityUnit is object && To.SelectedLuminousIntensityUnit is object)            
+        //    //    LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLuminousIntensityUnit, To.SelectedLuminousIntensityUnit), From.LuminousIntensityCount) * value;
 
 
 
 
-            //return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
-        }
+        //    //return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
+        //}
         public static double VectorDifferent(Enum FromUnit, Enum ToUnit)
         {
 
@@ -541,106 +544,86 @@ namespace EngineeringUnits
             return (attributes.Length > 0) ? (Vector)attributes[0] : null;
         }
 
+
+        public static double SumOfAConstants(UnitSystem unitsystem)
+        {
+            double a = 1;
+
+            foreach (var item in unitsystem.UnitList)
+            {
+                if (item.SelectedUnit is object)                
+                    a *= Math.Pow(Vector(item.SelectedUnit).AFactor, item.Count);               
+            }
+
+
+            return a;
+
+        }
+
+        public static double SumOfBConstants(UnitSystem unitsystem)
+        {
+            double b = 0;
+
+            foreach (var item in unitsystem.UnitList)
+            {
+                if (item.SelectedUnit is object)
+                    b += Vector(item.SelectedUnit).BFactor;
+
+            }
+
+
+            return b;
+
+        }
+
+
         public override string ToString()
         {
 
              string local = "";
 
-            if (SelectedLengthUnit is object && LengthCount > 0)
+
+
+            foreach (var unit in UnitList)
             {
-                //if (local != "")                
-                    //local += " * ";                
 
-                local += Vector(SelectedLengthUnit).Symbol;
+                if (unit is object && unit.Count > 0)
+                {
+                    local += Vector(unit.SelectedUnit).Symbol;
 
-                if (LengthCount > 1)
-                    local += $"{ToSuperScript(LengthCount)}";
+                    if (unit.Count > 1)
+                        local += $"{ToSuperScript(unit.Count)}";
 
-                
-
-            }
-
-            if (SelectedDurationUnit is object && DurationCount > 0)
-            {
-                //if (local != "")
-                    //local += " * ";
-
-                local += Vector(SelectedDurationUnit).Symbol;
-
-                if (DurationCount > 1)
-                    local += $"{ToSuperScript(DurationCount)}";
-
+                }
 
 
             }
 
-            if (SelectedTemperatureUnit is object && TemperatureCount > 0)
-            {
-                //if (local != "")
-                //local += " * ";
-
-                local += Vector(SelectedTemperatureUnit).Symbol;
-
-                if (TemperatureCount > 1)
-                    local += $"{ToSuperScript(TemperatureCount)}";
-
-
-
-            }
 
 
 
             //If any negative values
-
-
-            if (LengthCount < 0 || MassCount < 0 || DurationCount < 0 || ElectriccurrentCount < 0 || TemperatureCount < 0 || AmountCount < 0 || LuminousIntensityCount < 0)
-            {
+            if (UnitList.Any(x => x.Count < 0))            
                 local += "/";
-            }
 
 
-            if (SelectedLengthUnit is object && LengthCount < 0)
+
+
+            foreach (var unit in UnitList)
             {
-                //if (local != "" && local.Last() != '/')
-                    //local += " * ";
 
-                local += Vector(SelectedLengthUnit).Symbol;
+                if (unit.SelectedUnit is object && unit.Count < 0)
+                {
+                    local += Vector(unit.SelectedUnit).Symbol;
 
-                if (LengthCount < -1)
-                    local += $"{ToSuperScript(LengthCount * -1)}";
+                    if (unit.Count < -1)
+                        local += $"{ToSuperScript(unit.Count * -1)}";
 
-
-
-            }
-
-            if (SelectedDurationUnit is object && DurationCount < 0)
-            {
-                //if (local != "" && local.Last() != '/')
-                    //local += " * ";
-
-                local += Vector(SelectedDurationUnit).Symbol;
-
-                if (DurationCount < -1)
-                    local += $"{ToSuperScript(DurationCount * -1)}";
-
+                }
 
 
             }
 
-
-            if (SelectedTemperatureUnit is object && TemperatureCount < 0)
-            {
-                //if (local != "" && local.Last() != '/')
-                //local += " * ";
-
-                local += Vector(SelectedTemperatureUnit).Symbol;
-
-                if (TemperatureCount < -1)
-                    local += $"{ToSuperScript(TemperatureCount * -1)}";
-
-
-
-            }
 
 
             return local;
@@ -662,16 +645,13 @@ namespace EngineeringUnits
         {
             return new UnitSystem
             {
-                LengthCount = this.LengthCount,
-                MassCount = this.MassCount,
-                DurationCount = this.DurationCount,
-                ElectriccurrentCount = this.ElectriccurrentCount,
-                TemperatureCount = this.TemperatureCount,
-                AmountCount = this.AmountCount,
-                LuminousIntensityCount = this.LuminousIntensityCount,
-
-                SelectedLengthUnit = this.SelectedLengthUnit,
-                
+                Length = this.Length,
+                Mass = this.Mass,
+                Duration = this.Duration,
+                Electriccurrent = this.Electriccurrent,
+                Temperature = this.Temperature,
+                Amount = this.Amount,
+                LuminousIntensity = this.LuminousIntensity,                
             };
 
         }
