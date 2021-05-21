@@ -15,7 +15,7 @@ namespace EngineeringUnits
         }
 
 
-        public Temperature(double value, TemperatureUnit? unit) :this()
+        public Temperature(double value, TemperatureUnit unit) :this()
         {
             unitsystem.SetUnit(unit);
             base.Value = value;
@@ -26,10 +26,16 @@ namespace EngineeringUnits
             return new Temperature(value, unit);
         }
 
-        //public double As(TemperatureUnit ReturnInThisUnit)
-        //{
-        //    return UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit) * Value;
-        //}
+        public double As(TemperatureUnit ReturnInThisUnit)
+        {
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+
+            ReturnInThisUnitSystem.Temperature.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Temperature.Count = 1;
+
+
+            return UnitSystem.Convert(Value, this.unitsystem, ReturnInThisUnitSystem);
+        }
 
 
         //public void PermanentChangeUnitTo(TemperatureUnit ReturnInThisUnit)

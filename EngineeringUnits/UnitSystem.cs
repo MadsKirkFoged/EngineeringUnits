@@ -87,31 +87,29 @@ namespace EngineeringUnits
         }
 
 
-        public static UnknownUnit Add(BaseUnit Left, BaseUnit Right)
+        public static UnknownUnit Add(BaseUnit To, BaseUnit From)
         {
 
-            double y3 = 0;
+            //Samle konstanter
+            decimal a2 = SumOfAConstants(From.unitsystem);
+            decimal b2 = SumOfBConstants(From.unitsystem);
+            decimal y2 = (decimal)From.Value;
 
-            double y1 = Left.Value;
-            double y2 = Right.Value;
+            decimal a1 = SumOfAConstants(To.unitsystem);
+            decimal b1 = SumOfBConstants(To.unitsystem);
+            decimal y1 = (decimal)To.Value;
 
-            double a1 = SumOfAConstants(Left.unitsystem);
-            double b1 = SumOfBConstants(Left.unitsystem);
-
-            double a2 = SumOfAConstants(Right.unitsystem);
-            double b2 = SumOfBConstants(Right.unitsystem);
-
-            double factor = a1 / a2;
+            decimal factor = a2 / a1;
 
             //I Left's system..
-            y3 = y1 + (y2 - b2) * factor;
+            decimal y3 = y1 + (y2 - b2) * factor;
 
            
 
             return new BaseUnit
             {
-                unitsystem = UnitSystem.Add(Left.unitsystem, Right.unitsystem),
-                Value = y3
+                unitsystem = UnitSystem.Add(To.unitsystem, From.unitsystem),
+                Value = (double)y3
             };
 
 
@@ -125,16 +123,16 @@ namespace EngineeringUnits
             double y1 = Left.Value;
             double y2 = Right.Value;
 
-            double a1 = SumOfAConstants(Left.unitsystem);
-            double b1 = SumOfBConstants(Left.unitsystem);
+            decimal a1 = SumOfAConstants(Left.unitsystem);
+            decimal b1 = SumOfBConstants(Left.unitsystem);
 
-            double a2 = SumOfAConstants(Right.unitsystem);
-            double b2 = SumOfBConstants(Right.unitsystem);
+            decimal a2 = SumOfAConstants(Right.unitsystem);
+            decimal b2 = SumOfBConstants(Right.unitsystem);
 
-            double factor = a1 / a2;
+            decimal factor = a2 / a1;
 
 
-            y3 = y1 - (y2 - b2) * factor;
+            y3 = y1 - (y2 - (double)b2) * (double)factor;
 
 
 
@@ -149,42 +147,33 @@ namespace EngineeringUnits
 
         public static UnknownUnit Multiply(BaseUnit Left, BaseUnit Right)
         {
-            double y3 = 0;
+            decimal y1 = (decimal)Left.Value;
+            decimal a1 = SumOfAConstants(Left.unitsystem);
+            decimal b1 = SumOfBConstants(Left.unitsystem);
 
-            double y1 = Left.Value;
-            double y2 = Right.Value;
-
-            double a1 = SumOfAConstants(Left.unitsystem);
-            double b1 = SumOfBConstants(Left.unitsystem);
-
-            double a2 = SumOfAConstants(Right.unitsystem);
-            double b2 = SumOfBConstants(Right.unitsystem);
+            decimal y2 = (decimal)Right.Value;
+            decimal a2 = SumOfAConstants(Right.unitsystem);
+            decimal b2 = SumOfBConstants(Right.unitsystem);
 
 
+            //We have to convert to baseunit first
+            //double otherunit = Convert(Right.Value, Right.unitsystem, Left.unitsystem);
+
+            //double y333 = Left.Value / otherunit;
 
 
-            y3 = (y1 - b1) * ((y2-b2)/a2) + b1;
+            decimal left1 = ((y1 - b1) / (1 / a1));
 
+            decimal right1 = ((y2 - b2) / (1 / a2));
 
-            double otherunit = Convert(y2, Left.unitsystem, Right.unitsystem);
-
-            y3 = y1 * otherunit;
-
-            //Så har vi det i baseunit
-            double x3 = ((y1 - b1) / (a1)) * ((y2 - b2) / (a2));
-
-            Debug.Print($"{x3}"); 
+            decimal y3 = left1 * right1;
 
 
             return new BaseUnit
             {
                 unitsystem = UnitSystem.Multiply(Left.unitsystem, Right.unitsystem),
-                Value = y3
+                Value = (double)y3
             };
-
-
-
-            
 
 
         }
@@ -193,52 +182,38 @@ namespace EngineeringUnits
         {
 
 
-            //TODO I need to think more about this!!
+            decimal y1 = (decimal)Left.Value;
+            decimal a1 = SumOfAConstants(Left.unitsystem);
+            decimal b1 = SumOfBConstants(Left.unitsystem);
+
+            decimal y2 = (decimal)Right.Value;
+            decimal a2 = SumOfAConstants(Right.unitsystem);
+            decimal b2 = SumOfBConstants(Right.unitsystem);
+
+
+            //We have to convert to baseunit first
+            //double otherunit = Convert(Right.Value, Right.unitsystem, Left.unitsystem);
+
+            //double y333 = Left.Value / otherunit;
+
+
+            decimal left1 = ((y1 - b1) / (1/a1));
+
+            decimal right1 = ((y2 - b2) / (1/a2));
+
+            decimal y3 = left1 / right1;
 
 
 
-           // if (Left.unitsystem.SelectedTemperatureUnit is null)
-            {
-                return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Add(Left.unitsystem, Right.unitsystem),
-                    Value = Left.Value + UnitSystem.Convert(Right.Value, Right.unitsystem, Left.unitsystem)
-                };
-
-            }
-            //else
-            {
-
-                //special case for temperature
-
-                //double y1 = Left.Value;
-                //double y2 = Right.Value;
-
-                //double a1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).Factor;
-                //double a2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).Factor;
-
-                //double b1 = UnitSystem.Vector(Left.unitsystem.SelectedTemperatureUnit).ToSIFactor;
-                //double b2 = UnitSystem.Vector(Right.unitsystem.SelectedTemperatureUnit).ToSIFactor;
-
-                //double factor = a1 / a2;
-
-                ////I Left's system..
-                //double y3 = a2 * ((y1 - b1)/(y2 - b2)) + b2;
-
-
-                //Left.As()
-
-
-
-                return new BaseUnit
+            return new BaseUnit
                 {
                     unitsystem = UnitSystem.Divide(Left.unitsystem, Right.unitsystem),
-                    //Value = y3
+                    Value = (double)y3
                 };
 
 
 
-            }
+            
 
 
         }
@@ -298,13 +273,13 @@ namespace EngineeringUnits
             UnitSystem local = Merge(a, b);
 
             ////Unit math
-            //local.LengthCount = a.LengthCount - b.LengthCount;
-            //local.MassCount = a.MassCount - b.MassCount;
-            //local.DurationCount = a.DurationCount - b.DurationCount;
-            //local.ElectriccurrentCount = a.ElectriccurrentCount - b.ElectriccurrentCount;
-            //local.TemperatureCount = a.TemperatureCount - b.TemperatureCount;
-            //local.AmountCount = a.AmountCount - a.AmountCount;
-            //local.LuminousIntensityCount = a.LuminousIntensityCount - b.LuminousIntensityCount;
+            local.Length.Count = a.Length.Count - b.Length.Count;
+            local.Mass.Count = a.Mass.Count - b.Mass.Count;
+            local.Duration.Count = a.Duration.Count - b.Duration.Count;
+            local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
+            local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
+            local.Amount.Count = a.Amount.Count - a.Amount.Count;
+            local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
 
 
             return local;
@@ -398,19 +373,23 @@ namespace EngineeringUnits
         {
 
             //Samle konstanter
-            double a1 = SumOfAConstants(From);
-            double b1 = SumOfBConstants(From);
+            decimal a2 = SumOfAConstants(From);
+            decimal b2 = SumOfBConstants(From);
 
-            double a2 = SumOfAConstants(To);
-            double b2 = SumOfBConstants(To);
+            decimal a1 = SumOfAConstants(To);
+            decimal b1 = SumOfBConstants(To);
 
-            double y2 = ValueFrom;
+            decimal y1 = (decimal)ValueFrom;
+            decimal y2 = 0;
 
 
-            double factor = a1 / a2;
+            decimal factor = a2 / a1;
 
-            
-            return (y2 - b2) * factor + b1;
+            y2 = factor * (b1 + y1) + b2;
+
+            //y2 = factor * (y1 - b2) + b1;
+
+            return (double)y2;
 
         }
 
@@ -418,14 +397,14 @@ namespace EngineeringUnits
 
 
 
-        public void SetUnit(LengthUnit? x) => Length.SelectedUnit = x;
-        public void SetUnit(MassUnit? x) => Mass.SelectedUnit = x;
-        public void SetUnit(DurationUnit? x) => Duration.SelectedUnit = x;
+        public void SetUnit(LengthUnit x) => Length.SelectedUnit = x;
+        //public void SetUnit(MassUnit? x) => Mass.SelectedUnit = x;
+        //public void SetUnit(DurationUnit? x) => Duration.SelectedUnit = x;
 
-        public void SetUnit(ElectriccurrentUnit? x) => Electriccurrent.SelectedUnit = x;
-        public void SetUnit(TemperatureUnit? x) => Temperature.SelectedUnit = x;
-        public void SetUnit(AmountUnit? x) => Amount.SelectedUnit = x;
-        public void SetUnit(LuminousIntensityUnit? x) => LuminousIntensity.SelectedUnit = x;
+        //public void SetUnit(ElectriccurrentUnit? x) => Electriccurrent.SelectedUnit = x;
+        public void SetUnit(TemperatureUnit x) => Temperature.SelectedUnit = x;
+        //public void SetUnit(AmountUnit? x) => Amount.SelectedUnit = x;
+        //public void SetUnit(LuminousIntensityUnit? x) => LuminousIntensity.SelectedUnit = x;
 
 
 
@@ -507,31 +486,31 @@ namespace EngineeringUnits
 
         //    //return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
         //}
-        public static double VectorDifferent(Enum FromUnit, Enum ToUnit)
-        {
+        //public static double VectorDifferent(Enum FromUnit, Enum ToUnit)
+        //{
 
-            //TODO Check that they are same kind!
-
-
-            double factor = (Vector(FromUnit).AFactor / Vector(ToUnit).AFactor);
-            double SIfactor = (Vector(FromUnit).BFactor / Vector(ToUnit).BFactor);
+        //    //TODO Check that they are same kind!
 
 
-            double result = factor * SIfactor;
-            Debug.Print($"{Vector(FromUnit).AFactor} / {Vector(ToUnit).AFactor} = {factor}");
-            Debug.Print($"{Vector(FromUnit).BFactor} / {Vector(ToUnit).BFactor} = {SIfactor}");
-            Debug.Print($"{result}");
+        //    double factor = (Vector(FromUnit).AFactor / Vector(ToUnit).AFactor);
+        //    double SIfactor = (Vector(FromUnit).BFactor / Vector(ToUnit).BFactor);
 
 
-            return (double)result;
-        }
+        //    double result = factor * SIfactor;
+        //    Debug.Print($"{Vector(FromUnit).AFactor} / {Vector(ToUnit).AFactor} = {factor}");
+        //    Debug.Print($"{Vector(FromUnit).BFactor} / {Vector(ToUnit).BFactor} = {SIfactor}");
+        //    Debug.Print($"{result}");
 
-        public static double VectorFixed(Enum FromUnit, Enum ToUnit)
-        {
 
-            //TODO Check that they are same kind!
-            return Vector(FromUnit).BFactor - Vector(ToUnit).BFactor;   
-        }
+        //    return (double)result;
+        //}
+
+        //public static double VectorFixed(Enum FromUnit, Enum ToUnit)
+        //{
+
+        //    //TODO Check that they are same kind!
+        //    return Vector(FromUnit).BFactor - Vector(ToUnit).BFactor;   
+        //}
 
 
         public static Vector Vector(Enum Type)
@@ -545,14 +524,20 @@ namespace EngineeringUnits
         }
 
 
-        public static double SumOfAConstants(UnitSystem unitsystem)
+        public static decimal SumOfAConstants(UnitSystem unitsystem)
         {
-            double a = 1;
+            decimal a = 1;
 
             foreach (var item in unitsystem.UnitList)
             {
-                if (item.SelectedUnit is object)                
-                    a *= Math.Pow(Vector(item.SelectedUnit).AFactor, item.Count);               
+                if (item.SelectedUnit is object)
+                {
+
+                    a *= item.SelectedUnit.A;
+
+                    //a *= Math.Pow(Vector(item.SelectedUnit).AFactor1, item.Count);               
+
+                }
             }
 
 
@@ -560,14 +545,14 @@ namespace EngineeringUnits
 
         }
 
-        public static double SumOfBConstants(UnitSystem unitsystem)
+        public static decimal SumOfBConstants(UnitSystem unitsystem)
         {
-            double b = 0;
+            decimal b = 0;
 
             foreach (var item in unitsystem.UnitList)
             {
                 if (item.SelectedUnit is object)
-                    b += Vector(item.SelectedUnit).BFactor;
+                    b += item.SelectedUnit.B;
 
             }
 
@@ -589,7 +574,7 @@ namespace EngineeringUnits
 
                 if (unit is object && unit.Count > 0)
                 {
-                    local += Vector(unit.SelectedUnit).Symbol;
+                    local += unit.SelectedUnit.Symbol;
 
                     if (unit.Count > 1)
                         local += $"{ToSuperScript(unit.Count)}";
@@ -614,7 +599,7 @@ namespace EngineeringUnits
 
                 if (unit.SelectedUnit is object && unit.Count < 0)
                 {
-                    local += Vector(unit.SelectedUnit).Symbol;
+                    local += unit.SelectedUnit.Symbol;
 
                     if (unit.Count < -1)
                         local += $"{ToSuperScript(unit.Count * -1)}";

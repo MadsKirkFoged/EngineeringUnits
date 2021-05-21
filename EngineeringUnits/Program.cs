@@ -30,23 +30,11 @@ namespace EngineeringUnits
             //Her bliver vi vist nød til at regne om i SI før vi gør det
 
 
-
-            //Length l1 = new Length(39.37007875, LengthUnit.Inch);
-            //Length l2 = new Length(1, LengthUnit.Meter);
-
-            //Length l3 = l1 + l2;
+            Temperature T1 = new Temperature(0, TemperatureUnit.Kelvin);
 
 
 
-
-
-            //double c = 0.3048564654646484987897987986654;
-
-            //double a = (7 / (12.0 * 0.3048564)) * c;
-            //double b = (7 / (3.0 * 0.3048564)) * c;
-
-
-            //double d = a / b;
+            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} == -459.67");
 
 
 
@@ -56,16 +44,18 @@ namespace EngineeringUnits
 
 
 
-
-            //Temperature T1 = new Temperature(100, TemperatureUnit.DegreeCelsius);
-            //Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-
-            //var T3 = T1 / T2;
+            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
 
 
-            //Debug.WriteLine($"{T1}");
 
-            //Debug.WriteLine($"{T3}");
+
+
+            var T3 = T1 + T2;
+
+
+            Debug.WriteLine($"{T1}");
+            Debug.WriteLine($"{T2}");
+            Debug.WriteLine($"{T3}");
 
             //T1.PermanentChangeUnitTo(TemperatureUnit.DegreeCelsius);
             //T2.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
@@ -77,16 +67,19 @@ namespace EngineeringUnits
             //Debug.WriteLine($"{T3}");
 
 
+            Length L1 = new Length(5, LengthUnit.Meter);
+            Length L2 = new Length(1, LengthUnit.Yard);
+
+
+            var L3 = L2 + L1;
+
+
+
+            Debug.Print($"{L3}");
 
 
 
 
-
-            Temperature T1 = new Temperature(10,TemperatureUnit.Kelvin);
-            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-
-
-            var T3 = T1 * T2;
 
             Debug.Print($"{T3}");
 
@@ -95,15 +88,7 @@ namespace EngineeringUnits
 
 
 
-            Length L1 = new Length(5, LengthUnit.Meter);
-            Length L2 = new Length(1, LengthUnit.Yard);
-
-
-            var L3 = L2 * L1;
-
-
-
-            Debug.Print($"{L3}");
+            
 
 
 

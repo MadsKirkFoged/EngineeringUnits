@@ -10,22 +10,22 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in AstronomicalUnits.
         /// </summary>
-        public double AstronomicalUnits => As(LengthUnit.AstronomicalUnit);
+        //public double AstronomicalUnits => As(LengthUnit.AstronomicalUnit);
 
         /// <summary>
         ///     Get Length in Centimeters.
         /// </summary>
-        public double Centimeters => As(LengthUnit.Centimeter);
+        //public double Centimeters => As(LengthUnit.Centimeter);
 
         /// <summary>
         ///     Get Length in Chains.
         /// </summary>
-        public double Chains => As(LengthUnit.Chain);
+        //public double Chains => As(LengthUnit.Chain);
 
         /// <summary>
         ///     Get Length in Decimeters.
         /// </summary>
-        public double Decimeters => As(LengthUnit.Decimeter);
+        //public double Decimeters => As(LengthUnit.Decimeter);
 
         /// <summary>
         ///     Get Length in DtpPicas.
@@ -45,12 +45,12 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Feet.
         /// </summary>
-        public double Feet => As(LengthUnit.Foot);
+        //public double Feet => As(LengthUnit.Foot);
 
         /// <summary>
         ///     Get Length in Hands.
         /// </summary>
-        public double Hands => As(LengthUnit.Hand);
+        //public double Hands => As(LengthUnit.Hand);
 
         /// <summary>
         ///     Get Length in Hectometers.
@@ -60,7 +60,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Inches.
         /// </summary>
-        public double Inches => As(LengthUnit.Inch);
+        //public double Inches => As(LengthUnit.Inch);
 
         /// <summary>
         ///     Get Length in KilolightYears.
@@ -70,7 +70,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Kilometers.
         /// </summary>
-        public double Kilometers => As(LengthUnit.Kilometer);
+        //public double Kilometers => As(LengthUnit.Kilometer);
 
         /// <summary>
         ///     Get Length in Kiloparsecs.
@@ -80,7 +80,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in LightYears.
         /// </summary>
-        public double LightYears => As(LengthUnit.LightYear);
+        //public double LightYears => As(LengthUnit.LightYear);
 
         /// <summary>
         ///     Get Length in MegalightYears.
@@ -95,7 +95,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Meters.
         /// </summary>
-        public double Meters => As(LengthUnit.Meter);
+        //public double Meters => As(LengthUnit.Meter);
 
         /// <summary>
         ///     Get Length in Microinches.
@@ -115,17 +115,17 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Miles.
         /// </summary>
-        public double Miles => As(LengthUnit.Mile);
+       // public double Miles => As(LengthUnit.Mile);
 
         /// <summary>
         ///     Get Length in Millimeters.
         /// </summary>
-        public double Millimeters => As(LengthUnit.Millimeter);
+        //public double Millimeters => As(LengthUnit.Millimeter);
 
         /// <summary>
         ///     Get Length in Nanometers.
         /// </summary>
-        public double Nanometers => As(LengthUnit.Nanometer);
+        //public double Nanometers => As(LengthUnit.Nanometer);
 
         /// <summary>
         ///     Get Length in NauticalMiles.
@@ -135,7 +135,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Parsecs.
         /// </summary>
-        public double Parsecs => As(LengthUnit.Parsec);
+        //public double Parsecs => As(LengthUnit.Parsec);
 
         /// <summary>
         ///     Get Length in PrinterPicas.
@@ -170,7 +170,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Yards.
         /// </summary>
-        public double Yards => As(LengthUnit.Yard);
+        //public double Yards => As(LengthUnit.Yard);
 
 
 

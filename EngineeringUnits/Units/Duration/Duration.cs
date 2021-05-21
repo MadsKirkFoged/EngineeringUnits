@@ -15,7 +15,7 @@ namespace EngineeringUnits
 
         public Duration(double value, DurationUnit? unit) : this()
         {
-            unitsystem.SetUnit(unit);
+            //unitsystem.SetUnit(unit);
             base.Value = value;
         }
 

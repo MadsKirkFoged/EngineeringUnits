@@ -12,7 +12,7 @@ namespace EngineeringUnits
             unitsystem.Length.Count = 2;
         }
 
-        public Area(double value, LengthUnit? unit) : this()
+        public Area(double value, LengthUnit unit) : this()
         {
             //unitsystem.SelectedLengthUnit = unit;
             base.Value = value;

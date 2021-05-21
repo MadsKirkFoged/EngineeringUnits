@@ -15,7 +15,7 @@ namespace EngineeringUnits
         }
 
 
-        public Speed(double value, LengthUnit? a, DurationUnit? b) : this()
+        public Speed(double value, LengthUnit a, DurationUnit? b) : this()
         {
             //unitsystem.SelectedLengthUnit = a;
             //unitsystem.SelectedDurationUnit = b;

@@ -57,7 +57,8 @@ namespace EngineeringUnits
         public string Symbol { get; set; }
 
 
-        public double AFactor { get; set; }
+        public double AFactor1 { get; set; }
+        public double AFactor2 { get; set; }
 
         public double BFactor { get; set; }
 
@@ -71,22 +72,25 @@ namespace EngineeringUnits
         public Vector(string symbol)
         {
             Symbol = symbol;
-            AFactor = 1;
+            AFactor1 = 1;
+            AFactor1 = 1;
             BFactor = 0;
 
         }
 
-        public Vector(string symbol, double aFactor)
+        public Vector(string symbol, double aFactor1, double aFactor2)
         {
             Symbol = symbol;
-            AFactor = aFactor;
+            AFactor1 = aFactor1;
+            AFactor2 = aFactor2;
             BFactor = 0;
 
         }
-        public Vector(string symbol, double aFactor, double bFactor)
+        public Vector(string symbol, double aFactor1, double aFactor2, double bFactor)
         {
             Symbol = symbol;
-            AFactor = aFactor;
+            AFactor1 = aFactor1;
+            AFactor2 = aFactor2;
             BFactor = bFactor;
 
         }
@@ -94,7 +98,8 @@ namespace EngineeringUnits
 
         public Vector(PreFix SI, BaseUnits baseunit)
         {
-            AFactor = PrefixSISize(SI);
+            AFactor1 = PrefixSISize(SI);
+            AFactor2 = 1;
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             BFactor = 0;
         }
@@ -104,7 +109,7 @@ namespace EngineeringUnits
             return new Vector()
             {
                 Symbol = a.Symbol,
-                AFactor = a.AFactor,
+                AFactor1 = a.AFactor1,
                 BFactor = a.BFactor,
             };
 
@@ -116,27 +121,27 @@ namespace EngineeringUnits
         public double PrefixSISize(PreFix preFix) =>
             preFix switch
             {
-                PreFix.yotta => 1e24,
-                PreFix.zetta => 121,
-                PreFix.exa => 1e18,
-                PreFix.peta => 1e15,
-                PreFix.tera => 1e12,
-                PreFix.giga => 1e9,
-                PreFix.mega => 1e6,
-                PreFix.kilo => 1e3,
-                PreFix.hecto => 1e2,
-                PreFix.deka => 1e1,
+                PreFix.yotta => 1e-24,
+                PreFix.zetta => 1e-21,
+                PreFix.exa => 1e-18,
+                PreFix.peta => 1e-15,
+                PreFix.tera => 1e-12,
+                PreFix.giga => 1e-9,
+                PreFix.mega => 1e-6,
+                PreFix.kilo => 1e-3,
+                PreFix.hecto => 1e-2,
+                PreFix.deka => 1e-1,
                 PreFix.SI => 1e0,
-                PreFix.deci => 1e-1,
-                PreFix.centi => 1e-2,
-                PreFix.milli => 1e-3,
-                PreFix.micro => 1e-6,
-                PreFix.nano => 1e-9,
-                PreFix.pico => 1e-12,
-                PreFix.femto => 1e-15,
-                PreFix.atto => 1e-18,
-                PreFix.zepto => 1e-21,
-                PreFix.yocto => 1e-24,
+                PreFix.deci => 1e+1,
+                PreFix.centi => 1e+2,
+                PreFix.milli => 1e+3,
+                PreFix.micro => 1e+6,
+                PreFix.nano => 1e+9,
+                PreFix.pico => 1e+12,
+                PreFix.femto => 1e+15,
+                PreFix.atto => 1e+18,
+                PreFix.zepto => 1e+21,
+                PreFix.yocto => 1e+24,
 
                 _ => 0
             };

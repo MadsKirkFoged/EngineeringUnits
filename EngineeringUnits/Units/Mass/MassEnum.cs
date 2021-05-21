@@ -22,14 +22,14 @@ namespace EngineeringUnits
         [Vector(PreFix.milli,   BaseUnits.mass)] Milligram,
         [Vector(PreFix.nano,    BaseUnits.mass)] Nanogram,
 
-        [Vector("t", 1000)] Tonne,
-        [Vector("gr", 0.06479891)] Grain,
+        [Vector("t", 1,1000)] Tonne,
+        [Vector("gr",1, 0.06479891)] Grain,
 
 
-        [Vector("oz", (1/16d) * 453.59237)] Ounce,
-        [Vector("lb", 1 *       453.59237)] Pound,
-        [Vector("st", 14 *      453.59237)] Stone,
-        [Vector("lb", 2000 *    453.59237)] ShortTon,
+        [Vector("oz",1, (1/16d) * 453.59237)] Ounce,
+        [Vector("lb",1, 1 *       453.59237)] Pound,
+        [Vector("st",1, 14 *      453.59237)] Stone,
+        [Vector("lb",1, 2000 *    453.59237)] ShortTon,
 
         //[Vector(1, "EarthMass", 5.9722*10e24)] EarthMass,
 

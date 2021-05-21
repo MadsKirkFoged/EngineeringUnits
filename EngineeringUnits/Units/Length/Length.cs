@@ -15,7 +15,7 @@ namespace EngineeringUnits
         }
 
 
-        public Length(double value, LengthUnit? unit) :this()
+        public Length(double value, LengthUnit unit) :this()
         {
             unitsystem.SetUnit(unit);
             base.Value = value;
@@ -32,9 +32,10 @@ namespace EngineeringUnits
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
             ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Length.Count = 1;
 
 
-            return UnitSystem.Convert(Value, ReturnInThisUnitSystem, this.unitsystem);
+            return UnitSystem.Convert(Value, this.unitsystem, ReturnInThisUnitSystem);
         }
 
 
