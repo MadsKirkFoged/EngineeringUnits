@@ -373,21 +373,21 @@ namespace EngineeringUnits
         {
 
             //Samle konstanter
-            decimal a2 = SumOfAConstants(From);
-            decimal b2 = SumOfBConstants(From);
+            decimal a1 = SumOfAConstants(From);
+            decimal b1 = SumOfBConstants(From);
 
-            decimal a1 = SumOfAConstants(To);
-            decimal b1 = SumOfBConstants(To);
+            decimal a2 = SumOfAConstants(To);
+            decimal b2 = SumOfBConstants(To);
 
             decimal y1 = (decimal)ValueFrom;
             decimal y2 = 0;
 
 
-            decimal factor = a2 / a1;
 
-            y2 = factor * (b1 + y1) + b2;
 
-            //y2 = factor * (y1 - b2) + b1;
+
+            y2 = (a2 / a1) * (y1 - b1) + b2;
+
 
             return (double)y2;
 

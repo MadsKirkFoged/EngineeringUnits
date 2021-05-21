@@ -12,7 +12,7 @@ namespace UnitTests
             Temperature T1 = new Temperature(20, TemperatureUnit.Kelvin);
 
 
-            //Assert.AreEqual(20, T1.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(20, T1.As(TemperatureUnit.Kelvin));
             Assert.AreEqual(-253.15, T1.As(TemperatureUnit.DegreeCelsius));
             Assert.AreEqual(-423.67, T1.As(TemperatureUnit.DegreeFahrenheit),0.0000001);            
         }
@@ -24,9 +24,21 @@ namespace UnitTests
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
 
 
-            //Assert.AreEqual(293.15, T1.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(293.15, T1.As(TemperatureUnit.Kelvin));
             Assert.AreEqual(20, T1.As(TemperatureUnit.DegreeCelsius));
             Assert.AreEqual(68, T1.As(TemperatureUnit.DegreeFahrenheit), 0.0000001);
+        }
+
+
+        [TestMethod]
+        public void TemperatureConvertsFromFahrenheit()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeFahrenheit);
+
+
+            Assert.AreEqual(266.48333333333335, T1.As(TemperatureUnit.Kelvin), 0.0001);
+            Assert.AreEqual(-6.666667, T1.As(TemperatureUnit.DegreeCelsius), 0.00001);
+            Assert.AreEqual(20, T1.As(TemperatureUnit.DegreeFahrenheit));
         }
 
         //[TestMethod]
