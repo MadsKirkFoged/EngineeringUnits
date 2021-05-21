@@ -6,6 +6,51 @@ namespace UnitTests
     [TestClass]
     public class TemperatureTest
     {
+
+
+        [TestMethod]
+        public void TemperatureCelsiusDivideDouble()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+
+
+            T1 /= 10;
+
+            Assert.AreEqual(-243.835, T1.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(29.315, T1.As(TemperatureUnit.Kelvin));
+
+        }
+
+
+        [TestMethod]
+        public void TemperatureCelsiusTimesDouble()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+
+
+            T1 *= 10;
+
+            Assert.AreEqual(2658.35, T1.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(2931.5, T1.As(TemperatureUnit.Kelvin));
+
+        }
+
+
+        [TestMethod]
+        public void TemperatureKelvinTimesDouble()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.Kelvin);
+
+
+            T1 *= 10;
+
+            Assert.AreEqual(200, T1.As(TemperatureUnit.Kelvin));
+
+        }
+
+
+
+
         [TestMethod]
         public void TemperatureConvertsFromKelvin()
         {

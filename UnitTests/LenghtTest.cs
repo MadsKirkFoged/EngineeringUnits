@@ -7,6 +7,38 @@ namespace UnitTests
     [TestClass]
     public class LenghtTest
     {
+
+
+        [TestMethod]
+        public void LengthTimesDouble()
+        {
+            Length L1 = new Length(65.948443434, LengthUnit.Meter);
+
+
+            L1 *= 10;
+
+
+
+            Assert.AreEqual(65948.443434, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(659484.43434, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(659.48443434, L1.As(LengthUnit.Meter));
+        }
+
+        [TestMethod]
+        public void LengthDivideDouble()
+        {
+            Length L1 = new Length(65.948443434, LengthUnit.Meter);
+
+
+            L1 /= 10;
+
+
+
+            Assert.AreEqual(659.48443434, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(6594.8443434, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(6.5948443434, L1.As(LengthUnit.Meter));
+        }
+
         [TestMethod]
         public void LengthSI2SI()
         {

@@ -27,51 +27,50 @@ namespace EngineeringUnits
         }
 
 
-        //public static UnknownUnit Add(BaseUnit a, BaseUnit b)
+
+        //public static UnknownUnit Subtract(BaseUnit a, BaseUnit b)
         //{
         //    return new BaseUnit
         //    {
-        //        unitsystem = UnitSystem.Add(a.unitsystem, b.unitsystem),
-        //        Value = a.Value + UnitSystem.ValueConvert(b.Value, b.unitsystem, a.unitsystem)
+        //        unitsystem = UnitSystem.Subtract(a.unitsystem, b.unitsystem),
+        //        Value = a.Value - (UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem))
         //    };
 
         //}
+        //public static UnknownUnit Multiply(BaseUnit a, BaseUnit b)
+        //{
+        //    return new BaseUnit
+        //    {
+        //        unitsystem = UnitSystem.Multiply(a.unitsystem, b.unitsystem),
+        //        Value = a.Value * UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
+        //    };
 
-        public static UnknownUnit Subtract(BaseUnit a, BaseUnit b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = UnitSystem.Subtract(a.unitsystem, b.unitsystem),
-                Value = a.Value - (UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem))
-            };
+        //}
+        //public static UnknownUnit Multiply(BaseUnit a, double b)
+        //{
 
-        }
-        public static UnknownUnit Multiply(BaseUnit a, BaseUnit b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = UnitSystem.Multiply(a.unitsystem, b.unitsystem),
-                Value = a.Value * UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
-            };
 
-        }
-        public static UnknownUnit Multiply(BaseUnit a, double b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = a.unitsystem.Copy(),
-                Value = a.Value * b,
-            };
 
-        }
-        public static UnknownUnit Divide(BaseUnit a, BaseUnit b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = UnitSystem.Divide(a.unitsystem, b.unitsystem),
-                Value = a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
-            };
-        }
+
+        //    return new BaseUnit
+        //    {
+        //        unitsystem = a.unitsystem.Copy(),
+        //        Value = a.Value * b,
+        //    };
+
+
+
+
+
+        //}
+        //public static UnknownUnit Divide(BaseUnit a, BaseUnit b)
+        //{
+        //    return new BaseUnit
+        //    {
+        //        unitsystem = UnitSystem.Divide(a.unitsystem, b.unitsystem),
+        //        Value = a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
+        //    };
+        //}
         public static UnknownUnit Divide(BaseUnit a, double b)
         {
             return new BaseUnit
@@ -88,10 +87,10 @@ namespace EngineeringUnits
                 Value = b.Value / a,
             };
         }
-        public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
-        {
-            return a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem);
-        }
+        //public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
+        //{
+        //    return a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem);
+        //}
 
 
 
@@ -119,10 +118,10 @@ namespace EngineeringUnits
         }
         
         
-        public static UnknownUnit operator *(BaseUnit a, double b) => BaseUnit.Multiply(a, b);
-        public static UnknownUnit operator /(BaseUnit a, double b) => BaseUnit.Divide(a, b);
-        public static UnknownUnit operator *(double a, BaseUnit b) => BaseUnit.Multiply(b, a);
-        public static UnknownUnit operator /(double a, BaseUnit b) => BaseUnit.Divide(a, b);
+        public static UnknownUnit operator *(BaseUnit a, double b) => UnitSystem.Multiply(a, b);
+        public static UnknownUnit operator /(BaseUnit a, double b) => UnitSystem.Divide(a, b);
+        public static UnknownUnit operator *(double a, BaseUnit b) => UnitSystem.Multiply(b, a);
+        public static UnknownUnit operator /(double a, BaseUnit b) => UnitSystem.Divide(a, b);
         
 
         public static bool operator ==(BaseUnit left, BaseUnit right)

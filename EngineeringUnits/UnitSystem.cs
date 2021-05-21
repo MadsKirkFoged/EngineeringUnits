@@ -19,33 +19,7 @@ namespace EngineeringUnits
 
         public List<BaseUnitClass> UnitList { get; set; }
 
-        //public int LengthCount { get; set;}
-        //public LengthUnit? SelectedLengthUnit { get; set; }
-
-        //public int MassCount { get; set; }
-        //public MassUnit? SelectedMassUnit { get; set; }
-
-        //public int DurationCount { get; set; }
-        //public DurationUnit? SelectedDurationUnit { get; set; }
-
-
-        //public int ElectriccurrentCount { get; set; }
-        //public ElectriccurrentUnit? SelectedElectriccurrentUnit { get; set; }
-
-
-
-        //public int TemperatureCount { get; set; }
-        //public TemperatureUnit? SelectedTemperatureUnit { get; set; }
-
-
-        //public int AmountCount { get; set; }
-        //public AmountUnit? SelectedAmountUnit { get; set; }
-
-
-        //public int LuminousIntensityCount { get; set; }
-        //public LuminousIntensityUnit? SelectedLuminousIntensityUnit { get; set; }
-
-
+        
         public UnitSystem()
         {
 
@@ -203,6 +177,32 @@ namespace EngineeringUnits
 
         }
 
+        public static UnknownUnit Multiply(BaseUnit left, double right)
+        {
+            //Samle konstanter
+
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x3 = x1 * (decimal)right;
+
+
+            BaseUnit ReturnUnit = new BaseUnit
+            {
+                unitsystem = UnitSystem.Add(left.unitsystem, left.unitsystem),
+            };
+
+
+            SetValueAsSI(x3, ReturnUnit);
+
+
+            return ReturnUnit;
+
+        }
+
         public static UnknownUnit Divide(BaseUnit left, BaseUnit right)
         {
 
@@ -239,6 +239,57 @@ namespace EngineeringUnits
             return ReturnUnit;
         }
 
+        public static UnknownUnit Divide(BaseUnit left, double right)
+        {
+            //Samle konstanter
+
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x3 = x1 / (decimal)right;
+
+
+            BaseUnit ReturnUnit = new BaseUnit
+            {
+                unitsystem = UnitSystem.Add(left.unitsystem, left.unitsystem),
+            };
+
+
+            SetValueAsSI(x3, ReturnUnit);
+
+
+            return ReturnUnit;
+
+        }
+
+        public static UnknownUnit Divide(double left, BaseUnit right)
+        {
+            //Samle konstanter
+
+            decimal a1 = SumOfAConstants(right.unitsystem);
+            decimal b1 = SumOfBConstants(right.unitsystem);
+            decimal y1 = (decimal)right.Value;
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x3 =  (decimal)left / x1;
+
+
+            BaseUnit ReturnUnit = new BaseUnit
+            {
+                unitsystem = UnitSystem.Add(right.unitsystem, right.unitsystem),
+            };
+
+
+            SetValueAsSI(x3, ReturnUnit);
+
+
+            return ReturnUnit;
+
+        }
 
         public static void SetValueAsSI(decimal SIValue, BaseUnit Unit)
         {
@@ -386,23 +437,7 @@ namespace EngineeringUnits
         }
 
 
-        //public static double Convert(double ValueFrom ,Enum From, Enum To)
-        //{
-
-        //    double y2 = ValueFrom;
-
-        //    double a1 = UnitSystem.Vector(To).AFactor;
-        //    double a2 = UnitSystem.Vector(From).AFactor;
-
-        //    double b1 = UnitSystem.Vector(To).BFactor;
-        //    double b2 = UnitSystem.Vector(From).BFactor;
-
-        //    double factor = a1 / a2;
-
-        //    //I Left's system..
-        //   return (y2 - b2) * factor + b1;
-
-        //}
+       
 
         public static double Convert(double ValueFrom, UnitSystem From, UnitSystem To)
         {
@@ -443,109 +478,6 @@ namespace EngineeringUnits
 
 
 
-        private static BaseUnitClass GetMatchingBaseType(BaseUnitClass from, UnitSystem In)
-        {
-            foreach (var item in In.UnitList)
-            {
-
-                if (from.BaseUnitType == item.BaseUnitType)
-                {
-                    return item;
-                }
-
-            }
-
-            return null;
-        }
-
-        //This convert a whole system into another system
-
-        //public static double ValueConvert(double value, UnitSystem From, UnitSystem To)
-        //{
-        //    double Local = 0;
-
-        //    foreach (var FromBaseUnit in From.UnitList)
-        //    {
-        //        if (FromBaseUnit.SelectedUnit is object)
-        //        {
-                    
-        //            BaseUnitClass ToBaseUnit = GetMatchingBaseType(FromBaseUnit, To);
-        //            Local += Convert(value, FromBaseUnit.SelectedUnit, ToBaseUnit.SelectedUnit);
-
-
-        //        }
-        //    }
-
-        //    return Local;
-
-        //    //double LocalLenght = 0;
-        //    //double LocalTime = 0;
-        //    //double LocalMass = 0;
-        //    //double LocalElectriccurrent = 0;
-        //    //double LocalTemperature = 0;
-        //    //double LocalMole = 0;
-        //    //double LocalLuminousIntensity = 0;
-
-        //    //if (From.SelectedLengthUnit is object && To.SelectedLengthUnit is object)            
-        //    //    LocalLenght = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLengthUnit, To.SelectedLengthUnit), From.LengthCount) * value;
-
-
-        //    //if (From.SelectedDurationUnit is object && To.SelectedDurationUnit is object)            
-        //    //    LocalTime = Math.Pow(UnitSystem.VectorDifferent(From.SelectedDurationUnit, To.SelectedDurationUnit), From.DurationCount) * value;
-
-
-        //    //if (From.SelectedMassUnit is object && To.SelectedMassUnit is object)            
-        //    //    LocalMass = Math.Pow(UnitSystem.VectorDifferent(From.SelectedMassUnit, To.SelectedMassUnit), From.MassCount) * value;
-
-
-        //    //if (From.SelectedElectriccurrentUnit is object && To.SelectedElectriccurrentUnit is object)            
-        //    //    LocalElectriccurrent = Math.Pow(UnitSystem.VectorDifferent(From.SelectedElectriccurrentUnit, To.SelectedElectriccurrentUnit), From.ElectriccurrentCount) * value;
-
-
-        //    //if (From.SelectedTemperatureUnit is object && To.SelectedTemperatureUnit is object)
-        //    //{
-
-        //    //    //LocalTemperature = Math.Pow(UnitSystem.VectorDifferent(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit), From.TemperatureCount) + UnitSystem.VectorFixed(From.SelectedTemperatureUnit, To.SelectedTemperatureUnit) * value;
-
-        //    //}
-
-        //    //if (From.SelectedAmountUnit is object && To.SelectedAmountUnit is object)            
-        //    //    LocalMole = Math.Pow(UnitSystem.VectorDifferent(From.SelectedAmountUnit, To.SelectedAmountUnit), From.AmountCount) * value;
-
-
-        //    //if (From.SelectedLuminousIntensityUnit is object && To.SelectedLuminousIntensityUnit is object)            
-        //    //    LocalLuminousIntensity = Math.Pow(UnitSystem.VectorDifferent(From.SelectedLuminousIntensityUnit, To.SelectedLuminousIntensityUnit), From.LuminousIntensityCount) * value;
-
-
-
-
-        //    //return LocalLenght + LocalMass + LocalTime + LocalElectriccurrent + LocalTemperature + LocalMole + LocalLuminousIntensity;
-        //}
-        //public static double VectorDifferent(Enum FromUnit, Enum ToUnit)
-        //{
-
-        //    //TODO Check that they are same kind!
-
-
-        //    double factor = (Vector(FromUnit).AFactor / Vector(ToUnit).AFactor);
-        //    double SIfactor = (Vector(FromUnit).BFactor / Vector(ToUnit).BFactor);
-
-
-        //    double result = factor * SIfactor;
-        //    Debug.Print($"{Vector(FromUnit).AFactor} / {Vector(ToUnit).AFactor} = {factor}");
-        //    Debug.Print($"{Vector(FromUnit).BFactor} / {Vector(ToUnit).BFactor} = {SIfactor}");
-        //    Debug.Print($"{result}");
-
-
-        //    return (double)result;
-        //}
-
-        //public static double VectorFixed(Enum FromUnit, Enum ToUnit)
-        //{
-
-        //    //TODO Check that they are same kind!
-        //    return Vector(FromUnit).BFactor - Vector(ToUnit).BFactor;   
-        //}
 
 
         public static Vector Vector(Enum Type)
@@ -663,7 +595,7 @@ namespace EngineeringUnits
 
         public UnitSystem Copy()
         {
-            return new UnitSystem
+            UnitSystem local = new UnitSystem
             {
                 Length = this.Length,
                 Mass = this.Mass,
@@ -673,6 +605,19 @@ namespace EngineeringUnits
                 Amount = this.Amount,
                 LuminousIntensity = this.LuminousIntensity,                
             };
+
+            local.UnitList = new List<BaseUnitClass>();
+
+            local.UnitList.Add(Length);
+            local.UnitList.Add(Mass);
+            local.UnitList.Add(Duration);
+            local.UnitList.Add(Electriccurrent);
+            local.UnitList.Add(Temperature);
+            local.UnitList.Add(Amount);
+            local.UnitList.Add(LuminousIntensity);
+
+
+            return local;
 
         }
 
