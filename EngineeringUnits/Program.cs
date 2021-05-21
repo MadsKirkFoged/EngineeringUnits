@@ -8,6 +8,19 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
+
+
+            //Begynd at lave speed som den første sammensatte unit
+
+
+
+
+
+
+
+
+
+
             //TODO Lav sådan at samme enhed nemt kan have flere navne
 
 
