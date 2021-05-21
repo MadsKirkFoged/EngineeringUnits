@@ -87,136 +87,171 @@ namespace EngineeringUnits
         }
 
 
-        public static UnknownUnit Add(BaseUnit To, BaseUnit From)
+        public static UnknownUnit Add(BaseUnit left, BaseUnit right)
         {
 
             //Samle konstanter
-            decimal a2 = SumOfAConstants(From.unitsystem);
-            decimal b2 = SumOfBConstants(From.unitsystem);
-            decimal y2 = (decimal)From.Value;
 
-            decimal a1 = SumOfAConstants(To.unitsystem);
-            decimal b1 = SumOfBConstants(To.unitsystem);
-            decimal y1 = (decimal)To.Value;
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
 
-            decimal factor = a2 / a1;
+            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal b2 = SumOfBConstants(right.unitsystem);
+            decimal y2 = (decimal)right.Value;
 
-            //I Left's system..
-            decimal y3 = y1 + (y2 - b2) * factor;
 
-           
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x2 = (y2 - b2) / a2;
+
+            decimal x3 = x1 + x2;
+
+
+
+            //Sæt tilbage i lefts units
+
+            decimal y3 = a1 * x3 + b1;
+
+
+
+
 
             return new BaseUnit
             {
-                unitsystem = UnitSystem.Add(To.unitsystem, From.unitsystem),
+                unitsystem = UnitSystem.Add(left.unitsystem, right.unitsystem),
                 Value = (double)y3
             };
 
 
         }
 
-        public static UnknownUnit Subtract(BaseUnit Left, BaseUnit Right)
+        public static UnknownUnit Subtract(BaseUnit left, BaseUnit right)
         {
 
-            double y3 = 0;
+            //Samle konstanter
 
-            double y1 = Left.Value;
-            double y2 = Right.Value;
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
 
-            decimal a1 = SumOfAConstants(Left.unitsystem);
-            decimal b1 = SumOfBConstants(Left.unitsystem);
-
-            decimal a2 = SumOfAConstants(Right.unitsystem);
-            decimal b2 = SumOfBConstants(Right.unitsystem);
-
-            decimal factor = a2 / a1;
+            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal b2 = SumOfBConstants(right.unitsystem);
+            decimal y2 = (decimal)right.Value;
 
 
-            y3 = y1 - (y2 - (double)b2) * (double)factor;
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x2 = (y2 - b2) / a2;
+
+            decimal x3 = x1 - x2;
+
+
+
+            //Sæt tilbage i lefts units
+
+            decimal y3 = a1 * x3 + b1;
+
+
 
 
 
             return new BaseUnit
             {
-                unitsystem = UnitSystem.Subtract(Left.unitsystem, Right.unitsystem),
-                Value = y3
-            };            
-
-
-        }
-
-        public static UnknownUnit Multiply(BaseUnit Left, BaseUnit Right)
-        {
-            decimal y1 = (decimal)Left.Value;
-            decimal a1 = SumOfAConstants(Left.unitsystem);
-            decimal b1 = SumOfBConstants(Left.unitsystem);
-
-            decimal y2 = (decimal)Right.Value;
-            decimal a2 = SumOfAConstants(Right.unitsystem);
-            decimal b2 = SumOfBConstants(Right.unitsystem);
-
-
-            //We have to convert to baseunit first
-            //double otherunit = Convert(Right.Value, Right.unitsystem, Left.unitsystem);
-
-            //double y333 = Left.Value / otherunit;
-
-
-            decimal left1 = ((y1 - b1) / (1 / a1));
-
-            decimal right1 = ((y2 - b2) / (1 / a2));
-
-            decimal y3 = left1 * right1;
-
-
-            return new BaseUnit
-            {
-                unitsystem = UnitSystem.Multiply(Left.unitsystem, Right.unitsystem),
+                unitsystem = UnitSystem.Subtract(left.unitsystem, right.unitsystem),
                 Value = (double)y3
             };
 
 
         }
 
-        public static UnknownUnit Divide(BaseUnit Left, BaseUnit Right)
+        public static UnknownUnit Multiply(BaseUnit left, BaseUnit right)
+        {
+            //Samle konstanter
+
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
+
+            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal b2 = SumOfBConstants(right.unitsystem);
+            decimal y2 = (decimal)right.Value;
+
+
+
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x2 = (y2 - b2) / a2;
+
+            decimal x3 = x1 * x2;
+
+
+
+
+            BaseUnit ReturnUnit = new BaseUnit
+            {
+                unitsystem = UnitSystem.Multiply(left.unitsystem, right.unitsystem),
+            };
+
+
+            SetValueAsSI(x3, ReturnUnit);
+
+
+            return ReturnUnit;
+
+        }
+
+        public static UnknownUnit Divide(BaseUnit left, BaseUnit right)
         {
 
 
-            decimal y1 = (decimal)Left.Value;
-            decimal a1 = SumOfAConstants(Left.unitsystem);
-            decimal b1 = SumOfBConstants(Left.unitsystem);
+            //Samle konstanter
 
-            decimal y2 = (decimal)Right.Value;
-            decimal a2 = SumOfAConstants(Right.unitsystem);
-            decimal b2 = SumOfBConstants(Right.unitsystem);
+            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal y1 = (decimal)left.Value;
 
-
-            //We have to convert to baseunit first
-            //double otherunit = Convert(Right.Value, Right.unitsystem, Left.unitsystem);
-
-            //double y333 = Left.Value / otherunit;
-
-
-            decimal left1 = ((y1 - b1) / (1/a1));
-
-            decimal right1 = ((y2 - b2) / (1/a2));
-
-            decimal y3 = left1 / right1;
+            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal b2 = SumOfBConstants(right.unitsystem);
+            decimal y2 = (decimal)right.Value;
 
 
 
-            return new BaseUnit
-                {
-                    unitsystem = UnitSystem.Divide(Left.unitsystem, Right.unitsystem),
-                    Value = (double)y3
-                };
+
+            decimal x1 = (y1 - b1) / a1;
+            decimal x2 = (y2 - b2) / a2;
+
+            decimal x3 = x1 / x2;
 
 
 
-            
+            BaseUnit ReturnUnit = new BaseUnit
+            {
+                unitsystem = UnitSystem.Divide(left.unitsystem, right.unitsystem),
+            };
 
 
+            SetValueAsSI(x3, ReturnUnit);
+
+
+            return ReturnUnit;
         }
+
+
+        public static void SetValueAsSI(decimal SIValue, BaseUnit Unit)
+        {
+            //Samle konstanter
+
+            decimal a1 = SumOfAConstants(Unit.unitsystem);
+            decimal b1 = SumOfBConstants(Unit.unitsystem);
+            decimal x1 = (decimal)SIValue;
+
+
+            Unit.Value = (double)(x1 * a1 + b1);
+        }
+
 
         public static UnitSystem Add(UnitSystem a, UnitSystem b)
         {
@@ -533,9 +568,9 @@ namespace EngineeringUnits
                 if (item.SelectedUnit is object)
                 {
 
-                    a *= item.SelectedUnit.A;
+                    //a *= item.SelectedUnit.A;
 
-                    //a *= Math.Pow(Vector(item.SelectedUnit).AFactor1, item.Count);               
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A, item.Count);               
 
                 }
             }

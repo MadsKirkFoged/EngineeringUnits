@@ -82,27 +82,27 @@ namespace EngineeringUnits
         public decimal PrefixSISize(PreFix preFix) =>
            preFix switch
            {
-               PreFix.yotta => 1e+24m,
-               PreFix.zetta => 1e+21m,
-               PreFix.exa => 1e+18m,
-               PreFix.peta => 1e+15m,
-               PreFix.tera => 1e+12m,
-               PreFix.giga => 1e+9m,
-               PreFix.mega => 1e+6m,
-               PreFix.kilo => 1e+3m,
-               PreFix.hecto => 1e+2m,
-               PreFix.deka => 1e+1m,
+               PreFix.yotta => 1e-24m,
+               PreFix.zetta => 1e-21m,
+               PreFix.exa => 1e-18m,
+               PreFix.peta => 1e-15m,
+               PreFix.tera => 1e-12m,
+               PreFix.giga => 1e-9m,
+               PreFix.mega => 1e-6m,
+               PreFix.kilo => 1e-3m,
+               PreFix.hecto => 1e-2m,
+               PreFix.deka => 1e-1m,
                PreFix.SI => 1e0m,
-               PreFix.deci => 1e-1m,
-               PreFix.centi => 1e-2m,
-               PreFix.milli => 1e-3m,
-               PreFix.micro => 1e-6m,
-               PreFix.nano => 1e-9m,
-               PreFix.pico => 1e-12m,
-               PreFix.femto => 1e-15m,
-               PreFix.atto => 1e-18m,
-               PreFix.zepto => 1e-21m,
-               PreFix.yocto => 1e-24m,
+               PreFix.deci => 1e+1m,
+               PreFix.centi => 1e+2m,
+               PreFix.milli => 1e+3m,
+               PreFix.micro => 1e+6m,
+               PreFix.nano => 1e+9m,
+               PreFix.pico => 1e+12m,
+               PreFix.femto => 1e+15m,
+               PreFix.atto => 1e+18m,
+               PreFix.zepto => 1e+21m,
+               PreFix.yocto => 1e+24m,
 
                _ => 0
            };
@@ -163,13 +163,13 @@ namespace EngineeringUnits
         public static LengthUnit Nanometer = new LengthUnit(PreFix.nano, BaseUnits.length);
 
 
-        public static LengthUnit Inch = new LengthUnit("in", 0.3048m / 12);
-        public static LengthUnit Hand = new LengthUnit("hand", 0.3048m / 3);
-        public static LengthUnit Foot = new LengthUnit("ft", 0.3048m);
-        public static LengthUnit Yard = new LengthUnit("yd", 0.3048m * 3);
-        public static LengthUnit Chain = new LengthUnit("ch", 0.3048m * 66);
-        public static LengthUnit Mile = new LengthUnit("mi", 0.3048m * 5280m);
-        public static LengthUnit Nauticalmile = new LengthUnit("nmi", 0.3048m * 6076);
+        public static LengthUnit Inch = new LengthUnit("in", 1/(0.3048m / 12));
+        public static LengthUnit Hand = new LengthUnit("hand", 1/(0.3048m / 3));
+        public static LengthUnit Foot = new LengthUnit("ft", 1/0.3048m);
+        public static LengthUnit Yard = new LengthUnit("yd", 1/(0.3048m * 3));
+        public static LengthUnit Chain = new LengthUnit("ch", 1/(0.3048m * 66));
+        public static LengthUnit Mile = new LengthUnit("mi", 1/(0.3048m * 5280m));
+        public static LengthUnit Nauticalmile = new LengthUnit("nmi", 1/(0.3048m * 6076));
 
         public static LengthUnit LightYear = new LengthUnit("ly", 9460730472580800m);
         public static LengthUnit AstronomicalUnit = new LengthUnit("au", 149597870700m);

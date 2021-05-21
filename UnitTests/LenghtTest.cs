@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace UnitTests
 {
@@ -24,9 +25,9 @@ namespace UnitTests
 
 
             Assert.AreEqual(1, L1.As(LengthUnit.Mile));
-            Assert.AreEqual(1760, L1.As(LengthUnit.Yard));
-            Assert.AreEqual(5280, L1.As(LengthUnit.Foot));
-            Assert.AreEqual(63360, L1.As(LengthUnit.Inch));
+            Assert.AreEqual(1760, L1.As(LengthUnit.Yard),0.00000001);
+            Assert.AreEqual(5280, L1.As(LengthUnit.Foot), 0.00000001);
+            Assert.AreEqual(63360, L1.As(LengthUnit.Inch), 0.00000001);
         }
 
         [TestMethod]
@@ -35,9 +36,9 @@ namespace UnitTests
             Length L1 = new Length(1, LengthUnit.Mile);
 
 
-            Assert.AreEqual(160934.4, L1.As(LengthUnit.Centimeter));
-            Assert.AreEqual(1609344, L1.As(LengthUnit.Millimeter));
-            Assert.AreEqual(1609.344, L1.As(LengthUnit.Meter));
+            Assert.AreEqual(160934.4, L1.As(LengthUnit.Centimeter), 0.00000001);
+            Assert.AreEqual(1609344, L1.As(LengthUnit.Millimeter), 0.00000001);
+            Assert.AreEqual(1609.344, L1.As(LengthUnit.Meter), 0.00000001);
         }
 
         [TestMethod]
@@ -86,6 +87,29 @@ namespace UnitTests
 
             Assert.AreEqual(3, (double)(L3 / L4));
             Assert.AreEqual(4, (double)(L5 / L6));
+        }
+
+        [TestMethod]
+        public void LengthDivide2()
+        {
+
+            Length L1 = new Length(200, LengthUnit.Centimeter);
+            Length L2 = new Length(3, LengthUnit.Foot);
+
+
+            var A1 = (L1 * L1 * L1) / (L2 * L2);
+
+            Debug.Print($"{A1}");
+
+
+            //Assert.AreEqual(1, A1.));
+            //Assert.AreEqual(1, (double)(L2 / L2));
+
+            //Assert.AreEqual(0.035358992805755406, (double)(L1 / L2), 0.000000001);
+            //Assert.AreEqual(28.281348552361187, (double)(L2 / L1), 0.000000001);
+
+            //Assert.AreEqual(3, (double)(L3 / L4));
+            //Assert.AreEqual(4, (double)(L5 / L6));
         }
 
         [TestMethod]
