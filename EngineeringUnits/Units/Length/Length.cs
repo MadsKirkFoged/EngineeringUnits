@@ -18,6 +18,9 @@ namespace EngineeringUnits
         public Length(double value, LengthUnit unit) :this()
         {
             unitsystem.SetUnit(unit);
+
+            //Convert to 'local' unit
+
             base.Value = value;
         }
 

@@ -10,6 +10,8 @@ namespace EngineeringUnits
 
         public double Value { get; set; }
 
+        private decimal ValueLocalUnit { get; set; }
+
         public BaseUnit()
         {
             unitsystem = new UnitSystem();
@@ -28,68 +30,21 @@ namespace EngineeringUnits
 
 
 
-        //public static UnknownUnit Subtract(BaseUnit a, BaseUnit b)
+        //public static UnknownUnit Divide(BaseUnit a, double b)
         //{
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Subtract(a.unitsystem, b.unitsystem),
-        //        Value = a.Value - (UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem))
-        //    };
-
-        //}
-        //public static UnknownUnit Multiply(BaseUnit a, BaseUnit b)
-        //{
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Multiply(a.unitsystem, b.unitsystem),
-        //        Value = a.Value * UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
-        //    };
-
-        //}
-        //public static UnknownUnit Multiply(BaseUnit a, double b)
-        //{
-
-
-
-
         //    return new BaseUnit
         //    {
         //        unitsystem = a.unitsystem.Copy(),
-        //        Value = a.Value * b,
+        //        Value = a.Value / b,
         //    };
-
-
-
-
-
         //}
-        //public static UnknownUnit Divide(BaseUnit a, BaseUnit b)
+        //public static UnknownUnit Divide(double a, BaseUnit b)
         //{
         //    return new BaseUnit
         //    {
-        //        unitsystem = UnitSystem.Divide(a.unitsystem, b.unitsystem),
-        //        Value = a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem)
+        //        unitsystem = b.unitsystem.Copy(),
+        //        Value = b.Value / a,
         //    };
-        //}
-        public static UnknownUnit Divide(BaseUnit a, double b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = a.unitsystem.Copy(),
-                Value = a.Value / b,
-            };
-        }
-        public static UnknownUnit Divide(double a, BaseUnit b)
-        {
-            return new BaseUnit
-            {
-                unitsystem = b.unitsystem.Copy(),
-                Value = b.Value / a,
-            };
-        }
-        //public static double DivideResultsInDouble(BaseUnit a, BaseUnit b)
-        //{
-        //    return a.Value / UnitSystem.Convert(b.Value, b.unitsystem, a.unitsystem);
         //}
 
 

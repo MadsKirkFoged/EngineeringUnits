@@ -468,7 +468,22 @@ namespace EngineeringUnits
         }
 
 
+        public static void GetLocalUnit(double ValueFrom, UnitSystem From)
+        {
 
+            //Samle konstanter
+            decimal a11 = SumOfA1Constants(From);
+            decimal a12 = SumOfA2Constants(From);
+            decimal b1 = SumOfBConstants(From);
+
+
+            decimal y1 = (decimal)ValueFrom;
+            decimal y2 = 0;
+
+            //Jeg kan ikke lige regne ud om b skal med...
+            y2 = (y1 / a11) + b1;
+
+        }
 
 
 
