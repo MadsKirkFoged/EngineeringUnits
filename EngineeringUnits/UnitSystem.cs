@@ -66,11 +66,11 @@ namespace EngineeringUnits
 
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
-            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal a2 = 1 / GetAFactor(right.unitsystem);
             decimal b2 = SumOfBConstants(right.unitsystem);
             decimal y2 = (decimal)right.Value;
 
@@ -81,7 +81,6 @@ namespace EngineeringUnits
             decimal x2 = (y2 - b2) / a2;
 
             decimal x3 = x1 + x2;
-
 
 
             //Sæt tilbage i lefts units
@@ -106,11 +105,11 @@ namespace EngineeringUnits
 
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
-            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal a2 = 1 / GetAFactor(right.unitsystem);
             decimal b2 = SumOfBConstants(right.unitsystem);
             decimal y2 = (decimal)right.Value;
 
@@ -145,11 +144,11 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
-            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal a2 = 1 / GetAFactor(right.unitsystem);
             decimal b2 = SumOfBConstants(right.unitsystem);
             decimal y2 = (decimal)right.Value;
 
@@ -181,7 +180,7 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
@@ -209,11 +208,11 @@ namespace EngineeringUnits
 
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
-            decimal a2 = SumOfAConstants(right.unitsystem);
+            decimal a2 = 1 / GetAFactor(right.unitsystem);
             decimal b2 = SumOfBConstants(right.unitsystem);
             decimal y2 = (decimal)right.Value;
 
@@ -243,7 +242,7 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactor(left.unitsystem);
             decimal b1 = SumOfBConstants(left.unitsystem);
             decimal y1 = (decimal)left.Value;
 
@@ -269,7 +268,7 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(right.unitsystem);
+            decimal a1 = 1 / GetAFactor(right.unitsystem);
             decimal b1 = SumOfBConstants(right.unitsystem);
             decimal y1 = (decimal)right.Value;
 
@@ -295,7 +294,7 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfAConstants(Unit.unitsystem);
+            decimal a1 = SumOfA1Constants(Unit.unitsystem);
             decimal b1 = SumOfBConstants(Unit.unitsystem);
             decimal x1 = (decimal)SIValue;
 
@@ -443,25 +442,31 @@ namespace EngineeringUnits
         {
 
             //Samle konstanter
-            decimal a1 = SumOfAConstants(From);
+            decimal a11 = SumOfA1Constants(From);
+            decimal a12 = SumOfA2Constants(From);
             decimal b1 = SumOfBConstants(From);
 
-            decimal a2 = SumOfAConstants(To);
+            decimal a21 = SumOfA1Constants(To);
+            decimal a22 = SumOfA2Constants(To);
             decimal b2 = SumOfBConstants(To);
 
             decimal y1 = (decimal)ValueFrom;
             decimal y2 = 0;
 
 
+            decimal a1 = a21 / a11;
+            decimal a2 = a22 / a12;
 
+            decimal Afactor = GetAFactor(From, To);
 
-
-            y2 = (a2 / a1) * (y1 - b1) + b2;
+            y2 = (Afactor) * (y1 - b1) + b2;
+            //y2 = (a2 / a1) * (y1 - b1) + b2;
 
 
             return (double)y2;
 
         }
+
 
 
 
@@ -491,7 +496,57 @@ namespace EngineeringUnits
         }
 
 
-        public static decimal SumOfAConstants(UnitSystem unitsystem)
+        public static decimal GetAFactor(UnitSystem left, UnitSystem right)
+        {
+
+
+
+            
+
+
+
+            decimal leftA1 = left.Length.SelectedUnit.A1;
+            decimal leftA2 = left.Length.SelectedUnit.A2;
+            decimal rightA1 = right.Length.SelectedUnit.A1;
+            decimal rightA2 = right.Length.SelectedUnit.A2;
+
+
+            //Gives not 99.999999% of the result
+            decimal test = (leftA1 * leftA2) * (1 / rightA1) * (1 / rightA2);
+
+            //So fare this gives 100%
+            decimal test2 = (leftA1 / rightA1) * (leftA2 / rightA2);
+
+
+            
+
+
+
+            return test2;
+
+        }
+
+        public static decimal GetAFactor(UnitSystem left)
+        {
+
+
+            decimal leftA1 = left.Length.SelectedUnit.A1;
+            decimal leftA2 = left.Length.SelectedUnit.A2;
+
+            //So fare this gives 100%
+            decimal test2 = leftA1 * leftA2 ;
+
+
+
+
+
+
+            return test2;
+
+        }
+
+
+        public static decimal SumOfA1Constants(UnitSystem unitsystem)
         {
             decimal a = 1;
 
@@ -502,7 +557,7 @@ namespace EngineeringUnits
 
                     //a *= item.SelectedUnit.A;
 
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A, item.Count);               
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);               
 
                 }
             }
@@ -512,6 +567,28 @@ namespace EngineeringUnits
 
         }
 
+        public static decimal SumOfA2Constants(UnitSystem unitsystem)
+        {
+            decimal a = 1;
+
+            foreach (var item in unitsystem.UnitList)
+            {
+                if (item.SelectedUnit is object)
+                {
+
+                    //a *= item.SelectedUnit.A;
+
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
+
+                }
+            }
+
+
+            return a;
+
+        }
+
+        
         public static decimal SumOfBConstants(UnitSystem unitsystem)
         {
             decimal b = 0;

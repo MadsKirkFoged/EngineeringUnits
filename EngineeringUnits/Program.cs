@@ -15,6 +15,15 @@ namespace EngineeringUnits
 
 
 
+            Length L1 = new Length(2, LengthUnit.Yard);
+            Length L2 = new Length(2, LengthUnit.Meter);
+
+
+            Length L3 = L1 + L2;
+
+            Debug.WriteLine($"{L1.As(LengthUnit.Meter)}");
+            Debug.WriteLine($"{L1.As(LengthUnit.Centimeter)}");
+
 
 
 
@@ -80,11 +89,11 @@ namespace EngineeringUnits
             //Debug.WriteLine($"{T3}");
 
 
-            Length L1 = new Length(5, LengthUnit.Meter);
-            Length L2 = new Length(1, LengthUnit.Yard);
+            //Length L1 = new Length(5, LengthUnit.Meter);
+            //Length L2 = new Length(1, LengthUnit.Yard);
 
 
-            var L3 = L2 + L1;
+            //var L3 = L2 + L1;
 
 
 

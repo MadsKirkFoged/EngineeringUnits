@@ -26,23 +26,24 @@ namespace EngineeringUnits
 
 
 
-        public static TemperatureUnit Kelvin = new TemperatureUnit("k", 1);
-        public static TemperatureUnit DegreeCelsius = new TemperatureUnit("°C", 1, -273.15m);
-        public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F", 9/5m, (-273.15m*(9/5m))+ 32m);
+        public static TemperatureUnit Kelvin = new TemperatureUnit("k", 1,1,1);
+        public static TemperatureUnit DegreeCelsius = new TemperatureUnit("°C", 1,1, -273.15m);
+        public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F",1, 9/5m, (-273.15m*(9/5m))+ 32m);
 
 
 
         protected TemperatureUnit() { }
+
+        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b)
+    : base(symbol, a1, a2, b)
+        {
+        }
 
         public TemperatureUnit(string symbol, decimal a, decimal b)
             : base(symbol, a, b)
         {
         }
 
-        public TemperatureUnit(string symbol, decimal a)
-    : base(symbol, a)
-        {
-        }
 
         public TemperatureUnit(PreFix SI, BaseUnits baseunit)
 : base(SI, baseunit)

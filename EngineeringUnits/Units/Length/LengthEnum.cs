@@ -23,31 +23,28 @@ namespace EngineeringUnits
         public static LengthUnit Nanometer = new LengthUnit(PreFix.nano, BaseUnits.length);
 
 
-        public static LengthUnit Inch = new LengthUnit("in", 1/(0.3048m / 12));
-        public static LengthUnit Hand = new LengthUnit("hand", 1/(0.3048m / 3));
-        public static LengthUnit Foot = new LengthUnit("ft", 1/0.3048m);
-        public static LengthUnit Yard = new LengthUnit("yd", 1/(0.3048m * 3));
-        public static LengthUnit Chain = new LengthUnit("ch", 1/(0.3048m * 66));
-        public static LengthUnit Mile = new LengthUnit("mi", 1/(0.3048m * 5280m));
-        public static LengthUnit Nauticalmile = new LengthUnit("nmi", 1/(0.3048m * 6076));
+        public static LengthUnit Inch = new LengthUnit("in", 1m, 0.0254m, false);
+        public static LengthUnit Hand = new LengthUnit("hand", 3m, 0.0254m, false);
+        public static LengthUnit Foot = new LengthUnit("ft", 12, 0.0254m, false);
+        public static LengthUnit Yard = new LengthUnit("yd", 36, 0.0254m, false);
+        public static LengthUnit Chain = new LengthUnit("ch", 792, 0.0254m, false);
+        public static LengthUnit Mile = new LengthUnit("mi", 63360, 0.0254m, false);
+        public static LengthUnit Nauticalmile = new LengthUnit("nmi", 72913.3858m, 0.0254m, false);
 
-        public static LengthUnit LightYear = new LengthUnit("ly", 9460730472580800m);
-        public static LengthUnit AstronomicalUnit = new LengthUnit("au", 149597870700m);
-        public static LengthUnit Parsec = new LengthUnit("pc", 30856775814913673m);
+        public static LengthUnit LightYear = new LengthUnit("ly",1, 9460730472580800m, false);
+        public static LengthUnit AstronomicalUnit = new LengthUnit("au",1, 149597870700m, false);
+        public static LengthUnit Parsec = new LengthUnit("pc",1, 30856775814913673m, false);
 
 
 
         protected LengthUnit() { }
 
-        public LengthUnit(string symbol, decimal a, decimal b)
-            : base(symbol, a, b)
+
+        public LengthUnit(string symbol, decimal a1, decimal a2, bool reversed)
+    : base(symbol, a1, a2, reversed)
         {
         }
 
-        public LengthUnit(string symbol, decimal a)
-    : base(symbol, a)
-        {
-        }
 
         public LengthUnit(PreFix SI, BaseUnits baseunit)
 : base(SI, baseunit)

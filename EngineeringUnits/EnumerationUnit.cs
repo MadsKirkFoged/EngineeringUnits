@@ -10,32 +10,68 @@ namespace EngineeringUnits
     {
         public string Name { get; private set; }
         public string Symbol { get; private set; }
-        public decimal A { get; private set; }
+        public decimal A1 { get; private set; }
+        public decimal A2 { get; private set; }
         public decimal B { get; private set; }
+
+        public bool ReversedA { get; private set; }
 
         protected Enumeration()
         {
         }
 
-        protected Enumeration(string symbol, decimal a, decimal b)
+        protected Enumeration(string symbol, decimal a1, decimal a2,  decimal b, bool reversedA)
         {
             Symbol = symbol;
-            A = a;
+            A1 = a1;
+            A2 = a2;
             B = b;
+            ReversedA = reversedA;
         }
 
-        protected Enumeration(string symbol, decimal a)
+        protected Enumeration(string symbol, decimal a1, decimal a2, bool reversedA)
         {
             Symbol = symbol;
-            A = a;
+            A1 = a1;
+            A2 = a2;
             B = 0;
+            ReversedA = reversedA;
+        }
+
+        //protected Enumeration(string symbol, decimal a1, decimal a2, decimal b, bool reversedA)
+        //{
+        //    Symbol = symbol;
+        //    A1 = a1;
+        //    A2 = a2;
+        //    B = b;
+        //    ReversedA = reversedA;
+        //}
+
+        protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
+        {
+            Symbol = symbol;
+            A1 = a1;
+            A2 = a2;
+            B = b;
+            ReversedA = true;
+        }
+
+        protected Enumeration(string symbol, decimal a1, decimal a2)
+        {
+            Symbol = symbol;
+            A1 = a1;
+            A2 = a2;
+            B = 0;
+            ReversedA = true;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            A = PrefixSISize(SI);
+            A1 = PrefixSISize(SI);
+            A2 = 1;
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
+            ReversedA = true;
         }
 
         public override string ToString()
@@ -80,27 +116,27 @@ namespace EngineeringUnits
         public decimal PrefixSISize(PreFix preFix) =>
            preFix switch
            {
-               PreFix.yotta => 1e-24m,
-               PreFix.zetta => 1e-21m,
-               PreFix.exa => 1e-18m,
-               PreFix.peta => 1e-15m,
-               PreFix.tera => 1e-12m,
-               PreFix.giga => 1e-9m,
-               PreFix.mega => 1e-6m,
-               PreFix.kilo => 1e-3m,
-               PreFix.hecto => 1e-2m,
-               PreFix.deka => 1e-1m,
+               PreFix.yotta => 1e+24m,
+               PreFix.zetta => 1e+21m,
+               PreFix.exa => 1e+18m,
+               PreFix.peta => 1e+15m,
+               PreFix.tera => 1e+12m,
+               PreFix.giga => 1e+9m,
+               PreFix.mega => 1e+6m,
+               PreFix.kilo => 1e+3m,
+               PreFix.hecto => 1e+2m,
+               PreFix.deka => 1e+1m,
                PreFix.SI => 1e0m,
-               PreFix.deci => 1e+1m,
-               PreFix.centi => 1e+2m,
-               PreFix.milli => 1e+3m,
-               PreFix.micro => 1e+6m,
-               PreFix.nano => 1e+9m,
-               PreFix.pico => 1e+12m,
-               PreFix.femto => 1e+15m,
-               PreFix.atto => 1e+18m,
-               PreFix.zepto => 1e+21m,
-               PreFix.yocto => 1e+24m,
+               PreFix.deci => 1e-1m,
+               PreFix.centi => 1e-2m,
+               PreFix.milli => 1e-3m,
+               PreFix.micro => 1e-6m,
+               PreFix.nano => 1e-9m,
+               PreFix.pico => 1e-12m,
+               PreFix.femto => 1e-15m,
+               PreFix.atto => 1e-18m,
+               PreFix.zepto => 1e-21m,
+               PreFix.yocto => 1e-24m,
 
                _ => 0
            };

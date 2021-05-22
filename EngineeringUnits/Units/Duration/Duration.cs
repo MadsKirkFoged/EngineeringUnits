@@ -24,18 +24,17 @@ namespace EngineeringUnits
             return new Duration(value, unit);
         }
 
-        //public double As(DurationUnit ReturnInThisUnit)
-        //{
-        //    return UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit) * Value;
-        //}
+        public double As(DurationUnit ReturnInThisUnit)
+        {
 
-        //public void ChangeUnitTo(DurationUnit ReturnInThisUnit)
-        //{
-        //    double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedDurationUnit, ReturnInThisUnit);
-        //    Value *= Vector;
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-        //    unitsystem.SetUnit(ReturnInThisUnit);
-        //}
+            ReturnInThisUnitSystem.Duration.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Duration.Count = 1;
+
+
+            return UnitSystem.Convert(Value, this.unitsystem, ReturnInThisUnitSystem);
+        }
 
 
         //Every units needs this
@@ -54,17 +53,7 @@ namespace EngineeringUnits
             return local;
         }
 
-        //Every units needs this
 
-        //public static UnknownUnit operator *(Duration a, BaseUnit b) => BaseUnit.Multiply(a, b);
-        //public static UnknownUnit operator *(Duration a, double b) => BaseUnit.Multiply(a, b);
-        //public static UnknownUnit operator *(double a, Duration b) => BaseUnit.Multiply(b, a);
-        //public static UnknownUnit operator /(Duration a, BaseUnit b) => BaseUnit.Divide(a, b);
-        //public static UnknownUnit operator /(Duration a, double b) => BaseUnit.Divide(a, b);
-        //public static UnknownUnit operator /(double a, Duration b) => BaseUnit.Divide(a, b);
-        //public static double operator /(Duration a, Duration b) => BaseUnit.DivideResultsInDouble(a, b);
-        //public static Duration operator +(Duration a, Duration b) => BaseUnit.Add(a, b);
-        //public static Duration operator -(Duration a, Duration b) => BaseUnit.Subtract(a, b);
 
     }
 }

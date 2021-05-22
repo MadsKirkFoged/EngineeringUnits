@@ -9,21 +9,44 @@ namespace EngineeringUnits
 {
 
 
-    public enum DurationUnit
-    {
-        [Vector( "ns",1, 1e-9d)] Nanosecond,
-        [Vector("μs",1, 1e-6d)] Microsecond,
-        [Vector("ms",1, 1e-3d)] Millisecond,
-        [Vector("s",1, 1)] Second,
-        [Vector("min",1, 60)] Minute,
-        [Vector("h",1, 3600)] Hour,
-        [Vector("d",1, 24 * 3600)] Day,
-        [Vector("w",1, 7 * 24 * 3600)] Week,
 
+    public class DurationUnit : Enumeration
+    {
+
+
+        public static DurationUnit Nanosecond = new DurationUnit("ns",1, 1e+9m);
+        public static DurationUnit Microsecond = new DurationUnit("ns",1, 1e+6m);
+        public static DurationUnit Millisecond = new DurationUnit("ns", 1, 1e+3m);
+        public static DurationUnit Second = new DurationUnit("ns", 1, 1m);
+        public static DurationUnit Minute = new DurationUnit("ns", 1, 1 /60m);
+        public static DurationUnit Hour = new DurationUnit("ns", 1, 1 /3600m);
+        public static DurationUnit Day = new DurationUnit("ns", 1, 1 /(24*3600m));
+        public static DurationUnit Week = new DurationUnit("ns", 1, 1 /(7*24*3600m));
+
+
+
+
+        protected DurationUnit() { }
+
+
+        public DurationUnit(string symbol, decimal a1, decimal a2)
+    : base(symbol, a1, a2)
+        {
+        }
+
+        public DurationUnit(PreFix SI, BaseUnits baseunit)
+: base(SI, baseunit)
+        {
+        }
+
+
+        public static IEnumerable<DurationUnit> List()
+        {
+            return new[] { Nanosecond , Microsecond , Millisecond , Second , Minute , Hour , Day , Week };
+        }
+        // Other util methods
     }
 
 
-
-    
 
 }

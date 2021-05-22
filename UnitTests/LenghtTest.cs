@@ -57,9 +57,9 @@ namespace UnitTests
 
 
             Assert.AreEqual(1, L1.As(LengthUnit.Mile));
-            Assert.AreEqual(1760, L1.As(LengthUnit.Yard),0.00000001);
-            Assert.AreEqual(5280, L1.As(LengthUnit.Foot), 0.00000001);
-            Assert.AreEqual(63360, L1.As(LengthUnit.Inch), 0.00000001);
+            Assert.AreEqual(1760, L1.As(LengthUnit.Yard));
+            Assert.AreEqual(5280, L1.As(LengthUnit.Foot));
+            Assert.AreEqual(63360, L1.As(LengthUnit.Inch));
         }
 
         [TestMethod]
@@ -74,15 +74,40 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void LengthAdd()
+        public void LengthAddDifferent()
         {
             Length L1 = new Length(3.87, LengthUnit.Inch);
             Length L2 = new Length(2.78, LengthUnit.Meter);
 
             Length L3 = L1 + L2;
+            Length L4 = L2 + L1;
+
 
             Assert.AreEqual(287.8298, L3.As(LengthUnit.Centimeter), 0.0001);
             Assert.AreEqual(113.318819, L3.As(LengthUnit.Inch), 0.00001);
+            Assert.AreEqual(287.8298, L4.As(LengthUnit.Centimeter), 0.0001);
+            Assert.AreEqual(113.318819, L4.As(LengthUnit.Inch), 0.00001);
+
+
+
+        }
+
+        [TestMethod]
+        public void LengthAddToExactNumber()
+        {
+            Length L1 = new Length(1000, LengthUnit.Inch);
+            Length L2 = new Length(10000, LengthUnit.Yard);
+
+            Length L3 = L1 + L2;
+            //Length L4 = L2 + L1;
+            Length L5 = L1 + L1;
+            Length L6 = L2 + L2;
+
+            Assert.AreEqual(361000, L3.As(LengthUnit.Inch));
+            //Assert.AreEqual(361000, L4.As(LengthUnit.Inch));
+            Assert.AreEqual(2000, L5.As(LengthUnit.Inch));
+            Assert.AreEqual(720000, L6.As(LengthUnit.Inch));
+
 
         }
 
