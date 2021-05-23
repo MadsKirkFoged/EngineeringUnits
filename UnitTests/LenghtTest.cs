@@ -121,9 +121,9 @@ namespace UnitTests
 
 
             Assert.AreEqual(287.8298m, L3.As(LengthUnit.Centimeter));
-            Assert.AreEqual(113.318819m, L3.As(LengthUnit.Inch));
+            Assert.AreEqual(113.31881889763779527559055118m, L3.As(LengthUnit.Inch));
             Assert.AreEqual(287.8298m, L4.As(LengthUnit.Centimeter));
-            Assert.AreEqual(113.318819m, L4.As(LengthUnit.Inch));
+            Assert.AreEqual(113.31881889763779527559055118m, L4.As(LengthUnit.Inch));
 
 
 
