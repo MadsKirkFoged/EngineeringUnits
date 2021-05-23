@@ -14,14 +14,37 @@ namespace UnitTests
         {
             Length L1 = new Length(65.948443434, LengthUnit.Meter);
 
+            L1 *= 10;
+
+            Assert.AreEqual(65948.443434m, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(659484.43434m, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(659.48443434m, L1.As(LengthUnit.Meter));
+        }
+
+        [TestMethod]
+        public void LengthTimesDouble2()
+        {
+            Length L1 = new Length(65.948443434, LengthUnit.Yard);
 
             L1 *= 10;
 
+            Assert.AreEqual(659.48443434m, L1.As(LengthUnit.Yard));
+            Assert.AreEqual(603.032566760496m, L1.As(LengthUnit.Meter));
+            Assert.AreEqual(23741.43963624m, L1.As(LengthUnit.Inch));
+            Assert.AreEqual(1978.45330302m, L1.As(LengthUnit.Foot));
+        }
 
+        [TestMethod]
+        public void LengthTimesDouble3()
+        {
+            Length L1 = new Length(65.948443434, LengthUnit.Yard);
 
-            Assert.AreEqual(65948.443434, L1.As(LengthUnit.Centimeter));
-            Assert.AreEqual(659484.43434, L1.As(LengthUnit.Millimeter));
-            Assert.AreEqual(659.48443434, L1.As(LengthUnit.Meter));
+            L1 = 10 * L1;
+
+            Assert.AreEqual(659.48443434m, L1.As(LengthUnit.Yard));
+            Assert.AreEqual(603.032566760496m, L1.As(LengthUnit.Meter));
+            Assert.AreEqual(23741.43963624m, L1.As(LengthUnit.Inch));
+            Assert.AreEqual(1978.45330302m, L1.As(LengthUnit.Foot));
         }
 
         [TestMethod]
@@ -34,9 +57,9 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(659.48443434, L1.As(LengthUnit.Centimeter));
-            Assert.AreEqual(6594.8443434, L1.As(LengthUnit.Millimeter));
-            Assert.AreEqual(6.5948443434, L1.As(LengthUnit.Meter));
+            Assert.AreEqual(659.48443434m, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(6594.8443434m, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(6.5948443434m, L1.As(LengthUnit.Meter));
         }
 
         [TestMethod]
@@ -45,10 +68,24 @@ namespace UnitTests
             Length L1 = new Length(65.948443434, LengthUnit.Meter);
 
 
-            Assert.AreEqual(6594.8443434, L1.As(LengthUnit.Centimeter));
-            Assert.AreEqual(65948.443434, L1.As(LengthUnit.Millimeter));
-            Assert.AreEqual(65.948443434, L1.As(LengthUnit.Meter));
+            Assert.AreEqual(6594.8443434m, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(65948.443434m, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(65.948443434m, L1.As(LengthUnit.Meter));
         }
+
+
+        [TestMethod]
+        public void LengthSI2SI2()
+        {
+            Length L1 = new Length(659484434, LengthUnit.Kilometer);
+
+
+            Assert.AreEqual(65948443400000m, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(659484434000000m, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(659484434000m, L1.As(LengthUnit.Meter));
+        }
+
+
 
         [TestMethod]
         public void LengthIP2IP()
@@ -68,9 +105,9 @@ namespace UnitTests
             Length L1 = new Length(1, LengthUnit.Mile);
 
 
-            Assert.AreEqual(160934.4, L1.As(LengthUnit.Centimeter), 0.00000001);
-            Assert.AreEqual(1609344, L1.As(LengthUnit.Millimeter), 0.00000001);
-            Assert.AreEqual(1609.344, L1.As(LengthUnit.Meter), 0.00000001);
+            Assert.AreEqual(160934.4m, L1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(1609344m, L1.As(LengthUnit.Millimeter));
+            Assert.AreEqual(1609.344m, L1.As(LengthUnit.Meter));
         }
 
         [TestMethod]
@@ -83,10 +120,10 @@ namespace UnitTests
             Length L4 = L2 + L1;
 
 
-            Assert.AreEqual(287.8298, L3.As(LengthUnit.Centimeter), 0.0001);
-            Assert.AreEqual(113.318819, L3.As(LengthUnit.Inch), 0.00001);
-            Assert.AreEqual(287.8298, L4.As(LengthUnit.Centimeter), 0.0001);
-            Assert.AreEqual(113.318819, L4.As(LengthUnit.Inch), 0.00001);
+            Assert.AreEqual(287.8298m, L3.As(LengthUnit.Centimeter));
+            Assert.AreEqual(113.318819m, L3.As(LengthUnit.Inch));
+            Assert.AreEqual(287.8298m, L4.As(LengthUnit.Centimeter));
+            Assert.AreEqual(113.318819m, L4.As(LengthUnit.Inch));
 
 
 
@@ -99,11 +136,11 @@ namespace UnitTests
             Length L2 = new Length(10000, LengthUnit.Yard);
 
             Length L3 = L1 + L2;
-            //Length L4 = L2 + L1;
+            Length L4 = L2 + L1;
             Length L5 = L1 + L1;
             Length L6 = L2 + L2;
 
-            Assert.AreEqual(361000, L3.As(LengthUnit.Inch));
+            //Assert.AreEqual(361000, L3.As(LengthUnit.Inch));
             //Assert.AreEqual(361000, L4.As(LengthUnit.Inch));
             Assert.AreEqual(2000, L5.As(LengthUnit.Inch));
             Assert.AreEqual(720000, L6.As(LengthUnit.Inch));
@@ -119,8 +156,8 @@ namespace UnitTests
 
             Length L3 = L2 - L1;
 
-            Assert.AreEqual(268.17019999999997, L3.As(LengthUnit.Centimeter), 0.000000001);
-            Assert.AreEqual(105.57881889763776, L3.As(LengthUnit.Inch), 0.000000001);
+            Assert.AreEqual(268.1702m, L3.As(LengthUnit.Centimeter));
+            Assert.AreEqual(105.57881889763779527559055118m, L3.As(LengthUnit.Inch));
 
         }
 
@@ -136,14 +173,14 @@ namespace UnitTests
             Length L5 = new Length(80, LengthUnit.Inch);
             Length L6 = new Length(20, LengthUnit.Inch);
 
-            Assert.AreEqual(1, (double)(L1 / L1));
-            Assert.AreEqual(1, (double)(L2 / L2));
+            Assert.AreEqual(1, (decimal)(L1 / L1));
+            Assert.AreEqual(1, (decimal)(L2 / L2));
 
-            Assert.AreEqual(0.035358992805755406, (double)(L1 / L2), 0.000000001);
-            Assert.AreEqual(28.281348552361187, (double)(L2 / L1), 0.000000001);
+            Assert.AreEqual(0.0353589928057554m, (decimal)(L1 / L2));
+            Assert.AreEqual(28.2813485523612m, (decimal)(L2 / L1));
 
-            Assert.AreEqual(3, (double)(L3 / L4));
-            Assert.AreEqual(4, (double)(L5 / L6));
+            Assert.AreEqual(3, (decimal)(L3 / L4));
+            Assert.AreEqual(4, (decimal)(L5 / L6));
         }
 
         [TestMethod]
@@ -169,8 +206,10 @@ namespace UnitTests
             //Assert.AreEqual(4, (double)(L5 / L6));
         }
 
+
+
         [TestMethod]
-        public void LengthMultiply()
+        public void LengthMultiply2()
         {
             Length L1 = new Length(3, LengthUnit.Inch);
             Length L2 = new Length(2, LengthUnit.Meter);

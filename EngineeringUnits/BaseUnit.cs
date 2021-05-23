@@ -8,9 +8,9 @@ namespace EngineeringUnits
     {
         public UnitSystem unitsystem { get; set;}
 
-        public double Value { get; set; }
+        public double Value => As(unitsystem);
 
-        private decimal ValueLocalUnit { get; set; }
+        public decimal ValueLocalUnit { get; set; }
 
         public BaseUnit()
         {
@@ -20,7 +20,18 @@ namespace EngineeringUnits
 
         public double As(UnitSystem a)
         {
-            return UnitSystem.Convert(Value, unitsystem, a);
+
+            if (unitsystem is object)
+            {
+
+                return (double)unitsystem.ToTheOutSide(ValueLocalUnit, a);
+                //return UnitSystem.Convert((double)ValueLocalUnit, unitsystem, a);
+            }
+            else
+            {
+                return 0;
+            }
+
         }
 
         public double As(BaseUnit a)
@@ -29,28 +40,6 @@ namespace EngineeringUnits
         }
 
 
-
-        //public static UnknownUnit Divide(BaseUnit a, double b)
-        //{
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = a.unitsystem.Copy(),
-        //        Value = a.Value / b,
-        //    };
-        //}
-        //public static UnknownUnit Divide(double a, BaseUnit b)
-        //{
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = b.unitsystem.Copy(),
-        //        Value = b.Value / a,
-        //    };
-        //}
-
-
-
-        public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => UnitSystem.Multiply(a, b);
-        public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => UnitSystem.Divide(a, b);
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.unitsystem != right.unitsystem)
@@ -58,8 +47,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '+' on two differnt units!");
             }
 
-  
-            return UnitSystem.Add(left, right);
+            return UnitSystem.DoMath(left, right, MathEnum.Add);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
@@ -69,14 +57,49 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '-' on two differnt units!");
             }
 
-            return UnitSystem.Subtract(left, right);
+            return UnitSystem.DoMath(left, right, MathEnum.Subtract);
+        }
+
+        public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => UnitSystem.DoMath(a, b, MathEnum.Multiply);
+        public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => UnitSystem.DoMath(a, b, MathEnum.Divide);
+
+
+        public static UnknownUnit operator *(BaseUnit a, double b)
+        {
+            UnknownUnit local = new UnknownUnit();
+            local.baseUnit.ValueLocalUnit = (decimal)b;
+
+            return a * local;
+        }
+        
+
+
+
+
+
+        public static UnknownUnit operator /(BaseUnit a, double b)
+        {
+            UnknownUnit local = new UnknownUnit();
+            local.baseUnit.ValueLocalUnit = (decimal)b;
+
+            return a / local;
+
+
+        }
+        
+        public static UnknownUnit operator /(double a, BaseUnit b)
+        {
+            UnknownUnit local = new UnknownUnit();
+            local.baseUnit.ValueLocalUnit = (decimal)a;
+
+            return local / b;
+
+
         }
         
         
-        public static UnknownUnit operator *(BaseUnit a, double b) => UnitSystem.Multiply(a, b);
-        public static UnknownUnit operator /(BaseUnit a, double b) => UnitSystem.Divide(a, b);
-        public static UnknownUnit operator *(double a, BaseUnit b) => UnitSystem.Multiply(b, a);
-        public static UnknownUnit operator /(double a, BaseUnit b) => UnitSystem.Divide(a, b);
+        
+        public static UnknownUnit operator *(double a, BaseUnit b) => b*a;
         
 
         public static bool operator ==(BaseUnit left, BaseUnit right)

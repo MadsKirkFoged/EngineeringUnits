@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public Area(double value, LengthUnit unit) : this()
         {
             unitsystem.Length.SelectedUnit = unit;
-            base.Value = value;
+            //base.Value = value;
         }
 
         public static Area From(double value, LengthUnit unit)
@@ -53,7 +53,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException("Units did not result in Area!");
             }
 
-            local.Value = Unit.baseUnit.Value;
+            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
             local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;

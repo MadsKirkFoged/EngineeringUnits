@@ -47,7 +47,15 @@ namespace EngineeringUnits
             return  Unit.baseUnit.Value;
         }
 
+        public static explicit operator decimal(UnknownUnit Unit)
+        {
+            if (new UnitSystem() != Unit.baseUnit.unitsystem)
+            {
+                throw new InvalidOperationException("Units did not result in Double!");
+            }
 
+            return (decimal)Unit.baseUnit.Value;
+        }
 
         public override string ToString()
         {

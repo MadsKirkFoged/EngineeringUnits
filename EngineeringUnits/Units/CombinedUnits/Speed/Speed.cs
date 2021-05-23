@@ -19,7 +19,7 @@ namespace EngineeringUnits
         {
             //unitsystem.SelectedLengthUnit = a;
             //unitsystem.SelectedDurationUnit = b;
-            base.Value = value;
+            //base.Value = value;
         }
 
         public static Speed From(double value, LengthUnit a, DurationUnit b)
@@ -62,7 +62,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException("Units did not result in Length!");
             }
 
-            local.Value = Unit.baseUnit.Value;
+            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
             local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;

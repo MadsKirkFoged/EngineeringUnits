@@ -20,13 +20,20 @@ namespace EngineeringUnits
 
 
             Length L3 = L1 + L2;
+            Length L4 = L2 + L1;
 
-            Debug.WriteLine($"{L1.As(LengthUnit.Meter)}");
-            Debug.WriteLine($"{L1.As(LengthUnit.Centimeter)}");
-
-
+            Debug.WriteLine($"{L3}");
 
 
+            Debug.WriteLine($"{L4}");
+            Debug.WriteLine($"{L3.As(LengthUnit.Meter)}");
+            Debug.WriteLine($"{L3.As(LengthUnit.Centimeter)}");
+            Debug.WriteLine($"{L4.As(LengthUnit.Meter)}");
+            Debug.WriteLine($"{L4.As(LengthUnit.Centimeter)}");
+
+
+
+            Debug.WriteLine($".....");
 
 
 

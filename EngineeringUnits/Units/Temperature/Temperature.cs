@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public Temperature(double value, TemperatureUnit unit) :this()
         {
             unitsystem.SetUnit(unit);
-            base.Value = value;
+            //base.Value = value;
         }
 
         public static Temperature From(double value, TemperatureUnit unit)
@@ -78,7 +78,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException("Units did not result in Length!");
             }
 
-            local.Value = Unit.baseUnit.Value;
+            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
             local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;

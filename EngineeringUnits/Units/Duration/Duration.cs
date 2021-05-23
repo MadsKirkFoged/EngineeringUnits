@@ -16,7 +16,7 @@ namespace EngineeringUnits
         public Duration(double value, DurationUnit? unit) : this()
         {
             //unitsystem.SetUnit(unit);
-            base.Value = value;
+            //base.Value = value;
         }
 
         public static Duration From(double value, DurationUnit unit)
@@ -47,7 +47,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException("Units did not result in Duration!");
             }
 
-            local.Value = Unit.baseUnit.Value;
+            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
             local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;
