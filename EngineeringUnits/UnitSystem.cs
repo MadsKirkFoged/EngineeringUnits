@@ -528,18 +528,21 @@ namespace EngineeringUnits
         public decimal ToTheOutSide(decimal ValueFrom, UnitSystem To)
         {
 
+            
+            
+
             //Samle konstanter
             decimal leftA1 = 1;
-            decimal leftA2 = this.Length.SelectedUnit.A2;
-            decimal rightA1 = To.Length.SelectedUnit.A1;
-            decimal rightA2 = To.Length.SelectedUnit.A2;
+            decimal leftA2 = SumOfA2Constants(this);
+            decimal rightA1 = SumOfA1Constants(To);
+            decimal rightA2 = SumOfA2Constants(To);
 
 
             decimal b1 = SumOfBConstants(this);
             decimal b2 = SumOfBConstants(To);
 
             decimal y1 = ValueFrom;
-            decimal y2 = y1 - b1;
+            decimal y2 = y1;
 
 
 
@@ -680,11 +683,7 @@ namespace EngineeringUnits
             {
                 if (item.SelectedUnit is object)
                 {
-
-                    //a *= item.SelectedUnit.A;
-
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);               
-
                 }
             }
 
@@ -701,11 +700,7 @@ namespace EngineeringUnits
             {
                 if (item.SelectedUnit is object)
                 {
-
-                    //a *= item.SelectedUnit.A;
-
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
-
                 }
             }
 

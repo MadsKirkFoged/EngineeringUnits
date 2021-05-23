@@ -12,6 +12,12 @@ namespace EngineeringUnits
 
             //Begynd at lave speed som den første sammensatte unit
 
+            Temperature T1 = new Temperature(10, TemperatureUnit.Kelvin);
+
+            //Debug.WriteLine($"{T1.As(TemperatureUnit.Kelvin)} = 20");
+            //Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeCelsius)} = -253.15");
+            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} = -441,67");
+
 
 
 
@@ -59,7 +65,7 @@ namespace EngineeringUnits
             //Her bliver vi vist nød til at regne om i SI før vi gør det
 
 
-            Temperature T1 = new Temperature(0, TemperatureUnit.Kelvin);
+            //Temperature T1 = new Temperature(0, TemperatureUnit.Kelvin);
 
 
 
