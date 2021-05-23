@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace UnitTests
 {
@@ -16,8 +17,8 @@ namespace UnitTests
 
             T1 /= 10;
 
-            Assert.AreEqual(-243.835, T1.As(TemperatureUnit.DegreeCelsius));
-            Assert.AreEqual(29.315, T1.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(-243.835m, T1.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(29.315m, T1.As(TemperatureUnit.Kelvin));
 
         }
 
@@ -30,8 +31,8 @@ namespace UnitTests
 
             T1 *= 10;
 
-            Assert.AreEqual(2658.35, T1.As(TemperatureUnit.DegreeCelsius));
-            Assert.AreEqual(2931.5, T1.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(2658.35m, T1.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(2931.5m, T1.As(TemperatureUnit.Kelvin));
 
         }
 
@@ -68,10 +69,11 @@ namespace UnitTests
         {
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
 
+            Debug.Print($"{T1}");
 
             Assert.AreEqual(293.15m, T1.As(TemperatureUnit.Kelvin));
             Assert.AreEqual(20m, T1.As(TemperatureUnit.DegreeCelsius));
-            Assert.AreEqual(68m, T1.As(TemperatureUnit.DegreeFahrenheit));
+            Assert.AreEqual(68d, (double)T1.As(TemperatureUnit.DegreeFahrenheit), 0.000001);
         }
 
 
@@ -81,8 +83,8 @@ namespace UnitTests
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeFahrenheit);
 
 
-            Assert.AreEqual(266.48333333333335m, T1.As(TemperatureUnit.Kelvin));
-            Assert.AreEqual(-6.666667m, T1.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(266.48333333333335d, (double)T1.As(TemperatureUnit.Kelvin), 0.0000001);
+            Assert.AreEqual(-6.666667d, (double)T1.As(TemperatureUnit.DegreeCelsius),0.00001);
             Assert.AreEqual(20m, T1.As(TemperatureUnit.DegreeFahrenheit));
         }
 

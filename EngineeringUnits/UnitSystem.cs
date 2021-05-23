@@ -77,8 +77,8 @@ namespace EngineeringUnits
 
 
             //Turn to SI
-            decimal x1 = (y1 - b1) / a1;
-            decimal x2 = (y2 - b2) / a2;
+            decimal x1 = (y1) / a1;
+            decimal x2 = (y2) / a2;
 
             //Do math in SI
             decimal x3 = 0;
@@ -90,26 +90,26 @@ namespace EngineeringUnits
                 case MathEnum.Add:
                     x3 = x1 + x2;
                     local.unitsystem = UnitSystem.Add(left.unitsystem, right.unitsystem);
-                    local.ValueLocalUnit = a1 * x3 + b1;
+                    local.ValueLocalUnit = a1 * x3;
                     break;
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
                     local.unitsystem = UnitSystem.Subtract(left.unitsystem, right.unitsystem);
-                    local.ValueLocalUnit = a1 * x3 + b1;
+                    local.ValueLocalUnit = a1 * x3;
                     break;
                 case MathEnum.Multiply:
                     x3 = x1 * x2;
                     local.unitsystem = UnitSystem.Multiply(left.unitsystem, right.unitsystem);
                     a1 = 1 / GetAFactorGlobal(local.unitsystem);
                     b1 = SumOfBConstants(local.unitsystem);
-                    local.ValueLocalUnit = (x3 * a1 + b1);
+                    local.ValueLocalUnit = (x3 * a1);
                     break;
                 case MathEnum.Divide:
                     x3 = x1 / x2;
                     local.unitsystem = UnitSystem.Divide(left.unitsystem, right.unitsystem);
                     a1 = 1 / GetAFactorGlobal(local.unitsystem);
                     b1 = SumOfBConstants(local.unitsystem);
-                    local.ValueLocalUnit = (x3 * a1 + b1);
+                    local.ValueLocalUnit = (x3 * a1);
                     break;
                 default:
                     break;
@@ -557,10 +557,10 @@ namespace EngineeringUnits
                 y2 /= (rightA2 / leftA2);            
             else            
                 y2 *= (leftA2 / rightA2);
-            
 
 
-            y2 += b2;
+
+            y2 = y2 + b2; // + b1;
 
             return y2;
 
@@ -572,15 +572,14 @@ namespace EngineeringUnits
 
             //Samle konstanter
             decimal a11 = SumOfA1Constants(From);
-            decimal a12 = SumOfA2Constants(From);
             decimal b1 = SumOfBConstants(From);
 
 
             decimal y1 = (decimal)ValueFrom;
 
 
-            //Jeg kan ikke lige regne ud om b skal med...
-            decimal y2 = (y1 * a11) + b1;
+            decimal y2 = y1 - b1;
+            y2 *= a11;
 
             return y2;
 

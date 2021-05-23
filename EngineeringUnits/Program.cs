@@ -12,13 +12,24 @@ namespace EngineeringUnits
 
             //Begynd at lave speed som den første sammensatte unit
 
-            Temperature T1 = new Temperature(10, TemperatureUnit.Kelvin);
+            //Temperature T1 = new Temperature(10, TemperatureUnit.Kelvin);
 
-            //Debug.WriteLine($"{T1.As(TemperatureUnit.Kelvin)} = 20");
-            //Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeCelsius)} = -253.15");
-            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} = -441,67");
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
+            Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
 
+            //Debug.Print($"{T1}");
+            Debug.WriteLine($"{T1.As(TemperatureUnit.Kelvin)} = 293,15");
+            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeCelsius)} = 20");
+            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} = 68");
 
+            Debug.WriteLine($"{T2.As(TemperatureUnit.Kelvin)} = 293,15");
+            Debug.WriteLine($"{T2.As(TemperatureUnit.DegreeCelsius)} = 20");
+            Debug.WriteLine($"{T2.As(TemperatureUnit.DegreeFahrenheit)} = 68");
+
+            Debug.WriteLine($"{T3.As(TemperatureUnit.Kelvin)} = 293,15");
+            Debug.WriteLine($"{T3.As(TemperatureUnit.DegreeCelsius)} = 20");
+            Debug.WriteLine($"{T3.As(TemperatureUnit.DegreeFahrenheit)} = 68");
 
 
             Length L1 = new Length(2, LengthUnit.Yard);
@@ -69,7 +80,7 @@ namespace EngineeringUnits
 
 
 
-            Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} == -459.67");
+            //Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeFahrenheit)} == -459.67");
 
 
 
@@ -79,18 +90,18 @@ namespace EngineeringUnits
 
 
 
-            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            //Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
 
 
 
 
 
-            var T3 = T1 + T2;
+           // var T3 = T1 + T2;
 
 
-            Debug.WriteLine($"{T1}");
-            Debug.WriteLine($"{T2}");
-            Debug.WriteLine($"{T3}");
+            //Debug.WriteLine($"{T1}");
+            //Debug.WriteLine($"{T2}");
+            //Debug.WriteLine($"{T3}");
 
             //T1.PermanentChangeUnitTo(TemperatureUnit.DegreeCelsius);
             //T2.PermanentChangeUnitTo(TemperatureUnit.DegreeFahrenheit);
