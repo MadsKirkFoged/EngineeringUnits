@@ -42,14 +42,8 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
-            //Debug.Print($"{unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem)}");
-            //Debug.Print($"{(double)unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem)}");
-
-            //double test = (double)unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem);
-
             return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
 
-            //return UnitSystem.Convert(Value, this.unitsystem, ReturnInThisUnitSystem);
         }
 
 
@@ -72,8 +66,6 @@ namespace EngineeringUnits
             }
 
             local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-
-            //local.Value = Unit.baseUnit.Value;
             local.unitsystem = Unit.baseUnit.unitsystem;
 
             return local;

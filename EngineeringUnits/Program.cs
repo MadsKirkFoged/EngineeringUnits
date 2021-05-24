@@ -16,13 +16,13 @@ namespace EngineeringUnits
 
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
             Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+            Temperature T3 = new Temperature(0, TemperatureUnit.DegreeFahrenheit);
 
 
 
 
             //Debug.WriteLine($"{T1}");
-            Debug.WriteLine($"{T1} + {T2} = {T1 + T2}");
+            Debug.WriteLine($"{T3} * {T3} = {T3 * T3}");
             //Debug.WriteLine($"{T2}");
             //Debug.WriteLine($"{T3}");
 

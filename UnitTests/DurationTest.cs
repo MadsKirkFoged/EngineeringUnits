@@ -10,14 +10,14 @@ namespace UnitTests
     public class DurationTest
     {
         [TestMethod]
-        public void LengthSI2SI()
+        public void DurationConverts()
         {
             Duration L1 = new Duration(3600, DurationUnit.Second);
 
 
-            Assert.AreEqual(0.041666666666666664, L1.As(DurationUnit.Day), 0000000000.1);
-            Assert.AreEqual(1, L1.As(DurationUnit.Hour),0000000000.1);
-            Assert.AreEqual(3599999999999.9995, L1.As(DurationUnit.Nanosecond), 0000000000.1);
+            Assert.AreEqual(0.041666666666666664d, (double)L1.As(DurationUnit.Day), 0000000000.1);
+            Assert.AreEqual(1d, (double)L1.As(DurationUnit.Hour),0000000000.1);
+            Assert.AreEqual(3599999999999.9995d, (double)L1.As(DurationUnit.Nanosecond), 0000000000.1);
         }
 
        

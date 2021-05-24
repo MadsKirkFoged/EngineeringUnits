@@ -13,6 +13,10 @@ namespace EngineeringUnits
         public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
         public UnitSystem unitsystem => baseUnit.unitsystem;
 
+        public decimal ValueLocalUnit => baseUnit.ValueLocalUnit;
+
+        
+
         public UnknownUnit()
         {
             baseUnit = new BaseUnit();

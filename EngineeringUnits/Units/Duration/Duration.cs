@@ -13,10 +13,16 @@ namespace EngineeringUnits
         }
 
 
-        public Duration(double value, DurationUnit? unit) : this()
+        public Duration(double value, DurationUnit unit) : this()
         {
-            //unitsystem.SetUnit(unit);
-            //base.Value = value;
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+
+            ReturnInThisUnitSystem.Duration.SelectedUnit = unit;
+            ReturnInThisUnitSystem.Duration.Count = 1;
+
+            //Convert to 'local' unit
+            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            unitsystem = ReturnInThisUnitSystem;
         }
 
         public static Duration From(double value, DurationUnit unit)
@@ -24,7 +30,7 @@ namespace EngineeringUnits
             return new Duration(value, unit);
         }
 
-        public double As(DurationUnit ReturnInThisUnit)
+        public decimal As(DurationUnit ReturnInThisUnit)
         {
 
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
@@ -32,8 +38,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Duration.Count = 1;
 
-
-            return UnitSystem.Convert(Value, this.unitsystem, ReturnInThisUnitSystem);
+            return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
 

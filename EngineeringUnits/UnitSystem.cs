@@ -682,7 +682,8 @@ namespace EngineeringUnits
             {
                 if (item.SelectedUnit is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);               
+                    //a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
                 }
             }
 
