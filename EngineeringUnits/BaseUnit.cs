@@ -19,6 +19,11 @@ namespace EngineeringUnits
             Unit = new UnitSystem();
         }
 
+        public BaseUnit(decimal valueLocalUnit) :this()
+        {
+            ValueLocalUnit = valueLocalUnit;
+        }
+
 
         public double As(UnitSystem a)
         {
@@ -75,8 +80,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator *(BaseUnit a, double b)
         {
-            UnknownUnit local = new UnknownUnit();
-            local.baseUnit.ValueLocalUnit = (decimal)b;
+            UnknownUnit local = new UnknownUnit((decimal)b);
 
             return a * local;
         }
@@ -88,22 +92,16 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator /(BaseUnit a, double b)
         {
-            UnknownUnit local = new UnknownUnit();
-            local.baseUnit.ValueLocalUnit = (decimal)b;
+            UnknownUnit local = new UnknownUnit((decimal)b);
 
             return a / local;
-
-
         }
         
         public static UnknownUnit operator /(double a, BaseUnit b)
         {
-            UnknownUnit local = new UnknownUnit();
-            local.baseUnit.ValueLocalUnit = (decimal)a;
+            UnknownUnit local = new UnknownUnit((decimal)a);
 
             return local / b;
-
-
         }
         
         
