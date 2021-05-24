@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
 
 
-            //Kan den selv regne navnet ud på en unit?
+            //Kan vi gøre LocalValue ikke-public?
 
 
 
