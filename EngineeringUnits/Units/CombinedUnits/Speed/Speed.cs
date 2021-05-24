@@ -10,8 +10,8 @@ namespace EngineeringUnits
 
         public Speed()
         {
-            unitsystem.Length.Count = 1;
-            unitsystem.Duration.Count = -1;
+            Unit.Length.Count = 1;
+            Unit.Duration.Count = -1;
         }
 
 
@@ -27,7 +27,7 @@ namespace EngineeringUnits
 
             //Convert to 'local' unit
             ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            unitsystem = ReturnInThisUnitSystem;
+            Unit = ReturnInThisUnitSystem;
         }
 
         public static Speed From(double value, LengthUnit a, DurationUnit b)
@@ -46,7 +46,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
             ReturnInThisUnitSystem.Duration.Count = -1;
 
-            return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
         //public void ChangeUnitTo(LengthUnit a, DurationUnit b)
@@ -69,13 +69,13 @@ namespace EngineeringUnits
         {
             Speed local = new Speed();
 
-            if (local.unitsystem != Unit.baseUnit.unitsystem)
+            if (local.Unit != Unit.baseUnit.Unit)
             {
                 throw new InvalidOperationException("Units did not result in Length!");
             }
 
             local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.unitsystem = Unit.baseUnit.unitsystem;
+            local.Unit = Unit.baseUnit.Unit;
 
             return local;
         }

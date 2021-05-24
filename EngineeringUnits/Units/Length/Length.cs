@@ -11,63 +11,32 @@ namespace EngineeringUnits
 
         public Length()
         {
-            unitsystem.Length.Count = 1;
+            Unit.Length.Count = 1;
+            Name = "Length";
         }
 
 
         public Length(double value, LengthUnit unit) :this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Length.SelectedUnit = unit;
-            ReturnInThisUnitSystem.Length.Count = 1;
-
-
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            unitsystem = ReturnInThisUnitSystem;
-
+            Unit.Length.SelectedUnit = unit;
+            ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
         }
 
-        public static Length From(double value, LengthUnit unit)
-        {
-            return new Length(value, unit);
-        }
 
         public decimal As(LengthUnit ReturnInThisUnit)
         {
-
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
             ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
-            return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
-
+            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem);
         }
 
-
-        public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
-        {
-
-            //Value = As(ReturnInThisUnit);
-            unitsystem.Length.SelectedUnit = ReturnInThisUnit;
-        }
-
-
-        //Every units needs this
         public static implicit operator Length(UnknownUnit Unit)
         {
-            Length local = new Length();
+            Length local = new Length(0, LengthUnit.SI);
 
-            if (local.unitsystem != Unit.baseUnit.unitsystem)
-            {
-                throw new InvalidOperationException("Units did not result in Length!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.unitsystem = Unit.baseUnit.unitsystem;
-
+            local.Transform(Unit);
             return local;
         }
 

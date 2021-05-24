@@ -20,6 +20,8 @@ namespace EngineeringUnits
         }
 
 
+
+
         public static bool operator ==(BaseUnitClass a, BaseUnitClass b)
         {
             //return a.BaseUnitType == b.BaseUnitType &&
@@ -33,6 +35,8 @@ namespace EngineeringUnits
         {
             return !(a == b);
         }
+
+        
 
     }
 }

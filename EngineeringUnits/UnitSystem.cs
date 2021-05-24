@@ -67,12 +67,12 @@ namespace EngineeringUnits
             BaseUnit local = new BaseUnit();
 
             //Get constants
-            decimal a1 = 1 / GetAFactorGlobal(left.unitsystem);
-            decimal b1 = SumOfBConstants(left.unitsystem);
+            decimal a1 = 1 / GetAFactorGlobal(left.Unit);
+            decimal b1 = SumOfBConstants(left.Unit);
             decimal y1 = (decimal)left.ValueLocalUnit;
 
-            decimal a2 = 1 / GetAFactorGlobal(right.unitsystem);
-            decimal b2 = SumOfBConstants(right.unitsystem);
+            decimal a2 = 1 / GetAFactorGlobal(right.Unit);
+            decimal b2 = SumOfBConstants(right.Unit);
             decimal y2 = (decimal)right.ValueLocalUnit;
 
 
@@ -89,26 +89,26 @@ namespace EngineeringUnits
             {
                 case MathEnum.Add:
                     x3 = x1 + x2;
-                    local.unitsystem = UnitSystem.Add(left.unitsystem, right.unitsystem);
+                    local.Unit = UnitSystem.Add(left.Unit, right.Unit);
                     local.ValueLocalUnit = a1 * x3;
                     break;
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
-                    local.unitsystem = UnitSystem.Subtract(left.unitsystem, right.unitsystem);
+                    local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
                     local.ValueLocalUnit = a1 * x3;
                     break;
                 case MathEnum.Multiply:
                     x3 = x1 * x2;
-                    local.unitsystem = UnitSystem.Multiply(left.unitsystem, right.unitsystem);
-                    a1 = 1 / GetAFactorGlobal(local.unitsystem);
-                    b1 = SumOfBConstants(local.unitsystem);
+                    local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
+                    a1 = 1 / GetAFactorGlobal(local.Unit);
+                    b1 = SumOfBConstants(local.Unit);
                     local.ValueLocalUnit = (x3 * a1);
                     break;
                 case MathEnum.Divide:
                     x3 = x1 / x2;
-                    local.unitsystem = UnitSystem.Divide(left.unitsystem, right.unitsystem);
-                    a1 = 1 / GetAFactorGlobal(local.unitsystem);
-                    b1 = SumOfBConstants(local.unitsystem);
+                    local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
+                    a1 = 1 / GetAFactorGlobal(local.Unit);
+                    b1 = SumOfBConstants(local.Unit);
                     local.ValueLocalUnit = (x3 * a1);
                     break;
                 default:
@@ -352,8 +352,8 @@ namespace EngineeringUnits
         {
             //Samle konstanter
 
-            decimal a1 = SumOfA1Constants(Unit.unitsystem);
-            decimal b1 = SumOfBConstants(Unit.unitsystem);
+            decimal a1 = SumOfA1Constants(Unit.Unit);
+            decimal b1 = SumOfBConstants(Unit.Unit);
             decimal x1 = (decimal)SIValue;
 
 
@@ -562,7 +562,7 @@ namespace EngineeringUnits
 
             y2 = y2 + b2; // + b1;
 
-            return y2;
+            return y2 / 1.000000000000000000000000000000000m;
 
         }
 
@@ -577,6 +577,22 @@ namespace EngineeringUnits
 
             decimal y1 = (decimal)ValueFrom;
 
+
+            decimal y2 = y1 - b1;
+            y2 *= a11;
+
+            return y2;
+
+        }
+
+        public decimal ReturnLocalValue(decimal ValueFrom)
+        {
+
+            //Samle konstanter
+            decimal a11 = SumOfA1Constants(this);
+            decimal b1 = SumOfBConstants(this);
+
+            decimal y1 = ValueFrom;
 
             decimal y2 = y1 - b1;
             y2 *= a11;
@@ -774,7 +790,12 @@ namespace EngineeringUnits
 
                 if (unit is object && unit.Count > 0)
                 {
-                    local += unit.SelectedUnit.Symbol;
+
+                    if (unit.SelectedUnit is object)                    
+                        local += unit.SelectedUnit.Symbol;
+                    
+
+
 
                     if (unit.Count > 1)
                         local += $"{ToSuperScript(unit.Count)}";

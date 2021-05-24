@@ -9,7 +9,7 @@ namespace EngineeringUnits
 
         public Area()
         {
-            unitsystem.Length.Count = 2;
+            Unit.Length.Count = 2;
         }
 
         public Area(double value, LengthUnit SquaredlengthUnit) : this()
@@ -21,7 +21,7 @@ namespace EngineeringUnits
 
             //Convert to 'local' unit
             ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            unitsystem = ReturnInThisUnitSystem;
+            Unit = ReturnInThisUnitSystem;
         }
 
         public static Area From(double value, LengthUnit unit)
@@ -36,7 +36,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Length.SelectedUnit = SquaredlengthUnit;
             ReturnInThisUnitSystem.Length.Count = 2;
 
-            return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
         //public void ChangeUnitTo(LengthUnit ReturnInThisUnit)
@@ -53,13 +53,13 @@ namespace EngineeringUnits
         {
             Area local = new Area();
 
-            if (local.unitsystem != Unit.baseUnit.unitsystem)
+            if (local.Unit != Unit.baseUnit.Unit)
             {
                 throw new InvalidOperationException("Units did not result in Area!");
             }
 
             local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.unitsystem = Unit.baseUnit.unitsystem;
+            local.Unit = Unit.baseUnit.Unit;
 
             return local;
         }

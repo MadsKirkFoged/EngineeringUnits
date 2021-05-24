@@ -168,7 +168,6 @@ namespace EngineeringUnits
                _ => ""
            };
 
-
         public string BaseUnitSISymbol(BaseUnits baseUnits) =>
            baseUnits switch
            {
@@ -181,5 +180,7 @@ namespace EngineeringUnits
                BaseUnits.luminousIntensity => "cd",
                _ => "",
            };
+    
+   
     }
 }

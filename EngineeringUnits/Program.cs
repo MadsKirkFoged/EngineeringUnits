@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
 
 
-            //Begynd at lave speed som den første sammensatte unit
+            //Kan den selv regne navnet ud på en unit?
 
 
 
@@ -21,7 +21,7 @@ namespace EngineeringUnits
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");
 
-            Area A1 = L1 * L2;
+            Length A1 = L1 * L2;
 
             Debug.WriteLine($"{A1}");
             Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");

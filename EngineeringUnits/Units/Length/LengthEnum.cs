@@ -17,6 +17,7 @@ namespace EngineeringUnits
 
         public static LengthUnit Kilometer = new LengthUnit(PreFix.kilo, BaseUnits.length);
         public static LengthUnit Meter = new LengthUnit(PreFix.SI, BaseUnits.length);
+        public static LengthUnit SI = new LengthUnit(PreFix.SI, BaseUnits.length);
         public static LengthUnit Decimeter = new LengthUnit(PreFix.deci, BaseUnits.length);
         public static LengthUnit Centimeter = new LengthUnit(PreFix.centi, BaseUnits.length);
         public static LengthUnit Millimeter = new LengthUnit(PreFix.milli, BaseUnits.length);

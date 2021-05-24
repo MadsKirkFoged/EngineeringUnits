@@ -6,26 +6,26 @@ namespace EngineeringUnits
 {
     public class BaseUnit
     {
-        public UnitSystem unitsystem { get; set;}
 
-        public double Value => As(unitsystem);
+        public string Name { get; set; }
+        public UnitSystem Unit { get; set;}
+
+        public double Value => As(Unit);
 
         public decimal ValueLocalUnit { get; set; }
 
         public BaseUnit()
         {
-            unitsystem = new UnitSystem();
+            Unit = new UnitSystem();
         }
 
 
         public double As(UnitSystem a)
         {
 
-            if (unitsystem is object)
+            if (Unit is object)
             {
-
-                return (double)unitsystem.ToTheOutSide(ValueLocalUnit, a);
-                //return UnitSystem.Convert((double)ValueLocalUnit, unitsystem, a);
+                return (double)Unit.ToTheOutSide(ValueLocalUnit, a);
             }
             else
             {
@@ -34,15 +34,24 @@ namespace EngineeringUnits
 
         }
 
-        public double As(BaseUnit a)
+        public double As(BaseUnit a) => As(a.Unit);
+
+        public void Transform(UnknownUnit a)
         {
-            return UnitSystem.Convert(Value, unitsystem, a.unitsystem);
+
+            if (a.unitsystem != Unit)
+            {
+                throw new InvalidOperationException($"This is NOT a {Name} [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+            }
+            
+            Unit = a.unitsystem;
+            ValueLocalUnit = a.baseUnit.ValueLocalUnit;
         }
 
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '+' on two differnt units!");
             }
@@ -52,7 +61,7 @@ namespace EngineeringUnits
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
 
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '-' on two differnt units!");
             }
@@ -104,7 +113,7 @@ namespace EngineeringUnits
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '==' on two differnt units!");
             }
@@ -113,7 +122,7 @@ namespace EngineeringUnits
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '!=' on two differnt units!");
             }
@@ -123,7 +132,7 @@ namespace EngineeringUnits
 
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '<=' on two differnt units!");
             }
@@ -132,7 +141,7 @@ namespace EngineeringUnits
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '>=' on two differnt units!");
             }
@@ -141,7 +150,7 @@ namespace EngineeringUnits
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '<' on two differnt units!");
             }
@@ -150,7 +159,7 @@ namespace EngineeringUnits
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
-            if (left.unitsystem != right.unitsystem)
+            if (left.Unit != right.Unit)
             {
                 throw new InvalidOperationException($"Cant do '>' on two differnt units!");
             }
@@ -167,10 +176,10 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            return $"{Value} {unitsystem}";
+            return $"{Value} {Unit}";
         }
 
-
+        
 
     }
 }

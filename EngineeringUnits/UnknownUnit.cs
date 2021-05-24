@@ -11,7 +11,7 @@ namespace EngineeringUnits
         public double Value => baseUnit.Value;
 
         public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
-        public UnitSystem unitsystem => baseUnit.unitsystem;
+        public UnitSystem unitsystem => baseUnit.Unit;
 
         public decimal ValueLocalUnit => baseUnit.ValueLocalUnit;
 
@@ -43,7 +43,7 @@ namespace EngineeringUnits
 
         public static explicit operator double(UnknownUnit Unit)
         {
-            if (new UnitSystem() != Unit.baseUnit.unitsystem)
+            if (new UnitSystem() != Unit.baseUnit.Unit)
             {
                 throw new InvalidOperationException("Units did not result in Double!");
             }
@@ -53,7 +53,7 @@ namespace EngineeringUnits
 
         public static explicit operator decimal(UnknownUnit Unit)
         {
-            if (new UnitSystem() != Unit.baseUnit.unitsystem)
+            if (new UnitSystem() != Unit.baseUnit.Unit)
             {
                 throw new InvalidOperationException("Units did not result in Double!");
             }
