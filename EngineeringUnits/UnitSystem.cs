@@ -533,9 +533,9 @@ namespace EngineeringUnits
 
             //Samle konstanter
             decimal leftA1 = 1;
-            decimal leftA2 = SumOfA2Constants(this);
-            decimal rightA1 = SumOfA1Constants(To);
-            decimal rightA2 = SumOfA2Constants(To);
+            decimal leftA2 = SumOfA2ConstantsWithPow(this);
+            decimal rightA1 = SumOfA1ConstantsWithPow(To);
+            decimal rightA2 = SumOfA2ConstantsWithPow(To);
 
 
             decimal b1 = SumOfBConstants(this);
@@ -684,6 +684,41 @@ namespace EngineeringUnits
                 {
                     //a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
+                }
+            }
+
+
+            return a;
+
+        }
+
+        public static decimal SumOfA1ConstantsWithPow(UnitSystem unitsystem)
+        {
+            decimal a = 1;
+
+            foreach (var item in unitsystem.UnitList)
+            {
+                if (item.SelectedUnit is object)
+                {
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
+                    //a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
+                }
+            }
+
+
+            return a;
+
+        }
+
+        public static decimal SumOfA2ConstantsWithPow(UnitSystem unitsystem)
+        {
+            decimal a = 1;
+
+            foreach (var item in unitsystem.UnitList)
+            {
+                if (item.SelectedUnit is object)
+                {
+                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
                 }
             }
 

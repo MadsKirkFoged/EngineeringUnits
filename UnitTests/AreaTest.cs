@@ -10,16 +10,17 @@ namespace UnitTests
         [TestMethod]
         public void AreaSimple()
         {
-            //Length L1 = new Length(10, LengthUnit.Meter);
-            //Length L2 = new Length(10, LengthUnit.Meter);
+            Length L1 = new Length(1, LengthUnit.Meter);
+            Length L2 = new Length(1, LengthUnit.Meter);
 
-            //Area A1 = L1 * L2;
+            Debug.WriteLine($"{L1}");
+            Debug.WriteLine($"{L2}");
 
+            Area A1 = L1 * L2;
 
-
-            //Assert.AreEqual(1000000, A1.As(LengthUnit.Centimeter));
-            //Assert.AreEqual(100, A1.As(LengthUnit.Meter));
-            //Assert.AreEqual(119.599004630108, A1.As(LengthUnit.Yard),0.000000001);
+            Assert.AreEqual(1, A1.As(LengthUnit.Meter));
+            Assert.AreEqual(10000, A1.As(LengthUnit.Centimeter));
+            Assert.AreEqual(1.195990046301080256481500558m, A1.As(LengthUnit.Yard));
         }
 
 

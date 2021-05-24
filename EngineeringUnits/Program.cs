@@ -12,6 +12,25 @@ namespace EngineeringUnits
 
             //Begynd at lave speed som den første sammensatte unit
 
+
+
+
+            Length L1 = new Length(1, LengthUnit.Meter);
+            Length L2 = new Length(1, LengthUnit.Meter);
+
+            Debug.WriteLine($"{L1}");
+            Debug.WriteLine($"{L2}");
+
+            Area A1 = L1 * L2;
+
+            Debug.WriteLine($"{A1}");
+            Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");
+            Debug.WriteLine($"{A1.As(LengthUnit.Centimeter)}");
+
+
+
+
+
             //Temperature T1 = new Temperature(10, TemperatureUnit.Kelvin);
 
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
@@ -47,8 +66,8 @@ namespace EngineeringUnits
             Debug.WriteLine($"{T3.As(TemperatureUnit.DegreeFahrenheit)} = 68");
 
 
-            Length L1 = new Length(2, LengthUnit.Yard);
-            Length L2 = new Length(2, LengthUnit.Meter);
+            //Length L1 = new Length(2, LengthUnit.Yard);
+            //Length L2 = new Length(2, LengthUnit.Meter);
 
 
             Length L3 = L1 + L2;

@@ -15,11 +15,19 @@ namespace EngineeringUnits
         }
 
 
-        public Speed(double value, LengthUnit a, DurationUnit? b) : this()
+        public Speed(double value, LengthUnit lengthUnit, DurationUnit durationUnit) : this()
         {
-            //unitsystem.SelectedLengthUnit = a;
-            //unitsystem.SelectedDurationUnit = b;
-            //base.Value = value;
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+
+            ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
+            ReturnInThisUnitSystem.Length.Count = 1;
+
+            ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
+            ReturnInThisUnitSystem.Duration.Count = -1;
+
+            //Convert to 'local' unit
+            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            unitsystem = ReturnInThisUnitSystem;
         }
 
         public static Speed From(double value, LengthUnit a, DurationUnit b)
@@ -27,15 +35,19 @@ namespace EngineeringUnits
             return new Speed(value, a, b);
         }
 
-        //public double As(LengthUnit a, DurationUnit b)
-        //{
+        public decimal As(LengthUnit lengthUnit, DurationUnit durationUnit)
+        {
 
-        //    UnitSystem local = new UnitSystem();
-        //    local.SetUnit(a);
-        //    local.SetUnit(b);
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-        //    return (double)UnitSystem.ValueConvert(unitsystem, local) * Value;
-        //}
+            ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
+            ReturnInThisUnitSystem.Length.Count = 1;
+
+            ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
+            ReturnInThisUnitSystem.Duration.Count = -1;
+
+            return unitsystem.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+        }
 
         //public void ChangeUnitTo(LengthUnit a, DurationUnit b)
         //{
@@ -48,7 +60,7 @@ namespace EngineeringUnits
 
         //    unitsystem.SetUnit(a);
         //    unitsystem.SetUnit(b);
-           
+
         //}
 
 
