@@ -18,6 +18,21 @@ namespace EngineeringUnits
             Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
             Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
 
+
+
+
+            //Debug.WriteLine($"{T1}");
+            Debug.WriteLine($"{T1} + {T2} = {T1 + T2}");
+            //Debug.WriteLine($"{T2}");
+            //Debug.WriteLine($"{T3}");
+
+
+
+
+
+
+
+
             //Debug.Print($"{T1}");
             Debug.WriteLine($"{T1.As(TemperatureUnit.Kelvin)} = 293,15");
             Debug.WriteLine($"{T1.As(TemperatureUnit.DegreeCelsius)} = 20");
