@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public Mass(double value, MassUnit unit) :this()
         {
-            Unit.Length.SelectedUnit = unit;
+            Unit.Mass = unit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
 
 
@@ -29,8 +29,8 @@ namespace EngineeringUnits
         public decimal As(MassUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Length.Count = 1;
+            ReturnInThisUnitSystem.Mass = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Mass.Count = 1;
 
             return ToTheOutSide(ReturnInThisUnitSystem);
         }

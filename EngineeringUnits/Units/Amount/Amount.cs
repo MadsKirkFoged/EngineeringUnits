@@ -28,7 +28,7 @@ namespace EngineeringUnits
             //Unit = ReturnInThisUnitSystem;
 
 
-            Unit.Amount.SelectedUnit = unit;
+            Unit.Amount = unit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             SetLocalValue((decimal)value);
 
@@ -39,12 +39,12 @@ namespace EngineeringUnits
             return new Amount(value, unit);
         }
 
-        public decimal As(LengthUnit ReturnInThisUnit)
+        public decimal As(AmountOfSubstanceUnit ReturnInThisUnit)
         {
 
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Amount.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Amount = ReturnInThisUnit;
             ReturnInThisUnitSystem.Amount.Count = 1;
 
             return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
@@ -52,12 +52,12 @@ namespace EngineeringUnits
         }
 
 
-        public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
-        {
+        //public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
+        //{
 
-            //Value = As(ReturnInThisUnit);
-            Unit.Length.SelectedUnit = ReturnInThisUnit;
-        }
+        //    //Value = As(ReturnInThisUnit);
+        //    Unit.Length.SelectedUnit = ReturnInThisUnit;
+        //}
 
 
         //Every units needs this

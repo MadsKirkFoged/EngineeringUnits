@@ -11,16 +11,15 @@ namespace EngineeringUnits
 
         public Length()
         {
-            Unit.Length.Count = 1;
+            //Unit.Length.Count = 1;
             Name = "Length";
         }
 
 
         public Length(double value, LengthUnit unit) :this()
         {
-            Unit.Length.SelectedUnit = unit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
-
+            Unit.Length = unit;
+            //Unit.Length.Count = 1;
 
             SetLocalValue((decimal)value);
         }
@@ -29,7 +28,7 @@ namespace EngineeringUnits
         public decimal As(LengthUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Length = ReturnInThisUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
             return ToTheOutSide(ReturnInThisUnitSystem);

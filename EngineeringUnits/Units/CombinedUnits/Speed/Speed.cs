@@ -30,8 +30,8 @@ namespace EngineeringUnits
             //Unit = ReturnInThisUnitSystem;
 
 
-            Unit.Length.SelectedUnit = lengthUnit;
-            Unit.Duration.SelectedUnit = durationUnit;
+            Unit.Length = lengthUnit;
+            Unit.Duration = durationUnit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             SetLocalValue((decimal)value);
 
@@ -47,10 +47,10 @@ namespace EngineeringUnits
 
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
+            ReturnInThisUnitSystem.Length = lengthUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
-            ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
+            ReturnInThisUnitSystem.Duration = durationUnit;
             ReturnInThisUnitSystem.Duration.Count = -1;
 
             return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;

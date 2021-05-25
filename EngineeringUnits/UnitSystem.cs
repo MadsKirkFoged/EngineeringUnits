@@ -9,37 +9,40 @@ namespace EngineeringUnits
     public class UnitSystem
     {
 
-        public BaseUnitClass Length { get; set; }
-        public BaseUnitClass Mass { get; set; }
-        public BaseUnitClass Duration { get; set; }
-        public BaseUnitClass Electriccurrent { get; set; }
-        public BaseUnitClass Temperature { get; set; }
-        public BaseUnitClass Amount { get; set; }
-        public BaseUnitClass LuminousIntensity { get; set; }
+        public LengthUnit Length { get; set; }
+        public MassUnit Mass { get; set; }
+        public DurationUnit Duration { get; set; }
+        public ElectriccurrentUnit Electriccurrent { get; set; }
+        public TemperatureUnit Temperature { get; set; }
+        public AmountOfSubstanceUnit Amount { get; set; }
+        public LuminousIntensityUnit LuminousIntensity { get; set; }
 
 
         
         public UnitSystem()
         {
-            Length = new BaseUnitClass(BaseUnits.length);
-            Mass = new BaseUnitClass(BaseUnits.mass);
-            Duration = new BaseUnitClass(BaseUnits.time);
-            Electriccurrent = new BaseUnitClass(BaseUnits.electricCurrent);
-            Temperature = new BaseUnitClass(BaseUnits.temperature);
-            Amount = new BaseUnitClass(BaseUnits.amountOfSubstance);
-            LuminousIntensity = new BaseUnitClass(BaseUnits.luminousIntensity);            
+            //Length = new BaseUnitClass(BaseUnits.length);
+            //Mass = new BaseUnitClass(BaseUnits.mass);
+            //Duration = new BaseUnitClass(BaseUnits.time);
+            //Electriccurrent = new BaseUnitClass(BaseUnits.electricCurrent);
+            //Temperature = new BaseUnitClass(BaseUnits.temperature);
+            //Amount = new BaseUnitClass(BaseUnits.amountOfSubstance);
+            //LuminousIntensity = new BaseUnitClass(BaseUnits.luminousIntensity);            
         }
 
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
-            return  a.Length.Count == b.Length.Count &&
-                    a.Mass.Count == b.Mass.Count &&
-                    a.Duration.Count == b.Duration.Count &&
-                    a.Electriccurrent.Count == b.Electriccurrent.Count &&
-                    a.Temperature.Count == b.Temperature.Count &&
-                    a.Amount.Count == b.Amount.Count &&
-                    a.LuminousIntensity.Count == b.LuminousIntensity.Count;
+            return  a.Length?.Count == b.Length?.Count &&
+                    a.Mass?.Count == b.Mass?.Count &&
+                    a.Duration?.Count == b.Duration?.Count &&
+                    a.Electriccurrent?.Count == b.Electriccurrent?.Count &&
+                    a.Temperature?.Count == b.Temperature?.Count &&
+                    a.Amount?.Count == b.Amount?.Count &&
+                    a.LuminousIntensity?.Count == b.LuminousIntensity?.Count;
+
+
+
    
         }
         public static bool operator !=(UnitSystem a, UnitSystem b)
@@ -60,13 +63,26 @@ namespace EngineeringUnits
 
             UnitSystem local = Merge(a, b);
 
-            local.Length.Count = a.Length.Count;
-            local.Mass.Count = a.Mass.Count;
-            local.Duration.Count = a.Duration.Count;
-            local.Electriccurrent.Count = a.Electriccurrent.Count;
-            local.Temperature.Count = a.Temperature.Count;
-            local.Amount.Count = a.Amount.Count;
-            local.LuminousIntensity.Count = a.LuminousIntensity.Count;
+            if (local.Length is object)            
+                local.Length.Count = a.Length.Count;
+
+            if (local.Mass is object)
+                local.Mass.Count = a.Mass.Count;
+
+            if (local.Duration is object)
+                local.Duration.Count = a.Duration.Count;
+
+            if (local.Electriccurrent is object)
+                local.Electriccurrent.Count = a.Electriccurrent.Count;
+
+            if (local.Temperature is object)
+                local.Temperature.Count = a.Temperature.Count;
+
+            if (local.Amount is object)
+                local.Amount.Count = a.Amount.Count;
+
+            if (local.LuminousIntensity is object)
+                local.LuminousIntensity.Count = a.LuminousIntensity.Count;
 
 
             return local;
@@ -118,50 +134,51 @@ namespace EngineeringUnits
 
             UnitSystem local = new UnitSystem();
 
+            //WE Need a copy function!!!
 
             //a has priority!
 
 
-            if (a.Length.SelectedUnit is object)
-                local.Length.SelectedUnit = a.Length.SelectedUnit;
-            else if (b.Length.SelectedUnit is object)
-                local.Length.SelectedUnit = b.Length.SelectedUnit;
+            if (a.Length is object)
+                local.Length = a.Length;
+            else if (b.Length is object)
+                local.Length = b.Length;
 
-            if (a.Mass.SelectedUnit is object)
-                local.Mass.SelectedUnit = a.Mass.SelectedUnit;
-            else if (b.Mass.SelectedUnit is object)
-                local.Mass.SelectedUnit = b.Mass.SelectedUnit;
-
-
-            if (a.Duration.SelectedUnit is object)
-                local.Duration.SelectedUnit = a.Duration.SelectedUnit;
-            else if (b.Duration.SelectedUnit is object)
-                local.Duration.SelectedUnit = b.Duration.SelectedUnit;
+            if (a.Mass is object)
+                local.Mass = a.Mass;
+            else if (b.Mass is object)
+                local.Mass = b.Mass;
 
 
-
-            if (a.Electriccurrent.SelectedUnit is object)
-                local.Electriccurrent.SelectedUnit = a.Electriccurrent.SelectedUnit;
-            else if (b.Electriccurrent.SelectedUnit is object)
-                local.Electriccurrent.SelectedUnit = b.Electriccurrent.SelectedUnit;
-
-
-            if (a.Temperature.SelectedUnit is object)
-                local.Temperature.SelectedUnit = a.Temperature.SelectedUnit;
-            else if (b.Temperature.SelectedUnit is object)
-                local.Temperature.SelectedUnit = b.Temperature.SelectedUnit;
+            if (a.Duration is object)
+                local.Duration = a.Duration;
+            else if (b.Duration is object)
+                local.Duration = b.Duration;
 
 
-            if (a.Amount.SelectedUnit is object)
-                local.Amount.SelectedUnit = a.Amount.SelectedUnit;
-            else if (b.Amount.SelectedUnit is object)
-                local.Amount.SelectedUnit = b.Amount.SelectedUnit;
+
+            if (a.Electriccurrent is object)
+                local.Electriccurrent = a.Electriccurrent;
+            else if (b.Electriccurrent is object)
+                local.Electriccurrent = b.Electriccurrent;
 
 
-            if (a.LuminousIntensity.SelectedUnit is object)
-                local.LuminousIntensity.SelectedUnit = a.LuminousIntensity.SelectedUnit;
-            else if (b.LuminousIntensity.SelectedUnit is object)
-                local.LuminousIntensity.SelectedUnit = b.LuminousIntensity.SelectedUnit;
+            if (a.Temperature is object)
+                local.Temperature = a.Temperature;
+            else if (b.Temperature is object)
+                local.Temperature = b.Temperature;
+
+
+            if (a.Amount is object)
+                local.Amount = a.Amount;
+            else if (b.Amount is object)
+                local.Amount = b.Amount;
+
+
+            if (a.LuminousIntensity is object)
+                local.LuminousIntensity = a.LuminousIntensity;
+            else if (b.LuminousIntensity is object)
+                local.LuminousIntensity = b.LuminousIntensity;
 
 
             return local;
@@ -178,8 +195,8 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item.SelectedUnit is object)                
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
+                if (item is object)                
+                    a *= (decimal)Math.Pow((double)item.A2, item.Count);
                 
             }
 
@@ -193,9 +210,9 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item.SelectedUnit is object)
+                if (item is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
+                    a *= (decimal)Math.Pow((double)item.A1, 1);
                 }
             }
 
@@ -210,9 +227,9 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item.SelectedUnit is object)
+                if (item is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
+                    a *= (decimal)Math.Pow((double)item.A1, item.Count);
                 }
             }
 
@@ -228,9 +245,9 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item.SelectedUnit is object)
+                if (item is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
+                    a *= (decimal)Math.Pow((double)item.A2, item.Count);
                 }
             }
 
@@ -245,8 +262,8 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item.SelectedUnit is object)
-                    b += item.SelectedUnit.B;
+                if (item is object)
+                    b += item.B;
 
             }
 
@@ -269,8 +286,8 @@ namespace EngineeringUnits
                 if (unit is object && unit.Count > 0)
                 {
 
-                    if (unit.SelectedUnit is object)                    
-                        local += unit.SelectedUnit.Symbol;
+                    if (unit is object)                    
+                        local += unit.Symbol;
                     
 
 
@@ -296,9 +313,9 @@ namespace EngineeringUnits
             foreach (var unit in UnitList())
             {
 
-                if (unit.SelectedUnit is object && unit.Count < 0)
+                if (unit is object && unit.Count < 0)
                 {
-                    local += unit.SelectedUnit.Symbol;
+                    local += unit.Symbol;
 
                     if (unit.Count < -1)
                         local += $"{ToSuperScript(unit.Count * -1)}";
@@ -326,9 +343,34 @@ namespace EngineeringUnits
         }
 
 
-        public IEnumerable<BaseUnitClass> UnitList()
+        public IEnumerable<Enumeration> UnitList()
         {
-            return new[] { Length, Mass, Duration, Electriccurrent, Temperature, Amount, LuminousIntensity };
+            var local = new List<Enumeration>();
+
+            if (Length is object)
+                local.Add(Length);
+
+            if (Mass is object)
+                local.Add(Mass);
+
+            if (Duration is object)
+                local.Add(Duration);
+
+            if (Electriccurrent is object)
+                local.Add(Electriccurrent);
+
+            if (Temperature is object)
+                local.Add(Temperature);
+
+            if (Amount is object)
+                local.Add(Amount);
+
+            if (LuminousIntensity is object)
+                local.Add(LuminousIntensity);
+
+
+
+            return local;
         }
 
 

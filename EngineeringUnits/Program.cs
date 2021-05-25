@@ -15,13 +15,13 @@ namespace EngineeringUnits
 
 
 
-            Length L1 = new Length(1, LengthUnit.Meter);
-            Length L2 = new Length(1, LengthUnit.Meter);
+            Length L1 = new Length(10, LengthUnit.Meter);
+            Length L2 = new Length(1, LengthUnit.Yard);
 
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");
 
-            Length A1 = L1 * L2;
+            Length A1 = L1 + L2;
 
             Debug.WriteLine($"{A1}");
             Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");

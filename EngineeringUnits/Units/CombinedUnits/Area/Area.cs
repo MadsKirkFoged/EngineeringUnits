@@ -15,7 +15,7 @@ namespace EngineeringUnits
 
         public Area(double value, LengthUnit SquaredlengthUnit) : this()
         {
-            Unit.Length.SelectedUnit = SquaredlengthUnit;
+            Unit.Length = SquaredlengthUnit;
             SetLocalValue((decimal)value);
         }
 
@@ -23,7 +23,7 @@ namespace EngineeringUnits
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Length.SelectedUnit = SquaredlengthUnit;
+            ReturnInThisUnitSystem.Length = SquaredlengthUnit;
             ReturnInThisUnitSystem.Length.Count = 2;
 
             return ToTheOutSide(ReturnInThisUnitSystem);

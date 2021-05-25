@@ -32,7 +32,7 @@ namespace EngineeringUnits
         public decimal As(LengthUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Length = ReturnInThisUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
             return ToTheOutSide(ReturnInThisUnitSystem);

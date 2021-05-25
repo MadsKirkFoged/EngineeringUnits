@@ -44,12 +44,15 @@ namespace EngineeringUnits
         public LengthUnit(string symbol, decimal a1, decimal a2, bool reversed)
     : base(symbol, a1, a2, reversed)
         {
+            Count = 1;
+
         }
 
 
         public LengthUnit(PreFix SI, BaseUnits baseunit)
 : base(SI, baseunit)
         {
+            Count = 1;
         }
 
 

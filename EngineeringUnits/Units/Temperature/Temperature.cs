@@ -29,7 +29,7 @@ namespace EngineeringUnits
             //Unit = ReturnInThisUnitSystem;
 
 
-            Unit.Temperature.SelectedUnit = unit;
+            Unit.Temperature = unit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             SetLocalValue((decimal)value);
         }
@@ -43,7 +43,7 @@ namespace EngineeringUnits
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Temperature.SelectedUnit = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Temperature = ReturnInThisUnit;
             ReturnInThisUnitSystem.Temperature.Count = 1;
 
 
