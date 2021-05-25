@@ -19,7 +19,10 @@ namespace EngineeringUnits
         public Length(double value, LengthUnit unit) :this()
         {
             Unit.Length.SelectedUnit = unit;
-            ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+
+
+            SetLocalValue((decimal)value);
         }
 
 
@@ -29,7 +32,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Length.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Length.Count = 1;
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem);
+            return ToTheOutSide(ReturnInThisUnitSystem);
         }
 
         public static implicit operator Length(UnknownUnit Unit)

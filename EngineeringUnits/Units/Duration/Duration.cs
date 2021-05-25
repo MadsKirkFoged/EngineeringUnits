@@ -15,14 +15,20 @@ namespace EngineeringUnits
 
         public Duration(double value, DurationUnit unit) : this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Duration.SelectedUnit = unit;
-            ReturnInThisUnitSystem.Duration.Count = 1;
+            //ReturnInThisUnitSystem.Duration.SelectedUnit = unit;
+            //ReturnInThisUnitSystem.Duration.Count = 1;
 
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            Unit = ReturnInThisUnitSystem;
+            ////Convert to 'local' unit
+            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            //Unit = ReturnInThisUnitSystem;
+
+
+            Unit.Duration.SelectedUnit = unit;
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            SetLocalValue((decimal)value);
+
         }
 
         public static Duration From(double value, DurationUnit unit)
@@ -38,23 +44,16 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Duration.Count = 1;
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
 
         //Every units needs this
         public static implicit operator Duration(UnknownUnit Unit)
         {
-            Duration local = new Duration();
+            Duration local = new Duration(0, DurationUnit.SI);
 
-            if (local.Unit != Unit.baseUnit.Unit)
-            {
-                throw new InvalidOperationException("Units did not result in Duration!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.Unit = Unit.baseUnit.Unit;
-
+            local.Transform(Unit);
             return local;
         }
 

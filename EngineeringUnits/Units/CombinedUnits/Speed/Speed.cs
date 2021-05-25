@@ -17,17 +17,24 @@ namespace EngineeringUnits
 
         public Speed(double value, LengthUnit lengthUnit, DurationUnit durationUnit) : this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
-            ReturnInThisUnitSystem.Length.Count = 1;
+            //ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
+            //ReturnInThisUnitSystem.Length.Count = 1;
 
-            ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
-            ReturnInThisUnitSystem.Duration.Count = -1;
+            //ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
+            //ReturnInThisUnitSystem.Duration.Count = -1;
 
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            Unit = ReturnInThisUnitSystem;
+            ////Convert to 'local' unit
+            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            //Unit = ReturnInThisUnitSystem;
+
+
+            Unit.Length.SelectedUnit = lengthUnit;
+            Unit.Duration.SelectedUnit = durationUnit;
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            SetLocalValue((decimal)value);
+
         }
 
         public static Speed From(double value, LengthUnit a, DurationUnit b)
@@ -46,7 +53,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
             ReturnInThisUnitSystem.Duration.Count = -1;
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
         //public void ChangeUnitTo(LengthUnit a, DurationUnit b)

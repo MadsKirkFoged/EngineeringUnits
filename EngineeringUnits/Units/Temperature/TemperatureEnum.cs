@@ -27,6 +27,7 @@ namespace EngineeringUnits
 
 
         public static TemperatureUnit Kelvin = new TemperatureUnit("k", 1,1,0);
+        public static TemperatureUnit SI = new TemperatureUnit("k", 1, 1, 0);
         public static TemperatureUnit DegreeCelsius = new TemperatureUnit("°C", 1,1, -273.15m);
         public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F", 5/9m, 1, (-273.15m*(9/5m))+ 32m);
         //public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F", 1, 9/ 5m, (-273.15m * (9 / 5m)) + 32m);

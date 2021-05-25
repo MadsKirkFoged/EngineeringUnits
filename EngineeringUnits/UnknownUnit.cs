@@ -48,7 +48,7 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
-                throw new InvalidOperationException("Units did not result in Double!");
+                throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
             return  Unit.baseUnit.Value;
@@ -58,7 +58,7 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
-                throw new InvalidOperationException("Units did not result in Double!");
+                throw new InvalidOperationException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
             return (decimal)Unit.baseUnit.Value;

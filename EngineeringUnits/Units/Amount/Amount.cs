@@ -17,15 +17,20 @@ namespace EngineeringUnits
 
         public Amount(double value, AmountOfSubstanceUnit unit) :this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Amount.SelectedUnit = unit;
-            ReturnInThisUnitSystem.Amount.Count = 1;
+            //ReturnInThisUnitSystem.Amount.SelectedUnit = unit;
+            //ReturnInThisUnitSystem.Amount.Count = 1;
 
 
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            Unit = ReturnInThisUnitSystem;
+            ////Convert to 'local' unit
+            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            //Unit = ReturnInThisUnitSystem;
+
+
+            Unit.Amount.SelectedUnit = unit;
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            SetLocalValue((decimal)value);
 
         }
 
@@ -42,7 +47,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Amount.SelectedUnit = ReturnInThisUnit;
             ReturnInThisUnitSystem.Amount.Count = 1;
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
 
         }
 

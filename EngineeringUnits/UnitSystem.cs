@@ -17,29 +17,17 @@ namespace EngineeringUnits
         public BaseUnitClass Amount { get; set; }
         public BaseUnitClass LuminousIntensity { get; set; }
 
-        public List<BaseUnitClass> UnitList { get; set; }
 
         
         public UnitSystem()
         {
-
             Length = new BaseUnitClass(BaseUnits.length);
             Mass = new BaseUnitClass(BaseUnits.mass);
             Duration = new BaseUnitClass(BaseUnits.time);
             Electriccurrent = new BaseUnitClass(BaseUnits.electricCurrent);
             Temperature = new BaseUnitClass(BaseUnits.temperature);
             Amount = new BaseUnitClass(BaseUnits.amountOfSubstance);
-            LuminousIntensity = new BaseUnitClass(BaseUnits.luminousIntensity);
-
-            UnitList = new List<BaseUnitClass>();
-
-            UnitList.Add(Length);
-            UnitList.Add(Mass);
-            UnitList.Add(Duration);
-            UnitList.Add(Electriccurrent);
-            UnitList.Add(Temperature);
-            UnitList.Add(Amount);
-            UnitList.Add(LuminousIntensity);
+            LuminousIntensity = new BaseUnitClass(BaseUnits.luminousIntensity);            
         }
 
 
@@ -54,311 +42,11 @@ namespace EngineeringUnits
                     a.LuminousIntensity.Count == b.LuminousIntensity.Count;
    
         }
-
         public static bool operator !=(UnitSystem a, UnitSystem b)
         {
             return !(a == b);
         }
 
-
-        public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
-        {
-
-            BaseUnit local = new BaseUnit();
-
-            //Get constants
-            decimal a1 = 1 / GetAFactorGlobal(left.Unit);
-            decimal b1 = SumOfBConstants(left.Unit);
-            decimal y1 = (decimal)left.ValueLocalUnit;
-
-            decimal a2 = 1 / GetAFactorGlobal(right.Unit);
-            decimal b2 = SumOfBConstants(right.Unit);
-            decimal y2 = (decimal)right.ValueLocalUnit;
-
-
-            //Turn to SI
-            decimal x1 = (y1) / a1;
-            decimal x2 = (y2) / a2;
-
-            //Do math in SI
-            decimal x3 = 0;
-
-
-
-            switch (math)
-            {
-                case MathEnum.Add:
-                    x3 = x1 + x2;
-                    local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    local.ValueLocalUnit = a1 * x3;
-                    break;
-                case MathEnum.Subtract:
-                    x3 = x1 - x2;
-                    local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-                    local.ValueLocalUnit = a1 * x3;
-                    break;
-                case MathEnum.Multiply:
-                    x3 = x1 * x2;
-                    local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-                    a1 = 1 / GetAFactorGlobal(local.Unit);
-                    b1 = SumOfBConstants(local.Unit);
-                    local.ValueLocalUnit = (x3 * a1);
-                    break;
-                case MathEnum.Divide:
-                    x3 = x1 / x2;
-                    local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    a1 = 1 / GetAFactorGlobal(local.Unit);
-                    b1 = SumOfBConstants(local.Unit);
-                    local.ValueLocalUnit = (x3 * a1);
-                    break;
-                default:
-                    break;
-            }
-
-           
-
-            return local;
-        }
-
-
-
-
-        //public static UnknownUnit Add(BaseUnit left, BaseUnit right)
-        //{
-
-        //    //Samle konstanter
-        //    decimal a1 = 1/GetAFactorGlobal(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.ValueLocalUnit;
-
-        //    decimal a2 = 1/GetAFactorGlobal(right.unitsystem);
-        //    decimal b2 = SumOfBConstants(right.unitsystem);
-        //    decimal y2 = (decimal)right.ValueLocalUnit;
-
-
-
-        //    //omregn til SI
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x2 = (y2 - b2) / a2;
-
-        //    //Læg sammen i SI
-        //    decimal x3 = x1 + x2;
-
-
-        //    //Sæt tilbage i lefts global-units
-        //    decimal y3 = a1 * x3 + b1;
-
-
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Add(left.unitsystem, right.unitsystem),
-        //        ValueLocalUnit = y3
-        //    };
-
-
-        //}
-
-        //public static UnknownUnit Subtract(BaseUnit left, BaseUnit right)
-        //{
-
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.Value;
-
-        //    decimal a2 = 1 / GetAFactor(right.unitsystem);
-        //    decimal b2 = SumOfBConstants(right.unitsystem);
-        //    decimal y2 = (decimal)right.Value;
-
-
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x2 = (y2 - b2) / a2;
-
-        //    decimal x3 = x1 - x2;
-
-
-
-        //    //Sæt tilbage i lefts units
-
-        //    decimal y3 = a1 * x3 + b1;
-
-
-
-
-
-        //    return new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Subtract(left.unitsystem, right.unitsystem),
-        //        ValueLocalUnit = y3
-        //    };
-
-
-        //}
-
-        //public static UnknownUnit Multiply(BaseUnit left, BaseUnit right)
-        //{
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.Value;
-
-        //    decimal a2 = 1 / GetAFactor(right.unitsystem);
-        //    decimal b2 = SumOfBConstants(right.unitsystem);
-        //    decimal y2 = (decimal)right.Value;
-
-
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x2 = (y2 - b2) / a2;
-
-        //    decimal x3 = x1 * x2;
-
-
-
-
-        //    BaseUnit ReturnUnit = new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Multiply(left.unitsystem, right.unitsystem),
-        //    };
-
-
-        //    SetValueAsSI(x3, ReturnUnit);
-
-
-        //    return ReturnUnit;
-
-        //}
-
-        //public static UnknownUnit Multiply(BaseUnit left, double right)
-        //{
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.Value;
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x3 = x1 * (decimal)right;
-
-
-        //    BaseUnit ReturnUnit = new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Add(left.unitsystem, left.unitsystem),
-        //    };
-
-
-        //    SetValueAsSI(x3, ReturnUnit);
-
-
-        //    return ReturnUnit;
-
-        //}
-
-        //public static UnknownUnit Divide(BaseUnit left, BaseUnit right)
-        //{
-
-
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.Value;
-
-        //    decimal a2 = 1 / GetAFactor(right.unitsystem);
-        //    decimal b2 = SumOfBConstants(right.unitsystem);
-        //    decimal y2 = (decimal)right.Value;
-
-
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x2 = (y2 - b2) / a2;
-
-        //    decimal x3 = x1 / x2;
-
-
-
-        //    BaseUnit ReturnUnit = new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Divide(left.unitsystem, right.unitsystem),
-        //    };
-
-
-        //    SetValueAsSI(x3, ReturnUnit);
-
-
-        //    return ReturnUnit;
-        //}
-
-        //public static UnknownUnit Divide(BaseUnit left, double right)
-        //{
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(left.unitsystem);
-        //    decimal b1 = SumOfBConstants(left.unitsystem);
-        //    decimal y1 = (decimal)left.Value;
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x3 = x1 / (decimal)right;
-
-
-        //    BaseUnit ReturnUnit = new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Add(left.unitsystem, left.unitsystem),
-        //    };
-
-
-        //    SetValueAsSI(x3, ReturnUnit);
-
-
-        //    return ReturnUnit;
-
-        //}
-
-        //public static UnknownUnit Divide(double left, BaseUnit right)
-        //{
-        //    //Samle konstanter
-
-        //    decimal a1 = 1 / GetAFactor(right.unitsystem);
-        //    decimal b1 = SumOfBConstants(right.unitsystem);
-        //    decimal y1 = (decimal)right.Value;
-
-
-        //    decimal x1 = (y1 - b1) / a1;
-        //    decimal x3 =  (decimal)left / x1;
-
-
-        //    BaseUnit ReturnUnit = new BaseUnit
-        //    {
-        //        unitsystem = UnitSystem.Add(right.unitsystem, right.unitsystem),
-        //    };
-
-
-        //    SetValueAsSI(x3, ReturnUnit);
-
-
-        //    return ReturnUnit;
-
-        //}
-
-        public static void SetValueAsSI(decimal SIValue, BaseUnit Unit)
-        {
-            //Samle konstanter
-
-            decimal a1 = SumOfA1Constants(Unit.Unit);
-            decimal b1 = SumOfBConstants(Unit.Unit);
-            decimal x1 = (decimal)SIValue;
-
-
-            Unit.ValueLocalUnit = (x1 * a1 + b1);
-        }
 
 
         public static UnitSystem Add(UnitSystem a, UnitSystem b)
@@ -384,14 +72,12 @@ namespace EngineeringUnits
             return local;
 
         }
-
         public static UnitSystem Subtract(UnitSystem a, UnitSystem b)
         {
             //Subtract does the same to a unit as add
             return Add(a, b);
 
         }
-
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
             
@@ -410,7 +96,6 @@ namespace EngineeringUnits
             return local;
 
         }
-
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
             UnitSystem local = Merge(a, b);
@@ -428,8 +113,6 @@ namespace EngineeringUnits
             return local;
 
         }
-
-
         private static UnitSystem Merge(UnitSystem a, UnitSystem b)
         {
 
@@ -437,14 +120,6 @@ namespace EngineeringUnits
 
 
             //a has priority!
-
-
-            //if ()
-            //{
-
-            //}
-
-
 
 
             if (a.Length.SelectedUnit is object)
@@ -494,189 +169,14 @@ namespace EngineeringUnits
         }
 
 
-       
 
-        public static double Convert(double ValueFrom, UnitSystem From, UnitSystem To)
+
+        public decimal GetAFactorGlobal()
         {
-
-            //Samle konstanter
-            decimal a11 = SumOfA1Constants(From);
-            decimal a12 = SumOfA2Constants(From);
-            decimal b1 = SumOfBConstants(From);
-
-            decimal a21 = SumOfA1Constants(To);
-            decimal a22 = SumOfA2Constants(To);
-            decimal b2 = SumOfBConstants(To);
-
-            decimal y1 = (decimal)ValueFrom;
-            decimal y2 = 0;
-
-
-            //decimal a1 = a21 / a11;
-            //decimal a2 = a22 / a12;
-
-            decimal Afactor = GetAFactor(From, To);
-
-            y2 = (Afactor) * (y1 - b1) + b2;
-            //y2 = (a2 / a1) * (y1 - b1) + b2;
-
-
-            return (double)y2;
-
-        }
-
-        public decimal ToTheOutSide(decimal ValueFrom, UnitSystem To)
-        {
-
-            
-            
-
-            //Samle konstanter
-            decimal leftA1 = 1;
-            decimal leftA2 = SumOfA2ConstantsWithPow(this);
-            decimal rightA1 = SumOfA1ConstantsWithPow(To);
-            decimal rightA2 = SumOfA2ConstantsWithPow(To);
-
-
-            decimal b1 = SumOfBConstants(this);
-            decimal b2 = SumOfBConstants(To);
-
-            decimal y1 = ValueFrom;
-            decimal y2 = y1;
-
-
-
-            //Trying to avoid small numeric error
-            if (rightA1 >= leftA1)            
-                y2 /= (rightA1 / leftA1);            
-            else            
-                y2 *= (leftA1 / rightA1);
-            
-
-            if (rightA2 >= leftA2)            
-                y2 /= (rightA2 / leftA2);            
-            else            
-                y2 *= (leftA2 / rightA2);
-
-
-
-            y2 = y2 + b2; // + b1;
-
-            return y2 / 1.000000000000000000000000000000000m;
-
-        }
-
-
-        public static decimal GetLocalUnit(double ValueFrom, UnitSystem From)
-        {
-
-            //Samle konstanter
-            decimal a11 = SumOfA1Constants(From);
-            decimal b1 = SumOfBConstants(From);
-
-
-            decimal y1 = (decimal)ValueFrom;
-
-
-            decimal y2 = y1 - b1;
-            y2 *= a11;
-
-            return y2;
-
-        }
-
-        public decimal ReturnLocalValue(decimal ValueFrom)
-        {
-
-            //Samle konstanter
-            decimal a11 = SumOfA1Constants(this);
-            decimal b1 = SumOfBConstants(this);
-
-            decimal y1 = ValueFrom;
-
-            decimal y2 = y1 - b1;
-            y2 *= a11;
-
-            return y2;
-
-        }
-
-
-
-        public void SetUnit(LengthUnit x) => Length.SelectedUnit = x;
-        //public void SetUnit(MassUnit? x) => Mass.SelectedUnit = x;
-        //public void SetUnit(DurationUnit? x) => Duration.SelectedUnit = x;
-
-        //public void SetUnit(ElectriccurrentUnit? x) => Electriccurrent.SelectedUnit = x;
-        public void SetUnit(TemperatureUnit x) => Temperature.SelectedUnit = x;
-        //public void SetUnit(AmountUnit? x) => Amount.SelectedUnit = x;
-        //public void SetUnit(LuminousIntensityUnit? x) => LuminousIntensity.SelectedUnit = x;
-
-
-
-
-
-        public static Vector Vector(Enum Type)
-        {
-            //This Converts Enum object to Vector object
-
-            var type = Type.GetType();
-            var memInfo = type.GetMember(Type.ToString());
-            var attributes = memInfo[0].GetCustomAttributes(typeof(Vector), false);
-            return (attributes.Length > 0) ? (Vector)attributes[0] : null;
-        }
-
-
-        public static decimal GetAFactor(UnitSystem left, UnitSystem right)
-        {
-
-            decimal leftA1 = left.Length.SelectedUnit.A1;
-            decimal leftA2 = left.Length.SelectedUnit.A2;
-            decimal rightA1 = right.Length.SelectedUnit.A1;
-            decimal rightA2 = right.Length.SelectedUnit.A2;
-
-
-            //Gives not 99.999999% of the result
-            //decimal test = (leftA1 * leftA2) * (1 / rightA1) * (1 / rightA2);
-
-            //So fare this gives 100%
-            //decimal test2 = (leftA1 / rightA1) * (leftA2 / rightA2);
-            decimal test2 = (leftA1 / rightA1) * (leftA2 / rightA2);
-            //Left er altid 1 i localunit...
-
-
-
-
-            return test2;
-
-        }
-
-        public static decimal GetAFactor(UnitSystem left)
-        {
-
-
-            decimal leftA1 = left.Length.SelectedUnit.A1;
-            decimal leftA2 = left.Length.SelectedUnit.A2;
-
-            //So far this gives 100%
-            decimal test2 = leftA1 * leftA2 ;
-
-
-
-
-
-
-            return test2;
-
-        }
-
-        public static decimal GetAFactorGlobal(UnitSystem left)
-        {
-            //return left.Length.SelectedUnit.A2;
 
             decimal a = 1;
 
-            foreach (var item in left.UnitList)
+            foreach (var item in UnitList())
             {
                 if (item.SelectedUnit is object)                
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
@@ -685,20 +185,16 @@ namespace EngineeringUnits
 
 
             return a;
-
-
         }
 
-
-        public static decimal SumOfA1Constants(UnitSystem unitsystem)
+        public decimal SumOfA1Constants()
         {
             decimal a = 1;
 
-            foreach (var item in unitsystem.UnitList)
+            foreach (var item in UnitList())
             {
                 if (item.SelectedUnit is object)
                 {
-                    //a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
                 }
             }
@@ -708,16 +204,15 @@ namespace EngineeringUnits
 
         }
 
-        public static decimal SumOfA1ConstantsWithPow(UnitSystem unitsystem)
+        public decimal SumOfA1ConstantsWithPow()
         {
             decimal a = 1;
 
-            foreach (var item in unitsystem.UnitList)
+            foreach (var item in UnitList())
             {
                 if (item.SelectedUnit is object)
                 {
                     a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, item.Count);
-                    //a *= (decimal)Math.Pow((double)item.SelectedUnit.A1, 1);
                 }
             }
 
@@ -726,11 +221,12 @@ namespace EngineeringUnits
 
         }
 
-        public static decimal SumOfA2ConstantsWithPow(UnitSystem unitsystem)
+
+        public decimal SumOfA2ConstantsWithPow()
         {
             decimal a = 1;
 
-            foreach (var item in unitsystem.UnitList)
+            foreach (var item in UnitList())
             {
                 if (item.SelectedUnit is object)
                 {
@@ -743,29 +239,11 @@ namespace EngineeringUnits
 
         }
 
-        public static decimal SumOfA2Constants(UnitSystem unitsystem)
-        {
-            decimal a = 1;
-
-            foreach (var item in unitsystem.UnitList)
-            {
-                if (item.SelectedUnit is object)
-                {
-                    a *= (decimal)Math.Pow((double)item.SelectedUnit.A2, item.Count);
-                }
-            }
-
-
-            return a;
-
-        }
-
-        
-        public static decimal SumOfBConstants(UnitSystem unitsystem)
+        public decimal SumOfBConstants()
         {
             decimal b = 0;
 
-            foreach (var item in unitsystem.UnitList)
+            foreach (var item in UnitList())
             {
                 if (item.SelectedUnit is object)
                     b += item.SelectedUnit.B;
@@ -785,7 +263,7 @@ namespace EngineeringUnits
 
 
 
-            foreach (var unit in UnitList)
+            foreach (var unit in UnitList())
             {
 
                 if (unit is object && unit.Count > 0)
@@ -809,13 +287,13 @@ namespace EngineeringUnits
 
 
             //If any negative values
-            if (UnitList.Any(x => x.Count < 0))            
+            if (UnitList().Any(x => x.Count < 0))            
                 local += "/";
 
 
 
 
-            foreach (var unit in UnitList)
+            foreach (var unit in UnitList())
             {
 
                 if (unit.SelectedUnit is object && unit.Count < 0)
@@ -847,34 +325,11 @@ namespace EngineeringUnits
 
         }
 
-        public UnitSystem Copy()
+
+        public IEnumerable<BaseUnitClass> UnitList()
         {
-            UnitSystem local = new UnitSystem
-            {
-                Length = this.Length,
-                Mass = this.Mass,
-                Duration = this.Duration,
-                Electriccurrent = this.Electriccurrent,
-                Temperature = this.Temperature,
-                Amount = this.Amount,
-                LuminousIntensity = this.LuminousIntensity,                
-            };
-
-            local.UnitList = new List<BaseUnitClass>();
-
-            local.UnitList.Add(Length);
-            local.UnitList.Add(Mass);
-            local.UnitList.Add(Duration);
-            local.UnitList.Add(Electriccurrent);
-            local.UnitList.Add(Temperature);
-            local.UnitList.Add(Amount);
-            local.UnitList.Add(LuminousIntensity);
-
-
-            return local;
-
+            return new[] { Length, Mass, Duration, Electriccurrent, Temperature, Amount, LuminousIntensity };
         }
-
 
 
 

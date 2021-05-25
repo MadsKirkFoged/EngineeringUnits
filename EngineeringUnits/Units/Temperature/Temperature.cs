@@ -11,21 +11,27 @@ namespace EngineeringUnits
 
         public Temperature()
         {
+            Name = "Temperature";
             Unit.Temperature.Count = 1;
         }
 
 
         public Temperature(double value, TemperatureUnit unit) :this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            ReturnInThisUnitSystem.Temperature.SelectedUnit = unit;
-            ReturnInThisUnitSystem.Temperature.Count = 1;
+            //ReturnInThisUnitSystem.Temperature.SelectedUnit = unit;
+            //ReturnInThisUnitSystem.Temperature.Count = 1;
 
 
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            Unit = ReturnInThisUnitSystem;
+            ////Convert to 'local' unit
+            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
+            //Unit = ReturnInThisUnitSystem;
+
+
+            Unit.Temperature.SelectedUnit = unit;
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            SetLocalValue((decimal)value);
         }
 
         public static Temperature From(double value, TemperatureUnit unit)
@@ -41,53 +47,18 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Temperature.Count = 1;
 
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
         }
 
 
-        //public void PermanentChangeUnitTo(TemperatureUnit ReturnInThisUnit)
-        //{
-        //    //double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-
-        //    //double FixedFactor = UnitSystem.VectorFixed(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-        //    //double FixedFactor2 = UnitSystem.VectorFixed2(unitsystem.SelectedTemperatureUnit, ReturnInThisUnit);
-
-
-
-
-
-        //    double y2 = Value;
-
-        //    double a1 = UnitSystem.Vector(ReturnInThisUnit).AFactor;
-        //    double a2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).AFactor;
-
-        //    double b1 = UnitSystem.Vector(ReturnInThisUnit).BFactor; 
-        //    double b2 = UnitSystem.Vector(unitsystem.SelectedTemperatureUnit).BFactor; 
-
-        //    double factor = a1 / a2;
-
-
-        //    double y1 = (y2 * factor) - b2 * factor + b1;
-
-        //    Value = y1;
-
-        //    unitsystem.SelectedTemperatureUnit = ReturnInThisUnit;
-        //}
 
 
         //Every units needs this
         public static implicit operator Temperature(UnknownUnit Unit)
         {
-            Temperature local = new Temperature();
+            Temperature local = new Temperature(0, TemperatureUnit.SI);
 
-            if (local.Unit != Unit.baseUnit.Unit)
-            {
-                throw new InvalidOperationException("Units did not result in Length!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.Unit = Unit.baseUnit.Unit;
-
+            local.Transform(Unit);
             return local;
         }
 

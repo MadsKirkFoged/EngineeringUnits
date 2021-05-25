@@ -10,23 +10,14 @@ namespace EngineeringUnits
         public Area()
         {
             Unit.Length.Count = 2;
+            Name = "Area";
         }
 
         public Area(double value, LengthUnit SquaredlengthUnit) : this()
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Length.SelectedUnit = SquaredlengthUnit;
-            ReturnInThisUnitSystem.Length.Count = 2;
-
-            //Convert to 'local' unit
-            ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            Unit = ReturnInThisUnitSystem;
-        }
-
-        public static Area From(double value, LengthUnit unit)
-        {
-            return new Area(value, unit);
+            Unit.Length.SelectedUnit = SquaredlengthUnit;
+            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+            SetLocalValue((decimal)value);
         }
 
         public decimal As(LengthUnit SquaredlengthUnit)
@@ -36,31 +27,15 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Length.SelectedUnit = SquaredlengthUnit;
             ReturnInThisUnitSystem.Length.Count = 2;
 
-            return Unit.ToTheOutSide(ValueLocalUnit, ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem);
         }
-
-        //public void ChangeUnitTo(LengthUnit ReturnInThisUnit)
-        //{
-        //    double Vector = UnitSystem.VectorDifferent(unitsystem.SelectedLengthUnit, ReturnInThisUnit);
-        //    Value *= Vector;
-
-        //    unitsystem.SelectedLengthUnit = ReturnInThisUnit;
-        //}
-
 
         //Every units needs this
         public static implicit operator Area(UnknownUnit Unit)
         {
-            Area local = new Area();
+            Area local = new Area(0, LengthUnit.SI);
 
-            if (local.Unit != Unit.baseUnit.Unit)
-            {
-                throw new InvalidOperationException("Units did not result in Area!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.Unit = Unit.baseUnit.Unit;
-
+            local.Transform(Unit);
             return local;
         }
 

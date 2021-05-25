@@ -18,6 +18,7 @@ namespace EngineeringUnits
         public static DurationUnit Microsecond = new DurationUnit("μs", 1, 1e-6m);
         public static DurationUnit Millisecond = new DurationUnit("ms", 1, 1e-3m);
         public static DurationUnit Second = new DurationUnit("s", 1, 1m);
+        public static DurationUnit SI = new DurationUnit("s", 1, 1m);
         public static DurationUnit Minute = new DurationUnit("min", 1, 60m);
         public static DurationUnit Hour = new DurationUnit("hr", 1, 3600m);
         public static DurationUnit Day = new DurationUnit("d", 1, (24*3600m));
