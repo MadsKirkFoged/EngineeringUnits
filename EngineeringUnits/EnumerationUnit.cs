@@ -6,7 +6,7 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public abstract class Enumeration : IComparable
+    public class Enumeration : IComparable
     {
         public string Name { get; private set; }
         public string Symbol { get; private set; }
@@ -18,7 +18,6 @@ namespace EngineeringUnits
 
         public bool ReversedA { get; private set; }
 
-        public UnitSystem Unit { get; private set; }
 
         
 
@@ -179,6 +178,23 @@ namespace EngineeringUnits
                _ => "",
            };
     
-   
+
+        public Enumeration Copy()
+        {
+
+            Enumeration local = new Enumeration();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
+
     }
 }
