@@ -182,11 +182,9 @@ namespace EngineeringUnits
 
             //Get constants
             decimal a1 = 1 / left.Unit.GetAFactorGlobal();
-            decimal b1 = left.Unit.SumOfBConstants();
             decimal y1 = (decimal)left.ValueLocalUnit;
 
             decimal a2 = 1 / right.Unit.GetAFactorGlobal();
-            decimal b2 = right.Unit.SumOfBConstants();
             decimal y2 = (decimal)right.ValueLocalUnit;
 
 
@@ -195,10 +193,8 @@ namespace EngineeringUnits
             decimal x2 = (y2) / a2;
 
             //Do math in SI
-            decimal x3 = 0;
-
-
-
+            decimal x3;
+            decimal b1;
             switch (math)
             {
                 case MathEnum.Add:
@@ -222,7 +218,6 @@ namespace EngineeringUnits
                     x3 = x1 / x2;
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
                     a1 = 1 / local.Unit.GetAFactorGlobal();
-                    b1 = local.Unit.SumOfBConstants();
                     local.ValueLocalUnit = (x3 * a1);
                     break;
                 default:
