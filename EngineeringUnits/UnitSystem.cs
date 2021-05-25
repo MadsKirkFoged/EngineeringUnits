@@ -100,13 +100,35 @@ namespace EngineeringUnits
             UnitSystem local = Merge(a, b);
 
             ////Unit math
-            local.Length.Count = a.Length.Count + b.Length.Count;
-            local.Mass.Count = a.Mass.Count + b.Mass.Count;
-            local.Duration.Count = a.Duration.Count + b.Duration.Count;
-            local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
-            local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
-            local.Amount.Count = a.Amount.Count + a.Amount.Count;
-            local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
+            //local.Length.Count = a.Length.Count + b.Length.Count;
+            //local.Mass.Count = a.Mass.Count + b.Mass.Count;
+            //local.Duration.Count = a.Duration.Count + b.Duration.Count;
+            //local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
+            //local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
+            //local.Amount.Count = a.Amount.Count + a.Amount.Count;
+            //local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
+
+
+            if (local.Length is object)
+                local.Length.Count = a.Length.Count + b.Length.Count;
+
+            if (local.Mass is object)
+                local.Mass.Count = a.Mass.Count + b.Mass.Count;
+
+            if (local.Duration is object)
+                local.Duration.Count = a.Duration.Count + b.Duration.Count;
+
+            if (local.Electriccurrent is object)
+                local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
+
+            if (local.Temperature is object)
+                local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
+
+            if (local.Amount is object)
+                local.Amount.Count = a.Amount.Count + a.Amount.Count;
+
+            if (local.LuminousIntensity is object)
+                local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
 
 
             return local;
@@ -117,13 +139,35 @@ namespace EngineeringUnits
             UnitSystem local = Merge(a, b);
 
             ////Unit math
-            local.Length.Count = a.Length.Count - b.Length.Count;
-            local.Mass.Count = a.Mass.Count - b.Mass.Count;
-            local.Duration.Count = a.Duration.Count - b.Duration.Count;
-            local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
-            local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
-            local.Amount.Count = a.Amount.Count - a.Amount.Count;
-            local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
+            //local.Length.Count = a.Length.Count - b.Length.Count;
+            //local.Mass.Count = a.Mass.Count - b.Mass.Count;
+            //local.Duration.Count = a.Duration.Count - b.Duration.Count;
+            //local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
+            //local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
+            //local.Amount.Count = a.Amount.Count - a.Amount.Count;
+            //local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
+
+
+            if (local.Length is object)
+                local.Length.Count = a.Length.Count - b.Length.Count;
+
+            if (local.Mass is object)
+                local.Mass.Count = a.Mass.Count - b.Mass.Count;
+
+            if (local.Duration is object)
+                local.Duration.Count = a.Duration.Count - b.Duration.Count;
+
+            if (local.Electriccurrent is object)
+                local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
+
+            if (local.Temperature is object)
+                local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
+
+            if (local.Amount is object)
+                local.Amount.Count = a.Amount.Count - a.Amount.Count;
+
+            if (local.LuminousIntensity is object)
+                local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
 
 
             return local;
