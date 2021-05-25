@@ -18,29 +18,11 @@ namespace EngineeringUnits
 
         public bool ReversedA { get; protected set; }
 
+        public UnitSystem Unit { get; protected set; }
 
-        
 
         protected Enumeration()
         {
-        }
-
-        protected Enumeration(string symbol, decimal a1, decimal a2,  decimal b, bool reversedA)
-        {
-            Symbol = symbol;
-            A1 = a1;
-            A2 = a2;
-            B = b;
-            ReversedA = reversedA;
-        }
-
-        protected Enumeration(string symbol, decimal a1, decimal a2, bool reversedA)
-        {
-            Symbol = symbol;
-            A1 = a1;
-            A2 = a2;
-            B = 0;
-            ReversedA = reversedA;
         }
 
 
@@ -59,7 +41,6 @@ namespace EngineeringUnits
             A1 = a1;
             A2 = a2;
             B = 0;
-            ReversedA = true;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
@@ -68,8 +49,8 @@ namespace EngineeringUnits
             A2 = 1;
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
-            ReversedA = true;
         }
+
 
         public override string ToString()
         {

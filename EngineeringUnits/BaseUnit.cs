@@ -273,7 +273,8 @@ namespace EngineeringUnits
         {
 
             //Samle konstanter
-            decimal a11 = Unit.SumOfA1Constants();
+            //decimal a11 = Unit.SumOfA1Constants();
+            decimal a11 = Unit.SumOfA1ConstantsWithPow();
             decimal b1 = Unit.SumOfBConstants();
 
             decimal y1 = ValueFrom;

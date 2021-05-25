@@ -20,14 +20,9 @@ namespace EngineeringUnits
             SetLocalValue((decimal)value);
         }
 
-        public decimal As(LengthUnit SquaredlengthUnit)
+        public decimal As(AreaUnit SquaredlengthUnit)
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Length = SquaredlengthUnit;
-            ReturnInThisUnitSystem.Length.Count = 2;
-
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return ToTheOutSide(SquaredlengthUnit.Unit);
         }
 
         //Every units needs this

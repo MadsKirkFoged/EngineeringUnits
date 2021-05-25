@@ -14,6 +14,7 @@ namespace EngineeringUnits
 
             Area A1 = new Area(10, AreaUnit.Yard2);
 
+            Debug.WriteLine($"{A1.As(AreaUnit.SI)}");
 
             Length L1 = new Length(10, LengthUnit.Meter);
             Length L2 = new Length(1, LengthUnit.Yard);
@@ -24,8 +25,8 @@ namespace EngineeringUnits
             //Length A1 = L1 + L2;
 
             Debug.WriteLine($"{A1}");
-            Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");
-            Debug.WriteLine($"{A1.As(LengthUnit.Centimeter)}");
+            //Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");
+            //Debug.WriteLine($"{A1.As(LengthUnit.Centimeter)}");
 
 
 

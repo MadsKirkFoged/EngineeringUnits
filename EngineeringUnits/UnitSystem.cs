@@ -552,8 +552,13 @@ namespace EngineeringUnits
             return local;
 
         }
-        
 
+
+        public static UnitSystem operator +(UnitSystem left, UnitSystem right) => Add(left, right);
+        public static UnitSystem operator -(UnitSystem left, UnitSystem right) => Subtract(left, right);
+
+        public static UnitSystem operator *(UnitSystem left, UnitSystem right) => Multiply(left, right);
+        public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
         public decimal GetAFactorGlobal()
