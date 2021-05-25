@@ -61,127 +61,7 @@ namespace EngineeringUnits
             }
 
 
-            UnitSystem local = Merge(a, b);
-
-            if (local.Length is object)            
-                local.Length.Count = a.Length.Count;
-
-            if (local.Mass is object)
-                local.Mass.Count = a.Mass.Count;
-
-            if (local.Duration is object)
-                local.Duration.Count = a.Duration.Count;
-
-            if (local.Electriccurrent is object)
-                local.Electriccurrent.Count = a.Electriccurrent.Count;
-
-            if (local.Temperature is object)
-                local.Temperature.Count = a.Temperature.Count;
-
-            if (local.Amount is object)
-                local.Amount.Count = a.Amount.Count;
-
-            if (local.LuminousIntensity is object)
-                local.LuminousIntensity.Count = a.LuminousIntensity.Count;
-
-
-            return local;
-
-        }
-        public static UnitSystem Subtract(UnitSystem a, UnitSystem b)
-        {
-            //Subtract does the same to a unit as add
-            return Add(a, b);
-
-        }
-        public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
-        {
-            
-            UnitSystem local = Merge(a, b);
-
-            ////Unit math
-            //local.Length.Count = a.Length.Count + b.Length.Count;
-            //local.Mass.Count = a.Mass.Count + b.Mass.Count;
-            //local.Duration.Count = a.Duration.Count + b.Duration.Count;
-            //local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
-            //local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
-            //local.Amount.Count = a.Amount.Count + a.Amount.Count;
-            //local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
-
-
-            if (local.Length is object)
-                local.Length.Count = a.Length.Count + b.Length.Count;
-
-            if (local.Mass is object)
-                local.Mass.Count = a.Mass.Count + b.Mass.Count;
-
-            if (local.Duration is object)
-                local.Duration.Count = a.Duration.Count + b.Duration.Count;
-
-            if (local.Electriccurrent is object)
-                local.Electriccurrent.Count = a.Electriccurrent.Count + b.Electriccurrent.Count;
-
-            if (local.Temperature is object)
-                local.Temperature.Count = a.Temperature.Count + b.Temperature.Count;
-
-            if (local.Amount is object)
-                local.Amount.Count = a.Amount.Count + a.Amount.Count;
-
-            if (local.LuminousIntensity is object)
-                local.LuminousIntensity.Count = a.LuminousIntensity.Count + b.LuminousIntensity.Count;
-
-
-            return local;
-
-        }
-        public static UnitSystem Divide(UnitSystem a, UnitSystem b)
-        {
-            UnitSystem local = Merge(a, b);
-
-            ////Unit math
-            //local.Length.Count = a.Length.Count - b.Length.Count;
-            //local.Mass.Count = a.Mass.Count - b.Mass.Count;
-            //local.Duration.Count = a.Duration.Count - b.Duration.Count;
-            //local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
-            //local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
-            //local.Amount.Count = a.Amount.Count - a.Amount.Count;
-            //local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
-
-
-            if (local.Length is object)
-                local.Length.Count = a.Length.Count - b.Length.Count;
-
-            if (local.Mass is object)
-                local.Mass.Count = a.Mass.Count - b.Mass.Count;
-
-            if (local.Duration is object)
-                local.Duration.Count = a.Duration.Count - b.Duration.Count;
-
-            if (local.Electriccurrent is object)
-                local.Electriccurrent.Count = a.Electriccurrent.Count - b.Electriccurrent.Count;
-
-            if (local.Temperature is object)
-                local.Temperature.Count = a.Temperature.Count - b.Temperature.Count;
-
-            if (local.Amount is object)
-                local.Amount.Count = a.Amount.Count - a.Amount.Count;
-
-            if (local.LuminousIntensity is object)
-                local.LuminousIntensity.Count = a.LuminousIntensity.Count - b.LuminousIntensity.Count;
-
-
-            return local;
-
-        }
-        private static UnitSystem Merge(UnitSystem a, UnitSystem b)
-        {
-
             UnitSystem local = new UnitSystem();
-
-            //WE Need a copy function!!!
-
-            //a has priority!
-
 
             if (a.Length is object)
                 local.Length = a.Length;
@@ -225,9 +105,336 @@ namespace EngineeringUnits
                 local.LuminousIntensity = b.LuminousIntensity;
 
 
+
             return local;
 
         }
+        public static UnitSystem Subtract(UnitSystem a, UnitSystem b)
+        {
+            //Subtract does the same to a unit as add
+            return Add(a, b);
+
+        }
+        public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
+        {
+
+            UnitSystem local = new UnitSystem();//  Merge(a, b);
+
+
+
+            if (a.Length is object && b.Length is object)
+            {
+                local.Length = a.Length;
+                local.Length.Count += b.Length.Count;
+            }
+            else if (a.Length is object)
+            {
+                local.Length = a.Length;
+            }
+            else if (b.Length is object)
+            {
+                local.Length = b.Length;
+            }
+
+
+
+
+
+            if (a.Mass is object && b.Mass is object)
+            {
+                local.Mass = a.Mass;
+                local.Mass.Count += b.Mass.Count;
+            }
+            else if (a.Mass is object)
+            {
+                local.Mass = a.Mass;
+            }
+            else if (b.Mass is object)
+            {
+                local.Mass = b.Mass;
+            }
+
+
+
+            if (a.Duration is object && b.Duration is object)
+            {
+                local.Duration = a.Duration;
+                local.Duration.Count += b.Duration.Count;
+            }
+            else if (a.Duration is object)
+            {
+                local.Duration = a.Duration;
+            }
+            else if (b.Duration is object)
+            {
+                local.Duration = b.Duration;
+            }
+
+
+
+
+            if (a.Electriccurrent is object && b.Electriccurrent is object)
+            {
+                local.Electriccurrent = a.Electriccurrent;
+                local.Electriccurrent.Count += b.Electriccurrent.Count;
+            }
+            else if (a.Electriccurrent is object)
+            {
+                local.Electriccurrent = a.Electriccurrent;
+            }
+            else if (b.Electriccurrent is object)
+            {
+                local.Electriccurrent = b.Electriccurrent;
+            }
+
+
+
+            if (a.Temperature is object && b.Temperature is object)
+            {
+                local.Temperature = a.Temperature;
+                local.Temperature.Count += b.Temperature.Count;
+            }
+            else if (a.Temperature is object)
+            {
+                local.Temperature = a.Temperature;
+            }
+            else if (b.Electriccurrent is object)
+            {
+                local.Temperature = b.Temperature;
+            }
+
+
+
+
+
+            if (a.Amount is object && b.Amount is object)
+            {
+                local.Amount = a.Amount;
+                local.Amount.Count += b.Amount.Count;
+            }
+            else if (a.Amount is object)
+            {
+                local.Amount = a.Amount;
+            }
+            else if (b.Amount is object)
+            {
+                local.Amount = b.Amount;
+            }
+
+
+
+
+            if (a.LuminousIntensity is object && b.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = a.LuminousIntensity;
+                local.LuminousIntensity.Count += b.LuminousIntensity.Count;
+            }
+            else if (a.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = a.LuminousIntensity;
+            }
+            else if (b.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = b.LuminousIntensity;
+            }
+
+
+
+  
+
+            return local;
+
+        }
+        public static UnitSystem Divide(UnitSystem a, UnitSystem b)
+        {
+            UnitSystem local = new UnitSystem();//  Merge(a, b);
+
+
+
+            if (a.Length is object && b.Length is object)
+            {
+                local.Length = a.Length;
+                local.Length.Count -= b.Length.Count;
+            }
+            else if (a.Length is object)
+            {
+                local.Length = a.Length;
+            }
+            else if (b.Length is object)
+            {
+                local.Length = b.Length;
+                local.Length.Count *= -1;
+            }
+
+
+
+
+
+            if (a.Mass is object && b.Mass is object)
+            {
+                local.Mass = a.Mass;
+                local.Mass.Count -= b.Mass.Count;
+            }
+            else if (a.Mass is object)
+            {
+                local.Mass = a.Mass;
+            }
+            else if (b.Mass is object)
+            {
+                local.Mass = b.Mass;
+                local.Length.Count *= -1;
+            }
+
+
+
+            if (a.Duration is object && b.Duration is object)
+            {
+                local.Duration = a.Duration;
+                local.Duration.Count -= b.Duration.Count;
+            }
+            else if (a.Duration is object)
+            {
+                local.Duration = a.Duration;
+            }
+            else if (b.Duration is object)
+            {
+                local.Duration = b.Duration;
+                local.Length.Count *= -1;
+            }
+
+
+
+
+            if (a.Electriccurrent is object && b.Electriccurrent is object)
+            {
+                local.Electriccurrent = a.Electriccurrent;
+                local.Electriccurrent.Count -= b.Electriccurrent.Count;
+            }
+            else if (a.Electriccurrent is object)
+            {
+                local.Electriccurrent = a.Electriccurrent;
+            }
+            else if (b.Electriccurrent is object)
+            {
+                local.Electriccurrent = b.Electriccurrent;
+                local.Length.Count *= -1;
+            }
+
+
+
+            if (a.Temperature is object && b.Temperature is object)
+            {
+                local.Temperature = a.Temperature;
+                local.Temperature.Count -= b.Temperature.Count;
+            }
+            else if (a.Temperature is object)
+            {
+                local.Temperature = a.Temperature;
+            }
+            else if (b.Electriccurrent is object)
+            {
+                local.Temperature = b.Temperature;
+                local.Length.Count *= -1;
+            }
+
+
+
+
+
+            if (a.Amount is object && b.Amount is object)
+            {
+                local.Amount = a.Amount;
+                local.Amount.Count -= b.Amount.Count;
+            }
+            else if (a.Amount is object)
+            {
+                local.Amount = a.Amount;
+            }
+            else if (b.Amount is object)
+            {
+                local.Amount = b.Amount;
+                local.Length.Count *= -1;
+            }
+
+
+
+
+            if (a.LuminousIntensity is object && b.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = a.LuminousIntensity;
+                local.LuminousIntensity.Count -= b.LuminousIntensity.Count;
+            }
+            else if (a.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = a.LuminousIntensity;
+            }
+            else if (b.LuminousIntensity is object)
+            {
+                local.LuminousIntensity = b.LuminousIntensity;
+                local.Length.Count *= -1;
+            }
+
+
+
+
+            return local;
+
+        }
+        //private static UnitSystem Merge(UnitSystem a, UnitSystem b)
+        //{
+
+        //    UnitSystem local = new UnitSystem();
+
+        //    //WE Need a copy function!!!
+
+        //    //a has priority!
+
+
+        //    if (a.Length is object)
+        //        local.Length = a.Length;
+        //    else if (b.Length is object)
+        //        local.Length = b.Length;
+
+        //    if (a.Mass is object)
+        //        local.Mass = a.Mass;
+        //    else if (b.Mass is object)
+        //        local.Mass = b.Mass;
+
+
+        //    if (a.Duration is object)
+        //        local.Duration = a.Duration;
+        //    else if (b.Duration is object)
+        //        local.Duration = b.Duration;
+
+
+
+        //    if (a.Electriccurrent is object)
+        //        local.Electriccurrent = a.Electriccurrent;
+        //    else if (b.Electriccurrent is object)
+        //        local.Electriccurrent = b.Electriccurrent;
+
+
+        //    if (a.Temperature is object)
+        //        local.Temperature = a.Temperature;
+        //    else if (b.Temperature is object)
+        //        local.Temperature = b.Temperature;
+
+
+        //    if (a.Amount is object)
+        //        local.Amount = a.Amount;
+        //    else if (b.Amount is object)
+        //        local.Amount = b.Amount;
+
+
+        //    if (a.LuminousIntensity is object)
+        //        local.LuminousIntensity = a.LuminousIntensity;
+        //    else if (b.LuminousIntensity is object)
+        //        local.LuminousIntensity = b.LuminousIntensity;
+
+
+        //    return local;
+
+        //}
 
 
 
