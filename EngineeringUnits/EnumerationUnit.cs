@@ -8,15 +8,15 @@ namespace EngineeringUnits
 
     public class Enumeration : IComparable
     {
-        public string Name { get; private set; }
-        public string Symbol { get; private set; }
-        public decimal A1 { get; private set; }
-        public decimal A2 { get; private set; }
-        public decimal B { get; private set; }
+        public string Name { get; protected set; }
+        public string Symbol { get; protected set; }
+        public decimal A1 { get; protected set; }
+        public decimal A2 { get; protected set; }
+        public decimal B { get; protected set; }
 
         public int Count { get; set; }
 
-        public bool ReversedA { get; private set; }
+        public bool ReversedA { get; protected set; }
 
 
         
@@ -179,22 +179,7 @@ namespace EngineeringUnits
            };
     
 
-        public Enumeration Copy()
-        {
-
-            Enumeration local = new Enumeration();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
-        }
+       
 
     }
 }

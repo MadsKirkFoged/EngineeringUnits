@@ -61,6 +61,26 @@ namespace EngineeringUnits
             return new[] { Inch, Hand, Foot, Yard, Chain, Nauticalmile, LightYear, AstronomicalUnit, Parsec };
         }
         // Other util methods
+
+
+        public LengthUnit Copy()
+        {
+
+            LengthUnit local = new LengthUnit();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
+
+
     }
 
 

@@ -24,7 +24,7 @@ namespace EngineeringUnits
         public static AmountOfSubstanceUnit Nanomole = new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);
 
 
-        protected AmountOfSubstanceUnit() { }
+        public AmountOfSubstanceUnit() { }
 
 
         public AmountOfSubstanceUnit(string symbol, decimal a1, decimal a2, bool reversed)
@@ -44,6 +44,25 @@ namespace EngineeringUnits
             return new[] { Mole, Centimole, Decimole, Kilomole, Megamole, Micromole, Millimole, Nanomole };
         }
         // Other util methods
+
+        public AmountOfSubstanceUnit Copy()
+        {
+
+            AmountOfSubstanceUnit local = new AmountOfSubstanceUnit();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
+
+
     }
 
 

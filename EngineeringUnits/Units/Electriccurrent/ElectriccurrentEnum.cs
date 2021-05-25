@@ -45,6 +45,22 @@ namespace EngineeringUnits
             return new[] { Ampere, Centiampere, Kiloampere, Megaampere, Microampere, Milliampere, Nanoampere, Picoampere };
         }
         // Other util methods
+        public ElectriccurrentUnit Copy()
+        {
+
+            ElectriccurrentUnit local = new ElectriccurrentUnit();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
     }
 
 

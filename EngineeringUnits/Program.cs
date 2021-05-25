@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
             //Kan vi gøre LocalValue ikke-public?
 
-
+            Area A1 = new Area(10, AreaUnit.Yard2);
 
 
             Length L1 = new Length(10, LengthUnit.Meter);
@@ -21,7 +21,7 @@ namespace EngineeringUnits
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");
 
-            Length A1 = L1 + L2;
+            //Length A1 = L1 + L2;
 
             Debug.WriteLine($"{A1}");
             Debug.WriteLine($"{A1.As(LengthUnit.Meter)}");

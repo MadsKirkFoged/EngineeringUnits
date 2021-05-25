@@ -50,6 +50,22 @@ namespace EngineeringUnits
             return new[] { SI };
         }
         // Other util methods
+        public LuminousIntensityUnit Copy()
+        {
+
+            LuminousIntensityUnit local = new LuminousIntensityUnit();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
     }
 
 

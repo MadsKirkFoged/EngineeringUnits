@@ -57,6 +57,22 @@ namespace EngineeringUnits
             return new[] { Kelvin, DegreeCelsius, DegreeFahrenheit };
         }
         // Other util methods
+        public TemperatureUnit Copy()
+        {
+
+            TemperatureUnit local = new TemperatureUnit();
+
+
+            local.Name = Name;
+            local.Symbol = Symbol;
+            local.A1 = A1;
+            local.A2 = A2;
+            local.B = B;
+            local.Count = Count;
+            local.ReversedA = ReversedA;
+
+            return local;
+        }
     }
 
 

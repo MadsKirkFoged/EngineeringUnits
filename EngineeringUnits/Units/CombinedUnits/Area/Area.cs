@@ -9,13 +9,14 @@ namespace EngineeringUnits
 
         public Area()
         {
-            Unit.Length.Count = 2;
             Name = "Area";
         }
 
-        public Area(double value, LengthUnit SquaredlengthUnit) : this()
+        public Area(double value, AreaUnit SquaredlengthUnit) : this()
         {
-            Unit.Length = SquaredlengthUnit;
+
+            Unit = SquaredlengthUnit.Unit;
+
             SetLocalValue((decimal)value);
         }
 
@@ -32,7 +33,7 @@ namespace EngineeringUnits
         //Every units needs this
         public static implicit operator Area(UnknownUnit Unit)
         {
-            Area local = new Area(0, LengthUnit.SI);
+            Area local = new Area(0, AreaUnit.SI);
 
             local.Transform(Unit);
             return local;
