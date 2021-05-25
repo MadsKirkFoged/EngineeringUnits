@@ -16,7 +16,6 @@ namespace EngineeringUnits
         public Area(double value, LengthUnit SquaredlengthUnit) : this()
         {
             Unit.Length.SelectedUnit = SquaredlengthUnit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             SetLocalValue((decimal)value);
         }
 

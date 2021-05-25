@@ -14,7 +14,13 @@ namespace EngineeringUnits
         public decimal A2 { get; private set; }
         public decimal B { get; private set; }
 
+        public int Count { get; set; }
+
         public bool ReversedA { get; private set; }
+
+        public UnitSystem Unit { get; private set; }
+
+        
 
         protected Enumeration()
         {
@@ -38,14 +44,6 @@ namespace EngineeringUnits
             ReversedA = reversedA;
         }
 
-        //protected Enumeration(string symbol, decimal a1, decimal a2, decimal b, bool reversedA)
-        //{
-        //    Symbol = symbol;
-        //    A1 = a1;
-        //    A2 = a2;
-        //    B = b;
-        //    ReversedA = reversedA;
-        //}
 
         protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
         {
