@@ -26,24 +26,30 @@ namespace EngineeringUnits
 
 
         public static LuminousIntensityUnit SI = new LuminousIntensityUnit(PreFix.SI, BaseUnits.luminousIntensity);
-        
 
 
 
-        protected LuminousIntensityUnit() { }
+        public LuminousIntensityUnit() { }
 
 
-        public LuminousIntensityUnit(string symbol, decimal a1, decimal a2, bool reversed)
-    : base(symbol, a1, a2, reversed)
+        public LuminousIntensityUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
+            SetUnitSystem();
         }
 
 
-        public LuminousIntensityUnit(PreFix SI, BaseUnits baseunit)
-: base(SI, baseunit)
+        public LuminousIntensityUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
+            SetUnitSystem();
         }
 
+        public void SetUnitSystem()
+        {
+            Unit = new UnitSystem();
+            Unit.LuminousIntensity = this.Copy();
+            Unit.LuminousIntensity.Count = 1;
+            Count = 1;
+        }
 
         public static IEnumerable<LuminousIntensityUnit> List()
         {
@@ -52,19 +58,15 @@ namespace EngineeringUnits
         // Other util methods
         public LuminousIntensityUnit Copy()
         {
-
-            LuminousIntensityUnit local = new LuminousIntensityUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new LuminousIntensityUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
     }
 

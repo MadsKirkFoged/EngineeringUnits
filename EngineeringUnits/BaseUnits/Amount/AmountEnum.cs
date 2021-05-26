@@ -27,16 +27,25 @@ namespace EngineeringUnits
         public AmountOfSubstanceUnit() { }
 
 
-        public AmountOfSubstanceUnit(string symbol, decimal a1, decimal a2, bool reversed)
-    : base(symbol, a1, a2, reversed)
+        public AmountOfSubstanceUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
+            SetUnitSystem();
         }
 
 
-        public AmountOfSubstanceUnit(PreFix SI, BaseUnits baseunit)
-: base(SI, baseunit)
+        public AmountOfSubstanceUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
+            SetUnitSystem();
         }
+
+        public void SetUnitSystem()
+        {
+            Unit = new UnitSystem();
+            Unit.Amount = this.Copy();
+            Unit.Amount.Count = 1;
+            Count = 1;
+        }
+
 
 
         public static IEnumerable<AmountOfSubstanceUnit> List()
@@ -47,19 +56,15 @@ namespace EngineeringUnits
 
         public AmountOfSubstanceUnit Copy()
         {
-
-            AmountOfSubstanceUnit local = new AmountOfSubstanceUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new AmountOfSubstanceUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
 
 

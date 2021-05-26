@@ -16,7 +16,10 @@ namespace EngineeringUnits
 
         public BaseUnit()
         {
-            Unit = new UnitSystem();
+            if (Unit is null)
+            {
+                Unit = new UnitSystem();
+            }
         }
 
         public BaseUnit(decimal valueLocalUnit) :this()

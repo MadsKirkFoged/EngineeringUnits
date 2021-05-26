@@ -9,6 +9,8 @@ namespace EngineeringUnits
     public class UnitSystem
     {
 
+        public string Symbol { get; set; }
+
         public LengthUnit Length { get; set; }
         public MassUnit Mass { get; set; }
         public DurationUnit Duration { get; set; }
@@ -454,7 +456,7 @@ namespace EngineeringUnits
             else if (b.Mass is object)
             {
                 local.Mass = (MassUnit)b.Mass.Copy();
-                local.Length.Count *= -1;
+                local.Mass.Count *= -1;
             }
 
 
@@ -471,7 +473,7 @@ namespace EngineeringUnits
             else if (b.Duration is object)
             {
                 local.Duration = (DurationUnit)b.Duration.Copy();
-                local.Length.Count *= -1;
+                local.Duration.Count *= -1;
             }
 
 
@@ -489,7 +491,7 @@ namespace EngineeringUnits
             else if (b.Electriccurrent is object)
             {
                 local.Electriccurrent = (ElectriccurrentUnit)b.Electriccurrent.Copy();
-                local.Length.Count *= -1;
+                local.Electriccurrent.Count *= -1;
             }
 
 
@@ -506,7 +508,7 @@ namespace EngineeringUnits
             else if (b.Electriccurrent is object)
             {
                 local.Temperature = (TemperatureUnit)b.Temperature.Copy();
-                local.Length.Count *= -1;
+                local.Temperature.Count *= -1;
             }
 
 
@@ -525,7 +527,7 @@ namespace EngineeringUnits
             else if (b.Amount is object)
             {
                 local.Amount = (AmountOfSubstanceUnit)b.Amount.Copy();
-                local.Length.Count *= -1;
+                local.Amount.Count *= -1;
             }
 
 
@@ -543,7 +545,7 @@ namespace EngineeringUnits
             else if (b.LuminousIntensity is object)
             {
                 local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Copy();
-                local.Length.Count *= -1;
+                local.LuminousIntensity.Count *= -1;
             }
 
 
@@ -700,7 +702,15 @@ namespace EngineeringUnits
 
 
 
-            return local;
+            if (Symbol is object)
+            {
+                return Symbol;
+            }
+            else
+            {
+                return local;
+            }
+
         }
 
         private string ToSuperScript(int number)

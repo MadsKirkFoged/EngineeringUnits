@@ -8,16 +8,35 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
+            
 
 
-            //Kan vi gøre LocalValue ikke-public?
 
-            Area A1 = new Area(10, AreaUnit.Yard2);
+            Energy E1 = new Energy(10,EnergyUnit.Joule);
 
-            Debug.WriteLine($"{A1.As(AreaUnit.SI)}");
+            Mass M1 = new Mass(5, MassUnit.SI);
+
+            SpecificEnergy SE1 = E1 / M1;
+
+
+            Enthalpy H1 = E1 / M1;
+
+
+
+
+
+
 
             Length L1 = new Length(10, LengthUnit.Meter);
             Length L2 = new Length(1, LengthUnit.Yard);
+
+            Area A1 = L1 * L2;
+
+            Debug.WriteLine($"{A1}");
+
+            Debug.WriteLine($"{A1.As(AreaUnit.SI)}");
+            Debug.WriteLine($"{A1.As(AreaUnit.Yard2)}");
+
 
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");

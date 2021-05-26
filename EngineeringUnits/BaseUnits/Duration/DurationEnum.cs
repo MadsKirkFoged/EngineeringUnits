@@ -27,17 +27,26 @@ namespace EngineeringUnits
 
 
 
-        protected DurationUnit() { }
+        public DurationUnit() { }
 
 
-        public DurationUnit(string symbol, decimal a1, decimal a2)
-    : base(symbol, a1, a2)
+        public DurationUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
+            SetUnitSystem();
         }
 
-        public DurationUnit(PreFix SI, BaseUnits baseunit)
-: base(SI, baseunit)
+
+        public DurationUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
+            SetUnitSystem();
+        }
+
+        public void SetUnitSystem()
+        {
+            Unit = new UnitSystem();
+            Unit.Duration = this.Copy();
+            Unit.Duration.Count = 1;
+            Count = 1;
         }
 
 
@@ -49,19 +58,15 @@ namespace EngineeringUnits
 
         public DurationUnit Copy()
         {
-
-            DurationUnit local = new DurationUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new DurationUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
     }
 

@@ -54,7 +54,7 @@ namespace EngineeringUnits
 
         public void SetUnitSystem()
         {
-            UnitSystem Unit = new UnitSystem();
+            Unit = new UnitSystem();
             Unit.Length = this.Copy();
             Unit.Length.Count = 1;
             Count = 1;
@@ -65,24 +65,20 @@ namespace EngineeringUnits
         {
             return new[] { Inch, Hand, Foot, Yard, Chain, Nauticalmile, LightYear, AstronomicalUnit, Parsec };
         }
-        // Other util methods
+
 
 
         public LengthUnit Copy()
         {
-
-            LengthUnit local = new LengthUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new LengthUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
 
 

@@ -25,18 +25,26 @@ namespace EngineeringUnits
         public static ElectriccurrentUnit Picoampere = new ElectriccurrentUnit(PreFix.pico, BaseUnits.electricCurrent);
 
 
-        protected ElectriccurrentUnit() { }
+        public ElectriccurrentUnit() { }
 
 
-        public ElectriccurrentUnit(string symbol, decimal a1, decimal a2, bool reversed)
-    : base(symbol, a1, a2, reversed)
+        public ElectriccurrentUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
+            SetUnitSystem();
         }
 
 
-        public ElectriccurrentUnit(PreFix SI, BaseUnits baseunit)
-: base(SI, baseunit)
+        public ElectriccurrentUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
+            SetUnitSystem();
+        }
+
+        public void SetUnitSystem()
+        {
+            Unit = new UnitSystem();
+            Unit.Electriccurrent = this.Copy();
+            Unit.Electriccurrent.Count = 1;
+            Count = 1;
         }
 
 
@@ -44,23 +52,20 @@ namespace EngineeringUnits
         {
             return new[] { Ampere, Centiampere, Kiloampere, Megaampere, Microampere, Milliampere, Nanoampere, Picoampere };
         }
-        // Other util methods
+
         public ElectriccurrentUnit Copy()
         {
-
-            ElectriccurrentUnit local = new ElectriccurrentUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new ElectriccurrentUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
+
     }
 
 

@@ -6,37 +6,35 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public partial class Length : BaseUnit
+    public partial class Mass : BaseUnit
     {
 
-        public Length()
+        public Mass()
         {
             Name = "Length";
         }
 
 
-        public Length(double value, LengthUnit unit) :this()
+        public Mass(double value, MassUnit unit) :this()
         {
-            Unit.Length = unit;
-
+            Unit.Mass = unit;
 
             SetLocalValue((decimal)value);
         }
 
 
-
-        public decimal As(LengthUnit ReturnInThisUnit)
+        public decimal As(MassUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Length = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Length.Count = 1;
+            ReturnInThisUnitSystem.Mass = ReturnInThisUnit;
+            ReturnInThisUnitSystem.Mass.Count = 1;
 
             return ToTheOutSide(ReturnInThisUnitSystem);
         }
 
-        public static implicit operator Length(UnknownUnit Unit)
+        public static implicit operator Mass(UnknownUnit Unit)
         {
-            Length local = new Length(0, LengthUnit.SI);
+            Mass local = new Mass(0, MassUnit.SI);
 
             local.Transform(Unit);
             return local;

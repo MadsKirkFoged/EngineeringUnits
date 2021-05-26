@@ -23,11 +23,6 @@ namespace EngineeringUnits
             Name = "Area";
 
             Unit = length.Unit * length.Unit;
-
-            Unit = new UnitSystem();
-
-            Unit.Length = length;
-            Unit.Length.Count = 2;
         }
 
 

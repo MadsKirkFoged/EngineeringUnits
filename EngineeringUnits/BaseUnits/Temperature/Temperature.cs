@@ -12,7 +12,7 @@ namespace EngineeringUnits
         public Temperature()
         {
             Name = "Temperature";
-            Unit.Temperature.Count = 1;
+           // Unit.Temperature.Count = 1;
         }
 
 

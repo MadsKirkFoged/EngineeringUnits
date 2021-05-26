@@ -40,47 +40,50 @@ namespace EngineeringUnits
     {
 
 
-        public static MassUnit SI = new MassUnit(PreFix.SI, BaseUnits.length);
+        public static MassUnit SI = new MassUnit(PreFix.kilo, BaseUnits.mass);
 
 
 
 
-        protected MassUnit() { }
+        public MassUnit() { }
 
 
-        public MassUnit(string symbol, decimal a1, decimal a2, bool reversed)
-    : base(symbol, a1, a2, reversed)
+        public MassUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
+            SetUnitSystem();
         }
 
 
-        public MassUnit(PreFix SI, BaseUnits baseunit)
-: base(SI, baseunit)
+        public MassUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
+            SetUnitSystem();
         }
 
+        public void SetUnitSystem()
+        {
+            Unit = new UnitSystem();
+            Unit.Mass = this.Copy();
+            Unit.Mass.Count = 1;
+            Count = 1;
+        }
 
-        //public static IEnumerable<LengthUnit> List()
-        //{
-        //    return new[] { Inch, Hand, Foot, Yard, Chain, Nauticalmile, LightYear, AstronomicalUnit, Parsec };
-        //}
-        // Other util methods
+        public static IEnumerable<MassUnit> List()
+        {
+            return new[] { SI };
+        }
+
 
         public MassUnit Copy()
         {
-
-            MassUnit local = new MassUnit();
-
-
-            local.Name = Name;
-            local.Symbol = Symbol;
-            local.A1 = A1;
-            local.A2 = A2;
-            local.B = B;
-            local.Count = Count;
-            local.ReversedA = ReversedA;
-
-            return local;
+            return new MassUnit
+            {
+                Name = Name,
+                Symbol = Symbol,
+                A1 = A1,
+                A2 = A2,
+                B = B,
+                Count = Count
+            };
         }
     }
 
