@@ -186,16 +186,18 @@ namespace EngineeringUnits
             BaseUnit local = new BaseUnit();
 
             //Get constants
-            Fraction a1 = 1 / left.Unit.GetAFactorGlobal();
+            //Fraction a1 = 1 / left.Unit.GetAFactorGlobal();
+            Fraction a1 = left.Unit.GetAFactorGlobal();
             decimal y1 = left.ValueLocalUnit;
 
-            Fraction a2 = 1 / right.Unit.GetAFactorGlobal();
+            //Fraction a2 = 1 / right.Unit.GetAFactorGlobal();
+            Fraction a2 = right.Unit.GetAFactorGlobal();
             decimal y2 = right.ValueLocalUnit;
 
 
             //Turn to SI
-            decimal x1 = (y1) / a1.ToDecimal();
-            decimal x2 = (y2) / a2.ToDecimal();
+            decimal x1 = (y1) * a1.ToDecimal();
+            decimal x2 = (y2) * a2.ToDecimal();
 
             //Do math in SI
             decimal x3;
@@ -205,25 +207,40 @@ namespace EngineeringUnits
                 case MathEnum.Add:
                     x3 = x1 + x2;
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;                   
+                    //local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m; 
+                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-                    local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;
+                    //local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;
+                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Multiply:
                     x3 = x1 * x2;
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-                    a1 = 1 / local.Unit.GetAFactorGlobal();
+                    //a1 = 1 / local.Unit.GetAFactorGlobal();
+                    a1 = local.Unit.GetAFactorGlobal();
                     //b1 = local.Unit.SumOfBConstants();
-                    local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    //local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
-                    x3 = x1 / x2;
+
+                    if (x2 != 0)
+                    {
+                        x3 = x1 / x2;
+                    }
+                    else
+                    {
+                        x3 = 0;
+                    }
+
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    a1 = 1 / local.Unit.GetAFactorGlobal();
-                    local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    //a1 = 1 / local.Unit.GetAFactorGlobal();
+                    a1 = local.Unit.GetAFactorGlobal();
+                    //local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 default:
                     break;
