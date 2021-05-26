@@ -10,6 +10,10 @@ namespace EngineeringUnits
         {
 
 
+            //Hvordan fixer jeg at specifienergy bliver [j/kg] i stedet for [m2/s2]?
+            //Begge er rigtige enheder, den første er bare den mest brugte..
+
+
             Fraction a = 3*3;  // int
 
             Fraction b = 1231231*3;  // int
