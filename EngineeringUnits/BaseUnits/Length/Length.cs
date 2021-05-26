@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Fractions;
 
 namespace EngineeringUnits
 {
@@ -19,12 +20,12 @@ namespace EngineeringUnits
         {
             Unit.Length = unit;
 
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
 
 
-        public decimal As(LengthUnit ReturnInThisUnit)
+        public double As(LengthUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
             ReturnInThisUnitSystem.Length = ReturnInThisUnit;

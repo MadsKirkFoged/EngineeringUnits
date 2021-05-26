@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -17,20 +18,10 @@ namespace EngineeringUnits
 
         public Amount(double value, AmountOfSubstanceUnit unit) :this()
         {
-            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            //ReturnInThisUnitSystem.Amount.SelectedUnit = unit;
-            //ReturnInThisUnitSystem.Amount.Count = 1;
-
-
-            ////Convert to 'local' unit
-            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            //Unit = ReturnInThisUnitSystem;
-
 
             Unit.Amount = unit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
-            SetLocalValue((decimal)value);
+
+            SetLocalValue(value);
 
         }
 
@@ -47,8 +38,8 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Amount = ReturnInThisUnit;
             ReturnInThisUnitSystem.Amount.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
-
+            //return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return (decimal)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

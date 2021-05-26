@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,10 +18,10 @@ namespace EngineeringUnits
 
             Unit = SquaredlengthUnit.Unit;
 
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
-        public decimal As(AreaUnit SquaredlengthUnit)
+        public double As(AreaUnit SquaredlengthUnit)
         {
             return ToTheOutSide(SquaredlengthUnit.Unit);
         }

@@ -20,7 +20,7 @@ namespace UnitTests
 
             Assert.AreEqual(1, A1.As(AreaUnit.Meter2));
             Assert.AreEqual(10000, A1.As(AreaUnit.Centimeter2));
-            Assert.AreEqual(1.195990046301080256481500558m, A1.As(AreaUnit.Yard2));
+            Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.Yard2));
         }
 
 

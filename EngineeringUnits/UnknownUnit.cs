@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,7 +21,7 @@ namespace EngineeringUnits
             baseUnit = new BaseUnit();
         }
 
-        public UnknownUnit(decimal valueLocalUnit)
+        public UnknownUnit(double valueLocalUnit)
         {
             baseUnit = new BaseUnit(valueLocalUnit);
         }

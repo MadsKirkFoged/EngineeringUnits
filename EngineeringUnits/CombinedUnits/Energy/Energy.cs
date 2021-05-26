@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -19,12 +20,13 @@ namespace EngineeringUnits
         {
 
             Unit = energyUnit.Unit;
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
         public decimal As(EnergyUnit energyUnit)
         {
-            return ToTheOutSide(energyUnit.Unit);
+            //return ToTheOutSide(energyUnit.Unit);
+            return (decimal)ToTheOutSide(energyUnit.Unit);
         }
 
         //Every units needs this

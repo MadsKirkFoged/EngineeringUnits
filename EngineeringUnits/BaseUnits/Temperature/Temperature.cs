@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Fractions;
 
 namespace EngineeringUnits
 {
@@ -19,7 +20,7 @@ namespace EngineeringUnits
         {
             Unit.Temperature = unit;
 
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
         public static Temperature From(double value, TemperatureUnit unit)
@@ -27,7 +28,7 @@ namespace EngineeringUnits
             return new Temperature(value, unit);
         }
 
-        public decimal As(TemperatureUnit ReturnInThisUnit)
+        public double As(TemperatureUnit ReturnInThisUnit)
         {
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
@@ -35,7 +36,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Temperature.Count = 1;
 
 
-            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

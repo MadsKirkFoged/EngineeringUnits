@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace EngineeringUnits
@@ -22,9 +24,9 @@ namespace EngineeringUnits
             }
         }
 
-        public BaseUnit(decimal valueLocalUnit) :this()
+        public BaseUnit(double valueLocalUnit) :this()
         {
-            ValueLocalUnit = valueLocalUnit;
+            ValueLocalUnit = (decimal)valueLocalUnit;
         }
 
 
@@ -83,21 +85,21 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator *(BaseUnit a, double b)
         {
-            UnknownUnit local = new UnknownUnit((decimal)b);
+            UnknownUnit local = new UnknownUnit(b);
 
             return a * local;
         }
        
         public static UnknownUnit operator /(BaseUnit a, double b)
         {
-            UnknownUnit local = new UnknownUnit((decimal)b);
+            UnknownUnit local = new UnknownUnit(b);
 
             return a / local;
         }
         
         public static UnknownUnit operator /(double a, BaseUnit b)
         {
-            UnknownUnit local = new UnknownUnit((decimal)a);
+            UnknownUnit local = new UnknownUnit(a);
 
             return local / b;
         }
@@ -184,44 +186,44 @@ namespace EngineeringUnits
             BaseUnit local = new BaseUnit();
 
             //Get constants
-            decimal a1 = 1 / left.Unit.GetAFactorGlobal();
-            decimal y1 = (decimal)left.ValueLocalUnit;
+            Fraction a1 = 1 / left.Unit.GetAFactorGlobal();
+            decimal y1 = left.ValueLocalUnit;
 
-            decimal a2 = 1 / right.Unit.GetAFactorGlobal();
-            decimal y2 = (decimal)right.ValueLocalUnit;
+            Fraction a2 = 1 / right.Unit.GetAFactorGlobal();
+            decimal y2 = right.ValueLocalUnit;
 
 
             //Turn to SI
-            decimal x1 = (y1) / a1;
-            decimal x2 = (y2) / a2;
+            decimal x1 = (y1) / a1.ToDecimal();
+            decimal x2 = (y2) / a2.ToDecimal();
 
             //Do math in SI
             decimal x3;
-            decimal b1;
+            //decimal b1;
             switch (math)
             {
                 case MathEnum.Add:
                     x3 = x1 + x2;
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    local.ValueLocalUnit = a1 * x3;
+                    local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;                   
                     break;
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-                    local.ValueLocalUnit = a1 * x3;
+                    local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Multiply:
                     x3 = x1 * x2;
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
                     a1 = 1 / local.Unit.GetAFactorGlobal();
-                    b1 = local.Unit.SumOfBConstants();
-                    local.ValueLocalUnit = (x3 * a1);
+                    //b1 = local.Unit.SumOfBConstants();
+                    local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
                     x3 = x1 / x2;
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
                     a1 = 1 / local.Unit.GetAFactorGlobal();
-                    local.ValueLocalUnit = (x3 * a1);
+                    local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 default:
                     break;
@@ -233,57 +235,60 @@ namespace EngineeringUnits
         }
 
 
-        public decimal ToTheOutSide(UnitSystem To)
+        public double ToTheOutSide(UnitSystem To)
         {
 
             //Samle konstanter
-            decimal leftA1 = 1;
-            decimal leftA2 = Unit.SumOfA2ConstantsWithPow();
-            decimal rightA1 = To.SumOfA1ConstantsWithPow();
-            decimal rightA2 = To.SumOfA2ConstantsWithPow();
+            Fraction leftA1 = 1;
+            Fraction leftA2 = Unit.SumOfA2ConstantsWithPow();
+            Fraction rightA1 = To.SumOfA1ConstantsWithPow();
+            Fraction rightA2 = To.SumOfA2ConstantsWithPow();
 
-
-            decimal b1 = Unit.SumOfBConstants();
-            decimal b2 = To.SumOfBConstants();
+            Fraction b1 = Unit.SumOfBConstants();
+            Fraction b2 = To.SumOfBConstants();
 
             decimal y1 = ValueLocalUnit;
             decimal y2 = y1;
 
+            //Debug.Print(y1.ToDecimal().ToString());
 
 
             //Trying to avoid small numeric error
             if (rightA1 >= leftA1)
-                y2 /= (rightA1 / leftA1);
+                y2 /= (decimal)(rightA1 / leftA1);
             else
-                y2 *= (leftA1 / rightA1);
+                y2 *= (decimal)(leftA1 / rightA1);
 
 
             if (rightA2 >= leftA2)
-                y2 /= (rightA2 / leftA2);
+                y2 /= (decimal)(rightA2 / leftA2);
             else
-                y2 *= (leftA2 / rightA2);
+                y2 *= (decimal)(leftA2 / rightA2);
 
 
+            //Debug.Print(y2.ToDecimal().ToString());
 
-            y2 = y2 + b2; // + b1;
 
-            return y2 / 1.000000000000000000000000000000000m;
+            y2 = y2 + b2.ToDecimal(); // + b1;
 
+            //return y2 / 1.000000000000000000000000000000000m;
+
+            return (double)y2;
         }
 
 
-        public void SetLocalValue(decimal ValueFrom)
+        public void SetLocalValue(double ValueFrom)
         {
 
             //Samle konstanter
             //decimal a11 = Unit.SumOfA1Constants();
-            decimal a11 = Unit.SumOfA1ConstantsWithPow();
-            decimal b1 = Unit.SumOfBConstants();
+            Fraction a11 = Unit.SumOfA1ConstantsWithPow();
+            Fraction b1 = Unit.SumOfBConstants();
 
-            decimal y1 = ValueFrom;
+            decimal y1 = (decimal)ValueFrom;
 
-            decimal y2 = y1 - b1;
-            y2 *= a11;
+            decimal y2 = y1 - b1.ToDecimal();
+            y2 *= a11.ToDecimal();
 
             ValueLocalUnit = y2;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -563,17 +564,18 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
-        public decimal GetAFactorGlobal()
+        public Fraction GetAFactorGlobal()
         {
 
-            decimal a = 1;
+            Fraction a = 1;
 
             foreach (var item in UnitList())
             {
                 if (item is object)
                 {
                     //a *= (decimal)Math.Pow((double)item.A2, item.Count);
-                    a *= Pow(item.A2, item.Count);
+                    //a *= Pow(item.A2, item.Count);
+                    a *= Fraction.Pow((Fraction)item.A2, item.Count);
                 }
                 
             }
@@ -582,34 +584,19 @@ namespace EngineeringUnits
             return a;
         }
 
-        //public decimal SumOfA1Constants()
-        //{
-        //    decimal a = 1;
-
-        //    foreach (var item in UnitList())
-        //    {
-        //        if (item is object)
-        //        {
-        //            //a *= (decimal)Math.Pow((double)item.A1, 1);
-        //            a *= Pow(item.A1, item.Count);
-        //        }
-        //    }
 
 
-        //    return a;
-
-        //}
-
-        public decimal SumOfA1ConstantsWithPow()
+        public Fraction SumOfA1ConstantsWithPow()
         {
-            decimal a = 1;
+            Fraction a = 1;
 
             foreach (var item in UnitList())
             {
                 if (item is object)
                 {
                     //a *= (decimal)Math.Pow((double)item.A1, item.Count);
-                    a *= Pow(item.A1, item.Count);
+                    //a *= Pow(item.A1, item.Count);
+                    a *= Fraction.Pow((Fraction)item.A1, item.Count);
                 }
             }
 
@@ -619,16 +606,17 @@ namespace EngineeringUnits
         }
 
 
-        public decimal SumOfA2ConstantsWithPow()
+        public Fraction SumOfA2ConstantsWithPow()
         {
-            decimal a = 1;
+            Fraction a = 1;
 
             foreach (var item in UnitList())
             {
                 if (item is object)
                 {
                     //a *= (decimal)Math.Pow((double)item.A2, item.Count);
-                    a *= Pow(item.A2, item.Count);
+                    //a *= Pow(item.A2, item.Count);
+                    a *= Fraction.Pow((Fraction)item.A2, item.Count);
                 }
             }
 
@@ -637,14 +625,14 @@ namespace EngineeringUnits
 
         }
 
-        public decimal SumOfBConstants()
+        public Fraction SumOfBConstants()
         {
-            decimal b = 0;
+            Fraction b = 0;
 
             foreach (var item in UnitList())
             {
                 if (item is object)
-                    b += item.B;
+                    b += (Fraction)item.B;
 
             }
 

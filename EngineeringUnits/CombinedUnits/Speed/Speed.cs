@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -18,12 +19,12 @@ namespace EngineeringUnits
 
             Unit = SquaredlengthUnit.Unit;
 
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
         public decimal As(SpeedUnit Selectedunit)
         {
-            return ToTheOutSide(Selectedunit.Unit);
+            return (decimal)ToTheOutSide(Selectedunit.Unit);
         }
 
         //Every units needs this

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Fractions;
 
 namespace EngineeringUnits
 {
@@ -15,19 +16,11 @@ namespace EngineeringUnits
 
         public Duration(double value, DurationUnit unit) : this()
         {
-            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            //ReturnInThisUnitSystem.Duration.SelectedUnit = unit;
-            //ReturnInThisUnitSystem.Duration.Count = 1;
-
-            ////Convert to 'local' unit
-            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            //Unit = ReturnInThisUnitSystem;
 
 
             Unit.Duration = unit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
 
         }
 
@@ -44,7 +37,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration = ReturnInThisUnit;
             ReturnInThisUnitSystem.Duration.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
+            return (decimal)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

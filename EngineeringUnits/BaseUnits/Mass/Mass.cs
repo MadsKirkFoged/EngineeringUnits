@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Fractions;
 
 namespace EngineeringUnits
 {
@@ -19,7 +20,7 @@ namespace EngineeringUnits
         {
             Unit.Mass = unit;
 
-            SetLocalValue((decimal)value);
+            SetLocalValue(value);
         }
 
 
@@ -29,7 +30,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Mass = ReturnInThisUnit;
             ReturnInThisUnitSystem.Mass.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return (decimal)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
         public static implicit operator Mass(UnknownUnit Unit)

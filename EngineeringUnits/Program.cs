@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Diagnostics;
 
 namespace EngineeringUnits
@@ -8,7 +9,14 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
-            
+
+            Fraction a = 3*3;  // int
+
+            Fraction b = 1231231*3;  // int
+
+
+            var c = a / b;
+
 
 
 
