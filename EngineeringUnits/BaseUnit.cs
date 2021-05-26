@@ -186,12 +186,10 @@ namespace EngineeringUnits
             BaseUnit local = new BaseUnit();
 
             //Get constants
-            //Fraction a1 = 1 / left.Unit.GetAFactorGlobal();
-            Fraction a1 = left.Unit.GetAFactorGlobal();
+            Fraction a1 = left.Unit.GetFactorGlobal();
             decimal y1 = left.ValueLocalUnit;
 
-            //Fraction a2 = 1 / right.Unit.GetAFactorGlobal();
-            Fraction a2 = right.Unit.GetAFactorGlobal();
+            Fraction a2 = right.Unit.GetFactorGlobal();
             decimal y2 = right.ValueLocalUnit;
 
 
@@ -207,39 +205,28 @@ namespace EngineeringUnits
                 case MathEnum.Add:
                     x3 = x1 + x2;
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    //local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m; 
                     local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-                    //local.ValueLocalUnit = (a1.ToDecimal() * x3) / 1.000000000000000000000000000000000m;
                     local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Multiply:
                     x3 = x1 * x2;
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-                    //a1 = 1 / local.Unit.GetAFactorGlobal();
-                    a1 = local.Unit.GetAFactorGlobal();
-                    //b1 = local.Unit.SumOfBConstants();
-                    //local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    a1 = local.Unit.GetFactorGlobal();
                     local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
 
-                    if (x2 != 0)
-                    {
-                        x3 = x1 / x2;
-                    }
-                    else
-                    {
+                    if (x2 != 0)                    
+                        x3 = x1 / x2;                    
+                    else                    
                         x3 = 0;
-                    }
-
+                    
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    //a1 = 1 / local.Unit.GetAFactorGlobal();
-                    a1 = local.Unit.GetAFactorGlobal();
-                    //local.ValueLocalUnit = (x3 * a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    a1 = local.Unit.GetFactorGlobal();
                     local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 default:
@@ -257,9 +244,9 @@ namespace EngineeringUnits
 
             //Samle konstanter
             Fraction leftA1 = 1;
-            Fraction leftA2 = Unit.SumOfA2ConstantsWithPow();
-            Fraction rightA1 = To.SumOfA1ConstantsWithPow();
-            Fraction rightA2 = To.SumOfA2ConstantsWithPow();
+            Fraction leftA2 = Unit.GetFactorGlobal();
+            Fraction rightA1 = To.GetFactorLocal();
+            Fraction rightA2 = To.GetFactorGlobal();
 
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();
@@ -267,28 +254,28 @@ namespace EngineeringUnits
             decimal y1 = ValueLocalUnit;
             decimal y2 = y1;
 
-            //Debug.Print(y1.ToDecimal().ToString());
+
 
 
             //Trying to avoid small numeric error
-            if (rightA1 >= leftA1)
+            //if (rightA1 >= leftA1)
                 y2 /= (decimal)(rightA1 / leftA1);
-            else
-                y2 *= (decimal)(leftA1 / rightA1);
+            //else
+             //   y2 *= (decimal)(leftA1 / rightA1);
 
 
-            if (rightA2 >= leftA2)
+            //if (rightA2 >= leftA2)
                 y2 /= (decimal)(rightA2 / leftA2);
-            else
-                y2 *= (decimal)(leftA2 / rightA2);
+            //else
+             //   y2 *= (decimal)(leftA2 / rightA2);
 
 
-            //Debug.Print(y2.ToDecimal().ToString());
+
 
 
             y2 = y2 + b2.ToDecimal(); // + b1;
 
-            //return y2 / 1.000000000000000000000000000000000m;
+
 
             return (double)y2;
         }
@@ -299,7 +286,7 @@ namespace EngineeringUnits
 
             //Samle konstanter
             //decimal a11 = Unit.SumOfA1Constants();
-            Fraction a11 = Unit.SumOfA1ConstantsWithPow();
+            Fraction a11 = Unit.GetFactorLocal();
             Fraction b1 = Unit.SumOfBConstants();
 
             decimal y1 = (decimal)ValueFrom;

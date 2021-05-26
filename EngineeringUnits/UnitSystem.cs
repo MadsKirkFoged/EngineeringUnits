@@ -564,7 +564,7 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
-        public Fraction GetAFactorGlobal()
+        public Fraction GetFactorGlobal()
         {
 
             Fraction a = 1;
@@ -573,8 +573,6 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    //a *= (decimal)Math.Pow((double)item.A2, item.Count);
-                    //a *= Pow(item.A2, item.Count);
                     a *= Fraction.Pow((Fraction)item.A2, item.Count);
                 }
                 
@@ -586,7 +584,7 @@ namespace EngineeringUnits
 
 
 
-        public Fraction SumOfA1ConstantsWithPow()
+        public Fraction GetFactorLocal()
         {
             Fraction a = 1;
 
@@ -594,8 +592,6 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    //a *= (decimal)Math.Pow((double)item.A1, item.Count);
-                    //a *= Pow(item.A1, item.Count);
                     a *= Fraction.Pow((Fraction)item.A1, item.Count);
                 }
             }
@@ -606,24 +602,6 @@ namespace EngineeringUnits
         }
 
 
-        public Fraction SumOfA2ConstantsWithPow()
-        {
-            Fraction a = 1;
-
-            foreach (var item in UnitList())
-            {
-                if (item is object)
-                {
-                    //a *= (decimal)Math.Pow((double)item.A2, item.Count);
-                    //a *= Pow(item.A2, item.Count);
-                    a *= Fraction.Pow((Fraction)item.A2, item.Count);
-                }
-            }
-
-
-            return a;
-
-        }
 
         public Fraction SumOfBConstants()
         {
@@ -635,10 +613,7 @@ namespace EngineeringUnits
                     b += (Fraction)item.B;
 
             }
-
-
             return b;
-
         }
 
 
