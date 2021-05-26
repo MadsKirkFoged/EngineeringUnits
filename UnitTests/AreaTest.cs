@@ -18,9 +18,9 @@ namespace UnitTests
 
             Area A1 = L1 * L2;
 
-            Assert.AreEqual(1, A1.As(LengthUnit.Meter));
-            Assert.AreEqual(10000, A1.As(LengthUnit.Centimeter));
-            Assert.AreEqual(1.195990046301080256481500558m, A1.As(LengthUnit.Yard));
+            Assert.AreEqual(1, A1.As(AreaUnit.Meter2));
+            Assert.AreEqual(10000, A1.As(AreaUnit.Centimeter2));
+            Assert.AreEqual(1.195990046301080256481500558m, A1.As(AreaUnit.Yard2));
         }
 
 

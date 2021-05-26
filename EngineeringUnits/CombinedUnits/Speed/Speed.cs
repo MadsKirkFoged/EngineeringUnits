@@ -10,94 +10,30 @@ namespace EngineeringUnits
 
         public Speed()
         {
-            Unit.Length.Count = 1;
-            Unit.Duration.Count = -1;
+            Name = "Speed";
         }
 
-
-        public Speed(double value, LengthUnit lengthUnit, DurationUnit durationUnit) : this()
+        public Speed(double value, SpeedUnit SquaredlengthUnit) : this()
         {
-            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
 
-            //ReturnInThisUnitSystem.Length.SelectedUnit = lengthUnit;
-            //ReturnInThisUnitSystem.Length.Count = 1;
+            Unit = SquaredlengthUnit.Unit;
 
-            //ReturnInThisUnitSystem.Duration.SelectedUnit = durationUnit;
-            //ReturnInThisUnitSystem.Duration.Count = -1;
-
-            ////Convert to 'local' unit
-            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            //Unit = ReturnInThisUnitSystem;
-
-
-            Unit.Length = lengthUnit;
-            Unit.Duration = durationUnit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             SetLocalValue((decimal)value);
-
         }
 
-        public static Speed From(double value, LengthUnit a, DurationUnit b)
+        public decimal As(SpeedUnit Selectedunit)
         {
-            return new Speed(value, a, b);
+            return ToTheOutSide(Selectedunit.Unit);
         }
-
-        public decimal As(LengthUnit lengthUnit, DurationUnit durationUnit)
-        {
-
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Length = lengthUnit;
-            ReturnInThisUnitSystem.Length.Count = 1;
-
-            ReturnInThisUnitSystem.Duration = durationUnit;
-            ReturnInThisUnitSystem.Duration.Count = -1;
-
-            return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
-        }
-
-        //public void ChangeUnitTo(LengthUnit a, DurationUnit b)
-        //{
-
-        //    UnitSystem local = new UnitSystem();
-        //    local.SetUnit(a);
-        //    local.SetUnit(b);
-
-        //    Value = (double)UnitSystem.ValueConvert(unitsystem, local) * Value;
-
-        //    unitsystem.SetUnit(a);
-        //    unitsystem.SetUnit(b);
-
-        //}
-
 
         //Every units needs this
         public static implicit operator Speed(UnknownUnit Unit)
         {
-            Speed local = new Speed();
+            Speed local = new Speed(0, SpeedUnit.SI);
 
-            if (local.Unit != Unit.baseUnit.Unit)
-            {
-                throw new InvalidOperationException("Units did not result in Length!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.Unit = Unit.baseUnit.Unit;
-
+            local.Transform(Unit);
             return local;
         }
-
-        //Every units needs this
-
-        //public static UnknownUnit operator *(Speed a, BaseUnit b) => BaseUnit.Multiply(a, b);
-        //public static UnknownUnit operator *(Speed a, double b) => BaseUnit.Multiply(a, b);
-        //public static UnknownUnit operator *(double a, Speed b) => BaseUnit.Multiply(b, a);
-        //public static UnknownUnit operator /(Speed a, BaseUnit b) => BaseUnit.Divide(a, b);
-        //public static UnknownUnit operator /(Speed a, double b) => BaseUnit.Divide(a, b);
-        //public static UnknownUnit operator /(double a, Speed b) => BaseUnit.Divide(a, b);
-        //public static double operator /(Speed a, Speed b) => BaseUnit.DivideResultsInDouble(a, b);
-        //public static Speed operator +(Speed a, Speed b) => BaseUnit.Add(a, b);
-        //public static Speed operator -(Speed a, Speed b) => BaseUnit.Subtract(a, b);
 
     }
 }

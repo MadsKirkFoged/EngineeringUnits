@@ -12,25 +12,13 @@ namespace EngineeringUnits
         public Temperature()
         {
             Name = "Temperature";
-           // Unit.Temperature.Count = 1;
         }
 
 
         public Temperature(double value, TemperatureUnit unit) :this()
         {
-            //UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            //ReturnInThisUnitSystem.Temperature.SelectedUnit = unit;
-            //ReturnInThisUnitSystem.Temperature.Count = 1;
-
-
-            ////Convert to 'local' unit
-            //ValueLocalUnit = UnitSystem.GetLocalUnit(value, ReturnInThisUnitSystem);
-            //Unit = ReturnInThisUnitSystem;
-
-
             Unit.Temperature = unit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
+
             SetLocalValue((decimal)value);
         }
 

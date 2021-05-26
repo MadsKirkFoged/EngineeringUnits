@@ -128,7 +128,7 @@ namespace UnitTests
 
             Assert.AreEqual(546.3d, (double)T4.As(TemperatureUnit.Kelvin), 0.0000001);
             Assert.AreEqual(0d, (double)T5.As(TemperatureUnit.Kelvin), 0.00001);
-            Assert.AreEqual(510.7444444444448d, (double)T6.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(510.7444444444444d, (double)T6.As(TemperatureUnit.Kelvin));
         }
 
         [TestMethod]

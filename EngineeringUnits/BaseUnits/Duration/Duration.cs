@@ -9,7 +9,7 @@ namespace EngineeringUnits
 
         public Duration()
         {
-            Unit.Duration.Count = 1;
+            Name = "Time";
         }
 
 

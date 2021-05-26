@@ -570,8 +570,11 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item is object)                
-                    a *= (decimal)Math.Pow((double)item.A2, item.Count);
+                if (item is object)
+                {
+                    //a *= (decimal)Math.Pow((double)item.A2, item.Count);
+                    a *= Pow(item.A2, item.Count);
+                }
                 
             }
 
@@ -579,22 +582,23 @@ namespace EngineeringUnits
             return a;
         }
 
-        public decimal SumOfA1Constants()
-        {
-            decimal a = 1;
+        //public decimal SumOfA1Constants()
+        //{
+        //    decimal a = 1;
 
-            foreach (var item in UnitList())
-            {
-                if (item is object)
-                {
-                    a *= (decimal)Math.Pow((double)item.A1, 1);
-                }
-            }
+        //    foreach (var item in UnitList())
+        //    {
+        //        if (item is object)
+        //        {
+        //            //a *= (decimal)Math.Pow((double)item.A1, 1);
+        //            a *= Pow(item.A1, item.Count);
+        //        }
+        //    }
 
 
-            return a;
+        //    return a;
 
-        }
+        //}
 
         public decimal SumOfA1ConstantsWithPow()
         {
@@ -604,7 +608,8 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.A1, item.Count);
+                    //a *= (decimal)Math.Pow((double)item.A1, item.Count);
+                    a *= Pow(item.A1, item.Count);
                 }
             }
 
@@ -622,7 +627,8 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    a *= (decimal)Math.Pow((double)item.A2, item.Count);
+                    //a *= (decimal)Math.Pow((double)item.A2, item.Count);
+                    a *= Pow(item.A2, item.Count);
                 }
             }
 
@@ -755,6 +761,51 @@ namespace EngineeringUnits
 
             return local;
         }
+
+
+        public decimal Pow(decimal x, int y)
+        {
+
+            if (x == 1 || y == 1)
+            {
+                return x;
+            }
+            else if (y == 0)
+            {
+                return 1;
+            }
+
+            int count;
+            decimal local = 1;
+
+            if (y > 0)
+                count = y;
+            else            
+                count = -y;
+
+
+
+            for (int i = 0; i < count; i++)
+                local *= x;
+            
+
+            if (local == 0)
+                return 0;            
+
+
+
+
+            if (y > 0)
+                return local;
+            else
+                return 1/local;
+
+
+
+
+
+        }
+
 
 
 
