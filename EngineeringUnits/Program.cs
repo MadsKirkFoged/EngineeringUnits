@@ -12,12 +12,7 @@ namespace EngineeringUnits
 
             //Hvordan fixer jeg at specifienergy bliver [j/kg] i stedet for [m2/s2]?
             //Begge er rigtige enheder, den første er bare den mest brugte..
-
-
-          
-
-
-
+            //Lenght is done-ish
 
 
 

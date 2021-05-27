@@ -26,8 +26,8 @@ namespace EngineeringUnits
         public static LengthUnit Nanometer = new LengthUnit(PreFix.nano, BaseUnits.length);
 
 
-        public static LengthUnit Inch = new LengthUnit("in", 1m, 0.0254m);
-        public static LengthUnit Hand = new LengthUnit("hand", 3m, 0.0254m);
+        public static LengthUnit Inch = new LengthUnit("in", 1, 0.0254m);
+        public static LengthUnit Hand = new LengthUnit("hand", 4, 0.0254m);
         public static LengthUnit Foot = new LengthUnit("ft", 12, 0.0254m);
         public static LengthUnit Yard = new LengthUnit("yd", 36, 0.0254m);
         public static LengthUnit Chain = new LengthUnit("ch", 792, 0.0254m);

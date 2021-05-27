@@ -11,46 +11,46 @@ namespace EngineeringUnits
         ///     Get Length from AstronomicalUnits.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromAstronomicalUnits(double astronomicalunits)
-        //{
-        //    double value = (double)astronomicalunits;
-        //    return new Length(value, LengthUnit.AstronomicalUnit);
-        //}
+        public static Length FromAstronomicalUnits(double astronomicalunits)
+        {
+            double value = (double)astronomicalunits;
+            return new Length(value, LengthUnit.AstronomicalUnit);
+        }
         /// <summary>
         ///     Get Length from Centimeters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromCentimeters(double centimeters)
-        //{
-        //    double value = (double)centimeters;
-        //    return new Length(value, LengthUnit.Centimeter);
-        //}
+        public static Length FromCentimeters(double centimeters)
+        {
+            double value = (double)centimeters;
+            return new Length(value, LengthUnit.Centimeter);
+        }
         /// <summary>
         ///     Get Length from Chains.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromChains(double chains)
-        //{
-        //    double value = (double)chains;
-        //    return new Length(value, LengthUnit.Chain);
-        //}
+        public static Length FromChains(double chains)
+        {
+            double value = (double)chains;
+            return new Length(value, LengthUnit.Chain);
+        }
         /// <summary>
         ///     Get Length from Decimeters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromDecimeters(double decimeters)
-        //{
-        //    double value = (double)decimeters;
-        //    return new Length(value, LengthUnit.Decimeter);
-        //}
+        public static Length FromDecimeters(double decimeters)
+        {
+            double value = (double)decimeters;
+            return new Length(value, LengthUnit.Decimeter);
+        }
         /// <summary>
         ///     Get Length from DtpPicas.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromDtpPicas(double dtppicas)
+        //public static length fromdtppicas(double dtppicas)
         //{
         //    double value = (double)dtppicas;
-        //    return new Length(value, LengthUnit.DtpPica);
+        //    return new length(value, lengthunit.dtppica);
         //}
         /// <summary>
         ///     Get Length from DtpPoints.
@@ -74,38 +74,38 @@ namespace EngineeringUnits
         ///     Get Length from Feet.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromFeet(double feet)
-        //{
-        //    double value = (double)feet;
-        //    return new Length(value, LengthUnit.Foot);
-        //}
+        public static Length FromFeet(double feet)
+        {
+            double value = (double)feet;
+            return new Length(value, LengthUnit.Foot);
+        }
         /// <summary>
         ///     Get Length from Hands.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromHands(double hands)
-        //{
-        //    double value = (double)hands;
-        //    return new Length(value, LengthUnit.Hand);
-        //}
+        public static Length FromHands(double hands)
+        {
+            double value = (double)hands;
+            return new Length(value, LengthUnit.Hand);
+        }
         /// <summary>
         ///     Get Length from Hectometers.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromHectometers(double hectometers)
-        //{
-        //    double value = (double)hectometers;
-        //    return new Length(value, LengthUnit.Hectometer);
-        //}
+        public static Length FromHectometers(double hectometers)
+        {
+            double value = (double)hectometers;
+            return new Length(value, LengthUnit.Hectometer);
+        }
         /// <summary>
         ///     Get Length from Inches.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromInches(double inches)
-        //{
-        //    double value = (double)inches;
-        //    return new Length(value, LengthUnit.Inch);
-        //}
+        public static Length FromInches(double inches)
+        {
+            double value = (double)inches;
+            return new Length(value, LengthUnit.Inch);
+        }
         /// <summary>
         ///     Get Length from KilolightYears.
         /// </summary>
@@ -119,11 +119,11 @@ namespace EngineeringUnits
         ///     Get Length from Kilometers.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromKilometers(double kilometers)
-        //{
-        //    double value = (double)kilometers;
-        //    return new Length(value, LengthUnit.Kilometer);
-        //}
+        public static Length FromKilometers(double kilometers)
+        {
+            double value = (double)kilometers;
+            return new Length(value, LengthUnit.Kilometer);
+        }
         /// <summary>
         ///     Get Length from Kiloparsecs.
         /// </summary>
@@ -164,11 +164,11 @@ namespace EngineeringUnits
         ///     Get Length from Meters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMeters(double meters)
-        //{
-        //    double value = (double)meters;
-        //    return new Length(value, LengthUnit.Meter);
-        //}
+        public static Length FromMeters(double meters)
+        {
+            double value = (double)meters;
+            return new Length(value, LengthUnit.Meter);
+        }
         /// <summary>
         ///     Get Length from Microinches.
         /// </summary>
@@ -182,11 +182,11 @@ namespace EngineeringUnits
         ///     Get Length from Micrometers.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMicrometers(double micrometers)
-        //{
-        //    double value = (double)micrometers;
-        //    return new Length(value, LengthUnit.Micrometer);
-        //}
+        public static Length FromMicrometers(double micrometers)
+        {
+            double value = (double)micrometers;
+            return new Length(value, LengthUnit.Micrometer);
+        }
         /// <summary>
         ///     Get Length from Mils.
         /// </summary>
@@ -200,47 +200,47 @@ namespace EngineeringUnits
         ///     Get Length from Miles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMiles(double miles)
-        //{
-        //    double value = (double)miles;
-        //    return new Length(value, LengthUnit.Mile);
-        //}
+        public static Length FromMiles(double miles)
+        {
+            double value = (double)miles;
+            return new Length(value, LengthUnit.Mile);
+        }
         /// <summary>
         ///     Get Length from Millimeters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMillimeters(double millimeters)
-        //{
-        //    double value = (double)millimeters;
-        //    return new Length(value, LengthUnit.Millimeter);
-        //}
+        public static Length FromMillimeters(double millimeters)
+        {
+            double value = (double)millimeters;
+            return new Length(value, LengthUnit.Millimeter);
+        }
         /// <summary>
         ///     Get Length from Nanometers.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromNanometers(double nanometers)
-        //{
-        //    double value = (double)nanometers;
-        //    return new Length(value, LengthUnit.Nanometer);
-        //}
+        public static Length FromNanometers(double nanometers)
+        {
+            double value = (double)nanometers;
+            return new Length(value, LengthUnit.Nanometer);
+        }
         /// <summary>
         ///     Get Length from NauticalMiles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromNauticalMiles(double nauticalmiles)
-        //{
-        //    double value = (double)nauticalmiles;
-        //    return new Length(value, LengthUnit.NauticalMile);
-        //}
+        public static Length FromNauticalMiles(double nauticalmiles)
+        {
+            double value = (double)nauticalmiles;
+            return new Length(value, LengthUnit.NauticalMile);
+        }
         /// <summary>
         ///     Get Length from Parsecs.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromParsecs(double parsecs)
-        //{
-        //    double value = (double)parsecs;
-        //    return new Length(value, LengthUnit.Parsec);
-        //}
+        public static Length FromParsecs(double parsecs)
+        {
+            double value = (double)parsecs;
+            return new Length(value, LengthUnit.Parsec);
+        }
         /// <summary>
         ///     Get Length from PrinterPicas.
         /// </summary>
@@ -299,11 +299,11 @@ namespace EngineeringUnits
         ///     Get Length from Yards.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromYards(double yards)
-        //{
-        //    double value = (double)yards;
-        //    return new Length(value, LengthUnit.Yard);
-        //}
+        public static Length FromYards(double yards)
+        {
+            double value = (double)yards;
+            return new Length(value, LengthUnit.Yard);
+        }
 
 
     }

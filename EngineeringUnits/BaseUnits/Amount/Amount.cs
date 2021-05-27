@@ -30,7 +30,7 @@ namespace EngineeringUnits
             return new Amount(value, unit);
         }
 
-        public decimal As(AmountOfSubstanceUnit ReturnInThisUnit)
+        public double As(AmountOfSubstanceUnit ReturnInThisUnit)
         {
 
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
@@ -38,8 +38,8 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Amount = ReturnInThisUnit;
             ReturnInThisUnitSystem.Amount.Count = 1;
 
-            //return ToTheOutSide(ReturnInThisUnitSystem) / 1.000000000000000000000000000000000m;
-            return (decimal)ToTheOutSide(ReturnInThisUnitSystem);
+
+            return ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 
