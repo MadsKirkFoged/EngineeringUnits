@@ -13,6 +13,9 @@ namespace EngineeringUnits
     public class SpecificEnergyUnit : Enumeration
     {
 
+        //used to remember the inputs
+        private EnergyUnit localenergy;
+        private MassUnit localmass;
 
 
 
@@ -31,12 +34,26 @@ namespace EngineeringUnits
             Unit = energy.Unit / mass.Unit;
             Unit.Symbol = energy.Unit.Symbol;
 
+            localenergy = energy;
+            localmass = mass;
+
+        }
+
+        public SpecificEnergyUnit()
+        {
+
+
         }
 
 
         public static IEnumerable<SpecificEnergyUnit> List()
         {
             return new[] { JoulePerKilogram, };
+        }
+
+        public override string ToString()
+        {
+            return $"{localenergy}/{localmass}";
         }
 
     }

@@ -617,12 +617,40 @@ namespace EngineeringUnits
         }
 
 
+        public string ChangingUnitSymbols()
+        {
+
+            SpecificEnergyUnit test = SpecificEnergyUnit.JoulePerKilogram;
+
+
+            if (this == (SpecificEnergyUnit.JoulePerKilogram).Unit)
+            {
+                Debug.Print("HER!");
+
+                
+                //Construct J
+
+                //Construct Mass
+
+
+
+
+                return (SpecificEnergyUnit.JoulePerKilogram).ToString();
+                
+            }
+
+            return "";
+
+
+        }
+
+
         public override string ToString()
         {
 
              string local = "";
 
-
+            
 
             foreach (var unit in UnitList())
             {
@@ -669,7 +697,7 @@ namespace EngineeringUnits
 
             }
 
-
+            
 
             if (Symbol is object)
             {

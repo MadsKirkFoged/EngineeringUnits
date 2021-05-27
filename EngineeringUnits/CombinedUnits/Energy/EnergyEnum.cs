@@ -38,7 +38,10 @@ namespace EngineeringUnits
         {
             return new[] { SI, Joule, };
         }
-        // Other util methods
+        public override string ToString()
+        {
+            return $"{Unit.Symbol}";
+        }
     }
 
 

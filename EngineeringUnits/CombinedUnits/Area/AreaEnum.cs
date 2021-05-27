@@ -26,7 +26,7 @@ namespace EngineeringUnits
         public static AreaUnit Yard2 = new AreaUnit(LengthUnit.Yard);
         public static AreaUnit Chain2 = new AreaUnit(LengthUnit.Chain);
         public static AreaUnit Mile2 = new AreaUnit(LengthUnit.Mile);
-        public static AreaUnit Nauticalmile2 = new AreaUnit(LengthUnit.Nauticalmile);
+        public static AreaUnit Nauticalmile2 = new AreaUnit(LengthUnit.NauticalMile);
 
 
 

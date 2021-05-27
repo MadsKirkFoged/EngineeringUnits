@@ -14,6 +14,23 @@ namespace EngineeringUnits
             //Begge er rigtige enheder, den første er bare den mest brugte..
 
 
+          
+
+
+
+
+
+
+
+            BigDecimal big1 = 5641231.546541;
+            BigDecimal big2 = 165465987.545465448987631;
+            BigDecimal big3 = (big1 / big2) + 54654654777d;
+
+            Debug.WriteLine($"{big3}");
+            Debug.WriteLine($"{(double)big3}");
+
+
+
             Fraction a = 3*3;  // int
 
             Fraction b = 1231231*3;  // int
@@ -33,7 +50,7 @@ namespace EngineeringUnits
 
             Enthalpy H1 = E1 / M1;
 
-
+            Debug.WriteLine($"{H1.Unit.ChangingUnitSymbols()}");
 
 
 

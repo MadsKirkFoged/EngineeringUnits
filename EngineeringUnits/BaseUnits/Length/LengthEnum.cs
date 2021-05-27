@@ -16,11 +16,13 @@ namespace EngineeringUnits
 
 
         public static LengthUnit Kilometer = new LengthUnit(PreFix.kilo, BaseUnits.length);
+        public static LengthUnit Hectometer = new LengthUnit(PreFix.hecto, BaseUnits.length);
         public static LengthUnit Meter = new LengthUnit(PreFix.SI, BaseUnits.length);
         public static LengthUnit SI = new LengthUnit(PreFix.SI, BaseUnits.length);
         public static LengthUnit Decimeter = new LengthUnit(PreFix.deci, BaseUnits.length);
         public static LengthUnit Centimeter = new LengthUnit(PreFix.centi, BaseUnits.length);
         public static LengthUnit Millimeter = new LengthUnit(PreFix.milli, BaseUnits.length);
+        public static LengthUnit Micrometer = new LengthUnit(PreFix.micro, BaseUnits.length);
         public static LengthUnit Nanometer = new LengthUnit(PreFix.nano, BaseUnits.length);
 
 
@@ -30,7 +32,9 @@ namespace EngineeringUnits
         public static LengthUnit Yard = new LengthUnit("yd", 36, 0.0254m);
         public static LengthUnit Chain = new LengthUnit("ch", 792, 0.0254m);
         public static LengthUnit Mile = new LengthUnit("mi", 63360, 0.0254m);
-        public static LengthUnit Nauticalmile = new LengthUnit("nmi", 72913.3858m, 0.0254m);
+        public static LengthUnit NauticalMile = new LengthUnit("nmi", 72913.3858m, 0.0254m);
+
+
 
         public static LengthUnit LightYear = new LengthUnit("ly",1, 9460730472580800m);
         public static LengthUnit AstronomicalUnit = new LengthUnit("au",1, 149597870700m);
@@ -63,7 +67,7 @@ namespace EngineeringUnits
        
         public static IEnumerable<LengthUnit> List()
         {
-            return new[] { Inch, Hand, Foot, Yard, Chain, Nauticalmile, LightYear, AstronomicalUnit, Parsec };
+            return new[] { Inch, Hand, Foot, Yard, Chain, NauticalMile, LightYear, AstronomicalUnit, Parsec };
         }
 
 

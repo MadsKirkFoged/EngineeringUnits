@@ -54,7 +54,15 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            return Name;
+
+            if (Symbol is object)
+            {
+                return $"{Symbol}";
+            }
+
+
+
+            return $"{Unit}";
         }
 
         public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
