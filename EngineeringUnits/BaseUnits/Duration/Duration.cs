@@ -29,7 +29,7 @@ namespace EngineeringUnits
             return new Duration(value, unit);
         }
 
-        public decimal As(DurationUnit ReturnInThisUnit)
+        public double As(DurationUnit ReturnInThisUnit)
         {
 
             UnitSystem ReturnInThisUnitSystem = new UnitSystem();
@@ -37,7 +37,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration = ReturnInThisUnit;
             ReturnInThisUnitSystem.Duration.Count = 1;
 
-            return (decimal)ToTheOutSide(ReturnInThisUnitSystem);
+            return ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

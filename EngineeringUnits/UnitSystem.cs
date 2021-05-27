@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public LengthUnit Length { get; set; }
         public MassUnit Mass { get; set; }
         public DurationUnit Duration { get; set; }
-        public ElectriccurrentUnit Electriccurrent { get; set; }
+        public ElectricCurrentUnit Electriccurrent { get; set; }
         public TemperatureUnit Temperature { get; set; }
         public AmountOfSubstanceUnit Amount { get; set; }
         public LuminousIntensityUnit LuminousIntensity { get; set; }
@@ -257,9 +257,9 @@ namespace EngineeringUnits
 
 
             if (a.Electriccurrent is object)
-                local.Electriccurrent = (ElectriccurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
             else if (b.Electriccurrent is object)
-                local.Electriccurrent = (ElectriccurrentUnit)b.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Copy();
 
 
             if (a.Temperature is object)
@@ -350,16 +350,16 @@ namespace EngineeringUnits
 
             if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
                 local.Electriccurrent.Count += b.Electriccurrent.Count;
             }
             else if (a.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
             }
             else if (b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)b.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Copy();
             }
 
 
@@ -482,16 +482,16 @@ namespace EngineeringUnits
 
             if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
                 local.Electriccurrent.Count -= b.Electriccurrent.Count;
             }
             else if (a.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
             }
             else if (b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectriccurrentUnit)b.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Copy();
                 local.Electriccurrent.Count *= -1;
             }
 

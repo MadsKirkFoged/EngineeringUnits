@@ -13,7 +13,7 @@ namespace EngineeringUnits
     {
 
 
-
+        public static AmountOfSubstanceUnit SI = new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
         public static AmountOfSubstanceUnit Mole = new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
         public static AmountOfSubstanceUnit Centimole = new AmountOfSubstanceUnit(PreFix.centi, BaseUnits.amountOfSubstance);
         public static AmountOfSubstanceUnit Decimole = new AmountOfSubstanceUnit(PreFix.deci, BaseUnits.amountOfSubstance);

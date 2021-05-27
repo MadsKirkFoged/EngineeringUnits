@@ -7,16 +7,16 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public partial class Amount : BaseUnit
+    public partial class AmountOfSubstance : BaseUnit
     {
 
-        public Amount()
+        public AmountOfSubstance()
         {
-            Unit.Amount.Count = 1;
+            //Unit.Amount.Count = 1;
         }
 
 
-        public Amount(double value, AmountOfSubstanceUnit unit) :this()
+        public AmountOfSubstance(double value, AmountOfSubstanceUnit unit) :this()
         {
 
             Unit.Amount = unit;
@@ -25,9 +25,9 @@ namespace EngineeringUnits
 
         }
 
-        public static Amount From(double value, AmountOfSubstanceUnit unit)
+        public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit)
         {
-            return new Amount(value, unit);
+            return new AmountOfSubstance(value, unit);
         }
 
         public double As(AmountOfSubstanceUnit ReturnInThisUnit)
@@ -52,9 +52,9 @@ namespace EngineeringUnits
 
 
         //Every units needs this
-        public static implicit operator Amount(UnknownUnit Unit)
+        public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {
-            Amount local = new Amount();
+            AmountOfSubstance local = new AmountOfSubstance();
 
             if (local.Unit != Unit.baseUnit.Unit)
             {
