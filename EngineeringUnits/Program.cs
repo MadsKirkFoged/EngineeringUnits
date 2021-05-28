@@ -10,10 +10,20 @@ namespace EngineeringUnits
         {
 
 
+            //
+
             //Hvordan fixer jeg at specifienergy bliver [j/kg] i stedet for [m2/s2]?
             //Begge er rigtige enheder, den første er bare den mest brugte..
             //Lenght is done-ish
             //Amount is done-ish
+
+
+
+            Energy E1 = new Energy(1, EnergyUnit.BTU);
+
+
+            Debug.WriteLine($"{E1}");
+            Debug.WriteLine($"{E1.As(EnergyUnit.Joule)}");
 
 
 
@@ -36,7 +46,7 @@ namespace EngineeringUnits
 
 
 
-            Energy E1 = new Energy(10,EnergyUnit.Joule);
+           // Energy E1 = new Energy(10,EnergyUnit.Joule);
 
             Mass M1 = new Mass(5, MassUnit.SI);
 

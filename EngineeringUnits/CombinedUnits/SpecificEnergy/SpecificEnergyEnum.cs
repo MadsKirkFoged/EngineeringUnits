@@ -25,7 +25,6 @@ namespace EngineeringUnits
 
 
 
-
         public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass)
         {
             Name = "Energy";

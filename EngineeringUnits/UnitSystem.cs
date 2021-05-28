@@ -20,10 +20,14 @@ namespace EngineeringUnits
         public AmountOfSubstanceUnit Amount { get; set; }
         public LuminousIntensityUnit LuminousIntensity { get; set; }
 
+        public decimal EkstraCorrection { get; set; }
 
-        
+
+
         public UnitSystem()
         {
+            EkstraCorrection = 1;
+
             //Length = new BaseUnitClass(BaseUnits.length);
             //Mass = new BaseUnitClass(BaseUnits.mass);
             //Duration = new BaseUnitClass(BaseUnits.time);
@@ -568,6 +572,10 @@ namespace EngineeringUnits
         {
 
             Fraction a = 1;
+
+            a *= (Fraction)EkstraCorrection;
+
+            
 
             foreach (var item in UnitList())
             {

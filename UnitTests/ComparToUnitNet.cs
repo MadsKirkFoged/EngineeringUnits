@@ -11,7 +11,7 @@ namespace UnitTests
 
 
         [TestMethod]
-        public void LenghtCompair()
+        public void Lenghtcompare()
         {
             UnitsNet.Length L1 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
             EngineeringUnits.Length L2 = new EngineeringUnits.Length(1, EngineeringUnits.LengthUnit.Mile);
@@ -103,6 +103,61 @@ namespace UnitTests
             Assert.AreEqual(0, A2.As(EngineeringUnits.ElectricCurrentUnit.Milliampere) - A1.As(UnitsNet.Units.ElectricCurrentUnit.Milliampere), 7E-18);
             Assert.AreEqual(0, A2.As(EngineeringUnits.ElectricCurrentUnit.Nanoampere) - A1.As(UnitsNet.Units.ElectricCurrentUnit.Nanoampere), 7.3E-12);
             Assert.AreEqual(0, A2.As(EngineeringUnits.ElectricCurrentUnit.Picoampere) - A1.As(UnitsNet.Units.ElectricCurrentUnit.Picoampere), 0);
+
+        }
+
+
+
+
+        [TestMethod]
+        public void Masscompare()
+        {
+            UnitsNet.Mass L1 = new UnitsNet.Mass(5674.889, UnitsNet.Units.MassUnit.Kilogram);
+            EngineeringUnits.Mass L2 = new EngineeringUnits.Mass(5674.889, EngineeringUnits.MassUnit.Kilogram);
+
+
+            //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Centigram) - L1.As(UnitsNet.Units.MassUnit.Centigram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Decigram) - L1.As(UnitsNet.Units.MassUnit.Decigram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Dekagram) - L1.As(UnitsNet.Units.MassUnit.Decagram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.EarthMass) - L1.As(UnitsNet.Units.MassUnit.EarthMass), 9.5E-20);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Grain) - L1.As(UnitsNet.Units.MassUnit.Grain), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Gram) - L1.As(UnitsNet.Units.MassUnit.Gram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Hectogram) - L1.As(UnitsNet.Units.MassUnit.Hectogram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Kilogram) - L1.As(UnitsNet.Units.MassUnit.Kilogram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Microgram) - L1.As(UnitsNet.Units.MassUnit.Microgram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Milligram) - L1.As(UnitsNet.Units.MassUnit.Milligram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Nanogram) - L1.As(UnitsNet.Units.MassUnit.Nanogram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Ounce) - L1.As(UnitsNet.Units.MassUnit.Ounce), 0.0003);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Pound) - L1.As(UnitsNet.Units.MassUnit.Pound), 1.9E-12);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.ShortTon) - L1.As(UnitsNet.Units.MassUnit.ShortTon), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Stone) - L1.As(UnitsNet.Units.MassUnit.Stone), 0.0008);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassUnit.Tonne) - L1.As(UnitsNet.Units.MassUnit.Tonne), 0);
+
+            //Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
+
+
+
+        }
+
+
+        [TestMethod]
+        public void Temperaturecompare()
+        {
+            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.Kelvin);
+            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, EngineeringUnits.TemperatureUnit.Kelvin);
+
+
+            //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 1.2E-13);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
+
+
+            //Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
+
+
 
         }
     }
