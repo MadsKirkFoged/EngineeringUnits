@@ -11,11 +11,11 @@ namespace EngineeringUnits
 
 
             //Lav Energy færdig
+            //prefix på ikke-baseunits units? f.eks. GigaBTU og Gigajoule
 
 
 
-
-            Energy E1 = new Energy(1, EnergyUnit.BTU);
+            Energy E1 = new Energy(1, EnergyUnit.KilowattHour);
 
 
             Debug.WriteLine($"{E1}");

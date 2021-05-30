@@ -23,10 +23,10 @@ namespace EngineeringUnits
             SetLocalValue(value);
         }
 
-        public decimal As(EnergyUnit energyUnit)
+        public double As(EnergyUnit energyUnit)
         {
             //return ToTheOutSide(energyUnit.Unit);
-            return (decimal)ToTheOutSide(energyUnit.Unit);
+            return ToTheOutSide(energyUnit.Unit);
         }
 
         //Every units needs this

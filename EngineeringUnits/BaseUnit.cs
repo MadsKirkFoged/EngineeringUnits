@@ -258,16 +258,16 @@ namespace EngineeringUnits
 
 
             //Trying to avoid small numeric error
-            //if (rightA1 >= leftA1)
+            if (rightA1 >= leftA1)
                 y2 /= (decimal)(rightA1 / leftA1);
-            //else
-             //   y2 *= (decimal)(leftA1 / rightA1);
+            else
+                y2 *= (decimal)(leftA1 / rightA1);
 
 
-            //if (rightA2 >= leftA2)
+            if (rightA2 >= leftA2)
                 y2 /= (decimal)(rightA2 / leftA2);
-            //else
-             //   y2 *= (decimal)(leftA2 / rightA2);
+            else
+                y2 *= (decimal)(leftA2 / rightA2);
 
 
 

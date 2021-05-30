@@ -19,8 +19,12 @@ namespace EngineeringUnits
         //public static EnergyUnit SI = new EnergyUnit(PreFix.SI, BaseUnits.length);
         public static EnergyUnit SI = Joule;
         public static EnergyUnit Joule = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
-        public static EnergyUnit BTU = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
-
+        public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
+        public static EnergyUnit Calorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
+        public static EnergyUnit ElectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
+        public static EnergyUnit FootPound = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "", 1.3558m);
+        public static EnergyUnit KilowattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kW⋅h", 3600000);
+        public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "W⋅h", 3600);
 
 
         //public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration)
@@ -45,6 +49,8 @@ namespace EngineeringUnits
             {
                 Unit.Symbol = NewSymbol;
             }
+
+            Unit.EkstraCorrection = correction;
         }
 
 

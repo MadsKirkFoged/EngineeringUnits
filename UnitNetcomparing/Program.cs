@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace UnitNetcomparing
 {
@@ -8,11 +9,18 @@ namespace UnitNetcomparing
         {
             Console.WriteLine("Hello World!");
 
-            UnitsNet.Length L1 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
-            EngineeringUnits.Length L2 = new EngineeringUnits.Length(1, EngineeringUnits.LengthUnit.Mile);
+            UnitsNet.Energy L1 = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.WattHour);
+            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(1, EngineeringUnits.EnergyUnit.WattHour);
 
 
 
+
+            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.EnergyUnit.Joule)}");
+            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
+
+
+
+            //Debug.Print($"{L2.As(EngineeringUnits.EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
 
 
 
