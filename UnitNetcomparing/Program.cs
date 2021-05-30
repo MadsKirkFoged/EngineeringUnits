@@ -9,16 +9,20 @@ namespace UnitNetcomparing
         {
             Console.WriteLine("Hello World!");
 
-            UnitsNet.Energy L1 = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.WattHour);
-            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(1, EngineeringUnits.EnergyUnit.WattHour);
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
 
 
 
 
-            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.EnergyUnit.Joule)}");
-            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
 
 
+            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram)}");
+            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram)}");
+
+
+            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound)}");
+            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound)}");
 
             //Debug.Print($"{L2.As(EngineeringUnits.EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
 

@@ -12,14 +12,22 @@ namespace EngineeringUnits
 
             //Lav Energy færdig
             //prefix på ikke-baseunits units? f.eks. GigaBTU og Gigajoule
+            //transfer EkstraCorrection
 
 
 
-            Energy E1 = new Energy(1, EnergyUnit.KilowattHour);
+            //EkstraCorrection - Skal den laves som sig egen unit?
+            //-->Tænker det vil give bedst mening
+            //--> alternativt bliver det lidt træls at føre EkstraCorrection med rundt..
+            //Problemet opstår når en unit med EkstraCorrection bliver brugt til at lave en ny sammensat unit med
+
+
+
+            SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
 
 
             Debug.WriteLine($"{E1}");
-            Debug.WriteLine($"{E1.As(EnergyUnit.Joule)}");
+            Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
 
 
 

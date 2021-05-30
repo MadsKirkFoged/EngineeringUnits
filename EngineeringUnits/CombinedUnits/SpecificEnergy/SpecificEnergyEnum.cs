@@ -22,6 +22,7 @@ namespace EngineeringUnits
         //public static EnergyUnit SI = new EnergyUnit(PreFix.SI, BaseUnits.length);
         //public static SpecificEnergyUnit SI = JoulePerKilogram;
         public static SpecificEnergyUnit JoulePerKilogram = new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.SI);
+        public static SpecificEnergyUnit BtuPerPound = new SpecificEnergyUnit(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
 
 
 
@@ -31,10 +32,12 @@ namespace EngineeringUnits
 
             //  J/kg
             Unit = energy.Unit / mass.Unit;
-            Unit.Symbol = energy.Unit.Symbol;
+            Unit.Symbol = $"{energy.Unit.Symbol}/{mass.Unit}";
 
             localenergy = energy;
             localmass = mass;
+
+            //EkstraCorrection *= 
 
         }
 
