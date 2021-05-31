@@ -50,7 +50,13 @@ namespace EngineeringUnits
                 Unit.Symbol = NewSymbol;
             }
 
-            Unit.EkstraCorrection = correction;
+            if (correction != 1)
+            {
+                Unit.Combined = new CombinedUnit("", correction, 1);
+            }
+
+
+            //Unit.EkstraCorrection = correction;
         }
 
 

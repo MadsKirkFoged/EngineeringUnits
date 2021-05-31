@@ -36,12 +36,12 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergycompare()
         {
-            //UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(56239676, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            //EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(56239676, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(56239676, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(56239676, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
 
 
- 
-            //Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0);
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0);
 
         }
 

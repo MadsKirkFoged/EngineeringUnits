@@ -18,9 +18,6 @@ namespace EngineeringUnits
         private MassUnit localmass;
 
 
-
-        //public static EnergyUnit SI = new EnergyUnit(PreFix.SI, BaseUnits.length);
-        //public static SpecificEnergyUnit SI = JoulePerKilogram;
         public static SpecificEnergyUnit JoulePerKilogram = new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.SI);
         public static SpecificEnergyUnit BtuPerPound = new SpecificEnergyUnit(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
 

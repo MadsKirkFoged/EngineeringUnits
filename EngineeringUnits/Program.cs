@@ -26,7 +26,7 @@ namespace EngineeringUnits
             SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
 
 
-            Debug.WriteLine($"{E1}");
+            //Debug.WriteLine($"{E1}");
             Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
 
 

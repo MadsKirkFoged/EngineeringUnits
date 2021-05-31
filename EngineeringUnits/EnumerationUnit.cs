@@ -10,7 +10,7 @@ namespace EngineeringUnits
     {
         public string Name { get; protected set; }
         public string Symbol { get; protected set; }
-        public decimal A1 { get; protected set; }
+        public decimal A1 { get; set; }
         public decimal A2 { get; protected set; }
         public decimal B { get; protected set; }
 
