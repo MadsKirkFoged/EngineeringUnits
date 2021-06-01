@@ -44,6 +44,7 @@ namespace EngineeringUnits
             Unit.Amount = this.Copy();
             Unit.Amount.Count = 1;
             Count = 1;
+            Unit.Amount.ActualC = 1;
         }
 
 
@@ -63,7 +64,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
 

@@ -49,6 +49,7 @@ namespace EngineeringUnits
             Unit.LuminousIntensity = this.Copy();
             Unit.LuminousIntensity.Count = 1;
             Count = 1;
+            Unit.LuminousIntensity.ActualC = 1;
         }
 
         public static IEnumerable<LuminousIntensityUnit> List()
@@ -65,7 +66,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
     }

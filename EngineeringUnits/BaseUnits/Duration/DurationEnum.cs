@@ -47,6 +47,7 @@ namespace EngineeringUnits
             Unit.Duration = this.Copy();
             Unit.Duration.Count = 1;
             Count = 1;
+            Unit.Duration.ActualC = 1;
         }
 
 
@@ -65,7 +66,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
     }

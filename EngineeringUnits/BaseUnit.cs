@@ -206,6 +206,9 @@ namespace EngineeringUnits
             Fraction a2 = right.Unit.GetFactorGlobal();
             decimal y2 = right.ValueLocalUnit;
 
+            Fraction b1 = left.Unit.SumOfBConstants();
+            Fraction b2 = right.Unit.SumOfBConstants();
+
 
             //Turn to SI
             decimal x1 = (y1) * a1.ToDecimal();
@@ -223,7 +226,7 @@ namespace EngineeringUnits
 
 
 
-                    x3 = y1 + right.GetDecimal(left.Unit);
+                    x3 = y1 + right.GetDecimal(left.Unit) + (decimal)b1*-1;
 
 
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
@@ -296,6 +299,13 @@ namespace EngineeringUnits
 
 
             Fraction a3 = a2 / a1;
+            //Fraction a3 = a1 / a2;
+
+            a3 *= Unit.GetActualC();
+
+
+
+
             Fraction b3 = a3 * (b1*-1) + b2;
 
 

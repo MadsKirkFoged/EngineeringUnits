@@ -45,6 +45,7 @@ namespace EngineeringUnits
             Unit.Electriccurrent = this.Copy();
             Unit.Electriccurrent.Count = 1;
             Count = 1;
+            Unit.Electriccurrent.ActualC = 1;
         }
 
 
@@ -62,7 +63,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
 

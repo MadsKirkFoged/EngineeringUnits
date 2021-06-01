@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public static TemperatureUnit Kelvin = new TemperatureUnit("k", 1,1,0);
         public static TemperatureUnit SI = new TemperatureUnit("k", 1, 1, 0);
         public static TemperatureUnit DegreeCelsius = new TemperatureUnit("°C", 1,1, -273.15m);
-        public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F", 9/5m, 1, (-273.15m*(9/5m))+ 32m);
+        public static TemperatureUnit DegreeFahrenheit = new TemperatureUnit("°F", 5/9m, 1, (-273.15m*(9/5m))+ 32m);
         public static TemperatureUnit DegreeRankine = new TemperatureUnit("°R", 1/1.8m, 1, 0);
 
 
@@ -41,6 +41,7 @@ namespace EngineeringUnits
             Unit = new UnitSystem();
             Unit.Temperature = this.Copy();
             Unit.Temperature.Count = 1;
+            Unit.Temperature.ActualC = 1;
             Count = 1;
         }
 
@@ -59,7 +60,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
     }

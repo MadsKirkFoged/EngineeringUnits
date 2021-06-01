@@ -82,6 +82,7 @@ namespace EngineeringUnits
             Unit.Mass = this.Copy();
             Unit.Mass.Count = 1;
             Count = 1;
+            Unit.Mass.ActualC = 1;
         }
 
         public static IEnumerable<MassUnit> List()
@@ -99,7 +100,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
     }

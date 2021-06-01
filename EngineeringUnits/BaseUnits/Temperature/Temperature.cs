@@ -18,11 +18,19 @@ namespace EngineeringUnits
 
         public Temperature(double value, TemperatureUnit unit) :this()
         {
+
+            //Normally done like this
             Unit.Temperature = unit;
-
-            //SetLocalValue(value);
-
             ValueLocalUnit = (decimal)value;
+
+            //but this temperature we have to convert into kelvin first
+            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
+            ReturnInThisUnitSystem.Temperature = TemperatureUnit.Kelvin;
+            ReturnInThisUnitSystem.Temperature.Count = 1;
+
+            //Forcing all temperatures to stay in kelvin
+            ValueLocalUnit = GetDecimal(ReturnInThisUnitSystem);
+            Unit.Temperature = TemperatureUnit.Kelvin;
         }
 
         public static Temperature From(double value, TemperatureUnit unit)
