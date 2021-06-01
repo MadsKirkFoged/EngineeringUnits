@@ -20,13 +20,14 @@ namespace EngineeringUnits
         {
 
             Unit = energyUnit.Unit;
-            SetLocalValue(value);
+            //SetLocalValue(value);
+            ValueLocalUnit = (decimal)value;
         }
 
-        public decimal As(EnergyUnit energyUnit)
+        public double As(EnergyUnit energyUnit)
         {
             //return ToTheOutSide(energyUnit.Unit);
-            return ToTheOutSide(energyUnit.Unit);
+            return (double)ToTheOutSide(energyUnit.Unit);
         }
 
         //Every units needs this

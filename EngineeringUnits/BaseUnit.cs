@@ -302,7 +302,7 @@ namespace EngineeringUnits
             //Fraction a3 = a1 / a2;
 
             a3 *= Unit.GetActualC();
-
+            //a3 *= To.GetActualC();
 
 
 

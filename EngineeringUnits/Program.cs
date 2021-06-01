@@ -10,6 +10,27 @@ namespace EngineeringUnits
         {
 
 
+            //Todo - Få styr på ActualC og combined-unit correction.
+            //combined-unit correction, bruges når en combined unit f.eks. BTU skal oprettes, da den ikke kan laves udfra nogle baseunits.
+
+            //ActualC bruges når kg/lb, så bliver enheden sat til 0, men en correction bliver husket
+
+
+
+            //EngineeringUnits: 0,0009478133944988911
+            //UnitsNet: 0,00042992260000007437
+
+
+            SpecificEnergy E1 = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+
+            Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
+
+
+
+
+
+
+
             //Lav Energy færdig
             //prefix på ikke-baseunits units? f.eks. GigaBTU og Gigajoule
             //transfer EkstraCorrection
@@ -31,11 +52,11 @@ namespace EngineeringUnits
 
             Length L2 = new Length(1, LengthUnit.Yard);
 
-            SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
+            //SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
 
 
             //Debug.WriteLine($"{E1}");
-            Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
+            //Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
 
 
 
