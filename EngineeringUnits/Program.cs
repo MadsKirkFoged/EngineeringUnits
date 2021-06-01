@@ -21,7 +21,15 @@ namespace EngineeringUnits
             //--> alternativt bliver det lidt træls at føre EkstraCorrection med rundt..
             //Problemet opstår når en unit med EkstraCorrection bliver brugt til at lave en ny sammensat unit med
 
+            Length L1 = new Length(10, LengthUnit.Meter);
 
+
+            //var d1 = (L1 / L2);
+
+
+            Debug.WriteLine($"{L1.As(LengthUnit.Yard)}");
+
+            Length L2 = new Length(1, LengthUnit.Yard);
 
             SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
 
@@ -65,8 +73,7 @@ namespace EngineeringUnits
 
 
 
-            Length L1 = new Length(10, LengthUnit.Meter);
-            Length L2 = new Length(1, LengthUnit.Yard);
+
 
             Area A1 = L1 * L2;
 

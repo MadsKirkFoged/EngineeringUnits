@@ -10,9 +10,11 @@ namespace EngineeringUnits
     {
         public string Name { get; protected set; }
         public string Symbol { get; protected set; }
-        public decimal A1 { get; set; }
-        public decimal A2 { get; protected set; }
+        public decimal LocalC { get; set; }
+        public decimal GlobalC { get; protected set; }
+        public decimal ActualC { get; set; }
         public decimal B { get; protected set; }
+
 
         public int Count { get; set; }
 
@@ -29,26 +31,29 @@ namespace EngineeringUnits
         protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
         {
             Symbol = symbol;
-            A1 = a1;
-            A2 = a2;
+            LocalC = a1;
+            GlobalC = a2;
             B = b;
             ReversedA = true;
+            ActualC = 1;
         }
 
         protected Enumeration(string symbol, decimal a1, decimal a2)
         {
             Symbol = symbol;
-            A1 = a1;
-            A2 = a2;
+            LocalC = a1;
+            GlobalC = a2;
             B = 0;
+            ActualC = 1;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            A1 = PrefixSISize(SI);
-            A2 = 1;
+            LocalC = PrefixSISize(SI);
+            GlobalC = 1;
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
+            ActualC = 1;
         }
 
 

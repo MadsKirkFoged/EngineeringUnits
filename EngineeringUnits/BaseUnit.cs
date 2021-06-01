@@ -30,6 +30,20 @@ namespace EngineeringUnits
         }
 
 
+        public decimal GetDecimal(UnitSystem a)
+        {
+            if (Unit is object)
+            {
+                return ToTheOutSide(a);
+            }
+            else
+            {
+                return 0;
+            }
+
+
+        }
+
         public double As(UnitSystem a)
         {
 
@@ -203,31 +217,54 @@ namespace EngineeringUnits
             switch (math)
             {
                 case MathEnum.Add:
-                    x3 = x1 + x2;
+
+
+                    //Turn right into lefts unit
+
+
+
+                    x3 = y1 + right.GetDecimal(left.Unit);
+
+
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+
+
                     break;
+
+
                 case MathEnum.Subtract:
                     x3 = x1 - x2;
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
                     local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Multiply:
-                    x3 = x1 * x2;
+
+
+                    x3 = y1 * y2;
+
+
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-                    a1 = local.Unit.GetFactorGlobal();
-                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+
+
+                    //a1 = local.Unit.GetFactorGlobal();
+
+
+                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
 
-                    if (x2 != 0)                    
-                        x3 = x1 / x2;                    
+                    if (y2 != 0)                    
+                        x3 = y1 / y2;                    
                     else                    
                         x3 = 0;
                     
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    a1 = local.Unit.GetFactorGlobal();
-                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    //a1 = local.Unit.GetFactorGlobal();
+                    //local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+
+                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+
                     break;
                 default:
                     break;
@@ -239,45 +276,68 @@ namespace EngineeringUnits
         }
 
 
-        public double ToTheOutSide(UnitSystem To)
+        public decimal ToTheOutSide(UnitSystem To)
         {
 
             //Samle konstanter
-            Fraction leftA1 = 1;
+            Fraction leftA1 = Unit.GetFactorLocal();
             Fraction leftA2 = Unit.GetFactorGlobal();
             Fraction rightA1 = To.GetFactorLocal();
             Fraction rightA2 = To.GetFactorGlobal();
 
+
+
+            Fraction a1 =   1/(leftA2 * leftA1);
+            Fraction a2 = 1/(rightA2 * rightA1);
+
+
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();
 
-            decimal y1 = ValueLocalUnit;
-            decimal y2 = y1;
+
+            Fraction a3 = a2 / a1;
+            Fraction b3 = a3 * (b1*-1) + b2;
 
 
+            Fraction y1 = (Fraction)ValueLocalUnit;
+
+            
+            
+            Fraction y2 = a3 * y1 + b3;
+
+
+            //decimal y2 = y1;
+
+
+            //y2 = a2 * a1 * x1 + a2 *(-b1) + b2
 
 
             //Trying to avoid small numeric error
-            if (rightA1 >= leftA1)
-                y2 /= (decimal)(rightA1 / leftA1);
-            else
-                y2 *= (decimal)(leftA1 / rightA1);
+            //if (rightA1 >= leftA1)
+            //    y2 /= (decimal)(rightA1 / leftA1);
+            //else
+            //    y2 *= (decimal)(leftA1 / rightA1);
 
 
-            if (rightA2 >= leftA2)
-                y2 /= (decimal)(rightA2 / leftA2);
-            else
-                y2 *= (decimal)(leftA2 / rightA2);
-
-
-
-
-
-            y2 = y2 + b2.ToDecimal(); // + b1;
+            //if (rightA2 >= leftA2)
+            //    y2 /= (decimal)(rightA2 / leftA2);
+            //else
+            //    y2 *= (decimal)(leftA2 / rightA2);
 
 
 
-            return (double)y2;
+            //y2 *= (decimal)Unit.GetActualC();
+
+            //a2 * (-b1)
+            //y2 -= (decimal)(b1 * (leftA2 / rightA2));
+
+
+            //y2 += (decimal)b2;
+
+
+
+
+            return (decimal)y2;
         }
 
 

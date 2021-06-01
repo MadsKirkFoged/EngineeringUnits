@@ -20,7 +20,9 @@ namespace EngineeringUnits
         {
             Unit.Temperature = unit;
 
-            SetLocalValue(value);
+            //SetLocalValue(value);
+
+            ValueLocalUnit = (decimal)value;
         }
 
         public static Temperature From(double value, TemperatureUnit unit)
@@ -36,7 +38,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Temperature.Count = 1;
 
 
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

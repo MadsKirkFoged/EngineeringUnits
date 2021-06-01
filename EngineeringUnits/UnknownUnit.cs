@@ -52,7 +52,12 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
-            return  Unit.baseUnit.Value;
+            return (double)Unit.baseUnit.As(Unit.baseUnit);
+
+            //return Unit.baseUnit.Value;
+
+
+            //return  Unit.baseUnit.Value;
         }
 
         public static explicit operator decimal(UnknownUnit Unit)

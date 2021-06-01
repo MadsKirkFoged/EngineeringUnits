@@ -21,7 +21,7 @@ namespace EngineeringUnits
             SetLocalValue(value);
         }
 
-        public double As(AreaUnit SquaredlengthUnit)
+        public decimal As(AreaUnit SquaredlengthUnit)
         {
             return ToTheOutSide(SquaredlengthUnit.Unit);
         }

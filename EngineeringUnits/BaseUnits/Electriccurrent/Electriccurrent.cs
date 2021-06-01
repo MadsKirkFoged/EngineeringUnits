@@ -20,7 +20,9 @@ namespace EngineeringUnits
         {
             Unit.Electriccurrent = unit;
 
-            SetLocalValue(value);
+            //SetLocalValue(value);
+
+            ValueLocalUnit = (decimal)value;
         }
 
 
@@ -31,7 +33,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Electriccurrent = ReturnInThisUnit;
             ReturnInThisUnitSystem.Electriccurrent.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit)

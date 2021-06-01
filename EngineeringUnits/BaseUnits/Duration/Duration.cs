@@ -20,7 +20,8 @@ namespace EngineeringUnits
 
             Unit.Duration = unit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
-            SetLocalValue(value);
+            //SetLocalValue(value);
+            ValueLocalUnit = (decimal)value;
 
         }
 
@@ -37,7 +38,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Duration = ReturnInThisUnit;
             ReturnInThisUnitSystem.Duration.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
 

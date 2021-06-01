@@ -120,7 +120,7 @@ namespace UnitTests
             Length L4 = L2 + L1;
 
 
-            Assert.AreEqual(287.8298, L3.As(LengthUnit.Centimeter));
+            Assert.AreEqual(287.8298, L3.As(LengthUnit.Centimeter), 0.0000001);
             Assert.AreEqual(113.31881889763779527559055118, L3.As(LengthUnit.Inch));
             Assert.AreEqual(287.8298, L4.As(LengthUnit.Centimeter));
             Assert.AreEqual(113.31881889763779527559055118, L4.As(LengthUnit.Inch));

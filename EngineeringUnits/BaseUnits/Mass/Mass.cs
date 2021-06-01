@@ -19,7 +19,9 @@ namespace EngineeringUnits
         public Mass(double value, MassUnit unit) :this()
         {
             Unit.Mass = unit;
-            SetLocalValue(value);
+            //SetLocalValue(value);
+
+            ValueLocalUnit = (decimal)value;
         }
 
 
@@ -29,7 +31,7 @@ namespace EngineeringUnits
             ReturnInThisUnitSystem.Mass = ReturnInThisUnit;
             ReturnInThisUnitSystem.Mass.Count = 1;
 
-            return ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnitSystem);
         }
 
         public static implicit operator Mass(UnknownUnit Unit)

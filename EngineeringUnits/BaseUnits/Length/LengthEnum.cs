@@ -48,12 +48,14 @@ namespace EngineeringUnits
         public LengthUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
             SetUnitSystem();
+
         }
 
 
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             SetUnitSystem();
+
         }
 
         public void SetUnitSystem()
@@ -61,7 +63,9 @@ namespace EngineeringUnits
             Unit = new UnitSystem();
             Unit.Length = this.Copy();
             Unit.Length.Count = 1;
+            Unit.Length.ActualC = 1;
             Count = 1;
+            ActualC = 1;
         }
 
        
@@ -78,11 +82,12 @@ namespace EngineeringUnits
             {
                 Name = Name,
                 Symbol = Symbol,
-                A1 = A1,
-                A2 = A2,
+                LocalC = LocalC,
+                GlobalC = GlobalC,
                 B = B,
-                Count = Count
-            };
+                Count = Count,
+                ActualC = ActualC,
+        };
         }
 
 

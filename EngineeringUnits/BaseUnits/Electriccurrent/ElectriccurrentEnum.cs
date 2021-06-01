@@ -59,8 +59,8 @@ namespace EngineeringUnits
             {
                 Name = Name,
                 Symbol = Symbol,
-                A1 = A1,
-                A2 = A2,
+                LocalC = LocalC,
+                GlobalC = GlobalC,
                 B = B,
                 Count = Count
             };

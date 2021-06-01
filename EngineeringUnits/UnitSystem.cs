@@ -173,6 +173,24 @@ namespace EngineeringUnits
             if (a.Length is object && b.Length is object)
             {
                 local.Length = (LengthUnit)a.Length.Copy();
+
+
+
+
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.LocalC, a.Length.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.GlobalC, a.Length.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Length.LocalC, b.Length.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Length.GlobalC, b.Length.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Length.ActualC = (decimal)CombinedFraction * a.Length.ActualC * b.Length.ActualC;
+
+
+
+
+
                 local.Length.Count += b.Length.Count;
             }
             else if (a.Length is object)
@@ -191,6 +209,20 @@ namespace EngineeringUnits
             if (a.Mass is object && b.Mass is object)
             {
                 local.Mass = (MassUnit)a.Mass.Copy();
+
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.LocalC, a.Mass.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.GlobalC, a.Mass.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Mass.LocalC, b.Mass.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Mass.GlobalC, b.Mass.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Mass.ActualC = (decimal)CombinedFraction * a.Mass.ActualC * b.Mass.ActualC;
+
+
+
+
                 local.Mass.Count += b.Mass.Count;
             }
             else if (a.Mass is object)
@@ -207,6 +239,18 @@ namespace EngineeringUnits
             if (a.Duration is object && b.Duration is object)
             {
                 local.Duration = (DurationUnit)a.Duration.Copy();
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.LocalC, a.Duration.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.GlobalC, a.Duration.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Duration.LocalC, b.Duration.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Duration.GlobalC, b.Duration.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Duration.ActualC = (decimal)CombinedFraction * a.Duration.ActualC * b.Duration.ActualC;
+
+
+
                 local.Duration.Count += b.Duration.Count;
             }
             else if (a.Duration is object)
@@ -224,6 +268,19 @@ namespace EngineeringUnits
             if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
                 local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
+
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.LocalC, a.Electriccurrent.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.GlobalC, a.Electriccurrent.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Electriccurrent.LocalC, b.Electriccurrent.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Electriccurrent.GlobalC, b.Electriccurrent.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Electriccurrent.ActualC = (decimal)CombinedFraction * a.Electriccurrent.ActualC * b.Electriccurrent.ActualC;
+
+
+
                 local.Electriccurrent.Count += b.Electriccurrent.Count;
             }
             else if (a.Electriccurrent is object)
@@ -240,6 +297,18 @@ namespace EngineeringUnits
             if (a.Temperature is object && b.Temperature is object)
             {
                 local.Temperature = (TemperatureUnit)a.Temperature.Copy();
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.LocalC, a.Temperature.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.GlobalC, a.Temperature.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Temperature.LocalC, b.Temperature.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Temperature.GlobalC, b.Temperature.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Temperature.ActualC = (decimal)CombinedFraction * a.Temperature.ActualC * b.Temperature.ActualC;
+
+
+
                 local.Temperature.Count += b.Temperature.Count;
             }
             else if (a.Temperature is object)
@@ -258,6 +327,16 @@ namespace EngineeringUnits
             if (a.Amount is object && b.Amount is object)
             {
                 local.Amount = (AmountOfSubstanceUnit)a.Amount.Copy();
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.LocalC, a.Amount.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.GlobalC, a.Amount.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Amount.LocalC, b.Amount.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.Amount.GlobalC, b.Amount.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.Amount.ActualC = (decimal)CombinedFraction * a.Amount.ActualC * b.Amount.ActualC;
+
                 local.Amount.Count += b.Amount.Count;
             }
             else if (a.Amount is object)
@@ -275,6 +354,18 @@ namespace EngineeringUnits
             if (a.LuminousIntensity is object && b.LuminousIntensity is object)
             {
                 local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Copy();
+
+                Fraction CombinedFraction = 1;
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.LocalC, a.LuminousIntensity.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.GlobalC, a.LuminousIntensity.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.LuminousIntensity.LocalC, b.LuminousIntensity.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)b.LuminousIntensity.GlobalC, b.LuminousIntensity.Count);
+
+                //If combined units are set using different like Kg vs pound
+                local.LuminousIntensity.ActualC = (decimal)CombinedFraction * a.LuminousIntensity.ActualC * b.LuminousIntensity.ActualC;
+
+
+
                 local.LuminousIntensity.Count += b.LuminousIntensity.Count;
             }
             else if (a.LuminousIntensity is object)
@@ -320,17 +411,15 @@ namespace EngineeringUnits
 
 
 
+
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Length.A1, a.Length.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Length.A2, a.Length.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Length.A1, b.Length.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Length.A2, b.Length.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.LocalC, a.Length.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.GlobalC, a.Length.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Length.LocalC, b.Length.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Length.GlobalC, b.Length.Count);
 
-
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.Length.ActualC = (decimal)CombinedFraction * a.Length.ActualC * b.Length.ActualC;
 
 
 
@@ -358,17 +447,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.A1, a.Mass.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.A2, a.Mass.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.A1, b.Mass.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.A2, b.Mass.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.LocalC, a.Mass.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.GlobalC, a.Mass.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.LocalC, b.Mass.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.GlobalC, b.Mass.Count);
 
+                //If combined units are set using different like Kg vs pound
+                local.Mass.ActualC = (decimal)CombinedFraction * a.Mass.ActualC * b.Mass.ActualC;
 
-                if (local.Combined is null)                
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) , 1);                
-                else                
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
-                
 
 
 
@@ -400,16 +486,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.A1, a.Duration.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.A2, a.Duration.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.A1, b.Duration.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.A2, b.Duration.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.LocalC, a.Duration.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.GlobalC, a.Duration.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.LocalC, b.Duration.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.GlobalC, b.Duration.Count);
 
 
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.Duration.ActualC = (decimal)CombinedFraction * a.Duration.ActualC * b.Duration.ActualC;
 
 
 
@@ -445,16 +529,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.A1, a.Electriccurrent.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.A2, a.Electriccurrent.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.A1, b.Electriccurrent.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.A2, b.Electriccurrent.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.LocalC, a.Electriccurrent.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.GlobalC, a.Electriccurrent.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.LocalC, b.Electriccurrent.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.GlobalC, b.Electriccurrent.Count);
 
 
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.Electriccurrent.ActualC = (decimal)CombinedFraction * a.Electriccurrent.ActualC * b.Electriccurrent.ActualC;
 
 
 
@@ -490,16 +572,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.A1, a.Temperature.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.A2, a.Temperature.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.A1, b.Temperature.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.A2, b.Temperature.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.LocalC, a.Temperature.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.GlobalC, a.Temperature.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.LocalC, b.Temperature.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.GlobalC, b.Temperature.Count);
 
 
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.Temperature.ActualC = (decimal)CombinedFraction * a.Temperature.ActualC * b.Temperature.ActualC;
 
 
 
@@ -532,16 +612,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.A1, a.Amount.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.A2, a.Amount.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.A1, b.Amount.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.A2, b.Amount.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.LocalC, a.Amount.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.GlobalC, a.Amount.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.LocalC, b.Amount.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.GlobalC, b.Amount.Count);
 
 
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.Amount.ActualC = (decimal)CombinedFraction * a.Amount.ActualC * b.Amount.ActualC;
 
 
                 local.Amount.Count -= b.Amount.Count;
@@ -570,16 +648,14 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.A1, a.LuminousIntensity.Count);
-                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.A2, a.LuminousIntensity.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.A1, b.LuminousIntensity.Count);
-                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.A2, b.LuminousIntensity.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.LocalC, a.LuminousIntensity.Count);
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.GlobalC, a.LuminousIntensity.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.LocalC, b.LuminousIntensity.Count);
+                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.GlobalC, b.LuminousIntensity.Count);
 
 
-                if (local.Combined is null)
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction), 1);
-                else
-                    local.Combined = new CombinedUnit("", (decimal)(CombinedFraction) * local.Combined.A1, 1);
+                //If combined units are set using different like Kg vs pound
+                local.LuminousIntensity.ActualC = (decimal)CombinedFraction * a.LuminousIntensity.ActualC * b.LuminousIntensity.ActualC;
 
 
 
@@ -612,15 +688,15 @@ namespace EngineeringUnits
 
             if (a.Combined is object)
             {
-                CombinedFraction2 *= Fraction.Pow((Fraction)a.Combined.A1, a.Combined.Count);
-                CombinedFraction2 *= Fraction.Pow((Fraction)a.Combined.A2, a.Combined.Count);
+                CombinedFraction2 *= Fraction.Pow((Fraction)a.Combined.LocalC, a.Combined.Count);
+                CombinedFraction2 *= Fraction.Pow((Fraction)a.Combined.GlobalC, a.Combined.Count);
             }
 
 
             if (b.Combined is object)
             {
-                CombinedFraction2 /= Fraction.Pow((Fraction)b.Combined.A1, b.Combined.Count);
-                CombinedFraction2 /= Fraction.Pow((Fraction)b.Combined.A2, b.Combined.Count);
+                CombinedFraction2 /= Fraction.Pow((Fraction)b.Combined.LocalC, b.Combined.Count);
+                CombinedFraction2 /= Fraction.Pow((Fraction)b.Combined.GlobalC, b.Combined.Count);
             }
 
 
@@ -631,7 +707,7 @@ namespace EngineeringUnits
             }
             else
             {
-                local.Combined = new CombinedUnit("", (decimal)(CombinedFraction2) * local.Combined.A1, 1);
+                local.Combined = new CombinedUnit("", (decimal)(CombinedFraction2) * local.Combined.LocalC, 1);
             }
 
 
@@ -685,7 +761,7 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    a *= Fraction.Pow((Fraction)item.A2, item.Count);
+                    a *= Fraction.Pow((Fraction)item.GlobalC, item.Count);
                 }
                 
             }
@@ -704,7 +780,24 @@ namespace EngineeringUnits
             {
                 if (item is object)
                 {
-                    a *= Fraction.Pow((Fraction)item.A1, item.Count);
+                    a *= Fraction.Pow((Fraction)item.LocalC, item.Count);
+                }
+            }
+
+
+            return a;
+
+        }
+
+        public Fraction GetActualC()
+        {
+            Fraction a = 1;
+
+            foreach (var item in UnitList())
+            {
+                if (item is object)
+                {
+                    a *= (Fraction)item.ActualC;
                 }
             }
 
@@ -726,7 +819,7 @@ namespace EngineeringUnits
 
 
 
-  
+
         //    Fraction y2 = 1;
 
 
