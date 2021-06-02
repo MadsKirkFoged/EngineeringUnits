@@ -9,8 +9,8 @@ namespace UnitNetcomparing
         {
             Console.WriteLine("Hello World!");
 
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, EngineeringUnits.SpecificEnergyUnit.BtuPerPound);
 
 
 

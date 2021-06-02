@@ -160,5 +160,57 @@ namespace UnitTests
 
 
         }
+
+        [TestMethod]
+        public void Temperaturecompare2()
+        {
+            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, EngineeringUnits.TemperatureUnit.DegreeCelsius);
+
+
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
+
+
+
+
+
+        }
+
+        [TestMethod]
+        public void Temperaturecompare3()
+        {
+            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
+            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, EngineeringUnits.TemperatureUnit.DegreeFahrenheit);
+
+
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 5.7E-14);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 2.3E-13);
+
+
+
+
+
+        }
+
+        [TestMethod]
+        public void Temperaturecompare4()
+        {
+            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, EngineeringUnits.TemperatureUnit.DegreeRankine);
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 5.7E-14);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 5.7E-14);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 2.3E-13);
+
+
+        }
     }
 }

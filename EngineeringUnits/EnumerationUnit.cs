@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -12,7 +13,7 @@ namespace EngineeringUnits
         public string Symbol { get; protected set; }
         public decimal LocalC { get; set; }
         public decimal GlobalC { get; protected set; }
-        public decimal ActualC { get; set; }
+        public Fraction ActualC { get; set; }
         public decimal B { get; protected set; }
 
 

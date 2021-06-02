@@ -31,26 +31,27 @@ namespace EngineeringUnits
             //Debug.WriteLine($"{(double)(ltest1 / ltest2)}");
 
 
+            //Mass m1 = new Mass(1, MassUnit.Kilogram);
+
+            //Debug.WriteLine($"{m1.As(MassUnit.Pound)}");
+
+
+            SpecificEnergy E1 = new SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
+            SpecificEnergy E2 = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+
+
+            SpecificEnergy E3 = E2 - E1;
+
+            Debug.WriteLine($"{E3.As(SpecificEnergyUnit.JoulePerKilogram)}");
+            Debug.WriteLine($"{E3.As(SpecificEnergyUnit.BtuPerPound)}");
+
+
+            //1
+            //2326
+
+
             Length L1 = new Length(3, LengthUnit.Inch);
             var test564 = L1 * L1 * L1 * L1 * L1;
-
-
-
-
-
-
-
-
-
-
-
-            SpecificEnergy E1 = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
-
-            Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
-
-
-
-
 
 
 

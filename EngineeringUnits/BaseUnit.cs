@@ -200,10 +200,10 @@ namespace EngineeringUnits
             BaseUnit local = new BaseUnit();
 
             //Get constants
-            Fraction a1 = left.Unit.GetFactorGlobal();
+          //  Fraction a1 = left.Unit.GetFactorGlobal();
             decimal y1 = left.ValueLocalUnit;
 
-            Fraction a2 = right.Unit.GetFactorGlobal();
+          //  Fraction a2 = right.Unit.GetFactorGlobal();
             decimal y2 = right.ValueLocalUnit;
 
             Fraction b1 = left.Unit.SumOfBConstants();
@@ -211,8 +211,8 @@ namespace EngineeringUnits
 
 
             //Turn to SI
-            decimal x1 = (y1) * a1.ToDecimal();
-            decimal x2 = (y2) * a2.ToDecimal();
+           // decimal x1 = (y1) * a1.ToDecimal();
+           // decimal x2 = (y2) * a2.ToDecimal();
 
             //Do math in SI
             decimal x3;
@@ -223,11 +223,7 @@ namespace EngineeringUnits
 
 
                     //Turn right into lefts unit
-
-
-
                     x3 = y1 + right.GetDecimal(left.Unit) + (decimal)b1*-1;
-
 
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
@@ -237,21 +233,18 @@ namespace EngineeringUnits
 
 
                 case MathEnum.Subtract:
-                    x3 = x1 - x2;
+
+                    //Turn right into lefts unit
+                    x3 = y1 - right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-                    local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
+                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+
                     break;
                 case MathEnum.Multiply:
 
-
                     x3 = y1 * y2;
-
-
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-
-
-                    //a1 = local.Unit.GetFactorGlobal();
-
 
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
                     break;
@@ -263,9 +256,6 @@ namespace EngineeringUnits
                         x3 = 0;
                     
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    //a1 = local.Unit.GetFactorGlobal();
-                    //local.ValueLocalUnit = (x3 / a1.ToDecimal()) / 1.000000000000000000000000000000000m;
-
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
 
                     break;
@@ -299,55 +289,23 @@ namespace EngineeringUnits
 
 
             Fraction a3 = a2 / a1;
-            //Fraction a3 = a1 / a2;
-            //Debug.WriteLine($"{(double)a3}");
 
-            Debug.WriteLine($"{(double)Unit.GetActualC()}");
-            Debug.WriteLine($"{(double)To.GetActualC()}");
+            //Debug.WriteLine($"{Unit.GetActualC()}");
+            //Debug.WriteLine($"{To.GetActualC()}");
 
-            a3 /= Unit.GetActualC();
-            a3 /= To.GetActualC();
+            Fraction c = Unit.GetActualC() / To.GetActualC();
+
+
+            a3 *= c;
 
 
 
             Fraction b3 = a3 * (b1*-1) + b2;
 
 
-            Fraction y1 = (Fraction)ValueLocalUnit;
-
-            
+            Fraction y1 = (Fraction)ValueLocalUnit;            
             
             Fraction y2 = a3 * y1 + b3;
-
-
-            //decimal y2 = y1;
-
-
-            //y2 = a2 * a1 * x1 + a2 *(-b1) + b2
-
-
-            //Trying to avoid small numeric error
-            //if (rightA1 >= leftA1)
-            //    y2 /= (decimal)(rightA1 / leftA1);
-            //else
-            //    y2 *= (decimal)(leftA1 / rightA1);
-
-
-            //if (rightA2 >= leftA2)
-            //    y2 /= (decimal)(rightA2 / leftA2);
-            //else
-            //    y2 *= (decimal)(leftA2 / rightA2);
-
-
-
-            //y2 *= (decimal)Unit.GetActualC();
-
-            //a2 * (-b1)
-            //y2 -= (decimal)(b1 * (leftA2 / rightA2));
-
-
-            //y2 += (decimal)b2;
-
 
 
 

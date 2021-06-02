@@ -36,8 +36,8 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergycompare()
         {
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(56239676, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(56239676, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
 
 
 
@@ -47,7 +47,22 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
         }
 
+        [TestMethod]
+        public void SpecificEnergycompare2()
+        {
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.BtuPerPound);
 
+
+
+            //UnitNets and EngineeringUnits does not agree on the exact conversing between JoulePerKilogram -> BtuPerPound
+            //That what gives the 'large' different
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0.1);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 2.2E-5);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
+        }
 
     }
 }

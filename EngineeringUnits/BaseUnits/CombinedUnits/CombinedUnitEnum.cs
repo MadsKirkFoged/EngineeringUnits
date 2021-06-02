@@ -36,6 +36,7 @@ namespace EngineeringUnits
             Unit.Combined = this.Copy();
             Unit.Combined.Count = 1;
             Count = 1;
+            ActualC = 1;
         }
 
        
@@ -55,7 +56,8 @@ namespace EngineeringUnits
                 LocalC = LocalC,
                 GlobalC = GlobalC,
                 B = B,
-                Count = Count
+                Count = Count,
+                ActualC = ActualC,
             };
         }
 

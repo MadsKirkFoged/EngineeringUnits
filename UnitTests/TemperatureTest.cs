@@ -150,5 +150,57 @@ namespace UnitTests
             //Assert.AreEqual("116927,27938888899 °F²", T6.ToString());
         }
 
+
+        [TestMethod]
+        public void TemperatureDivideTemperature()
+        {
+
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
+            Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+
+
+
+            //Debug.WriteLine($"{T1}");
+            double T4 = (double)(T1 / T1);
+            double T5 = (double)(T2 / T2);
+            double T6 = (double)(T3 / T3);
+
+            double T7 = (double)(T2 / T1);
+            double T8 = (double)(T3 / T2);
+            double T9 = (double)(T1 / T3);
+
+
+            Assert.AreEqual(1, T4, 0);
+            Assert.AreEqual(1, T5, 0);
+            Assert.AreEqual(1, T6, 0);
+
+            Assert.AreEqual(1, T7, 0);
+            Assert.AreEqual(1, T8, 0);
+            Assert.AreEqual(1, T9, 0);
+
+        }
+
+        [TestMethod]
+        public void TemperatureDivideTemperature2()
+        {
+
+            Temperature T1 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(10, TemperatureUnit.Kelvin);
+            Temperature T3 = new Temperature(10, TemperatureUnit.DegreeFahrenheit);
+
+
+
+            double T7 = (double)(T2 / T1);
+            double T8 = (double)(T3 / T2);
+            double T9 = (double)(T1 / T3);
+            double T10 = (double)(T3 / T1);
+
+            Assert.AreEqual(0.035316969803990815, T7);
+            Assert.AreEqual(26.092777777777776, T8);
+            Assert.AreEqual(1.0851661805097197, T9);
+            Assert.AreEqual(0.9215178448800204, T10);
+
+        }
     }
 }
