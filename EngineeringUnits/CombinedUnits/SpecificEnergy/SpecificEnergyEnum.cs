@@ -19,9 +19,9 @@ namespace EngineeringUnits
 
 
         public static SpecificEnergyUnit JoulePerKilogram = new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.SI);
+        public static SpecificEnergyUnit KilojoulePerKilogram = new SpecificEnergyUnit(EnergyUnit.Kilojoule, MassUnit.SI);
         public static SpecificEnergyUnit BtuPerPound = new SpecificEnergyUnit(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
-
-
+        public static SpecificEnergyUnit CaloriePerGram = new SpecificEnergyUnit(EnergyUnit.Calorie, MassUnit.Gram);
 
         public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass)
         {

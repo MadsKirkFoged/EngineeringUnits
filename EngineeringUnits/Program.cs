@@ -21,6 +21,29 @@ namespace EngineeringUnits
             //UnitsNet: 0,00042992260000007437
 
 
+
+            //Length ltest1 = new Length(3.87, LengthUnit.Inch);
+            //Length ltest2 = new Length(2.78, LengthUnit.Meter);
+
+
+            ////Assert.AreEqual(0.0353589928057554, (double)(L1 / L2));
+
+            //Debug.WriteLine($"{(double)(ltest1 / ltest2)}");
+
+
+            Length L1 = new Length(3, LengthUnit.Inch);
+            var test564 = L1 * L1 * L1 * L1 * L1;
+
+
+
+
+
+
+
+
+
+
+
             SpecificEnergy E1 = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
 
             Debug.WriteLine($"{E1.As(SpecificEnergyUnit.BtuPerPound)}");
@@ -42,7 +65,7 @@ namespace EngineeringUnits
             //--> alternativt bliver det lidt træls at føre EkstraCorrection med rundt..
             //Problemet opstår når en unit med EkstraCorrection bliver brugt til at lave en ny sammensat unit med
 
-            Length L1 = new Length(10, LengthUnit.Meter);
+            //Length L1 = new Length(10, LengthUnit.Meter);
 
 
             //var d1 = (L1 / L2);

@@ -173,11 +173,12 @@ namespace UnitTests
             Length L5 = new Length(80, LengthUnit.Inch);
             Length L6 = new Length(20, LengthUnit.Inch);
 
+            Assert.AreEqual(0.0353589928057554, (double)(L1 / L2));
+            Assert.AreEqual(28.281348552361184, (double)(L2 / L1));
+            
             Assert.AreEqual(1, (double)(L1 / L1));
             Assert.AreEqual(1, (double)(L2 / L2));
 
-            Assert.AreEqual(0.0353589928057554, (double)(L1 / L2));
-            Assert.AreEqual(28.281348552361184, (double)(L2 / L1));
 
             Assert.AreEqual(3, (double)(L3 / L4));
             Assert.AreEqual(4, (double)(L5 / L6));
@@ -206,7 +207,7 @@ namespace UnitTests
             //Assert.AreEqual(4, (double)(L5 / L6));
         }
 
-
+        
 
         [TestMethod]
         public void LengthMultiply2()
@@ -238,7 +239,7 @@ namespace UnitTests
             Area A3 = L2 * L2;
 
             Length test11 = (L1 - L1 - L1 - L1 - L1 - L1 - L1 - L1 - L1 - L1) + (L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1);
-            var test12 = (((L1 * 10) / L1) * 10 * L1 / 10 / 10 / 10 / L1 * 10 * L1 - L1 - L1 - L1 - L1 - L1) + (L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1);
+            //var test12 = (((L1 * 10) / L1) * 10 * L1 / 10 / 10 / 10 / L1 * 10 * L1 - L1 - L1 - L1 - L1 - L1) + (L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1 + L1);
 
             //Assert.AreEqual(1, A1.To(LengthUnits.Centimeter));
             //Assert.AreEqual(1, L2 / L2);

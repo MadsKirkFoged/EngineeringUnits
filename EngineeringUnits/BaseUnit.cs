@@ -300,9 +300,13 @@ namespace EngineeringUnits
 
             Fraction a3 = a2 / a1;
             //Fraction a3 = a1 / a2;
+            //Debug.WriteLine($"{(double)a3}");
 
-            a3 *= Unit.GetActualC();
-            //a3 *= To.GetActualC();
+            Debug.WriteLine($"{(double)Unit.GetActualC()}");
+            Debug.WriteLine($"{(double)To.GetActualC()}");
+
+            a3 /= Unit.GetActualC();
+            a3 /= To.GetActualC();
 
 
 
@@ -348,6 +352,11 @@ namespace EngineeringUnits
 
 
             return (decimal)y2;
+        }
+
+        public double ToDouble()
+        {
+           return (double)((decimal)Unit.GetTotalFactor() * ValueLocalUnit);
         }
 
 

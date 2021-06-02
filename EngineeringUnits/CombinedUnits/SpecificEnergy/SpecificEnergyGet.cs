@@ -10,12 +10,12 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get SpecificEnergy in BtuPerPound.
         /// </summary>
-        //public double BtuPerPound => As(SpecificEnergyUnit.BtuPerPound);
+        public double BtuPerPound => As(SpecificEnergyUnit.BtuPerPound);
 
         ///// <summary>
         /////     Get SpecificEnergy in CaloriesPerGram.
         ///// </summary>
-        //public double CaloriesPerGram => As(SpecificEnergyUnit.CaloriePerGram);
+        public double CaloriesPerGram => As(SpecificEnergyUnit.CaloriePerGram);
 
         ///// <summary>
         /////     Get SpecificEnergy in GigawattDaysPerKilogram.
@@ -37,20 +37,20 @@ namespace EngineeringUnits
         ///// </summary>
         //public double GigawattHoursPerKilogram => As(SpecificEnergyUnit.GigawattHourPerKilogram);
 
-        ///// <summary>
-        /////     Get SpecificEnergy in JoulesPerKilogram.
-        ///// </summary>
-        //public double JoulesPerKilogram => As(SpecificEnergyUnit.JoulePerKilogram);
+        /// <summary>
+        ///     Get SpecificEnergy in JoulesPerKilogram.
+        /// </summary>
+        public double JoulesPerKilogram => As(SpecificEnergyUnit.JoulePerKilogram);
 
         ///// <summary>
         /////     Get SpecificEnergy in KilocaloriesPerGram.
         ///// </summary>
         //public double KilocaloriesPerGram => As(SpecificEnergyUnit.KilocaloriePerGram);
 
-        ///// <summary>
-        /////     Get SpecificEnergy in KilojoulesPerKilogram.
-        ///// </summary>
-        //public double KilojoulesPerKilogram => As(SpecificEnergyUnit.KilojoulePerKilogram);
+        /// <summary>
+        ///     Get SpecificEnergy in KilojoulesPerKilogram.
+        /// </summary>
+        public double KilojoulesPerKilogram => As(SpecificEnergyUnit.KilojoulePerKilogram);
 
         ///// <summary>
         /////     Get SpecificEnergy in KilowattDaysPerKilogram.

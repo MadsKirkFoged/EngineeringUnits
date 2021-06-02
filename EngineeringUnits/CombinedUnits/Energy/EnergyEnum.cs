@@ -19,6 +19,7 @@ namespace EngineeringUnits
         //public static EnergyUnit SI = new EnergyUnit(PreFix.SI, BaseUnits.length);
         public static EnergyUnit SI = Joule;
         public static EnergyUnit Joule = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
+        public static EnergyUnit Kilojoule = new EnergyUnit(MassUnit.Tonne, LengthUnit.SI, DurationUnit.SI, "kJ");
         public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
         public static EnergyUnit Calorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
         public static EnergyUnit ElectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
