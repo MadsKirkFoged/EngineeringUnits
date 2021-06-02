@@ -10,6 +10,15 @@ namespace EngineeringUnits
         {
 
 
+            //Tilføj flere combi-units og test om vi kan sætte ligninger op
+
+
+
+
+
+
+
+
             //Todo - Få styr på ActualC og combined-unit correction.
             //combined-unit correction, bruges når en combined unit f.eks. BTU skal oprettes, da den ikke kan laves udfra nogle baseunits.
 
