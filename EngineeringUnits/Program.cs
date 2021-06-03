@@ -12,10 +12,30 @@ namespace EngineeringUnits
 
             //Tilføj flere combi-units og test om vi kan sætte ligninger op
 
+            //Lav test om denne ligning virker med forskellige enheder
+
+
+
+            //Q = m * Cp * dT
+
+            SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+
+
+            var asdf = P1 * M1;
+
+            //Debug.WriteLine($"{M1}");
+            //Debug.WriteLine($"{P1}");
+
+            Debug.WriteLine($"{P1} * {M1} = {P1 * M1}");
+            //Debug.WriteLine($"{P1 * M1 * (T2 - T1)}");
 
 
 
 
+            Power Q1 = M1 * P1 * (T2 - T1);
 
 
 
@@ -114,7 +134,7 @@ namespace EngineeringUnits
 
            // Energy E1 = new Energy(10,EnergyUnit.Joule);
 
-            Mass M1 = new Mass(5, MassUnit.SI);
+            //Mass M1 = new Mass(5, MassUnit.SI);
 
             SpecificEnergy SE1 = E1 / M1;
 
@@ -152,8 +172,8 @@ namespace EngineeringUnits
 
             //Temperature T1 = new Temperature(10, TemperatureUnit.Kelvin);
 
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
+            //Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            //Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
             Temperature T3 = new Temperature(0, TemperatureUnit.DegreeFahrenheit);
 
 

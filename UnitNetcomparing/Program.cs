@@ -9,20 +9,26 @@ namespace UnitNetcomparing
         {
             Console.WriteLine("Hello World!");
 
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, EngineeringUnits.SpecificEnergyUnit.BtuPerPound);
+            UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, EngineeringUnits.MassFlowUnit.PoundPerMinute);
 
 
 
 
 
 
-            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram)}");
-            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram)}");
+            //Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificHeatCapacityUnit.JoulePerKilogramKelvin)}");
+            //Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
 
 
-            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound)}");
-            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound)}");
+            //Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificHeatCapacityUnit.BtuPerPoundFahrenheit)}");
+            //Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit)}");
+
+
+            Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour)}");
+            Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour)}");
+
+            Debug.Print($"EngineeringUnits: {((L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour)) / L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour))*100}");
 
             //Debug.Print($"{L2.As(EngineeringUnits.EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
 

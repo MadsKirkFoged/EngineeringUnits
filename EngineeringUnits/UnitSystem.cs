@@ -284,7 +284,7 @@ namespace EngineeringUnits
             {
                 local.Temperature = (TemperatureUnit)a.Temperature.Copy();
             }
-            else if (b.Electriccurrent is object)
+            else if (b.Temperature is object)
             {
                 local.Temperature = (TemperatureUnit)b.Temperature.Copy();
             }
@@ -344,7 +344,7 @@ namespace EngineeringUnits
             if (a.Combined is object && b.Combined is object)
             {
                 local.Combined = (CombinedUnit)a.Combined.Copy();
-                local.Combined.Count += b.Combined.Count;
+                //local.Combined.Count += b.Combined.Count;
             }
             else if (a.Combined is object)
             {
@@ -500,7 +500,7 @@ namespace EngineeringUnits
             {
                 local.Temperature = (TemperatureUnit)a.Temperature.Copy();
             }
-            else if (b.Electriccurrent is object)
+            else if (b.Temperature is object)
             {
                 local.Temperature = (TemperatureUnit)b.Temperature.Copy();
                 local.Temperature.Count *= -1;
@@ -681,7 +681,10 @@ namespace EngineeringUnits
             foreach (var item in UnitList())
             {
                 if (item is object)
+                {
                     b += (Fraction)item.B;
+                    //b += Fraction.Pow((Fraction)item.B, item.Count);
+                }
 
             }
             return b;

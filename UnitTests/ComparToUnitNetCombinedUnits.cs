@@ -64,5 +64,40 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
         }
 
+
+        [TestMethod]
+        public void SpecificHeatCapacitycompare()
+        {
+
+            //BtuPerPoundFahrenheit should have been named BtuPerPoundRankine
+            //Rankine to Fahrenheit, is what Kelvin is to DegreeCelsius
+
+
+
+            UnitsNet.SpecificEntropy L1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
+            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin);
+
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 9.4E-10);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0);
+
+        }
+
+        [TestMethod]
+        public void MassFlowcompare()
+        {
+
+            UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, EngineeringUnits.MassFlowUnit.PoundPerMinute);
+
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerHour), 4);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerMinute), 0.06);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerSecond), 0.00093);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour), 7);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerMinute), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
+        }
+
     }
 }
