@@ -49,7 +49,7 @@ namespace EngineeringUnits
             //Check if we have the unit in the list
             foreach (var item in PowerUnit.List())
             {
-                Debug.Print($"{this.Unit.GetTotalFactor()} == {item.Unit.GetTotalFactor()}");
+                //Debug.Print($"{this.Unit.GetTotalFactor()} == {item.Unit.GetTotalFactor()}");
 
                 if (this.Unit.GetTotalFactor() == item.Unit.GetTotalFactor())
                     return $"{As(Unit)} {item.Unit}";

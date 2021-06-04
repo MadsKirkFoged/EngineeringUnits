@@ -9,7 +9,11 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
-            //Noget går galt med Factoren bliver alt for stor..
+            //Power 
+            //BritishThermalUnitPerHour bliver et lille tal, men burde bliver et større tal..
+
+
+
 
             SpecificEntropy P11 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
             MassFlow M11 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
@@ -18,12 +22,15 @@ namespace EngineeringUnits
 
             Power Q11 = M11 * P11 * (T22 - T11);
 
+            Power Q111 = new Power(1, PowerUnit.Watt);
 
-            Debug.WriteLine($"{Q11}");
-            Debug.WriteLine($"{Q11.As(PowerUnit.BritishThermalUnitPerHour)}");
-            Debug.WriteLine($"{Q11.As(PowerUnit.BritishThermalUnitPerSecond)}");
-            Debug.WriteLine($"{Q11.As(PowerUnit.Kilowatt)}");
-            Debug.WriteLine($"{Q11.As(PowerUnit.Watt)}");
+
+
+            Debug.WriteLine($"{Q111}");
+            Debug.WriteLine($"{Q111.As(PowerUnit.BritishThermalUnitPerHour)}");
+            Debug.WriteLine($"{Q111.As(PowerUnit.BritishThermalUnitPerSecond)}");
+            Debug.WriteLine($"{Q111.As(PowerUnit.Kilowatt)}");
+            Debug.WriteLine($"{Q111.As(PowerUnit.Watt)}");
 
 
 
