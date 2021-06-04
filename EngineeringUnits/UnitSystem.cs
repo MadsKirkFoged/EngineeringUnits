@@ -692,12 +692,10 @@ namespace EngineeringUnits
 
 
         //Bruger vi dette mere?!
-        public string ChangingUnitSymbols()
+        public virtual string ChangingUnitSymbols()
         {
 
-            SpecificEnergyUnit test = SpecificEnergyUnit.JoulePerKilogram;
-
-
+          
             if (this == (SpecificEnergyUnit.JoulePerKilogram).Unit)
             {
                 Debug.Print("HER!");
@@ -716,6 +714,62 @@ namespace EngineeringUnits
 
             return "";
 
+
+        }
+
+        public string BaseUnitsToString()
+        {
+            string local = "";
+
+
+
+            foreach (var unit in UnitList())
+            {
+
+                if (unit is object && unit.Count > 0)
+                {
+
+                    if (unit is object)
+                        local += unit.ToString();
+
+
+
+
+                    if (unit.Count > 1)
+                        local += $"{ToSuperScript(unit.Count)}";
+
+                }
+
+
+            }
+
+
+
+
+            //If any negative values
+            if (UnitList().Any(x => x.Count < 0))
+                local += "/";
+
+
+
+
+            foreach (var unit in UnitList())
+            {
+
+                if (unit is object && unit.Count < 0)
+                {
+                    local += unit.ToString();
+
+                    if (unit.Count < -1)
+                        local += $"{ToSuperScript(unit.Count * -1)}";
+
+                }
+
+
+            }
+
+
+            return local;
 
         }
 

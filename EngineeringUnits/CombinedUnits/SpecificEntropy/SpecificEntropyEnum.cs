@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
             //    J/(kg*k)
             Unit = energy.Unit / (mass.Unit * temperature.Unit);
-            //Unit.Symbol = $"{energy.Unit.Symbol}/{mass.Unit.Symbol}*{temperature.Unit.Symbol}";
+            Unit.Symbol = $"{energy}/{mass}*{temperature}";
 
             localenergy = energy;
             localmass = mass;

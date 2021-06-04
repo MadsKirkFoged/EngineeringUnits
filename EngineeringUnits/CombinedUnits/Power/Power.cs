@@ -38,6 +38,16 @@ namespace EngineeringUnits
             return local;
         }
 
+        public override string ToString()
+        {
+            foreach (var item in PowerUnit.List())
+            {
+                if (this.Unit.BaseUnitsToString() == item.Unit.BaseUnitsToString())                
+                    return $"{Value} {item.Unit}";               
+            }
+
+            return $"{Value} {Unit}";
+        }
 
 
     }

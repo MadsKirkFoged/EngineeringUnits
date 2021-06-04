@@ -71,6 +71,11 @@ namespace EngineeringUnits
             return $"{Unit}";
         }
 
+        public string BaseUnitsToString()
+        {
+            return $"{Unit}";
+        }
+
         public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
         {
             var type = typeof(T);

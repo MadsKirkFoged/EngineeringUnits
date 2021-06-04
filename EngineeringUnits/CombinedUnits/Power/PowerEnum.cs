@@ -28,29 +28,33 @@ namespace EngineeringUnits
             //kg*m2*s-3
             Unit = Energy.Unit / duration.Unit;
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
+            if (NewSymbol != "")            
+                Unit.Symbol = NewSymbol;            
+            else            
+                Unit.Symbol = $"{Energy}/{duration}";
+            
 
-            if (correction != 1)
-            {
+            if (correction != 1)            
                 Unit.Combined = new CombinedUnit("", correction, 1);
-            }
+            
 
-
-            //Unit.EkstraCorrection = correction;
         }
 
 
         public static IEnumerable<PowerUnit> List()
         {
-            return new[] { Watt };
+            return new[] { SI, Watt, Kilowatt, BritishThermalUnitPerHour };
         }
-        public override string ToString()
-        {
-            return $"{Unit.Symbol}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Unit.Symbol}";
+        //}
+
+
+       
+
+
+
     }
 
 

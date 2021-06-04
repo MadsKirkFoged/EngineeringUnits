@@ -14,30 +14,44 @@ namespace EngineeringUnits
 
             //Lav test om denne ligning virker med forskellige enheder
 
+            SpecificEnergy H1 = new SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
+
+
+            Debug.WriteLine($"{(double)H1.Unit.GetActualC()}");
+            Debug.WriteLine($"{(double)H1.ValueLocalUnit * (double)H1.Unit.GetActualC()}");
+            Debug.WriteLine($"{H1.As(SpecificEnergyUnit.BtuPerPound)}");
+
+
+
 
 
             //Q = m * Cp * dT
 
             SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+
+            //MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            MassFlow M1 = new MassFlow(2.20462, MassFlowUnit.PoundPerSecond);
+            Temperature T2 = new Temperature(10, TemperatureUnit.Kelvin);
+            Temperature T1 = new Temperature(5, TemperatureUnit.Kelvin);
 
 
-            var asdf = P1 * M1;
-
-            //Debug.WriteLine($"{M1}");
-            //Debug.WriteLine($"{P1}");
-
-            Debug.WriteLine($"{P1} * {M1} = {P1 * M1}");
-            //Debug.WriteLine($"{P1 * M1 * (T2 - T1)}");
+            Power Q1 = H1 * M1;
 
 
+            Debug.WriteLine($"{(double)Q1.Unit.GetActualC()}");
+            Debug.WriteLine($"{(double)Q1.ValueLocalUnit * (double)Q1.Unit.GetActualC()}");
+
+            Debug.WriteLine($"{Q1.As(PowerUnit.Watt)}");
 
 
-            Power Q1 = M1 * P1 * (T2 - T1);
 
 
+            //Power Q1 = M1 * P1 * (T2 - T1);
+
+            //Debug.WriteLine($"{Q1} = {M1} * {P1} * ({T2} - {T1})");
+            //Debug.WriteLine($"{Q1.As(PowerUnit.Watt)}");
+
+            Debug.WriteLine($"");
 
             //Todo - Få styr på ActualC og combined-unit correction.
             //combined-unit correction, bruges når en combined unit f.eks. BTU skal oprettes, da den ikke kan laves udfra nogle baseunits.
@@ -139,7 +153,7 @@ namespace EngineeringUnits
             SpecificEnergy SE1 = E1 / M1;
 
 
-            Enthalpy H1 = E1 / M1;
+            //Enthalpy H1 = E1 / M1;
 
             Debug.WriteLine($"{H1.Unit.ChangingUnitSymbols()}");
 

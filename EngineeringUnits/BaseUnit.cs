@@ -244,7 +244,11 @@ namespace EngineeringUnits
                 case MathEnum.Multiply:
 
                     x3 = y1 * y2;
+
+
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
+
+
 
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
                     break;
@@ -294,7 +298,7 @@ namespace EngineeringUnits
             //Debug.WriteLine($"{To.GetActualC()}");
 
             Fraction c = Unit.GetActualC() / To.GetActualC();
-
+            //Fraction c = To.GetActualC() / Unit.GetActualC();
 
             a3 *= c;
 
