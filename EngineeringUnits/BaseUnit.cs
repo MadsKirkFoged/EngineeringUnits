@@ -12,7 +12,7 @@ namespace EngineeringUnits
         public string Name { get; set; }
         public UnitSystem Unit { get; set;}
 
-        public double Value => As(Unit);
+        public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
 
         public decimal ValueLocalUnit { get; protected set; }
 
@@ -297,8 +297,8 @@ namespace EngineeringUnits
             //Debug.WriteLine($"{Unit.GetActualC()}");
             //Debug.WriteLine($"{To.GetActualC()}");
 
-            Fraction c = Unit.GetActualC() / To.GetActualC();
-            //Fraction c = To.GetActualC() / Unit.GetActualC();
+            //Fraction c = Unit.GetActualC() / To.GetActualC();
+            Fraction c = To.GetActualC() / Unit.GetActualC();
 
             a3 *= c;
 

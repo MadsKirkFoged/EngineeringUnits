@@ -14,9 +14,6 @@ namespace EngineeringUnits
     {
 
 
-
-
-        //public static EnergyUnit SI = new EnergyUnit(PreFix.SI, BaseUnits.length);
         public static EnergyUnit SI = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
         public static EnergyUnit Joule = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
         public static EnergyUnit Kilojoule = new EnergyUnit(MassUnit.Tonne, LengthUnit.SI, DurationUnit.SI, "kJ");
@@ -49,13 +46,12 @@ namespace EngineeringUnits
             }
 
 
-            //Unit.EkstraCorrection = correction;
         }
 
 
         public static IEnumerable<EnergyUnit> List()
         {
-            return new[] { SI, Joule, };
+            return new[] { SI, Joule, Kilojoule, BritishThermalUnit, Calorie, ElectronVolt, FootPound, KilowattHour, WattHour };
         }
         public override string ToString()
         {

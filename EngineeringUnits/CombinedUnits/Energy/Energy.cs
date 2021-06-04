@@ -18,15 +18,12 @@ namespace EngineeringUnits
 
         public Energy(double value, EnergyUnit energyUnit) : this()
         {
-
             Unit = energyUnit.Unit;
-            //SetLocalValue(value);
             ValueLocalUnit = (decimal)value;
         }
 
         public double As(EnergyUnit energyUnit)
         {
-            //return ToTheOutSide(energyUnit.Unit);
             return (double)ToTheOutSide(energyUnit.Unit);
         }
 
@@ -39,7 +36,25 @@ namespace EngineeringUnits
             return local;
         }
 
+        public override string ToString()
+        {
+            //If we know the unit
+            if (Unit.Symbol != "")
+                return $"{As(Unit)} {Unit}";
 
+
+
+            //Check if we have the unit in the list
+            foreach (var item in EnergyUnit.List())
+            {
+                if (this.Unit.GetTotalFactor() == item.Unit.GetTotalFactor())
+                    return $"{As(Unit)} {item.Unit}";
+            }
+
+
+            //Return unit in SI
+            return $"{Value} {EnergyUnit.SI}";
+        }
 
     }
 }

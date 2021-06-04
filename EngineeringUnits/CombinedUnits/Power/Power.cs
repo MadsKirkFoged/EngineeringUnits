@@ -40,15 +40,24 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
+            //If we know the unit
+            if (Unit.Symbol is object && Unit.Symbol != "")            
+                return $"{As(Unit)} {Unit}";
+            
+
+
+            //Check if we have the unit in the list
             foreach (var item in PowerUnit.List())
             {
-                if (this.Unit.BaseUnitsToString() == item.Unit.BaseUnitsToString())                
-                    return $"{Value} {item.Unit}";               
+                Debug.Print($"{this.Unit.GetTotalFactor()} == {item.Unit.GetTotalFactor()}");
+
+                if (this.Unit.GetTotalFactor() == item.Unit.GetTotalFactor())
+                    return $"{As(Unit)} {item.Unit}";
             }
 
-            return $"{Value} {Unit}";
+
+            //Return unit in SI
+            return $"{As(PowerUnit.SI)} {PowerUnit.SI.Unit}";
         }
-
-
     }
 }

@@ -9,17 +9,44 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
+            //Noget går galt med Factoren bliver alt for stor..
 
-            //Tilføj flere combi-units og test om vi kan sætte ligninger op
+            SpecificEntropy P11 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            MassFlow M11 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            Temperature T22 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            Temperature T11 = new Temperature(5, TemperatureUnit.DegreeCelsius);
 
-            //Lav test om denne ligning virker med forskellige enheder
-
-            SpecificEnergy H1 = new SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
+            Power Q11 = M11 * P11 * (T22 - T11);
 
 
-            Debug.WriteLine($"{(double)H1.Unit.GetActualC()}");
-            Debug.WriteLine($"{(double)H1.ValueLocalUnit * (double)H1.Unit.GetActualC()}");
-            Debug.WriteLine($"{H1.As(SpecificEnergyUnit.BtuPerPound)}");
+            Debug.WriteLine($"{Q11}");
+            Debug.WriteLine($"{Q11.As(PowerUnit.BritishThermalUnitPerHour)}");
+            Debug.WriteLine($"{Q11.As(PowerUnit.BritishThermalUnitPerSecond)}");
+            Debug.WriteLine($"{Q11.As(PowerUnit.Kilowatt)}");
+            Debug.WriteLine($"{Q11.As(PowerUnit.Watt)}");
+
+
+
+
+            Energy Ee1 = new Energy(1, EnergyUnit.Joule);
+            Duration time = new Duration(1, DurationUnit.Hour);
+
+
+            Power result = Ee1 / time;
+
+
+
+            Debug.WriteLine($"{result}");
+            Debug.WriteLine($"{result.ValueLocalUnit}");
+            Debug.WriteLine($"{(double)result.Unit.GetActualC()}");
+            Debug.WriteLine($"{result.As(PowerUnit.BritishThermalUnitPerHour)}");
+            Debug.WriteLine($"{result.As(PowerUnit.BritishThermalUnitPerSecond)}");
+            Debug.WriteLine($"{result.As(PowerUnit.Kilowatt)}");
+            Debug.WriteLine($"{result.As(PowerUnit.Watt)}");
+
+
+            SpecificEnergy H1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
+
 
 
 
@@ -27,16 +54,14 @@ namespace EngineeringUnits
 
             //Q = m * Cp * dT
 
-            SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+
 
             //MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
             MassFlow M1 = new MassFlow(2.20462, MassFlowUnit.PoundPerSecond);
-            Temperature T2 = new Temperature(10, TemperatureUnit.Kelvin);
-            Temperature T1 = new Temperature(5, TemperatureUnit.Kelvin);
 
 
             Power Q1 = H1 * M1;
-
+            Debug.WriteLine($"{Q1}");
 
             Debug.WriteLine($"{(double)Q1.Unit.GetActualC()}");
             Debug.WriteLine($"{(double)Q1.ValueLocalUnit * (double)Q1.Unit.GetActualC()}");
@@ -59,6 +84,8 @@ namespace EngineeringUnits
             //ActualC bruges når kg/lb, så bliver enheden sat til 0, men en correction bliver husket
 
 
+            Temperature T2 = new Temperature(10, TemperatureUnit.Kelvin);
+            Temperature T1 = new Temperature(5, TemperatureUnit.Kelvin);
 
             //EngineeringUnits: 0,0009478133944988911
             //UnitsNet: 0,00042992260000007437
