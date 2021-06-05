@@ -9,6 +9,10 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
+
+            //Vender Combiunits værdi faktisk rigtigt?
+
+
             //Power kan ikke gå begge veje - ActualC eller combiunit fucker med os
 
 
