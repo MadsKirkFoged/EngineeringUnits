@@ -9,28 +9,54 @@ namespace EngineeringUnits
         static void Main(string[] args)
         {
 
+            //Power kan ikke gå begge veje - ActualC eller combiunit fucker med os
+
+
+
+
             //Power 
             //BritishThermalUnitPerHour bliver et lille tal, men burde bliver et større tal..
 
+            //Power Q111 = new Power(1, PowerUnit.BritishThermalUnitPerSecond);
+
+
+            //Energy Ee = new Energy(1, EnergyUnit.Joule);
+            Energy Ee = new Energy(0.00094781712, EnergyUnit.BritishThermalUnit);
+            Mass Mm = new Mass(2.20462262, MassUnit.Pound);
+
+            SpecificEnergy SP1 = Ee / Mm;
+
+            Debug.WriteLine($"{SP1.As(SpecificEnergyUnit.JoulePerKilogram)}");
+            Debug.WriteLine($"{SP1.As(SpecificEnergyUnit.BtuPerPound)}");
+
+
+            //SpecificEnergy SP1 = new SpecificEnergy(1, SpecificEnergyUnit.JoulePerKilogram);
+            //SpecificEnergy SP1 = new SpecificEnergy(0.0004299226, SpecificEnergyUnit.BtuPerPound);
 
 
 
-            SpecificEntropy P11 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            MassFlow M11 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            Temperature T22 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            Temperature T11 = new Temperature(5, TemperatureUnit.DegreeCelsius);
-
-            Power Q11 = M11 * P11 * (T22 - T11);
-
-            Power Q111 = new Power(1, PowerUnit.Watt);
 
 
+            MassFlow M11 = new MassFlow(2.20462262, MassFlowUnit.PoundPerSecond);
+
+            //Power Q111 = M11 * SP1;
+            Power Q111 = SP1 * M11;
 
             Debug.WriteLine($"{Q111}");
             Debug.WriteLine($"{Q111.As(PowerUnit.BritishThermalUnitPerHour)}");
             Debug.WriteLine($"{Q111.As(PowerUnit.BritishThermalUnitPerSecond)}");
             Debug.WriteLine($"{Q111.As(PowerUnit.Kilowatt)}");
             Debug.WriteLine($"{Q111.As(PowerUnit.Watt)}");
+
+
+            SpecificEntropy P11 = new SpecificEntropy(0.000238845896627, SpecificEntropyUnit.BtuPerPoundRankine);
+            //Debug.WriteLine($"{P11.As(SpecificEntropyUnit.JoulePerKilogramKelvin)}");
+            Temperature T22 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            Temperature T11 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+
+            Power Q11 = M11 * P11 * (T22 - T11);
+
+
 
 
 
