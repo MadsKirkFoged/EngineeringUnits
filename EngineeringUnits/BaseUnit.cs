@@ -283,7 +283,6 @@ namespace EngineeringUnits
             Fraction rightA2 = To.GetFactorGlobal();
 
 
-
             Fraction a1 =   1/(leftA2 * leftA1);
             Fraction a2 = 1/(rightA2 * rightA1);
 
@@ -294,14 +293,20 @@ namespace EngineeringUnits
 
             Fraction a3 = a2 / a1;
 
-            Debug.WriteLine($"{Unit.GetActualC()}");
-            Debug.WriteLine($"{To.GetActualC()}");
+           //Debug.WriteLine($"{Unit.GetActualC()}");
+           // Debug.WriteLine($"{To.GetActualC()}");
+
+            Fraction c1 = 1 / (Unit.GetActualC());
+            Fraction c2 = 1 / (To.GetActualC());
+            //Fraction c3 = c2 / c1;
+            Fraction c3 = c1 / c2;
 
             //Fraction c = Unit.GetActualC() / To.GetActualC();
-            Fraction c = To.GetActualC() / Unit.GetActualC();
+            //Fraction c = To.GetActualC() / Unit.GetActualC();
+            //Fraction c = Unit.GetActualC() * To.GetActualC();
 
-            a3 *= c;
-
+            //a3 *= (1/c);
+            a3 *= c3;
 
 
             Fraction b3 = a3 * (b1*-1) + b2;

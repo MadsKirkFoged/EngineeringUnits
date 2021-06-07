@@ -82,6 +82,9 @@ namespace UnitTests
             Assert.AreEqual(0, HelperClass.Percent( P1.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin), 
                                                     p1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)),  0.0004);
 
+            Assert.AreEqual(0, HelperClass.Percent( P1.As(EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine),
+                                                    p1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit)), 0);
+
             Assert.AreEqual(0, HelperClass.Percent(M1.As(EngineeringUnits.MassFlowUnit.KilogramPerSecond),
                                                     m1.As(UnitsNet.Units.MassFlowUnit.KilogramPerSecond)), 0.0003);
 
