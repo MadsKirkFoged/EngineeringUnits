@@ -42,7 +42,7 @@ namespace EngineeringUnits
 
             if (correction != 1)
             {
-                Unit.Combined = new CombinedUnit("", correction, 1);
+                Unit.Combined = new CombinedUnit("", 1, correction);
             }
 
 

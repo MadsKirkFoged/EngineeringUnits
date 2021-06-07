@@ -10,13 +10,27 @@ namespace EngineeringUnits
         {
 
 
+
+            //Vær sikker på ActualC ved gange og divider vender rigtigt.
+            //Lige nu kigger jeg kun på Mass
+            //Skal ActualC / ActualC??
+
+
+
+
+
             //Vender Combiunits værdi faktisk rigtigt?
 
 
             //Power kan ikke gå begge veje - ActualC eller combiunit fucker med os
 
 
+            Fraction fra = Fraction.FromString("1/10");
 
+            var fra1 = Fraction.Pow(fra,2);
+            var fra2 = Fraction.Pow(fra, 1);
+            var fra3 = Fraction.Pow(fra, 0);
+            var fra4 = Fraction.Pow(fra, -1);
 
             //Power 
             //BritishThermalUnitPerHour bliver et lille tal, men burde bliver et større tal..
@@ -24,9 +38,10 @@ namespace EngineeringUnits
             //Power Q111 = new Power(1, PowerUnit.BritishThermalUnitPerSecond);
 
 
-            //Energy Ee = new Energy(1, EnergyUnit.Joule);
-            Energy Ee = new Energy(0.00094781712, EnergyUnit.BritishThermalUnit);
+            Energy Ee = new Energy(1, EnergyUnit.Joule);
+            //Energy Ee = new Energy(0.00094781712, EnergyUnit.BritishThermalUnit);
             Mass Mm = new Mass(2.20462262, MassUnit.Pound);
+            //Mass Mm = new Mass(1, MassUnit.Kilogram);
 
             SpecificEnergy SP1 = Ee / Mm;
 

@@ -294,8 +294,8 @@ namespace EngineeringUnits
 
             Fraction a3 = a2 / a1;
 
-            //Debug.WriteLine($"{Unit.GetActualC()}");
-            //Debug.WriteLine($"{To.GetActualC()}");
+            Debug.WriteLine($"{Unit.GetActualC()}");
+            Debug.WriteLine($"{To.GetActualC()}");
 
             //Fraction c = Unit.GetActualC() / To.GetActualC();
             Fraction c = To.GetActualC() / Unit.GetActualC();
