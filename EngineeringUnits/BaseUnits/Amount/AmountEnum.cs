@@ -45,6 +45,8 @@ namespace EngineeringUnits
             Unit.Amount.Count = 1;
             Count = 1;
             Unit.Amount.ActualC = 1;
+            Unit.Amount.Name = "Amount";
+            Name = "Amount";
         }
 
 

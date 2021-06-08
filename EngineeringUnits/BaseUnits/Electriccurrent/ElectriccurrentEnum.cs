@@ -46,6 +46,8 @@ namespace EngineeringUnits
             Unit.Electriccurrent.Count = 1;
             Count = 1;
             Unit.Electriccurrent.ActualC = 1;
+            Unit.Electriccurrent.Name = "Electriccurrent";
+            Name = "Electriccurrent";
         }
 
 

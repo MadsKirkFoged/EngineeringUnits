@@ -52,7 +52,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
-            return Unit.baseUnit.ToDouble();
+            return (double)Unit.baseUnit.ValueLocalUnit;
 
             //return Unit.baseUnit.Value;
             //return  Unit.baseUnit.Value;

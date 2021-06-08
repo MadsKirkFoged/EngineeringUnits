@@ -44,6 +44,11 @@ namespace EngineeringUnits
 
         }
 
+
+
+
+
+
         public double As(UnitSystem a)
         {
 
@@ -243,8 +248,10 @@ namespace EngineeringUnits
                     break;
                 case MathEnum.Multiply:
 
-                    x3 = y1 * right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit);
 
+                    //x3 = y1 * right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+                    x3 = y1 * y2;
 
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
 
@@ -254,7 +261,7 @@ namespace EngineeringUnits
                     break;
                 case MathEnum.Divide:
 
-                    y2 = right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(left.Unit, right.Unit);
 
                     if (y2 != 0)                    
                         x3 = y1 / y2;                    
@@ -322,6 +329,9 @@ namespace EngineeringUnits
 
             return (decimal)y2;
         }
+
+
+      
 
         public double ToDouble()
         {

@@ -43,6 +43,8 @@ namespace EngineeringUnits
             Unit.Temperature.Count = 1;
             Unit.Temperature.ActualC = 1;
             Count = 1;
+            Unit.Temperature.Name = "Temperature";
+            Name = "Temperature";
         }
 
 

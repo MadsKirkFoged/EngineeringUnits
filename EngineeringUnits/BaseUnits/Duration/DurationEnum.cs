@@ -48,6 +48,8 @@ namespace EngineeringUnits
             Unit.Duration.Count = 1;
             Count = 1;
             Unit.Duration.ActualC = 1;
+            Unit.Duration.Name = "Duration";
+            Name = "Duration";
         }
 
 

@@ -83,6 +83,8 @@ namespace EngineeringUnits
             Unit.Mass.Count = 1;
             Count = 1;
             Unit.Mass.ActualC = 1;
+            Unit.Mass.Name = "Mass";
+            Name = "Mass";
         }
 
         public static IEnumerable<MassUnit> List()

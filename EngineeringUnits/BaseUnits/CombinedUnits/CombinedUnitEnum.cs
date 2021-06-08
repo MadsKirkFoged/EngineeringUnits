@@ -37,6 +37,8 @@ namespace EngineeringUnits
             Unit.Combined.Count = 1;
             Count = 1;
             ActualC = 1;
+            Unit.Combined.Name = "Combined";
+            Name = "Combined";
         }
 
        

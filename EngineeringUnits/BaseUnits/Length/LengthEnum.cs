@@ -64,6 +64,8 @@ namespace EngineeringUnits
             Unit.Length = this.Copy();
             Unit.Length.Count = 1;
             Unit.Length.ActualC = 1;
+            Unit.Length.Name = "Length";
+            Name = "Length";
             Count = 1;
             ActualC = 1;
         }

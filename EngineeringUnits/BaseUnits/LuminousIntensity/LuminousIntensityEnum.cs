@@ -50,6 +50,8 @@ namespace EngineeringUnits
             Unit.LuminousIntensity.Count = 1;
             Count = 1;
             Unit.LuminousIntensity.ActualC = 1;
+            Unit.LuminousIntensity.Name = "LuminousIntensity";
+            Name = "LuminousIntensity";
         }
 
         public static IEnumerable<LuminousIntensityUnit> List()
