@@ -243,7 +243,7 @@ namespace EngineeringUnits
                     break;
                 case MathEnum.Multiply:
 
-                    x3 = y1 * y2;
+                    x3 = y1 * right.GetDecimal(left.Unit) + (decimal)b1 * -1;
 
 
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
@@ -253,6 +253,8 @@ namespace EngineeringUnits
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
+
+                    y2 = right.GetDecimal(left.Unit) + (decimal)b1 * -1;
 
                     if (y2 != 0)                    
                         x3 = y1 / y2;                    
