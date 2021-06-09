@@ -57,8 +57,8 @@ namespace UnitTests
 
             EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(35345, EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine);
             EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(4356, EngineeringUnits.MassFlowUnit.PoundPerMinute);
-            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(342, EngineeringUnits.TemperatureUnit.DegreeFahrenheit);
-            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(43, EngineeringUnits.TemperatureUnit.DegreeFahrenheit);
+            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(342, EngineeringUnits.TemperatureUnit.DegreeRankine);
+            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(43, EngineeringUnits.TemperatureUnit.DegreeRankine);
 
             EngineeringUnits.Power Q1 = M1 * P1 * (T2 - T1);
 
@@ -66,8 +66,8 @@ namespace UnitTests
 
             UnitsNet.SpecificEntropy p1 = new UnitsNet.SpecificEntropy(35345, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
             UnitsNet.MassFlow m1 = new UnitsNet.MassFlow(4356, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
-            UnitsNet.Temperature t2 = new UnitsNet.Temperature(342, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
-            UnitsNet.Temperature t1 = new UnitsNet.Temperature(43, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
+            UnitsNet.Temperature t2 = new UnitsNet.Temperature(342, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+            UnitsNet.Temperature t1 = new UnitsNet.Temperature(43, UnitsNet.Units.TemperatureUnit.DegreeRankine);
 
             UnitsNet.Power q1 = UnitsNet.Power.FromWatts(p1.JoulesPerKilogramKelvin * m1.KilogramsPerSecond * (t2.Kelvins - t1.Kelvins));
 
@@ -99,13 +99,13 @@ namespace UnitTests
 
             //Difference in procent
             Assert.AreEqual(0, HelperClass.Percent( Q1.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour), 
-                                                    q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour)), 0);
+                                                    q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour)), 0.0003);
 
             Assert.AreEqual(0, HelperClass.Percent( Q1.As(EngineeringUnits.PowerUnit.Kilowatt), 
-                                                    q1.As(UnitsNet.Units.PowerUnit.Kilowatt)), 0);
+                                                    q1.As(UnitsNet.Units.PowerUnit.Kilowatt)), 0.00013);
 
             Assert.AreEqual(0, HelperClass.Percent( Q1.As(EngineeringUnits.PowerUnit.Watt),  
-                                                    q1.As(UnitsNet.Units.PowerUnit.Watt)), 0);
+                                                    q1.As(UnitsNet.Units.PowerUnit.Watt)), 0.00013);
 
         }
 

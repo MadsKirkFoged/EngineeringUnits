@@ -21,7 +21,13 @@ namespace EngineeringUnits
 
             Unit = selectedUnit.Unit;
             //SetLocalValue(value);
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            ValueLocalUnit = ((decimal)value  / (decimal)selectedUnit.Unit.GetActualC());
+
+            //Debug.Print($"{(decimal)value}");
+            //Debug.Print($"{(decimal)Unit.GetCombi()}");
+            //Debug.Print($"{(decimal)selectedUnit.Unit.GetActualC()}");
+
+
         }
 
         public double As(SpecificEntropyUnit energyUnit)

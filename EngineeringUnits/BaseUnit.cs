@@ -204,35 +204,27 @@ namespace EngineeringUnits
 
             BaseUnit local = new BaseUnit();
 
-            //Get constants
-          //  Fraction a1 = left.Unit.GetFactorGlobal();
-            decimal y1 = left.ValueLocalUnit;
-
-          //  Fraction a2 = right.Unit.GetFactorGlobal();
-            decimal y2 = right.ValueLocalUnit;
+            decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
 
             Fraction b1 = left.Unit.SumOfBConstants();
             Fraction b2 = right.Unit.SumOfBConstants();
 
+            decimal y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit) + (decimal)b1 * -1;
 
-            //Turn to SI
-           // decimal x1 = (y1) * a1.ToDecimal();
-           // decimal x2 = (y2) * a2.ToDecimal();
+
 
             //Do math in SI
             decimal x3;
-            //decimal b1;
             switch (math)
             {
                 case MathEnum.Add:
 
-                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit);
-
                     //Turn right into lefts unit
-                    x3 = y1 + y2 + (decimal)b1*-1;
-                    //x3 = y1 + right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+                    x3 = y1 + y2;
+
 
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
+                    local.Unit.Combined = new CombinedUnit("", 1, 1);
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
 
 
@@ -241,36 +233,34 @@ namespace EngineeringUnits
 
                 case MathEnum.Subtract:
 
-                    //Turn right into lefts unit
-                    x3 = y1 - right.GetDecimal(left.Unit) + (decimal)b1 * -1;
+                    x3 = y1 - y2;
+
 
                     local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
+
+                    local.Unit.Combined = new CombinedUnit("", 1, 1);
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
 
                     break;
                 case MathEnum.Multiply:
 
-                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit);
-
-                    //x3 = y1 * right.GetDecimal(left.Unit) + (decimal)b1 * -1;
                     x3 = y1 * y2;
 
                     local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-
+                    local.Unit.Combined = new CombinedUnit("",1,1);
 
 
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
                     break;
                 case MathEnum.Divide:
 
-                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(left.Unit, right.Unit);
-
                     if (y2 != 0)                    
-                        x3 = y1 / y2;                    
+                        x3 = y1  / y2;                    
                     else                    
                         x3 = 0;
                     
                     local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
+                    local.Unit.Combined = new CombinedUnit("", 1, 1);
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
 
                     break;

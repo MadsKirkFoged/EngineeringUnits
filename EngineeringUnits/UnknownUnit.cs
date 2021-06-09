@@ -65,7 +65,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
-            return (decimal)Unit.baseUnit.Value;
+            return (decimal)Unit.baseUnit.ValueLocalUnit;
         }
 
         public override string ToString()
