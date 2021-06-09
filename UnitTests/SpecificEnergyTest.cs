@@ -23,6 +23,17 @@ namespace UnitTests
             UnitsNet.SpecificEnergy UnitNet3 = UnitNet1 + UnitNet2;
             EngineeringUnits.SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
 
+            //Difference in procent
+            Assert.AreEqual(0, HelperClass.Percent(EngineeringUnits3.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound),
+                                                    UnitNet3.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound)), 0.00042);
+
+            Assert.AreEqual(0, HelperClass.Percent(EngineeringUnits3.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram),
+                                        UnitNet3.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram)), 0.00042);
+
+            Assert.AreEqual(0, HelperClass.Percent(EngineeringUnits3.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram),
+                                        UnitNet3.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram)), 0.00042);
+            Assert.AreEqual(0, HelperClass.Percent(EngineeringUnits3.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram),
+                                        UnitNet3.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram)), 0.00042);
 
 
             Assert.AreEqual(0, EngineeringUnits3.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - UnitNet3.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 1.7E-08);

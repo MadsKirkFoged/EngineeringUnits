@@ -16,13 +16,13 @@ namespace EngineeringUnits
         }
 
 
-        public Length(double value, LengthUnit unit) :this()
+        public Length(double value, LengthUnit selectedUnit) :this()
         {
-            Unit.Length = unit;
+            Unit.Length = selectedUnit;
 
             //SetLocalValue(value);
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
 

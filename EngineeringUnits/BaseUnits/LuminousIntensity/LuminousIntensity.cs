@@ -16,13 +16,13 @@ namespace EngineeringUnits
         }
 
 
-        public LuminousIntensity(double value, LuminousIntensityUnit unit) :this()
+        public LuminousIntensity(double value, LuminousIntensityUnit selectedUnit) :this()
         {
-            Unit.LuminousIntensity = unit;
+            Unit.LuminousIntensity = selectedUnit;
 
             //SetLocalValue(value);
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
 

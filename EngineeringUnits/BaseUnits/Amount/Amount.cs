@@ -16,14 +16,14 @@ namespace EngineeringUnits
         }
 
 
-        public AmountOfSubstance(double value, AmountOfSubstanceUnit unit) :this()
+        public AmountOfSubstance(double value, AmountOfSubstanceUnit selectedUnit) :this()
         {
 
-            Unit.Amount = unit;
+            Unit.Amount = selectedUnit;
 
             //SetLocalValue(value);
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
 
         }
 

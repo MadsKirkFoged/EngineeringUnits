@@ -14,14 +14,14 @@ namespace EngineeringUnits
         }
 
 
-        public Duration(double value, DurationUnit unit) : this()
+        public Duration(double value, DurationUnit selectedUnit) : this()
         {
 
 
-            Unit.Duration = unit;
+            Unit.Duration = selectedUnit;
             //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
             //SetLocalValue(value);
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
 
         }
 

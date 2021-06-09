@@ -191,7 +191,7 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            return $"{Value} {Unit}";
+            return $"{ValueLocalUnit} {Unit}";
         }
 
 
@@ -226,9 +226,11 @@ namespace EngineeringUnits
             {
                 case MathEnum.Add:
 
+                    y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit);
 
                     //Turn right into lefts unit
-                    x3 = y1 + right.GetDecimal(left.Unit) + (decimal)b1*-1;
+                    x3 = y1 + y2 + (decimal)b1*-1;
+                    //x3 = y1 + right.GetDecimal(left.Unit) + (decimal)b1 * -1;
 
                     local.Unit = UnitSystem.Add(left.Unit, right.Unit);
                     local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
@@ -305,17 +307,17 @@ namespace EngineeringUnits
            //Debug.WriteLine($"{Unit.GetActualC()}");
            // Debug.WriteLine($"{To.GetActualC()}");
 
-            Fraction c1 = 1 / (Unit.GetActualC());
-            Fraction c2 = 1 / (To.GetActualC());
+            //Fraction c1 = 1 / (Unit.GetActualC());
+            Fraction c2 = (To.GetActualC());
             //Fraction c3 = c2 / c1;
-            Fraction c3 = c1 / c2;
+            //Fraction c3 = c1 / c2;
 
             //Fraction c = Unit.GetActualC() / To.GetActualC();
             //Fraction c = To.GetActualC() / Unit.GetActualC();
             //Fraction c = Unit.GetActualC() * To.GetActualC();
 
             //a3 *= (1/c);
-            a3 *= c3;
+            a3 *= c2;
 
 
             Fraction b3 = a3 * (b1*-1) + b2;

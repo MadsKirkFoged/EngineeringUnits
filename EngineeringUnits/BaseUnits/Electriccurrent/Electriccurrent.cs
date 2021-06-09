@@ -16,13 +16,13 @@ namespace EngineeringUnits
         }
 
 
-        public ElectricCurrent(double value, ElectricCurrentUnit unit) :this()
+        public ElectricCurrent(double value, ElectricCurrentUnit selectedUnit) :this()
         {
-            Unit.Electriccurrent = unit;
+            Unit.Electriccurrent = selectedUnit;
 
             //SetLocalValue(value);
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
 

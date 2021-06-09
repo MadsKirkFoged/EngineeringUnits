@@ -13,12 +13,12 @@ namespace EngineeringUnits
             Name = "Area";
         }
 
-        public Area(double value, AreaUnit SquaredlengthUnit) : this()
+        public Area(double value, AreaUnit selectedUnit) : this()
         {
 
-            Unit = SquaredlengthUnit.Unit;
+            Unit = selectedUnit.Unit;
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
         public double As(AreaUnit SquaredlengthUnit)

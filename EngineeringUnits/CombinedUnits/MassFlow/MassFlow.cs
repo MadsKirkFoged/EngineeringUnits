@@ -16,11 +16,11 @@ namespace EngineeringUnits
         }
 
 
-        public MassFlow(double value, MassFlowUnit energyUnit) : this()
+        public MassFlow(double value, MassFlowUnit selectedUnit) : this()
         {
 
-            Unit = energyUnit.Unit;
-            ValueLocalUnit = (decimal)value;
+            Unit = selectedUnit.Unit;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
         public double As(MassFlowUnit energyUnit)

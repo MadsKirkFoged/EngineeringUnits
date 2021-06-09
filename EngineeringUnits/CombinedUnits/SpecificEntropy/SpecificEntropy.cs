@@ -16,12 +16,12 @@ namespace EngineeringUnits
         }
 
 
-        public SpecificEntropy(double value, SpecificEntropyUnit unit) : this()
+        public SpecificEntropy(double value, SpecificEntropyUnit selectedUnit) : this()
         {
 
-            Unit = unit.Unit;
+            Unit = selectedUnit.Unit;
             //SetLocalValue(value);
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
         public double As(SpecificEntropyUnit energyUnit)

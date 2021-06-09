@@ -16,12 +16,12 @@ namespace EngineeringUnits
         }
 
 
-        public Mass(double value, MassUnit unit) :this()
+        public Mass(double value, MassUnit selectedUnit) :this()
         {
-            Unit.Mass = unit;
+            Unit.Mass = selectedUnit;
             //SetLocalValue(value);
 
-            ValueLocalUnit = (decimal)value;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
 

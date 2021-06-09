@@ -14,12 +14,12 @@ namespace EngineeringUnits
             Name = "Speed";
         }
 
-        public Speed(double value, SpeedUnit SquaredlengthUnit) : this()
+        public Speed(double value, SpeedUnit selectedUnit) : this()
         {
 
-            Unit = SquaredlengthUnit.Unit;
+            Unit = selectedUnit.Unit;
 
-            SetLocalValue(value);
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
         public decimal As(SpeedUnit Selectedunit)

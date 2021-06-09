@@ -16,11 +16,11 @@ namespace EngineeringUnits
         }
 
 
-        public Power(double value, PowerUnit energyUnit) : this()
+        public Power(double value, PowerUnit selectedUnit) : this()
         {
 
-            Unit = energyUnit.Unit;
-            ValueLocalUnit = (decimal)value;
+            Unit = selectedUnit.Unit;
+            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
         }
 
         public double As(PowerUnit energyUnit)
@@ -42,7 +42,7 @@ namespace EngineeringUnits
         {
             //If we know the unit
             if (Unit.Symbol is object && Unit.Symbol != "")            
-                return $"{As(Unit)} {Unit}";
+                return $"{ValueLocalUnit} {Unit}";
             
 
 
