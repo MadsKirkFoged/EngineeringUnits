@@ -37,6 +37,15 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.AstronomicalUnit) - L1.As(UnitsNet.Units.LengthUnit.AstronomicalUnit), 2.74E-14);
             Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Parsec) - L1.As(UnitsNet.Units.LengthUnit.Parsec), 1.3E-19);
 
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.LengthUnit.AstronomicalUnit),
+                                        L1.As(UnitsNet.Units.LengthUnit.AstronomicalUnit)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.LengthUnit.Centimeter),
+                            L1.As(UnitsNet.Units.LengthUnit.Centimeter)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.LengthUnit.Centimeter),
+                L1.As(UnitsNet.Units.LengthUnit.Centimeter)), 0);
+
+
+
             Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
             Assert.AreEqual(0, UnitsNet.Length.FromFeet(4356).Meters - EngineeringUnits.Length.FromFeet(4356).Meters, 0);
             Assert.AreEqual(0, UnitsNet.Length.FromYards(95.65).Miles - EngineeringUnits.Length.FromYards(95.65).Miles, 1.4E-07);
@@ -64,6 +73,41 @@ namespace UnitTests
             Assert.AreEqual(0, A2.As(EngineeringUnits.AmountOfSubstanceUnit.Millimole) - A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Millimole), 0);
             Assert.AreEqual(0, A2.As(EngineeringUnits.AmountOfSubstanceUnit.Mole) - A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Mole), 0);
             Assert.AreEqual(0, A2.As(EngineeringUnits.AmountOfSubstanceUnit.Nanomole) - A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Nanomole), 7.7E-06);
+
+
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Centimole),
+                                                    A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Centimole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.CentipoundMole),
+                                        A1.As(UnitsNet.Units.AmountOfSubstanceUnit.CentipoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Decimole),
+                            A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Decimole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.DecipoundMole),
+                A1.As(UnitsNet.Units.AmountOfSubstanceUnit.DecipoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Kilomole),
+    A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Kilomole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.KilopoundMole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.KilopoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Megamole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Megamole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Micromole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Micromole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.MicropoundMole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.MicropoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Millimole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Millimole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.MillipoundMole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.MillipoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Mole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Mole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.Nanomole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.Nanomole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.NanopoundMole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.NanopoundMole)), 0);
+            Assert.AreEqual(0, HelperClass.Percent(A2.As(EngineeringUnits.AmountOfSubstanceUnit.PoundMole),
+A1.As(UnitsNet.Units.AmountOfSubstanceUnit.PoundMole)), 0);
+
+
+
 
         }
 

@@ -19,11 +19,12 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from CentipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromCentipoundMoles(double centipoundmoles)
-        //{
-        //    double value = (double)centipoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.CentipoundMole);
-        //}
+        public static AmountOfSubstance FromCentipoundMoles(double centipoundmoles)
+        {
+            double value = (double)centipoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.CentipoundMole);
+        }
+
         /// <summary>
         ///     Get AmountOfSubstance from Decimoles.
         /// </summary>
@@ -37,11 +38,11 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from DecipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromDecipoundMoles(double decipoundmoles)
-        //{
-        //    double value = (double)decipoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.DecipoundMole);
-        //}
+        public static AmountOfSubstance FromDecipoundMoles(double decipoundmoles)
+        {
+            double value = (double)decipoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.DecipoundMole);
+        }
         /// <summary>
         ///     Get AmountOfSubstance from Kilomoles.
         /// </summary>
@@ -55,11 +56,11 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from KilopoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromKilopoundMoles(double kilopoundmoles)
-        //{
-        //    double value = (double)kilopoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.KilopoundMole);
-        //}
+        public static AmountOfSubstance FromKilopoundMoles(double kilopoundmoles)
+        {
+            double value = (double)kilopoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.KilopoundMole);
+        }
         /// <summary>
         ///     Get AmountOfSubstance from Megamoles.
         /// </summary>
@@ -82,11 +83,11 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from MicropoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromMicropoundMoles(double micropoundmoles)
-        //{
-        //    double value = (double)micropoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.MicropoundMole);
-        //}
+        public static AmountOfSubstance FromMicropoundMoles(double micropoundmoles)
+        {
+            double value = (double)micropoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.MicropoundMole);
+        }
         /// <summary>
         ///     Get AmountOfSubstance from Millimoles.
         /// </summary>
@@ -100,11 +101,11 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from MillipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromMillipoundMoles(double millipoundmoles)
-        //{
-        //    double value = (double)millipoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.MillipoundMole);
-        //}
+        public static AmountOfSubstance FromMillipoundMoles(double millipoundmoles)
+        {
+            double value = (double)millipoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.MillipoundMole);
+        }
         /// <summary>
         ///     Get AmountOfSubstance from Moles.
         /// </summary>
@@ -127,22 +128,22 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from NanopoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromNanopoundMoles(double nanopoundmoles)
-        //{
-        //    double value = (double)nanopoundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.NanopoundMole);
-        //}
+        public static AmountOfSubstance FromNanopoundMoles(double nanopoundmoles)
+        {
+            double value = (double)nanopoundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.NanopoundMole);
+        }
         /// <summary>
         ///     Get AmountOfSubstance from PoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static AmountOfSubstance FromPoundMoles(double poundmoles)
-        //{
-        //    double value = (double)poundmoles;
-        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.PoundMole);
-        //}
+        public static AmountOfSubstance FromPoundMoles(double poundmoles)
+        {
+            double value = (double)poundmoles;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.PoundMole);
+        }
 
-       
+
 
     }
 }

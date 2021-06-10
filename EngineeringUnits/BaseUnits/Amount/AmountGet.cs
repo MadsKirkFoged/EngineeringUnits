@@ -15,7 +15,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in CentipoundMoles.
         /// </summary>
-        //public double CentipoundMoles => As(AmountOfSubstanceUnit.CentipoundMole);
+        public double CentipoundMoles => As(AmountOfSubstanceUnit.CentipoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in Decimoles.
@@ -25,7 +25,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in DecipoundMoles.
         /// </summary>
-        //public double DecipoundMoles => As(AmountOfSubstanceUnit.DecipoundMole);
+        public double DecipoundMoles => As(AmountOfSubstanceUnit.DecipoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in Kilomoles.
@@ -35,7 +35,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in KilopoundMoles.
         /// </summary>
-        //public double KilopoundMoles => As(AmountOfSubstanceUnit.KilopoundMole);
+        public double KilopoundMoles => As(AmountOfSubstanceUnit.KilopoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in Megamoles.
@@ -50,7 +50,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in MicropoundMoles.
         /// </summary>
-        //public double MicropoundMoles => As(AmountOfSubstanceUnit.MicropoundMole);
+        public double MicropoundMoles => As(AmountOfSubstanceUnit.MicropoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in Millimoles.
@@ -60,7 +60,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in MillipoundMoles.
         /// </summary>
-        //public double MillipoundMoles => As(AmountOfSubstanceUnit.MillipoundMole);
+        public double MillipoundMoles => As(AmountOfSubstanceUnit.MillipoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in Moles.
@@ -75,12 +75,12 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get AmountOfSubstance in NanopoundMoles.
         /// </summary>
-        //public double NanopoundMoles => As(AmountOfSubstanceUnit.NanopoundMole);
+        public double NanopoundMoles => As(AmountOfSubstanceUnit.NanopoundMole);
 
         /// <summary>
         ///     Get AmountOfSubstance in PoundMoles.
         /// </summary>
-        //public double PoundMoles => As(AmountOfSubstanceUnit.PoundMole);
+        public double PoundMoles => As(AmountOfSubstanceUnit.PoundMole);
 
 
 
