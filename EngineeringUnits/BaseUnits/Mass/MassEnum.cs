@@ -26,6 +26,8 @@ namespace EngineeringUnits
         public static MassUnit Milligram = new MassUnit(PreFix.milli, BaseUnits.mass);
         public static MassUnit Nanogram = new MassUnit(PreFix.nano, BaseUnits.mass);
         public static MassUnit Tonne = new MassUnit("t", 1 , 1000 * 1000);
+        public static MassUnit Kilotonne = new MassUnit("kt", 1, 1000 * 1000*1000);
+        public static MassUnit Megatonne = new MassUnit("Mt", 1, 1000 * 1000 * 1e+6m);
 
 
         public static MassUnit EarthMass = new MassUnit("EarthMass", 1, 5.9722m * 10e24m);
@@ -34,7 +36,15 @@ namespace EngineeringUnits
         public static MassUnit Ounce = new MassUnit("oz", (1/16m), 453.59237m);
         public static MassUnit Pound = new MassUnit("lb", 1, 453.59237m);
         public static MassUnit Stone = new MassUnit("st", 14, 453.59237m);
+        public static MassUnit Slug = new MassUnit("slug", 32.174m, 453.59237m);
+
+        public static MassUnit ShortHundredweight = new MassUnit("cwt", 100, 453.59237m);
+        public static MassUnit LongHundredweight = new MassUnit("cwt", 112, 453.59237m);
+        public static MassUnit Kilopound = new MassUnit("klb", 1000, 453.59237m);
         public static MassUnit ShortTon = new MassUnit("sT", 2000, 453.59237m);
+        public static MassUnit LongTon = new MassUnit("lT", 2240, 453.59237m);
+
+        public static MassUnit Megapound = new MassUnit("Mlb", 1e6m, 453.59237m);
 
         public static MassUnit Grain = new MassUnit("gr", 1, 0.06479891m);
 
