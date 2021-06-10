@@ -45,10 +45,6 @@ namespace EngineeringUnits
         }
 
 
-
-
-
-
         public double As(UnitSystem a)
         {
 
@@ -102,27 +98,9 @@ namespace EngineeringUnits
         public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => BaseUnit.DoMath(a, b, MathEnum.Divide);
 
 
-        public static UnknownUnit operator *(BaseUnit a, double b)
-        {
-            UnknownUnit local = new UnknownUnit(b);
-
-            return a * local;
-        }
-       
-        public static UnknownUnit operator /(BaseUnit a, double b)
-        {
-            UnknownUnit local = new UnknownUnit(b);
-
-            return a / local;
-        }
-        
-        public static UnknownUnit operator /(double a, BaseUnit b)
-        {
-            UnknownUnit local = new UnknownUnit(a);
-
-            return local / b;
-        }
-        
+        public static UnknownUnit operator *(BaseUnit a, double b) => a * (new UnknownUnit(b));
+        public static UnknownUnit operator /(BaseUnit a, double b) => a / (new UnknownUnit(b));
+        public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;        
         public static UnknownUnit operator *(double a, BaseUnit b) => b*a;
         
 
@@ -194,87 +172,93 @@ namespace EngineeringUnits
             return $"{ValueLocalUnit} {Unit}";
         }
 
-
-
-
-        //Moving math
-
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
             BaseUnit local = new BaseUnit();
-
-            decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
+            decimal x3 = 0;
 
             Fraction b1 = left.Unit.SumOfBConstants();
-            Fraction b2 = right.Unit.SumOfBConstants();
+            //Fraction b2 = right.Unit.SumOfBConstants();
 
+            decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
             decimal y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit) + (decimal)b1 * -1;
 
 
 
-            //Do math in SI
-            decimal x3;
+
+            
             switch (math)
             {
                 case MathEnum.Add:
 
-                    //Turn right into lefts unit
+                    //Value math
                     x3 = y1 + y2;
 
-
-                    local.Unit = UnitSystem.Add(left.Unit, right.Unit);
-                    local.Unit.Combined = new CombinedUnit("", 1, 1);
-                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
-
-
+                    //Unit math
+                    local.Unit = left.Unit + right.Unit;
                     break;
-
-
                 case MathEnum.Subtract:
 
+                    //Value math
                     x3 = y1 - y2;
 
-
-                    local.Unit = UnitSystem.Subtract(left.Unit, right.Unit);
-
-                    local.Unit.Combined = new CombinedUnit("", 1, 1);
-                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
-
+                    //Unit math
+                    local.Unit = left.Unit- right.Unit;
                     break;
                 case MathEnum.Multiply:
 
+                    //Value math
                     x3 = y1 * y2;
 
-                    local.Unit = UnitSystem.Multiply(left.Unit, right.Unit);
-                    local.Unit.Combined = new CombinedUnit("",1,1);
-
-
-                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+                    //Unit math
+                    local.Unit = left.Unit * right.Unit;
                     break;
                 case MathEnum.Divide:
 
+                    //Value math
                     if (y2 != 0)                    
                         x3 = y1  / y2;                    
                     else                    
                         x3 = 0;
-                    
-                    local.Unit = UnitSystem.Divide(left.Unit, right.Unit);
-                    local.Unit.Combined = new CombinedUnit("", 1, 1);
-                    local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
 
+                    //Unit math
+                    local.Unit = left.Unit / right.Unit;
                     break;
                 default:
                     break;
             }
 
+            //Telling unit system that value has been changed
+            local.Unit.Combined = new CombinedUnit("", 1, 1);
 
-
+            //Removing traling zeros
+            local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
             return local;
         }
 
 
         public decimal ToTheOutSide(UnitSystem To)
+        {
+
+            //Creating a new system call 3
+
+            Fraction b1 = Unit.SumOfBConstants();
+            Fraction b2 = To.SumOfBConstants();
+           
+
+            Fraction a3 = FactorDifferent(To);
+            Fraction b3 = a3 * (b1*-1) + b2;
+
+
+            Fraction y1 = (Fraction)ValueLocalUnit;         
+            
+            Fraction y2 = a3 * y1 + b3;
+
+            return (decimal)y2;
+        }
+
+        public Fraction FactorDifferent(UnitSystem To)
         {
 
             //Samle konstanter
@@ -284,68 +268,14 @@ namespace EngineeringUnits
             Fraction rightA2 = To.GetFactorGlobal();
 
 
-            Fraction a1 =   1/(leftA2 * leftA1);
-            Fraction a2 = 1/(rightA2 * rightA1);
+            Fraction a1 = 1 / (leftA2 * leftA1);
+            Fraction a2 = 1 / (rightA2 * rightA1);
 
 
-            Fraction b1 = Unit.SumOfBConstants();
-            Fraction b2 = To.SumOfBConstants();
+            Fraction a3 = (a2 / a1) * To.GetActualC();
 
 
-            Fraction a3 = a2 / a1;
-
-           //Debug.WriteLine($"{Unit.GetActualC()}");
-           // Debug.WriteLine($"{To.GetActualC()}");
-
-            //Fraction c1 = 1 / (Unit.GetActualC());
-            Fraction c2 = (To.GetActualC());
-            //Fraction c3 = c2 / c1;
-            //Fraction c3 = c1 / c2;
-
-            //Fraction c = Unit.GetActualC() / To.GetActualC();
-            //Fraction c = To.GetActualC() / Unit.GetActualC();
-            //Fraction c = Unit.GetActualC() * To.GetActualC();
-
-            //a3 *= (1/c);
-            a3 *= c2;
-
-
-            Fraction b3 = a3 * (b1*-1) + b2;
-
-
-            Fraction y1 = (Fraction)ValueLocalUnit;            
-            
-            Fraction y2 = a3 * y1 + b3;
-
-
-
-            return (decimal)y2;
-        }
-
-
-      
-
-        public double ToDouble()
-        {
-           return (double)((decimal)Unit.GetTotalFactor() * ValueLocalUnit);
-        }
-
-
-        public void SetLocalValue(double ValueFrom)
-        {
-
-            //Samle konstanter
-            //decimal a11 = Unit.SumOfA1Constants();
-            Fraction a11 = Unit.GetFactorLocal();
-            Fraction b1 = Unit.SumOfBConstants();
-
-            decimal y1 = (decimal)ValueFrom;
-
-            decimal y2 = y1 - b1.ToDecimal();
-            y2 *= a11.ToDecimal();
-
-            ValueLocalUnit = y2;
-
+            return a3;
         }
 
 

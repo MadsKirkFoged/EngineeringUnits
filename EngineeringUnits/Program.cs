@@ -10,6 +10,20 @@ namespace EngineeringUnits
         {
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
            
             //SpecificEnergy H2s = new SpecificEnergy(5, SpecificEnergyUnit.JoulePerKilogram);
             SpecificEnergy H2s = new SpecificEnergy(0.00214961, SpecificEnergyUnit.BtuPerPound);
