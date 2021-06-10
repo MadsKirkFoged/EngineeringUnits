@@ -19,12 +19,12 @@ namespace EngineeringUnits
         public Energy(double value, EnergyUnit selectedUnit) : this()
         {
             Unit = selectedUnit.Unit;
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
-        public double As(EnergyUnit energyUnit)
+        public double As(EnergyUnit ReturnInThisUnit)
         {
-            return (double)ToTheOutSide(energyUnit.Unit);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         //Every units needs this

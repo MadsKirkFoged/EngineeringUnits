@@ -18,21 +18,13 @@ namespace EngineeringUnits
 
         public SpecificEntropy(double value, SpecificEntropyUnit selectedUnit) : this()
         {
-
             Unit = selectedUnit.Unit;
-            //SetLocalValue(value);
-            ValueLocalUnit = ((decimal)value  / (decimal)selectedUnit.Unit.GetActualC());
-
-            //Debug.Print($"{(decimal)value}");
-            //Debug.Print($"{(decimal)Unit.GetCombi()}");
-            //Debug.Print($"{(decimal)selectedUnit.Unit.GetActualC()}");
-
-
+            SetValue(value);
         }
 
-        public double As(SpecificEntropyUnit energyUnit)
+        public double As(SpecificEntropyUnit ReturnInThisUnit)
         {
-            return (double)ToTheOutSide(energyUnit.Unit);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         //Every units needs this

@@ -16,15 +16,13 @@ namespace EngineeringUnits
 
         public Speed(double value, SpeedUnit selectedUnit) : this()
         {
-
             Unit = selectedUnit.Unit;
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
-        public decimal As(SpeedUnit Selectedunit)
+        public decimal As(SpeedUnit ReturnInThisUnit)
         {
-            return (decimal)ToTheOutSide(Selectedunit.Unit);
+            return (decimal)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         //Every units needs this

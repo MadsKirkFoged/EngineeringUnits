@@ -19,21 +19,17 @@ namespace EngineeringUnits
         public LuminousIntensity(double value, LuminousIntensityUnit selectedUnit) :this()
         {
             Unit.LuminousIntensity = selectedUnit;
-
-            //SetLocalValue(value);
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
-
+        public static LuminousIntensity From(double value, LuminousIntensityUnit unit)
+        {
+            return new LuminousIntensity(value, unit);
+        }
 
         public double As(ElectricCurrentUnit ReturnInThisUnit)
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Electriccurrent = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Electriccurrent.Count = 1;
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         public static implicit operator LuminousIntensity(UnknownUnit Unit)

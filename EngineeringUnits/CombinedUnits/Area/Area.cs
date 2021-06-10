@@ -15,15 +15,13 @@ namespace EngineeringUnits
 
         public Area(double value, AreaUnit selectedUnit) : this()
         {
-
             Unit = selectedUnit.Unit;
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
-        public double As(AreaUnit SquaredlengthUnit)
+        public double As(AreaUnit ReturnInThisUnit)
         {
-            return (double)ToTheOutSide(SquaredlengthUnit.Unit);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         //Every units needs this

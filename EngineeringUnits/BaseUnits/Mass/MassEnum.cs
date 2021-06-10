@@ -9,30 +9,7 @@ namespace EngineeringUnits
 {
 
 
-    //public enum MassUnit
-    //{
-
-
-
-
-
-
-
-
-
-
-    //    [Vector("t", 1,1000)] Tonne,
-    //    [Vector("gr",1, 0.06479891)] Grain,
-
-
-
-
-
-
-
-
-
-    //}
+    
 
     public class MassUnit : Enumeration
     {

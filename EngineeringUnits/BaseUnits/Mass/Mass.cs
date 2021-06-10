@@ -12,26 +12,24 @@ namespace EngineeringUnits
 
         public Mass()
         {
-            Name = "Length";
+            Name = "Mass";
         }
 
 
         public Mass(double value, MassUnit selectedUnit) :this()
         {
             Unit.Mass = selectedUnit;
-            //SetLocalValue(value);
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
+        public static Mass From(double value, MassUnit unit)
+        {
+            return new Mass(value, unit);
+        }
 
         public double As(MassUnit ReturnInThisUnit)
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Mass = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Mass.Count = 1;
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         public static implicit operator Mass(UnknownUnit Unit)

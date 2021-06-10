@@ -23,6 +23,12 @@ namespace EngineeringUnits
         public static AmountOfSubstanceUnit Millimole = new AmountOfSubstanceUnit(PreFix.milli, BaseUnits.amountOfSubstance);
         public static AmountOfSubstanceUnit Nanomole = new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);
 
+        public static MassUnit Pound = new MassUnit("lbmol", 1, 453.59237m);
+        public static MassUnit NanopoundMole = new MassUnit("nlbmol", 1e-9m, 453.59237m);
+        public static MassUnit KilopoundMole = new MassUnit("klbmol", 1e3m, 453.59237m);
+        public static MassUnit DecipoundMole = new MassUnit("Delbmol", 1e-1m, 453.59237m);
+        public static MassUnit CentipoundMole = new MassUnit("Delbmol", 1e-2m, 453.59237m);
+
 
         public AmountOfSubstanceUnit() { }
 

@@ -10,19 +10,13 @@ namespace EngineeringUnits
 
         public Duration()
         {
-            Name = "Time";
+            Name = "Duration";
         }
-
 
         public Duration(double value, DurationUnit selectedUnit) : this()
         {
-
-
             Unit.Duration = selectedUnit;
-            //ValueLocalUnit = Unit.ReturnLocalValue((decimal)value);
-            //SetLocalValue(value);
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
-
+            SetValue(value);
         }
 
         public static Duration From(double value, DurationUnit unit)
@@ -33,16 +27,10 @@ namespace EngineeringUnits
         public double As(DurationUnit ReturnInThisUnit)
         {
 
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Duration = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Duration.Count = 1;
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
 
-        //Every units needs this
         public static implicit operator Duration(UnknownUnit Unit)
         {
             Duration local = new Duration(0, DurationUnit.SI);

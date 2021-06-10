@@ -19,21 +19,18 @@ namespace EngineeringUnits
         public Length(double value, LengthUnit selectedUnit) :this()
         {
             Unit.Length = selectedUnit;
-
-            //SetLocalValue(value);
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
+        public static Length From(double value, LengthUnit unit)
+        {
+            return new Length(value, unit);
+        }
 
 
         public double As(LengthUnit ReturnInThisUnit)
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Length = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Length.Count = 1;
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         public static implicit operator Length(UnknownUnit Unit)

@@ -237,6 +237,11 @@ namespace EngineeringUnits
             return local;
         }
 
+        protected void SetValue(double value)
+        {
+            ValueLocalUnit = (decimal)value / (decimal)Unit.GetActualC();
+        }
+
 
         public decimal ToTheOutSide(UnitSystem To)
         {

@@ -12,19 +12,14 @@ namespace EngineeringUnits
 
         public AmountOfSubstance()
         {
-            //Unit.Amount.Count = 1;
+            Name = "AmountOfSubstance";
         }
 
 
         public AmountOfSubstance(double value, AmountOfSubstanceUnit selectedUnit) :this()
         {
-
             Unit.Amount = selectedUnit;
-
-            //SetLocalValue(value);
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
-
+            SetValue(value);
         }
 
         public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit)
@@ -34,38 +29,15 @@ namespace EngineeringUnits
 
         public double As(AmountOfSubstanceUnit ReturnInThisUnit)
         {
-
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-
-            ReturnInThisUnitSystem.Amount = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Amount.Count = 1;
-
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
+      
 
-
-        //public void PermanentChangeUnitTo(LengthUnit ReturnInThisUnit)
-        //{
-
-        //    //Value = As(ReturnInThisUnit);
-        //    Unit.Length.SelectedUnit = ReturnInThisUnit;
-        //}
-
-
-        //Every units needs this
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {
-            AmountOfSubstance local = new AmountOfSubstance();
+            AmountOfSubstance local = new AmountOfSubstance(0, AmountOfSubstanceUnit.SI);
 
-            if (local.Unit != Unit.baseUnit.Unit)
-            {
-                throw new InvalidOperationException("Units did not result in Length!");
-            }
-
-            local.ValueLocalUnit = Unit.baseUnit.ValueLocalUnit;
-            local.Unit = Unit.baseUnit.Unit;
-
+            local.Transform(Unit);
             return local;
         }
 

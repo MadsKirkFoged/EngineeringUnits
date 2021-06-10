@@ -85,6 +85,22 @@ namespace UnitTests
                                                     L1.As(UnitsNet.Units.EnergyUnit.WattHour)), 0.0004);
         }
 
+        [TestMethod]
+        public void Enthalpycompare()
+        {
+
+            //Enthalpy is an alias for SpecificEnergy
+
+            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.Enthalpy L2 = new EngineeringUnits.Enthalpy(10, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+
+
+
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 1.9E-12);
+            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
+        }
 
         [TestMethod]
         public void SpecificEnergycompare()

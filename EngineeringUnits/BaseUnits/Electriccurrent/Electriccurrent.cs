@@ -19,21 +19,18 @@ namespace EngineeringUnits
         public ElectricCurrent(double value, ElectricCurrentUnit selectedUnit) :this()
         {
             Unit.Electriccurrent = selectedUnit;
-
-            //SetLocalValue(value);
-
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
+        public static ElectricCurrent From(double value, ElectricCurrentUnit unit)
+        {
+            return new ElectricCurrent(value, unit);
+        }
 
 
         public double As(ElectricCurrentUnit ReturnInThisUnit)
         {
-            UnitSystem ReturnInThisUnitSystem = new UnitSystem();
-            ReturnInThisUnitSystem.Electriccurrent = ReturnInThisUnit;
-            ReturnInThisUnitSystem.Electriccurrent.Count = 1;
-
-            return (double)ToTheOutSide(ReturnInThisUnitSystem);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit)

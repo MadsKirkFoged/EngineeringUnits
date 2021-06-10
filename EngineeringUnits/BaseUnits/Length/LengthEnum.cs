@@ -25,20 +25,33 @@ namespace EngineeringUnits
         public static LengthUnit Micrometer = new LengthUnit(PreFix.micro, BaseUnits.length);
         public static LengthUnit Nanometer = new LengthUnit(PreFix.nano, BaseUnits.length);
 
-
+        public static LengthUnit Microinch = new LengthUnit("µin", 1e-6m, 0.0254m);
+        public static LengthUnit Twip = new LengthUnit("twp", (1/1440m), 0.0254m);
+        public static LengthUnit Mil = new LengthUnit("mil", (1/1000m), 0.0254m);
+        public static LengthUnit DtpPoint = new LengthUnit("", (1/72m), 0.0254m);
+        public static LengthUnit DtpPica = new LengthUnit("", (1/6m), 0.0254m);
         public static LengthUnit Inch = new LengthUnit("in", 1, 0.0254m);
         public static LengthUnit Hand = new LengthUnit("hand", 4, 0.0254m);
         public static LengthUnit Foot = new LengthUnit("ft", 12, 0.0254m);
         public static LengthUnit Yard = new LengthUnit("yd", 36, 0.0254m);
+        public static LengthUnit Fathom = new LengthUnit("ftm", 71, 0.0254m);
         public static LengthUnit Chain = new LengthUnit("ch", 792, 0.0254m);
+        public static LengthUnit Shackle = new LengthUnit("sh", 1080, 0.0254m);
         public static LengthUnit Mile = new LengthUnit("mi", 63360, 0.0254m);
         public static LengthUnit NauticalMile = new LengthUnit("nmi", 72913.3858m, 0.0254m);
 
 
 
         public static LengthUnit LightYear = new LengthUnit("ly",1, 9460730472580800m);
+        public static LengthUnit KilolightYear = new LengthUnit("kly", 1e+3m, 9460730472580800m);
+        public static LengthUnit MegaLightYear = new LengthUnit("Mly", 1e+6m, 9460730472580800m);
+
+        public static LengthUnit SolarRadius = new LengthUnit("sr", 1, 6.95510000E+08m);
         public static LengthUnit AstronomicalUnit = new LengthUnit("au",1, 149597870700m);
+
         public static LengthUnit Parsec = new LengthUnit("pc",1, 30856775814913673m);
+        public static LengthUnit Kiloparsec = new LengthUnit("kpc", 1e+3m, 30856775814913673m);
+        public static LengthUnit Megaparsec = new LengthUnit("Mpc", 1e+6m, 30856775814913673m);
 
 
 

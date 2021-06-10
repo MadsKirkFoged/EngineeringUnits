@@ -20,13 +20,12 @@ namespace EngineeringUnits
         {
 
             Unit = selectedUnit.Unit;
-            ValueLocalUnit = (decimal)value / (decimal)selectedUnit.Unit.GetActualC();
+            SetValue(value);
         }
 
-        public double As(MassFlowUnit energyUnit)
+        public double As(MassFlowUnit ReturnInThisUnit)
         {
-            //return ToTheOutSide(energyUnit.Unit);
-            return (double)ToTheOutSide(energyUnit.Unit);
+            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
         //Every units needs this
