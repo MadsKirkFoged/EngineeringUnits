@@ -15,6 +15,17 @@ namespace EngineeringUnits
             Name = "Temperature";
         }
 
+        public Temperature(int value, TemperatureUnit selectedUnit) : this()
+        {
+
+            Unit.Temperature = selectedUnit;
+            SetValue(value);
+
+            //Forcing all temperatures to stay in kelvin
+            ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            Unit.Temperature = TemperatureUnit.Kelvin;
+
+        }
 
         public Temperature(double value, TemperatureUnit selectedUnit) :this()
         {
@@ -28,10 +39,26 @@ namespace EngineeringUnits
             
         }
 
+        public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
+        {
+
+            Unit.Temperature = selectedUnit;
+            SetValue(value);
+
+            //Forcing all temperatures to stay in kelvin
+            ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            Unit.Temperature = TemperatureUnit.Kelvin;
+
+        }
+
         public static Temperature From(double value, TemperatureUnit unit) => new Temperature(value, unit);
 
         public double As(TemperatureUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
 
+        public Temperature ToUnit(TemperatureUnit selectedUnit)
+        {
+            return new Temperature(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
 
         public static implicit operator Temperature(UnknownUnit Unit)
         {

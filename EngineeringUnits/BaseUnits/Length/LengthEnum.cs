@@ -28,23 +28,23 @@ namespace EngineeringUnits
         public static LengthUnit Microinch = new LengthUnit("µin", 1e-6m, 0.0254m);
         public static LengthUnit Twip = new LengthUnit("twp", (1/1440m), 0.0254m);
         public static LengthUnit Mil = new LengthUnit("mil", (1/1000m), 0.0254m);
-        public static LengthUnit DtpPoint = new LengthUnit("", (1/72m), 0.0254m);
-        public static LengthUnit DtpPica = new LengthUnit("", (1/6m), 0.0254m);
+        public static LengthUnit DtpPoint = new LengthUnit("pt", (1/72m), 0.0254m);
+        public static LengthUnit DtpPica = new LengthUnit("pica", (1/6m), 0.0254m);
         public static LengthUnit Inch = new LengthUnit("in", 1, 0.0254m);
-        public static LengthUnit Hand = new LengthUnit("hand", 4, 0.0254m);
+        public static LengthUnit Hand = new LengthUnit("h", 4, 0.0254m);
         public static LengthUnit Foot = new LengthUnit("ft", 12, 0.0254m);
         public static LengthUnit Yard = new LengthUnit("yd", 36, 0.0254m);
-        public static LengthUnit Fathom = new LengthUnit("ftm", 71, 0.0254m);
+        public static LengthUnit Fathom = new LengthUnit("fathom", 72, 0.0254m);
         public static LengthUnit Chain = new LengthUnit("ch", 792, 0.0254m);
         public static LengthUnit Shackle = new LengthUnit("sh", 1080, 0.0254m);
         public static LengthUnit Mile = new LengthUnit("mi", 63360, 0.0254m);
-        public static LengthUnit NauticalMile = new LengthUnit("nmi", 72913.3858m, 0.0254m);
+        public static LengthUnit NauticalMile = new LengthUnit("NM", 72913.3858m, 0.0254m);
 
 
 
         public static LengthUnit LightYear = new LengthUnit("ly",1, 9460730472580800m);
         public static LengthUnit KilolightYear = new LengthUnit("kly", 1e+3m, 9460730472580800m);
-        public static LengthUnit MegaLightYear = new LengthUnit("Mly", 1e+6m, 9460730472580800m);
+        public static LengthUnit MegalightYear = new LengthUnit("Mly", 1e+6m, 9460730472580800m);
 
         public static LengthUnit SolarRadius = new LengthUnit("sr", 1, 6.95510000E+08m);
         public static LengthUnit AstronomicalUnit = new LengthUnit("au",1, 149597870700m);
@@ -86,7 +86,7 @@ namespace EngineeringUnits
        
         public static IEnumerable<LengthUnit> List()
         {
-            return new[] { Inch, Hand, Foot, Yard, Chain, NauticalMile, LightYear, AstronomicalUnit, Parsec };
+            return new[] { AstronomicalUnit, Centimeter, Chain, Decimeter, DtpPica, DtpPoint, Fathom, Foot, Hand, Hectometer, Inch, KilolightYear, Kilometer, Kiloparsec, LightYear, MegalightYear, Megaparsec, Meter, Microinch, Micrometer, Mil, Mile, Millimeter, Nanometer, NauticalMile, Parsec, Shackle, SolarRadius, Twip, Yard, };
         }
 
 

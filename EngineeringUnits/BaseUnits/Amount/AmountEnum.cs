@@ -30,8 +30,8 @@ namespace EngineeringUnits
         public static AmountOfSubstanceUnit MillipoundMole = new AmountOfSubstanceUnit("mlbmol", 1e-3m, 453.59237m);
         public static AmountOfSubstanceUnit PoundMole = new AmountOfSubstanceUnit("lbmol", 1, 453.59237m);
         public static AmountOfSubstanceUnit KilopoundMole = new AmountOfSubstanceUnit("klbmol", 1e3m, 453.59237m);
-        public static AmountOfSubstanceUnit DecipoundMole = new AmountOfSubstanceUnit("Delbmol", 1e-1m, 453.59237m);
-        public static AmountOfSubstanceUnit CentipoundMole = new AmountOfSubstanceUnit("Delbmol", 1e-2m, 453.59237m);
+        public static AmountOfSubstanceUnit DecipoundMole = new AmountOfSubstanceUnit("dlbmol", 1e-1m, 453.59237m);
+        public static AmountOfSubstanceUnit CentipoundMole = new AmountOfSubstanceUnit("clbmol", 1e-2m, 453.59237m);
 
 
         public AmountOfSubstanceUnit() { }
@@ -63,9 +63,9 @@ namespace EngineeringUnits
 
         public static IEnumerable<AmountOfSubstanceUnit> List()
         {
-            return new[] { Mole, Centimole, Decimole, Kilomole, Megamole, Micromole, Millimole, Nanomole };
+            return new[] { Centimole, CentipoundMole, Decimole, DecipoundMole, Kilomole, KilopoundMole, Megamole, Micromole, MicropoundMole, Millimole, MillipoundMole, Mole, Nanomole, NanopoundMole, PoundMole, };
         }
-        // Other util methods
+
 
         public AmountOfSubstanceUnit Copy()
         {

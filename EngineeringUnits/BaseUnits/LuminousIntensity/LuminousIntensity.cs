@@ -15,8 +15,19 @@ namespace EngineeringUnits
             Name = "LuminousIntensity";
         }
 
+        public LuminousIntensity(int value, LuminousIntensityUnit selectedUnit) : this()
+        {
+            Unit.LuminousIntensity = selectedUnit;
+            SetValue(value);
+        }
 
         public LuminousIntensity(double value, LuminousIntensityUnit selectedUnit) :this()
+        {
+            Unit.LuminousIntensity = selectedUnit;
+            SetValue(value);
+        }
+
+        public LuminousIntensity(decimal value, LuminousIntensityUnit selectedUnit) : this()
         {
             Unit.LuminousIntensity = selectedUnit;
             SetValue(value);
@@ -27,14 +38,19 @@ namespace EngineeringUnits
             return new LuminousIntensity(value, unit);
         }
 
-        public double As(ElectricCurrentUnit ReturnInThisUnit)
+        public double As(LuminousIntensityUnit ReturnInThisUnit)
         {
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
+        public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit)
+        {
+            return new LuminousIntensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
+
         public static implicit operator LuminousIntensity(UnknownUnit Unit)
         {
-            LuminousIntensity local = new LuminousIntensity(0, LuminousIntensityUnit.SI);
+            LuminousIntensity local = new LuminousIntensity(0d, LuminousIntensityUnit.SI);
 
             local.Transform(Unit);
             return local;

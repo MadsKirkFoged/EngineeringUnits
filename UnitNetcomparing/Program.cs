@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngineeringUnits;
+using System;
 using System.Diagnostics;
 
 namespace UnitNetcomparing
@@ -8,6 +9,21 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
+
+            UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
+            EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+
+
+            //A2.ToUnit(AmountOfSubstanceUnit.);
+
+
+
+            Debug.Print(A1.ToString("a"));
+
+
+            
 
             UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
             EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, EngineeringUnits.MassFlowUnit.PoundPerMinute);

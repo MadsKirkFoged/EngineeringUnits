@@ -47,29 +47,29 @@ namespace EngineeringUnits
         ///     Get Length from DtpPicas.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static length fromdtppicas(double dtppicas)
-        //{
-        //    double value = (double)dtppicas;
-        //    return new length(value, lengthunit.dtppica);
-        //}
+        public static Length fromdtppicas(double dtppicas)
+        {
+            double value = (double)dtppicas;
+            return new Length(value, LengthUnit.DtpPica);
+        }
         /// <summary>
         ///     Get Length from DtpPoints.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromDtpPoints(double dtppoints)
-        //{
-        //    double value = (double)dtppoints;
-        //    return new Length(value, LengthUnit.DtpPoint);
-        //}
+        public static Length FromDtpPoints(double dtppoints)
+        {
+            double value = (double)dtppoints;
+            return new Length(value, LengthUnit.DtpPoint);
+        }
         /// <summary>
         ///     Get Length from Fathoms.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromFathoms(double fathoms)
-        //{
-        //    double value = (double)fathoms;
-        //    return new Length(value, LengthUnit.Fathom);
-        //}
+        public static Length FromFathoms(double fathoms)
+        {
+            double value = (double)fathoms;
+            return new Length(value, LengthUnit.Fathom);
+        }
         /// <summary>
         ///     Get Length from Feet.
         /// </summary>
@@ -110,11 +110,11 @@ namespace EngineeringUnits
         ///     Get Length from KilolightYears.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromKilolightYears(double kilolightyears)
-        //{
-        //    double value = (double)kilolightyears;
-        //    return new Length(value, LengthUnit.KilolightYear);
-        //}
+        public static Length FromKilolightYears(double kilolightyears)
+        {
+            double value = (double)kilolightyears;
+            return new Length(value, LengthUnit.KilolightYear);
+        }
         /// <summary>
         ///     Get Length from Kilometers.
         /// </summary>
@@ -128,38 +128,38 @@ namespace EngineeringUnits
         ///     Get Length from Kiloparsecs.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromKiloparsecs(double kiloparsecs)
-        //{
-        //    double value = (double)kiloparsecs;
-        //    return new Length(value, LengthUnit.Kiloparsec);
-        //}
+        public static Length FromKiloparsecs(double kiloparsecs)
+        {
+            double value = (double)kiloparsecs;
+            return new Length(value, LengthUnit.Kiloparsec);
+        }
         /// <summary>
         ///     Get Length from LightYears.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromLightYears(double lightyears)
-        //{
-        //    double value = (double)lightyears;
-        //    return new Length(value, LengthUnit.LightYear);
-        //}
+        public static Length FromLightYears(double lightyears)
+        {
+            double value = (double)lightyears;
+            return new Length(value, LengthUnit.LightYear);
+        }
         /// <summary>
         ///     Get Length from MegalightYears.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMegalightYears(double megalightyears)
-        //{
-        //    double value = (double)megalightyears;
-        //    return new Length(value, LengthUnit.MegalightYear);
-        //}
+        public static Length FromMegalightYears(double megalightyears)
+        {
+            double value = (double)megalightyears;
+            return new Length(value, LengthUnit.MegalightYear);
+        }
         /// <summary>
         ///     Get Length from Megaparsecs.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMegaparsecs(double megaparsecs)
-        //{
-        //    double value = (double)megaparsecs;
-        //    return new Length(value, LengthUnit.Megaparsec);
-        //}
+        public static Length FromMegaparsecs(double megaparsecs)
+        {
+            double value = (double)megaparsecs;
+            return new Length(value, LengthUnit.Megaparsec);
+        }
         /// <summary>
         ///     Get Length from Meters.
         /// </summary>
@@ -173,11 +173,11 @@ namespace EngineeringUnits
         ///     Get Length from Microinches.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMicroinches(double microinches)
-        //{
-        //    double value = (double)microinches;
-        //    return new Length(value, LengthUnit.Microinch);
-        //}
+        public static Length FromMicroinches(double microinches)
+        {
+            double value = (double)microinches;
+            return new Length(value, LengthUnit.Microinch);
+        }
         /// <summary>
         ///     Get Length from Micrometers.
         /// </summary>
@@ -191,11 +191,11 @@ namespace EngineeringUnits
         ///     Get Length from Mils.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromMils(double mils)
-        //{
-        //    double value = (double)mils;
-        //    return new Length(value, LengthUnit.Mil);
-        //}
+        public static Length FromMils(double mils)
+        {
+            double value = (double)mils;
+            return new Length(value, LengthUnit.Mil);
+        }
         /// <summary>
         ///     Get Length from Miles.
         /// </summary>
@@ -263,29 +263,29 @@ namespace EngineeringUnits
         ///     Get Length from Shackles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromShackles(double shackles)
-        //{
-        //    double value = (double)shackles;
-        //    return new Length(value, LengthUnit.Shackle);
-        //}
+        public static Length FromShackles(double shackles)
+        {
+            double value = (double)shackles;
+            return new Length(value, LengthUnit.Shackle);
+        }
         /// <summary>
         ///     Get Length from SolarRadiuses.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromSolarRadiuses(double solarradiuses)
-        //{
-        //    double value = (double)solarradiuses;
-        //    return new Length(value, LengthUnit.SolarRadius);
-        //}
+        public static Length FromSolarRadiuses(double solarradiuses)
+        {
+            double value = (double)solarradiuses;
+            return new Length(value, LengthUnit.SolarRadius);
+        }
         /// <summary>
         ///     Get Length from Twips.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Length FromTwips(double twips)
-        //{
-        //    double value = (double)twips;
-        //    return new Length(value, LengthUnit.Twip);
-        //}
+        public static Length FromTwips(double twips)
+        {
+            double value = (double)twips;
+            return new Length(value, LengthUnit.Twip);
+        }
         /// <summary>
         ///     Get Length from UsSurveyFeet.
         /// </summary>

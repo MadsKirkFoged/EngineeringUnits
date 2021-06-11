@@ -20,12 +20,12 @@ namespace EngineeringUnits
         public static DurationUnit Second = new DurationUnit(PreFix.SI, BaseUnits.time);
         public static DurationUnit SI = new DurationUnit(PreFix.SI, BaseUnits.time);
 
-        public static DurationUnit Minute = new DurationUnit("min", 1, 60m);
-        public static DurationUnit Hour = new DurationUnit("hr", 1, 3600m);
+        public static DurationUnit Minute = new DurationUnit("m", 1, 60m);
+        public static DurationUnit Hour = new DurationUnit("h", 1, 3600m);
         public static DurationUnit Day = new DurationUnit("d", 1, (24*3600m));
-        public static DurationUnit Week = new DurationUnit("w", 1, (7*24*3600m));
-        public static DurationUnit Month30 = new DurationUnit("w", 1, (30 * 24 * 3600m));
-        public static DurationUnit Year365 = new DurationUnit("y", 1, (365*24*3600m));
+        public static DurationUnit Week = new DurationUnit("wk", 1, (7*24*3600m));
+        public static DurationUnit Month30 = new DurationUnit("mo", 1, (30 * 24 * 3600m));
+        public static DurationUnit Year365 = new DurationUnit("yr", 1, (365*24*3600m));
 
 
 
@@ -57,7 +57,7 @@ namespace EngineeringUnits
 
         public static IEnumerable<DurationUnit> List()
         {
-            return new[] { Nanosecond , Microsecond , Millisecond , Second , Minute , Hour , Day , Week };
+            return new[] { Day, Hour, Microsecond, Millisecond, Minute, Month30, Nanosecond, Second, Week, Year365, };
         }
         // Other util methods
 

@@ -15,8 +15,19 @@ namespace EngineeringUnits
             Name = "ElectricCurrent";
         }
 
+        public ElectricCurrent(int value, ElectricCurrentUnit selectedUnit) : this()
+        {
+            Unit.Electriccurrent = selectedUnit;
+            SetValue(value);
+        }
 
         public ElectricCurrent(double value, ElectricCurrentUnit selectedUnit) :this()
+        {
+            Unit.Electriccurrent = selectedUnit;
+            SetValue(value);
+        }
+
+        public ElectricCurrent(decimal value, ElectricCurrentUnit selectedUnit) : this()
         {
             Unit.Electriccurrent = selectedUnit;
             SetValue(value);
@@ -33,9 +44,14 @@ namespace EngineeringUnits
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
+        public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit)
+        {
+            return new ElectricCurrent(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
+
         public static implicit operator ElectricCurrent(UnknownUnit Unit)
         {
-            ElectricCurrent local = new ElectricCurrent(0, ElectricCurrentUnit.SI);
+            ElectricCurrent local = new ElectricCurrent(0d, ElectricCurrentUnit.SI);
 
             local.Transform(Unit);
             return local;

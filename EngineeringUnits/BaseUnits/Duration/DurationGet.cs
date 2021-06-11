@@ -35,7 +35,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Duration in Months30.
         /// </summary>
-        //public double Months30 => As(DurationUnit.Month30);
+        public double Months30 => As(DurationUnit.Month30);
 
         /// <summary>
         ///     Get Duration in Nanoseconds.
@@ -55,7 +55,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Duration in Years365.
         /// </summary>
-        //public double Years365 => As(DurationUnit.Year365);
+        public double Years365 => As(DurationUnit.Year365);
 
 
 

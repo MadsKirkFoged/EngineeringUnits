@@ -15,8 +15,18 @@ namespace EngineeringUnits
             Name = "Length";
         }
 
-
+        public Length(int value, LengthUnit selectedUnit) : this()
+        {
+            Unit.Length = selectedUnit;
+            SetValue(value);
+        }
         public Length(double value, LengthUnit selectedUnit) :this()
+        {
+            Unit.Length = selectedUnit;
+            SetValue(value);
+        }
+
+        public Length(decimal value, LengthUnit selectedUnit) : this()
         {
             Unit.Length = selectedUnit;
             SetValue(value);
@@ -33,9 +43,14 @@ namespace EngineeringUnits
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
+        public Length ToUnit(LengthUnit selectedUnit)
+        {
+            return new Length(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
+
         public static implicit operator Length(UnknownUnit Unit)
         {
-            Length local = new Length(0, LengthUnit.SI);
+            Length local = new Length(0d, LengthUnit.SI);
 
             local.Transform(Unit);
             return local;

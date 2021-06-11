@@ -12,6 +12,11 @@ namespace EngineeringUnits
 
 
 
+            EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+
+
+            A2.ToUnit(AmountOfSubstanceUnit.Centimole);
+            A2.ToUnit(AmountOfSubstanceUnit.DecipoundMole);
 
 
 
@@ -23,8 +28,6 @@ namespace EngineeringUnits
 
 
 
-
-           
             //SpecificEnergy H2s = new SpecificEnergy(5, SpecificEnergyUnit.JoulePerKilogram);
             SpecificEnergy H2s = new SpecificEnergy(0.00214961, SpecificEnergyUnit.BtuPerPound);
             //SpecificEnergy h1 = new SpecificEnergy(2, SpecificEnergyUnit.JoulePerKilogram);

@@ -31,17 +31,17 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in DtpPicas.
         /// </summary>
-        //public double DtpPicas => As(LengthUnit.DtpPica);
+        public double DtpPicas => As(LengthUnit.DtpPica);
 
         /// <summary>
         ///     Get Length in DtpPoints.
         /// </summary>
-        //public double DtpPoints => As(LengthUnit.DtpPoint);
+        public double DtpPoints => As(LengthUnit.DtpPoint);
 
         /// <summary>
         ///     Get Length in Fathoms.
         /// </summary>
-        //public double Fathoms => As(LengthUnit.Fathom);
+        public double Fathoms => As(LengthUnit.Fathom);
 
         /// <summary>
         ///     Get Length in Feet.
@@ -66,7 +66,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in KilolightYears.
         /// </summary>
-        //public double KilolightYears => As(LengthUnit.KilolightYear);
+        public double KilolightYears => As(LengthUnit.KilolightYear);
 
         /// <summary>
         ///     Get Length in Kilometers.
@@ -76,7 +76,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Kiloparsecs.
         /// </summary>
-        //public double Kiloparsecs => As(LengthUnit.Kiloparsec);
+        public double Kiloparsecs => As(LengthUnit.Kiloparsec);
 
         /// <summary>
         ///     Get Length in LightYears.
@@ -86,12 +86,12 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in MegalightYears.
         /// </summary>
-        //public double MegalightYears => As(LengthUnit.MegalightYear);
+        public double MegalightYears => As(LengthUnit.MegalightYear);
 
         /// <summary>
         ///     Get Length in Megaparsecs.
         /// </summary>
-        //public double Megaparsecs => As(LengthUnit.Megaparsec);
+        public double Megaparsecs => As(LengthUnit.Megaparsec);
 
         /// <summary>
         ///     Get Length in Meters.
@@ -101,7 +101,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Microinches.
         /// </summary>
-        //public double Microinches => As(LengthUnit.Microinch);
+        public double Microinches => As(LengthUnit.Microinch);
 
         /// <summary>
         ///     Get Length in Micrometers.
@@ -111,7 +111,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Mils.
         /// </summary>
-        //public double Mils => As(LengthUnit.Mil);
+        public double Mils => As(LengthUnit.Mil);
 
         /// <summary>
         ///     Get Length in Miles.
@@ -151,17 +151,17 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get Length in Shackles.
         /// </summary>
-        //public double Shackles => As(LengthUnit.Shackle);
+        public double Shackles => As(LengthUnit.Shackle);
 
         /// <summary>
         ///     Get Length in SolarRadiuses.
         /// </summary>
-        //public double SolarRadiuses => As(LengthUnit.SolarRadius);
+        public double SolarRadiuses => As(LengthUnit.SolarRadius);
 
         /// <summary>
         ///     Get Length in Twips.
         /// </summary>
-        //public double Twips => As(LengthUnit.Twip);
+        public double Twips => As(LengthUnit.Twip);
 
         /// <summary>
         ///     Get Length in UsSurveyFeet.

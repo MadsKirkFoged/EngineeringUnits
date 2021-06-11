@@ -16,7 +16,19 @@ namespace EngineeringUnits
         }
 
 
+        public AmountOfSubstance(int value, AmountOfSubstanceUnit selectedUnit) : this()
+        {
+            Unit.Amount = selectedUnit;
+            SetValue(value);
+        }
+
         public AmountOfSubstance(double value, AmountOfSubstanceUnit selectedUnit) :this()
+        {
+            Unit.Amount = selectedUnit;
+            SetValue(value);
+        }
+
+        public AmountOfSubstance(decimal value, AmountOfSubstanceUnit selectedUnit) : this()
         {
             Unit.Amount = selectedUnit;
             SetValue(value);
@@ -32,6 +44,10 @@ namespace EngineeringUnits
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
       
+        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit)
+        {
+            return new AmountOfSubstance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
 
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {

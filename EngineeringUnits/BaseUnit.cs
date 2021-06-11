@@ -237,9 +237,20 @@ namespace EngineeringUnits
             return local;
         }
 
+        protected void SetValue(int value)
+        {
+            SetValue((decimal)value);
+        }
+
+
         protected void SetValue(double value)
         {
-            ValueLocalUnit = (decimal)value / (decimal)Unit.GetActualC();
+            SetValue((decimal)value);
+        }
+
+        protected void SetValue(decimal value)
+        {
+            ValueLocalUnit = value / (decimal)Unit.GetActualC();
         }
 
 
@@ -283,7 +294,12 @@ namespace EngineeringUnits
             return a3;
         }
 
+        public string DisplaySymbol()
+        {
 
+            return Unit.ToString();
+
+        }
 
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class AmountOfSubstance
+    public partial class Duration
     {
         /// <summary>
         ///     Get Duration from Days.
@@ -55,11 +55,11 @@ namespace EngineeringUnits
         ///     Get Duration from Months30.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Duration FromMonths30(double months30)
-        //{
-        //    double value = (double)months30;
-        //    return new Duration(value, DurationUnit.Month30);
-        //}
+        public static Duration FromMonths30(double months30)
+        {
+            double value = (double)months30;
+            return new Duration(value, DurationUnit.Month30);
+        }
         /// <summary>
         ///     Get Duration from Nanoseconds.
         /// </summary>
@@ -91,11 +91,11 @@ namespace EngineeringUnits
         ///     Get Duration from Years365.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Duration FromYears365(double years365)
-        //{
-        //    double value = (double)years365;
-        //    return new Duration(value, DurationUnit.Year365);
-        //}
+        public static Duration FromYears365(double years365)
+        {
+            double value = (double)years365;
+            return new Duration(value, DurationUnit.Year365);
+        }
 
 
 

@@ -15,8 +15,18 @@ namespace EngineeringUnits
             Name = "Mass";
         }
 
-
+        public Mass(int value, MassUnit selectedUnit) : this()
+        {
+            Unit.Mass = selectedUnit;
+            SetValue(value);
+        }
         public Mass(double value, MassUnit selectedUnit) :this()
+        {
+            Unit.Mass = selectedUnit;
+            SetValue(value);
+        }
+
+        public Mass(decimal value, MassUnit selectedUnit) : this()
         {
             Unit.Mass = selectedUnit;
             SetValue(value);
@@ -31,10 +41,14 @@ namespace EngineeringUnits
         {
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
+        public Mass ToUnit(MassUnit selectedUnit)
+        {
+            return new Mass(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
 
         public static implicit operator Mass(UnknownUnit Unit)
         {
-            Mass local = new Mass(0, MassUnit.SI);
+            Mass local = new Mass(0d, MassUnit.SI);
 
             local.Transform(Unit);
             return local;

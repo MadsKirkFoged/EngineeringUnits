@@ -168,12 +168,12 @@ namespace EngineeringUnits
         public string BaseUnitSISymbol(BaseUnits baseUnits) =>
            baseUnits switch
            {
-               BaseUnits.time => "t",
+               BaseUnits.time => "s",
                BaseUnits.length => "m",
                BaseUnits.mass => "g",
                BaseUnits.electricCurrent => "A",
                BaseUnits.temperature => "",
-               BaseUnits.amountOfSubstance => "",
+               BaseUnits.amountOfSubstance => "mol",
                BaseUnits.luminousIntensity => "cd",
                _ => "",
            };

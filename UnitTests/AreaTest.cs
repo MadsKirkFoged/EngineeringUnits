@@ -10,8 +10,8 @@ namespace UnitTests
         [TestMethod]
         public void AreaSimple()
         {
-            Length L1 = new Length(1, LengthUnit.Meter);
-            Length L2 = new Length(1, LengthUnit.Meter);
+            Length L1 = new Length(1d, LengthUnit.Meter);
+            Length L2 = new Length(1d, LengthUnit.Meter);
 
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");

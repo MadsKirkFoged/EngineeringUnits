@@ -12,8 +12,18 @@ namespace EngineeringUnits
         {
             Name = "Duration";
         }
-
+        public Duration(int value, DurationUnit selectedUnit) : this()
+        {
+            Unit.Duration = selectedUnit;
+            SetValue(value);
+        }
         public Duration(double value, DurationUnit selectedUnit) : this()
+        {
+            Unit.Duration = selectedUnit;
+            SetValue(value);
+        }
+
+        public Duration(decimal value, DurationUnit selectedUnit) : this()
         {
             Unit.Duration = selectedUnit;
             SetValue(value);
@@ -30,10 +40,14 @@ namespace EngineeringUnits
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
         }
 
+        public Duration ToUnit(DurationUnit selectedUnit)
+        {
+            return new Duration(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        }
 
         public static implicit operator Duration(UnknownUnit Unit)
         {
-            Duration local = new Duration(0, DurationUnit.SI);
+            Duration local = new Duration(0d, DurationUnit.SI);
 
             local.Transform(Unit);
             return local;
