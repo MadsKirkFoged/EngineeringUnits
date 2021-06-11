@@ -50,7 +50,7 @@ namespace EngineeringUnits
 
         public static IEnumerable<TemperatureUnit> List()
         {
-            return new[] { Kelvin, DegreeCelsius, DegreeFahrenheit };
+            return new[] { DegreeCelsius, DegreeFahrenheit, DegreeRankine, Kelvin, };
         }
         // Other util methods
         public TemperatureUnit Copy()

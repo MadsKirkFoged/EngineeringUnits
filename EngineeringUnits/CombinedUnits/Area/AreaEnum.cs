@@ -10,45 +10,52 @@ namespace EngineeringUnits
     public class AreaUnit : Enumeration
     {
 
-
-        public static AreaUnit Kilometer2 = new AreaUnit(LengthUnit.Kilometer);
-        public static AreaUnit Meter2 = new AreaUnit(LengthUnit.Meter);
+        public static AreaUnit Acre = new AreaUnit(LengthUnit.Chain, "ac", 10);
+        public static AreaUnit Hectare = new AreaUnit(LengthUnit.Hectometer, "ha");
+        public static AreaUnit SquareCentimeter = new AreaUnit(LengthUnit.Centimeter);
+        public static AreaUnit SquareDecimeter = new AreaUnit(LengthUnit.Decimeter);
+        public static AreaUnit SquareKilometer = new AreaUnit(LengthUnit.Kilometer);
+        public static AreaUnit SquareMeter = new AreaUnit(LengthUnit.Meter);
+        public static AreaUnit SquareMicrometer = new AreaUnit(LengthUnit.Micrometer);
         public static AreaUnit SI = new AreaUnit(LengthUnit.SI);
-        public static AreaUnit Decimeter2 = new AreaUnit(LengthUnit.Decimeter);
-        public static AreaUnit Centimeter2 = new AreaUnit(LengthUnit.Centimeter);
-        public static AreaUnit Millimeter2 = new AreaUnit(LengthUnit.Millimeter);
-        public static AreaUnit Nanometer2 = new AreaUnit(LengthUnit.Nanometer);
-
-
-        public static AreaUnit Inch2 = new AreaUnit(LengthUnit.Inch);
-        public static AreaUnit Hand2 = new AreaUnit(LengthUnit.Hand);
-        public static AreaUnit Foot2 = new AreaUnit(LengthUnit.Foot);
-        public static AreaUnit Yard2 = new AreaUnit(LengthUnit.Yard);
-        public static AreaUnit Chain2 = new AreaUnit(LengthUnit.Chain);
-        public static AreaUnit Mile2 = new AreaUnit(LengthUnit.Mile);
-        public static AreaUnit Nauticalmile2 = new AreaUnit(LengthUnit.NauticalMile);
+        public static AreaUnit SquareMillimeter = new AreaUnit(LengthUnit.Millimeter);
+        public static AreaUnit SquareNanometer = new AreaUnit(LengthUnit.Nanometer);
+        public static AreaUnit SquareInch = new AreaUnit(LengthUnit.Inch);
+        public static AreaUnit SquareFoot = new AreaUnit(LengthUnit.Foot);
+        public static AreaUnit SquareYard = new AreaUnit(LengthUnit.Yard);
+        public static AreaUnit SquareMile = new AreaUnit(LengthUnit.Mile);
+        public static AreaUnit SquareNauticalMile = new AreaUnit(LengthUnit.NauticalMile);
 
 
 
-        public AreaUnit(LengthUnit length)
+
+        public AreaUnit(LengthUnit Length, string NewSymbol = "", decimal correction = 1)
         {
-            Name = "Area";
 
-            Unit = length.Unit * length.Unit;
+            Name = "Area";
+            Unit = Length.Unit * Length.Unit;
+
+
+            if (NewSymbol != "")
+            {
+                Unit.Symbol = NewSymbol;
+            }
+
+            if (correction != 1)
+            {
+                Unit.Combined = new CombinedUnit("", 1, correction);
+            }
+
+
         }
 
 
 
-        protected AreaUnit() { }
+        public static IEnumerable<AreaUnit> List()
+        {
+            return new[] { Acre, Hectare, SquareCentimeter, SquareDecimeter, SquareFoot, SquareInch, SquareKilometer, SquareMeter, SquareMicrometer, SquareMile, SquareMillimeter, SquareNauticalMile, SquareYard, };
+        }
 
-
-
-
-        //public static IEnumerable<LengthUnit> List()
-        //{
-        //    return new[] { Inch, Hand, Foot, Yard, Chain, Nauticalmile, LightYear, AstronomicalUnit, Parsec };
-        //}
-        // Other util methods
 
 
 

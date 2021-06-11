@@ -13,15 +13,35 @@ namespace EngineeringUnits
             Name = "Area";
         }
 
+        public Area(int value, AreaUnit selectedUnit) : this()
+        {
+            Unit = selectedUnit.Unit;
+            SetValue(value);
+        }
         public Area(double value, AreaUnit selectedUnit) : this()
         {
             Unit = selectedUnit.Unit;
             SetValue(value);
         }
+        public Area(Decimal value, AreaUnit selectedUnit) : this()
+        {
+            Unit = selectedUnit.Unit;
+            SetValue(value);
+        }
+
+        public static Area From(double value, AreaUnit unit)
+        {
+            return new Area(value, unit);
+        }
 
         public double As(AreaUnit ReturnInThisUnit)
         {
             return (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        }
+
+        public Area ToUnit(AreaUnit selectedUnit)
+        {
+            return new Area(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         }
 
         //Every units needs this

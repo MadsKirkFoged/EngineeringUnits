@@ -22,7 +22,7 @@ namespace EngineeringUnits
         public static Mass FromDecagrams(double decagrams)
         {
             double value = (double)decagrams;
-            return new Mass(value, MassUnit.Dekagram);
+            return new Mass(value, MassUnit.Decagram);
         }
         /// <summary>
         ///     Get Mass from Decigrams.
