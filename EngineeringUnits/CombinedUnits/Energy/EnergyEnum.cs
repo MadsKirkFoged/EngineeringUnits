@@ -16,11 +16,17 @@ namespace EngineeringUnits
 
         public static EnergyUnit SI = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
 
-        public static EnergyUnit Millijoule = new EnergyUnit(MassUnit.Gram, LengthUnit.SI, DurationUnit.SI, "mJ");
+        //public static EnergyUnit Millijoule = new EnergyUnit(MassUnit.Gram, LengthUnit.SI, DurationUnit.SI, "mJ");
         public static EnergyUnit Joule = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
-        public static EnergyUnit Kilojoule = new EnergyUnit(MassUnit.Tonne, LengthUnit.SI, DurationUnit.SI, "kJ");
-        public static EnergyUnit Megajoule = new EnergyUnit(MassUnit.Kilotonne, LengthUnit.SI, DurationUnit.SI, "MJ");
-        public static EnergyUnit Gigajoule = new EnergyUnit(MassUnit.Megatonne, LengthUnit.SI, DurationUnit.SI, "GJ");
+
+        public static EnergyUnit Millijoule = new EnergyUnit(PreFix.milli, SI);
+        public static EnergyUnit Kilojoule = new EnergyUnit(PreFix.kilo, SI);
+        public static EnergyUnit Megajoule = new EnergyUnit(PreFix.mega, SI);
+        public static EnergyUnit Gigajoule = new EnergyUnit(PreFix.giga, SI);
+
+
+
+
 
         public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wh", 3600m);
         public static EnergyUnit WattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wd", 24 * 3600m);
@@ -86,6 +92,19 @@ namespace EngineeringUnits
 
 
         }
+
+        public EnergyUnit(PreFix SI, EnergyUnit energyunit) 
+        {
+            Unit = energyunit.Unit.Copy();
+
+
+            if (Unit.Combined is null)            
+                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));          
+
+
+            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+        }
+
 
 
         public static IEnumerable<EnergyUnit> List()
