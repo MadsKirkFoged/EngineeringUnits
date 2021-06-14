@@ -52,7 +52,6 @@ namespace EngineeringUnits
 
         public static EnergyUnit FootPound = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "", 1.3558m);
 
-
         public static EnergyUnit DecathermEc = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 105506000m);
         public static EnergyUnit DecathermImperial = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
         public static EnergyUnit DecathermUs = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 105505585.257348m);
@@ -62,8 +61,6 @@ namespace EngineeringUnits
         public static EnergyUnit ThermUs = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 105505585.257348m);
 
         public static EnergyUnit Erg = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1e-7m);
-
-
         public static EnergyUnit HorsepowerHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "", 2.6845195377e6m);
 
 
@@ -93,7 +90,7 @@ namespace EngineeringUnits
 
         public static IEnumerable<EnergyUnit> List()
         {
-            return new[] { SI, Joule, Kilojoule, BritishThermalUnit, Calorie, ElectronVolt, FootPound, KilowattHour, WattHour };
+            return new[] { BritishThermalUnit, Calorie, DecathermEc, DecathermImperial, DecathermUs, ElectronVolt, Erg, FootPound, GigabritishThermalUnit, GigaelectronVolt, Gigajoule, GigawattDay, GigawattHour, HorsepowerHour, Joule, KilobritishThermalUnit, Kilocalorie, KiloelectronVolt, Kilojoule, KilowattDay, KilowattHour, MegabritishThermalUnit, Megacalorie, MegaelectronVolt, Megajoule, MegawattDay, MegawattHour, Millijoule, TeraelectronVolt, TerawattDay, TerawattHour, ThermEc, ThermImperial, ThermUs, WattDay, WattHour, };
         }
         public override string ToString()
         {
