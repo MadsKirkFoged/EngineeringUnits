@@ -17,6 +17,11 @@ namespace EngineeringUnits
         public static PowerUnit SI = new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "W");
         public static PowerUnit Watt = new PowerUnit(EnergyUnit.Joule, DurationUnit.SI, "W");
         public static PowerUnit Kilowatt = new PowerUnit(EnergyUnit.Kilojoule, DurationUnit.SI, "kW");
+        public static PowerUnit Megawatt = new PowerUnit(EnergyUnit.Megajoule, DurationUnit.SI, "MW");
+        public static PowerUnit Gigawatt = new PowerUnit(EnergyUnit.Gigajoule, DurationUnit.SI, "GW");
+        //public static PowerUnit Terawatt = new PowerUnit(EnergyUnit., DurationUnit.SI, "GW");
+
+
         public static PowerUnit BritishThermalUnitPerHour = new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Hour);
         public static PowerUnit BritishThermalUnitPerSecond = new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Second);
 
