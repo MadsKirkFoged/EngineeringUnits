@@ -12,12 +12,7 @@ namespace EngineeringUnits
 
 
 
-            EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
-
-
-            A2.ToUnit(AmountOfSubstanceUnit.Centimole);
-            A2.ToUnit(AmountOfSubstanceUnit.DecipoundMole);
-
+            Temperature test = new Temperature(1, TemperatureUnit.DegreeCelsius);
 
 
 

@@ -17,18 +17,18 @@ namespace EngineeringUnits
 
         public Mass(int value, MassUnit selectedUnit) : this()
         {
-            Unit.Mass = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
         public Mass(double value, MassUnit selectedUnit) :this()
         {
-            Unit.Mass = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
 
         public Mass(decimal value, MassUnit selectedUnit) : this()
         {
-            Unit.Mass = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
 

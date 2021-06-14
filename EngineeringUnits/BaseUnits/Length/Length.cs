@@ -17,18 +17,18 @@ namespace EngineeringUnits
 
         public Length(int value, LengthUnit selectedUnit) : this()
         {
-            Unit.Length = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
         public Length(double value, LengthUnit selectedUnit) :this()
         {
-            Unit.Length = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
 
         public Length(decimal value, LengthUnit selectedUnit) : this()
         {
-            Unit.Length = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
         }
 

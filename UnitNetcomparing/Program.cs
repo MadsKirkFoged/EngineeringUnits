@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 
@@ -12,8 +13,32 @@ namespace UnitNetcomparing
 
 
 
-            UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
+
+
+            //public string SaveAsJSON()
+            //{
+            //    return JsonConvert.SerializeObject(this, ReturnJSONSettings());
+            //}
+
+            //public Fluid LoadFromJSON(string json)
+            //{
+            //    return JsonConvert.DeserializeObject<Fluid>(json, ReturnJSONSettings());
+            //}
+
+
             EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+
+
+            var test = JsonConvert.SerializeObject(A2);
+
+
+
+
+
+
+
+            UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
+            
 
 
             //A2.ToUnit(AmountOfSubstanceUnit.);

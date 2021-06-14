@@ -18,36 +18,36 @@ namespace EngineeringUnits
         public Temperature(int value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit.Temperature = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit.Temperature = TemperatureUnit.Kelvin;
+            Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
         public Temperature(double value, TemperatureUnit selectedUnit) :this()
         {
 
-            Unit.Temperature = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit.Temperature = TemperatureUnit.Kelvin;
-            
+            Unit = TemperatureUnit.Kelvin.Unit;
+
         }
 
         public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit.Temperature = selectedUnit;
+            Unit = selectedUnit.Unit;
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit.Temperature = TemperatureUnit.Kelvin;
+            Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
