@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
 
 
-            Temperature test = new Temperature(1, TemperatureUnit.DegreeCelsius);
+            Energy test = new Energy(1, EnergyUnit.WattHour);
 
 
 

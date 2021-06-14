@@ -16,19 +16,33 @@ namespace EngineeringUnits
 
         public static EnergyUnit SI = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
 
-        //public static EnergyUnit Millijoule = new EnergyUnit(MassUnit.Gram, LengthUnit.SI, DurationUnit.SI, "mJ");
-        public static EnergyUnit Joule = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
-
         public static EnergyUnit Millijoule = new EnergyUnit(PreFix.milli, SI);
+        public static EnergyUnit Joule = new EnergyUnit(PreFix.SI, SI);
         public static EnergyUnit Kilojoule = new EnergyUnit(PreFix.kilo, SI);
         public static EnergyUnit Megajoule = new EnergyUnit(PreFix.mega, SI);
         public static EnergyUnit Gigajoule = new EnergyUnit(PreFix.giga, SI);
 
+        public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
+        public static EnergyUnit KilobritishThermalUnit = new EnergyUnit(PreFix.kilo, BritishThermalUnit);
+        public static EnergyUnit MegabritishThermalUnit = new EnergyUnit(PreFix.mega, BritishThermalUnit);
+        public static EnergyUnit GigabritishThermalUnit = new EnergyUnit(PreFix.giga, BritishThermalUnit);
+
+        public static EnergyUnit ElectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
+        public static EnergyUnit KiloelectronVolt = new EnergyUnit(PreFix.kilo, ElectronVolt);
+        public static EnergyUnit MegaelectronVolt = new EnergyUnit(PreFix.mega, ElectronVolt);
+        public static EnergyUnit GigaelectronVolt = new EnergyUnit(PreFix.giga, ElectronVolt);
+        public static EnergyUnit TeraelectronVolt = new EnergyUnit(PreFix.tera, ElectronVolt);
+
+        public static EnergyUnit Calorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
+        public static EnergyUnit Kilocalorie = new EnergyUnit(PreFix.kilo, Calorie);
+        public static EnergyUnit Megacalorie = new EnergyUnit(PreFix.mega, Calorie);
 
 
 
 
-        public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wh", 3600m);
+        public static EnergyUnit WattHour = new EnergyUnit(PowerUnit.Watt, DurationUnit.Hour);
+
+        //public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wh", 3600m);
         public static EnergyUnit WattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wd", 24 * 3600m);
 
         public static EnergyUnit KilowattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kWh", 3600m * 1e3m);
@@ -41,20 +55,8 @@ namespace EngineeringUnits
         public static EnergyUnit TerawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TWd",  24 * 3600m * 1e12m);
         public static EnergyUnit TerawattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TWh", 3600m * 1e12m);
 
-        public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
-        public static EnergyUnit KilobritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kBTU", 1055.06m * 1e3m);
-        public static EnergyUnit MegabritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "MBTU", 1055.06m * 1e6m);
-        public static EnergyUnit GigabritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "GBTU", 1055.06m * 1e9m);
 
-        public static EnergyUnit Calorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
-        public static EnergyUnit Kilocalorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kcal", 4.184m * 1e3m);
-        public static EnergyUnit Megacalorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Mcal", 4.184m * 1e6m);
 
-        public static EnergyUnit ElectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
-        public static EnergyUnit KiloelectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "keV", 0.0000000000000000001602176565m * 1e3m);
-        public static EnergyUnit MegaelectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "MeV", 0.0000000000000000001602176565m * 1e6m);
-        public static EnergyUnit GigaelectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "GeV", 0.0000000000000000001602176565m * 1e9m);
-        public static EnergyUnit TeraelectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TeV", 0.0000000000000000001602176565m * 1e12m);
 
         public static EnergyUnit FootPound = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "ft·lb", 1.3558179483314004m);
 
@@ -98,13 +100,37 @@ namespace EngineeringUnits
             Unit = energyunit.Unit.Copy();
 
 
-            if (Unit.Combined is null)            
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));          
+            if (Unit.Combined is null)
+                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
+            else
+                Unit.Combined.GlobalC *= PrefixSISize(SI);
+
+
 
 
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
+
+        public EnergyUnit(PowerUnit power, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        {
+
+            Name = "Energy";
+
+            Unit = power.Unit * duration.Unit;
+
+            if (NewSymbol != "")
+            {
+                Unit.Symbol = NewSymbol;
+            }
+
+            if (correction != 1)
+            {
+                Unit.Combined = new CombinedUnit("", 1, correction);
+            }
+
+
+        }
 
 
         public static IEnumerable<EnergyUnit> List()
