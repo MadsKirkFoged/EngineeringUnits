@@ -29,10 +29,9 @@ namespace UnitNetcomparing
             EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
 
 
-            var test = JsonConvert.SerializeObject(A2);
+            string json = JsonConvert.SerializeObject(A2);
 
-
-
+            AmountOfSubstance test2 = JsonConvert.DeserializeObject<AmountOfSubstance>(json);
 
 
 

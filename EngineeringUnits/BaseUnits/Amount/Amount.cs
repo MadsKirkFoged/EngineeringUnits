@@ -1,4 +1,5 @@
 ﻿using Fractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Text;
 namespace EngineeringUnits
 {
 
+    
     public partial class AmountOfSubstance : BaseUnit
     {
 
@@ -16,38 +18,16 @@ namespace EngineeringUnits
         }
 
 
-        public AmountOfSubstance(int value, AmountOfSubstanceUnit selectedUnit) : this()
-        {
-            Unit.Amount = selectedUnit;
-            SetValue(value);
-        }
 
-        public AmountOfSubstance(double value, AmountOfSubstanceUnit selectedUnit) :this()
-        {
-            Unit.Amount = selectedUnit;
-            SetValue(value);
-        }
+        public AmountOfSubstance(decimal value, AmountOfSubstanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public AmountOfSubstance(double value,  AmountOfSubstanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public AmountOfSubstance(int value,     AmountOfSubstanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public AmountOfSubstance(decimal value, AmountOfSubstanceUnit selectedUnit) : this()
-        {
-            Unit.Amount = selectedUnit;
-            SetValue(value);
-        }
 
-        public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit)
-        {
-            return new AmountOfSubstance(value, unit);
-        }
+        public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit) => new AmountOfSubstance(value, unit);
+        public double As(AmountOfSubstanceUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);      
+        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new AmountOfSubstance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-        public double As(AmountOfSubstanceUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
-      
-        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit)
-        {
-            return new AmountOfSubstance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        }
 
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {

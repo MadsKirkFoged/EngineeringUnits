@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace UnitTests
@@ -276,6 +277,25 @@ namespace UnitTests
 
 
         }
+
+
+        [TestMethod]
+        public void LengthJSON()
+        {
+            Length L1 = new Length(1, LengthUnit.Mile);
+
+
+            string jsonstring = JsonConvert.SerializeObject(L1);
+            Length JSON = JsonConvert.DeserializeObject<Length>(jsonstring);
+
+
+            Assert.AreEqual(160934.4, JSON.As(LengthUnit.Centimeter));
+            Assert.AreEqual(1609344, JSON.As(LengthUnit.Millimeter));
+            Assert.AreEqual(1609.344, JSON.As(LengthUnit.Meter));
+
+        }
+
+
 
     }
 }

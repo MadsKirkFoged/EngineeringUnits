@@ -10,21 +10,21 @@ namespace EngineeringUnits
     public class AreaUnit : Enumeration
     {
 
-        public static AreaUnit Acre = new AreaUnit(LengthUnit.Chain, "ac", 10);
-        public static AreaUnit Hectare = new AreaUnit(LengthUnit.Hectometer, "ha");
-        public static AreaUnit SquareCentimeter = new AreaUnit(LengthUnit.Centimeter);
-        public static AreaUnit SquareDecimeter = new AreaUnit(LengthUnit.Decimeter);
-        public static AreaUnit SquareKilometer = new AreaUnit(LengthUnit.Kilometer);
-        public static AreaUnit SquareMeter = new AreaUnit(LengthUnit.Meter);
-        public static AreaUnit SquareMicrometer = new AreaUnit(LengthUnit.Micrometer);
-        public static AreaUnit SI = new AreaUnit(LengthUnit.SI);
-        public static AreaUnit SquareMillimeter = new AreaUnit(LengthUnit.Millimeter);
-        public static AreaUnit SquareNanometer = new AreaUnit(LengthUnit.Nanometer);
-        public static AreaUnit SquareInch = new AreaUnit(LengthUnit.Inch);
-        public static AreaUnit SquareFoot = new AreaUnit(LengthUnit.Foot);
-        public static AreaUnit SquareYard = new AreaUnit(LengthUnit.Yard);
-        public static AreaUnit SquareMile = new AreaUnit(LengthUnit.Mile);
-        public static AreaUnit SquareNauticalMile = new AreaUnit(LengthUnit.NauticalMile);
+        public static AreaUnit Acre                 = new AreaUnit(LengthUnit.Chain, "ac", 10);
+        public static AreaUnit Hectare              = new AreaUnit(LengthUnit.Hectometer, "ha");
+        public static AreaUnit SquareCentimeter     = new AreaUnit(LengthUnit.Centimeter);
+        public static AreaUnit SquareDecimeter      = new AreaUnit(LengthUnit.Decimeter);
+        public static AreaUnit SquareKilometer      = new AreaUnit(LengthUnit.Kilometer);
+        public static AreaUnit SquareMeter          = new AreaUnit(LengthUnit.Meter);
+        public static AreaUnit SquareMicrometer     = new AreaUnit(LengthUnit.Micrometer);
+        public static AreaUnit SI                   = new AreaUnit(LengthUnit.SI);
+        public static AreaUnit SquareMillimeter     = new AreaUnit(LengthUnit.Millimeter);
+        public static AreaUnit SquareNanometer      = new AreaUnit(LengthUnit.Nanometer);
+        public static AreaUnit SquareInch           = new AreaUnit(LengthUnit.Inch);
+        public static AreaUnit SquareFoot           = new AreaUnit(LengthUnit.Foot);
+        public static AreaUnit SquareYard           = new AreaUnit(LengthUnit.Yard);
+        public static AreaUnit SquareMile           = new AreaUnit(LengthUnit.Mile);
+        public static AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile);
 
 
 
@@ -36,15 +36,12 @@ namespace EngineeringUnits
             Unit = Length.Unit * Length.Unit;
 
 
-            if (NewSymbol != "")
-            {
+            if (NewSymbol != "")            
                 Unit.Symbol = NewSymbol;
-            }
+            
 
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
+            if (correction != 1)            
+                Unit.Combined = new CombinedUnit("", 1, correction);          
 
 
         }

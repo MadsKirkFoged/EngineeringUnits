@@ -16,18 +16,16 @@ namespace EngineeringUnits
         }
 
 
-        public Power(double value, PowerUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
+        public Power(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Power(double value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Power(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public double As(PowerUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
 
-        //Every units needs this
+        public static Power From(double value, PowerUnit unit) => new Power(value, unit);
+        public double As(PowerUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Power ToUnit(PowerUnit selectedUnit) => new Power(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+
+
         public static implicit operator Power(UnknownUnit Unit)
         {
             Power local = new Power(0, PowerUnit.SI);
@@ -35,6 +33,7 @@ namespace EngineeringUnits
             local.Transform(Unit);
             return local;
         }
+
 
         public override string ToString()
         {

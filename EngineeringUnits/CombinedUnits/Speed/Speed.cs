@@ -14,18 +14,16 @@ namespace EngineeringUnits
             Name = "Speed";
         }
 
-        public Speed(double value, SpeedUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
+        public Speed(decimal value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Speed(double value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Speed(int value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public decimal As(SpeedUnit ReturnInThisUnit)
-        {
-            return (decimal)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
 
-        //Every units needs this
+        public static Speed From(double value, SpeedUnit unit) => new Speed(value, unit);
+        public double As(SpeedUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Speed ToUnit(SpeedUnit selectedUnit) => new Speed(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+
+
         public static implicit operator Speed(UnknownUnit Unit)
         {
             Speed local = new Speed(0, SpeedUnit.SI);
@@ -33,6 +31,7 @@ namespace EngineeringUnits
             local.Transform(Unit);
             return local;
         }
+
 
     }
 }

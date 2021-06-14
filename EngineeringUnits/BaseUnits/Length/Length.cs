@@ -15,42 +15,19 @@ namespace EngineeringUnits
             Name = "Length";
         }
 
-        public Length(int value, LengthUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
-        public Length(double value, LengthUnit selectedUnit) :this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
-
-        public Length(decimal value, LengthUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
-
-        public static Length From(double value, LengthUnit unit)
-        {
-            return new Length(value, unit);
-        }
+        public Length(decimal value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Length(double value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Length(int value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-        public double As(LengthUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
+        public static Length From(double value, LengthUnit unit) => new Length(value, unit);
+        public double As(LengthUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Length ToUnit(LengthUnit selectedUnit) => new Length(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-        public Length ToUnit(LengthUnit selectedUnit)
-        {
-            return new Length(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        }
 
         public static implicit operator Length(UnknownUnit Unit)
         {
-            Length local = new Length(0d, LengthUnit.SI);
+            Length local = new Length(0, LengthUnit.SI);
 
             local.Transform(Unit);
             return local;

@@ -16,19 +16,16 @@ namespace EngineeringUnits
         }
 
 
-        public MassFlow(double value, MassFlowUnit selectedUnit) : this()
-        {
+        public MassFlow(decimal value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public MassFlow(double value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public MassFlow(int value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
 
-        public double As(MassFlowUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
+        public static MassFlow From(double value, MassFlowUnit unit) => new MassFlow(value, unit);
+        public double As(MassFlowUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public MassFlow ToUnit(MassFlowUnit selectedUnit) => new MassFlow(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-        //Every units needs this
+
         public static implicit operator MassFlow(UnknownUnit Unit)
         {
             MassFlow local = new MassFlow(0, MassFlowUnit.SI);

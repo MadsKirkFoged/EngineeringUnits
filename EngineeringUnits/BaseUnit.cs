@@ -1,4 +1,5 @@
 ﻿using Fractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,22 +7,25 @@ using System.Text;
 
 namespace EngineeringUnits
 {
+
+    [JsonObject(MemberSerialization.OptIn)]
     public class BaseUnit
     {
 
+        [JsonProperty]
         public string Name { get; set; }
+
+        [JsonProperty]
         public UnitSystem Unit { get; set;}
 
         public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
 
+        [JsonProperty]
         public decimal ValueLocalUnit { get; protected set; }
 
         public BaseUnit()
         {
-            if (Unit is null)
-            {
-                Unit = new UnitSystem();
-            }
+
         }
 
         public BaseUnit(double valueLocalUnit) :this()
@@ -29,6 +33,24 @@ namespace EngineeringUnits
             ValueLocalUnit = (decimal)valueLocalUnit;
         }
 
+
+        public BaseUnit(decimal value, UnitSystem unitSystem)
+        {
+            Unit = unitSystem;
+            SetValue(value);
+        }
+
+        public BaseUnit(double value, UnitSystem unitSystem)
+        {
+            Unit = unitSystem;
+            SetValue(value);
+        }
+
+        public BaseUnit(int value, UnitSystem unitSystem)
+        {
+            Unit = unitSystem;
+            SetValue(value);
+        }
 
         public decimal GetDecimal(UnitSystem a)
         {

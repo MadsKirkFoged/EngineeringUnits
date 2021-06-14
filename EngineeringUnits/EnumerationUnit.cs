@@ -9,17 +9,14 @@ namespace EngineeringUnits
 
     public class Enumeration : IComparable
     {
-        public string Name { get; protected set; }
-        public string Symbol { get; protected set; }
+        public string Name { get; set; }
+        public string Symbol { get; set; }
         public decimal LocalC { get; set; }
-        public decimal GlobalC { get; protected set; }
+        public decimal GlobalC { get; set; }
         public Fraction ActualC { get; set; }
-        public decimal B { get; protected set; }
-
-
+        public decimal B { get; set; }
         public int Count { get; set; }
 
-        public bool ReversedA { get; protected set; }
 
         public UnitSystem Unit { get; protected set; }
 
@@ -35,7 +32,6 @@ namespace EngineeringUnits
             LocalC = a1;
             GlobalC = a2;
             B = b;
-            ReversedA = true;
             ActualC = 1;
         }
 
@@ -56,6 +52,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
         }
+
 
 
         public override string ToString()

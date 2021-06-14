@@ -1,15 +1,18 @@
 ﻿using Fractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace EngineeringUnits
 {
     public class UnitSystem
     {
 
+        [JsonProperty]
         public string Symbol { get; set; }
 
         public LengthUnit Length { get; set; }
@@ -25,6 +28,11 @@ namespace EngineeringUnits
         public UnitSystem()
         {
          
+        }
+
+        public UnitSystem(string symbol)
+        {
+            Symbol = symbol;
         }
 
 

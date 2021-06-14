@@ -13,38 +13,16 @@ namespace EngineeringUnits
             Name = "Area";
         }
 
-        public Area(int value, AreaUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
-        public Area(double value, AreaUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
-        public Area(Decimal value, AreaUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
+        public Area(decimal value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Area(double value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Area(int value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static Area From(double value, AreaUnit unit)
-        {
-            return new Area(value, unit);
-        }
 
-        public double As(AreaUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
+        public static Area From(double value, AreaUnit unit) => new Area(value, unit);
+        public double As(AreaUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Area ToUnit(AreaUnit selectedUnit) => new Area(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-        public Area ToUnit(AreaUnit selectedUnit)
-        {
-            return new Area(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        }
 
-        //Every units needs this
         public static implicit operator Area(UnknownUnit Unit)
         {
             Area local = new Area(0, AreaUnit.SI);

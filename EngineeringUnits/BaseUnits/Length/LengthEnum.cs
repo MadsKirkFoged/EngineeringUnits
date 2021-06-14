@@ -58,7 +58,7 @@ namespace EngineeringUnits
         public LengthUnit() { }
 
 
-        public LengthUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        public LengthUnit(string NewSymbol, decimal a1, decimal a2) : base(NewSymbol, a1, a2)
         {
             SetUnitSystem();
 
@@ -74,7 +74,7 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Length = this.Copy();
+            Unit.Length = Copy();
             Unit.Length.Count = 1;
             Unit.Length.ActualC = 1;
             Unit.Length.Name = "Length";

@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace UnitTests
@@ -74,6 +75,21 @@ namespace UnitTests
             Assert.AreEqual(293.15, T1.As(TemperatureUnit.Kelvin));
             Assert.AreEqual(20, T1.As(TemperatureUnit.DegreeCelsius));
             Assert.AreEqual(68, (double)T1.As(TemperatureUnit.DegreeFahrenheit), 0.000001);
+        }
+
+        [TestMethod]
+        public void TemperatureConvertsFromCelsiusJSON()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+
+            string jsonstring = JsonConvert.SerializeObject(T1);
+            Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonstring);
+
+
+
+            Assert.AreEqual(293.15, JSON.As(TemperatureUnit.Kelvin));
+            Assert.AreEqual(20, JSON.As(TemperatureUnit.DegreeCelsius));
+            Assert.AreEqual(68, (double)JSON.As(TemperatureUnit.DegreeFahrenheit), 0.000001);
         }
 
 

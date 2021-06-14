@@ -24,6 +24,7 @@ namespace EngineeringUnits
         public UnknownUnit(double valueLocalUnit)
         {
             baseUnit = new BaseUnit(valueLocalUnit);
+            baseUnit.Unit = new UnitSystem();
         }
 
 

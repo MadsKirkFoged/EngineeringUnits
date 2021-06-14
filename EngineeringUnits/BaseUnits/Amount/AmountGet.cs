@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace EngineeringUnits
 {
+
     public partial class AmountOfSubstance
     {
 
         /// <summary>
         ///     Get AmountOfSubstance in Centimoles.
-        /// </summary>
+        /// </summary>       
         public double Centimoles => As(AmountOfSubstanceUnit.Centimole);
 
         /// <summary>
@@ -24,7 +26,7 @@ namespace EngineeringUnits
 
         /// <summary>
         ///     Get AmountOfSubstance in DecipoundMoles.
-        /// </summary>
+        /// </summary>        
         public double DecipoundMoles => As(AmountOfSubstanceUnit.DecipoundMole);
 
         /// <summary>

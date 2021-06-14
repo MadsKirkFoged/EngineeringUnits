@@ -15,47 +15,24 @@ namespace EngineeringUnits
             Name = "ElectricCurrent";
         }
 
-        public ElectricCurrent(int value, ElectricCurrentUnit selectedUnit) : this()
-        {
-            Unit.Electriccurrent = selectedUnit;
-            SetValue(value);
-        }
-
-        public ElectricCurrent(double value, ElectricCurrentUnit selectedUnit) :this()
-        {
-            Unit.Electriccurrent = selectedUnit;
-            SetValue(value);
-        }
-
-        public ElectricCurrent(decimal value, ElectricCurrentUnit selectedUnit) : this()
-        {
-            Unit.Electriccurrent = selectedUnit;
-            SetValue(value);
-        }
-
-        public static ElectricCurrent From(double value, ElectricCurrentUnit unit)
-        {
-            return new ElectricCurrent(value, unit);
-        }
+        public ElectricCurrent(decimal value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCurrent(double value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCurrent(int value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-        public double As(ElectricCurrentUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
+        public static ElectricCurrent From(double value, ElectricCurrentUnit unit) => new ElectricCurrent(value, unit);
+        public double As(ElectricCurrentUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit) => new ElectricCurrent(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-        public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit)
-        {
-            return new ElectricCurrent(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        }
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit)
         {
-            ElectricCurrent local = new ElectricCurrent(0d, ElectricCurrentUnit.SI);
+            ElectricCurrent local = new ElectricCurrent(0, ElectricCurrentUnit.SI);
 
             local.Transform(Unit);
             return local;
         }
+
 
 
 

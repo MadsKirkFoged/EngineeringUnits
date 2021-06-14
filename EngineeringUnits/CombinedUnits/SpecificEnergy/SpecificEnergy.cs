@@ -16,25 +16,24 @@ namespace EngineeringUnits
         }
 
 
-        public SpecificEnergy(double value, SpecificEnergyUnit selectedUnit) : this()
-        {
-            Unit = selectedUnit.Unit;
-            SetValue(value);
-        }
+        public SpecificEnergy(decimal value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificEnergy(double value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificEnergy(int value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public double As(SpecificEnergyUnit ReturnInThisUnit)
-        {
-            return (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        }
 
-        //Every units needs this
+        public static SpecificEnergy From(double value, SpecificEnergyUnit unit) => new SpecificEnergy(value, unit);
+        public double As(SpecificEnergyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public SpecificEnergy ToUnit(SpecificEnergyUnit selectedUnit) => new SpecificEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+
+
         public static implicit operator SpecificEnergy(UnknownUnit Unit)
         {
-            SpecificEnergy local = new SpecificEnergy(0, SpecificEnergyUnit.JoulePerKilogram);
+            SpecificEnergy local = new SpecificEnergy(0, SpecificEnergyUnit.SI);
 
             local.Transform(Unit);
             return local;
         }
+
 
         public override string ToString()
         {

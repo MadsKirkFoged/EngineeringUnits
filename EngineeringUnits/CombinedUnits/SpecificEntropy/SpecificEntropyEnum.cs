@@ -17,7 +17,7 @@ namespace EngineeringUnits
         private EnergyUnit localenergy;
         private MassUnit localmass;
 
-
+        public static SpecificEntropyUnit SI = new SpecificEntropyUnit(EnergyUnit.SI, MassUnit.SI, TemperatureUnit.SI);
         public static SpecificEntropyUnit JoulePerKilogramKelvin = new SpecificEntropyUnit(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.SI);
         public static SpecificEntropyUnit JoulePerKilogramRankine = new SpecificEntropyUnit(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.DegreeRankine);
 
