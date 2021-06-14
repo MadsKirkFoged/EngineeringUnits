@@ -330,7 +330,7 @@ namespace UnitTests
                 var UN = UnitsNet.Energy.Units[i];
 
                 //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
 
                 //All units relative difference
                 Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
