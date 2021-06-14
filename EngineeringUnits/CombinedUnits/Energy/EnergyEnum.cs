@@ -52,7 +52,7 @@ namespace EngineeringUnits
 
         public static EnergyUnit FootPound = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "", 1.3558m);
 
-        public static EnergyUnit DecathermEc = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 105506000m);
+        public static EnergyUnit DecathermEc = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (E.C.)", 1.05505585262e8m);
         public static EnergyUnit DecathermImperial = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
         public static EnergyUnit DecathermUs = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 105505585.257348m);
 
