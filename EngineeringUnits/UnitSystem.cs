@@ -121,11 +121,17 @@ namespace EngineeringUnits
                 local.Length.Count += b.Length.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Length.LocalC;
-                CombinedFraction /= (Fraction)a.Length.GlobalC;
+                CombinedFraction *= (Fraction)a.Length.LocalC;
+                CombinedFraction *= (Fraction)a.Length.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Length.LocalC;
-                CombinedFraction *= (Fraction)b.Length.GlobalC;
+                CombinedFraction /= (Fraction)b.Length.LocalC;
+                CombinedFraction /= (Fraction)b.Length.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.Length.LocalC;
+                //CombinedFraction /= (Fraction)a.Length.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.Length.LocalC;
+                //CombinedFraction *= (Fraction)b.Length.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Length.Count);
                 local.Length.ActualC = CombinedFraction;
@@ -147,11 +153,17 @@ namespace EngineeringUnits
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Mass.LocalC;
-                CombinedFraction /= (Fraction)a.Mass.GlobalC;
+                CombinedFraction *= (Fraction)a.Mass.LocalC;
+                CombinedFraction *= (Fraction)a.Mass.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Mass.LocalC;
-                CombinedFraction *= (Fraction)b.Mass.GlobalC;
+                CombinedFraction /= (Fraction)b.Mass.LocalC;
+                CombinedFraction /= (Fraction)b.Mass.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.Mass.LocalC;
+                //CombinedFraction /= (Fraction)a.Mass.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.Mass.LocalC;
+                //CombinedFraction *= (Fraction)b.Mass.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Mass.Count);
                 local.Mass.ActualC = CombinedFraction;
@@ -176,11 +188,18 @@ namespace EngineeringUnits
                 local.Duration.Count += b.Duration.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Duration.LocalC;
-                CombinedFraction /= (Fraction)a.Duration.GlobalC;
+                //CombinedFraction /= (Fraction)a.Duration.LocalC;
+                //CombinedFraction /= (Fraction)a.Duration.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Duration.LocalC;
-                CombinedFraction *= (Fraction)b.Duration.GlobalC;
+                //CombinedFraction *= (Fraction)b.Duration.LocalC;
+                //CombinedFraction *= (Fraction)b.Duration.GlobalC;
+
+
+                CombinedFraction *= (Fraction)a.Duration.LocalC;
+                CombinedFraction *= (Fraction)a.Duration.GlobalC;
+
+                CombinedFraction /= (Fraction)b.Duration.LocalC;
+                CombinedFraction /= (Fraction)b.Duration.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Duration.Count);
                 local.Duration.ActualC = CombinedFraction;
@@ -203,11 +222,17 @@ namespace EngineeringUnits
                 local.Electriccurrent.Count += b.Electriccurrent.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Electriccurrent.LocalC;
-                CombinedFraction /= (Fraction)a.Electriccurrent.GlobalC;
+                CombinedFraction *= (Fraction)a.Electriccurrent.LocalC;
+                CombinedFraction *= (Fraction)a.Electriccurrent.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Electriccurrent.LocalC;
-                CombinedFraction *= (Fraction)b.Electriccurrent.GlobalC;
+                CombinedFraction /= (Fraction)b.Electriccurrent.LocalC;
+                CombinedFraction /= (Fraction)b.Electriccurrent.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.Electriccurrent.LocalC;
+                //CombinedFraction /= (Fraction)a.Electriccurrent.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.Electriccurrent.LocalC;
+                //CombinedFraction *= (Fraction)b.Electriccurrent.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Electriccurrent.Count);
                 local.Electriccurrent.ActualC = CombinedFraction;
@@ -229,11 +254,17 @@ namespace EngineeringUnits
                 local.Temperature.Count += b.Temperature.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Temperature.LocalC;
-                CombinedFraction /= (Fraction)a.Temperature.GlobalC;
+                CombinedFraction *= (Fraction)a.Temperature.LocalC;
+                CombinedFraction *= (Fraction)a.Temperature.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Temperature.LocalC;
-                CombinedFraction *= (Fraction)b.Temperature.GlobalC;
+                CombinedFraction /= (Fraction)b.Temperature.LocalC;
+                CombinedFraction /= (Fraction)b.Temperature.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.Temperature.LocalC;
+                //CombinedFraction /= (Fraction)a.Temperature.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.Temperature.LocalC;
+                //CombinedFraction *= (Fraction)b.Temperature.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Temperature.Count);
                 local.Temperature.ActualC = CombinedFraction;
@@ -257,11 +288,17 @@ namespace EngineeringUnits
                 local.Amount.Count += b.Amount.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.Amount.LocalC;
-                CombinedFraction /= (Fraction)a.Amount.GlobalC;
+                CombinedFraction *= (Fraction)a.Amount.LocalC;
+                CombinedFraction *= (Fraction)a.Amount.GlobalC;
 
-                CombinedFraction *= (Fraction)b.Amount.LocalC;
-                CombinedFraction *= (Fraction)b.Amount.GlobalC;
+                CombinedFraction /= (Fraction)b.Amount.LocalC;
+                CombinedFraction /= (Fraction)b.Amount.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.Amount.LocalC;
+                //CombinedFraction /= (Fraction)a.Amount.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.Amount.LocalC;
+                //CombinedFraction *= (Fraction)b.Amount.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.Amount.Count);
                 local.Amount.ActualC = CombinedFraction;
@@ -284,11 +321,17 @@ namespace EngineeringUnits
                 local.LuminousIntensity.Count += b.LuminousIntensity.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction /= (Fraction)a.LuminousIntensity.LocalC;
-                CombinedFraction /= (Fraction)a.LuminousIntensity.GlobalC;
+                CombinedFraction *= (Fraction)a.LuminousIntensity.LocalC;
+                CombinedFraction *= (Fraction)a.LuminousIntensity.GlobalC;
 
-                CombinedFraction *= (Fraction)b.LuminousIntensity.LocalC;
-                CombinedFraction *= (Fraction)b.LuminousIntensity.GlobalC;
+                CombinedFraction /= (Fraction)b.LuminousIntensity.LocalC;
+                CombinedFraction /= (Fraction)b.LuminousIntensity.GlobalC;
+
+                //CombinedFraction /= (Fraction)a.LuminousIntensity.LocalC;
+                //CombinedFraction /= (Fraction)a.LuminousIntensity.GlobalC;
+
+                //CombinedFraction *= (Fraction)b.LuminousIntensity.LocalC;
+                //CombinedFraction *= (Fraction)b.LuminousIntensity.GlobalC;
 
                 CombinedFraction = Fraction.Pow(CombinedFraction, b.LuminousIntensity.Count);
                 local.LuminousIntensity.ActualC = CombinedFraction;

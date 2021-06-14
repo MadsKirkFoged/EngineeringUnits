@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -38,22 +39,25 @@ namespace EngineeringUnits
         public static EnergyUnit Megacalorie = new EnergyUnit(PreFix.mega, Calorie);
 
 
-
-
-        public static EnergyUnit WattHour = new EnergyUnit(PowerUnit.Watt, DurationUnit.Hour);
-
-        //public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wh", 3600m);
-        public static EnergyUnit WattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Wd", 24 * 3600m);
-
-        public static EnergyUnit KilowattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kWh", 3600m * 1e3m);
-        public static EnergyUnit KilowattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "kWd", 24 * 3600m * 1e3m);
+        public static EnergyUnit WattDay = new EnergyUnit(PowerUnit.Watt, DurationUnit.Day);
+        public static EnergyUnit KilowattDay = new EnergyUnit(PowerUnit.Kilowatt, DurationUnit.Day);
         public static EnergyUnit MegawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "MWd", 24 * 3600m * 1e6m);
+        public static EnergyUnit GigawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "GWd", 24*3600m * 1e9m);
+        public static EnergyUnit TerawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TWd",  24 * 3600m * 1e12m);
+
+        
+        
+        
+        public static EnergyUnit WattHour = new EnergyUnit(PowerUnit.Watt, DurationUnit.Hour);
+        public static EnergyUnit KilowattHour = new EnergyUnit(PowerUnit.Kilowatt, DurationUnit.Hour);
         public static EnergyUnit MegawattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "MWh", 3600m * 1e6m);
         public static EnergyUnit GigawattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "GWh", 3600m * 1e9m);
-        public static EnergyUnit GigawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "GWd", 24*3600m * 1e9m);
-
-        public static EnergyUnit TerawattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TWd",  24 * 3600m * 1e12m);
         public static EnergyUnit TerawattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "TWh", 3600m * 1e12m);
+
+
+
+
+
 
 
 
@@ -118,11 +122,18 @@ namespace EngineeringUnits
             Name = "Energy";
 
             Unit = power.Unit * duration.Unit;
+            //Unit.Duration.ActualC = (Fraction)(1/3600m);
 
             if (NewSymbol != "")
             {
                 Unit.Symbol = NewSymbol;
             }
+            else
+            {
+                Unit.Symbol = $"{power}{duration}";
+            }
+
+
 
             if (correction != 1)
             {

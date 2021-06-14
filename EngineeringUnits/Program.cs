@@ -16,7 +16,7 @@ namespace EngineeringUnits
 
 
 
-
+            Debug.Print($"{test.As(EnergyUnit.Joule)}");
 
 
 
