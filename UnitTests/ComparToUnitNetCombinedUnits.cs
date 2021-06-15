@@ -524,6 +524,46 @@ namespace UnitTests
             }
         }
 
+        [TestMethod]
+        public void SpeedCompareAutoTest()
+        {
+            UnitsNet.Speed A1 = new UnitsNet.Speed(1, UnitsNet.Units.SpeedUnit.FootPerHour);
+            EngineeringUnits.Speed A2 = new EngineeringUnits.Speed(1, EngineeringUnits.SpeedUnit.FootPerHour);
+
+            var EU11 = EngineeringUnits.SpeedUnit.List();
+            var UN11 = UnitsNet.Speed.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Speed.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.SpeedUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Speed.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a").Replace("/min", "/m"));
+
+            }
+        }
 
     }
 }

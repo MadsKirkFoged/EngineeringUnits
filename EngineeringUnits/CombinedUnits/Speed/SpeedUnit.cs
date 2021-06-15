@@ -24,22 +24,22 @@ namespace EngineeringUnits
         public static SpeedUnit KilometerPerHour = new SpeedUnit(LengthUnit.Kilometer, DurationUnit.Hour);
         public static SpeedUnit KilometerPerMinute = new SpeedUnit(LengthUnit.Kilometer, DurationUnit.Minute);
         public static SpeedUnit KilometerPerSecond = new SpeedUnit(LengthUnit.Kilometer, DurationUnit.Second);
-        public static SpeedUnit Knot = new SpeedUnit(LengthUnit.NauticalMile, DurationUnit.Hour);
+        public static SpeedUnit Knot = new SpeedUnit(LengthUnit.NauticalMile, DurationUnit.Hour, "kn");
         public static SpeedUnit MeterPerHour = new SpeedUnit(LengthUnit.Meter, DurationUnit.Hour);
         public static SpeedUnit MeterPerMinute = new SpeedUnit(LengthUnit.Meter, DurationUnit.Minute);
         public static SpeedUnit MeterPerSecond = new SpeedUnit(LengthUnit.Meter, DurationUnit.Second);
         public static SpeedUnit MicrometerPerMinute = new SpeedUnit(LengthUnit.Micrometer, DurationUnit.Minute);
         public static SpeedUnit MicrometerPerSecond = new SpeedUnit(LengthUnit.Micrometer, DurationUnit.Second);
-        public static SpeedUnit MilePerHour = new SpeedUnit(LengthUnit.Mile, DurationUnit.Hour);
+        public static SpeedUnit MilePerHour = new SpeedUnit(LengthUnit.Mile, DurationUnit.Hour, "mph");
         public static SpeedUnit MillimeterPerHour = new SpeedUnit(LengthUnit.Millimeter, DurationUnit.Hour);
         public static SpeedUnit MillimeterPerMinute = new SpeedUnit(LengthUnit.Millimeter, DurationUnit.Minute);
         public static SpeedUnit MillimeterPerSecond = new SpeedUnit(LengthUnit.Millimeter, DurationUnit.Second);
         public static SpeedUnit NanometerPerMinute = new SpeedUnit(LengthUnit.Nanometer, DurationUnit.Minute);
         public static SpeedUnit NanometerPerSecond = new SpeedUnit(LengthUnit.Nanometer, DurationUnit.Second);
 
-        public static SpeedUnit UsSurveyFootPerHour = new SpeedUnit(LengthUnit.Centimeter, DurationUnit.Hour);
-        public static SpeedUnit UsSurveyFootPerMinute = new SpeedUnit(LengthUnit.Centimeter, DurationUnit.Minute);
-        public static SpeedUnit UsSurveyFootPerSecond = new SpeedUnit(LengthUnit.Centimeter, DurationUnit.Second);
+        public static SpeedUnit UsSurveyFootPerHour = new SpeedUnit(LengthUnit.UsSurveyFoot, DurationUnit.Hour);
+        public static SpeedUnit UsSurveyFootPerMinute = new SpeedUnit(LengthUnit.UsSurveyFoot, DurationUnit.Minute);
+        public static SpeedUnit UsSurveyFootPerSecond = new SpeedUnit(LengthUnit.UsSurveyFoot, DurationUnit.Second);
 
         public static SpeedUnit YardPerHour = new SpeedUnit(LengthUnit.Yard, DurationUnit.Hour);
         public static SpeedUnit YardPerMinute = new SpeedUnit(LengthUnit.Yard, DurationUnit.Minute);
@@ -63,6 +63,16 @@ namespace EngineeringUnits
             Unit = length.Unit / time.Unit;
         }
 
+        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol)
+        {
+            Name = "Speed";
+            Unit = length.Unit / time.Unit;
+
+            if (NewSymbol != "")
+                Unit.Symbol = NewSymbol;
+            else
+                Unit.Symbol = $"{length}/{time}";
+        }
 
 
         protected SpeedUnit() { }
