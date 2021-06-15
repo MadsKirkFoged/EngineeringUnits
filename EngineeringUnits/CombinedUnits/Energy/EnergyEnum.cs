@@ -39,37 +39,32 @@ namespace EngineeringUnits
         public static EnergyUnit Kilocalorie = new EnergyUnit(PreFix.kilo, Calorie);
         public static EnergyUnit Megacalorie = new EnergyUnit(PreFix.mega, Calorie);
 
-
-        public static EnergyUnit WattDay = new EnergyUnit(PowerUnit.Watt, DurationUnit.Day);
-        public static EnergyUnit KilowattDay = new EnergyUnit(PowerUnit.Kilowatt, DurationUnit.Day);
-        public static EnergyUnit MegawattDay = new EnergyUnit(PowerUnit.Megawatt, DurationUnit.Day);
-        public static EnergyUnit GigawattDay = new EnergyUnit(PowerUnit.Gigawatt, DurationUnit.Day);
-        public static EnergyUnit TerawattDay = new EnergyUnit(PowerUnit.Terawatt, DurationUnit.Day);
-       
-        
-        
-        public static EnergyUnit WattHour = new EnergyUnit(PowerUnit.Watt, DurationUnit.Hour);
-        public static EnergyUnit KilowattHour = new EnergyUnit(PowerUnit.Kilowatt, DurationUnit.Hour);
-        public static EnergyUnit MegawattHour = new EnergyUnit(PowerUnit.Megawatt, DurationUnit.Hour);
-        public static EnergyUnit GigawattHour = new EnergyUnit(PowerUnit.Gigawatt, DurationUnit.Hour);
-        public static EnergyUnit TerawattHour = new EnergyUnit(PowerUnit.Terawatt, DurationUnit.Hour);
+        public static EnergyUnit WattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Day, "W");
+        public static EnergyUnit KilowattDay = new EnergyUnit(PreFix.kilo, WattDay);
+        public static EnergyUnit MegawattDay = new EnergyUnit(PreFix.mega, WattDay);
+        public static EnergyUnit GigawattDay = new EnergyUnit(PreFix.giga, WattDay);
+        public static EnergyUnit TerawattDay = new EnergyUnit(PreFix.tera, WattDay);
 
 
+        public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Hour, "W");
+        public static EnergyUnit KilowattHour = new EnergyUnit(PreFix.kilo, WattHour);
+        public static EnergyUnit MegawattHour = new EnergyUnit(PreFix.mega, WattHour);
+        public static EnergyUnit GigawattHour = new EnergyUnit(PreFix.giga, WattHour);
+        public static EnergyUnit TerawattHour = new EnergyUnit(PreFix.tera, WattHour);
 
 
+        public static EnergyUnit FootPound =            new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "ft·lb", 1.3558179483314004m);
 
-        public static EnergyUnit FootPound = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "ft·lb", 1.3558179483314004m);
+        public static EnergyUnit DecathermEc =          new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (E.C.)", 1055055852.62m);
+        public static EnergyUnit DecathermImperial =    new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (imp.)", 1055055852.57348m);
+        public static EnergyUnit DecathermUs =          new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (U.S.)", 1054804000.0m);
 
-        public static EnergyUnit DecathermEc = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (E.C.)", 1055055852.62m);
-        public static EnergyUnit DecathermImperial = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (imp.)",  1055055852.57348m);
-        public static EnergyUnit DecathermUs = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Dth (U.S.)",        1054804000.0m);
+        public static EnergyUnit ThermEc =              new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (E.C.)",  105506000m);
+        public static EnergyUnit ThermImperial =        new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (imp.)",  105505585.257348m);
+        public static EnergyUnit ThermUs =              new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (U.S.)",  105480400.00m);
 
-        public static EnergyUnit ThermEc = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (E.C.)", 105506000m);
-        public static EnergyUnit ThermImperial = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (imp.)", 105505585.257348m);
-        public static EnergyUnit ThermUs = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "th (U.S.)", 105480400.00m);
-
-        public static EnergyUnit Erg = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "erg", 1e-7m);
-        public static EnergyUnit HorsepowerHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "hp·h", 2.6845195377e6m);
+        public static EnergyUnit Erg =                  new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "erg", 1e-7m);
+        public static EnergyUnit HorsepowerHour =       new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "hp·h", 2.6845195377e6m);
 
 
 
@@ -109,6 +104,25 @@ namespace EngineeringUnits
 
 
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+        }
+
+        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "", decimal correction = 1)
+        {
+
+            Name = "Energy";
+
+            //kg*m2*s-2
+            Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration2.Unit);
+
+            if (NewSymbol != "")
+            {
+                Unit.Symbol = $"{NewSymbol}{duration2}"; ;
+            }
+
+            if (correction != 1)
+            {
+                Unit.Combined = new CombinedUnit("", 1, correction);
+            }
         }
 
 

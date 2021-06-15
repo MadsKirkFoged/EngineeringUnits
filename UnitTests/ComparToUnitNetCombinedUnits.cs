@@ -117,6 +117,8 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
         }
 
+
+
         [TestMethod]
         public void SpecificEnergycompare2()
         {
@@ -133,6 +135,51 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 2.2E-5);
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
         }
+
+
+
+        [TestMethod]
+        public void SpecificEnergyCompareAutoTest()
+        {
+            UnitsNet.SpecificEnergy A1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy A2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+
+            var EU11 = EngineeringUnits.SpecificEnergyUnit.List();
+            var UN11 = UnitsNet.SpecificEnergy.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.SpecificEnergy.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.SpecificEnergyUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.SpecificEnergy.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-10);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-10);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a"));
+
+            }
+        }
+
+
 
 
         [TestMethod]
@@ -205,6 +252,52 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
         }
 
+        [TestMethod]
+        public void MassFlowCompareAutoTest()
+        {
+            UnitsNet.MassFlow A1 = new UnitsNet.MassFlow(65.743, UnitsNet.Units.MassFlowUnit.KilogramPerHour);
+            EngineeringUnits.MassFlow A2 = new EngineeringUnits.MassFlow(65.743, EngineeringUnits.MassFlowUnit.KilogramPerHour);
+
+            var EU11 = EngineeringUnits.MassFlowUnit.List();
+            var UN11 = UnitsNet.MassFlow.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.MassFlow.Units.Length; i++)
+            {
+
+                //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
+
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.MassFlowUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.MassFlow.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                if (A1.ToUnit(UN).ToString("a") != "short tn/h")
+                {
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a").Replace("min","m"));
+
+                }
+
+            }
+        }
+
 
         [TestMethod]
         public void Powercompare()
@@ -258,6 +351,52 @@ namespace UnitTests
 
 
 
+        }
+
+        [TestMethod]
+        public void PowerCompareAutoTest()
+        {
+            UnitsNet.Power A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
+            EngineeringUnits.Power A2 = new EngineeringUnits.Power(65.743m, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
+
+            var EU11 = EngineeringUnits.PowerUnit.List();
+            var UN11 = UnitsNet.Power.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Power.Units.Length; i++)
+            {
+
+                //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
+
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.PowerUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Power.Units[i];
+
+                //All units absolute difference
+                //Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                if (A1.ToUnit(UN).ToString("a") != "short tn/h")
+                {
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a").Replace("min", "m").Replace("Btu","BTU"));
+
+                }
+
+            }
         }
 
         [TestMethod]

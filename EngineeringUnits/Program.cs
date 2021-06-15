@@ -12,11 +12,10 @@ namespace EngineeringUnits
 
 
 
-            Energy test = new Energy(1, EnergyUnit.WattHour);
+            Power test = new Power(1, PowerUnit.JoulePerHour);
 
 
-
-            Debug.Print($"{test.As(EnergyUnit.Joule)}");
+            Debug.Print($"{test.As(PowerUnit.Gigawatt)}");
 
 
 
