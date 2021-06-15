@@ -481,5 +481,49 @@ namespace UnitTests
 
             }
         }
+
+
+        [TestMethod]
+        public void SpecificEntropyCompareAutoTest()
+        {
+            UnitsNet.SpecificEntropy A1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.KilocaloriePerGramKelvin);
+            EngineeringUnits.SpecificEntropy A2 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.KilocaloriePerGramKelvin);
+
+            var EU11 = EngineeringUnits.SpecificEntropyUnit.List();
+            var UN11 = UnitsNet.SpecificEntropy.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.SpecificEntropy.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.SpecificEntropyUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.SpecificEntropy.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a").Replace("°F", "°R").Replace("C", "K").Replace("·", "*").Replace(".", "*").Replace("K", "k"));
+
+            }
+        }
+
+
     }
 }
