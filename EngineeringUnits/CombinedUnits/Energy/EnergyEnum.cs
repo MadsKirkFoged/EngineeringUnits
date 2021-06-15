@@ -22,6 +22,7 @@ namespace EngineeringUnits
         public static EnergyUnit Kilojoule = new EnergyUnit(PreFix.kilo, SI);
         public static EnergyUnit Megajoule = new EnergyUnit(PreFix.mega, SI);
         public static EnergyUnit Gigajoule = new EnergyUnit(PreFix.giga, SI);
+        public static EnergyUnit Terajoule = new EnergyUnit(PreFix.tera, SI);
 
         public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
         public static EnergyUnit KilobritishThermalUnit = new EnergyUnit(PreFix.kilo, BritishThermalUnit);

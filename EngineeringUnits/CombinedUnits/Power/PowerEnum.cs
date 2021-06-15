@@ -15,12 +15,12 @@ namespace EngineeringUnits
 
 
         public static PowerUnit SI = new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "W");
-        public static PowerUnit Watt = new PowerUnit(EnergyUnit.Joule, DurationUnit.SI, "W");
-        public static PowerUnit Kilowatt = new PowerUnit(EnergyUnit.Kilojoule, DurationUnit.SI, "kW");
-        public static PowerUnit Megawatt = new PowerUnit(EnergyUnit.Megajoule, DurationUnit.SI, "MW");
-        public static PowerUnit Gigawatt = new PowerUnit(EnergyUnit.Gigajoule, DurationUnit.SI, "GW");
-        //public static PowerUnit Terawatt = new PowerUnit(EnergyUnit., DurationUnit.SI, "GW");
 
+        public static PowerUnit Watt = new PowerUnit(PreFix.SI, SI);
+        public static PowerUnit Kilowatt = new PowerUnit(PreFix.kilo, SI);
+        public static PowerUnit Megawatt = new PowerUnit(PreFix.mega, SI);
+        public static PowerUnit Gigawatt = new PowerUnit(PreFix.giga, SI);
+        public static PowerUnit Terawatt = new PowerUnit(PreFix.tera, SI);
 
         public static PowerUnit BritishThermalUnitPerHour = new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Hour);
         public static PowerUnit BritishThermalUnitPerSecond = new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Second);
@@ -43,6 +43,22 @@ namespace EngineeringUnits
             if (correction != 1)            
                 Unit.Combined = new CombinedUnit("", correction, 1);            
 
+        }
+
+        public PowerUnit(PreFix SI, PowerUnit unit)
+        {
+            Unit = unit.Unit.Copy();
+
+
+            if (Unit.Combined is null)
+                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
+            else
+                Unit.Combined.GlobalC *= PrefixSISize(SI);
+
+
+
+
+            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
 
