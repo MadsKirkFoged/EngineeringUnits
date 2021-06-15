@@ -40,6 +40,8 @@ namespace EngineeringUnits
         public static LengthUnit Mile = new LengthUnit("mi", 63360, 0.0254m);
         public static LengthUnit NauticalMile = new LengthUnit("nmi", 72913.3858m, 0.0254m);
 
+        public static LengthUnit UsSurveyFoot = new LengthUnit("ftUS", 1m, 1200/3937m);
+
 
 
         public static LengthUnit LightYear = new LengthUnit("ly",1, 9460730472580800m);
@@ -86,7 +88,7 @@ namespace EngineeringUnits
        
         public static IEnumerable<LengthUnit> List()
         {
-            return new[] { AstronomicalUnit, Centimeter, Chain, Decimeter, DtpPica, DtpPoint, Fathom, Foot, Hand, Hectometer, Inch, KilolightYear, Kilometer, Kiloparsec, LightYear, MegalightYear, Megaparsec, Meter, Microinch, Micrometer, Mil, Mile, Millimeter, Nanometer, NauticalMile, Parsec, Shackle, SolarRadius, Twip, Yard, };
+            return new[] { AstronomicalUnit, Centimeter, Chain, Decimeter, DtpPica, DtpPoint, Fathom, Foot, Hand, Hectometer, Inch, KilolightYear, Kilometer, Kiloparsec, LightYear, MegalightYear, Megaparsec, Meter, Microinch, Micrometer, Mil, Mile, Millimeter, Nanometer, NauticalMile, Parsec, Shackle, SolarRadius, Twip, UsSurveyFoot, Yard, };
         }
 
 

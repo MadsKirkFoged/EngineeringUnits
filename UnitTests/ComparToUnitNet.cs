@@ -433,8 +433,7 @@ namespace UnitTests
             {
 
                 if (UnitsNet.Length.Units[i] == UnitsNet.Units.LengthUnit.PrinterPica ||
-                    UnitsNet.Length.Units[i] == UnitsNet.Units.LengthUnit.PrinterPoint ||
-                    UnitsNet.Length.Units[i] == UnitsNet.Units.LengthUnit.UsSurveyFoot)
+                    UnitsNet.Length.Units[i] == UnitsNet.Units.LengthUnit.PrinterPoint)
                 {
                     DiffCount++;
                     continue;
@@ -454,8 +453,8 @@ namespace UnitTests
                                                         A1.As(UN)),
                                                         1E-3);
                 //All units symbol compare
-                //Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                  //              A1.ToUnit(UN).ToString("a"));
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a").Replace("NM", "nmi"));
 
             }
         }
