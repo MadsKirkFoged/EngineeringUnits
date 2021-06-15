@@ -59,7 +59,7 @@ namespace EngineeringUnits
 
         public static IEnumerable<SpecificEnergyUnit> List()
         {
-            return new[] { JoulePerKilogram, KilojoulePerKilogram , BtuPerPound, CaloriePerGram };
+            return new[] { BtuPerPound, CaloriePerGram, GigawattDayPerKilogram, GigawattDayPerShortTon, GigawattDayPerTonne, GigawattHourPerKilogram, JoulePerKilogram, KilocaloriePerGram, KilojoulePerKilogram, KilowattDayPerKilogram, KilowattDayPerShortTon, KilowattDayPerTonne, KilowattHourPerKilogram, MegajoulePerKilogram, MegawattDayPerKilogram, MegawattDayPerShortTon, MegawattDayPerTonne, MegawattHourPerKilogram, TerawattDayPerKilogram, TerawattDayPerShortTon, TerawattDayPerTonne, WattDayPerKilogram, WattDayPerShortTon, WattDayPerTonne, WattHourPerKilogram, };
         }
 
         public override string ToString()
