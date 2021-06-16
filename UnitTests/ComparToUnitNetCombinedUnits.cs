@@ -594,15 +594,15 @@ namespace UnitTests
                 var UN = UnitsNet.Pressure.Units[i];
 
                 //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
 
                 //All units relative difference
                 Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
                                                         A1.As(UN)),
                                                         1E-5);
                 //All units symbol compare
-                //Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                //                A1.ToUnit(UN).ToString("a"));
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a"));
 
             }
         }
