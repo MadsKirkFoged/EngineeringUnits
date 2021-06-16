@@ -607,5 +607,89 @@ namespace UnitTests
             }
         }
 
+        [TestMethod]
+        public void ForceCompareAutoTest()
+        {
+            UnitsNet.Force A1 = new UnitsNet.Force(1, UnitsNet.Units.ForceUnit.Kilonewton);
+            EngineeringUnits.Force A2 = new EngineeringUnits.Force(1, EngineeringUnits.ForceUnit.Kilonewton);
+
+            var EU11 = EngineeringUnits.ForceUnit.List();
+            var UN11 = UnitsNet.Force.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Force.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.ForceUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Force.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-2);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-4);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a"));
+
+            }
+        }
+
+        [TestMethod]
+        public void AccelerationCompareAutoTest()
+        {
+            UnitsNet.Acceleration A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
+            EngineeringUnits.Acceleration A2 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+
+            var EU11 = EngineeringUnits.AccelerationUnit.List();
+            var UN11 = UnitsNet.Acceleration.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Acceleration.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.AccelerationUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Acceleration.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a").Replace("min","m"));
+
+            }
+        }
+
     }
 }
