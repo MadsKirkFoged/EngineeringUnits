@@ -565,5 +565,47 @@ namespace UnitTests
             }
         }
 
+        [TestMethod]
+        public void PressureCompareAutoTest()
+        {
+            UnitsNet.Pressure A1 = new UnitsNet.Pressure(1, UnitsNet.Units.PressureUnit.Bar);
+            EngineeringUnits.Pressure A2 = new EngineeringUnits.Pressure(1, EngineeringUnits.PressureUnit.Bar);
+
+            var EU11 = EngineeringUnits.PressureUnit.List();
+            var UN11 = UnitsNet.Pressure.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Pressure.Units.Length; i++)
+            {
+
+                if (UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                {
+                    DiffCount++;
+                    continue;
+                }
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.PressureUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Pressure.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                //Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                //                A1.ToUnit(UN).ToString("a"));
+
+            }
+        }
+
     }
 }
