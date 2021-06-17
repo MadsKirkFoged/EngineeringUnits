@@ -69,7 +69,7 @@ namespace EngineeringUnits
 
 
 
-        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Energy";
@@ -77,15 +77,18 @@ namespace EngineeringUnits
             //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit);
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);
 
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
+            //if (NewSymbol != "")
+            //{
+            //    Unit.Symbol = NewSymbol;
+            //}
+
+            //if (correction != 1)
+            //{
+            //    Unit.Combined = new CombinedUnit("", 1, correction);
+            //}
 
 
         }
@@ -94,19 +97,21 @@ namespace EngineeringUnits
         {
             Unit = energyunit.Unit.Copy();
 
+            SetCombined(SI);
+            SetNewSymbol(SI);
 
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
+            //if (Unit.Combined is null)
+            //    Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
+            //else
+            //    Unit.Combined.GlobalC *= PrefixSISize(SI);
 
 
 
 
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            //Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
-        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "", decimal correction = 1)
+        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Energy";
@@ -114,43 +119,20 @@ namespace EngineeringUnits
             //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration2.Unit);
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = $"{NewSymbol}{duration2}"; ;
-            }
+            SetCombined(correction);
+            SetNewSymbol($"{NewSymbol}{duration2}");
 
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
         }
 
 
-        public EnergyUnit(PowerUnit power, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public EnergyUnit(PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Energy";
-
             Unit = power.Unit * duration.Unit;
-            //Unit.Duration.ActualC = (Fraction)(1/3600m);
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{power}{duration}";
-            }
-
-
-
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
-
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{power}{duration}");
         }
 
 

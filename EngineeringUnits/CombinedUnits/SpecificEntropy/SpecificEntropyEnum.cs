@@ -13,10 +13,6 @@ namespace EngineeringUnits
     public class SpecificEntropyUnit : Enumeration
     {
 
-        //used to remember the inputs
-        private EnergyUnit localenergy;
-        private MassUnit localmass;
-
         public static SpecificEntropyUnit SI = new SpecificEntropyUnit(EnergyUnit.SI, MassUnit.SI, TemperatureUnit.SI);
         public static SpecificEntropyUnit JoulePerKilogramKelvin = new SpecificEntropyUnit(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.SI);
         public static SpecificEntropyUnit JoulePerKilogramDegreeCelsius = new SpecificEntropyUnit(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.SI);
@@ -37,23 +33,18 @@ namespace EngineeringUnits
         public static SpecificEntropyUnit BtuPerPoundFahrenheit = new SpecificEntropyUnit(EnergyUnit.BritishThermalUnit, MassUnit.Pound, TemperatureUnit.DegreeRankine);
 
 
-        public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature)
+        public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
             Name = "Specific Heat Capacity";
 
             //    J/(kg*k)
             Unit = energy.Unit / (mass.Unit * temperature.Unit);
-            Unit.Symbol = $"{energy}/{mass}*{temperature}";
+            //Unit.Symbol = $"{energy}/{mass}*{temperature}";
 
-            localenergy = energy;
-            localmass = mass;
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{energy}/{mass}*{temperature}");
 
-            //EkstraCorrection *= 
 
-        }
-
-        public SpecificEntropyUnit()
-        {
 
         }
 
@@ -62,12 +53,6 @@ namespace EngineeringUnits
         {
             return new[] { BtuPerPoundFahrenheit, CaloriePerGramKelvin, JoulePerKilogramDegreeCelsius, JoulePerKilogramKelvin, KilocaloriePerGramKelvin, KilojoulePerKilogramDegreeCelsius, KilojoulePerKilogramKelvin, MegajoulePerKilogramDegreeCelsius, MegajoulePerKilogramKelvin, };
         }
-
-        //public override string ToString()
-        //{
-        //    return $"{localenergy}/{localmass}*{temperature.Unit}";
-        //}
-
     }
 
 

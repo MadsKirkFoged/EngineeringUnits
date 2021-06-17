@@ -62,117 +62,51 @@ namespace EngineeringUnits
         public static PressureUnit PoundForcePerSquareFoot = new PressureUnit(ForceUnit.PoundForce, AreaUnit.SquareFoot, "lb/ft²");
         public static PressureUnit PoundForcePerSquareInch = new PressureUnit(ForceUnit.PoundForce, AreaUnit.SquareInch, "psi");
 
-
-        //public static PressureUnit KilogramForcePerSquareCentimeter = new PressureUnit(Pascal, "pa", 9.80665e4m);
-        //public static PressureUnit KilogramForcePerSquareMeter = new PressureUnit(Pascal, "pa", 9.80665019960652m);
-        //public static PressureUnit KilogramForcePerSquareMillimeter = new PressureUnit(Pascal, "pa", 9.80665e6m);
-        //public static PressureUnit KilonewtonPerSquareCentimeter = new PressureUnit(Pascal, "pa", 1e4m * 1e3m);
-        //public static PressureUnit KilonewtonPerSquareMeter = new PressureUnit(Pascal, "pa", 1e3m);
-        //public static PressureUnit KilonewtonPerSquareMillimeter = new PressureUnit(Pascal, "pa", 1e6m * 1e3m);
-        //public static PressureUnit MeganewtonPerSquareMeter = new PressureUnit(Pascal, "pa", 1e6m);
-
-        //public static PressureUnit TonneForcePerSquareCentimeter = new PressureUnit(Pascal, "pa", 9.80665e7m);
-        //public static PressureUnit TonneForcePerSquareMeter = new PressureUnit(Pascal, "pa", 9.80665e3m);
-        //public static PressureUnit TonneForcePerSquareMillimeter = new PressureUnit(Pascal, "pa", 9.80665e9m);
-
-
-        //public static PressureUnit NewtonPerSquareMillimeter = new PressureUnit(Pascal, "pa", 1e6m);
-        //public static PressureUnit NewtonPerSquareCentimeter = new PressureUnit(Pascal, "pa", 1e4m);
-        //public static PressureUnit NewtonPerSquareMeter = new PressureUnit(Pascal, "pa", 1m);
-
-        //public static PressureUnit KilopoundForcePerSquareFoot = new PressureUnit(Pascal, "pa", 4.788025898033584e1m * 1e3m);
-        //public static PressureUnit KilopoundForcePerSquareInch = new PressureUnit(Pascal, "pa", 6.894757293168361e3m * 1e3m);
-
-        //public static PressureUnit PoundForcePerSquareFoot = new PressureUnit(Pascal, "pa", 4.788025898033584e1m);
-        //public static PressureUnit PoundForcePerSquareInch = new PressureUnit(Pascal, "pa", 6.894757293168361e3m);
+        
         public static PressureUnit PoundPerInchSecondSquared = new PressureUnit(Pascal, "lbm/(in·s²)", 1.785796732283465e1m);
 
-        //public static PressureUnit DynePerSquareCentimeter = new PressureUnit(Pascal, "pa", 1.0e-1m);
 
 
 
 
-        public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+
+        public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Pressure";
             Unit = mass.Unit / (length.Unit * duration.Unit * duration.Unit);
 
-
-            if (NewSymbol != "")
-                Unit.Symbol = NewSymbol;
-
-
-            if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction);
-
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);
         }
 
         public PressureUnit(PreFix SI, PressureUnit unit)
         {
+            Name = "Pressure";
             Unit = unit.Unit.Copy();
 
-
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            SetCombined(SI);
+            SetNewSymbol(SI);
         }
 
-        public PressureUnit(PressureUnit unit, string NewSymbol = "", decimal correction = 1)
+        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            Name = "Energy";
-
+            Name = "Pressure";
             Unit = unit.Unit.Copy();
-            //Unit.Duration.ActualC = (Fraction)(1/3600m);
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{unit}";
-            }
-
-
-
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
-
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);                  
         }
 
 
-        public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "", decimal correction = 1)
+        public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Force";
-
+            Name = "Pressure";
             Unit = force.Unit / area.Unit;
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{force}/{area}";
-            }
-
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{force}/{area}");
         }
 
 

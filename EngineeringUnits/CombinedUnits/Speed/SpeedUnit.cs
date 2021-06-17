@@ -45,37 +45,21 @@ namespace EngineeringUnits
         public static SpeedUnit YardPerMinute = new SpeedUnit(LengthUnit.Yard, DurationUnit.Minute);
         public static SpeedUnit YardPerSecond = new SpeedUnit(LengthUnit.Yard, DurationUnit.Second);
 
-
-
-
         public static SpeedUnit KilometerPerhour = new SpeedUnit(LengthUnit.Kilometer, DurationUnit.Hour);
         public static SpeedUnit SI = new SpeedUnit(LengthUnit.SI, DurationUnit.SI);
-
 
         public static SpeedUnit MilePerSecond = new SpeedUnit(LengthUnit.Mile, DurationUnit.Second);
 
 
 
-
-        public SpeedUnit(LengthUnit length, DurationUnit time)
-        {
-            Name = "Speed";
-            Unit = length.Unit / time.Unit;
-        }
-
-        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol)
+        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol = "Empty", decimal correction = 1)
         {
             Name = "Speed";
             Unit = length.Unit / time.Unit;
 
-            if (NewSymbol != "")
-                Unit.Symbol = NewSymbol;
-            else
-                Unit.Symbol = $"{length}/{time}";
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{length}/{time}");
         }
-
-
-        protected SpeedUnit() { }
 
 
 

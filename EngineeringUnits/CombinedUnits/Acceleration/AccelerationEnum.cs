@@ -30,28 +30,19 @@ namespace EngineeringUnits
         public static AccelerationUnit MillistandardGravity = new AccelerationUnit(PreFix.milli, StandardGravity);
 
 
-        public AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Acceleration";
 
 
             Unit = length.Unit / (duration.Unit * duration.Unit);
-
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);
 
         }
 
-        public AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Acceleration";
@@ -59,37 +50,18 @@ namespace EngineeringUnits
 
             Unit = speed.Unit / (duration.Unit);
 
-            if (NewSymbol != "")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{speed}/{duration}";
-            }
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{speed}/{duration}");
 
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", 1, correction);
-            }
-
-
+         
         }
 
         public AccelerationUnit(PreFix SI, AccelerationUnit energyunit)
         {
             Unit = energyunit.Unit.Copy();
+            SetCombined(SI);
+            SetNewSymbol(SI);
 
-
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
 

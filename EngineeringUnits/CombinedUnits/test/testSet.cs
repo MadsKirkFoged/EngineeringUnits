@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class Volume
+    public partial class Density
     {
 
 

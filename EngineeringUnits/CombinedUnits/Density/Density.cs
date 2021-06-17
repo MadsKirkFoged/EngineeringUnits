@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Density()
         {
-            Name = "Density";
+            Name = "test";
         }
 
         public Density(decimal value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -23,13 +23,13 @@ namespace EngineeringUnits
         public Density ToUnit(DensityUnit selectedUnit) => new Density(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
 
-        //public static implicit operator Density(UnknownUnit Unit)
-        //{
-        //    Density local = new Density(0, DensityUnit.SI);
+        public static implicit operator Density(UnknownUnit Unit)
+        {
+            Density local = new Density(0, DensityUnit.SI);
 
-        //    local.Transform(Unit);
-        //    return local;
-        //}
+            local.Transform(Unit);
+            return local;
+        }
 
 
 

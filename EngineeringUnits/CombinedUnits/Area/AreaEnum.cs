@@ -29,20 +29,13 @@ namespace EngineeringUnits
 
 
 
-        public AreaUnit(LengthUnit Length, string NewSymbol = "", decimal correction = 1)
+        public AreaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Area";
             Unit = Length.Unit * Length.Unit;
-
-
-            if (NewSymbol != "")            
-                Unit.Symbol = NewSymbol;
-            
-
-            if (correction != 1)            
-                Unit.Combined = new CombinedUnit("", 1, correction);          
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);
 
         }
 

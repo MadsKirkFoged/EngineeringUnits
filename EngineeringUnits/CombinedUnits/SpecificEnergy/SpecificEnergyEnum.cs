@@ -47,14 +47,15 @@ namespace EngineeringUnits
         public static SpecificEnergyUnit TerawattDayPerShortTon = new SpecificEnergyUnit(EnergyUnit.TerawattDay, MassUnit.ShortTon);
 
 
-        public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass)
+        public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Name = "Energy";
+            Name = "SpecificEnergy";
 
             //  J/kg
             Unit = energy.Unit / mass.Unit;
-            Unit.Symbol = $"{energy}/{mass}";
 
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{energy}/{mass}");
         }
 
         public static IEnumerable<SpecificEnergyUnit> List()
@@ -62,10 +63,7 @@ namespace EngineeringUnits
             return new[] { BtuPerPound, CaloriePerGram, GigawattDayPerKilogram, GigawattDayPerShortTon, GigawattDayPerTonne, GigawattHourPerKilogram, JoulePerKilogram, KilocaloriePerGram, KilojoulePerKilogram, KilowattDayPerKilogram, KilowattDayPerShortTon, KilowattDayPerTonne, KilowattHourPerKilogram, MegajoulePerKilogram, MegawattDayPerKilogram, MegawattDayPerShortTon, MegawattDayPerTonne, MegawattHourPerKilogram, TerawattDayPerKilogram, TerawattDayPerShortTon, TerawattDayPerTonne, WattDayPerKilogram, WattDayPerShortTon, WattDayPerTonne, WattHourPerKilogram, };
         }
 
-        public override string ToString()
-        {
-            return $"{Unit.Symbol}";
-        }
+
 
     }
 

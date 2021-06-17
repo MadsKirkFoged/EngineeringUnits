@@ -60,43 +60,25 @@ namespace EngineeringUnits
 
 
 
-        public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "MassFlow";
 
             //kg*s-1
             Unit = mass.Unit / duration.Unit;
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{mass}/{duration}");
 
-            if (NewSymbol != "")            
-                Unit.Symbol = NewSymbol;            
-            else
-                Unit.Symbol = $"{mass}/{duration}";
-
-
-            if (correction != 1)
-            {
-                Unit.Combined = new CombinedUnit("", correction, 1);
-            }
-
-
-            //Unit.EkstraCorrection = correction;
         }
 
         public MassFlowUnit(PreFix SI, MassFlowUnit unit)
         {
             Unit = unit.Unit.Copy();
 
+            SetCombined(SI);
+            SetNewSymbol(SI);
 
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
 
@@ -104,10 +86,7 @@ namespace EngineeringUnits
         {
             return new[] { CentigramPerDay, CentigramPerSecond, DecagramPerDay, DecagramPerSecond, DecigramPerDay, DecigramPerSecond, GramPerDay, GramPerHour, GramPerSecond, HectogramPerDay, HectogramPerSecond, KilogramPerDay, KilogramPerHour, KilogramPerMinute, KilogramPerSecond, MegagramPerDay, MegapoundPerDay, MegapoundPerHour, MegapoundPerMinute, MegapoundPerSecond, MicrogramPerDay, MicrogramPerSecond, MilligramPerDay, MilligramPerSecond, NanogramPerDay, NanogramPerSecond, PoundPerDay, PoundPerHour, PoundPerMinute, PoundPerSecond, ShortTonPerHour, TonnePerDay, TonnePerHour, };
         }
-        public override string ToString()
-        {
-            return $"{Unit.Symbol}";
-        }
+
     }
 
 

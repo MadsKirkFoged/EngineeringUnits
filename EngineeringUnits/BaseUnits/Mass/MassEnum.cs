@@ -17,6 +17,7 @@ namespace EngineeringUnits
 
         public static MassUnit SI = new MassUnit(PreFix.kilo, BaseUnits.mass);
         public static MassUnit Kilogram = new MassUnit(PreFix.kilo, BaseUnits.mass);
+        public static MassUnit Picogram = new MassUnit(PreFix.pico, BaseUnits.mass);
         public static MassUnit Centigram = new MassUnit(PreFix.centi, BaseUnits.mass);
         public static MassUnit Decagram = new MassUnit(PreFix.deka, BaseUnits.mass);
         public static MassUnit Decigram = new MassUnit(PreFix.deci, BaseUnits.mass);

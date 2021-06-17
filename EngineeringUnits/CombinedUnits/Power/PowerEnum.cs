@@ -48,7 +48,7 @@ namespace EngineeringUnits
         public static PowerUnit MetricHorsepower = new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(M)", 735.49875m);
 
 
-        public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "", decimal correction = 1)
+        public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Power";
@@ -56,32 +56,18 @@ namespace EngineeringUnits
             //kg*m2*s-3
             Unit = Energy.Unit / duration.Unit;
 
-
-            if (NewSymbol != "")
-                Unit.Symbol = NewSymbol;
-            else
-                Unit.Symbol = $"{Energy}/{duration}";
-
-
-            if (correction != 1)            
-                Unit.Combined = new CombinedUnit("", correction, 1);            
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{Energy}/{duration}");    
 
         }
 
         public PowerUnit(PreFix SI, PowerUnit unit)
         {
+            Name = "Power";
             Unit = unit.Unit.Copy();
 
-
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            SetCombined(SI);
+            SetNewSymbol(SI);
         }
 
 
@@ -89,14 +75,7 @@ namespace EngineeringUnits
         {
             return new[] { BoilerHorsepower, BritishThermalUnitPerHour, Decawatt, Deciwatt, ElectricalHorsepower, Femtowatt, GigajoulePerHour, Gigawatt, HydraulicHorsepower, JoulePerHour, KilobritishThermalUnitPerHour, KilojoulePerHour, Kilowatt, MechanicalHorsepower, MegajoulePerHour, Megawatt, MetricHorsepower, Microwatt, MillijoulePerHour, Milliwatt, Nanowatt, Petawatt, Picowatt, Terawatt, Watt, };
         }
-        public override string ToString()
-        {
-            return $"{Unit.Symbol}";
-        }
 
 
     }
-
-
-
 }
