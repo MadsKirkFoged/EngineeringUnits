@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class test
+    public partial class ForcePerLength
     {
 
 

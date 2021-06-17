@@ -819,5 +819,91 @@ namespace UnitTests
             }
 
         }
+
+        [TestMethod]
+        public void ThermalConductivityCompareAutoTest()
+        {
+            UnitsNet.ThermalConductivity A1 = new UnitsNet.ThermalConductivity(1, UnitsNet.Units.ThermalConductivityUnit.WattPerMeterKelvin);
+            EngineeringUnits.ThermalConductivity A2 = new EngineeringUnits.ThermalConductivity(1, EngineeringUnits.ThermalConductivityUnit.WattPerMeterKelvin);
+
+            var EU11 = EngineeringUnits.ThermalConductivityUnit.List();
+            var UN11 = UnitsNet.ThermalConductivity.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.ThermalConductivity.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.ThermalConductivityUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.ThermalConductivity.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a").Replace("K","k"));
+
+            }
+
+        }
+
+        [TestMethod]
+        public void ForcePerLength()
+        {
+            UnitsNet.ForcePerLength A1 = new UnitsNet.ForcePerLength(1, UnitsNet.Units.ForcePerLengthUnit.DecanewtonPerMeter);
+            EngineeringUnits.ForcePerLength A2 = new EngineeringUnits.ForcePerLength(1, EngineeringUnits.ForcePerLengthUnit.DecanewtonPerMeter);
+
+            var EU11 = EngineeringUnits.ForcePerLengthUnit.List();
+            var UN11 = UnitsNet.ForcePerLength.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.ForcePerLength.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.ForcePerLengthUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.ForcePerLength.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a"));
+
+            }
+
+        }
     }
 }
