@@ -175,8 +175,42 @@ namespace EngineeringUnits
                _ => "",
            };
     
+        public void SetCombined(decimal correction)
+        {
+            decimal correction2 = 1;
 
-       
+            if (Unit.Combined is object)
+                correction2 = Unit.Combined.GlobalC;
 
+
+            if (correction != 1)
+                Unit.Combined = new CombinedUnit("", 1, correction * correction2);
+
+        }
+
+        public void SetCombined(PreFix SI)
+        {
+
+            SetCombined(PrefixSISize(SI));
+        }
+
+        public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
+        {
+
+            if (NewSymbol != "Empty")
+                Unit.Symbol = NewSymbol;
+            else if (CustomAutoSymbol != "Empty")            
+                Unit.Symbol = CustomAutoSymbol;            
+            else           
+                Unit.Symbol = $"{Unit}";
+
+            
+
+        }
+
+        public void SetNewSymbol(PreFix SI)
+        {
+            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+        }
     }
 }

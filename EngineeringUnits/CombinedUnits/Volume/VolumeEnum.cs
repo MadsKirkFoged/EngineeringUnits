@@ -78,26 +78,19 @@ namespace EngineeringUnits
         public static VolumeUnit UsTablespoon = new VolumeUnit(UsOunce, "", 1/2m);
         public static VolumeUnit UsTeaspoon = new VolumeUnit(UsOunce, "", 1/6m);
 
+
+
+
+
+
         public VolumeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
             Name = "Volume";
             Unit = Length.Unit * Length.Unit * Length.Unit;
 
-
-            if (NewSymbol != "Empty")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{Unit}";
-            }
-
-
-            if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction);
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);          
 
         }
 
@@ -106,38 +99,17 @@ namespace EngineeringUnits
 
             Name = "Volume";
             Unit = Area.Unit * Length.Unit;
-
-
-            if (NewSymbol != "Empty")
-            {
-                Unit.Symbol = NewSymbol;
-            }
-            else
-            {
-                Unit.Symbol = $"{Area}-{Length}";
-            }
-
-
-            if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction);
-
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public VolumeUnit(PreFix SI, VolumeUnit unit)
         {
+            Name = "Volume";
             Unit = unit.Unit.Copy();
 
-
-            if (Unit.Combined is null)
-                Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            else
-                Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            SetCombined(SI);
+            SetNewSymbol(SI);
         }
 
         public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1)
@@ -146,23 +118,8 @@ namespace EngineeringUnits
             Name = "Volume";
             Unit = unit.Unit.Copy();
 
-
-            if (NewSymbol != "Empty")
-                Unit.Symbol = NewSymbol;
-
-
-            decimal correction2 = 1;
-
-            if (Unit.Combined is object)
-            {
-                correction2 = Unit.Combined.GlobalC;
-            }
-
-
-            if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction * correction2);
-
-
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol);
         }
 
 
