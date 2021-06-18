@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public static Length From(double value, LengthUnit unit) => new Length(value, unit);
         public double As(LengthUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public Length ToUnit(LengthUnit selectedUnit) => new Length(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public Length Zero => new Length(0, LengthUnit.SI);
+        public static Length Zero => new Length(0, LengthUnit.SI);
 
         public static implicit operator Length(UnknownUnit Unit)
         {

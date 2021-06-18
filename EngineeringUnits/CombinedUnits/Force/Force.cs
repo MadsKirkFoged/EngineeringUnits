@@ -21,7 +21,7 @@ namespace EngineeringUnits
         public static Force From(double value, ForceUnit unit) => new Force(value, unit);
         public double As(ForceUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public Force ToUnit(ForceUnit selectedUnit) => new Force(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public Force Zero => new Force(0, ForceUnit.SI);
+        public static Force Zero => new Force(0, ForceUnit.SI);
 
         public static implicit operator Force(UnknownUnit Unit)
         {

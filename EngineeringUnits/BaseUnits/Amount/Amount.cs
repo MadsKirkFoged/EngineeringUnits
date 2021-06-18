@@ -27,7 +27,7 @@ namespace EngineeringUnits
         public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit) => new AmountOfSubstance(value, unit);
         public double As(AmountOfSubstanceUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);      
         public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new AmountOfSubstance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public AmountOfSubstance Zero => new AmountOfSubstance(0, AmountOfSubstanceUnit.SI);
+        public static AmountOfSubstance Zero => new AmountOfSubstance(0, AmountOfSubstanceUnit.SI);
 
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {

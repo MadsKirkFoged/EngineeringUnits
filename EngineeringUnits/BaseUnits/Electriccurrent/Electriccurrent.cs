@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public static ElectricCurrent From(double value, ElectricCurrentUnit unit) => new ElectricCurrent(value, unit);
         public double As(ElectricCurrentUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit) => new ElectricCurrent(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnit.SI);
+        public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnit.SI);
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit)
         {

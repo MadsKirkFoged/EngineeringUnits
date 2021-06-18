@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public static LuminousIntensity From(double value, LuminousIntensityUnit unit) => new LuminousIntensity(value, unit);
         public double As(LuminousIntensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit) => new LuminousIntensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public LuminousIntensity Zero => new LuminousIntensity(0, LuminousIntensityUnit.SI);
+        public static LuminousIntensity Zero => new LuminousIntensity(0, LuminousIntensityUnit.SI);
 
         public static implicit operator LuminousIntensity(UnknownUnit Unit)
         {
