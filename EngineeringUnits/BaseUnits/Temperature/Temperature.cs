@@ -59,6 +59,7 @@ namespace EngineeringUnits
         {
             return new Temperature(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         }
+        public Temperature Zero => new Temperature(0, TemperatureUnit.SI);
 
         public static implicit operator Temperature(UnknownUnit Unit)
         {

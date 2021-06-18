@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public double As(DurationUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public Duration ToUnit(DurationUnit selectedUnit) => new Duration(ToTheOutSide(selectedUnit.Unit), selectedUnit);
 
-
+        public Duration Zero => new Duration(0, DurationUnit.SI);
         public static implicit operator Duration(UnknownUnit Unit)
         {
             Duration local = new Duration(0, DurationUnit.SI);

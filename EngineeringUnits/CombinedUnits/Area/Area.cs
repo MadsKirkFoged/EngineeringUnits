@@ -21,7 +21,7 @@ namespace EngineeringUnits
         public static Area From(double value, AreaUnit unit) => new Area(value, unit);
         public double As(AreaUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public Area ToUnit(AreaUnit selectedUnit) => new Area(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-
+        public Area Zero => new Area(0, AreaUnit.SI);
 
         public static implicit operator Area(UnknownUnit Unit)
         {
