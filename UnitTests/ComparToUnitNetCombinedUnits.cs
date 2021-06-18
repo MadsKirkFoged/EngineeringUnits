@@ -1093,5 +1093,50 @@ namespace UnitTests
             }
 
         }
+
+        [TestMethod]
+        public void HeatTransferCoefficientCompareAutoTest()
+        {
+            UnitsNet.HeatTransferCoefficient A1 = new UnitsNet.HeatTransferCoefficient(1, UnitsNet.Units.HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
+            EngineeringUnits.HeatTransferCoefficient A2 = new EngineeringUnits.HeatTransferCoefficient(1, EngineeringUnits.HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
+
+            var EU11 = EngineeringUnits.HeatTransferCoefficientUnit.List();
+            var UN11 = UnitsNet.HeatTransferCoefficient.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.HeatTransferCoefficient.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.HeatTransferCoefficientUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.HeatTransferCoefficient.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-3);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a")
+                                .Replace("K", "k")
+                                );
+
+            }
+
+        }
     }
 }
