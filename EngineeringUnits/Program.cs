@@ -12,10 +12,10 @@ namespace EngineeringUnits
 
 
 
-            Power test = new Power(1, PowerUnit.JoulePerHour);
+            Volume test = new Volume(1, VolumeUnit.Centiliter);
 
 
-            Debug.Print($"{test.As(PowerUnit.Gigawatt)}");
+            Debug.Print($"{test.As(VolumeUnit.Centiliter)}");
 
 
 

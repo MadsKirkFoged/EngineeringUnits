@@ -32,6 +32,7 @@ namespace EngineeringUnits
         public static VolumeUnit CubicCentimeter = new VolumeUnit(LengthUnit.Centimeter);
 
         public static VolumeUnit Liter = new VolumeUnit(LengthUnit.Decimeter, "l");
+        public static VolumeUnit Nanoliter = new VolumeUnit(PreFix.nano, Liter);
         public static VolumeUnit Microliter = new VolumeUnit(PreFix.micro, Liter);
         public static VolumeUnit Milliliter = new VolumeUnit(PreFix.milli, Liter);
         public static VolumeUnit Deciliter = new VolumeUnit(PreFix.deci, Liter);
