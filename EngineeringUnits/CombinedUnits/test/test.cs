@@ -5,27 +5,27 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class MolarMass : BaseUnit
+    //public partial class test : BaseUnit
     //{
 
-    //    public MolarMass()
+    //    public test()
     //    {
     //        Name = "test";
     //    }
 
-    //    public MolarMass(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public MolarMass(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public MolarMass(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-    //    public static MolarMass From(double value, testUnit unit) => new test(value, unit);
+    //    public static test From(double value, testUnit unit) => new test(value, unit);
     //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public MolarMass ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static MolarMass Zero => new MolarMass(0, MolarMassUnit.SI);
+    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+    //    public static test Zero => new test(0, testUnit.SI);
 
-    //    public static implicit operator MolarMass(UnknownUnit Unit)
+    //    public static implicit operator test(UnknownUnit Unit)
     //    {
-    //        MolarMass local = new test(0, testUnit.SI);
+    //        test local = new test(0, testUnit.SI);
 
     //        local.Transform(Unit);
     //        return local;
