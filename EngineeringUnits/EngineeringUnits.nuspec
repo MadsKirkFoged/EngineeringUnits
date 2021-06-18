@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Mads Kirk Foged</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/MadsKirkFoged/EngineeringUnits</projectUrl>
+    <description>An Engineering version of UnitsNet - Do calculations and converts between any type of unit</description>
+    <releaseNotes>Still in beta.</releaseNotes>
+    <copyright>Open Source</copyright>
+    <tags>UnitsNet Unit units measurement si metric imperial convert conversion Physics Engineering science Math mathematics calculation</tags>
+
+    <dependencies>
+    </dependencies>
+
+  </metadata>
+  
+	<files>		
+  
+		<file src="bin\release\EngineeringUnits.dll" target="lib\net40" />	
+		<file src="bin\release\EngineeringUnits.dll" target="lib\net472" />
+		<file src="bin\release\EngineeringUnits.dll" target="lib\netstandard2.1" />
+  
+  </files>
+	
+	
+</package>
