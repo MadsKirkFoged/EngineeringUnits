@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineeringUnits", "Enginee
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{67CBBBA4-428F-483D-BB47-AFB18C3F309D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitNetcomparing", "UnitNetcomparing\UnitNetcomparing.csproj", "{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitNetcomparing", "UnitNetcomparing\UnitNetcomparing.csproj", "{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineeringUnitsNET", "EngineeringUnitsNET\EngineeringUnitsNET.csproj", "{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
