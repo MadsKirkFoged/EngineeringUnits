@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitNetcomparing", "UnitNetcomparing\UnitNetcomparing.csproj", "{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineeringUnitsNET", "EngineeringUnitsNET\EngineeringUnitsNET.csproj", "{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineeringUnits", "EngineeringUnitsNET\EngineeringUnits.csproj", "{3831E9EB-88E0-4CAF-B402-C4EFD17E5941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
