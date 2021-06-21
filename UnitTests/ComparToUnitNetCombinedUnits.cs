@@ -1269,5 +1269,47 @@ namespace UnitTests
             }
 
         }
+        [TestMethod]
+        public void KinematicViscosityCompareAutoTest()
+        {
+            UnitsNet.KinematicViscosity A1 = new UnitsNet.KinematicViscosity(1, UnitsNet.Units.KinematicViscosityUnit.Kilostokes);
+            EngineeringUnits.KinematicViscosity A2 = new EngineeringUnits.KinematicViscosity(1, EngineeringUnits.KinematicViscosityUnit.Kilostokes);
+
+            var EU11 = EngineeringUnits.KinematicViscosityUnit.List();
+            var UN11 = UnitsNet.KinematicViscosity.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.KinematicViscosity.Units.Length; i++)
+            {
+
+                //if (UnitsNet.KinematicViscosity.Units[i] == UnitsNet.Units.KinematicViscosityUnit.BUnit)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.KinematicViscosityUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.KinematicViscosity.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a")
+                                );
+
+            }
+
+        }
     }
 }
