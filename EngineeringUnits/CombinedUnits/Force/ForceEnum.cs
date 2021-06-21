@@ -25,6 +25,7 @@ namespace EngineeringUnits
         public static ForceUnit OunceForce = new ForceUnit(MassUnit.Ounce, AccelerationUnit.StandardGravity);
         public static ForceUnit KiloPond = new ForceUnit(MassUnit.Kilogram, AccelerationUnit.StandardGravity, "kp");
         public static ForceUnit KilopoundForce = new ForceUnit(MassUnit.Kilopound, AccelerationUnit.StandardGravity, "kipf");
+        public static ForceUnit MegapoundForce = new ForceUnit(MassUnit.Megapound, AccelerationUnit.StandardGravity, "Mlbf");
         public static ForceUnit Poundal = new ForceUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "pdl", 0.138254954376m);
 
         public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)

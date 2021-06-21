@@ -1183,5 +1183,91 @@ namespace UnitTests
             }
 
         }
+
+        [TestMethod]
+        public void FrequencyCompareAutoTest()
+        {
+            UnitsNet.Frequency A1 = new UnitsNet.Frequency(1, UnitsNet.Units.FrequencyUnit.CyclePerMinute);
+            EngineeringUnits.Frequency A2 = new EngineeringUnits.Frequency(1, EngineeringUnits.FrequencyUnit.CyclePerMinute);
+
+            var EU11 = EngineeringUnits.FrequencyUnit.List();
+            var UN11 = UnitsNet.Frequency.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Frequency.Units.Length; i++)
+            {
+
+                if (UnitsNet.Frequency.Units[i] == UnitsNet.Units.FrequencyUnit.BUnit)
+                {
+                    DiffCount++;
+                    continue;
+                }
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.FrequencyUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Frequency.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-0);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a")                                
+                                );
+
+            }
+
+        }
+
+        [TestMethod]
+        public void TorqueCompareAutoTest()
+        {
+            UnitsNet.Torque A1 = new UnitsNet.Torque(1, UnitsNet.Units.TorqueUnit.KilonewtonMeter);
+            EngineeringUnits.Torque A2 = new EngineeringUnits.Torque(1, EngineeringUnits.TorqueUnit.KilonewtonMeter);
+
+            var EU11 = EngineeringUnits.TorqueUnit.List();
+            var UN11 = UnitsNet.Torque.Units;
+
+
+            int DiffCount = 0;
+
+            for (int i = 0; i < UnitsNet.Torque.Units.Length; i++)
+            {
+
+                //if (UnitsNet.Torque.Units[i] == UnitsNet.Units.TorqueUnit.BUnit)
+                //{
+                //    DiffCount++;
+                //    continue;
+                //}
+
+
+
+                //Getting Units
+                var EU = EngineeringUnits.TorqueUnit.List().ToList()[i - DiffCount];
+                var UN = UnitsNet.Torque.Units[i];
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-2);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        1E-5);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a")
+                                );
+
+            }
+
+        }
     }
 }
