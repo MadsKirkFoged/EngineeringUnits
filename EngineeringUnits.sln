@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineeringUnits", "EngineeringUnits\EngineeringUnits.csproj", "{027A447A-83E5-458A-8CBC-CA414A64C395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineeringUnitsOld", "EngineeringUnits\EngineeringUnitsOld.csproj", "{027A447A-83E5-458A-8CBC-CA414A64C395}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{67CBBBA4-428F-483D-BB47-AFB18C3F309D}"
 EndProject

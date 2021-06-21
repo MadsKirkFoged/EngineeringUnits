@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
+    <ProjectReference Include="..\EngineeringUnits\EngineeringUnitsOld.csproj" />
   </ItemGroup>
 
 </Project>
