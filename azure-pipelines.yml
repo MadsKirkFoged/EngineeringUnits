@@ -48,7 +48,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/EngineeringUnitsNET.csproj'
+    packagesToPack: '**/EngineeringUnits.csproj'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'VersionNumber'
     includeSymbols: true
