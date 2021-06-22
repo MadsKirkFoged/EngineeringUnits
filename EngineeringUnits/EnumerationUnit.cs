@@ -107,74 +107,212 @@ namespace EngineeringUnits
             return Name.CompareTo(((Enumeration)other).Name);
         }
 
-        public decimal PrefixSISize(PreFix preFix) =>
-           preFix switch
-           {
-               PreFix.yotta => 1e+24m,
-               PreFix.zetta => 1e+21m,
-               PreFix.exa => 1e+18m,
-               PreFix.peta => 1e+15m,
-               PreFix.tera => 1e+12m,
-               PreFix.giga => 1e+9m,
-               PreFix.mega => 1e+6m,
-               PreFix.kilo => 1e+3m,
-               PreFix.hecto => 1e+2m,
-               PreFix.deka => 1e+1m,
-               PreFix.SI => 1e0m,
-               PreFix.deci => 1e-1m,
-               PreFix.centi => 1e-2m,
-               PreFix.milli => 1e-3m,
-               PreFix.micro => 1e-6m,
-               PreFix.nano => 1e-9m,
-               PreFix.pico => 1e-12m,
-               PreFix.femto => 1e-15m,
-               PreFix.atto => 1e-18m,
-               PreFix.zepto => 1e-21m,
-               PreFix.yocto => 1e-24m,
+        //public decimal PrefixSISize(PreFix preFix) =>
+        //   preFix switch
+        //   {
+        //       PreFix.yotta => 1e+24m,
+        //       PreFix.zetta => 1e+21m,
+        //       PreFix.exa => 1e+18m,
+        //       PreFix.peta => 1e+15m,
+        //       PreFix.tera => 1e+12m,
+        //       PreFix.giga => 1e+9m,
+        //       PreFix.mega => 1e+6m,
+        //       PreFix.kilo => 1e+3m,
+        //       PreFix.hecto => 1e+2m,
+        //       PreFix.deka => 1e+1m,
+        //       PreFix.SI => 1e0m,
+        //       PreFix.deci => 1e-1m,
+        //       PreFix.centi => 1e-2m,
+        //       PreFix.milli => 1e-3m,
+        //       PreFix.micro => 1e-6m,
+        //       PreFix.nano => 1e-9m,
+        //       PreFix.pico => 1e-12m,
+        //       PreFix.femto => 1e-15m,
+        //       PreFix.atto => 1e-18m,
+        //       PreFix.zepto => 1e-21m,
+        //       PreFix.yocto => 1e-24m,
 
-               _ => 0
-           };
+        //       _ => 0
+        //   };
 
-        public string PrefixSISymbol(PreFix preFix) =>
-           preFix switch
-           {
-               PreFix.yotta => "Y",
-               PreFix.zetta => "Z",
-               PreFix.exa => "E",
-               PreFix.peta => "P",
-               PreFix.tera => "T",
-               PreFix.giga => "G",
-               PreFix.mega => "M",
-               PreFix.kilo => "k",
-               PreFix.hecto => "h",
-               PreFix.deka => "da",
-               PreFix.deci => "d",
-               PreFix.centi => "c",
-               PreFix.milli => "m",
-               PreFix.micro => "µ",
-               PreFix.nano => "n",
-               PreFix.pico => "p",
-               PreFix.femto => "f",
-               PreFix.atto => "a",
-               PreFix.zepto => "z",
-               PreFix.yocto => "y",
 
-               _ => ""
-           };
+        public decimal PrefixSISize(PreFix preFix)
+        {
+            switch (preFix)
+            {
+                case PreFix.yotta:
+                    return 1e+24m;
+                case PreFix.zetta:
+                    return 1e+21m;
+                case PreFix.exa:
+                    return 1e+18m;
+                case PreFix.peta:
+                    return 1e+15m;
+                case PreFix.tera:
+                    return 1e+12m;
+                case PreFix.giga:
+                    return 1e+9m;
+                case PreFix.mega:
+                    return 1e+6m;
+                case PreFix.kilo:
+                    return 1e+3m;
+                case PreFix.hecto:
+                    return 1e+2m;
+                case PreFix.deka:
+                    return 1e+1m;
+                case PreFix.SI:
+                    return 1e+0m;
+                case PreFix.deci:
+                    return 1e-1m;
+                case PreFix.centi:
+                    return 1e-2m;
+                case PreFix.milli:
+                    return 1e-3m;
+                case PreFix.micro:
+                    return 1e-6m;
+                case PreFix.nano:
+                    return 1e-9m;
+                case PreFix.pico:
+                    return 1e-12m;
+                case PreFix.femto:
+                    return 1e-15m;
+                case PreFix.atto:
+                    return 1e-18m;
+                case PreFix.zepto:
+                    return 1e-21m;
+                case PreFix.yocto:
+                    return 1e-24m;
+                default:
+                    return 0;
+            }
 
-        public string BaseUnitSISymbol(BaseUnits baseUnits) =>
-           baseUnits switch
-           {
-               BaseUnits.time => "s",
-               BaseUnits.length => "m",
-               BaseUnits.mass => "g",
-               BaseUnits.electricCurrent => "A",
-               BaseUnits.temperature => "",
-               BaseUnits.amountOfSubstance => "mol",
-               BaseUnits.luminousIntensity => "cd",
-               _ => "",
-           };
-    
+        }
+   
+
+
+        //public string PrefixSISymbol(PreFix preFix) =>
+        //   preFix switch
+        //   {
+        //       PreFix.yotta => "Y",
+        //       PreFix.zetta => "Z",
+        //       PreFix.exa => "E",
+        //       PreFix.peta => "P",
+        //       PreFix.tera => "T",
+        //       PreFix.giga => "G",
+        //       PreFix.mega => "M",
+        //       PreFix.kilo => "k",
+        //       PreFix.hecto => "h",
+        //       PreFix.deka => "da",
+        //       PreFix.deci => "d",
+        //       PreFix.centi => "c",
+        //       PreFix.milli => "m",
+        //       PreFix.micro => "µ",
+        //       PreFix.nano => "n",
+        //       PreFix.pico => "p",
+        //       PreFix.femto => "f",
+        //       PreFix.atto => "a",
+        //       PreFix.zepto => "z",
+        //       PreFix.yocto => "y",
+
+        //       _ => ""
+        //   };
+
+        public string PrefixSISymbol(PreFix preFix)
+        {
+            switch (preFix)
+            {
+                case PreFix.yotta:
+                    return "Y";
+                case PreFix.zetta:
+                    return "Z";
+                case PreFix.exa:
+                    return "E";
+                case PreFix.peta:
+                    return "P";
+                case PreFix.tera:
+                    return "T";
+                case PreFix.giga:
+                    return "G";
+                case PreFix.mega:
+                    return "M";
+                case PreFix.kilo:
+                    return "k";
+                case PreFix.hecto:
+                    return "h";
+                case PreFix.deka:
+                    return "da";
+                case PreFix.SI:
+                    return "";
+                case PreFix.deci:
+                    return "d";
+                case PreFix.centi:
+                    return "c";
+                case PreFix.milli:
+                    return "m";
+                case PreFix.micro:
+                    return "µ";
+                case PreFix.nano:
+                    return "n";
+                case PreFix.pico:
+                    return "p";
+                case PreFix.femto:
+                    return "f";
+                case PreFix.atto:
+                    return "a";
+                case PreFix.zepto:
+                    return "z";
+                case PreFix.yocto:
+                    return "y";
+                default:
+                    return "";
+            }
+        }
+
+
+
+
+
+        //public string BaseUnitSISymbol(BaseUnits baseUnits) =>
+        //   baseUnits switch
+        //   {
+        //       BaseUnits.time => "s",
+        //       BaseUnits.length => "m",
+        //       BaseUnits.mass => "g",
+        //       BaseUnits.electricCurrent => "A",
+        //       BaseUnits.temperature => "",
+        //       BaseUnits.amountOfSubstance => "mol",
+        //       BaseUnits.luminousIntensity => "cd",
+        //       _ => "",
+        //   };
+
+        public string BaseUnitSISymbol(BaseUnits baseUnits)
+        {
+
+            switch (baseUnits)
+            {
+                case BaseUnits.time:
+                    return "s";
+                case BaseUnits.length:
+                    return "m";
+                case BaseUnits.mass:
+                    return "g";
+                case BaseUnits.electricCurrent:
+                    return "A";
+                case BaseUnits.temperature:
+                    return "";
+                case BaseUnits.amountOfSubstance:
+                    return "mol";
+                case BaseUnits.luminousIntensity:
+                    return "cd";
+                default:
+                    return ""; ;
+            }
+
+
+        }
+
+
+
         public void SetCombined(decimal correction)
         {
             decimal correction2 = 1;

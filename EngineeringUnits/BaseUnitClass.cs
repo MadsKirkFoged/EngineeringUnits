@@ -9,7 +9,7 @@ namespace EngineeringUnits
 
 
         public int Count { get; set; }
-        public Enum? BaseUnitType { get; set; }
+        public Enum BaseUnitType { get; set; }
         public Enumeration SelectedUnit { get; set; }
 
 
@@ -17,7 +17,7 @@ namespace EngineeringUnits
 
 
 
-        public BaseUnitClass(Enum? baseUnitType)
+        public BaseUnitClass(Enum baseUnitType)
         {
             Count = 0;
             BaseUnitType = baseUnitType; 

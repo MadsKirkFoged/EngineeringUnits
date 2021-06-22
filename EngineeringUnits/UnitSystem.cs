@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
+//using System.Text.Json.Serialization;
 
 namespace EngineeringUnits
 {
@@ -56,22 +56,22 @@ namespace EngineeringUnits
 
 
             //Local function
-            bool Compareunits(Enumeration a, Enumeration b)
+            bool Compareunits(Enumeration a1, Enumeration b1)
             {
 
-                if (a is object && b is object)
+                if (a1 is object && b1 is object)
                 {
-                    if (a.Count != b.Count)                    
+                    if (a1.Count != b1.Count)                    
                         return false;                    
                 }
-                else if (a is object)
+                else if (a1 is object)
                 {
-                    if (a.Count != 0)                    
+                    if (a1.Count != 0)                    
                         return false;                    
                 }
-                else if (b is object)
+                else if (b1 is object)
                 {
-                    if (b.Count != 0)                    
+                    if (b1.Count != 0)                    
                         return false;                    
                 }
 
