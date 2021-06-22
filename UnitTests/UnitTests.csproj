@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngineeringUnitsNET\EngineeringUnits.csproj" />
+    <ProjectReference Include="..\EngineeringUnitsNew\EngineeringUnits.csproj" />
   </ItemGroup>
 
 </Project>
