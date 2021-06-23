@@ -26,7 +26,13 @@ namespace UnitNetcomparing
             //}
 
 
-            EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+            AmountOfSubstance A2 = new AmountOfSubstance(Double.NaN, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+
+
+
+            AmountOfSubstance A3 = AmountOfSubstance.FromCentimoles(123123165767567567567567231231231312123123d);
+
+
 
 
             string json = JsonConvert.SerializeObject(A2);
