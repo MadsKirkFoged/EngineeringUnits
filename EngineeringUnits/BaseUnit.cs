@@ -42,15 +42,16 @@ namespace EngineeringUnits
 
         public BaseUnit(double value, UnitSystem unitSystem)
         {
-            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue)
-            {
-                SetValue(0);
+            
+            Unit = unitSystem;
 
-            }
+            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue)            
+                SetValue(0);            
+            else            
+                SetValue(value);           
+
            
 
-            Unit = unitSystem;
-            SetValue(value);
         }
 
         public BaseUnit(int value, UnitSystem unitSystem)
