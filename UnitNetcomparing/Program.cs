@@ -15,20 +15,12 @@ namespace UnitNetcomparing
 
 
 
-            //public string SaveAsJSON()
-            //{
-            //    return JsonConvert.SerializeObject(this, ReturnJSONSettings());
-            //}
-
-            //public Fluid LoadFromJSON(string json)
-            //{
-            //    return JsonConvert.DeserializeObject<Fluid>(json, ReturnJSONSettings());
-            //}
+            AmountOfSubstance A2 = new AmountOfSubstance(10, EngineeringUnits.AmountOfSubstanceUnit.Mole);
 
 
-            AmountOfSubstance A2 = new AmountOfSubstance(Double.NaN, EngineeringUnits.AmountOfSubstanceUnit.Mole);
+            string test1 = JsonConvert.SerializeObject(A2);
 
-
+            AmountOfSubstance A244 = JsonConvert.DeserializeObject<AmountOfSubstance>(test1);
 
 
             AmountOfSubstance A3 = AmountOfSubstance.FromCentimoles(123123165767567567567567231231231312123123d);
