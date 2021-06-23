@@ -120,7 +120,21 @@ namespace EngineeringUnits
         public static UnknownUnit operator /(BaseUnit a, double b) => a / (new UnknownUnit(b));
         public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;        
         public static UnknownUnit operator *(double a, BaseUnit b) => b*a;
-        
+
+
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                BaseUnit p = (BaseUnit)obj;
+                return this == p;
+            }
+        }
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
