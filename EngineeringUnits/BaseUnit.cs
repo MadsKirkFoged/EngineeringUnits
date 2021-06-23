@@ -46,7 +46,7 @@ namespace EngineeringUnits
             
             Unit = unitSystem;
 
-            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue)            
+            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue || value == Double.NaN)            
                 SetValue(0);            
             else            
                 SetValue(value);           
