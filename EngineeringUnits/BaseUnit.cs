@@ -42,6 +42,12 @@ namespace EngineeringUnits
 
         public BaseUnit(double value, UnitSystem unitSystem)
         {
+            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue)
+            {
+                SetValue(0);
+            }
+           
+
             Unit = unitSystem;
             SetValue(value);
         }
@@ -52,21 +58,7 @@ namespace EngineeringUnits
             SetValue(value);
         }
 
-        public decimal GetDecimal(UnitSystem a)
-        {
-            if (Unit is object)
-            {
-                return ToTheOutSide(a);
-            }
-            else
-            {
-                return 0;
-            }
-
-
-        }
-
-
+     
         public double As(UnitSystem a)
         {
 
