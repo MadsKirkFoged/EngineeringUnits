@@ -12,7 +12,18 @@ namespace UnitNetcomparing
             Console.WriteLine("Hello World!");
 
 
+            Volume test3 = new Volume(5.4, VolumeUnit.UsGallon);
 
+
+            string jsonstring2 = JsonConvert.SerializeObject(test3);
+            Volume JSON1 = JsonConvert.DeserializeObject<Volume>(jsonstring2);
+
+
+
+
+            Area test = new Area(1, AreaUnit.SI);
+            string jsonstring = JsonConvert.SerializeObject(test);
+            Area JSON = JsonConvert.DeserializeObject<Area>(jsonstring);
 
 
             AmountOfSubstance A2 = new AmountOfSubstance(10, EngineeringUnits.AmountOfSubstanceUnit.Mole);

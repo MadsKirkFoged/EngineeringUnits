@@ -1,4 +1,5 @@
 ﻿using Fractions;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 
@@ -20,7 +21,8 @@ namespace EngineeringUnits
             Debug.Print($"{test.As(VolumeUnit.Centiliter)}");
 
 
-
+            string jsonstring = JsonConvert.SerializeObject(test);
+            Volume JSON = JsonConvert.DeserializeObject<Volume>(jsonstring);
 
 
 
