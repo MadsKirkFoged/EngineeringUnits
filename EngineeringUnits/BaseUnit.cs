@@ -45,6 +45,7 @@ namespace EngineeringUnits
             if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue)
             {
                 SetValue(0);
+
             }
            
 
