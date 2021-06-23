@@ -39,6 +39,7 @@ namespace EngineeringUnits
         {
             Unit = unitSystem;
             SetValue(value);
+
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
