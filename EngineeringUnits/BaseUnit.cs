@@ -31,6 +31,7 @@ namespace EngineeringUnits
         public BaseUnit(double valueLocalUnit) :this()
         {
             ValueLocalUnit = (decimal)valueLocalUnit;
+
         }
 
 
