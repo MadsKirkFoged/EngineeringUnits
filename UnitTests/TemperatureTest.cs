@@ -11,6 +11,30 @@ namespace UnitTests
 
 
         [TestMethod]
+        public void TemperatureEqual()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+
+            Assert.AreEqual(T1, T2);
+
+
+        }
+
+        [TestMethod]
+        public void TemperatureNotEqual()
+        {
+            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(21, TemperatureUnit.DegreeCelsius);
+
+            Assert.AreNotEqual(T1, T2);
+
+
+        }
+
+
+
+        [TestMethod]
         public void TemperatureCelsiusDivideDouble()
         {
             Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
