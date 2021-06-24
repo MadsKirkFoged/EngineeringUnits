@@ -11,6 +11,7 @@ namespace EngineeringUnits
     public class Enumeration : IComparable
     {
         public string Name { get; set; }
+        public string NameOf { get; set; }
         public string Symbol { get; set; }
         public decimal LocalC { get; set; }
         public decimal GlobalC { get; set; }
@@ -351,5 +352,8 @@ namespace EngineeringUnits
         {
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
+
+
+
     }
 }

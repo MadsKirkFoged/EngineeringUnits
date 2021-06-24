@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 
 namespace UnitNetcomparing
 {
@@ -10,6 +12,71 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
+
+            //var etssets =  AreaUnit.List().Where(x => nameof(x) == "Acre").Single();
+
+
+            AreaUnit test12 = AreaUnit.GetUnitByString("SquareNanometer");
+
+
+            AreaUnit test123 = AreaUnit.SquareNanometer;
+
+
+
+            var testset = typeof(AreaUnit)
+            .GetFields(BindingFlags.Static | BindingFlags.Public)
+            .ToList();
+
+
+
+
+
+
+
+
+            foreach (var item in testset)
+            {
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+            foreach (var item in AreaUnit.List())
+            {
+
+               var etstset = item.GetType();
+                
+
+                Debug.Print(nameof(item));
+
+                if (nameof(item) == "Acre")
+                {
+
+                }
+
+            }
+
+
+
+            var testte = UnitsNet.Area.Units;
+
+            var testte2 = AreaUnit.List();
+
+            var estsetes = AreaUnit.Acre;
+
+  
+            var name = nameof(AreaUnit.Acre);
 
 
             Volume test3 = new Volume(5.4, VolumeUnit.UsGallon);

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace EngineeringUnits
@@ -43,8 +45,76 @@ namespace EngineeringUnits
 
         public static IEnumerable<AreaUnit> List()
         {
-            return new[] { Acre, Hectare, SquareCentimeter, SquareDecimeter, SquareFoot, SquareInch, SquareKilometer, SquareMeter, SquareMicrometer, SquareMile, SquareMillimeter, SquareNauticalMile, SquareYard, };
+            return new[] { 
+                Acre,
+                Hectare,
+                SquareCentimeter,
+                SquareDecimeter,
+                SquareFoot,
+                SquareInch,
+                SquareKilometer,
+                SquareMeter,
+                SquareMicrometer,
+                SquareMile,
+                SquareMillimeter,
+                SquareNauticalMile,
+                SquareYard, 
+            };
         }
+
+
+        public static Dictionary<AreaUnit, string> List2()
+        {
+
+
+            //typeof(AreaUnit)
+            //.GetFields(BindingFlags.Static | BindingFlags.Public)
+            //.Select(field => field.Name)
+            //.ToList()
+
+
+
+
+            return new Dictionary<AreaUnit, string>()
+            {
+                { Acre, nameof(Acre) },
+                { Hectare, nameof(Hectare) },
+                { SquareCentimeter, nameof(SquareCentimeter) },
+            };
+
+        }
+
+
+
+        public static List<AreaUnit> ListOf()
+        {
+            List<AreaUnit> local = new List<AreaUnit>();
+
+
+            foreach (var field in typeof(AreaUnit).GetFields(BindingFlags.Static | BindingFlags.Public))
+            {
+                local.Add((AreaUnit)field.GetValue(field));
+            }
+
+
+            return local;
+
+        }
+
+
+        public static AreaUnit GetUnitByString(string name)
+        {
+            foreach (var field in typeof(AreaUnit).GetFields(BindingFlags.Static | BindingFlags.Public))
+            {
+                if (field.Name == name)                
+                    return (AreaUnit)field.GetValue(field);                
+            }
+
+            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
+        }
+
+        
+
 
 
 
