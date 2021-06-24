@@ -1,4 +1,5 @@
 ﻿using Fractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -17,7 +18,7 @@ namespace EngineeringUnits
         public decimal B { get; set; }
         public int Count { get; set; }
 
-
+        [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
 
 
