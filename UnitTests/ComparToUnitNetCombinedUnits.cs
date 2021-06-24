@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using UnitsNet;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace UnitTests
 {
@@ -258,6 +259,11 @@ namespace UnitTests
             UnitsNet.MassFlow A1 = new UnitsNet.MassFlow(65.743, UnitsNet.Units.MassFlowUnit.KilogramPerHour);
             EngineeringUnits.MassFlow A2 = new EngineeringUnits.MassFlow(65.743, EngineeringUnits.MassFlowUnit.KilogramPerHour);
 
+
+            string jsonString = JsonConvert.SerializeObject(A2);
+            EngineeringUnits.MassFlow A2JSON = JsonConvert.DeserializeObject<EngineeringUnits.MassFlow>(jsonString);
+
+
             var EU11 = EngineeringUnits.MassFlowUnit.List();
             var UN11 = UnitsNet.MassFlow.Units;
 
@@ -281,16 +287,16 @@ namespace UnitTests
                 var UN = UnitsNet.MassFlow.Units[i];
 
                 //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
+                Assert.AreEqual(0, A2JSON.As(EU) - A1.As(UN), 1);
 
                 //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                Assert.AreEqual(0, HelperClass.Percent(A2JSON.As(EU),
                                                         A1.As(UN)),
                                                         1E-3);
                 //All units symbol compare
                 if (A1.ToUnit(UN).ToString("a") != "short tn/h")
                 {
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2JSON.ToUnit(EU).DisplaySymbol(),
                                     A1.ToUnit(UN).ToString("a").Replace("min","m"));
 
                 }
@@ -613,6 +619,10 @@ namespace UnitTests
             UnitsNet.Force A1 = new UnitsNet.Force(1, UnitsNet.Units.ForceUnit.Kilonewton);
             EngineeringUnits.Force A2 = new EngineeringUnits.Force(1, EngineeringUnits.ForceUnit.Kilonewton);
 
+            string jsonString = JsonConvert.SerializeObject(A2);
+            EngineeringUnits.Force A2JSON = JsonConvert.DeserializeObject<EngineeringUnits.Force>(jsonString);
+
+
             var EU11 = EngineeringUnits.ForceUnit.List();
             var UN11 = UnitsNet.Force.Units;
 
@@ -636,14 +646,14 @@ namespace UnitTests
                 var UN = UnitsNet.Force.Units[i];
 
                 //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-2);
+                Assert.AreEqual(0, A2JSON.As(EU) - A1.As(UN), 1E-2);
 
                 //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                Assert.AreEqual(0, HelperClass.Percent(A2JSON.As(EU),
                                                         A1.As(UN)),
                                                         1E-4);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                Assert.AreEqual(A2JSON.ToUnit(EU).DisplaySymbol(),
                                 A1.ToUnit(UN).ToString("a"));
 
             }

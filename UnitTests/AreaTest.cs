@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace UnitTests
@@ -18,9 +19,19 @@ namespace UnitTests
 
             Area A1 = L1 * L2;
 
+            string jsonString = JsonConvert.SerializeObject(A1);
+            Area JSON = JsonConvert.DeserializeObject<Area>(jsonString);
+
             Assert.AreEqual(1, A1.As(AreaUnit.SquareMeter));
             Assert.AreEqual(10000, A1.As(AreaUnit.SquareCentimeter));
             Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.SquareYard));
+
+            //JSON
+            Assert.AreEqual(1, JSON.As(AreaUnit.SquareMeter));
+            Assert.AreEqual(10000, JSON.As(AreaUnit.SquareCentimeter));
+            Assert.AreEqual(1.195990046301080256481500558, JSON.As(AreaUnit.SquareYard));
+
+
         }
 
 

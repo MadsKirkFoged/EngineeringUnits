@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -136,6 +137,11 @@ namespace UnitTests
             UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
             EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
 
+            string jsonString = JsonConvert.SerializeObject(A2);
+            EngineeringUnits.AmountOfSubstance JSON = JsonConvert.DeserializeObject<EngineeringUnits.AmountOfSubstance>(jsonString);
+
+
+
             for (int i = 0; i < UnitsNet.AmountOfSubstance.Units.Length; i++)
             {
 
@@ -144,14 +150,14 @@ namespace UnitTests
                 var UN = UnitsNet.AmountOfSubstance.Units[i];
 
                 //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+                Assert.AreEqual(0, JSON.As(EU) - A1.As(UN), 1E-5);
 
                 //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent( A2.As(EU),
+                Assert.AreEqual(0, HelperClass.Percent(JSON.As(EU),
                                                         A1.As(UN)), 
                                                         1E-10);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                Assert.AreEqual(JSON.ToUnit(EU).DisplaySymbol(),
                                 A1.ToUnit(UN).ToString("a"));
 
             }
@@ -166,18 +172,21 @@ namespace UnitTests
             UnitsNet.Duration A1 = new UnitsNet.Duration(6544444.743, UnitsNet.Units.DurationUnit.Minute);
             EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, EngineeringUnits.DurationUnit.Minute);
 
+            string jsonString = JsonConvert.SerializeObject(A2);
+            EngineeringUnits.Duration JSON = JsonConvert.DeserializeObject<EngineeringUnits.Duration>(jsonString);
 
 
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Day) - A1.As(UnitsNet.Units.DurationUnit.Day), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Hour) - A1.As(UnitsNet.Units.DurationUnit.Hour), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Microsecond) - A1.As(UnitsNet.Units.DurationUnit.Microsecond), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Millisecond) - A1.As(UnitsNet.Units.DurationUnit.Millisecond), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Minute) - A1.As(UnitsNet.Units.DurationUnit.Minute), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Nanosecond) - A1.As(UnitsNet.Units.DurationUnit.Nanosecond), 65);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Second) - A1.As(UnitsNet.Units.DurationUnit.Second), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Week) - A1.As(UnitsNet.Units.DurationUnit.Week), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Month30) - A1.As(UnitsNet.Units.DurationUnit.Month30), 0);
-            Assert.AreEqual(0, A2.As(EngineeringUnits.DurationUnit.Year365) - A1.As(UnitsNet.Units.DurationUnit.Year365), 0);
+
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Day) - A1.As(UnitsNet.Units.DurationUnit.Day), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Hour) - A1.As(UnitsNet.Units.DurationUnit.Hour), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Microsecond) - A1.As(UnitsNet.Units.DurationUnit.Microsecond), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Millisecond) - A1.As(UnitsNet.Units.DurationUnit.Millisecond), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Minute) - A1.As(UnitsNet.Units.DurationUnit.Minute), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Nanosecond) - A1.As(UnitsNet.Units.DurationUnit.Nanosecond), 65);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Second) - A1.As(UnitsNet.Units.DurationUnit.Second), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Week) - A1.As(UnitsNet.Units.DurationUnit.Week), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Month30) - A1.As(UnitsNet.Units.DurationUnit.Month30), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.DurationUnit.Year365) - A1.As(UnitsNet.Units.DurationUnit.Year365), 0);
 
 
             Assert.AreEqual(0, UnitsNet.Duration.FromDays(435).Days - EngineeringUnits.Duration.FromDays(435).Days, 0);
@@ -193,48 +202,48 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Day),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Day),
                                                     A1.As(UnitsNet.Units.DurationUnit.Day)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Hour),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Hour),
                                                     A1.As(UnitsNet.Units.DurationUnit.Hour)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Microsecond),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Microsecond),
                                                     A1.As(UnitsNet.Units.DurationUnit.Microsecond)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Millisecond),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Millisecond),
                                                     A1.As(UnitsNet.Units.DurationUnit.Millisecond)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Minute),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Minute),
                                                     A1.As(UnitsNet.Units.DurationUnit.Minute)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Month30),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Month30),
                                                     A1.As(UnitsNet.Units.DurationUnit.Month30)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Nanosecond),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Nanosecond),
                                                     A1.As(UnitsNet.Units.DurationUnit.Nanosecond)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Second),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Second),
                                                     A1.As(UnitsNet.Units.DurationUnit.Second)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Week),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Week),
                                                     A1.As(UnitsNet.Units.DurationUnit.Week)), 1E-10);
-            Assert.AreEqual(0, HelperClass.Percent( A2.As(EngineeringUnits.DurationUnit.Year365),
+            Assert.AreEqual(0, HelperClass.Percent(JSON.As(EngineeringUnits.DurationUnit.Year365),
                                                     A1.As(UnitsNet.Units.DurationUnit.Year365)), 1E-10);
 
 
 
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Day).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Day).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Day).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Hour).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Hour).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Hour).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Microsecond).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Microsecond).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Microsecond).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Millisecond).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Millisecond).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Millisecond).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Minute).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Minute).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Minute).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Month30).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Month30).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Month30).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Nanosecond).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Nanosecond).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Nanosecond).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Second).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Second).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Second).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Week).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Week).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Week).ToString("a"));
-            Assert.AreEqual(A2.ToUnit(EngineeringUnits.DurationUnit.Year365).DisplaySymbol(),
+            Assert.AreEqual(JSON.ToUnit(EngineeringUnits.DurationUnit.Year365).DisplaySymbol(),
                             A1.ToUnit(UnitsNet.Units.DurationUnit.Year365).ToString("a"));
 
         }
@@ -539,12 +548,15 @@ namespace UnitTests
             UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.Kelvin);
             EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, EngineeringUnits.TemperatureUnit.Kelvin);
 
+            string jsonString = JsonConvert.SerializeObject(L2);
+            EngineeringUnits.Temperature JSON = JsonConvert.DeserializeObject<EngineeringUnits.Temperature>(jsonString);
+
 
             //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
-            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 1.2E-13);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 1.2E-13);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+            Assert.AreEqual(0, JSON.As(EngineeringUnits.TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
 
 
             //Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
