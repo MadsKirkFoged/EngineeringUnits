@@ -63,42 +63,24 @@ namespace EngineeringUnits
         }
 
 
-        public static Dictionary<AreaUnit, string> List2()
-        {
-
-
-            //typeof(AreaUnit)
-            //.GetFields(BindingFlags.Static | BindingFlags.Public)
-            //.Select(field => field.Name)
-            //.ToList()
-
-
-
-
-            return new Dictionary<AreaUnit, string>()
-            {
-                { Acre, nameof(Acre) },
-                { Hectare, nameof(Hectare) },
-                { SquareCentimeter, nameof(SquareCentimeter) },
-            };
-
-        }
-
-
 
         public static List<AreaUnit> ListOf()
         {
             List<AreaUnit> local = new List<AreaUnit>();
 
-
             foreach (var field in typeof(AreaUnit).GetFields(BindingFlags.Static | BindingFlags.Public))
             {
-                local.Add((AreaUnit)field.GetValue(field));
+
+                AreaUnit localunit = (AreaUnit)field.GetValue(field);
+                localunit.NameOf = field.Name;
+
+
+                local.Add(localunit);            
+
             }
 
 
             return local;
-
         }
 
 

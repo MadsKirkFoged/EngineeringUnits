@@ -448,6 +448,57 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void AreaCompareAutoTesttest()
+        {
+            UnitsNet.Area A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
+            EngineeringUnits.Area A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
+
+            int WorkingCompares = 0;
+
+
+            foreach (var EngineeringUnit in AreaUnit.ListOf())
+            {
+
+
+                try
+                {
+
+                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EngineeringUnit.NameOf).Single();
+                    var EU = EngineeringUnit;
+
+                    //Debug.Print($"");
+                    //Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    //Debug.Print($"EngineeringUnit: {EU.NameOf} {A2.As(EU)}");
+                    //Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    //Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 2729720);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            1E-3);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
+                catch (System.Exception)
+                {
+                }
+
+
+            }
+
+            //Number of comparables units
+            Assert.AreEqual(13, WorkingCompares);
+
+        }
+
+        [TestMethod]
         public void EnergyCompareAutoTest()
         {
             UnitsNet.Energy A1 = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.Joule);
