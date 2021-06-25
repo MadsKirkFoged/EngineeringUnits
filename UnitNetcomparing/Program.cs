@@ -21,7 +21,7 @@ namespace UnitNetcomparing
             AreaUnit test12 = AreaUnit.GetUnitByString<AreaUnit>("SquareNanometer");
 
 
-            var test123 = AreaUnit.ListOf();
+            var test123 = AreaUnit.ListOf<AreaUnit>();
 
 
 
