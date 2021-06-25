@@ -4,6 +4,7 @@ using System.Diagnostics;
 using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -456,15 +457,15 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EngineeringUnit in AreaUnit.ListOf())
+            foreach (AreaUnit EU in AreaUnit.ListOf())
             {
 
 
                 try
                 {
 
-                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EngineeringUnit.NameOf).Single();
-                    var EU = EngineeringUnit;
+                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EU.NameOf).Single();
+
 
                     //Debug.Print($"");
                     //Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");

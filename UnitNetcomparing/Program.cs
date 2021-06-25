@@ -18,7 +18,7 @@ namespace UnitNetcomparing
             //var etssets =  AreaUnit.List().Where(x => nameof(x) == "Acre").Single();
 
 
-            AreaUnit test12 = AreaUnit.GetUnitByString("SquareNanometer");
+            AreaUnit test12 = AreaUnit.GetUnitByString<AreaUnit>("SquareNanometer");
 
 
             var test123 = AreaUnit.ListOf();

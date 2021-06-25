@@ -62,8 +62,6 @@ namespace EngineeringUnits
             };
         }
 
-
-
         public static List<AreaUnit> ListOf()
         {
             List<AreaUnit> local = new List<AreaUnit>();
@@ -75,31 +73,13 @@ namespace EngineeringUnits
                 localunit.NameOf = field.Name;
 
 
-                local.Add(localunit);            
+                local.Add(localunit);
 
             }
 
 
             return local;
         }
-
-
-        public static AreaUnit GetUnitByString(string name)
-        {
-            foreach (var field in typeof(AreaUnit).GetFields(BindingFlags.Static | BindingFlags.Public))
-            {
-                if (field.Name == name)                
-                    return (AreaUnit)field.GetValue(field);                
-            }
-
-            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
-        }
-
-        
-
-
-
-
 
 
     }

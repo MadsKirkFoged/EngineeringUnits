@@ -95,7 +95,7 @@ namespace EngineeringUnits
 
         public LengthUnit Copy()
         {
-            return new LengthUnit
+            return new LengthUnit()
             {
                 Name = Name,
                 Symbol = Symbol,
@@ -104,8 +104,13 @@ namespace EngineeringUnits
                 B = B,
                 Count = Count,
                 ActualC = ActualC,
-        };
+            };
+
+
         }
+
+
+        
 
 
     }

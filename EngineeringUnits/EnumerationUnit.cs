@@ -8,8 +8,11 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public class Enumeration : IComparable
+    public class Enumeration
     {
+
+
+
         public string Name { get; set; }
         public string NameOf { get; set; }
         public string Symbol { get; set; }
@@ -54,9 +57,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
         }
-
-
-
+        
         public override string ToString()
         {
 
@@ -352,6 +353,56 @@ namespace EngineeringUnits
         {
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
+
+
+
+        public Enumeration Clone() 
+        {
+            return new Enumeration()
+            {
+                Name = Name,
+                Symbol = Symbol,
+                LocalC = LocalC,
+                GlobalC = GlobalC,
+                B = B,
+                Count = Count,
+                ActualC = ActualC,
+            };
+        }
+
+
+
+
+        public static T GetUnitByString<T>(string name)
+        {
+            foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
+            {
+                if (field.Name == name)
+                    return (T)field.GetValue(field);
+            }
+
+            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
+        }
+
+        //public static List<Enumeration> ListOf()
+        //{
+        //    List<Enumeration> local = new List<Enumeration>();
+
+        //    foreach (var field in typeof(Enumeration).GetFields(BindingFlags.Static | BindingFlags.Public))
+        //    {
+
+        //        Enumeration localunit = (Enumeration)field.GetValue(field);
+        //        localunit.NameOf = field.Name;
+
+
+        //        local.Add(localunit);
+
+        //    }
+
+
+        //    return local;
+        //}
+
 
 
 

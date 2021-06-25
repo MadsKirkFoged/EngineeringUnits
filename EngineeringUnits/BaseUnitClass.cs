@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public int Count { get; set; }
         public Enum BaseUnitType { get; set; }
-        public Enumeration SelectedUnit { get; set; }
+        //public Enumeration SelectedUnit { get; set; }
 
 
         //Kunne man have A og b her?
