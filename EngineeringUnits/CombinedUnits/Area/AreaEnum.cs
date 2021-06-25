@@ -62,25 +62,7 @@ namespace EngineeringUnits
             };
         }
 
-        public static List<AreaUnit> ListOf()
-        {
-            List<AreaUnit> local = new List<AreaUnit>();
-
-            foreach (var field in typeof(AreaUnit).GetFields(BindingFlags.Static | BindingFlags.Public))
-            {
-
-                AreaUnit localunit = (AreaUnit)field.GetValue(field);
-                localunit.NameOf = field.Name;
-
-
-                local.Add(localunit);
-
-            }
-
-
-            return local;
-        }
-
+       
 
     }
 

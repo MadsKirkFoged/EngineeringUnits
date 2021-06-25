@@ -384,24 +384,24 @@ namespace EngineeringUnits
             throw new ArgumentException($"Could not find a unit with a name of '{name}'");
         }
 
-        //public static List<Enumeration> ListOf()
-        //{
-        //    List<Enumeration> local = new List<Enumeration>();
+        public static List<T> ListOf<T>() where T: Enumeration
+        {
+            List<T> local = new List<T>();
 
-        //    foreach (var field in typeof(Enumeration).GetFields(BindingFlags.Static | BindingFlags.Public))
-        //    {
+            foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
+            {
 
-        //        Enumeration localunit = (Enumeration)field.GetValue(field);
-        //        localunit.NameOf = field.Name;
-
-
-        //        local.Add(localunit);
-
-        //    }
+                T localunit = (T)field.GetValue(field);
+                localunit.NameOf = field.Name;
 
 
-        //    return local;
-        //}
+                local.Add(localunit);
+
+            }
+
+
+            return local;
+        }
 
 
 

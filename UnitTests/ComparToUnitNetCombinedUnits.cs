@@ -457,7 +457,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (AreaUnit EU in AreaUnit.ListOf())
+            foreach (AreaUnit EU in AreaUnit.ListOf<AreaUnit>())
             {
 
 
