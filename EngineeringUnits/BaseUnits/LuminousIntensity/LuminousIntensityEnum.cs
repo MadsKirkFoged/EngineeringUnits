@@ -46,32 +46,18 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.LuminousIntensity = this.Copy();
-            Unit.LuminousIntensity.Count = 1;
-            Count = 1;
-            Unit.LuminousIntensity.ActualC = 1;
-            Unit.LuminousIntensity.Name = "LuminousIntensity";
-            Name = "LuminousIntensity";
+            Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
         public static IEnumerable<LuminousIntensityUnit> List()
         {
             return new[] { SI };
         }
-        // Other util methods
-        public LuminousIntensityUnit Copy()
-        {
-            return new LuminousIntensityUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
+       
     }
 
 

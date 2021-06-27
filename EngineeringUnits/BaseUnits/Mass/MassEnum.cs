@@ -65,14 +65,13 @@ namespace EngineeringUnits
         }
 
         public void SetUnitSystem()
-        {
+        {           
             Unit = new UnitSystem();
-            Unit.Mass = this.Copy();
-            Unit.Mass.Count = 1;
-            Count = 1;
-            Unit.Mass.ActualC = 1;
-            Unit.Mass.Name = "Mass";
-            Name = "Mass";
+            Unit.Mass = (MassUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
         public static IEnumerable<MassUnit> List()
@@ -81,19 +80,7 @@ namespace EngineeringUnits
         }
 
 
-        public MassUnit Copy()
-        {
-            return new MassUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
+       
     }
 
 

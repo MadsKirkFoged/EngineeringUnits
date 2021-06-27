@@ -51,12 +51,11 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Amount = this.Copy();
-            Unit.Amount.Count = 1;
-            Count = 1;
-            Unit.Amount.ActualC = 1;
-            Unit.Amount.Name = "Amount";
-            Name = "Amount";
+            Unit.Amount = (AmountOfSubstanceUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
 
@@ -66,20 +65,6 @@ namespace EngineeringUnits
             return new[] { Centimole, CentipoundMole, Decimole, DecipoundMole, Kilomole, KilopoundMole, Megamole, Micromole, MicropoundMole, Millimole, MillipoundMole, Mole, Nanomole, NanopoundMole, PoundMole, };
         }
 
-
-        public AmountOfSubstanceUnit Copy()
-        {
-            return new AmountOfSubstanceUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
 
 
     }

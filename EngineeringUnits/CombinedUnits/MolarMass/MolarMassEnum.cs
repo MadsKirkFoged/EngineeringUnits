@@ -30,7 +30,7 @@ namespace EngineeringUnits
         public MolarMassUnit(MassUnit mass, AmountOfSubstanceUnit amount, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "MolarMass";
+            //Name = "MolarMass";
             Unit = mass.Unit / amount.Unit;
 
             SetCombined(correction);

@@ -24,7 +24,7 @@ namespace EngineeringUnits
         public testUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "test";
+            //Name = "test";
             Unit = Length.Unit * Length.Unit * Length.Unit;
 
             SetCombined(correction);
@@ -35,7 +35,7 @@ namespace EngineeringUnits
         public testUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "test";
+            //Name = "test";
             Unit = Area.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
@@ -43,7 +43,7 @@ namespace EngineeringUnits
 
         public testUnit(PreFix SI, testUnit unit)
         {
-            Name = "test";
+            //Name = "test";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);
@@ -53,7 +53,7 @@ namespace EngineeringUnits
         public testUnit(testUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "test";
+            //Name = "test";
             Unit = unit.Unit.Copy();
 
             SetCombined(correction);

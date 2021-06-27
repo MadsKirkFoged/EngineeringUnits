@@ -42,12 +42,11 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Electriccurrent = this.Copy();
-            Unit.Electriccurrent.Count = 1;
-            Count = 1;
-            Unit.Electriccurrent.ActualC = 1;
-            Unit.Electriccurrent.Name = "Electriccurrent";
-            Name = "Electriccurrent";
+            Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
 
@@ -56,19 +55,7 @@ namespace EngineeringUnits
             return new[] { Ampere, Centiampere, Kiloampere, Megaampere, Microampere, Milliampere, Nanoampere, Picoampere };
         }
 
-        public ElectricCurrentUnit Copy()
-        {
-            return new ElectricCurrentUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
+       
 
     }
 

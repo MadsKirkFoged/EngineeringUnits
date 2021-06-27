@@ -51,7 +51,7 @@ namespace EngineeringUnits
         public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Power";
+            //Name = "Power";
 
             //kg*m2*s-3
             Unit = Energy.Unit / duration.Unit;
@@ -63,7 +63,7 @@ namespace EngineeringUnits
 
         public PowerUnit(PreFix SI, PowerUnit unit)
         {
-            Name = "Power";
+            //Name = "Power";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

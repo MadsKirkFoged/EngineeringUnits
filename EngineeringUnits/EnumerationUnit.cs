@@ -8,13 +8,10 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public class Enumeration
+    public class Enumeration :ICloneable
     {
 
-
-
-        public string Name { get; set; }
-        public string NameOf { get; set; }
+        public string QuantityName { get; set; }
         public string Symbol { get; set; }
         public decimal LocalC { get; set; }
         public decimal GlobalC { get; set; }
@@ -38,6 +35,8 @@ namespace EngineeringUnits
             GlobalC = a2;
             B = b;
             ActualC = 1;
+            Count = 1;
+
         }
 
         protected Enumeration(string symbol, decimal a1, decimal a2)
@@ -47,6 +46,7 @@ namespace EngineeringUnits
             GlobalC = a2;
             B = 0;
             ActualC = 1;
+            Count = 1;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
@@ -56,6 +56,7 @@ namespace EngineeringUnits
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
             ActualC = 1;
+            Count = 1;
         }
         
         public override string ToString()
@@ -76,22 +77,22 @@ namespace EngineeringUnits
             return $"{Unit}";
         }
 
-        public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
-        {
-            var type = typeof(T);
-            var fields = type.GetTypeInfo().GetFields(BindingFlags.Public |
-                BindingFlags.Static |
-                BindingFlags.DeclaredOnly);
-            foreach (var info in fields)
-            {
-                var instance = new T();
-                var locatedValue = info.GetValue(instance) as T;
-                if (locatedValue != null)
-                {
-                    yield return locatedValue;
-                }
-            }
-        }
+        //public static IEnumerable<T> GetAll<T>() where T : Enumeration, new()
+        //{
+        //    var type = typeof(T);
+        //    var fields = type.GetTypeInfo().GetFields(BindingFlags.Public |
+        //        BindingFlags.Static |
+        //        BindingFlags.DeclaredOnly);
+        //    foreach (var info in fields)
+        //    {
+        //        var instance = new T();
+        //        var locatedValue = info.GetValue(instance) as T;
+        //        if (locatedValue != null)
+        //        {
+        //            yield return locatedValue;
+        //        }
+        //    }
+        //}
 
         public override bool Equals(object obj)
         {
@@ -101,14 +102,14 @@ namespace EngineeringUnits
                 return false;
             }
             var typeMatches = GetType().Equals(obj.GetType());
-            var valueMatches = Name.Equals(otherValue.Name);
-            return typeMatches && valueMatches;
+            //var valueMatches = Name.Equals(otherValue.Name);
+            return typeMatches;// && valueMatches;
         }
 
-        public int CompareTo(object other)
-        {
-            return Name.CompareTo(((Enumeration)other).Name);
-        }
+        //public int CompareTo(object other)
+        //{
+        //    return Name.CompareTo(((Enumeration)other).Name);
+        //}
 
         //public decimal PrefixSISize(PreFix preFix) =>
         //   preFix switch
@@ -356,19 +357,19 @@ namespace EngineeringUnits
 
 
 
-        public Enumeration Clone() 
-        {
-            return new Enumeration()
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
+        //public Enumeration Clone() 
+        //{
+        //    return new Enumeration()
+        //    {
+        //        //Name = Name,
+        //        Symbol = Symbol,
+        //        LocalC = LocalC,
+        //        GlobalC = GlobalC,
+        //        B = B,
+        //        Count = Count,
+        //        ActualC = ActualC,
+        //    };
+        //}
 
 
 
@@ -392,7 +393,7 @@ namespace EngineeringUnits
             {
 
                 T localunit = (T)field.GetValue(field);
-                localunit.NameOf = field.Name;
+                localunit.QuantityName = field.Name;
 
 
                 local.Add(localunit);
@@ -403,8 +404,9 @@ namespace EngineeringUnits
             return local;
         }
 
-
-
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

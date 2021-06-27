@@ -24,7 +24,7 @@ namespace EngineeringUnits
         public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Entropyh";
+            //Name = "Entropyh";
             Unit = energy.Unit / temperature.Unit;
 
             SetCombined(correction);

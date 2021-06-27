@@ -35,7 +35,7 @@ namespace EngineeringUnits
 
         public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Name = "Specific Heat Capacity";
+            //Name = "Specific Heat Capacity";
 
             //    J/(kg*k)
             Unit = energy.Unit / (mass.Unit * temperature.Unit);

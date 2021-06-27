@@ -24,7 +24,7 @@ namespace EngineeringUnits
         public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ElectricPotential";
+            //Name = "ElectricPotential";
 
             //kg·m2·s−3·A−1
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit);
@@ -37,7 +37,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit)
         {
-            Name = "ElectricPotentialh";
+            //Name = "ElectricPotentialh";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

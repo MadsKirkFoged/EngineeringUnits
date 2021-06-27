@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Force";
+            //Name = "Force";
 
             //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit) / (duration.Unit * duration.Unit);
@@ -45,7 +45,7 @@ namespace EngineeringUnits
         public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Force";
+            //Name = "Force";
 
             Unit = mass.Unit * acceleration.Unit;
 

@@ -54,7 +54,7 @@ namespace EngineeringUnits
 
         public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Name = "Speed";
+            //Name = "Speed";
             Unit = length.Unit / time.Unit;
 
             SetCombined(correction);

@@ -32,7 +32,7 @@ namespace EngineeringUnits
         public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "KinematicViscosity";
+            //Name = "KinematicViscosity";
             Unit = Length.Unit / duration.Unit;
 
             SetCombined(correction);
@@ -44,7 +44,7 @@ namespace EngineeringUnits
 
         public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit)
         {
-            Name = "KinematicViscosity";
+            //Name = "KinematicViscosity";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

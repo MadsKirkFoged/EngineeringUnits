@@ -72,7 +72,7 @@ namespace EngineeringUnits
         public ForcePerLengthUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ForcePerLength";
+            //Name = "ForcePerLength";
             Unit = force.Unit / length.Unit;
 
             SetCombined(correction);
@@ -83,7 +83,7 @@ namespace EngineeringUnits
         public ForcePerLengthUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ForcePerLength";
+            //Name = "ForcePerLength";
             Unit = Area.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
@@ -91,7 +91,7 @@ namespace EngineeringUnits
 
         public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit)
         {
-            Name = "ForcePerLength";
+            //Name = "ForcePerLength";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);
@@ -101,7 +101,7 @@ namespace EngineeringUnits
         public ForcePerLengthUnit(ForcePerLengthUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ForcePerLength";
+            //Name = "ForcePerLength";
             Unit = unit.Unit.Copy();
 
             SetCombined(correction);

@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ThermalResistanceh";
+            //Name = "ThermalResistanceh";
             Unit = (area.Unit * temperature.Unit) / power.Unit;
 
             SetCombined(correction);
@@ -34,7 +34,7 @@ namespace EngineeringUnits
         public ThermalResistanceUnit(AreaUnit area, DurationUnit duration, TemperatureUnit temperature, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ThermalResistanceh";
+            //Name = "ThermalResistanceh";
             Unit = (area.Unit * duration.Unit * temperature.Unit) / energy.Unit;
 
             SetCombined(correction);

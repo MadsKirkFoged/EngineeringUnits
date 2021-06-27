@@ -85,7 +85,7 @@ namespace EngineeringUnits
         public VolumeFlowUnit(VolumeUnit volume,DurationUnit duration , string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "VolumeFlow";
+            //Name = "VolumeFlow";
             Unit = volume.Unit / duration.Unit;
 
             SetCombined(correction);
@@ -104,7 +104,7 @@ namespace EngineeringUnits
 
         public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit)
         {
-            Name = "VolumeFlowh";
+            //Name = "VolumeFlowh";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

@@ -464,7 +464,7 @@ namespace UnitTests
                 try
                 {
 
-                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EU.NameOf).Single();
+                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EU.QuantityName).Single();
 
 
                     //Debug.Print($"");

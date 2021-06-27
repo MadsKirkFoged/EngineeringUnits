@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public FrequencyUnit(DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Frequency";
+            //Name = "Frequency";
             Unit = duration.Unit / (duration.Unit * duration.Unit);
 
             SetCombined(correction);
@@ -42,7 +42,7 @@ namespace EngineeringUnits
 
         public FrequencyUnit(PreFix SI, FrequencyUnit unit)
         {
-            Name = "Frequencyh";
+            //Name = "Frequencyh";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

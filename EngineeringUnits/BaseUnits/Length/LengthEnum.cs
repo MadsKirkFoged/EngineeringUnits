@@ -76,13 +76,11 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Length = Copy();
-            Unit.Length.Count = 1;
-            Unit.Length.ActualC = 1;
-            Unit.Length.Name = "Length";
-            Name = "Length";
-            Count = 1;
-            ActualC = 1;
+            Unit.Length = (LengthUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
        
@@ -93,21 +91,6 @@ namespace EngineeringUnits
 
 
 
-        public LengthUnit Copy()
-        {
-            return new LengthUnit()
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-
-
-        }
 
 
         

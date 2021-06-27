@@ -72,7 +72,7 @@ namespace EngineeringUnits
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Energy";
+            //Name = "Energy";
 
             //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit);
@@ -114,7 +114,7 @@ namespace EngineeringUnits
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Energy";
+            //Name = "Energy";
 
             //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration2.Unit);
@@ -128,7 +128,7 @@ namespace EngineeringUnits
         public EnergyUnit(PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Energy";
+            //Name = "Energy";
             Unit = power.Unit * duration.Unit;
 
             SetCombined(correction);

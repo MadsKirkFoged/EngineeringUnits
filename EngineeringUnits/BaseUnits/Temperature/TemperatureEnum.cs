@@ -39,12 +39,10 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Temperature = this.Copy();
-            Unit.Temperature.Count = 1;
-            Unit.Temperature.ActualC = 1;
-            Count = 1;
-            Unit.Temperature.Name = "Temperature";
-            Name = "Temperature";
+            Unit.Temperature = (TemperatureUnit)Clone();
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
 
@@ -52,20 +50,7 @@ namespace EngineeringUnits
         {
             return new[] { DegreeCelsius, DegreeFahrenheit, DegreeRankine, Kelvin, };
         }
-        // Other util methods
-        public TemperatureUnit Copy()
-        {
-            return new TemperatureUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
+       
     }
 
 

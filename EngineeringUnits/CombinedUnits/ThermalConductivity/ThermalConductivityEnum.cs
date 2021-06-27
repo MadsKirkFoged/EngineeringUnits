@@ -20,7 +20,7 @@ namespace EngineeringUnits
         public ThermalConductivityUnit(PowerUnit power, LengthUnit length, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ThermalConductivity";
+            //Name = "ThermalConductivity";
             Unit = power.Unit / (length.Unit * temperature.Unit);
 
             SetCombined(correction);
@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public ThermalConductivityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ThermalConductivity";
+            //Name = "ThermalConductivity";
             Unit = Area.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
@@ -39,7 +39,7 @@ namespace EngineeringUnits
 
         public ThermalConductivityUnit(PreFix SI, ThermalConductivityUnit unit)
         {
-            Name = "ThermalConductivity";
+            //Name = "ThermalConductivity";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);
@@ -49,7 +49,7 @@ namespace EngineeringUnits
         public ThermalConductivityUnit(ThermalConductivityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "ThermalConductivity";
+            //Name = "ThermalConductivity";
             Unit = unit.Unit.Copy();
 
             SetCombined(correction);

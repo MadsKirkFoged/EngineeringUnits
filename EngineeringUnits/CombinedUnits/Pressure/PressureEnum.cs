@@ -73,7 +73,7 @@ namespace EngineeringUnits
         public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Pressure";
+            //Name = "Pressure";
             Unit = mass.Unit / (length.Unit * duration.Unit * duration.Unit);
 
             SetCombined(correction);
@@ -82,7 +82,7 @@ namespace EngineeringUnits
 
         public PressureUnit(PreFix SI, PressureUnit unit)
         {
-            Name = "Pressure";
+            //Name = "Pressure";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);
@@ -91,7 +91,7 @@ namespace EngineeringUnits
 
         public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Name = "Pressure";
+            //Name = "Pressure";
             Unit = unit.Unit.Copy();
 
             SetCombined(correction);
@@ -102,7 +102,7 @@ namespace EngineeringUnits
         public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Pressure";
+            //Name = "Pressure";
             Unit = force.Unit / area.Unit;
 
             SetCombined(correction);

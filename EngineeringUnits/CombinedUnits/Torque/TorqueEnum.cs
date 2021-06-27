@@ -48,7 +48,7 @@ namespace EngineeringUnits
         public TorqueUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Torque";
+            //Name = "Torque";
             Unit = force.Unit * length.Unit;
 
             SetCombined(correction);
@@ -60,7 +60,7 @@ namespace EngineeringUnits
 
         public TorqueUnit(PreFix SI, TorqueUnit unit)
         {
-            Name = "Torque";
+            //Name = "Torque";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);

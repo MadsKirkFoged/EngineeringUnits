@@ -46,12 +46,11 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Duration = this.Copy();
-            Unit.Duration.Count = 1;
-            Count = 1;
-            Unit.Duration.ActualC = 1;
-            Unit.Duration.Name = "Duration";
-            Name = "Duration";
+            Unit.Duration = (DurationUnit)Clone();
+
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
 
 
@@ -60,20 +59,6 @@ namespace EngineeringUnits
             return new[] { Day, Hour, Microsecond, Millisecond, Minute, Month30, Nanosecond, Second, Week, Year365, };
         }
 
-
-        public DurationUnit Copy()
-        {
-            return new DurationUnit
-            {
-                Name = Name,
-                Symbol = Symbol,
-                LocalC = LocalC,
-                GlobalC = GlobalC,
-                B = B,
-                Count = Count,
-                ActualC = ActualC,
-            };
-        }
     }
 
 

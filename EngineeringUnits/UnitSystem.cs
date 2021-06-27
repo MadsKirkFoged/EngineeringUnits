@@ -15,6 +15,9 @@ namespace EngineeringUnits
         [JsonProperty]
         public string Symbol { get; set; }
 
+        //Just have a list of units?
+        public List<Enumeration> UnitListBeta = new List<Enumeration>();
+
         public LengthUnit Length { get; set; }
         public MassUnit Mass { get; set; }
         public DurationUnit Duration { get; set; }
@@ -117,7 +120,7 @@ namespace EngineeringUnits
 
             if (a.Length is object && b.Length is object)
             {
-                local.Length = (LengthUnit)a.Length.Copy();
+                local.Length = (LengthUnit)a.Length.Clone();
                 local.Length.Count += b.Length.Count;
 
                 Fraction CombinedFraction = 1;
@@ -138,17 +141,17 @@ namespace EngineeringUnits
             }
             else if (a.Length is object)
             {
-                local.Length = (LengthUnit)a.Length.Copy();
+                local.Length = (LengthUnit)a.Length.Clone();
             }
             else if (b.Length is object)
             {
-                local.Length = (LengthUnit)b.Length.Copy();
+                local.Length = (LengthUnit)b.Length.Clone();
             }
 
 
             if (a.Mass is object && b.Mass is object)
             {
-                local.Mass = (MassUnit)a.Mass.Copy();
+                local.Mass = (MassUnit)a.Mass.Clone();
                 local.Mass.Count += b.Mass.Count;
 
 
@@ -173,18 +176,18 @@ namespace EngineeringUnits
             }
             else if (a.Mass is object)
             {
-                local.Mass = (MassUnit)a.Mass.Copy();
+                local.Mass = (MassUnit)a.Mass.Clone();
             }
             else if (b.Mass is object)
             {
-                local.Mass = (MassUnit)b.Mass.Copy();
+                local.Mass = (MassUnit)b.Mass.Clone();
             }
 
 
 
             if (a.Duration is object && b.Duration is object)
             {
-                local.Duration = (DurationUnit)a.Duration.Copy();
+                local.Duration = (DurationUnit)a.Duration.Clone();
                 local.Duration.Count += b.Duration.Count;
 
                 Fraction CombinedFraction = 1;
@@ -206,11 +209,11 @@ namespace EngineeringUnits
             }
             else if (a.Duration is object)
             {
-                local.Duration = (DurationUnit)a.Duration.Copy();
+                local.Duration = (DurationUnit)a.Duration.Clone();
             }
             else if (b.Duration is object)
             {
-                local.Duration = (DurationUnit)b.Duration.Copy();
+                local.Duration = (DurationUnit)b.Duration.Clone();
             }
 
 
@@ -218,7 +221,7 @@ namespace EngineeringUnits
 
             if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
                 local.Electriccurrent.Count += b.Electriccurrent.Count;
 
                 Fraction CombinedFraction = 1;
@@ -239,18 +242,18 @@ namespace EngineeringUnits
             }
             else if (a.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
             }
             else if (b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Clone();
             }
 
 
 
             if (a.Temperature is object && b.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)a.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
                 local.Temperature.Count += b.Temperature.Count;
 
                 Fraction CombinedFraction = 1;
@@ -271,11 +274,11 @@ namespace EngineeringUnits
             }
             else if (a.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)a.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
             }
             else if (b.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)b.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)b.Temperature.Clone();
             }
 
 
@@ -284,7 +287,7 @@ namespace EngineeringUnits
 
             if (a.Amount is object && b.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)a.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
                 local.Amount.Count += b.Amount.Count;
 
                 Fraction CombinedFraction = 1;
@@ -305,11 +308,11 @@ namespace EngineeringUnits
             }
             else if (a.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)a.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
             }
             else if (b.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)b.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)b.Amount.Clone();
             }
 
 
@@ -317,7 +320,7 @@ namespace EngineeringUnits
 
             if (a.LuminousIntensity is object && b.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
                 local.LuminousIntensity.Count += b.LuminousIntensity.Count;
 
                 Fraction CombinedFraction = 1;
@@ -338,27 +341,27 @@ namespace EngineeringUnits
             }
             else if (a.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
             }
             else if (b.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Clone();
             }
 
 
 
             if (a.Combined is object && b.Combined is object)
             {
-                local.Combined = a.Combined.Copy();
+                local.Combined = (CombinedUnit)a.Combined.Clone();
                 local.Combined.Count += b.Combined.Count;
             }
             else if (a.Combined is object)
             {
-                local.Combined = a.Combined.Copy();
+                local.Combined = (CombinedUnit)a.Combined.Clone();
             }
             else if (b.Combined is object)
             {
-                local.Combined = b.Combined.Copy();
+                local.Combined = (CombinedUnit)b.Combined.Clone();
             }
 
 
@@ -370,11 +373,64 @@ namespace EngineeringUnits
             UnitSystem local = new UnitSystem();
 
 
+
+            //foreach (var item in a.UnitList())
+            //{
+
+            //    //Hvis den samme findes i b
+            //    foreach (var item2 in a.UnitList())
+            //    {
+            //        if (item.GetType() == item2.GetType())
+            //        {
+
+            //            local.Length = a.Length.Copy();
+            //            local.Length.Count -= b.Length.Count;
+
+            //            Fraction CombinedFraction = 1;
+            //            CombinedFraction *= Fraction.Pow((Fraction)a.Length.LocalC, 1);
+            //            CombinedFraction *= Fraction.Pow((Fraction)a.Length.GlobalC, 1);
+            //            CombinedFraction /= Fraction.Pow((Fraction)b.Length.LocalC, 1);
+            //            CombinedFraction /= Fraction.Pow((Fraction)b.Length.GlobalC, 1);
+            //            CombinedFraction = Fraction.Pow(CombinedFraction, b.Length.Count);
+            //            local.Length.ActualC = (1 / CombinedFraction);
+
+
+
+
+
+            //        }
+            //    }
+
+
+
+
+            //    //hvis den samme ikke finde i b
+
+
+
+            //}
+
+            //foreach (var item in a.UnitList())
+            //{
+
+            //    //Hvis den samme findes i b
+            //    //Denne case a allerede lavet => do nothing
+
+            //    //hvis den samme ikke finde i b
+
+
+
+            //}
+
+
+
+
+
             //LENGTH
 
             if (a.Length is object && b.Length is object)
             {
-                local.Length = (LengthUnit)a.Length.Copy();             
+                local.Length = (LengthUnit)a.Length.Clone();             
                 local.Length.Count -= b.Length.Count;
 
                 Fraction CombinedFraction = 1;
@@ -387,11 +443,11 @@ namespace EngineeringUnits
             }
             else if (a.Length is object)
             {
-                local.Length = (LengthUnit)a.Length.Copy();
+                local.Length = (LengthUnit)a.Length.Clone();
             }
             else if (b.Length is object)
             {
-                local.Length = (LengthUnit)b.Length.Copy();
+                local.Length = (LengthUnit)b.Length.Clone();
                 local.Length.Count *= -1;
             }
 
@@ -399,7 +455,7 @@ namespace EngineeringUnits
             //MASS
             if (a.Mass is object && b.Mass is object)
             {
-                local.Mass = (MassUnit)a.Mass.Copy();               
+                local.Mass = (MassUnit)a.Mass.Clone();               
                 local.Mass.Count -= b.Mass.Count;
 
                 Fraction CombinedFraction = 1;
@@ -412,11 +468,11 @@ namespace EngineeringUnits
             }
             else if (a.Mass is object)
             {
-                local.Mass = (MassUnit)a.Mass.Copy();
+                local.Mass = (MassUnit)a.Mass.Clone();
             }
             else if (b.Mass is object)
             {
-                local.Mass = (MassUnit)b.Mass.Copy();
+                local.Mass = (MassUnit)b.Mass.Clone();
                 local.Mass.Count *= -1;
             }
 
@@ -425,7 +481,7 @@ namespace EngineeringUnits
             //DURATION
             if (a.Duration is object && b.Duration is object)
             {
-                local.Duration = (DurationUnit)a.Duration.Copy();             
+                local.Duration = (DurationUnit)a.Duration.Clone();             
                 local.Duration.Count -= b.Duration.Count;
 
                 Fraction CombinedFraction = 1;
@@ -438,11 +494,11 @@ namespace EngineeringUnits
             }
             else if (a.Duration is object)
             {
-                local.Duration = (DurationUnit)a.Duration.Copy();
+                local.Duration = (DurationUnit)a.Duration.Clone();
             }
             else if (b.Duration is object)
             {
-                local.Duration = (DurationUnit)b.Duration.Copy();
+                local.Duration = (DurationUnit)b.Duration.Clone();
                 local.Duration.Count *= -1;
             }
 
@@ -451,7 +507,7 @@ namespace EngineeringUnits
             //ELECTRICCURRENT
             if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
                 local.Electriccurrent.Count -= b.Electriccurrent.Count;
 
                 Fraction CombinedFraction = 1;
@@ -464,11 +520,11 @@ namespace EngineeringUnits
             }
             else if (a.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
             }
             else if (b.Electriccurrent is object)
             {
-                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Clone();
                 local.Electriccurrent.Count *= -1;
             }
 
@@ -478,7 +534,7 @@ namespace EngineeringUnits
 
             if (a.Temperature is object && b.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)a.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
                 local.Temperature.Count -= b.Temperature.Count;
 
                 Fraction CombinedFraction = 1;
@@ -491,11 +547,11 @@ namespace EngineeringUnits
             }
             else if (a.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)a.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
             }
             else if (b.Temperature is object)
             {
-                local.Temperature = (TemperatureUnit)b.Temperature.Copy();
+                local.Temperature = (TemperatureUnit)b.Temperature.Clone();
                 local.Temperature.Count *= -1;
             }
 
@@ -505,7 +561,7 @@ namespace EngineeringUnits
 
             if (a.Amount is object && b.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)a.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
                 local.Amount.Count -= b.Amount.Count;
 
                 Fraction CombinedFraction = 1;
@@ -518,11 +574,11 @@ namespace EngineeringUnits
             }
             else if (a.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)a.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
             }
             else if (b.Amount is object)
             {
-                local.Amount = (AmountOfSubstanceUnit)b.Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)b.Amount.Clone();
                 local.Amount.Count *= -1;
             }
 
@@ -533,7 +589,7 @@ namespace EngineeringUnits
 
             if (a.LuminousIntensity is object && b.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
                 local.LuminousIntensity.Count -= b.LuminousIntensity.Count;
 
                 Fraction CombinedFraction = 1;
@@ -546,11 +602,11 @@ namespace EngineeringUnits
             }
             else if (a.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
             }
             else if (b.LuminousIntensity is object)
             {
-                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Clone();
                 local.LuminousIntensity.Count *= -1;
             }
 
@@ -558,16 +614,16 @@ namespace EngineeringUnits
             //COMBINED
             if (a.Combined is object && b.Combined is object)
             {
-                local.Combined = a.Combined.Copy();
+                local.Combined = (CombinedUnit)a.Combined.Clone();
                 local.Combined.Count -= b.Combined.Count;
             }
             else if (a.Combined is object)
             {
-                local.Combined = a.Combined.Copy();
+                local.Combined = (CombinedUnit)a.Combined.Clone();
             }
             else if (b.Combined is object)
             {
-                local.Combined = b.Combined.Copy();
+                local.Combined = (CombinedUnit)b.Combined.Clone();
                 local.Combined.Count *= -1;
             }
 
@@ -591,7 +647,8 @@ namespace EngineeringUnits
                 {
                     if (ToUnit is object && FromUnit is object)
                     {
-                        if (ToUnit.Name == FromUnit.Name && ToUnit.Name != "Combined")
+
+                        if (ToUnit.GetType() == FromUnit.GetType() && ToUnit.GetType() != typeof(CombinedUnit)) //TODO Something that could be done better..
                         {
                             Fraction CombinedFraction = 1;
 
@@ -615,7 +672,7 @@ namespace EngineeringUnits
             foreach (var FromUnit in From.UnitList())
             {
 
-                if (FromUnit.Name == "Combined")
+                if (FromUnit.GetType() == typeof(CombinedUnit))
                 {
                     Fraction CombinedFraction = 1;
                     CombinedFraction *= (Fraction)FromUnit.LocalC;
@@ -641,13 +698,8 @@ namespace EngineeringUnits
 
             foreach (var Unit in UnitList())
             {
-
-                if (Unit.Name == "Combined")
-                {
-                    //CombinedFraction /= (Fraction)ToUnit.LocalC;
-                    //CombinedFraction /= (Fraction)ToUnit.GlobalC;
-                    CombinedFraction *= (Fraction)Unit.GlobalC;
-                }
+                if (Unit.GetType() == typeof(CombinedUnit))                
+                    CombinedFraction *= (Fraction)Unit.GlobalC;                
             }
 
             return CombinedFraction;
@@ -675,15 +727,11 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item is object)
-                {
-                    a *= Fraction.Pow((Fraction)item.LocalC, item.Count);
-                }
+                if (item is object)                
+                    a *= Fraction.Pow((Fraction)item.LocalC, item.Count);                
             }
 
-
             return a;
-
         }
 
         public Fraction GetActualC()
@@ -722,12 +770,8 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())
             {
-                if (item is object)
-                {
-                    b += (Fraction)item.B;
-                    //b += Fraction.Pow((Fraction)item.B, item.Count);
-                }
-
+                if (item is object)                
+                    b += (Fraction)item.B;              
             }
             return b;
         }
@@ -853,28 +897,34 @@ namespace EngineeringUnits
                 local.Symbol = Symbol;
 
             if (Length is object)
-                local.Length = Length.Copy();
+                local.Length = (LengthUnit)Length.Clone();
 
             if (Mass is object)
-                local.Mass = Mass.Copy();
+                local.Mass = (MassUnit)Mass.Clone();
 
             if (Duration is object)
-                local.Duration = Duration.Copy();
+                local.Duration = (DurationUnit)Duration.Clone();
 
             if (Electriccurrent is object)
-                local.Electriccurrent = Electriccurrent.Copy();
+                local.Electriccurrent = (ElectricCurrentUnit)Electriccurrent.Clone();
 
             if (Temperature is object)
-                local.Temperature = Temperature.Copy();
+                local.Temperature = (TemperatureUnit)Temperature.Clone();
 
             if (Amount is object)
-                local.Amount = Amount.Copy();
+                local.Amount = (AmountOfSubstanceUnit)Amount.Clone();
 
             if (LuminousIntensity is object)
-                local.LuminousIntensity = LuminousIntensity.Copy();
+                local.LuminousIntensity = (LuminousIntensityUnit)LuminousIntensity.Clone();
 
             if (Combined is object)
-                local.Combined = Combined.Copy();
+                local.Combined = (CombinedUnit)Combined.Clone();
+
+
+            foreach (var item in UnitListBeta)
+            {
+                //local.UnitListBeta.Add(item.Copy());
+            }
 
             return local;
         }

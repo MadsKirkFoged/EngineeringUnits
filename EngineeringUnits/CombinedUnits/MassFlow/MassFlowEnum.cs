@@ -63,7 +63,7 @@ namespace EngineeringUnits
         public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "MassFlow";
+            //Name = "MassFlow";
 
             //kg*s-1
             Unit = mass.Unit / duration.Unit;

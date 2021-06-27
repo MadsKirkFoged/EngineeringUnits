@@ -49,7 +49,7 @@ namespace EngineeringUnits
 
         public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Name = "SpecificEnergy";
+            //Name = "SpecificEnergy";
 
             //  J/kg
             Unit = energy.Unit / mass.Unit;

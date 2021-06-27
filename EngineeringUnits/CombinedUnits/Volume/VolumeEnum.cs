@@ -87,7 +87,7 @@ namespace EngineeringUnits
         public VolumeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Volume";
+            //Name = "Volume";
             Unit = Length.Unit * Length.Unit * Length.Unit;
 
             SetCombined(correction);
@@ -98,7 +98,7 @@ namespace EngineeringUnits
         public VolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Volume";
+            //Name = "Volume";
             Unit = Area.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
@@ -106,7 +106,7 @@ namespace EngineeringUnits
 
         public VolumeUnit(PreFix SI, VolumeUnit unit)
         {
-            Name = "Volume";
+            //Name = "Volume";
             Unit = unit.Unit.Copy();
 
             SetCombined(SI);
@@ -116,7 +116,7 @@ namespace EngineeringUnits
         public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Volume";
+            //Name = "Volume";
             Unit = unit.Unit.Copy();
 
             SetCombined(correction);

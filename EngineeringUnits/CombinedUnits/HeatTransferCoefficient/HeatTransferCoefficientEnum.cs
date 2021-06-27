@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "HeatTransferCoefficienth";
+            //Name = "HeatTransferCoefficienth";
             Unit = power.Unit / (area.Unit * temperature.Unit);
 
             SetCombined(correction);
