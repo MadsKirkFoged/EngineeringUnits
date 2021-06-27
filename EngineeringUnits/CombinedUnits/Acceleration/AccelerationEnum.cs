@@ -30,10 +30,14 @@ namespace EngineeringUnits
         public static AccelerationUnit MillistandardGravity = new AccelerationUnit(PreFix.milli, StandardGravity);
 
 
-        public AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+
+
+
+
+        private AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Acceleration";
+            //Name = "Acceleration";
 
 
             Unit = length.Unit / (duration.Unit * duration.Unit);
@@ -42,21 +46,16 @@ namespace EngineeringUnits
 
         }
 
-        public AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        private AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            Name = "Acceleration";
-
-
+            //Name = "Acceleration";
             Unit = speed.Unit / (duration.Unit);
 
             SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{speed}/{duration}");
-
-         
+            SetNewSymbol(NewSymbol, $"{speed}/{duration}");         
         }
 
-        public AccelerationUnit(PreFix SI, AccelerationUnit energyunit)
+        private AccelerationUnit(PreFix SI, AccelerationUnit energyunit)
         {
             Unit = energyunit.Unit.Copy();
             SetCombined(SI);

@@ -34,7 +34,7 @@ namespace EngineeringUnits
         public AreaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Area";
+            //Name = "Area";
             Unit = Length.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);

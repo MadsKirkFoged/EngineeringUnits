@@ -60,7 +60,7 @@ namespace EngineeringUnits
         public DensityUnit(MassUnit mass, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
 
-            Name = "Density";
+            //Name = "Density";
             Unit = mass.Unit / volume.Unit;
 
             SetCombined(correction);
