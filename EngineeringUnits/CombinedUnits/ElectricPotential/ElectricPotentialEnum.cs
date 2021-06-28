@@ -23,12 +23,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "ElectricPotential";
-
-            //kg·m2·s−3·A−1
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit);
-
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
 
@@ -37,9 +32,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit)
         {
-            //Name = "ElectricPotentialh";
             Unit = unit.Unit.Copy();
-
             SetCombined(SI);
             SetNewSymbol(SI);
         }
@@ -47,10 +40,10 @@ namespace EngineeringUnits
 
 
 
-        public static IEnumerable<ElectricPotentialUnit> List()
-        {
-            return new[] { Kilovolt, Megavolt, Microvolt, Millivolt, Volt, };
-        }
+        //public static IEnumerable<ElectricPotentialUnit> List()
+        //{
+        //    return new[] { Kilovolt, Megavolt, Microvolt, Millivolt, Volt, };
+        //}
 
 
 

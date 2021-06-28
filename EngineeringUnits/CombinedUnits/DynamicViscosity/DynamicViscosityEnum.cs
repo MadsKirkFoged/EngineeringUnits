@@ -67,15 +67,6 @@ namespace EngineeringUnits
        
 
 
-        //public static IEnumerable<DynamicViscosityUnit> List()
-        //{
-        //    return new[] { Centipoise, MicropascalSecond, MillipascalSecond, NewtonSecondPerMeterSquared, PascalSecond, Poise, PoundForceSecondPerSquareFoot, PoundForceSecondPerSquareInch, PoundPerFootSecond, Reyn, };
-        //}
-
-
-
-
-
     }
 
 
