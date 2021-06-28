@@ -90,6 +90,7 @@
     <Compile Include="CombinedUnits\Acceleration\AccelerationSet.cs" />
     <Compile Include="CombinedUnits\Area\Area.cs" />
     <Compile Include="CombinedUnits\Area\AreaEnum.cs" />
+    <Compile Include="CombinedUnits\Area\AreaExtra.cs" />
     <Compile Include="CombinedUnits\Area\AreaGet.cs" />
     <Compile Include="CombinedUnits\Area\AreaSet.cs" />
     <Compile Include="CombinedUnits\Density\Density.cs" />
