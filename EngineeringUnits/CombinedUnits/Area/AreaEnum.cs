@@ -26,7 +26,7 @@ namespace EngineeringUnits
         public static AreaUnit SquareFoot           = new AreaUnit(LengthUnit.Foot);
         public static AreaUnit SquareYard           = new AreaUnit(LengthUnit.Yard);
         public static AreaUnit SquareMile           = new AreaUnit(LengthUnit.Mile);
-        public static AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile);
+        public static AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile, "nmi²"); //TODO Length and Area have diff naming
 
 
 
