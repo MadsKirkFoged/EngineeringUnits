@@ -585,45 +585,57 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void MassCompareAutoTest()
+        public void MassAutoTest()
         {
-            UnitsNet.Mass A1 = new UnitsNet.Mass(65.743, UnitsNet.Units.MassUnit.Kilogram);
-            EngineeringUnits.Mass A2 = new EngineeringUnits.Mass(65.743, EngineeringUnits.MassUnit.Kilogram);
+            var A1 = new UnitsNet.Mass(65.743, UnitsNet.Units.MassUnit.Pound);
+            var A2 = new EngineeringUnits.Mass(65.743, EngineeringUnits.MassUnit.Pound);
 
-            var EU11 = EngineeringUnits.MassUnit.List();
-            var UN11 = UnitsNet.Mass.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Mass.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<MassUnit>())
             {
 
-                if (UnitsNet.Mass.Units[i] == UnitsNet.Units.MassUnit.SolarMass)
-                    
+
+                double Error = 1E-5;
+                double RelError = 5E-4;
+
+                var UNList = UnitsNet.Mass.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
                 {
-                    DiffCount++;
-                    continue;
+                    var UN = UNList.Single();
+
+                    if (UN == UnitsNet.Units.MassUnit.Nanogram) Error = 0.00390625;
+
+
+                    //Debug.Print($"");
+                    //Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    //Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    //Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    //Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
                 }
 
-
-
-                //Getting Units
-                var EU = EngineeringUnits.MassUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Mass.Units[i];
-
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 0.008);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
-
             }
+
+            //Number of comparables units
+            Assert.AreEqual(24, WorkingCompares);
+
         }
 
         [TestMethod]
