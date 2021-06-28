@@ -539,9 +539,14 @@ namespace UnitTests
                                                         1E-3);
                 //All units symbol compare
                 Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("°F", "°R").Replace("C", "K").Replace("·", "*").Replace(".", "*").Replace("K", "k"));
+                                A1.ToUnit(UN).ToString("a")
+                                .Replace("°F", "°R").
+                                Replace("C", "K").
+                                Replace("·", "*").
+                                //Replace("K", "k").
+                                Replace(".", "*"));
 
-            }
+        }
         }
 
         [TestMethod]
@@ -881,7 +886,9 @@ namespace UnitTests
                                                         1E-3);
                 //All units symbol compare
                 Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("K","k"));
+                                A1.ToUnit(UN).ToString("a")
+                                //.Replace("K","k")
+                                );
 
             }
 
@@ -1065,8 +1072,8 @@ namespace UnitTests
                 //All units symbol compare
                 Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                 A1.ToUnit(UN).ToString("a")
-                                .Replace("K","k")
-                                .Replace("J/C", "J/k")
+                                .Replace("J/C", "J/K")
+                                //.Replace("K","k")
                                 );
 
             }
@@ -1111,7 +1118,7 @@ namespace UnitTests
                 //All units symbol compare
                 Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                 A1.ToUnit(UN).ToString("a")
-                                .Replace("K","k")
+                                //.Replace("K","k")
                                 );
 
             }
