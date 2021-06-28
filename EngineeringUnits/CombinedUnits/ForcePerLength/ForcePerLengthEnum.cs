@@ -108,16 +108,6 @@ namespace EngineeringUnits
             SetNewSymbol(NewSymbol);
         }
 
-
-        public static IEnumerable<ForcePerLengthUnit> List()
-        {
-            return new[] { CentinewtonPerCentimeter, CentinewtonPerMeter, CentinewtonPerMillimeter, DecanewtonPerCentimeter, DecanewtonPerMeter, DecanewtonPerMillimeter, DecinewtonPerCentimeter, DecinewtonPerMeter, DecinewtonPerMillimeter, KilogramForcePerCentimeter, KilogramForcePerMeter, KilogramForcePerMillimeter, KilonewtonPerCentimeter, KilonewtonPerMeter, KilonewtonPerMillimeter, KilopoundForcePerFoot, KilopoundForcePerInch, MeganewtonPerCentimeter, MeganewtonPerMeter, MeganewtonPerMillimeter, MicronewtonPerCentimeter, MicronewtonPerMeter, MicronewtonPerMillimeter, MillinewtonPerCentimeter, MillinewtonPerMeter, MillinewtonPerMillimeter, NanonewtonPerCentimeter, NanonewtonPerMeter, NanonewtonPerMillimeter, NewtonPerCentimeter, NewtonPerMeter, NewtonPerMillimeter, PoundForcePerFoot, PoundForcePerInch, PoundForcePerYard, TonneForcePerCentimeter, TonneForcePerMeter, TonneForcePerMillimeter, };
-        }
-
-
-
-
-
     }
 
 
