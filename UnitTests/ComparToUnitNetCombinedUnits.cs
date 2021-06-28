@@ -673,45 +673,58 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void PressureCompareAutoTest()
+        public void PressureAutoTest()
         {
-            UnitsNet.Pressure A1 = new UnitsNet.Pressure(1, UnitsNet.Units.PressureUnit.Bar);
-            EngineeringUnits.Pressure A2 = new EngineeringUnits.Pressure(1, EngineeringUnits.PressureUnit.Bar);
+            var A1 = new UnitsNet.Pressure(65.743, UnitsNet.Units.PressureUnit.Bar);
+            var A2 = new EngineeringUnits.Pressure(65.743, EngineeringUnits.PressureUnit.Bar);
 
-            var EU11 = EngineeringUnits.PressureUnit.List();
-            var UN11 = UnitsNet.Pressure.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Pressure.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<PressureUnit>())
             {
 
-                if (UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-                    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+
+                double Error = 1E-5;
+                double RelError = 1E-5;
+
+                var UNList = UnitsNet.Pressure.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
                 {
-                    DiffCount++;
-                    continue;
+                    var UN = UNList.Single();
+
+                    if (UN == UnitsNet.Units.PressureUnit.Micropascal) Error = 0.0009765625;
+                    if (UN == UnitsNet.Units.PressureUnit.KilogramForcePerSquareMeter) Error = 0.013645294005982578;
+
+
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
                 }
 
-
-
-                //Getting Units
-                var EU = EngineeringUnits.PressureUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Pressure.Units[i];
-
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-5);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
-
             }
+
+            //Number of comparables units
+            Assert.AreEqual(42, WorkingCompares);
+
         }
 
         [TestMethod]
