@@ -1529,45 +1529,56 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void FrequencyCompareAutoTest()
+        public void FrequencyAutoTest()
         {
-            UnitsNet.Frequency A1 = new UnitsNet.Frequency(1, UnitsNet.Units.FrequencyUnit.CyclePerMinute);
-            EngineeringUnits.Frequency A2 = new EngineeringUnits.Frequency(1, EngineeringUnits.FrequencyUnit.CyclePerMinute);
+            var A1 = new UnitsNet.Frequency(65.743, UnitsNet.Units.FrequencyUnit.Hertz);
+            var A2 = new EngineeringUnits.Frequency(65.743, EngineeringUnits.FrequencyUnit.Hertz);
 
-            var EU11 = EngineeringUnits.FrequencyUnit.List();
-            var UN11 = UnitsNet.Frequency.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Frequency.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<FrequencyUnit>())
             {
 
-                if (UnitsNet.Frequency.Units[i] == UnitsNet.Units.FrequencyUnit.BUnit)
+
+                double Error = 1E-5;
+                double RelError = 1E-5;
+
+                var UNList = UnitsNet.Frequency.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
                 {
-                    DiffCount++;
-                    continue;
+                    var UN = UNList.Single();
+
+                    //if (UN == UnitsNet.Units.FrequencyUnit.SquareMicrometer) Error = 2629720.0009765625;
+
+
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
                 }
 
-
-
-                //Getting Units
-                var EU = EngineeringUnits.FrequencyUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Frequency.Units[i];
-
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-0);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-5);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")                                
-                                );
-
             }
+
+            //Number of comparables units
+            Assert.AreEqual(10, WorkingCompares);
 
         }
 
