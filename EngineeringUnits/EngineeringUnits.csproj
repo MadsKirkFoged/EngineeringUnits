@@ -160,7 +160,7 @@
     <Compile Include="CombinedUnits\Speed\Speed.cs" />
     <Compile Include="CombinedUnits\Speed\SpeedGet.cs" />
     <Compile Include="CombinedUnits\Speed\SpeedSet.cs" />
-    <Compile Include="CombinedUnits\Speed\SpeedUnit.cs" />
+    <Compile Include="CombinedUnits\Speed\SpeedEnum.cs" />
     <Compile Include="CombinedUnits\test\test.cs" />
     <Compile Include="CombinedUnits\test\testEnum.cs" />
     <Compile Include="CombinedUnits\test\testGet.cs" />
