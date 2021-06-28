@@ -133,39 +133,60 @@ namespace UnitTests
         [TestMethod]
         public void AmountCompareAutoTest()
         {
+            var A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.KilopoundMole);
+            var A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.KilopoundMole);
 
-            UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
-            EngineeringUnits.AmountOfSubstance A2 = new EngineeringUnits.AmountOfSubstance(65.743, EngineeringUnits.AmountOfSubstanceUnit.Mole);
-
-            string jsonString = JsonConvert.SerializeObject(A2);
-            EngineeringUnits.AmountOfSubstance JSON = JsonConvert.DeserializeObject<EngineeringUnits.AmountOfSubstance>(jsonString);
+            int WorkingCompares = 0;
 
 
-
-            for (int i = 0; i < UnitsNet.AmountOfSubstance.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<AmountOfSubstanceUnit>())
             {
 
-                //Getting Units
-                var EU = EngineeringUnits.AmountOfSubstanceUnit.List().ToList()[i];
-                var UN = UnitsNet.AmountOfSubstance.Units[i];
 
-                //All units absolute difference
-                Assert.AreEqual(0, JSON.As(EU) - A1.As(UN), 1E-5);
+                double Error = 8E-3;
+                double RelError = 1E-5;
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(JSON.As(EU),
-                                                        A1.As(UN)), 
-                                                        1E-10);
-                //All units symbol compare
-                Assert.AreEqual(JSON.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
+                var UNList = UnitsNet.AmountOfSubstance.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
+
+                    if (UN == UnitsNet.Units.AmountOfSubstanceUnit.Nanomole) Error = 4;
+                    //if (UN == UnitsNet.Units.AreaUnit.SquareMillimeter) Error = 2.629720000550151;
+
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(15, WorkingCompares);
+
         }
 
 
 
-            [TestMethod]
+        [TestMethod]
         public void DurationCompare()
         {
 
