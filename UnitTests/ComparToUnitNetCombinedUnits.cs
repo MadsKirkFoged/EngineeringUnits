@@ -254,57 +254,63 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
         }
 
+    
+
         [TestMethod]
-        public void MassFlowCompareAutoTest()
+        public void MassFlowAutoTest()
         {
-            UnitsNet.MassFlow A1 = new UnitsNet.MassFlow(65.743, UnitsNet.Units.MassFlowUnit.KilogramPerHour);
-            EngineeringUnits.MassFlow A2 = new EngineeringUnits.MassFlow(65.743, EngineeringUnits.MassFlowUnit.KilogramPerHour);
+            var A1 = new UnitsNet.MassFlow(65.743, UnitsNet.Units.MassFlowUnit.KilogramPerHour);
+            var A2 = new EngineeringUnits.MassFlow(65.743, EngineeringUnits.MassFlowUnit.KilogramPerHour);
+
+            int WorkingCompares = 0;
 
 
-            string jsonString = JsonConvert.SerializeObject(A2);
-            EngineeringUnits.MassFlow A2JSON = JsonConvert.DeserializeObject<EngineeringUnits.MassFlow>(jsonString);
-
-
-            var EU11 = EngineeringUnits.MassFlowUnit.List();
-            var UN11 = UnitsNet.MassFlow.Units;
-
-
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.MassFlow.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<MassFlowUnit>())
             {
 
-                //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
 
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+                double Error = 7E-4;
+                double RelError = 3E-4;
 
+                var UNList = UnitsNet.MassFlow.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
-                //Getting Units
-                var EU = EngineeringUnits.MassFlowUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.MassFlow.Units[i];
-
-                //All units absolute difference
-                Assert.AreEqual(0, A2JSON.As(EU) - A1.As(UN), 1);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2JSON.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                if (A1.ToUnit(UN).ToString("a") != "short tn/h")
+                if (UNList.Count() == 1)
                 {
-                    Assert.AreEqual(A2JSON.ToUnit(EU).DisplaySymbol(),
-                                    A1.ToUnit(UN).ToString("a").Replace("min","m"));
+                    var UN = UNList.Single();
+
+                    if (UN == UnitsNet.Units.MassFlowUnit.NanogramPerDay) Error = 0.25;
+
+
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a")
+                                    .Replace("min", "m")
+                                    );
+
+                    WorkingCompares++;
 
                 }
 
             }
-        }
 
+            //Number of comparables units
+            Assert.AreEqual(33, WorkingCompares);
+
+        }
 
         [TestMethod]
         public void Powercompare()
