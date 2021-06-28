@@ -819,46 +819,103 @@ namespace UnitTests
 
         }
 
+        //[TestMethod]
+        //public void DensityCompareAutoTest()
+        //{
+        //    UnitsNet.Density A1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.DecigramPerDeciliter);
+        //    EngineeringUnits.Density A2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.DecigramPerDeciliter);
+
+        //    var EU11 = EngineeringUnits.DensityUnit.List();
+        //    var UN11 = UnitsNet.Density.Units;
+
+
+        //    int DiffCount = 0;
+
+        //    for (int i = 0; i < UnitsNet.Density.Units.Length; i++)
+        //    {
+
+        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+        //        //{
+        //        //    DiffCount++;
+        //        //    continue;
+        //        //}
+
+
+
+        //        //Getting Units
+        //        var EU = EngineeringUnits.DensityUnit.List().ToList()[i - DiffCount];
+        //        var UN = UnitsNet.Density.Units[i];
+
+        //        //All units absolute difference
+        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+        //        //All units relative difference
+        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+        //                                                A1.As(UN)),
+        //                                                1E-3);
+        //        //All units symbol compare
+        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+        //                        A1.ToUnit(UN).ToString("a").Replace("/L","/l").Replace("kip", "klb"));
+
+        //    }
+
+        //}
+
         [TestMethod]
-        public void DensityCompareAutoTest()
+        public void DensityAutoTest()
         {
-            UnitsNet.Density A1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.DecigramPerDeciliter);
-            EngineeringUnits.Density A2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.DecigramPerDeciliter);
+            var A1 = new UnitsNet.Density(65.743, UnitsNet.Units.DensityUnit.DecigramPerDeciliter);
+            var A2 = new EngineeringUnits.Density(65.743, EngineeringUnits.DensityUnit.DecigramPerDeciliter);
 
-            var EU11 = EngineeringUnits.DensityUnit.List();
-            var UN11 = UnitsNet.Density.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Density.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<DensityUnit>())
             {
 
-                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 1E-5;
+                double RelError = 2E-4;
+
+                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.DensityUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Density.Units[i];
+                    //if (UN == UnitsNet.Units.DensityUnit.SquareMicrometer) Error = 2629720.0009765625;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("/L","/l").Replace("kip", "klb"));
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a")
+                                    .Replace("/L", "/l")
+                                    .Replace("kip", "klb")
+                                    );
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(40, WorkingCompares);
 
         }
 
