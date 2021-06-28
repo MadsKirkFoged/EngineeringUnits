@@ -366,50 +366,112 @@ namespace UnitTests
 
         }
 
+        //[TestMethod]
+        //public void PowerCompareAutoTest()
+        //{
+        //    UnitsNet.Power A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
+        //    EngineeringUnits.Power A2 = new EngineeringUnits.Power(65.743m, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
+
+        //    var EU11 = EngineeringUnits.PowerUnit.List();
+        //    var UN11 = UnitsNet.Power.Units;
+
+
+        //    int DiffCount = 0;
+
+        //    for (int i = 0; i < UnitsNet.Power.Units.Length; i++)
+        //    {
+
+        //        //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
+
+        //        //{
+        //        //    DiffCount++;
+        //        //    continue;
+        //        //}
+
+
+
+        //        //Getting Units
+        //        var EU = EngineeringUnits.PowerUnit.List().ToList()[i - DiffCount];
+        //        var UN = UnitsNet.Power.Units[i];
+
+        //        //All units absolute difference
+        //        //Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
+
+        //        //All units relative difference
+        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+        //                                                A1.As(UN)),
+        //                                                1E-3);
+        //        //All units symbol compare
+        //        if (A1.ToUnit(UN).ToString("a") != "short tn/h")
+        //        {
+        //            Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+        //                            A1.ToUnit(UN).ToString("a").Replace("min", "m").Replace("Btu","BTU"));
+
+        //        }
+
+        //    }
+        //}
+
         [TestMethod]
-        public void PowerCompareAutoTest()
+        public void PowerAutoTest()
         {
-            UnitsNet.Power A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
-            EngineeringUnits.Power A2 = new EngineeringUnits.Power(65.743m, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
+            var A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
+            var A2 = new EngineeringUnits.Power(65.743, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
 
-            var EU11 = EngineeringUnits.PowerUnit.List();
-            var UN11 = UnitsNet.Power.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Power.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<PowerUnit>())
             {
 
-                //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
 
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+                double Error = 80352555552768;
+                double RelError = 5E-4;
 
+                var UNList = UnitsNet.Power.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
-                //Getting Units
-                var EU = EngineeringUnits.PowerUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Power.Units[i];
-
-                //All units absolute difference
-                //Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                if (A1.ToUnit(UN).ToString("a") != "short tn/h")
+                if (UNList.Count() == 1)
                 {
+                    var UN = UNList.Single();
+
+                    if (UN == UnitsNet.Units.PowerUnit.Femtowatt) Error = 80352555552768;
+                    if (UN == UnitsNet.Units.PowerUnit.Picowatt) Error = 80352555556;
+                    if (UN == UnitsNet.Units.PowerUnit.Nanowatt) Error = 80352555.5546875;
+                    if (UN == UnitsNet.Units.PowerUnit.Microwatt) Error = 80352.55555725098;
+                    if (UN == UnitsNet.Units.PowerUnit.Milliwatt) Error = 80.35255555808544;
+                    if (UN == UnitsNet.Units.PowerUnit.Deciwatt) Error = 0.8035255555587355;
+                    if (UN == UnitsNet.Units.PowerUnit.Watt) Error = 0.08035255555660115;
+                    if (UN == UnitsNet.Units.PowerUnit.MillijoulePerHour) Error = 289269.19999694824;
+
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                    A1.ToUnit(UN).ToString("a").Replace("min", "m").Replace("Btu","BTU"));
+                                    A1.ToUnit(UN).ToString("a")
+                                    .Replace("Btu", "BTU")
+                                    );
+
+                    WorkingCompares++;
 
                 }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(25, WorkingCompares);
+
         }
 
 
