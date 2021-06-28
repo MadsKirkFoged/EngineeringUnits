@@ -647,49 +647,57 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ForceCompareAutoTest()
+        public void ForceAutoTest()
         {
-            UnitsNet.Force A1 = new UnitsNet.Force(1, UnitsNet.Units.ForceUnit.Kilonewton);
-            EngineeringUnits.Force A2 = new EngineeringUnits.Force(1, EngineeringUnits.ForceUnit.Kilonewton);
+            var A1 = new UnitsNet.Force(65.743, UnitsNet.Units.ForceUnit.Kilonewton);
+            var A2 = new EngineeringUnits.Force(65.743, EngineeringUnits.ForceUnit.Kilonewton);
 
-            string jsonString = JsonConvert.SerializeObject(A2);
-            EngineeringUnits.Force A2JSON = JsonConvert.DeserializeObject<EngineeringUnits.Force>(jsonString);
-
-
-            var EU11 = EngineeringUnits.ForceUnit.List();
-            var UN11 = UnitsNet.Force.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Force.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<ForceUnit>())
             {
 
-                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 2E-5;
+                double RelError = 6E-5;
+
+                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.ForceUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Force.Units[i];
+                    if (UN == UnitsNet.Units.ForceUnit.Poundal) Error = 0.2531900921021588;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2JSON.As(EU) - A1.As(UN), 1E-2);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2JSON.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-4);
-                //All units symbol compare
-                Assert.AreEqual(A2JSON.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(15, WorkingCompares);
+
         }
 
         //[TestMethod]
