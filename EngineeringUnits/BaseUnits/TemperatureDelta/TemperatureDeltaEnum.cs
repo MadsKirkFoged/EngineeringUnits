@@ -15,11 +15,11 @@ namespace EngineeringUnits
 
 
 
-        public static TemperatureDeltaUnit Kelvin = new TemperatureDeltaUnit("k", 1,1,0);
-        public static TemperatureDeltaUnit SI = new TemperatureDeltaUnit("k", 1, 1, 0);
-        public static TemperatureDeltaUnit DegreeCelsius = new TemperatureDeltaUnit("°C", 1,1, -273.15m);
-        public static TemperatureDeltaUnit DegreeFahrenheit = new TemperatureDeltaUnit("°F", 5/9m, 1, (-273.15m*(9/5m))+ 32m);
-        public static TemperatureDeltaUnit DegreeRankine = new TemperatureDeltaUnit("°R", 5/9m, 1, 0);
+        public static TemperatureDeltaUnit Kelvin =             new TemperatureDeltaUnit("k", 1,1,0);
+        public static TemperatureDeltaUnit SI =                 new TemperatureDeltaUnit("k", 1, 1, 0);
+        public static TemperatureDeltaUnit DegreeCelsius =      new TemperatureDeltaUnit("°C", 1,1, -273.15m);
+        public static TemperatureDeltaUnit DegreeFahrenheit =   new TemperatureDeltaUnit("°F", 5/9m, 1, (-273.15m*(9/5m))+ 32m);
+        public static TemperatureDeltaUnit DegreeRankine =      new TemperatureDeltaUnit("°R", 5/9m, 1, 0);
 
 
         public TemperatureDeltaUnit() { }
@@ -27,31 +27,25 @@ namespace EngineeringUnits
 
         public TemperatureDeltaUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, a1, a2,b)
         {
-            SetUnitSystem();
-        }
-
-
-        public TemperatureDeltaUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
-        {
-            SetUnitSystem();
-        }
-
-        public void SetUnitSystem()
-        {
             Unit = new UnitSystem();
             Unit.Temperature = (TemperatureUnit)Clone();
-
 
             //Beta
             Unit.UnitListBeta.Add(this);
         }
 
 
-        public static IEnumerable<TemperatureDeltaUnit> List()
+        public TemperatureDeltaUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
-            return new[] { DegreeCelsius, DegreeFahrenheit, DegreeRankine, Kelvin, };
+            Unit = new UnitSystem();
+            Unit.Temperature = (TemperatureUnit)Clone();
+
+            //Beta
+            Unit.UnitListBeta.Add(this);
         }
-       
+
+
+      
     }
 
 
