@@ -1613,47 +1613,56 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ThermalResistanceCompareAutoTest()
+        public void ThermalResistanceAutoTest()
         {
-            UnitsNet.ThermalResistance A1 = new UnitsNet.ThermalResistance(1, UnitsNet.Units.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
-            EngineeringUnits.ThermalResistance A2 = new EngineeringUnits.ThermalResistance(1, EngineeringUnits.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
+            var A1 = new UnitsNet.ThermalResistance(65.743, UnitsNet.Units.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
+            var A2 = new EngineeringUnits.ThermalResistance(65.743, EngineeringUnits.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
 
-            var EU11 = EngineeringUnits.ThermalResistanceUnit.List();
-            var UN11 = UnitsNet.ThermalResistance.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.ThermalResistance.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<ThermalResistanceUnit>())
             {
 
-                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 3E-4;
+                double RelError = 1E-1;
+
+                var UNList = UnitsNet.ThermalResistance.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.ThermalResistanceUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.ThermalResistance.Units[i];
+                    if (UN == UnitsNet.Units.ThermalResistanceUnit.SquareCentimeterHourDegreeCelsiusPerKilocalorie) Error = 0.0542845837316861;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-1);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-                                //.Replace("K","k")
-                                );
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(5, WorkingCompares);
 
         }
 

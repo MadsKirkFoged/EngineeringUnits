@@ -22,41 +22,18 @@ namespace EngineeringUnits
 
         public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "ThermalResistanceh";
             Unit = (area.Unit * temperature.Unit) / power.Unit;
-
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{area}{temperature}/{power}");
-
         }
 
         public ThermalResistanceUnit(AreaUnit area, DurationUnit duration, TemperatureUnit temperature, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "ThermalResistanceh";
             Unit = (area.Unit * duration.Unit * temperature.Unit) / energy.Unit;
-
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{area}{duration}{temperature}/{energy}");
-
         }
-
-
-
-
-        public static IEnumerable<ThermalResistanceUnit> List()
-        {
-            return new[] { HourSquareFeetDegreeFahrenheitPerBtu, SquareCentimeterHourDegreeCelsiusPerKilocalorie, SquareCentimeterKelvinPerWatt, SquareMeterDegreeCelsiusPerWatt, SquareMeterKelvinPerKilowatt, };
-        }
-
-
-
-
 
     }
-
-
-
 
 }
