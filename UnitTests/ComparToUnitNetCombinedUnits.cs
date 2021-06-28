@@ -678,46 +678,102 @@ namespace UnitTests
             }
         }
 
+        //[TestMethod]
+        //public void AccelerationCompareAutoTest()
+        //{
+        //    UnitsNet.Acceleration A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
+        //    EngineeringUnits.Acceleration A2 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+
+        //    var EU11 = EngineeringUnits.AccelerationUnit.List();
+        //    var UN11 = UnitsNet.Acceleration.Units;
+
+
+        //    int DiffCount = 0;
+
+        //    for (int i = 0; i < UnitsNet.Acceleration.Units.Length; i++)
+        //    {
+
+        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
+        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
+        //        //{
+        //        //    DiffCount++;
+        //        //    continue;
+        //        //}
+
+
+
+        //        //Getting Units
+        //        var EU = EngineeringUnits.AccelerationUnit.List().ToList()[i - DiffCount];
+        //        var UN = UnitsNet.Acceleration.Units[i];
+
+        //        //All units absolute difference
+        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
+
+        //        //All units relative difference
+        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+        //                                                A1.As(UN)),
+        //                                                1E-5);
+        //        //All units symbol compare
+        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+        //                        A1.ToUnit(UN).ToString("a").Replace("min","m"));
+
+        //    }
+        //}
+
         [TestMethod]
-        public void AccelerationCompareAutoTest()
+        public void AccelerationAutoTest()
         {
-            UnitsNet.Acceleration A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
-            EngineeringUnits.Acceleration A2 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+            var A1 = new UnitsNet.Acceleration(65.743, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
+            var A2 = new EngineeringUnits.Acceleration(65.743, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
 
-            var EU11 = EngineeringUnits.AccelerationUnit.List();
-            var UN11 = UnitsNet.Acceleration.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Acceleration.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<AccelerationUnit>())
             {
 
-                //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-                //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 2E-4;
+                double RelError = 1E-5;
+
+                var UNList = UnitsNet.Acceleration.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.AccelerationUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Acceleration.Units[i];
+                    //if (UN == UnitsNet.Units.AccelerationUnit.SquareMicrometer) Error = 2629720.0009765625;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-5);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("min","m"));
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a")
+                                    .Replace("min", "m")
+                                    );
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(14, WorkingCompares);
+
         }
 
         [TestMethod]
