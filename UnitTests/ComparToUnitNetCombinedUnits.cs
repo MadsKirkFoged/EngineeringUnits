@@ -1874,47 +1874,61 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TorqueCompareAutoTest()
+        public void TorqueAutoTest()
         {
-            UnitsNet.Torque A1 = new UnitsNet.Torque(1, UnitsNet.Units.TorqueUnit.KilonewtonMeter);
-            EngineeringUnits.Torque A2 = new EngineeringUnits.Torque(1, EngineeringUnits.TorqueUnit.KilonewtonMeter);
+            var A1 = new UnitsNet.Torque(65.743, UnitsNet.Units.TorqueUnit.KilonewtonMeter);
+            var A2 = new EngineeringUnits.Torque(65.743, EngineeringUnits.TorqueUnit.KilonewtonMeter);
 
-            var EU11 = EngineeringUnits.TorqueUnit.List();
-            var UN11 = UnitsNet.Torque.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Torque.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<TorqueUnit>())
             {
 
-                //if (UnitsNet.Torque.Units[i] == UnitsNet.Units.TorqueUnit.BUnit)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 2E-4;
+                double RelError = 1E-5;
+
+                var UNList = UnitsNet.Torque.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.TorqueUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Torque.Units[i];
+                    if (UN == UnitsNet.Units.TorqueUnit.KilogramForceCentimeter) Error = 0.013645293889567256;
+                    if (UN == UnitsNet.Units.TorqueUnit.KilogramForceMillimeter) Error = 0.13645293843001127;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-2);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-5);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-                                );
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
 
+            //Number of comparables units
+            Assert.AreEqual(22, WorkingCompares);
+
         }
+
+
         [TestMethod]
         public void KinematicViscosityAutoTest()
         {
