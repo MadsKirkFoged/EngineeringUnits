@@ -406,80 +406,87 @@ namespace UnitTests
             }
         }
 
+        //[TestMethod]
+        //public void AreaCompareAutoTest()
+        //{
+        //    UnitsNet.Area A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
+        //    EngineeringUnits.Area A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
+
+        //    var EU11 = EngineeringUnits.AreaUnit.List();
+        //    var UN11 = UnitsNet.Area.Units;
+
+
+        //    int DiffCount = 0;
+
+        //    for (int i = 0; i < UnitsNet.Area.Units.Length; i++)
+        //    {
+
+        //        if (UnitsNet.Area.Units[i] == UnitsNet.Units.AreaUnit.UsSurveySquareFoot)
+
+        //        {
+        //            DiffCount++;
+        //            continue;
+        //        }
+
+
+
+        //        //Getting Units
+        //        var EU = EngineeringUnits.AreaUnit.List().ToList()[i - DiffCount];
+        //        var UN = UnitsNet.Area.Units[i];
+
+        //        //All units absolute difference
+        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 2729720);
+
+        //        //All units relative difference
+        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+        //                                                A1.As(UN)),
+        //                                                1E-3);
+        //        //All units symbol compare
+        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+        //                        A1.ToUnit(UN).ToString("a"));
+
+        //    }
+        //}
+
         [TestMethod]
         public void AreaCompareAutoTest()
         {
-            UnitsNet.Area A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
-            EngineeringUnits.Area A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
-
-            var EU11 = EngineeringUnits.AreaUnit.List();
-            var UN11 = UnitsNet.Area.Units;
-
-
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Area.Units.Length; i++)
-            {
-
-                if (UnitsNet.Area.Units[i] == UnitsNet.Units.AreaUnit.UsSurveySquareFoot)
-
-                {
-                    DiffCount++;
-                    continue;
-                }
-
-
-
-                //Getting Units
-                var EU = EngineeringUnits.AreaUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Area.Units[i];
-
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 2729720);
-
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
-
-            }
-        }
-
-        [TestMethod]
-        public void AreaCompareAutoTesttest()
-        {
-            UnitsNet.Area A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
-            EngineeringUnits.Area A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
+            var A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
+            var A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
 
             int WorkingCompares = 0;
 
 
-            foreach (AreaUnit EU in AreaUnit.ListOf<AreaUnit>())
+            foreach (var EU in Enumeration.ListOf<AreaUnit>())
             {
 
 
-                try
+                double Error = 5E-2;
+                double RelError = 1E-3;
+
+                var UNList = UnitsNet.Area.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
                 {
+                    var UN = UNList.Single();
 
-                    var UN = UnitsNet.Area.Units.Where(x => x.ToString() == EU.QuantityName).Single();
+                    if (UN == UnitsNet.Units.AreaUnit.SquareMicrometer) Error = 2629720.0009765625;
+                    if (UN == UnitsNet.Units.AreaUnit.SquareMillimeter) Error = 2.629720000550151;
 
-
-                    //Debug.Print($"");
-                    //Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    //Debug.Print($"EngineeringUnit: {EU.NameOf} {A2.As(EU)}");
-                    //Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
-                    //Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
                     //All units absolute difference
-                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 2729720);
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
 
                     //All units relative difference
                     Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
                                                             A1.As(UN)),
-                                                            1E-3);
+                                                            RelError);
                     //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                     A1.ToUnit(UN).ToString("a"));
@@ -487,10 +494,6 @@ namespace UnitTests
                     WorkingCompares++;
 
                 }
-                catch (System.Exception)
-                {
-                }
-
 
             }
 

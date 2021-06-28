@@ -52,38 +52,38 @@ namespace UnitNetcomparing
 
 
 
-            foreach (var item in AreaUnit.List())
-            {
+            //foreach (var item in AreaUnit.List())
+            //{
 
-               var etstset = item.GetType();
+            //   var etstset = item.GetType();
                 
 
-                Debug.Print(nameof(item));
+            //    Debug.Print(nameof(item));
 
-                if (nameof(item) == "Acre")
-                {
+            //    if (nameof(item) == "Acre")
+            //    {
 
-                }
+            //    }
 
-            }
+            //}
 
 
 
-            var testte = UnitsNet.Area.Units;
+            //var testte = UnitsNet.Area.Units;
 
-            var testte2 = AreaUnit.List();
+            //var testte2 = AreaUnit.List();
 
-            var estsetes = AreaUnit.Acre;
+            //var estsetes = AreaUnit.Acre;
 
   
-            var name = nameof(AreaUnit.Acre);
+            //var name = nameof(AreaUnit.Acre);
 
 
-            Volume test3 = new Volume(5.4, VolumeUnit.UsGallon);
+            //Volume test3 = new Volume(5.4, VolumeUnit.UsGallon);
 
 
-            string jsonstring2 = JsonConvert.SerializeObject(test3);
-            Volume JSON1 = JsonConvert.DeserializeObject<Volume>(jsonstring2);
+            //string jsonstring2 = JsonConvert.SerializeObject(test3);
+            //Volume JSON1 = JsonConvert.DeserializeObject<Volume>(jsonstring2);
 
 
 

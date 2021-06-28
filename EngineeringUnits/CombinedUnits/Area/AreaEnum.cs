@@ -33,40 +33,10 @@ namespace EngineeringUnits
 
         public AreaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "Area";
             Unit = Length.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
-
-        }
-
-
-
-        public static IEnumerable<AreaUnit> List()
-        {
-            return new[] { 
-                Acre,
-                Hectare,
-                SquareCentimeter,
-                SquareDecimeter,
-                SquareFoot,
-                SquareInch,
-                SquareKilometer,
-                SquareMeter,
-                SquareMicrometer,
-                SquareMile,
-                SquareMillimeter,
-                SquareNauticalMile,
-                SquareYard, 
-            };
-        }
-
-       
+        }     
 
     }
-
-
-
-
 }
