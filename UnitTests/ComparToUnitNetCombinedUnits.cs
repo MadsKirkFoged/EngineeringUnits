@@ -119,8 +119,6 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
         }
 
-
-
         [TestMethod]
         public void SpecificEnergycompare2()
         {
@@ -137,49 +135,6 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 2.2E-5);
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
         }
-
-
-
-        //[TestMethod]
-        //public void SpecificEnergyCompareAutoTest()
-        //{
-        //    UnitsNet.SpecificEnergy A1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-        //    EngineeringUnits.SpecificEnergy A2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
-
-        //    var EU11 = EngineeringUnits.SpecificEnergyUnit.List();
-        //    var UN11 = UnitsNet.SpecificEnergy.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.SpecificEnergy.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.SpecificEnergyUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.SpecificEnergy.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-8);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a").Replace("min", "m").Replace("btu", "BTU").Replace("ST", "t (short)"));
-
-        //    }
-        //}
 
         [TestMethod]
         public void SpecificEnergyAutoTest()
@@ -239,9 +194,6 @@ namespace UnitTests
 
         }
 
-
-
-
         [TestMethod]
         public void SpecificHeatCapacitycompare()
         {
@@ -259,7 +211,6 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0);
 
         }
-
 
         [TestMethod]
         public void SpecificHeatCapacitycompare2()
@@ -294,8 +245,6 @@ namespace UnitTests
             
         }
 
-
-
         [TestMethod]
         public void MassFlowcompare()
         {
@@ -311,8 +260,6 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerMinute), 0);
             Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
         }
-
-    
 
         [TestMethod]
         public void MassFlowAutoTest()
@@ -424,52 +371,6 @@ namespace UnitTests
 
         }
 
-        //[TestMethod]
-        //public void PowerCompareAutoTest()
-        //{
-        //    UnitsNet.Power A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
-        //    EngineeringUnits.Power A2 = new EngineeringUnits.Power(65.743m, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
-
-        //    var EU11 = EngineeringUnits.PowerUnit.List();
-        //    var UN11 = UnitsNet.Power.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.Power.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.MassFlow.Units[i] == UnitsNet.Units.MassFlowUnit.UsSurveySquareFoot)
-
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.PowerUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.Power.Units[i];
-
-        //        //All units absolute difference
-        //        //Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        if (A1.ToUnit(UN).ToString("a") != "short tn/h")
-        //        {
-        //            Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                            A1.ToUnit(UN).ToString("a").Replace("min", "m").Replace("Btu","BTU"));
-
-        //        }
-
-        //    }
-        //}
-
         [TestMethod]
         public void PowerAutoTest()
         {
@@ -531,7 +432,6 @@ namespace UnitTests
             Assert.AreEqual(25, WorkingCompares);
 
         }
-
 
         [TestMethod]
         public void AreaCompareAutoTest()
@@ -642,53 +542,6 @@ namespace UnitTests
 
         }
 
-
-        //[TestMethod]
-        //public void SpecificEntropyCompareAutoTest()
-        //{
-        //    UnitsNet.SpecificEntropy A1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.KilocaloriePerGramKelvin);
-        //    EngineeringUnits.SpecificEntropy A2 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.KilocaloriePerGramKelvin);
-
-        //    var EU11 = EngineeringUnits.SpecificEntropyUnit.List();
-        //    var UN11 = UnitsNet.SpecificEntropy.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.SpecificEntropy.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.SpecificEntropyUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.SpecificEntropy.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a")
-        //                        .Replace("°F", "°R").
-        //                        Replace("C", "K").
-        //                        Replace("·", "*").
-        //                        //Replace("K", "k").
-        //                        Replace(".", "*"));
-
-        //}
-        //}
-
         [TestMethod]
         public void SpecificEntropyAutoTest()
         {
@@ -747,49 +600,7 @@ namespace UnitTests
             Assert.AreEqual(9, WorkingCompares);
 
         }
-
-
-        //[TestMethod]
-        //public void SpeedCompareAutoTest()
-        //{
-        //    UnitsNet.Speed A1 = new UnitsNet.Speed(1, UnitsNet.Units.SpeedUnit.FootPerHour);
-        //    EngineeringUnits.Speed A2 = new EngineeringUnits.Speed(1, EngineeringUnits.SpeedUnit.FootPerHour);
-
-        //    var EU11 = EngineeringUnits.SpeedUnit.List();
-        //    var UN11 = UnitsNet.Speed.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.Speed.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.SpeedUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.Speed.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a").Replace("/min", "/m"));
-
-        //    }
-        //}
-
+   
         [TestMethod]
         public void SpeedAutoTest()
         {
@@ -955,48 +766,6 @@ namespace UnitTests
 
         }
 
-        //[TestMethod]
-        //public void AccelerationCompareAutoTest()
-        //{
-        //    UnitsNet.Acceleration A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
-        //    EngineeringUnits.Acceleration A2 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
-
-        //    var EU11 = EngineeringUnits.AccelerationUnit.List();
-        //    var UN11 = UnitsNet.Acceleration.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.Acceleration.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.AccelerationUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.Acceleration.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-5);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a").Replace("min","m"));
-
-        //    }
-        //}
-
         [TestMethod]
         public void AccelerationAutoTest()
         {
@@ -1111,49 +880,6 @@ namespace UnitTests
 
         }
 
-        //[TestMethod]
-        //public void DensityCompareAutoTest()
-        //{
-        //    UnitsNet.Density A1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.DecigramPerDeciliter);
-        //    EngineeringUnits.Density A2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.DecigramPerDeciliter);
-
-        //    var EU11 = EngineeringUnits.DensityUnit.List();
-        //    var UN11 = UnitsNet.Density.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.Density.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.DensityUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.Density.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a").Replace("/L","/l").Replace("kip", "klb"));
-
-        //    }
-
-        //}
-
         [TestMethod]
         public void DensityAutoTest()
         {
@@ -1210,49 +936,6 @@ namespace UnitTests
             Assert.AreEqual(40, WorkingCompares);
 
         }
-
-        //[TestMethod]
-        //public void DynamicViscosityCompareAutoTest()
-        //{
-        //    UnitsNet.DynamicViscosity A1 = new UnitsNet.DynamicViscosity(1, UnitsNet.Units.DynamicViscosityUnit.PascalSecond);
-        //    EngineeringUnits.DynamicViscosity A2 = new EngineeringUnits.DynamicViscosity(1, EngineeringUnits.DynamicViscosityUnit.PascalSecond);
-
-        //    var EU11 = EngineeringUnits.DynamicViscosityUnit.List();
-        //    var UN11 = UnitsNet.DynamicViscosity.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.DynamicViscosity.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.DynamicViscosityUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.DynamicViscosity.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a").Replace("Ns", "N·s"));
-
-        //    }
-
-        //}
 
         [TestMethod]
         public void DynamicViscosityAutoTest()
@@ -1419,58 +1102,6 @@ namespace UnitTests
 
         }
 
-        //[TestMethod]
-        //public void VolumeFlowCompareAutoTest()
-        //{
-        //    UnitsNet.VolumeFlow A1 = new UnitsNet.VolumeFlow(1, UnitsNet.Units.VolumeFlowUnit.CubicFootPerHour);
-        //    EngineeringUnits.VolumeFlow A2 = new EngineeringUnits.VolumeFlow(1, EngineeringUnits.VolumeFlowUnit.CubicFootPerHour);
-
-        //    var EU11 = EngineeringUnits.VolumeFlowUnit.List();
-        //    var UN11 = UnitsNet.VolumeFlow.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.VolumeFlow.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.VolumeFlowUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.VolumeFlow.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-2);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a")
-        //                        .Replace("day", "d")
-        //                        .Replace("min", "m")
-        //                        //.Replace("cL", "cl")
-        //                        //.Replace("dL", "dl")
-        //                        .Replace("cy", "yd³")
-        //                        //.Replace("kL", "kl")
-        //                        .Replace("L", "l")
-        //                        .Replace("hr", "h")
-        //                        );
-
-        //    }
-
-        //}
-
         [TestMethod]
         public void VolumeFlowAutoTest()
         {
@@ -1585,52 +1216,6 @@ namespace UnitTests
             Assert.AreEqual(12, WorkingCompares);
 
         }
-
-        //[TestMethod]
-        //public void EntropyCompareAutoTest()
-        //{
-        //    UnitsNet.Entropy A1 = new UnitsNet.Entropy(1, UnitsNet.Units.EntropyUnit.JoulePerKelvin);
-        //    EngineeringUnits.Entropy A2 = new EngineeringUnits.Entropy(1, EngineeringUnits.EntropyUnit.JoulePerKelvin);
-
-        //    var EU11 = EngineeringUnits.EntropyUnit.List();
-        //    var UN11 = UnitsNet.Entropy.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.Entropy.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.EntropyUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.Entropy.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-5);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a")
-        //                        .Replace("J/C", "J/K")
-        //                        //.Replace("K","k")
-        //                        );
-
-        //    }
-
-        //}
 
         [TestMethod]
         public void EntropyAutoTest()
@@ -1796,51 +1381,6 @@ namespace UnitTests
 
         }
 
-        //[TestMethod]
-        //public void ElectricPotentialCompareAutoTest()
-        //{
-        //    UnitsNet.ElectricPotential A1 = new UnitsNet.ElectricPotential(1, UnitsNet.Units.ElectricPotentialUnit.Megavolt);
-        //    EngineeringUnits.ElectricPotential A2 = new EngineeringUnits.ElectricPotential(1, EngineeringUnits.ElectricPotentialUnit.Megavolt);
-
-        //    var EU11 = EngineeringUnits.ElectricPotentialUnit.List();
-        //    var UN11 = UnitsNet.ElectricPotential.Units;
-
-
-        //    int DiffCount = 0;
-
-        //    for (int i = 0; i < UnitsNet.ElectricPotential.Units.Length; i++)
-        //    {
-
-        //        //if (UnitsNet.Force.Units[i] == UnitsNet.Units.PressureUnit.FootOfElevation ||
-        //        //    UnitsNet.Pressure.Units[i] == UnitsNet.Units.PressureUnit.MeterOfElevation)
-        //        //{
-        //        //    DiffCount++;
-        //        //    continue;
-        //        //}
-
-
-
-        //        //Getting Units
-        //        var EU = EngineeringUnits.ElectricPotentialUnit.List().ToList()[i - DiffCount];
-        //        var UN = UnitsNet.ElectricPotential.Units[i];
-
-        //        //All units absolute difference
-        //        Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-5);
-
-        //        //All units relative difference
-        //        Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-        //                                                A1.As(UN)),
-        //                                                1E-3);
-        //        //All units symbol compare
-        //        Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-        //                        A1.ToUnit(UN).ToString("a")
-        //                        .Replace("K", "k")
-        //                        );
-
-        //    }
-
-        //}
-
         [TestMethod]
         public void ElectricPotentialAutoTest()
         {
@@ -2003,7 +1543,6 @@ namespace UnitTests
             Assert.AreEqual(22, WorkingCompares);
 
         }
-
 
         [TestMethod]
         public void KinematicViscosityAutoTest()
