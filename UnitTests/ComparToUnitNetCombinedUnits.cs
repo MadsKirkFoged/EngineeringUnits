@@ -1634,45 +1634,56 @@ namespace UnitTests
 
         }
         [TestMethod]
-        public void KinematicViscosityCompareAutoTest()
+        public void KinematicViscosityAutoTest()
         {
-            UnitsNet.KinematicViscosity A1 = new UnitsNet.KinematicViscosity(1, UnitsNet.Units.KinematicViscosityUnit.Kilostokes);
-            EngineeringUnits.KinematicViscosity A2 = new EngineeringUnits.KinematicViscosity(1, EngineeringUnits.KinematicViscosityUnit.Kilostokes);
+            var A1 = new UnitsNet.KinematicViscosity(65.743, UnitsNet.Units.KinematicViscosityUnit.Kilostokes);
+            var A2 = new EngineeringUnits.KinematicViscosity(65.743, EngineeringUnits.KinematicViscosityUnit.Kilostokes);
 
-            var EU11 = EngineeringUnits.KinematicViscosityUnit.List();
-            var UN11 = UnitsNet.KinematicViscosity.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.KinematicViscosity.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<KinematicViscosityUnit>())
             {
 
-                //if (UnitsNet.KinematicViscosity.Units[i] == UnitsNet.Units.KinematicViscosityUnit.BUnit)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 2E-5;
+                double RelError = 1E-5;
+
+                var UNList = UnitsNet.KinematicViscosity.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.KinematicViscosityUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.KinematicViscosity.Units[i];
+                    if (UN == UnitsNet.Units.KinematicViscosityUnit.Nanostokes) Error = 0.015625;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1E-3);
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-5);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-                                );
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(8, WorkingCompares);
 
         }
     }
