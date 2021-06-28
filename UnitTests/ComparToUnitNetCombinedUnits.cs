@@ -461,45 +461,59 @@ namespace UnitTests
 
         }
 
-        [TestMethod]
-        public void EnergyCompareAutoTest()
+       [TestMethod]
+        public void EnergyAutoTest()
         {
-            UnitsNet.Energy A1 = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.Joule);
-            EngineeringUnits.Energy A2 = new EngineeringUnits.Energy(1, EngineeringUnits.EnergyUnit.Joule);
+            var A1 = new UnitsNet.Energy(65.743, UnitsNet.Units.EnergyUnit.Joule);
+            var A2 = new EngineeringUnits.Energy(65.743, EngineeringUnits.EnergyUnit.Joule);
 
-            var EU11 = EngineeringUnits.EnergyUnit.List();
-            var UN11 = UnitsNet.Energy.Units;
+            int WorkingCompares = 0;
 
 
-            int DiffCount = 0;
-
-            for (int i = 0; i < UnitsNet.Energy.Units.Length; i++)
+            foreach (var EU in Enumeration.ListOf<EnergyUnit>())
             {
 
-                //if (UnitsNet.Energy.Units[i] == UnitsNet.Units.EnergyUnit.UsSurveySquareFoot)
-                //{
-                //    DiffCount++;
-                //    continue;
-                //}
+
+                double Error = 7E-5;
+                double RelError = 4E-4;
+
+                var UNList = UnitsNet.Energy.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
 
-                //Getting Units
-                var EU = EngineeringUnits.EnergyUnit.List().ToList()[i - DiffCount];
-                var UN = UnitsNet.Energy.Units[i];
+                    if (UN == UnitsNet.Units.EnergyUnit.ElectronVolt) Error = 65536;
+                    if (UN == UnitsNet.Units.EnergyUnit.KiloelectronVolt) Error = 64;
+                    if (UN == UnitsNet.Units.EnergyUnit.MegaelectronVolt) Error = 0.0625;
 
-                //All units absolute difference
-                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), 1024);
+                    Debug.Print($"");
+                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
-                //All units relative difference
-                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                        A1.As(UN)),
-                                                        1E-3);
-                //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a"));
+                    //All units absolute difference
+                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                            A1.As(UN)),
+                                                            RelError);
+                    //All units symbol compare
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                    A1.ToUnit(UN).ToString("a"));
+
+                    WorkingCompares++;
+
+                }
 
             }
+
+            //Number of comparables units
+            Assert.AreEqual(36, WorkingCompares);
+
         }
 
 

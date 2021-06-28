@@ -17,36 +17,36 @@ namespace EngineeringUnits
 
         public static EnergyUnit SI = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "J");
 
-        public static EnergyUnit Millijoule = new EnergyUnit(PreFix.milli, SI);
-        public static EnergyUnit Joule = new EnergyUnit(PreFix.SI, SI);
-        public static EnergyUnit Kilojoule = new EnergyUnit(PreFix.kilo, SI);
-        public static EnergyUnit Megajoule = new EnergyUnit(PreFix.mega, SI);
-        public static EnergyUnit Gigajoule = new EnergyUnit(PreFix.giga, SI);
-        public static EnergyUnit Terajoule = new EnergyUnit(PreFix.tera, SI);
+        public static EnergyUnit Millijoule =   new EnergyUnit(PreFix.milli, SI);
+        public static EnergyUnit Joule =        new EnergyUnit(PreFix.SI, SI);
+        public static EnergyUnit Kilojoule =    new EnergyUnit(PreFix.kilo, SI);
+        public static EnergyUnit Megajoule =    new EnergyUnit(PreFix.mega, SI);
+        public static EnergyUnit Gigajoule =    new EnergyUnit(PreFix.giga, SI);
+        public static EnergyUnit Terajoule =    new EnergyUnit(PreFix.tera, SI);
 
-        public static EnergyUnit BritishThermalUnit = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
-        public static EnergyUnit KilobritishThermalUnit = new EnergyUnit(PreFix.kilo, BritishThermalUnit);
-        public static EnergyUnit MegabritishThermalUnit = new EnergyUnit(PreFix.mega, BritishThermalUnit);
-        public static EnergyUnit GigabritishThermalUnit = new EnergyUnit(PreFix.giga, BritishThermalUnit);
+        public static EnergyUnit BritishThermalUnit =       new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "BTU", 1055.06m);
+        public static EnergyUnit KilobritishThermalUnit =   new EnergyUnit(PreFix.kilo, BritishThermalUnit);
+        public static EnergyUnit MegabritishThermalUnit =   new EnergyUnit(PreFix.mega, BritishThermalUnit);
+        public static EnergyUnit GigabritishThermalUnit =   new EnergyUnit(PreFix.giga, BritishThermalUnit);
 
-        public static EnergyUnit ElectronVolt = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
+        public static EnergyUnit ElectronVolt =     new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "eV", 0.0000000000000000001602176565m);
         public static EnergyUnit KiloelectronVolt = new EnergyUnit(PreFix.kilo, ElectronVolt);
         public static EnergyUnit MegaelectronVolt = new EnergyUnit(PreFix.mega, ElectronVolt);
         public static EnergyUnit GigaelectronVolt = new EnergyUnit(PreFix.giga, ElectronVolt);
         public static EnergyUnit TeraelectronVolt = new EnergyUnit(PreFix.tera, ElectronVolt);
 
-        public static EnergyUnit Calorie = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
-        public static EnergyUnit Kilocalorie = new EnergyUnit(PreFix.kilo, Calorie);
-        public static EnergyUnit Megacalorie = new EnergyUnit(PreFix.mega, Calorie);
+        public static EnergyUnit Calorie =      new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "cal", 4.184m);
+        public static EnergyUnit Kilocalorie =  new EnergyUnit(PreFix.kilo, Calorie);
+        public static EnergyUnit Megacalorie =  new EnergyUnit(PreFix.mega, Calorie);
 
-        public static EnergyUnit WattDay = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Day, "W");
-        public static EnergyUnit KilowattDay = new EnergyUnit(PreFix.kilo, WattDay);
-        public static EnergyUnit MegawattDay = new EnergyUnit(PreFix.mega, WattDay);
-        public static EnergyUnit GigawattDay = new EnergyUnit(PreFix.giga, WattDay);
-        public static EnergyUnit TerawattDay = new EnergyUnit(PreFix.tera, WattDay);
+        public static EnergyUnit WattDay =      new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Day, "W");
+        public static EnergyUnit KilowattDay =  new EnergyUnit(PreFix.kilo, WattDay);
+        public static EnergyUnit MegawattDay =  new EnergyUnit(PreFix.mega, WattDay);
+        public static EnergyUnit GigawattDay =  new EnergyUnit(PreFix.giga, WattDay);
+        public static EnergyUnit TerawattDay =  new EnergyUnit(PreFix.tera, WattDay);
 
 
-        public static EnergyUnit WattHour = new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Hour, "W");
+        public static EnergyUnit WattHour =     new EnergyUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, DurationUnit.Hour, "W");
         public static EnergyUnit KilowattHour = new EnergyUnit(PreFix.kilo, WattHour);
         public static EnergyUnit MegawattHour = new EnergyUnit(PreFix.mega, WattHour);
         public static EnergyUnit GigawattHour = new EnergyUnit(PreFix.giga, WattHour);
@@ -71,79 +71,25 @@ namespace EngineeringUnits
 
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "Energy";
-
-            //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit);
-
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-
-            //if (NewSymbol != "")
-            //{
-            //    Unit.Symbol = NewSymbol;
-            //}
-
-            //if (correction != 1)
-            //{
-            //    Unit.Combined = new CombinedUnit("", 1, correction);
-            //}
-
-
+            SetNewSymbol(NewSymbol);         
         }
 
         public EnergyUnit(PreFix SI, EnergyUnit energyunit) 
         {
             Unit = energyunit.Unit.Copy();
-
             SetCombined(SI);
-            SetNewSymbol(SI);
-
-            //if (Unit.Combined is null)
-            //    Unit.Combined = new CombinedUnit("", 1, PrefixSISize(SI));
-            //else
-            //    Unit.Combined.GlobalC *= PrefixSISize(SI);
-
-
-
-
-            //Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            SetNewSymbol(SI);          
         }
 
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            //Name = "Energy";
-
-            //kg*m2*s-2
             Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration2.Unit);
-
             SetCombined(correction);
             SetNewSymbol($"{NewSymbol}{duration2}");
-
         }
 
-
-        public EnergyUnit(PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
-        {
-
-            //Name = "Energy";
-            Unit = power.Unit * duration.Unit;
-
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{power}{duration}");
-        }
-
-
-        public static IEnumerable<EnergyUnit> List()
-        {
-            return new[] { BritishThermalUnit, Calorie, DecathermEc, DecathermImperial, DecathermUs, ElectronVolt, Erg, FootPound, GigabritishThermalUnit, GigaelectronVolt, Gigajoule, GigawattDay, GigawattHour, HorsepowerHour, Joule, KilobritishThermalUnit, Kilocalorie, KiloelectronVolt, Kilojoule, KilowattDay, KilowattHour, MegabritishThermalUnit, Megacalorie, MegaelectronVolt, Megajoule, MegawattDay, MegawattHour, Millijoule, TeraelectronVolt, TerawattDay, TerawattHour, ThermEc, ThermImperial, ThermUs, WattDay, WattHour, };
-        }
-        public override string ToString()
-        {
-            return $"{Unit.Symbol}";
-        }
     }
 
 
