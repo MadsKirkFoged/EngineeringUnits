@@ -35,7 +35,7 @@ namespace EngineeringUnits
 
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }
 
 
@@ -46,7 +46,7 @@ namespace EngineeringUnits
 
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }     
 
        

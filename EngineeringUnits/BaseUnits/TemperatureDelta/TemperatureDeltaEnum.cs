@@ -29,7 +29,7 @@ namespace EngineeringUnits
             Unit.Temperature = (TemperatureUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }
 
 
@@ -39,7 +39,7 @@ namespace EngineeringUnits
             Unit.Temperature = (TemperatureUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }
 
 

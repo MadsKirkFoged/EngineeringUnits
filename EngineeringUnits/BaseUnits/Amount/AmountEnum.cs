@@ -41,7 +41,7 @@ namespace EngineeringUnits
             Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }
 
 
@@ -51,7 +51,7 @@ namespace EngineeringUnits
             Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }     
 
     }

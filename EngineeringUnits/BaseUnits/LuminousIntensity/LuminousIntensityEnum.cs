@@ -21,7 +21,7 @@ namespace EngineeringUnits
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }
 
 
@@ -31,7 +31,7 @@ namespace EngineeringUnits
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
             //Beta
-            Unit.UnitListBeta.Add(this);
+            //Unit.UnitListBeta.Add(this);
         }     
        
     }

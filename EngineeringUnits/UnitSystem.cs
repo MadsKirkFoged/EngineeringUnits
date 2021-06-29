@@ -16,7 +16,7 @@ namespace EngineeringUnits
         public string Symbol { get; set; }
 
         //Just have a list of units?
-        public List<Enumeration> UnitListBeta = new List<Enumeration>();
+        //public List<Enumeration> UnitListBeta = new List<Enumeration>();
 
         public LengthUnit Length { get; set; }
         public MassUnit Mass { get; set; }
@@ -30,14 +30,14 @@ namespace EngineeringUnits
 
         public UnitSystem()
         {
-            UnitListBeta = new List<Enumeration>();
+            //UnitListBeta = new List<Enumeration>();
 
         }
 
         public UnitSystem(string symbol)
         {
             Symbol = symbol;
-            UnitListBeta = new List<Enumeration>();
+            //UnitListBeta = new List<Enumeration>();
         }
 
 
@@ -923,10 +923,10 @@ namespace EngineeringUnits
                 local.Combined = (CombinedUnit)Combined.Clone();
 
 
-            foreach (var item in UnitListBeta)
-            {
-                //local.UnitListBeta.Add(item.Copy());
-            }
+            //foreach (var item in UnitListBeta)
+            //{
+            //    //local.UnitListBeta.Add(item.Copy());
+            //}
 
             return local;
         }
