@@ -13,7 +13,7 @@ namespace EngineeringUnits
         public static TemperatureDelta FromDegreesCelsius(double degreescelsius)
         {
             double value = (double)degreescelsius;
-            return new TemperatureDelta(value, TemperatureDeltaUnit.DegreeCelsius);
+            return new TemperatureDelta(value, TemperatureUnit.DegreeCelsius);
         }
         /// <summary>
         ///     Get TemperatureDelta from DegreesDelisle.
@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public static TemperatureDelta FromDegreesFahrenheit(double degreesfahrenheit)
         {
             double value = (double)degreesfahrenheit;
-            return new TemperatureDelta(value, TemperatureDeltaUnit.DegreeFahrenheit);
+            return new TemperatureDelta(value, TemperatureUnit.DegreeFahrenheit);
         }
         /// <summary>
         ///     Get TemperatureDelta from DegreesNewton.
@@ -49,7 +49,7 @@ namespace EngineeringUnits
         public static TemperatureDelta FromDegreesRankine(double degreesrankine)
         {
             double value = (double)degreesrankine;
-            return new TemperatureDelta(value, TemperatureDeltaUnit.DegreeRankine);
+            return new TemperatureDelta(value, TemperatureUnit.DegreeRankine);
         }
         /// <summary>
         ///     Get TemperatureDelta from DegreesReaumur.
@@ -76,7 +76,7 @@ namespace EngineeringUnits
         public static TemperatureDelta FromKelvins(double kelvins)
         {
             double value = (double)kelvins;
-            return new TemperatureDelta(value, TemperatureDeltaUnit.Kelvin);
+            return new TemperatureDelta(value, TemperatureUnit.Kelvin);
         }
         /// <summary>
         ///     Get TemperatureDelta from MillidegreesCelsius.

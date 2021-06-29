@@ -22,8 +22,6 @@ namespace EngineeringUnits
         public static TemperatureDeltaUnit DegreeRankine =      new TemperatureDeltaUnit("°R", 5/9m, 1, 0);
 
 
-        public TemperatureDeltaUnit() { }
-
 
         public TemperatureDeltaUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, a1, a2,b)
         {

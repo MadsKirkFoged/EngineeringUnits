@@ -10,7 +10,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get TemperatureDelta in DegreesCelsius.
         /// </summary>
-        public double DegreesCelsius => As(TemperatureDeltaUnit.DegreeCelsius);
+        public double DegreesCelsius => As(TemperatureUnit.DegreeCelsius);
 
         /// <summary>
         ///     Get TemperatureDelta in DegreesDelisle.
@@ -20,7 +20,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get TemperatureDelta in DegreesFahrenheit.
         /// </summary>
-        public double DegreesFahrenheit => As(TemperatureDeltaUnit.DegreeFahrenheit);
+        public double DegreesFahrenheit => As(TemperatureUnit.DegreeFahrenheit);
 
         /// <summary>
         ///     Get TemperatureDelta in DegreesNewton.
@@ -30,7 +30,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get TemperatureDelta in DegreesRankine.
         /// </summary>
-        public double DegreesRankine => As(TemperatureDeltaUnit.DegreeRankine);
+        public double DegreesRankine => As(TemperatureUnit.DegreeRankine);
 
         /// <summary>
         ///     Get TemperatureDelta in DegreesReaumur.
@@ -45,7 +45,7 @@ namespace EngineeringUnits
         /// <summary>
         ///     Get TemperatureDelta in Kelvins.
         /// </summary>
-        public double Kelvins => As(TemperatureDeltaUnit.Kelvin);
+        public double Kelvins => As(TemperatureUnit.Kelvin);
 
         /// <summary>
         ///     Get TemperatureDelta in MillidegreesCelsius.
