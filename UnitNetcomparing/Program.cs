@@ -20,6 +20,7 @@ namespace UnitNetcomparing
 
 
             Area A1 = Area.FromCircleRadius(Length.FromChains(1));
+            Debug.Print($"{A1}");
 
             Area A2 = Area.FromCircleDiameter(Length.FromChains(1));
 

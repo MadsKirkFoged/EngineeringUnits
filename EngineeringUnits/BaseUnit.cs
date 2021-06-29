@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 
 namespace EngineeringUnits
@@ -203,9 +204,53 @@ namespace EngineeringUnits
             return local;
         }
 
+        //public override string ToString()
+        //{
+        //    return $"{ValueLocalUnit} {Unit}";
+        //}
+
+        /// <summary>
+        ///     Gets the default string representation of value and unit.
+        /// </summary>
+        /// <returns>String representation.</returns>
         public override string ToString()
         {
-            return $"{ValueLocalUnit} {Unit}";
+            return ToString("g4");
+        }
+
+        /// <summary>
+        ///     Gets the default string representation of value and unit using the given format provider.
+        /// </summary>
+        /// <returns>String representation.</returns>
+        /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
+        public string ToString(IFormatProvider provider)
+        {
+            return ToString("g", provider);
+        }
+
+
+
+        /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
+        /// <summary>
+        /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.CurrentUICulture" />.
+        /// </summary>
+        /// <param name="format">The format string.</param>
+        /// <returns>The string representation.</returns>
+        public string ToString(string format)
+        {
+            return ToString(format, CultureInfo.CurrentUICulture);
+        }
+
+        /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
+        /// <summary>
+        /// Gets the string representation of this instance in the specified format string using the specified format provider, or <see cref="CultureInfo.CurrentUICulture" /> if null.
+        /// </summary>
+        /// <param name="format">The format string.</param>
+        /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
+        /// <returns>The string representation.</returns>
+        public string ToString(string format, IFormatProvider provider)
+        {
+            return $"{ValueLocalUnit.ToString(format)} {Unit}";
         }
 
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
