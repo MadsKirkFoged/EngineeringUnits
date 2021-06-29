@@ -1,6 +1,7 @@
 ﻿using EngineeringUnits;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -18,15 +19,29 @@ namespace UnitNetcomparing
 
 
 
-            Area A1 = Area.FromCircleRadius(Length.FromMeters(1));
+            Area A1 = Area.FromCircleRadius(Length.FromChains(1));
 
-            Area A2 = Area.FromCircleDiameter(Length.FromMeters(1));
+            Area A2 = Area.FromCircleDiameter(Length.FromChains(1));
+
+            List<Area> lister = new List<Area>();
+            List<int> lister2 = new List<int>();
+
+            lister2.Add(3);
+            lister2.Add(1);
+
+            lister.Add(A1);
+            lister.Add(A2);
+
+            lister.Sort((x, y) => x.CompareTo(y));
+            lister2.Sort((x, y) => x.CompareTo(y));
 
 
+            double A3 = (double)(A1 / A2);
 
-            UnitsNet.Area A3 = UnitsNet.Area.FromCircleRadius(UnitsNet.Length.FromMeters(1));
 
-            UnitsNet.Area A4 = UnitsNet.Area.FromCircleDiameter(UnitsNet.Length.FromMeters(1));
+            //UnitsNet.Area A3 = UnitsNet.Area.FromCircleRadius(UnitsNet.Length.FromChains(1));
+
+            //UnitsNet.Area A4 = UnitsNet.Area.FromCircleDiameter(UnitsNet.Length.FromChains(1));
 
 
 

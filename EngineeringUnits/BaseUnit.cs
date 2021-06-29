@@ -9,7 +9,7 @@ namespace EngineeringUnits
 {
 
     [JsonObject(MemberSerialization.OptIn)]
-    public class BaseUnit
+    public class BaseUnit : IComparable
     {
 
         [JsonProperty]
@@ -92,6 +92,7 @@ namespace EngineeringUnits
         }
 
 
+
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
@@ -118,8 +119,8 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator *(BaseUnit a, double b) => a * (new UnknownUnit(b));
         public static UnknownUnit operator /(BaseUnit a, double b) => a / (new UnknownUnit(b));
-        public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;        
-        public static UnknownUnit operator *(double a, BaseUnit b) => b*a;
+        public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;
+        public static UnknownUnit operator *(double a, BaseUnit b) => b * a;
 
 
         public override bool Equals(Object obj)
@@ -135,6 +136,9 @@ namespace EngineeringUnits
                 return this == p;
             }
         }
+
+        
+
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
@@ -335,6 +339,15 @@ namespace EngineeringUnits
 
         }
 
+        public int CompareTo(object obj)
+        {
+            BaseUnit local = (BaseUnit)obj; 
 
+            if (Unit != local.Unit)            
+                throw new InvalidOperationException($"Cant do CompareTo on two differnt units!");
+            
+
+            return (int)(Value - local.As(this));
+        }
     }
 }
