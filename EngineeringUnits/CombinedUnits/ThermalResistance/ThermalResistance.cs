@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public ThermalResistance()
         {
-            Name = "ThermalResistance";
+            Unit = ThermalResistanceUnit.SI.Unit.Copy();
         }
 
         public ThermalResistance(decimal value, ThermalResistanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }

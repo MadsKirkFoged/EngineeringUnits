@@ -17,6 +17,13 @@ namespace UnitNetcomparing
 
 
 
+            Temperature test = new Temperature();
+
+
+
+            var estest = test == Temperature.Zero;
+
+
 
 
             Area A1 = Area.FromCircleRadius(Length.FromChains(1));

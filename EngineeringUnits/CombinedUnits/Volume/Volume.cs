@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Volume()
         {
-            Name = "Volume";
+            Unit = VolumeUnit.SI.Unit.Copy();
         }
 
         public Volume(decimal value, VolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }

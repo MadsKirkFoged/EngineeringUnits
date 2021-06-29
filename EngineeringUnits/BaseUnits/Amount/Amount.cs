@@ -14,7 +14,7 @@ namespace EngineeringUnits
 
         public AmountOfSubstance()
         {
-            Name = "AmountOfSubstance";
+            Unit = AmountOfSubstanceUnit.SI.Unit.Copy();
         }
 
 

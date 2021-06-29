@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Entropy()
         {
-            Name = "test";
+            Unit = EntropyUnit.SI.Unit.Copy();
         }
 
         public Entropy(decimal value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }

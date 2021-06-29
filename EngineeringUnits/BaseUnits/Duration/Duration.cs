@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Duration()
         {
-            Name = "Duration";
+            Unit = DurationUnit.SI.Unit.Copy();
         }
 
 

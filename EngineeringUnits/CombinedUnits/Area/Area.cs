@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Area()
         {
-            Name = "Area";
+            Unit = AreaUnit.SI.Unit.Copy();
         }
 
         public Area(decimal value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }

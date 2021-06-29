@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public TemperatureDelta()
         {
-            Name = "TemperatureDelta";
+            Unit = TemperatureDeltaUnit.SI.Unit.Copy();
         }
 
         public TemperatureDelta(int value, TemperatureDeltaUnit selectedUnit) : this()

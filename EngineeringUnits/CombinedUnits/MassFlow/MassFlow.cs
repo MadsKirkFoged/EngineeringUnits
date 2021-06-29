@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public MassFlow()
         {
-            Name = "MassFlow";
+            Unit = MassFlowUnit.SI.Unit.Copy();
         }
 
 

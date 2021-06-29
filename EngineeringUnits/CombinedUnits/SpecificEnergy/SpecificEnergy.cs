@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public SpecificEnergy()
         {
-            Name = "SpecificEnergy";
+            Unit = SpecificEnergyUnit.SI.Unit.Copy();
         }
 
 

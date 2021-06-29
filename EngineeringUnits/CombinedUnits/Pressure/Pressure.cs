@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Pressure()
         {
-            Name = "Pressure";
+            Unit = PressureUnit.SI.Unit.Copy();
         }
 
         public Pressure(decimal value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }

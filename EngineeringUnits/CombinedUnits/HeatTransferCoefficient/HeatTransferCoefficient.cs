@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public HeatTransferCoefficient()
         {
-            Name = "HeatTransferCoefficient";
+            Unit = HeatTransferCoefficientUnit.SI.Unit.Copy();
         }
 
         public HeatTransferCoefficient(decimal value, HeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public ElectricPotential()
         {
-            Name = "ElectricPotential";
+            Unit = ElectricPotentialUnit.SI.Unit.Copy();
         }
 
         public ElectricPotential(decimal value, ElectricPotentialUnit selectedUnit) : base(value, selectedUnit.Unit) { }

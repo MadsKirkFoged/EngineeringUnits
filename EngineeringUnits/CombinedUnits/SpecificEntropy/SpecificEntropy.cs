@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public SpecificEntropy()
         {
-            Name = "Specific Heat Capacity";
+            Unit = SpecificEntropyUnit.SI.Unit.Copy();
         }
 
 

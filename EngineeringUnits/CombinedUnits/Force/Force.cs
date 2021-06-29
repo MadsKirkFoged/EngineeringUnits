@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Force()
         {
-            Name = "Force";
+            Unit = ForceUnit.SI.Unit.Copy();
         }
 
         public Force(decimal value, ForceUnit selectedUnit) : base(value, selectedUnit.Unit) { }

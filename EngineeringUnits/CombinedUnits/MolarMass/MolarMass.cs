@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public MolarMass()
         {
-            Name = "MolarMass";
+            Unit = MolarMassUnit.SI.Unit.Copy();
         }
 
         public MolarMass(decimal value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
         public Speed()
         {
-            Name = "Speed";
+            Unit = SpeedUnit.SI.Unit.Copy();
         }
 
         public Speed(decimal value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }

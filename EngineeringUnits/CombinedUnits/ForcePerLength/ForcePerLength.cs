@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public ForcePerLength()
         {
-            Name = "ForcePerLength";
+            Unit = ForcePerLengthUnit.SI.Unit.Copy();
         }
 
         public ForcePerLength(decimal value, ForcePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }

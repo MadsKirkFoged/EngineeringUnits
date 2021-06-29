@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public DynamicViscosity()
         {
-            Name = "DynamicViscosity";
+            Unit = DynamicViscosityUnit.SI.Unit.Copy();
         }
 
         public DynamicViscosity(decimal value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public Power()
         {
-            Name = "Power";
+            Unit = PowerUnit.SI.Unit.Copy();
         }
 
 

@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Torque()
         {
-            Name = "Torque";
+            Unit = TorqueUnit.SI.Unit.Copy();
         }
 
         public Torque(decimal value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }

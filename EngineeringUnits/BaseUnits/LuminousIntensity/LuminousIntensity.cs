@@ -10,6 +10,10 @@ namespace EngineeringUnits
     public partial class LuminousIntensity : BaseUnit
     {
 
+        public LuminousIntensity()
+        {
+            Unit = LuminousIntensityUnit.SI.Unit.Copy();
+        }
 
         public LuminousIntensity(decimal value, LuminousIntensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public LuminousIntensity(double value, LuminousIntensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

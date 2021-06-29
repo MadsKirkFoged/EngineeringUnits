@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public ElectricCurrent()
         {
-            Name = "ElectricCurrent";
+            Unit = ElectricCurrentUnit.SI.Unit.Copy();
         }
 
         public ElectricCurrent(decimal value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public Length()
         {
-            Name = "Length";
+            Unit = LengthUnit.SI.Unit.Copy();
         }
 
         public Length(decimal value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }

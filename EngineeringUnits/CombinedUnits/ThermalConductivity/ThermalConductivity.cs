@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public ThermalConductivity()
         {
-            Name = "ThermalConductivity";
+            Unit = ThermalConductivityUnit.SI.Unit.Copy();
         }
 
         public ThermalConductivity(decimal value, ThermalConductivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

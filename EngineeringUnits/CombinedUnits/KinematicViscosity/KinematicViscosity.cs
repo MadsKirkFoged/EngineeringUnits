@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public KinematicViscosity()
         {
-            Name = "KinematicViscosity";
+            Unit = KinematicViscosityUnit.SI.Unit.Copy();
         }
 
         public KinematicViscosity(decimal value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

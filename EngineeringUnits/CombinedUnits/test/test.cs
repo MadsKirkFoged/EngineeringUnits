@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
     //    public test()
     //    {
-    //        Name = "test";
+    //        Unit = testUnit.SI.Unit.Copy();
     //    }
 
     //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }

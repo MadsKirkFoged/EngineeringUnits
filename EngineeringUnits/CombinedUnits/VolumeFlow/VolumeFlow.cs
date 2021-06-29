@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public VolumeFlow()
         {
-            Name = "VolumeFlow";
+            Unit = VolumeFlowUnit.SI.Unit.Copy();
         }
 
         public VolumeFlow(decimal value, VolumeFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }

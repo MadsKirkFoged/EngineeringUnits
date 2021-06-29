@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Frequency()
         {
-            Name = "Frequency";
+            Unit = FrequencyUnit.SI.Unit.Copy();
         }
 
         public Frequency(decimal value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }

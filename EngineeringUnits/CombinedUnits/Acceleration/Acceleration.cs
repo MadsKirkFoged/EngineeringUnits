@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Acceleration()
         {
-            Name = "Acceleration";
+            Unit = AccelerationUnit.SI.Unit.Copy();
         }
 
         public Acceleration(decimal value, AccelerationUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
         public Enthalpy()
         {
-            Name = "Enthalpy";
+            Unit = SpecificEnergyUnit.SI.Unit.Copy();
         }
 
 

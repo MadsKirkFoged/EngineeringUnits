@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public Temperature()
         {
-            Name = "Temperature";
+            Unit = TemperatureUnit.SI.Unit.Copy();
         }
 
         public Temperature(int value, TemperatureUnit selectedUnit) : this()

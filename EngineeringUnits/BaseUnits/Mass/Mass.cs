@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public Mass()
         {
-            Name = "Mass";
+            Unit = MassUnit.SI.Unit.Copy();
         }
 
 

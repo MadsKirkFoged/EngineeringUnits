@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public Density()
         {
-            Name = "test";
+            Unit = DensityUnit.SI.Unit.Copy();
         }
 
         public Density(decimal value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
