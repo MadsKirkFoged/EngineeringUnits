@@ -30,7 +30,8 @@ namespace EngineeringUnits
 
         public UnitSystem()
         {
-         
+            UnitListBeta = new List<Enumeration>();
+
         }
 
         public UnitSystem(string symbol)
