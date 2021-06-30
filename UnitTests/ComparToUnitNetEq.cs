@@ -1,5 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using UnitsNet;
 
@@ -106,6 +107,17 @@ namespace UnitTests
 
             Assert.AreEqual(0, HelperClass.Percent( Q1.As(EngineeringUnits.PowerUnit.Watt),  
                                                     q1.As(UnitsNet.Units.PowerUnit.Watt)), 0.00013);
+
+
+
+
+            string jsonString1 = JsonConvert.SerializeObject(Q1);
+            EngineeringUnits.Power JSON = JsonConvert.DeserializeObject<EngineeringUnits.Power>(jsonString1);
+            string jsonString2 = JsonConvert.SerializeObject(JSON);
+
+
+            Assert.AreEqual(jsonString1, jsonString2);
+
 
         }
 
