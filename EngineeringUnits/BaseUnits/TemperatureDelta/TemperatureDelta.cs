@@ -18,36 +18,36 @@ namespace EngineeringUnits
         public TemperatureDelta(int value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit = selectedUnit.Unit;
+            Unit = selectedUnit.Unit.Copy();
             SetValue(value);
 
             //Forcing all TemperatureDeltas to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
         public TemperatureDelta(double value, TemperatureUnit selectedUnit) :this()
         {
 
-            Unit = selectedUnit.Unit;
+            Unit = selectedUnit.Unit.Copy();
             SetValue(value);
 
             //Forcing all TemperatureDeltas to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
         public TemperatureDelta(decimal value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit = selectedUnit.Unit;
+            Unit = selectedUnit.Unit.Copy();
             SetValue(value);
 
             //Forcing all TemperatureDeltas to stay in kelvin
             ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
