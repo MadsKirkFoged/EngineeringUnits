@@ -73,10 +73,6 @@
     <Compile Include="BaseUnits\Mass\MassEnum.cs" />
     <Compile Include="BaseUnits\Mass\MassGet.cs" />
     <Compile Include="BaseUnits\Mass\MassSet.cs" />
-    <Compile Include="BaseUnits\TemperatureDelta\TemperatureDelta.cs" />
-    <Compile Include="BaseUnits\TemperatureDelta\TemperatureDeltaEnum.cs" />
-    <Compile Include="BaseUnits\TemperatureDelta\TemperatureDeltaGet.cs" />
-    <Compile Include="BaseUnits\TemperatureDelta\TemperatureDeltaSet.cs" />
     <Compile Include="BaseUnits\Temperature\Temperature.cs" />
     <Compile Include="BaseUnits\Temperature\TemperatureEnum.cs" />
     <Compile Include="BaseUnits\Temperature\TemperatureGet.cs" />

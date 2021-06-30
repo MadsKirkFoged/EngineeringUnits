@@ -17,11 +17,11 @@ namespace UnitNetcomparing
 
 
 
-            TemperatureDelta test = new TemperatureDelta();
+            //TemperatureDelta test = TemperatureDelta.FromKelvins(10);
 
 
 
-            var estest = test == TemperatureDelta.Zero;
+            //var estest = test == TemperatureDelta.Zero;
 
 
 
