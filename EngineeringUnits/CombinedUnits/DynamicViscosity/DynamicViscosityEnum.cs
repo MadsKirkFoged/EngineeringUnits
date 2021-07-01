@@ -10,21 +10,17 @@ namespace EngineeringUnits
     public class DynamicViscosityUnit : Enumeration
     {
 
-        public static DynamicViscosityUnit SI =                             new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
-
-        public static DynamicViscosityUnit PascalSecond =                   new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
-        public static DynamicViscosityUnit MicropascalSecond =              new DynamicViscosityUnit(PreFix.micro, PascalSecond);
-        public static DynamicViscosityUnit MillipascalSecond =              new DynamicViscosityUnit(PreFix.milli, PascalSecond);
-
-        public static DynamicViscosityUnit PoundPerFootSecond =             new DynamicViscosityUnit(MassUnit.Pound, LengthUnit.Foot, DurationUnit.Second);
-        public static DynamicViscosityUnit Poise =                          new DynamicViscosityUnit(MassUnit.Gram, LengthUnit.Centimeter, DurationUnit.Second, "P");
-        public static DynamicViscosityUnit Centipoise =                     new DynamicViscosityUnit(PreFix.centi, Poise);
-
-        public static DynamicViscosityUnit NewtonSecondPerMeterSquared =    new DynamicViscosityUnit(ForceUnit.Newton, DurationUnit.Second, AreaUnit.SI);
-        public static DynamicViscosityUnit PoundForceSecondPerSquareFoot =  new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareFoot);
-        public static DynamicViscosityUnit PoundForceSecondPerSquareInch =  new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareInch);
-
-        public static DynamicViscosityUnit Reyn =                           new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareInch, "reyn");
+        public static readonly DynamicViscosityUnit SI =                             new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
+        public static readonly DynamicViscosityUnit PascalSecond =                   new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
+        public static readonly DynamicViscosityUnit MicropascalSecond =              new DynamicViscosityUnit(PreFix.micro, PascalSecond);
+        public static readonly DynamicViscosityUnit MillipascalSecond =              new DynamicViscosityUnit(PreFix.milli, PascalSecond);
+        public static readonly DynamicViscosityUnit PoundPerFootSecond =             new DynamicViscosityUnit(MassUnit.Pound, LengthUnit.Foot, DurationUnit.Second);
+        public static readonly DynamicViscosityUnit Poise =                          new DynamicViscosityUnit(MassUnit.Gram, LengthUnit.Centimeter, DurationUnit.Second, "P");
+        public static readonly DynamicViscosityUnit Centipoise =                     new DynamicViscosityUnit(PreFix.centi, Poise);
+        public static readonly DynamicViscosityUnit NewtonSecondPerMeterSquared =    new DynamicViscosityUnit(ForceUnit.Newton, DurationUnit.Second, AreaUnit.SI);
+        public static readonly DynamicViscosityUnit PoundForceSecondPerSquareFoot =  new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareFoot);
+        public static readonly DynamicViscosityUnit PoundForceSecondPerSquareInch =  new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareInch);
+        public static readonly DynamicViscosityUnit Reyn =                           new DynamicViscosityUnit(ForceUnit.PoundForce, DurationUnit.Second, AreaUnit.SquareInch, "reyn");
 
 
 

@@ -10,24 +10,21 @@ namespace EngineeringUnits
     public class AccelerationUnit : Enumeration
     {
 
-        public static AccelerationUnit SI =                         new AccelerationUnit(LengthUnit.SI, DurationUnit.SI);
-        public static AccelerationUnit KilometerPerSecondSquared =  new AccelerationUnit(LengthUnit.Kilometer, DurationUnit.Second);
-        public static AccelerationUnit MeterPerSecondSquared =      new AccelerationUnit(LengthUnit.SI, DurationUnit.SI);
-        public static AccelerationUnit DecimeterPerSecondSquared =  new AccelerationUnit(LengthUnit.Decimeter, DurationUnit.Second);
-        public static AccelerationUnit CentimeterPerSecondSquared = new AccelerationUnit(LengthUnit.Centimeter, DurationUnit.Second);
-        public static AccelerationUnit MicrometerPerSecondSquared = new AccelerationUnit(LengthUnit.Micrometer, DurationUnit.Second);
-        public static AccelerationUnit MillimeterPerSecondSquared = new AccelerationUnit(LengthUnit.Millimeter, DurationUnit.Second);
-        public static AccelerationUnit NanometerPerSecondSquared =  new AccelerationUnit(LengthUnit.Nanometer, DurationUnit.Second);
-
-        public static AccelerationUnit InchPerSecondSquared = new AccelerationUnit(LengthUnit.Inch, DurationUnit.Second);
-        public static AccelerationUnit FootPerSecondSquared = new AccelerationUnit(LengthUnit.Foot, DurationUnit.Second);
-
-        public static AccelerationUnit KnotPerSecond =  new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Second);
-        public static AccelerationUnit KnotPerMinute =  new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Minute);
-        public static AccelerationUnit KnotPerHour =    new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Hour);
-
-        public static AccelerationUnit StandardGravity = new AccelerationUnit(LengthUnit.SI, DurationUnit.SI, "g", 9.80665m);
-        public static AccelerationUnit MillistandardGravity = new AccelerationUnit(PreFix.milli, StandardGravity);
+        public static readonly AccelerationUnit SI =                         new AccelerationUnit(LengthUnit.SI, DurationUnit.SI);
+        public static readonly AccelerationUnit KilometerPerSecondSquared =  new AccelerationUnit(LengthUnit.Kilometer, DurationUnit.Second);
+        public static readonly AccelerationUnit MeterPerSecondSquared =      new AccelerationUnit(LengthUnit.SI, DurationUnit.SI);
+        public static readonly AccelerationUnit DecimeterPerSecondSquared =  new AccelerationUnit(LengthUnit.Decimeter, DurationUnit.Second);
+        public static readonly AccelerationUnit CentimeterPerSecondSquared = new AccelerationUnit(LengthUnit.Centimeter, DurationUnit.Second);
+        public static readonly AccelerationUnit MicrometerPerSecondSquared = new AccelerationUnit(LengthUnit.Micrometer, DurationUnit.Second);
+        public static readonly AccelerationUnit MillimeterPerSecondSquared = new AccelerationUnit(LengthUnit.Millimeter, DurationUnit.Second);
+        public static readonly AccelerationUnit NanometerPerSecondSquared =  new AccelerationUnit(LengthUnit.Nanometer, DurationUnit.Second);
+        public static readonly AccelerationUnit InchPerSecondSquared = new AccelerationUnit(LengthUnit.Inch, DurationUnit.Second);
+        public static readonly AccelerationUnit FootPerSecondSquared = new AccelerationUnit(LengthUnit.Foot, DurationUnit.Second);
+        public static readonly AccelerationUnit KnotPerSecond =  new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Second);
+        public static readonly AccelerationUnit KnotPerMinute =  new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Minute);
+        public static readonly AccelerationUnit KnotPerHour =    new AccelerationUnit(SpeedUnit.Knot, DurationUnit.Hour);
+        public static readonly AccelerationUnit StandardGravity = new AccelerationUnit(LengthUnit.SI, DurationUnit.SI, "g", 9.80665m);
+        public static readonly AccelerationUnit MillistandardGravity = new AccelerationUnit(PreFix.milli, StandardGravity);
 
 
 

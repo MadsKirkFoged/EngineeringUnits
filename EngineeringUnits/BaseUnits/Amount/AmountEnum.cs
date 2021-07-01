@@ -13,23 +13,23 @@ namespace EngineeringUnits
     {
 
 
-        public static AmountOfSubstanceUnit SI =        new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Mole =      new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Centimole = new AmountOfSubstanceUnit(PreFix.centi, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Decimole =  new AmountOfSubstanceUnit(PreFix.deci, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Kilomole =  new AmountOfSubstanceUnit(PreFix.kilo, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Megamole =  new AmountOfSubstanceUnit(PreFix.mega, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Micromole = new AmountOfSubstanceUnit(PreFix.micro, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Millimole = new AmountOfSubstanceUnit(PreFix.milli, BaseUnits.amountOfSubstance);
-        public static AmountOfSubstanceUnit Nanomole =  new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);        
+        public static readonly AmountOfSubstanceUnit SI =        new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Mole =      new AmountOfSubstanceUnit(PreFix.SI, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Centimole = new AmountOfSubstanceUnit(PreFix.centi, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Decimole =  new AmountOfSubstanceUnit(PreFix.deci, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Kilomole =  new AmountOfSubstanceUnit(PreFix.kilo, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Megamole =  new AmountOfSubstanceUnit(PreFix.mega, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Micromole = new AmountOfSubstanceUnit(PreFix.micro, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Millimole = new AmountOfSubstanceUnit(PreFix.milli, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Nanomole =  new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);        
 
-        public static AmountOfSubstanceUnit NanopoundMole =     new AmountOfSubstanceUnit("nlbmol", 1e-9m,  453.59237m);
-        public static AmountOfSubstanceUnit MicropoundMole =    new AmountOfSubstanceUnit("µlbmol", 1e-6m,  453.59237m);
-        public static AmountOfSubstanceUnit MillipoundMole =    new AmountOfSubstanceUnit("mlbmol", 1e-3m,  453.59237m);
-        public static AmountOfSubstanceUnit PoundMole =         new AmountOfSubstanceUnit("lbmol",  1,      453.59237m);
-        public static AmountOfSubstanceUnit KilopoundMole =     new AmountOfSubstanceUnit("klbmol", 1e3m,   453.59237m);
-        public static AmountOfSubstanceUnit DecipoundMole =     new AmountOfSubstanceUnit("dlbmol", 1e-1m,  453.59237m);
-        public static AmountOfSubstanceUnit CentipoundMole =    new AmountOfSubstanceUnit("clbmol", 1e-2m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit NanopoundMole =     new AmountOfSubstanceUnit("nlbmol", 1e-9m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit MicropoundMole =    new AmountOfSubstanceUnit("µlbmol", 1e-6m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit MillipoundMole =    new AmountOfSubstanceUnit("mlbmol", 1e-3m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit PoundMole =         new AmountOfSubstanceUnit("lbmol",  1,      453.59237m);
+        public static readonly AmountOfSubstanceUnit KilopoundMole =     new AmountOfSubstanceUnit("klbmol", 1e3m,   453.59237m);
+        public static readonly AmountOfSubstanceUnit DecipoundMole =     new AmountOfSubstanceUnit("dlbmol", 1e-1m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit CentipoundMole =    new AmountOfSubstanceUnit("clbmol", 1e-2m,  453.59237m);
 
 
         public AmountOfSubstanceUnit() { }

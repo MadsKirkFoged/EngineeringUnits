@@ -12,21 +12,21 @@ namespace EngineeringUnits
     public class AreaUnit : Enumeration
     {
 
-        public static AreaUnit Acre                 = new AreaUnit(LengthUnit.Chain, "ac", 10);
-        public static AreaUnit Hectare              = new AreaUnit(LengthUnit.Hectometer, "ha");
-        public static AreaUnit SquareCentimeter     = new AreaUnit(LengthUnit.Centimeter);
-        public static AreaUnit SquareDecimeter      = new AreaUnit(LengthUnit.Decimeter);
-        public static AreaUnit SquareKilometer      = new AreaUnit(LengthUnit.Kilometer);
-        public static AreaUnit SquareMeter          = new AreaUnit(LengthUnit.Meter);
-        public static AreaUnit SquareMicrometer     = new AreaUnit(LengthUnit.Micrometer);
-        public static AreaUnit SI                   = new AreaUnit(LengthUnit.SI);
-        public static AreaUnit SquareMillimeter     = new AreaUnit(LengthUnit.Millimeter);
-        public static AreaUnit SquareNanometer      = new AreaUnit(LengthUnit.Nanometer);
-        public static AreaUnit SquareInch           = new AreaUnit(LengthUnit.Inch);
-        public static AreaUnit SquareFoot           = new AreaUnit(LengthUnit.Foot);
-        public static AreaUnit SquareYard           = new AreaUnit(LengthUnit.Yard);
-        public static AreaUnit SquareMile           = new AreaUnit(LengthUnit.Mile);
-        public static AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile, "nmi²"); //TODO Length and Area have diff naming
+        public static readonly AreaUnit Acre                 = new AreaUnit(LengthUnit.Chain, "ac", 10);
+        public static readonly AreaUnit Hectare              = new AreaUnit(LengthUnit.Hectometer, "ha");
+        public static readonly AreaUnit SquareCentimeter     = new AreaUnit(LengthUnit.Centimeter);
+        public static readonly AreaUnit SquareDecimeter      = new AreaUnit(LengthUnit.Decimeter);
+        public static readonly AreaUnit SquareKilometer      = new AreaUnit(LengthUnit.Kilometer);
+        public static readonly AreaUnit SquareMeter          = new AreaUnit(LengthUnit.Meter);
+        public static readonly AreaUnit SquareMicrometer     = new AreaUnit(LengthUnit.Micrometer);
+        public static readonly AreaUnit SI                   = new AreaUnit(LengthUnit.SI);
+        public static readonly AreaUnit SquareMillimeter     = new AreaUnit(LengthUnit.Millimeter);
+        public static readonly AreaUnit SquareNanometer      = new AreaUnit(LengthUnit.Nanometer);
+        public static readonly AreaUnit SquareInch           = new AreaUnit(LengthUnit.Inch);
+        public static readonly AreaUnit SquareFoot           = new AreaUnit(LengthUnit.Foot);
+        public static readonly AreaUnit SquareYard           = new AreaUnit(LengthUnit.Yard);
+        public static readonly AreaUnit SquareMile           = new AreaUnit(LengthUnit.Mile);
+        public static readonly AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile, "nmi²"); //TODO Length and Area have diff naming
 
 
 

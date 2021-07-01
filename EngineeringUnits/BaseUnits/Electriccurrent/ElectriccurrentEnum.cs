@@ -14,15 +14,15 @@ namespace EngineeringUnits
     {
 
 
-        public static ElectricCurrentUnit SI =          new ElectricCurrentUnit(PreFix.SI, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Ampere =      new ElectricCurrentUnit(PreFix.SI, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Centiampere = new ElectricCurrentUnit(PreFix.centi, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Kiloampere =  new ElectricCurrentUnit(PreFix.kilo, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Megaampere =  new ElectricCurrentUnit(PreFix.mega, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Microampere = new ElectricCurrentUnit(PreFix.micro, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Milliampere = new ElectricCurrentUnit(PreFix.milli, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Nanoampere =  new ElectricCurrentUnit(PreFix.nano, BaseUnits.electricCurrent);
-        public static ElectricCurrentUnit Picoampere =  new ElectricCurrentUnit(PreFix.pico, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit SI =          new ElectricCurrentUnit(PreFix.SI, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Ampere =      new ElectricCurrentUnit(PreFix.SI, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Centiampere = new ElectricCurrentUnit(PreFix.centi, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Kiloampere =  new ElectricCurrentUnit(PreFix.kilo, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Megaampere =  new ElectricCurrentUnit(PreFix.mega, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Microampere = new ElectricCurrentUnit(PreFix.micro, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Milliampere = new ElectricCurrentUnit(PreFix.milli, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Nanoampere =  new ElectricCurrentUnit(PreFix.nano, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit Picoampere =  new ElectricCurrentUnit(PreFix.pico, BaseUnits.electricCurrent);
 
 
         public ElectricCurrentUnit() { }

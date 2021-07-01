@@ -10,34 +10,29 @@ namespace EngineeringUnits
     public class TorqueUnit : Enumeration
     {
 
-        public static TorqueUnit SI =                       new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
-        public static TorqueUnit NewtonMeter =              new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
-        public static TorqueUnit KilonewtonMeter =          new TorqueUnit(PreFix.kilo, NewtonMeter);
-        public static TorqueUnit MeganewtonMeter =          new TorqueUnit(PreFix.mega, NewtonMeter);
-
-        public static TorqueUnit NewtonMillimeter =         new TorqueUnit(ForceUnit.Newton, LengthUnit.Millimeter);
-        public static TorqueUnit KilonewtonMillimeter =     new TorqueUnit(PreFix.kilo, NewtonMillimeter);
-        public static TorqueUnit MeganewtonMillimeter =     new TorqueUnit(PreFix.mega, NewtonMillimeter);
-
-        public static TorqueUnit NewtonCentimeter =         new TorqueUnit(ForceUnit.Newton, LengthUnit.Centimeter);
-        public static TorqueUnit MeganewtonCentimeter =     new TorqueUnit(PreFix.mega, NewtonCentimeter);
-
-        public static TorqueUnit PoundalFoot =              new TorqueUnit(ForceUnit.Poundal, LengthUnit.Foot);
-        public static TorqueUnit PoundForceFoot =           new TorqueUnit(ForceUnit.PoundForce, LengthUnit.Foot);
-        public static TorqueUnit PoundForceInch =           new TorqueUnit(ForceUnit.PoundForce, LengthUnit.Inch);
-        public static TorqueUnit TonneForceCentimeter =     new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Centimeter);
-        public static TorqueUnit TonneForceMeter =          new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Meter);
-        public static TorqueUnit TonneForceMillimeter =     new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Millimeter);
-        public static TorqueUnit KilonewtonCentimeter =     new TorqueUnit(PreFix.kilo, NewtonCentimeter);
-
-
-        public static TorqueUnit KilogramForceCentimeter =  new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Centimeter);
-        public static TorqueUnit KilogramForceMeter =       new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Meter);
-        public static TorqueUnit KilogramForceMillimeter =  new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Millimeter);
-        public static TorqueUnit KilopoundForceFoot =       new TorqueUnit(ForceUnit.KilopoundForce, LengthUnit.Foot);
-        public static TorqueUnit MegapoundForceFoot =       new TorqueUnit(ForceUnit.MegapoundForce, LengthUnit.Foot);
-        public static TorqueUnit KilopoundForceInch =       new TorqueUnit(ForceUnit.KilopoundForce, LengthUnit.Inch);
-        public static TorqueUnit MegapoundForceInch =       new TorqueUnit(ForceUnit.MegapoundForce, LengthUnit.Inch);
+        public static readonly TorqueUnit SI =                       new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
+        public static readonly TorqueUnit NewtonMeter =              new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
+        public static readonly TorqueUnit KilonewtonMeter =          new TorqueUnit(PreFix.kilo, NewtonMeter);
+        public static readonly TorqueUnit MeganewtonMeter =          new TorqueUnit(PreFix.mega, NewtonMeter);
+        public static readonly TorqueUnit NewtonMillimeter =         new TorqueUnit(ForceUnit.Newton, LengthUnit.Millimeter);
+        public static readonly TorqueUnit KilonewtonMillimeter =     new TorqueUnit(PreFix.kilo, NewtonMillimeter);
+        public static readonly TorqueUnit MeganewtonMillimeter =     new TorqueUnit(PreFix.mega, NewtonMillimeter);
+        public static readonly TorqueUnit NewtonCentimeter =         new TorqueUnit(ForceUnit.Newton, LengthUnit.Centimeter);
+        public static readonly TorqueUnit MeganewtonCentimeter =     new TorqueUnit(PreFix.mega, NewtonCentimeter);
+        public static readonly TorqueUnit PoundalFoot =              new TorqueUnit(ForceUnit.Poundal, LengthUnit.Foot);
+        public static readonly TorqueUnit PoundForceFoot =           new TorqueUnit(ForceUnit.PoundForce, LengthUnit.Foot);
+        public static readonly TorqueUnit PoundForceInch =           new TorqueUnit(ForceUnit.PoundForce, LengthUnit.Inch);
+        public static readonly TorqueUnit TonneForceCentimeter =     new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Centimeter);
+        public static readonly TorqueUnit TonneForceMeter =          new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Meter);
+        public static readonly TorqueUnit TonneForceMillimeter =     new TorqueUnit(ForceUnit.TonneForce, LengthUnit.Millimeter);
+        public static readonly TorqueUnit KilonewtonCentimeter =     new TorqueUnit(PreFix.kilo, NewtonCentimeter);
+        public static readonly TorqueUnit KilogramForceCentimeter =  new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Centimeter);
+        public static readonly TorqueUnit KilogramForceMeter =       new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Meter);
+        public static readonly TorqueUnit KilogramForceMillimeter =  new TorqueUnit(ForceUnit.KilogramForce, LengthUnit.Millimeter);
+        public static readonly TorqueUnit KilopoundForceFoot =       new TorqueUnit(ForceUnit.KilopoundForce, LengthUnit.Foot);
+        public static readonly TorqueUnit MegapoundForceFoot =       new TorqueUnit(ForceUnit.MegapoundForce, LengthUnit.Foot);
+        public static readonly TorqueUnit KilopoundForceInch =       new TorqueUnit(ForceUnit.KilopoundForce, LengthUnit.Inch);
+        public static readonly TorqueUnit MegapoundForceInch =       new TorqueUnit(ForceUnit.MegapoundForce, LengthUnit.Inch);
 
 
 

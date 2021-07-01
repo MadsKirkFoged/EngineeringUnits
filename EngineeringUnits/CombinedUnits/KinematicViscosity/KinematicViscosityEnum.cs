@@ -10,16 +10,15 @@ namespace EngineeringUnits
     public class KinematicViscosityUnit : Enumeration
     {
 
-        public static KinematicViscosityUnit SI =                   new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
-        public static KinematicViscosityUnit SquareMeterPerSecond = new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
-
-        public static KinematicViscosityUnit Stokes =               new KinematicViscosityUnit(AreaUnit.SquareCentimeter, DurationUnit.Second, "St");
-        public static KinematicViscosityUnit Centistokes =          new KinematicViscosityUnit(PreFix.centi, Stokes);
-        public static KinematicViscosityUnit Decistokes =           new KinematicViscosityUnit(PreFix.deci, Stokes);
-        public static KinematicViscosityUnit Kilostokes =           new KinematicViscosityUnit(PreFix.kilo, Stokes);
-        public static KinematicViscosityUnit Microstokes =          new KinematicViscosityUnit(PreFix.micro, Stokes);
-        public static KinematicViscosityUnit Millistokes =          new KinematicViscosityUnit(PreFix.milli, Stokes);
-        public static KinematicViscosityUnit Nanostokes =           new KinematicViscosityUnit(PreFix.nano, Stokes);
+        public static readonly KinematicViscosityUnit SI =                   new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
+        public static readonly KinematicViscosityUnit SquareMeterPerSecond = new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
+        public static readonly KinematicViscosityUnit Stokes =               new KinematicViscosityUnit(AreaUnit.SquareCentimeter, DurationUnit.Second, "St");
+        public static readonly KinematicViscosityUnit Centistokes =          new KinematicViscosityUnit(PreFix.centi, Stokes);
+        public static readonly KinematicViscosityUnit Decistokes =           new KinematicViscosityUnit(PreFix.deci, Stokes);
+        public static readonly KinematicViscosityUnit Kilostokes =           new KinematicViscosityUnit(PreFix.kilo, Stokes);
+        public static readonly KinematicViscosityUnit Microstokes =          new KinematicViscosityUnit(PreFix.micro, Stokes);
+        public static readonly KinematicViscosityUnit Millistokes =          new KinematicViscosityUnit(PreFix.milli, Stokes);
+        public static readonly KinematicViscosityUnit Nanostokes =           new KinematicViscosityUnit(PreFix.nano, Stokes);
 
 
 

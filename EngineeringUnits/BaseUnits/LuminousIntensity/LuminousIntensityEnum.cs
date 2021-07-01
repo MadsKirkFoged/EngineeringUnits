@@ -11,7 +11,7 @@ namespace EngineeringUnits
     public class LuminousIntensityUnit : Enumeration
     {
 
-        public static LuminousIntensityUnit SI = new LuminousIntensityUnit(PreFix.SI, BaseUnits.luminousIntensity);
+        public static readonly LuminousIntensityUnit SI = new LuminousIntensityUnit(PreFix.SI, BaseUnits.luminousIntensity);
 
 
 

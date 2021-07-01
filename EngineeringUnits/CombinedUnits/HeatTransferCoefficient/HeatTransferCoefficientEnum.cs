@@ -10,10 +10,10 @@ namespace EngineeringUnits
     public class HeatTransferCoefficientUnit : Enumeration
     {
 
-        public static HeatTransferCoefficientUnit SI = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin);
-        public static HeatTransferCoefficientUnit WattPerSquareMeterKelvin = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·K");
-        public static HeatTransferCoefficientUnit WattPerSquareMeterCelsius = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·°C");
-        public static HeatTransferCoefficientUnit BtuPerSquareFootDegreeFahrenheit = new HeatTransferCoefficientUnit(PowerUnit.BritishThermalUnitPerHour, AreaUnit.SquareFoot, TemperatureUnit.DegreeRankine, "Btu/ft²·hr·°F");
+        public static readonly HeatTransferCoefficientUnit SI = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin);
+        public static readonly HeatTransferCoefficientUnit WattPerSquareMeterKelvin = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·K");
+        public static readonly HeatTransferCoefficientUnit WattPerSquareMeterCelsius = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·°C");
+        public static readonly HeatTransferCoefficientUnit BtuPerSquareFootDegreeFahrenheit = new HeatTransferCoefficientUnit(PowerUnit.BritishThermalUnitPerHour, AreaUnit.SquareFoot, TemperatureUnit.DegreeRankine, "Btu/ft²·hr·°F");
 
 
         public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)

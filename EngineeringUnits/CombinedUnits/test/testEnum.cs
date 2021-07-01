@@ -10,10 +10,10 @@ namespace EngineeringUnits
     public class testUnit : Enumeration
     {
 
-        public static testUnit SI = new testUnit(LengthUnit.Meter);
-        public static testUnit CubicMeter = new testUnit(LengthUnit.Meter);
-        public static testUnit HectocubicMeter = new testUnit(PreFix.hecto, CubicMeter);
-        public static testUnit KilocubicMeter = new testUnit(PreFix.kilo, CubicMeter);
+        public static readonly testUnit SI = new testUnit(LengthUnit.Meter);
+        public static readonly testUnit CubicMeter = new testUnit(LengthUnit.Meter);
+        public static readonly testUnit HectocubicMeter = new testUnit(PreFix.hecto, CubicMeter);
+        public static readonly testUnit KilocubicMeter = new testUnit(PreFix.kilo, CubicMeter);
 
 
 
