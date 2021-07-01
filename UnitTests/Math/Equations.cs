@@ -7,7 +7,7 @@ using UnitsNet;
 namespace UnitTests
 {
     [TestClass]
-    public class ComparToUnitNetEq
+    public class Equations
     {
 
 
