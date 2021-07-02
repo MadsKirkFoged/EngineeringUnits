@@ -10,39 +10,41 @@ namespace EngineeringUnits
     public class AngleUnit : Enumeration
     {
 
-        public static readonly AngleUnit SI = new AngleUnit(LengthUnit.Meter);
-        public static readonly AngleUnit CubicMeter = new AngleUnit(LengthUnit.Meter);
-        public static readonly AngleUnit HectocubicMeter = new AngleUnit(PreFix.hecto, CubicMeter);
-        public static readonly AngleUnit KilocubicMeter = new AngleUnit(PreFix.kilo, CubicMeter);
+        public static readonly AngleUnit SI = new AngleUnit();
+        public static readonly AngleUnit Arcminute = new AngleUnit("'", 1/60m);
+        public static readonly AngleUnit Arcsecond = new AngleUnit("″", 1/3600m);
+        
+        public static readonly AngleUnit Gradian = new AngleUnit("g", 0.9m);
+
+        public static readonly AngleUnit Radian = new AngleUnit("rad", (decimal)(180 / Math.PI));
+        public static readonly AngleUnit Centiradian = new AngleUnit(PreFix.centi, Radian);
+        public static readonly AngleUnit Deciradian = new AngleUnit(PreFix.deci, Radian);
+        public static readonly AngleUnit Microradian = new AngleUnit(PreFix.micro, Radian);
+        public static readonly AngleUnit Milliradian = new AngleUnit(PreFix.milli, Radian);
+        public static readonly AngleUnit Nanoradian = new AngleUnit(PreFix.nano, Radian);
+
+        public static readonly AngleUnit Degree = new AngleUnit("°");
+        public static readonly AngleUnit Microdegree = new AngleUnit(PreFix.micro, Degree);
+        public static readonly AngleUnit Millidegree = new AngleUnit(PreFix.milli, Degree);
+        public static readonly AngleUnit Nanodegree = new AngleUnit(PreFix.nano, Degree);
+
+        public static readonly AngleUnit Revolution = new AngleUnit("r", 360m);
+        //public static readonly AngleUnit Tilt = new AngleUnit("", Math.Asin(_value)*180/Math.PI); //TODO How do we do this?
 
 
 
-        public AngleUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public AngleUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = new UnitSystem();
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
-        }
-
-        public AngleUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+        }       
 
         public AngleUnit(PreFix SI, AngleUnit unit)
         {
             Unit = unit.Unit.Copy();
             SetCombined(SI);
             SetNewSymbol(SI);
-        }
-
-        public AngleUnit(AngleUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
         }
 
     }

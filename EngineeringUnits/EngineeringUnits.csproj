@@ -157,10 +157,10 @@
     <Compile Include="CombinedUnits\Speed\SpeedGet.cs" />
     <Compile Include="CombinedUnits\Speed\SpeedSet.cs" />
     <Compile Include="CombinedUnits\Speed\SpeedEnum.cs" />
-    <Compile Include="CombinedUnits\AmplitudeRatio\AmplitudeRatio.cs" />
-    <Compile Include="CombinedUnits\AmplitudeRatio\AmplitudeRatioEnum.cs" />
-    <Compile Include="CombinedUnits\AmplitudeRatio\AmplitudeRatioGet.cs" />
-    <Compile Include="CombinedUnits\AmplitudeRatio\AmplitudeRatioSet.cs" />
+    <Compile Include="CombinedUnits\AmplitudeRatio - Out\AmplitudeRatio.cs" />
+    <Compile Include="CombinedUnits\AmplitudeRatio - Out\AmplitudeRatioEnum.cs" />
+    <Compile Include="CombinedUnits\AmplitudeRatio - Out\AmplitudeRatioGet.cs" />
+    <Compile Include="CombinedUnits\AmplitudeRatio - Out\AmplitudeRatioSet.cs" />
     <Compile Include="CombinedUnits\Angle\Angle.cs" />
     <Compile Include="CombinedUnits\Angle\AngleEnum.cs" />
     <Compile Include="CombinedUnits\Angle\AngleGet.cs" />

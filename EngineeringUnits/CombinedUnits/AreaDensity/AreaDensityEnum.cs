@@ -10,25 +10,17 @@ namespace EngineeringUnits
     public class AreaDensityUnit : Enumeration
     {
 
-        public static readonly AreaDensityUnit SI = new AreaDensityUnit(LengthUnit.Meter);
-        public static readonly AreaDensityUnit CubicMeter = new AreaDensityUnit(LengthUnit.Meter);
-        public static readonly AreaDensityUnit HectocubicMeter = new AreaDensityUnit(PreFix.hecto, CubicMeter);
-        public static readonly AreaDensityUnit KilocubicMeter = new AreaDensityUnit(PreFix.kilo, CubicMeter);
+        public static readonly AreaDensityUnit SI = new AreaDensityUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
+        public static readonly AreaDensityUnit KilogramPerSquareMeter = new AreaDensityUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
 
 
 
-        public AreaDensityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public AreaDensityUnit(MassUnit mass, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = mass.Unit / area.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
-        }
-
-        public AreaDensityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public AreaDensityUnit(PreFix SI, AreaDensityUnit unit)

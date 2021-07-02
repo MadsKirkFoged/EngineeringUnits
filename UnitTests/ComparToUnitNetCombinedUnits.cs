@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace UnitTests
 {
     [TestClass]
-    public class ComparToUnitNetCombinedUnits
+    public class Angle
     {
 
 

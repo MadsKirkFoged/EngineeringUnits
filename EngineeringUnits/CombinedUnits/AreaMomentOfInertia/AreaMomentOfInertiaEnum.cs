@@ -11,38 +11,29 @@ namespace EngineeringUnits
     {
 
         public static readonly AreaMomentOfInertiaUnit SI = new AreaMomentOfInertiaUnit(LengthUnit.Meter);
-        public static readonly AreaMomentOfInertiaUnit CubicMeter = new AreaMomentOfInertiaUnit(LengthUnit.Meter);
-        public static readonly AreaMomentOfInertiaUnit HectocubicMeter = new AreaMomentOfInertiaUnit(PreFix.hecto, CubicMeter);
-        public static readonly AreaMomentOfInertiaUnit KilocubicMeter = new AreaMomentOfInertiaUnit(PreFix.kilo, CubicMeter);
+        public static readonly AreaMomentOfInertiaUnit MeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Meter);
+        public static readonly AreaMomentOfInertiaUnit CentimeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Centimeter);
+        public static readonly AreaMomentOfInertiaUnit DecimeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Decimeter);
+        public static readonly AreaMomentOfInertiaUnit MillimeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Millimeter);
+
+
+        public static readonly AreaMomentOfInertiaUnit InchToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Inch);
+        public static readonly AreaMomentOfInertiaUnit FootToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Foot);
 
 
 
         public AreaMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length.Unit * Length.Unit * Length.Unit * Length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
-        }
-
-        public AreaMomentOfInertiaUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+        }     
 
         public AreaMomentOfInertiaUnit(PreFix SI, AreaMomentOfInertiaUnit unit)
         {
             Unit = unit.Unit.Copy();
             SetCombined(SI);
             SetNewSymbol(SI);
-        }
-
-        public AreaMomentOfInertiaUnit(AreaMomentOfInertiaUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
         }
 
     }

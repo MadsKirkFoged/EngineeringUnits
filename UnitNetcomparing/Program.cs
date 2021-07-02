@@ -16,6 +16,13 @@ namespace UnitNetcomparing
 
 
 
+            Angle d1 = new Angle(1, AngleUnit.Degree);
+
+
+
+            Debug.Print($" {d1.As(AngleUnit.Microdegree)}");
+
+
 
             //TemperatureDelta test = TemperatureDelta.FromKelvins(10);
 
