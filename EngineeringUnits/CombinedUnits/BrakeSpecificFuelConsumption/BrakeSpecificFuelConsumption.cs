@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class BrakeSpecificFuelConsumption : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public BrakeSpecificFuelConsumption()
+        {
+            //Unit = BrakeSpecificFuelConsumptionUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public BrakeSpecificFuelConsumption(decimal value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public BrakeSpecificFuelConsumption(double value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public BrakeSpecificFuelConsumption(int value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static BrakeSpecificFuelConsumption From(double value, BrakeSpecificFuelConsumptionUnit unit) => new BrakeSpecificFuelConsumption(value, unit);
+        public double As(BrakeSpecificFuelConsumptionUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public BrakeSpecificFuelConsumption ToUnit(BrakeSpecificFuelConsumptionUnit selectedUnit) => new BrakeSpecificFuelConsumption(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        //public static BrakeSpecificFuelConsumption Zero => new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
+
+        //public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
+        //{
+        //    BrakeSpecificFuelConsumption local = new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
+
+        //    local.Transform(Unit);
+        //    return local;
+        //}
 
 
-    //}
+
+
+    }
 }

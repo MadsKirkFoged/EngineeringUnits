@@ -12,15 +12,25 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+
+            //Energy E1 = new Energy(1, EnergyUnit.WattHour);
+            
+
+            //UnitSystem Unit = MassUnit.Gram.Unit / EnergyUnit.KilowattHour.Unit;
 
 
 
-            Angle d1 = new Angle(1, AngleUnit.Degree);
+
+
+           // Debug.Print($" {E1.As(EnergyUnit.Joule)}");
+
+
+            BrakeSpecificFuelConsumption d1 = new BrakeSpecificFuelConsumption(1, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
 
 
 
-            Debug.Print($" {d1.As(AngleUnit.Microdegree)}");
+            Debug.Print($" {d1.As(BrakeSpecificFuelConsumptionUnit.GramPerKiloWattHour)}");
 
 
 

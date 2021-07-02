@@ -370,6 +370,7 @@ namespace EngineeringUnits
             Fraction a1 = 1 / (leftA2 * leftA1);
             Fraction a2 = 1 / (rightA2 * rightA1);
 
+            Debug.Print(To.GetActualC().ToString());
 
             Fraction a3 = (a2 / a1) * To.GetActualC();
 

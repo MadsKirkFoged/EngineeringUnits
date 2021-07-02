@@ -10,40 +10,31 @@ namespace EngineeringUnits
     public class BrakeSpecificFuelConsumptionUnit : Enumeration
     {
 
-        public static readonly BrakeSpecificFuelConsumptionUnit SI = new BrakeSpecificFuelConsumptionUnit(LengthUnit.Meter);
-        public static readonly BrakeSpecificFuelConsumptionUnit CubicMeter = new BrakeSpecificFuelConsumptionUnit(LengthUnit.Meter);
-        public static readonly BrakeSpecificFuelConsumptionUnit HectocubicMeter = new BrakeSpecificFuelConsumptionUnit(PreFix.hecto, CubicMeter);
-        public static readonly BrakeSpecificFuelConsumptionUnit KilocubicMeter = new BrakeSpecificFuelConsumptionUnit(PreFix.kilo, CubicMeter);
+        //public static readonly BrakeSpecificFuelConsumptionUnit SI = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
+        public static readonly BrakeSpecificFuelConsumptionUnit KilogramPerJoule = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
+        public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule, "g/kWh", 1/3.6e9m);
+        //public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Gram, EnergyUnit.KilowattHour);
+        public static readonly BrakeSpecificFuelConsumptionUnit PoundPerMechanicalHorsepowerHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule, "lb/hph", 1.689659410672e-7m);
 
 
 
-        public BrakeSpecificFuelConsumptionUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = mass.Unit / energy.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{mass}/{energy}");
         }
 
-        public BrakeSpecificFuelConsumptionUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Area.Unit * Length.Unit;
+            Unit = mass.Unit / (power.Unit * duration.Unit);
             SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
+            SetNewSymbol(NewSymbol, $"{mass}/{power}*{duration}");
         }
 
-        public BrakeSpecificFuelConsumptionUnit(PreFix SI, BrakeSpecificFuelConsumptionUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public BrakeSpecificFuelConsumptionUnit(BrakeSpecificFuelConsumptionUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 
