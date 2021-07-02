@@ -27,7 +27,6 @@
     <Folder Include="CombinedUnits\Acceleration\" />
     <Folder Include="CombinedUnits\AmplitudeRatio\" />
     <Folder Include="CombinedUnits\AreaDensity\" />
-    <Folder Include="CombinedUnits\BitRate\" />
     <Folder Include="CombinedUnits\BrakeSpecificFuelConsumption\" />
     <Folder Include="CombinedUnits\Capacitance\" />
     <Folder Include="CombinedUnits\CoefficientOfThermalExpansion\" />
