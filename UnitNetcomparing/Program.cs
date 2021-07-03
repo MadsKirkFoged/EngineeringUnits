@@ -12,6 +12,26 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+
+
+
+            //Lav AcutalC til en del af Count systemet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //Console.WriteLine("Hello World!");
 
             //Energy E1 = new Energy(1, EnergyUnit.WattHour);

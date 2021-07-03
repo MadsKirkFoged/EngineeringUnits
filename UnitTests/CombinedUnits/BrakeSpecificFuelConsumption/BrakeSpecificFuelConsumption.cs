@@ -35,8 +35,8 @@ namespace UnitTests
                 {
                     var UN = UNList.Single();
 
-                    //if (UN == UnitsNet.Units.BrakeSpecificFuelConsumptionUnit.SquareMicrometer) Error = 2629720.0009765625;
-
+                    if (UN == UnitsNet.Units.BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour) Error = 78.34720736462623;
+                    if (UN == UnitsNet.Units.BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour) RelError = 0.0013238184869569817;
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");

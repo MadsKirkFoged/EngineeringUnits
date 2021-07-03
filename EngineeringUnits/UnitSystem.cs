@@ -450,6 +450,7 @@ namespace EngineeringUnits
             else if (b.Length is object)
             {
                 local.Length = (LengthUnit)b.Length.Clone();
+                local.Length.ActualC = 1 / local.Length.ActualC;
                 local.Length.Count *= -1;
             }
 
@@ -475,6 +476,7 @@ namespace EngineeringUnits
             else if (b.Mass is object)
             {
                 local.Mass = (MassUnit)b.Mass.Clone();
+                local.Mass.ActualC = 1 / local.Mass.ActualC;
                 local.Mass.Count *= -1;
             }
 
@@ -501,7 +503,7 @@ namespace EngineeringUnits
             else if (b.Duration is object)
             {
                 local.Duration = (DurationUnit)b.Duration.Clone();
-                //local.Duration.ActualC = 1 / local.Duration.ActualC;
+                local.Duration.ActualC = 1 / local.Duration.ActualC;
 
                 local.Duration.Count *= -1;
             }
@@ -529,6 +531,7 @@ namespace EngineeringUnits
             else if (b.Electriccurrent is object)
             {
                 local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Clone();
+                local.Electriccurrent.ActualC = 1 / local.Electriccurrent.ActualC;
                 local.Electriccurrent.Count *= -1;
             }
 
@@ -556,6 +559,7 @@ namespace EngineeringUnits
             else if (b.Temperature is object)
             {
                 local.Temperature = (TemperatureUnit)b.Temperature.Clone();
+                local.Temperature.ActualC = 1 / local.Temperature.ActualC;
                 local.Temperature.Count *= -1;
             }
 
@@ -583,6 +587,7 @@ namespace EngineeringUnits
             else if (b.Amount is object)
             {
                 local.Amount = (AmountOfSubstanceUnit)b.Amount.Clone();
+                local.Amount.ActualC = 1 / local.Amount.ActualC;
                 local.Amount.Count *= -1;
             }
 
@@ -611,6 +616,7 @@ namespace EngineeringUnits
             else if (b.LuminousIntensity is object)
             {
                 local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Clone();
+                local.LuminousIntensity.ActualC = 1 / local.LuminousIntensity.ActualC;
                 local.LuminousIntensity.Count *= -1;
             }
 

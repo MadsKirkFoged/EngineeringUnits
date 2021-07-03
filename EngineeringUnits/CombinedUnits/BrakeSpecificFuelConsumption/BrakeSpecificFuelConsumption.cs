@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public BrakeSpecificFuelConsumption()
         {
-            //Unit = BrakeSpecificFuelConsumptionUnit.SI.Unit.Copy();
+            Unit = BrakeSpecificFuelConsumptionUnit.SI.Unit.Copy();
         }
 
         public BrakeSpecificFuelConsumption(decimal value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -21,15 +21,15 @@ namespace EngineeringUnits
         public static BrakeSpecificFuelConsumption From(double value, BrakeSpecificFuelConsumptionUnit unit) => new BrakeSpecificFuelConsumption(value, unit);
         public double As(BrakeSpecificFuelConsumptionUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
         public BrakeSpecificFuelConsumption ToUnit(BrakeSpecificFuelConsumptionUnit selectedUnit) => new BrakeSpecificFuelConsumption(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        //public static BrakeSpecificFuelConsumption Zero => new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
+        public static BrakeSpecificFuelConsumption Zero => new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
 
-        //public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
-        //{
-        //    BrakeSpecificFuelConsumption local = new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
+        public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
+        {
+            BrakeSpecificFuelConsumption local = new BrakeSpecificFuelConsumption(0, BrakeSpecificFuelConsumptionUnit.SI);
 
-        //    local.Transform(Unit);
-        //    return local;
-        //}
+            local.Transform(Unit);
+            return local;
+        }
 
 
 
