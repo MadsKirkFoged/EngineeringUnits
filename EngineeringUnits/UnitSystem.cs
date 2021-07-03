@@ -376,6 +376,40 @@ namespace EngineeringUnits
 
 
 
+            //Problem is creating a fx length on 'local'
+
+            foreach (var A in a.UnitList())
+                foreach (var B in b.UnitList())
+                {
+                    if (A.GetType() == B.GetType())
+                    {
+
+                        var test = new Enumeration();
+
+                        //local.Length = a.Length.Copy();
+                        //local.Length.Count -= b.Length.Count;
+                        test = (Enumeration)A.Clone();
+                        test.Count = A.Count;
+
+                       
+
+                        //Fraction CombinedFraction = 1;
+                        //CombinedFraction *= Fraction.Pow((Fraction)a.Length.LocalC, 1);
+                        //CombinedFraction *= Fraction.Pow((Fraction)a.Length.GlobalC, 1);
+                        //CombinedFraction /= Fraction.Pow((Fraction)b.Length.LocalC, 1);
+                        //CombinedFraction /= Fraction.Pow((Fraction)b.Length.GlobalC, 1);
+                        //CombinedFraction = Fraction.Pow(CombinedFraction, b.Length.Count);
+                        //local.Length.ActualC = (1 / CombinedFraction);
+
+
+
+
+
+                    }
+                }
+
+
+
             //foreach (var item in a.UnitList())
             //{
 
