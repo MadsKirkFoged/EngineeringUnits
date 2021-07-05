@@ -39,7 +39,6 @@
     <Folder Include="CombinedUnits\Force\" />
     <Folder Include="CombinedUnits\Frequency\" />
     <Folder Include="CombinedUnits\HeatTransferCoefficient\" />
-    <Folder Include="CombinedUnits\Irradiance\" />
     <Folder Include="CombinedUnits\Irradiation\" />
     <Folder Include="CombinedUnits\KinematicViscosity\" />
     <Folder Include="CombinedUnits\LapseRate\" />
