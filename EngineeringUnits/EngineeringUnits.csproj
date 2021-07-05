@@ -242,10 +242,10 @@
     <Compile Include="CombinedUnits\ElectricPotentialChangeRate\ElectricPotentialChangeRateEnum.cs" />
     <Compile Include="CombinedUnits\ElectricPotentialChangeRate\ElectricPotentialChangeRateGet.cs" />
     <Compile Include="CombinedUnits\ElectricPotentialChangeRate\ElectricPotentialChangeRateSet.cs" />
-    <Compile Include="CombinedUnits\ElectricPotentialDc\ElectricPotentialDc.cs" />
-    <Compile Include="CombinedUnits\ElectricPotentialDc\ElectricPotentialDcEnum.cs" />
-    <Compile Include="CombinedUnits\ElectricPotentialDc\ElectricPotentialDcGet.cs" />
-    <Compile Include="CombinedUnits\ElectricPotentialDc\ElectricPotentialDcSet.cs" />
+    <Compile Include="CombinedUnits\ElectricPotentialDc %28dub%29\ElectricPotentialDc.cs" />
+    <Compile Include="CombinedUnits\ElectricPotentialDc %28dub%29\ElectricPotentialDcEnum.cs" />
+    <Compile Include="CombinedUnits\ElectricPotentialDc %28dub%29\ElectricPotentialDcGet.cs" />
+    <Compile Include="CombinedUnits\ElectricPotentialDc %28dub%29\ElectricPotentialDcSet.cs" />
     <Compile Include="CombinedUnits\ElectricResistance\ElectricResistance.cs" />
     <Compile Include="CombinedUnits\ElectricResistance\ElectricResistanceEnum.cs" />
     <Compile Include="CombinedUnits\ElectricResistance\ElectricResistanceGet.cs" />

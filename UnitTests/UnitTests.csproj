@@ -33,7 +33,6 @@
     <Folder Include="CombinedUnits\ElectricPotentialAc\" />
     <Folder Include="CombinedUnits\ElectricPotentialDc\" />
     <Folder Include="CombinedUnits\ElectricPotential\" />
-    <Folder Include="CombinedUnits\ElectricResistance\" />
     <Folder Include="CombinedUnits\ElectricResistivity\" />
     <Folder Include="CombinedUnits\ElectricSurfaceChargeDensity\" />
     <Folder Include="CombinedUnits\Energy\" />

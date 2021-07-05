@@ -10,26 +10,26 @@ namespace EngineeringUnits
     public class ElectricResistanceUnit : Enumeration
     {
 
-        public static readonly ElectricResistanceUnit SI = new ElectricResistanceUnit(LengthUnit.Meter);
-        public static readonly ElectricResistanceUnit CubicMeter = new ElectricResistanceUnit(LengthUnit.Meter);
-        public static readonly ElectricResistanceUnit HectocubicMeter = new ElectricResistanceUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricResistanceUnit KilocubicMeter = new ElectricResistanceUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricResistanceUnit SI = new ElectricResistanceUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere);
+        public static readonly ElectricResistanceUnit Ohm = new ElectricResistanceUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "Ω");
+        public static readonly ElectricResistanceUnit Gigaohm = new ElectricResistanceUnit(PreFix.giga, Ohm);
+        public static readonly ElectricResistanceUnit Kiloohm = new ElectricResistanceUnit(PreFix.kilo, Ohm);
+        public static readonly ElectricResistanceUnit Megaohm = new ElectricResistanceUnit(PreFix.mega, Ohm);
+        public static readonly ElectricResistanceUnit Microohm = new ElectricResistanceUnit(PreFix.micro, Ohm);
+        public static readonly ElectricResistanceUnit Milliohm = new ElectricResistanceUnit(PreFix.milli, Ohm);
 
 
 
-        public ElectricResistanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            //kg⋅m2⋅s−3⋅A−2
+            Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit * electricCurrent.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ElectricResistanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+       
 
         public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit)
         {
@@ -38,12 +38,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public ElectricResistanceUnit(ElectricResistanceUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+
 
     }
 
