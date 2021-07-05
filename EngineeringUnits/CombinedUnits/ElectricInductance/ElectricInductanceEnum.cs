@@ -10,26 +10,21 @@ namespace EngineeringUnits
     public class ElectricInductanceUnit : Enumeration
     {
 
-        public static readonly ElectricInductanceUnit SI = new ElectricInductanceUnit(LengthUnit.Meter);
-        public static readonly ElectricInductanceUnit CubicMeter = new ElectricInductanceUnit(LengthUnit.Meter);
-        public static readonly ElectricInductanceUnit HectocubicMeter = new ElectricInductanceUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricInductanceUnit KilocubicMeter = new ElectricInductanceUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricInductanceUnit SI = new ElectricInductanceUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere);
+        public static readonly ElectricInductanceUnit Henry = new ElectricInductanceUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "H");
+        public static readonly ElectricInductanceUnit Microhenry = new ElectricInductanceUnit(PreFix.micro, Henry);
+        public static readonly ElectricInductanceUnit Millihenry = new ElectricInductanceUnit(PreFix.milli, Henry);
+        public static readonly ElectricInductanceUnit Nanohenry = new ElectricInductanceUnit(PreFix.nano, Henry);
 
 
-
-        public ElectricInductanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricInductanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration,ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            //kg⋅m2⋅s−2⋅A−2
+            Unit = (mass.Unit * Length.Unit * Length.Unit)/(duration.Unit * duration.Unit * electricCurrent.Unit * electricCurrent.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ElectricInductanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
 
         public ElectricInductanceUnit(PreFix SI, ElectricInductanceUnit unit)
         {
@@ -38,12 +33,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public ElectricInductanceUnit(ElectricInductanceUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+  
 
     }
 
