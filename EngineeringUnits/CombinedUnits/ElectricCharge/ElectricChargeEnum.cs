@@ -10,39 +10,27 @@ namespace EngineeringUnits
     public class ElectricChargeUnit : Enumeration
     {
 
-        public static readonly ElectricChargeUnit SI = new ElectricChargeUnit(LengthUnit.Meter);
-        public static readonly ElectricChargeUnit CubicMeter = new ElectricChargeUnit(LengthUnit.Meter);
-        public static readonly ElectricChargeUnit HectocubicMeter = new ElectricChargeUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricChargeUnit KilocubicMeter = new ElectricChargeUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricChargeUnit SI = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second);
+        public static readonly ElectricChargeUnit Coulomb = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second, "C");
+        public static readonly ElectricChargeUnit AmpereHour = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Hour, "A-h");
+        public static readonly ElectricChargeUnit KiloampereHour = new ElectricChargeUnit(PreFix.kilo, AmpereHour);
+        public static readonly ElectricChargeUnit MegaampereHour = new ElectricChargeUnit(PreFix.mega, AmpereHour);
+        public static readonly ElectricChargeUnit MilliampereHour = new ElectricChargeUnit(PreFix.milli, AmpereHour);
 
 
-
-        public ElectricChargeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricCurrent.Unit * duration.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
-
-        public ElectricChargeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+             
 
         public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit)
         {
             Unit = unit.Unit.Copy();
             SetCombined(SI);
             SetNewSymbol(SI);
-        }
-
-        public ElectricChargeUnit(ElectricChargeUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
         }
 
     }

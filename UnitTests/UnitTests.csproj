@@ -27,12 +27,9 @@
     <Folder Include="CombinedUnits\Acceleration\" />
     <Folder Include="CombinedUnits\AmplitudeRatio\" />
     <Folder Include="CombinedUnits\AreaDensity\" />
-    <Folder Include="CombinedUnits\CoefficientOfThermalExpansion\" />
     <Folder Include="CombinedUnits\Density\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
-    <Folder Include="CombinedUnits\ElectricAdmittance\" />
     <Folder Include="CombinedUnits\ElectricChargeDensity\" />
-    <Folder Include="CombinedUnits\ElectricCharge\" />
     <Folder Include="CombinedUnits\ElectricConductance\" />
     <Folder Include="CombinedUnits\ElectricConductivity\" />
     <Folder Include="CombinedUnits\ElectricCurrentDensity\" />

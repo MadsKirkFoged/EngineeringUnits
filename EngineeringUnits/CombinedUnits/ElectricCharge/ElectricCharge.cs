@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class ElectricCharge : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public ElectricCharge()
+        {
+            Unit = ElectricChargeUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public ElectricCharge(decimal value, ElectricChargeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCharge(double value, ElectricChargeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCharge(int value, ElectricChargeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static ElectricCharge From(double value, ElectricChargeUnit unit) => new ElectricCharge(value, unit);
+        public double As(ElectricChargeUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public ElectricCharge ToUnit(ElectricChargeUnit selectedUnit) => new ElectricCharge(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricCharge Zero => new ElectricCharge(0, ElectricChargeUnit.SI);
+
+        public static implicit operator ElectricCharge(UnknownUnit Unit)
+        {
+            ElectricCharge local = new ElectricCharge(0, ElectricChargeUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }
