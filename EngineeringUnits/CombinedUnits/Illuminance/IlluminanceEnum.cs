@@ -10,27 +10,24 @@ namespace EngineeringUnits
     public class IlluminanceUnit : Enumeration
     {
 
-        public static readonly IlluminanceUnit SI = new IlluminanceUnit(LengthUnit.Meter);
-        public static readonly IlluminanceUnit CubicMeter = new IlluminanceUnit(LengthUnit.Meter);
-        public static readonly IlluminanceUnit HectocubicMeter = new IlluminanceUnit(PreFix.hecto, CubicMeter);
-        public static readonly IlluminanceUnit KilocubicMeter = new IlluminanceUnit(PreFix.kilo, CubicMeter);
+        public static readonly IlluminanceUnit SI = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SquareMeter);
+        public static readonly IlluminanceUnit Lux = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SquareMeter, "lx");
 
 
+        public static readonly IlluminanceUnit Kilolux = new IlluminanceUnit(PreFix.kilo, Lux);
+        public static readonly IlluminanceUnit Megalux = new IlluminanceUnit(PreFix.mega, Lux);
+        public static readonly IlluminanceUnit Millilux = new IlluminanceUnit(PreFix.milli, Lux);
 
-        public IlluminanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            //lm/m2
+            Unit = luminousIntensity.Unit / area.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public IlluminanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
+     
         public IlluminanceUnit(PreFix SI, IlluminanceUnit unit)
         {
             Unit = unit.Unit.Copy();
@@ -38,12 +35,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public IlluminanceUnit(IlluminanceUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 
