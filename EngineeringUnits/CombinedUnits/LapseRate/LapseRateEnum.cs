@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class LapseRateUnit : Enumeration
     {
 
-        public static readonly LapseRateUnit SI = new LapseRateUnit(LengthUnit.Meter);
-        public static readonly LapseRateUnit CubicMeter = new LapseRateUnit(LengthUnit.Meter);
-        public static readonly LapseRateUnit HectocubicMeter = new LapseRateUnit(PreFix.hecto, CubicMeter);
-        public static readonly LapseRateUnit KilocubicMeter = new LapseRateUnit(PreFix.kilo, CubicMeter);
+        public static readonly LapseRateUnit SI = new LapseRateUnit(TemperatureUnit.Kelvin, LengthUnit.Meter);
+        public static readonly LapseRateUnit DegreeCelsiusPerKilometer = new LapseRateUnit(TemperatureUnit.Kelvin, LengthUnit.Meter, "∆°C/km");
 
 
 
-        public LapseRateUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public LapseRateUnit(TemperatureUnit temperature, LengthUnit length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = temperature.Unit / length.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public LapseRateUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public LapseRateUnit(PreFix SI, LapseRateUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public LapseRateUnit(LapseRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 

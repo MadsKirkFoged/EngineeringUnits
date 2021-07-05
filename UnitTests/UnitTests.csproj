@@ -40,7 +40,6 @@
     <Folder Include="CombinedUnits\Frequency\" />
     <Folder Include="CombinedUnits\HeatTransferCoefficient\" />
     <Folder Include="CombinedUnits\KinematicViscosity\" />
-    <Folder Include="CombinedUnits\LapseRate\" />
     <Folder Include="CombinedUnits\Level\" />
     <Folder Include="CombinedUnits\LinearDensity\" />
     <Folder Include="CombinedUnits\LinearPowerDensity\" />
