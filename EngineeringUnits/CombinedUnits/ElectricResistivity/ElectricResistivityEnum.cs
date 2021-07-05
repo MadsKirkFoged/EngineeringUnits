@@ -10,26 +10,34 @@ namespace EngineeringUnits
     public class ElectricResistivityUnit : Enumeration
     {
 
-        public static readonly ElectricResistivityUnit SI = new ElectricResistivityUnit(LengthUnit.Meter);
-        public static readonly ElectricResistivityUnit CubicMeter = new ElectricResistivityUnit(LengthUnit.Meter);
-        public static readonly ElectricResistivityUnit HectocubicMeter = new ElectricResistivityUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricResistivityUnit KilocubicMeter = new ElectricResistivityUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricResistivityUnit SI = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Meter);
+        public static readonly ElectricResistivityUnit OhmMeter = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Meter);
+        public static readonly ElectricResistivityUnit OhmCentimeter = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Centimeter);
+
+        public static readonly ElectricResistivityUnit KiloohmCentimeter = new ElectricResistivityUnit(PreFix.kilo, OhmCentimeter);
+        public static readonly ElectricResistivityUnit MegaohmCentimeter = new ElectricResistivityUnit(PreFix.mega, OhmCentimeter);
+        public static readonly ElectricResistivityUnit MicroohmCentimeter = new ElectricResistivityUnit(PreFix.micro, OhmCentimeter);
+        public static readonly ElectricResistivityUnit MilliohmCentimeter = new ElectricResistivityUnit(PreFix.milli, OhmCentimeter);
+        public static readonly ElectricResistivityUnit NanoohmCentimeter = new ElectricResistivityUnit(PreFix.nano, OhmCentimeter);
+        public static readonly ElectricResistivityUnit PicoohmCentimeter = new ElectricResistivityUnit(PreFix.pico, OhmCentimeter);
+
+        public static readonly ElectricResistivityUnit KiloohmMeter = new ElectricResistivityUnit(PreFix.kilo, OhmMeter);
+        public static readonly ElectricResistivityUnit MegaohmMeter = new ElectricResistivityUnit(PreFix.mega, OhmMeter);
+        public static readonly ElectricResistivityUnit MicroohmMeter = new ElectricResistivityUnit(PreFix.micro, OhmMeter);
+        public static readonly ElectricResistivityUnit MilliohmMeter = new ElectricResistivityUnit(PreFix.milli, OhmMeter);
+        public static readonly ElectricResistivityUnit NanoohmMeter = new ElectricResistivityUnit(PreFix.nano, OhmMeter);
+        public static readonly ElectricResistivityUnit PicoohmMeter = new ElectricResistivityUnit(PreFix.pico, OhmMeter);
 
 
 
-        public ElectricResistivityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricResistance.Unit * Length.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{electricResistance}·{Length}");
         }
 
-        public ElectricResistivityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
 
         public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit)
         {
@@ -38,16 +46,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public ElectricResistivityUnit(ElectricResistivityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
-
     }
-
-
 
 
 }
