@@ -23,7 +23,7 @@ namespace EngineeringUnits
         public UnitSystem Unit { get; protected set; }
 
 
-        protected Enumeration()
+        public Enumeration()
         {
         }
 
