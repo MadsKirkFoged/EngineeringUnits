@@ -10,40 +10,21 @@ namespace EngineeringUnits
     public class ElectricCurrentDensityUnit : Enumeration
     {
 
-        public static readonly ElectricCurrentDensityUnit SI = new ElectricCurrentDensityUnit(LengthUnit.Meter);
-        public static readonly ElectricCurrentDensityUnit CubicMeter = new ElectricCurrentDensityUnit(LengthUnit.Meter);
-        public static readonly ElectricCurrentDensityUnit HectocubicMeter = new ElectricCurrentDensityUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricCurrentDensityUnit KilocubicMeter = new ElectricCurrentDensityUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricCurrentDensityUnit SI = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareMeter);
+        public static readonly ElectricCurrentDensityUnit AmperePerSquareMeter = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareMeter);
+        public static readonly ElectricCurrentDensityUnit AmperePerSquareInch = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareInch);
+        public static readonly ElectricCurrentDensityUnit AmperePerSquareFoot = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareFoot);
 
 
 
-        public ElectricCurrentDensityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricCurrentDensityUnit(ElectricCurrentUnit electricCurrent, AreaUnit Area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricCurrent.Unit / Area.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+            SetNewSymbol(NewSymbol, $"{electricCurrent}/{Area}");
+        }      
 
-        public ElectricCurrentDensityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public ElectricCurrentDensityUnit(PreFix SI, ElectricCurrentDensityUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public ElectricCurrentDensityUnit(ElectricCurrentDensityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 
