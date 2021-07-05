@@ -10,40 +10,21 @@ namespace EngineeringUnits
     public class FuelEfficiencyUnit : Enumeration
     {
 
-        public static readonly FuelEfficiencyUnit SI = new FuelEfficiencyUnit(LengthUnit.Meter);
-        public static readonly FuelEfficiencyUnit CubicMeter = new FuelEfficiencyUnit(LengthUnit.Meter);
-        public static readonly FuelEfficiencyUnit HectocubicMeter = new FuelEfficiencyUnit(PreFix.hecto, CubicMeter);
-        public static readonly FuelEfficiencyUnit KilocubicMeter = new FuelEfficiencyUnit(PreFix.kilo, CubicMeter);
+        public static readonly FuelEfficiencyUnit SI = new FuelEfficiencyUnit(LengthUnit.Meter, VolumeUnit.CubicMeter);
+        public static readonly FuelEfficiencyUnit KilometerPerLiter = new FuelEfficiencyUnit(LengthUnit.Kilometer, VolumeUnit.Liter);
+        //public static readonly FuelEfficiencyUnit LiterPer100Kilometers = new FuelEfficiencyUnit(LengthUnit.Kilometer, VolumeUnit.Liter);
+        public static readonly FuelEfficiencyUnit MilePerUkGallon = new FuelEfficiencyUnit(LengthUnit.Mile, VolumeUnit.ImperialGallon, "mpg (imp.)");
+        public static readonly FuelEfficiencyUnit MilePerUsGallon = new FuelEfficiencyUnit(LengthUnit.Mile, VolumeUnit.UsGallon, "mpg (U.S.)");
 
 
-
-        public FuelEfficiencyUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public FuelEfficiencyUnit(LengthUnit Length, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length.Unit / volume.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{Length}/{volume}");
         }
 
-        public FuelEfficiencyUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public FuelEfficiencyUnit(PreFix SI, FuelEfficiencyUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public FuelEfficiencyUnit(FuelEfficiencyUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+    
 
     }
 
