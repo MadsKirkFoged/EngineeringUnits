@@ -10,40 +10,47 @@ namespace EngineeringUnits
     public class LinearPowerDensityUnit : Enumeration
     {
 
-        public static readonly LinearPowerDensityUnit SI = new LinearPowerDensityUnit(LengthUnit.Meter);
-        public static readonly LinearPowerDensityUnit CubicMeter = new LinearPowerDensityUnit(LengthUnit.Meter);
-        public static readonly LinearPowerDensityUnit HectocubicMeter = new LinearPowerDensityUnit(PreFix.hecto, CubicMeter);
-        public static readonly LinearPowerDensityUnit KilocubicMeter = new LinearPowerDensityUnit(PreFix.kilo, CubicMeter);
+        public static readonly LinearPowerDensityUnit SI = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit WattPerMeter = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit WattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Millimeter);
+        public static readonly LinearPowerDensityUnit WattPerInch = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Inch);
+        public static readonly LinearPowerDensityUnit WattPerFoot = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Foot);
+        public static readonly LinearPowerDensityUnit WattPerCentimeter = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Centimeter);
+
+        public static readonly LinearPowerDensityUnit MilliwattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Milliwatt, LengthUnit.Millimeter);
+        public static readonly LinearPowerDensityUnit MilliwattPerMeter = new LinearPowerDensityUnit(PowerUnit.Milliwatt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit MilliwattPerInch = new LinearPowerDensityUnit(PowerUnit.Milliwatt, LengthUnit.Inch);
+        public static readonly LinearPowerDensityUnit MilliwattPerFoot = new LinearPowerDensityUnit(PowerUnit.Milliwatt, LengthUnit.Foot);
+        public static readonly LinearPowerDensityUnit MilliwattPerCentimeter = new LinearPowerDensityUnit(PowerUnit.Milliwatt, LengthUnit.Centimeter);
+
+        public static readonly LinearPowerDensityUnit MegawattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Megawatt, LengthUnit.Millimeter);
+        public static readonly LinearPowerDensityUnit MegawattPerMeter = new LinearPowerDensityUnit(PowerUnit.Megawatt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit MegawattPerInch = new LinearPowerDensityUnit(PowerUnit.Megawatt, LengthUnit.Inch);
+        public static readonly LinearPowerDensityUnit MegawattPerFoot = new LinearPowerDensityUnit(PowerUnit.Megawatt, LengthUnit.Foot);
+        public static readonly LinearPowerDensityUnit MegawattPerCentimeter = new LinearPowerDensityUnit(PowerUnit.Megawatt, LengthUnit.Centimeter);
+
+        public static readonly LinearPowerDensityUnit KilowattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Kilowatt, LengthUnit.Millimeter);
+        public static readonly LinearPowerDensityUnit KilowattPerMeter = new LinearPowerDensityUnit(PowerUnit.Kilowatt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit KilowattPerInch = new LinearPowerDensityUnit(PowerUnit.Kilowatt, LengthUnit.Inch);
+        public static readonly LinearPowerDensityUnit KilowattPerFoot = new LinearPowerDensityUnit(PowerUnit.Kilowatt, LengthUnit.Foot);
+        public static readonly LinearPowerDensityUnit KilowattPerCentimeter = new LinearPowerDensityUnit(PowerUnit.Kilowatt, LengthUnit.Centimeter);
+
+
+        public static readonly LinearPowerDensityUnit GigawattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Gigawatt, LengthUnit.Millimeter);
+        public static readonly LinearPowerDensityUnit GigawattPerMeter = new LinearPowerDensityUnit(PowerUnit.Gigawatt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit GigawattPerInch = new LinearPowerDensityUnit(PowerUnit.Gigawatt, LengthUnit.Inch);
+        public static readonly LinearPowerDensityUnit GigawattPerFoot = new LinearPowerDensityUnit(PowerUnit.Gigawatt, LengthUnit.Foot);
+        public static readonly LinearPowerDensityUnit GigawattPerCentimeter = new LinearPowerDensityUnit(PowerUnit.Gigawatt, LengthUnit.Centimeter);
 
 
 
-        public LinearPowerDensityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public LinearPowerDensityUnit(PowerUnit power, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = power.Unit / Length.Unit ;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+            SetNewSymbol(NewSymbol, $"{power}/{Length}");
+        }       
 
-        public LinearPowerDensityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public LinearPowerDensityUnit(PreFix SI, LinearPowerDensityUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public LinearPowerDensityUnit(LinearPowerDensityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 
