@@ -10,27 +10,39 @@ namespace EngineeringUnits
     public class ForceChangeRateUnit : Enumeration
     {
 
-        public static readonly ForceChangeRateUnit SI = new ForceChangeRateUnit(LengthUnit.Meter);
-        public static readonly ForceChangeRateUnit CubicMeter = new ForceChangeRateUnit(LengthUnit.Meter);
-        public static readonly ForceChangeRateUnit HectocubicMeter = new ForceChangeRateUnit(PreFix.hecto, CubicMeter);
-        public static readonly ForceChangeRateUnit KilocubicMeter = new ForceChangeRateUnit(PreFix.kilo, CubicMeter);
+        public static readonly ForceChangeRateUnit SI = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit NewtonPerSecond = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit NewtonPerMinute = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Minute);
+
+        public static readonly ForceChangeRateUnit PoundForcePerSecond = new ForceChangeRateUnit(ForceUnit.PoundForce, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit PoundForcePerMinute = new ForceChangeRateUnit(ForceUnit.PoundForce, DurationUnit.Minute);
+
+        public static readonly ForceChangeRateUnit KilopoundForcePerSecond = new ForceChangeRateUnit(PreFix.kilo, PoundForcePerSecond);
+
+        public static readonly ForceChangeRateUnit KilopoundForcePerMinute = new ForceChangeRateUnit(PreFix.kilo, PoundForcePerMinute);
+
+        public static readonly ForceChangeRateUnit NanonewtonPerSecond = new ForceChangeRateUnit(PreFix.nano, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit MillinewtonPerSecond = new ForceChangeRateUnit(PreFix.milli, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit MicronewtonPerSecond = new ForceChangeRateUnit(PreFix.micro, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit CentinewtonPerSecond = new ForceChangeRateUnit(PreFix.centi, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit DecanewtonPerSecond = new ForceChangeRateUnit(PreFix.deka, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit DecinewtonPerSecond = new ForceChangeRateUnit(PreFix.deci, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit KilonewtonPerSecond = new ForceChangeRateUnit(PreFix.kilo, NewtonPerSecond);
+
+
+        public static readonly ForceChangeRateUnit DecanewtonPerMinute = new ForceChangeRateUnit(PreFix.deka, NewtonPerMinute);
+        public static readonly ForceChangeRateUnit KilonewtonPerMinute = new ForceChangeRateUnit(PreFix.kilo, NewtonPerMinute);
 
 
 
-        public ForceChangeRateUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ForceChangeRateUnit(ForceUnit force, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = force.Unit / duration.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{force}/{duration}");
         }
 
-        public ForceChangeRateUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
+       
         public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit)
         {
             Unit = unit.Unit.Copy();
@@ -38,12 +50,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public ForceChangeRateUnit(ForceChangeRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 

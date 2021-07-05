@@ -35,7 +35,6 @@
     <Folder Include="CombinedUnits\ElectricPotential\" />
     <Folder Include="CombinedUnits\Energy\" />
     <Folder Include="CombinedUnits\Entropy\" />
-    <Folder Include="CombinedUnits\ForceChangeRate\" />
     <Folder Include="CombinedUnits\ForcePerLength\" />
     <Folder Include="CombinedUnits\Force\" />
     <Folder Include="CombinedUnits\Frequency\" />
