@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class ElectricCurrentGradient : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public ElectricCurrentGradient()
+        {
+            Unit = ElectricCurrentGradientUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public ElectricCurrentGradient(decimal value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCurrentGradient(double value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricCurrentGradient(int value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static ElectricCurrentGradient From(double value, ElectricCurrentGradientUnit unit) => new ElectricCurrentGradient(value, unit);
+        public double As(ElectricCurrentGradientUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new ElectricCurrentGradient(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricCurrentGradient Zero => new ElectricCurrentGradient(0, ElectricCurrentGradientUnit.SI);
+
+        public static implicit operator ElectricCurrentGradient(UnknownUnit Unit)
+        {
+            ElectricCurrentGradient local = new ElectricCurrentGradient(0, ElectricCurrentGradientUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }

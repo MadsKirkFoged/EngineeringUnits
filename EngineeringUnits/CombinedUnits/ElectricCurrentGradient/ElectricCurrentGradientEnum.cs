@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class ElectricCurrentGradientUnit : Enumeration
     {
 
-        public static readonly ElectricCurrentGradientUnit SI = new ElectricCurrentGradientUnit(LengthUnit.Meter);
-        public static readonly ElectricCurrentGradientUnit CubicMeter = new ElectricCurrentGradientUnit(LengthUnit.Meter);
-        public static readonly ElectricCurrentGradientUnit HectocubicMeter = new ElectricCurrentGradientUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricCurrentGradientUnit KilocubicMeter = new ElectricCurrentGradientUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricCurrentGradientUnit SI = new ElectricCurrentGradientUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second);
+        public static readonly ElectricCurrentGradientUnit AmperePerSecond = new ElectricCurrentGradientUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second);
+        public static readonly ElectricCurrentGradientUnit AmperePerMicrosecond = new ElectricCurrentGradientUnit(ElectricCurrentUnit.Ampere, DurationUnit.Microsecond);
+        public static readonly ElectricCurrentGradientUnit AmperePerMillisecond = new ElectricCurrentGradientUnit(ElectricCurrentUnit.Ampere, DurationUnit.Millisecond);
+        public static readonly ElectricCurrentGradientUnit AmperePerNanosecond = new ElectricCurrentGradientUnit(ElectricCurrentUnit.Ampere, DurationUnit.Nanosecond);
 
-
-
-        public ElectricCurrentGradientUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricCurrentGradientUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricCurrent.Unit / duration.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{electricCurrent}/{duration}");
         }
 
-        public ElectricCurrentGradientUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public ElectricCurrentGradientUnit(PreFix SI, ElectricCurrentGradientUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public ElectricCurrentGradientUnit(ElectricCurrentGradientUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 

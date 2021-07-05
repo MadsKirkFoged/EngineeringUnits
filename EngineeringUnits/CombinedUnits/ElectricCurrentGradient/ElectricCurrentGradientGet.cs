@@ -4,9 +4,27 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class MolarMass
+    public partial class ElectricCurrentGradient
     {
-       
+        /// <summary>
+        ///     Get ElectricCurrentGradient in AmperesPerMicrosecond.
+        /// </summary>
+        public double AmperesPerMicrosecond => As(ElectricCurrentGradientUnit.AmperePerMicrosecond);
+
+        /// <summary>
+        ///     Get ElectricCurrentGradient in AmperesPerMillisecond.
+        /// </summary>
+        public double AmperesPerMillisecond => As(ElectricCurrentGradientUnit.AmperePerMillisecond);
+
+        /// <summary>
+        ///     Get ElectricCurrentGradient in AmperesPerNanosecond.
+        /// </summary>
+        public double AmperesPerNanosecond => As(ElectricCurrentGradientUnit.AmperePerNanosecond);
+
+        /// <summary>
+        ///     Get ElectricCurrentGradient in AmperesPerSecond.
+        /// </summary>
+        public double AmperesPerSecond => As(ElectricCurrentGradientUnit.AmperePerSecond);
 
     }
 }
