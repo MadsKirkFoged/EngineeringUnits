@@ -10,26 +10,29 @@ namespace EngineeringUnits
     public class CapacitanceUnit : Enumeration
     {
 
-        public static readonly CapacitanceUnit SI = new CapacitanceUnit(LengthUnit.Meter);
-        public static readonly CapacitanceUnit CubicMeter = new CapacitanceUnit(LengthUnit.Meter);
-        public static readonly CapacitanceUnit HectocubicMeter = new CapacitanceUnit(PreFix.hecto, CubicMeter);
-        public static readonly CapacitanceUnit KilocubicMeter = new CapacitanceUnit(PreFix.kilo, CubicMeter);
+        public static readonly CapacitanceUnit SI = new CapacitanceUnit(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
+        public static readonly CapacitanceUnit Farad = new CapacitanceUnit(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
+        public static readonly CapacitanceUnit Kilofarad = new CapacitanceUnit(PreFix.kilo, Farad);
+        public static readonly CapacitanceUnit Megafarad = new CapacitanceUnit(PreFix.mega, Farad);
+        public static readonly CapacitanceUnit Microfarad = new CapacitanceUnit(PreFix.micro, Farad);
+        public static readonly CapacitanceUnit Millifarad = new CapacitanceUnit(PreFix.milli, Farad);
+        public static readonly CapacitanceUnit Nanofarad = new CapacitanceUnit(PreFix.nano, Farad);
+        public static readonly CapacitanceUnit Picofarad = new CapacitanceUnit(PreFix.pico, Farad);
 
 
 
-        public CapacitanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public CapacitanceUnit(DurationUnit duration, ElectricCurrentUnit electricCurrent, LengthUnit Length, MassUnit Mass, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+
+            //s4⋅A2⋅m−2⋅kg−1
+
+            Unit = (duration.Unit * duration.Unit * duration.Unit * duration.Unit *  electricCurrent.Unit * electricCurrent.Unit) / (Length.Unit * Length.Unit * Mass.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public CapacitanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+      
 
         public CapacitanceUnit(PreFix SI, CapacitanceUnit unit)
         {
@@ -38,12 +41,7 @@ namespace EngineeringUnits
             SetNewSymbol(SI);
         }
 
-        public CapacitanceUnit(CapacitanceUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 
