@@ -96,6 +96,7 @@
     <Compile Include="CombinedUnits\DynamicViscosity\DynamicViscosityEnum.cs" />
     <Compile Include="CombinedUnits\DynamicViscosity\DynamicViscosityGet.cs" />
     <Compile Include="CombinedUnits\DynamicViscosity\DynamicViscositySet.cs" />
+    <Compile Include="CombinedUnits\ElectricConductance\same as Admittance.cs" />
     <Compile Include="CombinedUnits\ElectricPotential\ElectricPotential.cs" />
     <Compile Include="CombinedUnits\ElectricPotential\ElectricPotentialEnum.cs" />
     <Compile Include="CombinedUnits\ElectricPotential\ElectricPotentialGet.cs" />

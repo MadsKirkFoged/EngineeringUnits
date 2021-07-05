@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class ElectricConductance : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public ElectricConductance()
+        {
+            Unit = ElectricConductanceUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public ElectricConductance(decimal value, ElectricConductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricConductance(double value, ElectricConductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricConductance(int value, ElectricConductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static ElectricConductance From(double value, ElectricConductanceUnit unit) => new ElectricConductance(value, unit);
+        public double As(ElectricConductanceUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new ElectricConductance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricConductance Zero => new ElectricConductance(0, ElectricConductanceUnit.SI);
+
+        public static implicit operator ElectricConductance(UnknownUnit Unit)
+        {
+            ElectricConductance local = new ElectricConductance(0, ElectricConductanceUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }

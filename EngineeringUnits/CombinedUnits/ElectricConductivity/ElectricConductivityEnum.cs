@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class ElectricConductivityUnit : Enumeration
     {
 
-        public static readonly ElectricConductivityUnit SI = new ElectricConductivityUnit(LengthUnit.Meter);
-        public static readonly ElectricConductivityUnit CubicMeter = new ElectricConductivityUnit(LengthUnit.Meter);
-        public static readonly ElectricConductivityUnit HectocubicMeter = new ElectricConductivityUnit(PreFix.hecto, CubicMeter);
-        public static readonly ElectricConductivityUnit KilocubicMeter = new ElectricConductivityUnit(PreFix.kilo, CubicMeter);
+        public static readonly ElectricConductivityUnit SI = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Meter);
+        public static readonly ElectricConductivityUnit SiemensPerMeter = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Meter);
+        public static readonly ElectricConductivityUnit SiemensPerInch = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Inch);
+        public static readonly ElectricConductivityUnit SiemensPerFoot = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Foot);
 
 
 
-        public ElectricConductivityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricConductivityUnit(ElectricAdmittanceUnit electricAdmittance, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricAdmittance.Unit / Length.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{electricAdmittance}/{Length}");
         }
 
-        public ElectricConductivityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public ElectricConductivityUnit(PreFix SI, ElectricConductivityUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public ElectricConductivityUnit(ElectricConductivityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 
