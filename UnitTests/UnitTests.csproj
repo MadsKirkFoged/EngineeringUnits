@@ -29,7 +29,6 @@
     <Folder Include="CombinedUnits\AreaDensity\" />
     <Folder Include="CombinedUnits\Density\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
-    <Folder Include="CombinedUnits\ElectricChargeDensity\" />
     <Folder Include="CombinedUnits\ElectricConductance\" />
     <Folder Include="CombinedUnits\ElectricConductivity\" />
     <Folder Include="CombinedUnits\ElectricCurrentDensity\" />

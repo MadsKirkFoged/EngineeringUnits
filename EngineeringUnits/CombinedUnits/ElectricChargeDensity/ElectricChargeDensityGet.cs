@@ -4,9 +4,12 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class MolarMass
+    public partial class ElectricChargeDensity
     {
-       
+        /// <summary>
+        ///     Get ElectricChargeDensity in CoulombsPerCubicMeter.
+        /// </summary>
+        public double CoulombsPerCubicMeter => As(ElectricChargeDensityUnit.CoulombPerCubicMeter);
 
     }
 }
