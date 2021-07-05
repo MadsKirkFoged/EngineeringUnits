@@ -30,7 +30,6 @@
     <Folder Include="CombinedUnits\Density\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
     <Folder Include="CombinedUnits\ElectricConductance\" />
-    <Folder Include="CombinedUnits\ElectricField\" />
     <Folder Include="CombinedUnits\ElectricInductance\" />
     <Folder Include="CombinedUnits\ElectricPotentialAc\" />
     <Folder Include="CombinedUnits\ElectricPotentialChangeRate\" />
