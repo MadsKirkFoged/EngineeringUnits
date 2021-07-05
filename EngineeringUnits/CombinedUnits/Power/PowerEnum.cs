@@ -34,13 +34,19 @@ namespace EngineeringUnits
         public static readonly PowerUnit MegajoulePerHour =  new PowerUnit(EnergyUnit.Megajoule, DurationUnit.Hour);
         public static readonly PowerUnit GigajoulePerHour =  new PowerUnit(EnergyUnit.Gigajoule, DurationUnit.Hour);
         public static readonly PowerUnit BritishThermalUnitPerHour =     new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Hour);
-        public static readonly PowerUnit KilobritishThermalUnitPerHour = new PowerUnit(EnergyUnit.KilobritishThermalUnit, DurationUnit.Hour);
+        public static readonly PowerUnit BritishThermalUnitPerMinute =     new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Minute);
         public static readonly PowerUnit BritishThermalUnitPerSecond =   new PowerUnit(EnergyUnit.BritishThermalUnit, DurationUnit.Second);
+        public static readonly PowerUnit KilobritishThermalUnitPerHour = new PowerUnit(EnergyUnit.KilobritishThermalUnit, DurationUnit.Hour);
         public static readonly PowerUnit BoilerHorsepower =      new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(S)", 9812.5m);
         public static readonly PowerUnit ElectricalHorsepower =  new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(E)", 746m);
         public static readonly PowerUnit HydraulicHorsepower =   new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(H)", 745.69988145m);
         public static readonly PowerUnit MechanicalHorsepower =  new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(I)", 745.69m);
         public static readonly PowerUnit MetricHorsepower =      new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "hp(M)", 735.49875m);
+
+
+        public static readonly PowerUnit CaloriePerSecond = new PowerUnit(EnergyUnit.Calorie, DurationUnit.Second);
+        public static readonly PowerUnit KilocaloriePerHour = new PowerUnit(EnergyUnit.Kilocalorie, DurationUnit.Hour);
+        public static readonly PowerUnit KilocaloriePerSecond = new PowerUnit(EnergyUnit.Kilocalorie, DurationUnit.Second);
 
 
         public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
