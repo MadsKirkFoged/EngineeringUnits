@@ -42,7 +42,6 @@
     <Folder Include="CombinedUnits\KinematicViscosity\" />
     <Folder Include="CombinedUnits\Luminosity\" />
     <Folder Include="CombinedUnits\LuminousFlux\" />
-    <Folder Include="CombinedUnits\MagneticField\" />
     <Folder Include="CombinedUnits\MagneticFlux\" />
     <Folder Include="CombinedUnits\Magnetization\" />
     <Folder Include="CombinedUnits\MassConcentration\" />

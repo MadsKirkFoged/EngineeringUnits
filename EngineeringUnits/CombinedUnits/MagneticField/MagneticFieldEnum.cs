@@ -10,26 +10,29 @@ namespace EngineeringUnits
     public class MagneticFieldUnit : Enumeration
     {
 
-        public static readonly MagneticFieldUnit SI = new MagneticFieldUnit(LengthUnit.Meter);
-        public static readonly MagneticFieldUnit CubicMeter = new MagneticFieldUnit(LengthUnit.Meter);
-        public static readonly MagneticFieldUnit HectocubicMeter = new MagneticFieldUnit(PreFix.hecto, CubicMeter);
-        public static readonly MagneticFieldUnit KilocubicMeter = new MagneticFieldUnit(PreFix.kilo, CubicMeter);
+        public static readonly MagneticFieldUnit SI = new MagneticFieldUnit(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere);
+        public static readonly MagneticFieldUnit Tesla = new MagneticFieldUnit(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere,"T");
+
+        public static readonly MagneticFieldUnit Gauss = new MagneticFieldUnit(Tesla, "G", 1e-4m);
+        public static readonly MagneticFieldUnit Milligauss = new MagneticFieldUnit(PreFix.milli, Gauss);
+
+
+        public static readonly MagneticFieldUnit Microtesla = new MagneticFieldUnit(PreFix.micro, Tesla);
+        public static readonly MagneticFieldUnit Millitesla = new MagneticFieldUnit(PreFix.milli, Tesla);
+        public static readonly MagneticFieldUnit Nanotesla = new MagneticFieldUnit(PreFix.nano, Tesla);
 
 
 
-        public MagneticFieldUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public MagneticFieldUnit(MassUnit mass, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            //kg⋅s−2⋅A−1
+            Unit = mass.Unit / (duration.Unit * duration.Unit * electricCurrent.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public MagneticFieldUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+
 
         public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit)
         {
@@ -37,13 +40,13 @@ namespace EngineeringUnits
             SetCombined(SI);
             SetNewSymbol(SI);
         }
-
         public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
             Unit = unit.Unit.Copy();
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
+
 
     }
 
