@@ -358,10 +358,10 @@
     <Compile Include="CombinedUnits\PowerDensity\PowerDensityEnum.cs" />
     <Compile Include="CombinedUnits\PowerDensity\PowerDensityGet.cs" />
     <Compile Include="CombinedUnits\PowerDensity\PowerDensitySet.cs" />
-    <Compile Include="CombinedUnits\PowerRatio\PowerRatio.cs" />
-    <Compile Include="CombinedUnits\PowerRatio\PowerRatioEnum.cs" />
-    <Compile Include="CombinedUnits\PowerRatio\PowerRatioGet.cs" />
-    <Compile Include="CombinedUnits\PowerRatio\PowerRatioSet.cs" />
+    <Compile Include="CombinedUnits\Ratio\PowerRatio\PowerRatio.cs" />
+    <Compile Include="CombinedUnits\Ratio\PowerRatio\PowerRatioEnum.cs" />
+    <Compile Include="CombinedUnits\Ratio\PowerRatio\PowerRatioGet.cs" />
+    <Compile Include="CombinedUnits\Ratio\PowerRatio\PowerRatioSet.cs" />
     <Compile Include="CombinedUnits\PressureChangeRate\PressureChangeRate.cs" />
     <Compile Include="CombinedUnits\PressureChangeRate\PressureChangeRateEnum.cs" />
     <Compile Include="CombinedUnits\PressureChangeRate\PressureChangeRateGet.cs" />
