@@ -40,7 +40,6 @@
     <Folder Include="CombinedUnits\KinematicViscosity\" />
     <Folder Include="CombinedUnits\MassFlow\" />
     <Folder Include="CombinedUnits\MassFraction\" />
-    <Folder Include="CombinedUnits\MassMomentOfInertia\" />
     <Folder Include="CombinedUnits\MolarEnergy\" />
     <Folder Include="CombinedUnits\MolarEntropy\" />
     <Folder Include="CombinedUnits\Molarity\" />

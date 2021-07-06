@@ -326,10 +326,10 @@
     <Compile Include="CombinedUnits\MassFlux\MassFluxEnum.cs" />
     <Compile Include="CombinedUnits\MassFlux\MassFluxGet.cs" />
     <Compile Include="CombinedUnits\MassFlux\MassFluxSet.cs" />
-    <Compile Include="CombinedUnits\MassFraction\MassFraction.cs" />
-    <Compile Include="CombinedUnits\MassFraction\MassFractionEnum.cs" />
-    <Compile Include="CombinedUnits\MassFraction\MassFractionGet.cs" />
-    <Compile Include="CombinedUnits\MassFraction\MassFractionSet.cs" />
+    <Compile Include="CombinedUnits\Ratio\MassFraction\MassFraction.cs" />
+    <Compile Include="CombinedUnits\Ratio\MassFraction\MassFractionEnum.cs" />
+    <Compile Include="CombinedUnits\Ratio\MassFraction\MassFractionGet.cs" />
+    <Compile Include="CombinedUnits\Ratio\MassFraction\MassFractionSet.cs" />
     <Compile Include="CombinedUnits\MassMomentOfInertia\MassMomentOfInertia.cs" />
     <Compile Include="CombinedUnits\MassMomentOfInertia\MassMomentOfInertiaEnum.cs" />
     <Compile Include="CombinedUnits\MassMomentOfInertia\MassMomentOfInertiaGet.cs" />
