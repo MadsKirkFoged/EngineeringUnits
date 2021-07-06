@@ -4,9 +4,12 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class MolarMass
+    public partial class Permeability
     {
-       
+        /// <summary>
+        ///     Get Permeability in HenriesPerMeter.
+        /// </summary>
+        public double HenriesPerMeter => As(PermeabilityUnit.HenryPerMeter);
 
     }
 }

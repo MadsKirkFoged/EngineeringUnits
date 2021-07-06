@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class PermeabilityUnit : Enumeration
     {
 
-        public static readonly PermeabilityUnit SI = new PermeabilityUnit(LengthUnit.Meter);
-        public static readonly PermeabilityUnit CubicMeter = new PermeabilityUnit(LengthUnit.Meter);
-        public static readonly PermeabilityUnit HectocubicMeter = new PermeabilityUnit(PreFix.hecto, CubicMeter);
-        public static readonly PermeabilityUnit KilocubicMeter = new PermeabilityUnit(PreFix.kilo, CubicMeter);
+        public static readonly PermeabilityUnit SI = new PermeabilityUnit(ElectricInductanceUnit.Henry, LengthUnit.Meter);
+        public static readonly PermeabilityUnit HenryPerMeter = new PermeabilityUnit(ElectricInductanceUnit.Henry, LengthUnit.Meter);
 
 
 
-        public PermeabilityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public PermeabilityUnit(ElectricInductanceUnit electricInductance,LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricInductance.Unit / Length.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{electricInductance}/{Length}");
         }
 
-        public PermeabilityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public PermeabilityUnit(PreFix SI, PermeabilityUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public PermeabilityUnit(PermeabilityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 
