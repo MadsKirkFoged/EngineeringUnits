@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class MolarEntropyUnit : Enumeration
     {
 
-        public static readonly MolarEntropyUnit SI = new MolarEntropyUnit(LengthUnit.Meter);
-        public static readonly MolarEntropyUnit CubicMeter = new MolarEntropyUnit(LengthUnit.Meter);
-        public static readonly MolarEntropyUnit HectocubicMeter = new MolarEntropyUnit(PreFix.hecto, CubicMeter);
-        public static readonly MolarEntropyUnit KilocubicMeter = new MolarEntropyUnit(PreFix.kilo, CubicMeter);
+        public static readonly MolarEntropyUnit SI = new MolarEntropyUnit(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole, TemperatureUnit.Kelvin);
+        public static readonly MolarEntropyUnit JoulePerMoleKelvin = new MolarEntropyUnit(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole, TemperatureUnit.Kelvin);
+        public static readonly MolarEntropyUnit KilojoulePerMoleKelvin = new MolarEntropyUnit(EnergyUnit.Kilojoule, AmountOfSubstanceUnit.Mole, TemperatureUnit.Kelvin);
+        public static readonly MolarEntropyUnit MegajoulePerMoleKelvin = new MolarEntropyUnit(EnergyUnit.Megajoule, AmountOfSubstanceUnit.Mole, TemperatureUnit.Kelvin);
 
 
-
-        public MolarEntropyUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public MolarEntropyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = energy.Unit / (amountOfSubstance.Unit * temperature.Unit);
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{energy}/({amountOfSubstance}*{temperature})");
         }
 
-        public MolarEntropyUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public MolarEntropyUnit(PreFix SI, MolarEntropyUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public MolarEntropyUnit(MolarEntropyUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+    
 
     }
 
