@@ -418,10 +418,6 @@
     <Compile Include="CombinedUnits\SpecificWeight\SpecificWeightEnum.cs" />
     <Compile Include="CombinedUnits\SpecificWeight\SpecificWeightGet.cs" />
     <Compile Include="CombinedUnits\SpecificWeight\SpecificWeightSet.cs" />
-    <Compile Include="CombinedUnits\StandardVolumeFlow\StandardVolumeFlow.cs" />
-    <Compile Include="CombinedUnits\StandardVolumeFlow\StandardVolumeFlowEnum.cs" />
-    <Compile Include="CombinedUnits\StandardVolumeFlow\StandardVolumeFlowGet.cs" />
-    <Compile Include="CombinedUnits\StandardVolumeFlow\StandardVolumeFlowSet.cs" />
     <Compile Include="CombinedUnits\TemperatureChangeRate\TemperatureChangeRate.cs" />
     <Compile Include="CombinedUnits\TemperatureChangeRate\TemperatureChangeRateEnum.cs" />
     <Compile Include="CombinedUnits\TemperatureChangeRate\TemperatureChangeRateGet.cs" />

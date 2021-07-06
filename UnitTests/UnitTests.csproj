@@ -55,9 +55,6 @@
     <Folder Include="CombinedUnits\SolidAngle\" />
     <Folder Include="CombinedUnits\SpecificEntropy\" />
     <Folder Include="CombinedUnits\SpecificVolume\" />
-    <Folder Include="CombinedUnits\SpecificWeight\" />
-    <Folder Include="CombinedUnits\StandardVolumeFlow\" />
-    <Folder Include="CombinedUnits\TemperatureChangeRate\" />
     <Folder Include="CombinedUnits\test\" />
     <Folder Include="CombinedUnits\ThermalConductivity\" />
     <Folder Include="CombinedUnits\ThermalResistance\" />

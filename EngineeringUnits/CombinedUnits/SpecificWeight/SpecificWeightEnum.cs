@@ -10,40 +10,34 @@ namespace EngineeringUnits
     public class SpecificWeightUnit : Enumeration
     {
 
-        public static readonly SpecificWeightUnit SI = new SpecificWeightUnit(LengthUnit.Meter);
-        public static readonly SpecificWeightUnit CubicMeter = new SpecificWeightUnit(LengthUnit.Meter);
-        public static readonly SpecificWeightUnit HectocubicMeter = new SpecificWeightUnit(PreFix.hecto, CubicMeter);
-        public static readonly SpecificWeightUnit KilocubicMeter = new SpecificWeightUnit(PreFix.kilo, CubicMeter);
+        public static readonly SpecificWeightUnit SI = new SpecificWeightUnit(ForceUnit.Newton, VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit NewtonPerCubicMeter =             new SpecificWeightUnit(ForceUnit.Newton,            VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit KilogramForcePerCubicCentimeter = new SpecificWeightUnit(ForceUnit.KilogramForce,     VolumeUnit.CubicCentimeter);
+        public static readonly SpecificWeightUnit KilogramForcePerCubicMeter =      new SpecificWeightUnit(ForceUnit.KilogramForce,     VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit KilogramForcePerCubicMillimeter = new SpecificWeightUnit(ForceUnit.KilogramForce,     VolumeUnit.CubicMillimeter);
+        public static readonly SpecificWeightUnit KilonewtonPerCubicCentimeter =    new SpecificWeightUnit(ForceUnit.Kilonewton,        VolumeUnit.CubicCentimeter);
+        public static readonly SpecificWeightUnit KilonewtonPerCubicMeter =         new SpecificWeightUnit(ForceUnit.Kilonewton,        VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit KilonewtonPerCubicMillimeter =    new SpecificWeightUnit(ForceUnit.Kilonewton,        VolumeUnit.CubicMillimeter);
+        public static readonly SpecificWeightUnit KilopoundForcePerCubicFoot =      new SpecificWeightUnit(ForceUnit.KilopoundForce,    VolumeUnit.CubicFoot);
+        public static readonly SpecificWeightUnit KilopoundForcePerCubicInch =      new SpecificWeightUnit(ForceUnit.KilopoundForce,    VolumeUnit.CubicInch);
+        public static readonly SpecificWeightUnit MeganewtonPerCubicMeter =         new SpecificWeightUnit(ForceUnit.Meganewton,        VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit NewtonPerCubicCentimeter =        new SpecificWeightUnit(ForceUnit.Newton,            VolumeUnit.CubicCentimeter);
+        public static readonly SpecificWeightUnit NewtonPerCubicMillimeter =        new SpecificWeightUnit(ForceUnit.Newton,            VolumeUnit.CubicMillimeter);
+        public static readonly SpecificWeightUnit PoundForcePerCubicFoot =          new SpecificWeightUnit(ForceUnit.PoundForce,        VolumeUnit.CubicFoot);
+        public static readonly SpecificWeightUnit PoundForcePerCubicInch =          new SpecificWeightUnit(ForceUnit.PoundForce,        VolumeUnit.CubicInch);
+        public static readonly SpecificWeightUnit TonneForcePerCubicCentimeter =    new SpecificWeightUnit(ForceUnit.TonneForce,        VolumeUnit.CubicCentimeter);
+        public static readonly SpecificWeightUnit TonneForcePerCubicMeter =         new SpecificWeightUnit(ForceUnit.TonneForce,        VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit TonneForcePerCubicMillimeter =    new SpecificWeightUnit(ForceUnit.TonneForce,        VolumeUnit.CubicMillimeter);
 
 
 
-        public SpecificWeightUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public SpecificWeightUnit(ForceUnit force, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = force.Unit / volume.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
-
-        public SpecificWeightUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public SpecificWeightUnit(PreFix SI, SpecificWeightUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public SpecificWeightUnit(SpecificWeightUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+            SetNewSymbol(NewSymbol, $"{force}/{volume}");
+        }       
 
     }
 
