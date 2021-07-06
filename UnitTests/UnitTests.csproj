@@ -41,8 +41,6 @@
     <Folder Include="CombinedUnits\MassFlow\" />
     <Folder Include="CombinedUnits\MassFraction\" />
     <Folder Include="CombinedUnits\MolarMass\" />
-    <Folder Include="CombinedUnits\Permittivity\" />
-    <Folder Include="CombinedUnits\PowerDensity\" />
     <Folder Include="CombinedUnits\PowerRatio\" />
     <Folder Include="CombinedUnits\Power\" />
     <Folder Include="CombinedUnits\PressureChangeRate\" />
