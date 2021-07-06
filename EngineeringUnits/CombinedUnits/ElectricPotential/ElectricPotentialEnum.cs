@@ -14,6 +14,7 @@ namespace EngineeringUnits
         public static readonly ElectricPotentialUnit Volt = new ElectricPotentialUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere , "V");
         public static readonly ElectricPotentialUnit Kilovolt = new ElectricPotentialUnit(PreFix.kilo, Volt);
         public static readonly ElectricPotentialUnit Megavolt = new ElectricPotentialUnit(PreFix.mega, Volt);
+        public static readonly ElectricPotentialUnit Gigavolt = new ElectricPotentialUnit(PreFix.giga, Volt);
         public static readonly ElectricPotentialUnit Microvolt = new ElectricPotentialUnit(PreFix.micro, Volt);
         public static readonly ElectricPotentialUnit Millivolt = new ElectricPotentialUnit(PreFix.milli, Volt);
 
