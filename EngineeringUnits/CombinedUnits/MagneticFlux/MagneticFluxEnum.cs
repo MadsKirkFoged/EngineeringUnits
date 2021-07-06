@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class MagneticFluxUnit : Enumeration
     {
 
-        public static readonly MagneticFluxUnit SI = new MagneticFluxUnit(LengthUnit.Meter);
-        public static readonly MagneticFluxUnit CubicMeter = new MagneticFluxUnit(LengthUnit.Meter);
-        public static readonly MagneticFluxUnit HectocubicMeter = new MagneticFluxUnit(PreFix.hecto, CubicMeter);
-        public static readonly MagneticFluxUnit KilocubicMeter = new MagneticFluxUnit(PreFix.kilo, CubicMeter);
+        public static readonly MagneticFluxUnit SI = new MagneticFluxUnit(EnergyUnit.Joule, ElectricCurrentUnit.Ampere);
+        public static readonly MagneticFluxUnit Weber = new MagneticFluxUnit(EnergyUnit.Joule, ElectricCurrentUnit.Ampere, "Wb");
 
 
 
-        public MagneticFluxUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public MagneticFluxUnit(EnergyUnit energy, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = energy.Unit / electricCurrent.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public MagneticFluxUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public MagneticFluxUnit(PreFix SI, MagneticFluxUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public MagneticFluxUnit(MagneticFluxUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+     
 
     }
 

@@ -4,9 +4,12 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public partial class MolarMass
+    public partial class MagneticFlux
     {
-       
+        /// <summary>
+        ///     Get MagneticFlux in Webers.
+        /// </summary>
+        public double Webers => As(MagneticFluxUnit.Weber);
 
     }
 }
