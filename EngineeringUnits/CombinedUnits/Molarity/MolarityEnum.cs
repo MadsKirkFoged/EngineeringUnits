@@ -10,40 +10,24 @@ namespace EngineeringUnits
     public class MolarityUnit : Enumeration
     {
 
-        public static readonly MolarityUnit SI = new MolarityUnit(LengthUnit.Meter);
-        public static readonly MolarityUnit CubicMeter = new MolarityUnit(LengthUnit.Meter);
-        public static readonly MolarityUnit HectocubicMeter = new MolarityUnit(PreFix.hecto, CubicMeter);
-        public static readonly MolarityUnit KilocubicMeter = new MolarityUnit(PreFix.kilo, CubicMeter);
+        public static readonly MolarityUnit SI = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.CubicMeter);
+        public static readonly MolarityUnit MolesPerCubicMeter = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.CubicMeter);
+        public static readonly MolarityUnit MolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.Liter);
+        public static readonly MolarityUnit NanomolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Nanomole, VolumeUnit.Liter);
+        public static readonly MolarityUnit PicomolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Picomole, VolumeUnit.Liter);
+        public static readonly MolarityUnit CentimolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Centimole, VolumeUnit.Liter);
+        public static readonly MolarityUnit DecimolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Decimole, VolumeUnit.Liter);
+        public static readonly MolarityUnit MicromolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Micromole, VolumeUnit.Liter);
+        public static readonly MolarityUnit MillimolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Millimole, VolumeUnit.Liter);
 
 
 
-        public MolarityUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public MolarityUnit(AmountOfSubstanceUnit amountOfSubstance, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = amountOfSubstance.Unit / volume.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
-
-        public MolarityUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public MolarityUnit(PreFix SI, MolarityUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public MolarityUnit(MolarityUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+            SetNewSymbol(NewSymbol, $"{amountOfSubstance}/{volume}");
+        }       
 
     }
 

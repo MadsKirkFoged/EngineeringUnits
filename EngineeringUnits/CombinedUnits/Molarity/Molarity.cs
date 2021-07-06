@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class Molarity : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public Molarity()
+        {
+            Unit = MolarityUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public Molarity(decimal value, MolarityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Molarity(double value, MolarityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Molarity(int value, MolarityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static Molarity From(double value, MolarityUnit unit) => new Molarity(value, unit);
+        public double As(MolarityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Molarity ToUnit(MolarityUnit selectedUnit) => new Molarity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Molarity Zero => new Molarity(0, MolarityUnit.SI);
+
+        public static implicit operator Molarity(UnknownUnit Unit)
+        {
+            Molarity local = new Molarity(0, MolarityUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }

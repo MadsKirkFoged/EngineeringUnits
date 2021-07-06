@@ -21,7 +21,8 @@ namespace EngineeringUnits
         public static readonly AmountOfSubstanceUnit Megamole =  new AmountOfSubstanceUnit(PreFix.mega, BaseUnits.amountOfSubstance);
         public static readonly AmountOfSubstanceUnit Micromole = new AmountOfSubstanceUnit(PreFix.micro, BaseUnits.amountOfSubstance);
         public static readonly AmountOfSubstanceUnit Millimole = new AmountOfSubstanceUnit(PreFix.milli, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Nanomole =  new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);        
+        public static readonly AmountOfSubstanceUnit Nanomole =  new AmountOfSubstanceUnit(PreFix.nano, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit Picomole = new AmountOfSubstanceUnit(PreFix.pico, BaseUnits.amountOfSubstance);
 
         public static readonly AmountOfSubstanceUnit NanopoundMole =     new AmountOfSubstanceUnit("nlbmol", 1e-9m,  453.59237m);
         public static readonly AmountOfSubstanceUnit MicropoundMole =    new AmountOfSubstanceUnit("µlbmol", 1e-6m,  453.59237m);
