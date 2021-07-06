@@ -69,7 +69,6 @@
     <Folder Include="CombinedUnits\VolumeFlow\" />
     <Folder Include="CombinedUnits\VolumePerLength\" />
     <Folder Include="CombinedUnits\Volume\" />
-    <Folder Include="CombinedUnits\WarpingMomentOfInertia\" />
   </ItemGroup>
 
 </Project>

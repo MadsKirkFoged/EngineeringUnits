@@ -382,10 +382,10 @@
     <Compile Include="CombinedUnits\ReactivePower\ReactivePowerEnum.cs" />
     <Compile Include="CombinedUnits\ReactivePower\ReactivePowerGet.cs" />
     <Compile Include="CombinedUnits\ReactivePower\ReactivePowerSet.cs" />
-    <Compile Include="CombinedUnits\RelativeHumidity\RelativeHumidity.cs" />
-    <Compile Include="CombinedUnits\RelativeHumidity\RelativeHumidityEnum.cs" />
-    <Compile Include="CombinedUnits\RelativeHumidity\RelativeHumidityGet.cs" />
-    <Compile Include="CombinedUnits\RelativeHumidity\RelativeHumiditySet.cs" />
+    <Compile Include="CombinedUnits\Ratio\RelativeHumidity\RelativeHumidity.cs" />
+    <Compile Include="CombinedUnits\Ratio\RelativeHumidity\RelativeHumidityEnum.cs" />
+    <Compile Include="CombinedUnits\Ratio\RelativeHumidity\RelativeHumidityGet.cs" />
+    <Compile Include="CombinedUnits\Ratio\RelativeHumidity\RelativeHumiditySet.cs" />
     <Compile Include="CombinedUnits\RotationalAcceleration\RotationalAcceleration.cs" />
     <Compile Include="CombinedUnits\RotationalAcceleration\RotationalAccelerationEnum.cs" />
     <Compile Include="CombinedUnits\RotationalAcceleration\RotationalAccelerationGet.cs" />

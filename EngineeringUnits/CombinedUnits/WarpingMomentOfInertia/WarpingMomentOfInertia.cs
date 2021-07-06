@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class WarpingMomentOfInertia : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public WarpingMomentOfInertia()
+        {
+            Unit = WarpingMomentOfInertiaUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public WarpingMomentOfInertia(decimal value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public WarpingMomentOfInertia(double value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public WarpingMomentOfInertia(int value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static WarpingMomentOfInertia From(double value, WarpingMomentOfInertiaUnit unit) => new WarpingMomentOfInertia(value, unit);
+        public double As(WarpingMomentOfInertiaUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public WarpingMomentOfInertia ToUnit(WarpingMomentOfInertiaUnit selectedUnit) => new WarpingMomentOfInertia(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static WarpingMomentOfInertia Zero => new WarpingMomentOfInertia(0, WarpingMomentOfInertiaUnit.SI);
+
+        public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit)
+        {
+            WarpingMomentOfInertia local = new WarpingMomentOfInertia(0, WarpingMomentOfInertiaUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }
