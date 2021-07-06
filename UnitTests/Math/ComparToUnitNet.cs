@@ -625,7 +625,9 @@ namespace UnitTests
                                                             RelError);
                     //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                    A1.ToUnit(UN).ToString("a"));
+                                    A1.ToUnit(UN).ToString("a")
+                                    .Replace("klb", "kip")
+                                    );
 
                     WorkingCompares++;
 

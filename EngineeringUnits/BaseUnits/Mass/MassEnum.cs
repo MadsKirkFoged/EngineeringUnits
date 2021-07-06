@@ -40,7 +40,7 @@ namespace EngineeringUnits
         public static readonly MassUnit Slug =               new MassUnit("slug",        32.174m,    453.59237m);
         public static readonly MassUnit ShortHundredweight = new MassUnit("cwt",         100,        453.59237m);
         public static readonly MassUnit LongHundredweight =  new MassUnit("cwt",         112,        453.59237m);
-        public static readonly MassUnit Kilopound =          new MassUnit("klb",         1000,       453.59237m);
+        public static readonly MassUnit Kilopound =          new MassUnit("kip",         1000,       453.59237m);
         public static readonly MassUnit ShortTon =           new MassUnit("t (short)",   2000,       453.59237m);
         public static readonly MassUnit LongTon =            new MassUnit("long tn",     2240,       453.59237m);
 

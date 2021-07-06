@@ -322,10 +322,9 @@
     <Compile Include="CombinedUnits\Magnetization\MagnetizationEnum.cs" />
     <Compile Include="CombinedUnits\Magnetization\MagnetizationGet.cs" />
     <Compile Include="CombinedUnits\Magnetization\MagnetizationSet.cs" />
-    <Compile Include="CombinedUnits\MassConcentration\MassConcentration.cs" />
-    <Compile Include="CombinedUnits\MassConcentration\MassConcentrationEnum.cs" />
-    <Compile Include="CombinedUnits\MassConcentration\MassConcentrationGet.cs" />
-    <Compile Include="CombinedUnits\MassConcentration\MassConcentrationSet.cs" />
+    <Compile Include="CombinedUnits\Density\MassConcentration\MassConcentration.cs" />
+    <Compile Include="CombinedUnits\Density\MassConcentration\MassConcentrationGet.cs" />
+    <Compile Include="CombinedUnits\Density\MassConcentration\MassConcentrationSet.cs" />
     <Compile Include="CombinedUnits\MassFlux\MassFlux.cs" />
     <Compile Include="CombinedUnits\MassFlux\MassFluxEnum.cs" />
     <Compile Include="CombinedUnits\MassFlux\MassFluxGet.cs" />
