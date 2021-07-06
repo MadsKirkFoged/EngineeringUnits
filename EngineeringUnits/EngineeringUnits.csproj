@@ -370,10 +370,10 @@
     <Compile Include="CombinedUnits\Ratio\RatioEnum.cs" />
     <Compile Include="CombinedUnits\Ratio\RatioGet.cs" />
     <Compile Include="CombinedUnits\Ratio\RatioSet.cs" />
-    <Compile Include="CombinedUnits\RatioChangeRate\RatioChangeRate.cs" />
-    <Compile Include="CombinedUnits\RatioChangeRate\RatioChangeRateEnum.cs" />
-    <Compile Include="CombinedUnits\RatioChangeRate\RatioChangeRateGet.cs" />
-    <Compile Include="CombinedUnits\RatioChangeRate\RatioChangeRateSet.cs" />
+    <Compile Include="CombinedUnits\RatioChangeRate - sub hz\RatioChangeRate.cs" />
+    <Compile Include="CombinedUnits\RatioChangeRate - sub hz\RatioChangeRateEnum.cs" />
+    <Compile Include="CombinedUnits\RatioChangeRate - sub hz\RatioChangeRateGet.cs" />
+    <Compile Include="CombinedUnits\RatioChangeRate - sub hz\RatioChangeRateSet.cs" />
     <Compile Include="CombinedUnits\ReactiveEnergy\ReactiveEnergy.cs" />
     <Compile Include="CombinedUnits\ReactiveEnergy\ReactiveEnergyEnum.cs" />
     <Compile Include="CombinedUnits\ReactiveEnergy\ReactiveEnergyGet.cs" />

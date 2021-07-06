@@ -10,40 +10,20 @@ namespace EngineeringUnits
     public class ReactiveEnergyUnit : Enumeration
     {
 
-        public static readonly ReactiveEnergyUnit SI = new ReactiveEnergyUnit(LengthUnit.Meter);
-        public static readonly ReactiveEnergyUnit CubicMeter = new ReactiveEnergyUnit(LengthUnit.Meter);
-        public static readonly ReactiveEnergyUnit HectocubicMeter = new ReactiveEnergyUnit(PreFix.hecto, CubicMeter);
-        public static readonly ReactiveEnergyUnit KilocubicMeter = new ReactiveEnergyUnit(PreFix.kilo, CubicMeter);
+        public static readonly ReactiveEnergyUnit SI = new ReactiveEnergyUnit(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, DurationUnit.Second);
+        public static readonly ReactiveEnergyUnit VoltampereReactiveHour = new ReactiveEnergyUnit(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, DurationUnit.Hour, "varh");
+        public static readonly ReactiveEnergyUnit MegavoltampereReactiveHour = new ReactiveEnergyUnit(ElectricPotentialUnit.Megavolt, ElectricCurrentUnit.Ampere, DurationUnit.Hour, "Mvarh");
+        public static readonly ReactiveEnergyUnit KilovoltampereReactiveHour = new ReactiveEnergyUnit(ElectricPotentialUnit.Kilovolt, ElectricCurrentUnit.Ampere, DurationUnit.Hour, "kvarh");
 
 
-
-        public ReactiveEnergyUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ReactiveEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = electricPotential.Unit * electricCurrent.Unit * duration.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ReactiveEnergyUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public ReactiveEnergyUnit(PreFix SI, ReactiveEnergyUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public ReactiveEnergyUnit(ReactiveEnergyUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 

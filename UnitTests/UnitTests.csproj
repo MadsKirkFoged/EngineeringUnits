@@ -46,7 +46,6 @@
     <Folder Include="CombinedUnits\Pressure\" />
     <Folder Include="CombinedUnits\RatioChangeRate\" />
     <Folder Include="CombinedUnits\Ratio\" />
-    <Folder Include="CombinedUnits\ReactiveEnergy\" />
     <Folder Include="CombinedUnits\ReactivePower\" />
     <Folder Include="CombinedUnits\RelativeHumidity\" />
     <Folder Include="CombinedUnits\RotationalAcceleration\" />
