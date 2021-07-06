@@ -48,6 +48,8 @@ namespace EngineeringUnits
         public static readonly PowerUnit KilocaloriePerHour = new PowerUnit(EnergyUnit.Kilocalorie, DurationUnit.Hour);
         public static readonly PowerUnit KilocaloriePerSecond = new PowerUnit(EnergyUnit.Kilocalorie, DurationUnit.Second);
 
+        public static readonly PowerUnit SolarLuminosity = new PowerUnit(EnergyUnit.SI, DurationUnit.SI, "L⊙", 3.846e26m);
+
 
         public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {

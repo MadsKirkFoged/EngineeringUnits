@@ -10,40 +10,33 @@ namespace EngineeringUnits
     public class MassFluxUnit : Enumeration
     {
 
-        public static readonly MassFluxUnit SI = new MassFluxUnit(LengthUnit.Meter);
-        public static readonly MassFluxUnit CubicMeter = new MassFluxUnit(LengthUnit.Meter);
-        public static readonly MassFluxUnit HectocubicMeter = new MassFluxUnit(PreFix.hecto, CubicMeter);
-        public static readonly MassFluxUnit KilocubicMeter = new MassFluxUnit(PreFix.kilo, CubicMeter);
+        public static readonly MassFluxUnit SI = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareMeter);
+        public static readonly MassFluxUnit KilogramPerSecondPerSquareMeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareMeter);
+
+        public static readonly MassFluxUnit GramPerHourPerSquareCentimeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Hour, AreaUnit.SquareCentimeter);
+        public static readonly MassFluxUnit GramPerHourPerSquareMeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Hour, AreaUnit.SquareMeter);
+        public static readonly MassFluxUnit GramPerHourPerSquareMillimeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Hour, AreaUnit.SquareMillimeter);
+        public static readonly MassFluxUnit GramPerSecondPerSquareCentimeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Second, AreaUnit.SquareCentimeter);
+        public static readonly MassFluxUnit GramPerSecondPerSquareMeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Second, AreaUnit.SquareMeter);
+        public static readonly MassFluxUnit GramPerSecondPerSquareMillimeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Second, AreaUnit.SquareMillimeter);
+
+        public static readonly MassFluxUnit KilogramPerHourPerSquareCentimeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Hour, AreaUnit.SquareCentimeter);
+        public static readonly MassFluxUnit KilogramPerHourPerSquareMeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Hour, AreaUnit.SquareMeter);
+        public static readonly MassFluxUnit KilogramPerHourPerSquareMillimeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Hour, AreaUnit.SquareMillimeter);
+        public static readonly MassFluxUnit KilogramPerSecondPerSquareCentimeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareCentimeter);
+        public static readonly MassFluxUnit KilogramPerSecondPerSquareMillimeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareMillimeter);
 
 
 
-        public MassFluxUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public MassFluxUnit(MassUnit mass, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = mass.Unit / (duration.Unit * area.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
+            //SetNewSymbol(NewSymbol, $"{mass}/{duration}{area}");
         }
 
-        public MassFluxUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public MassFluxUnit(PreFix SI, MassFluxUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public MassFluxUnit(MassFluxUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 

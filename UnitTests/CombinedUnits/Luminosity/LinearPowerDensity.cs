@@ -9,36 +9,35 @@ using System.Collections.Generic;
 namespace UnitTests
 {
     [TestClass]
-    public class LuminosityTest
+    public class LinearPowerDensityTest
     {
 
 
 
         [TestMethod]
-        public void LuminosityAutoTest()
+        public void LinearPowerDensityAutoTest()
         {
-            var A1 = new UnitsNet.Luminosity(1, UnitsNet.Units.LuminosityUnit.Watt);
-            var A2 = new EngineeringUnits.Luminosity(1, EngineeringUnits.PowerUnit.Watt);
+            var A1 = new UnitsNet.LinearPowerDensity(1, UnitsNet.Units.LinearPowerDensityUnit.KilowattPerInch);
+            var A2 = new EngineeringUnits.LinearPowerDensity(1, EngineeringUnits.LinearPowerDensityUnit.KilowattPerInch);
 
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<PowerUnit>())
+            foreach (var EU in Enumeration.ListOf<LinearPowerDensityUnit>())
             {
 
 
-                double Error = 1E-5;
+                double Error = 1E-3;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Luminosity.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.LinearPowerDensity.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
                 if (UNList.Count() == 1)
                 {
                     var UN = UNList.Single();
 
-                    if (UN == UnitsNet.Units.LuminosityUnit.Femtowatt) Error = 0.125;
-                    if (UN == UnitsNet.Units.LuminosityUnit.SolarLuminosity) RelError = 0.004000160006396456;
+                    //if (UN == UnitsNet.Units.LinearPowerDensityUnit.NanowattPerSquareMeter) Error = 0.0001220703125;
 
 
                     Debug.Print($"");
@@ -68,7 +67,7 @@ namespace UnitTests
             }
 
             //Number of comparables units
-            Assert.AreEqual(14, WorkingCompares);
+            Assert.AreEqual(25, WorkingCompares);
 
         }
     }

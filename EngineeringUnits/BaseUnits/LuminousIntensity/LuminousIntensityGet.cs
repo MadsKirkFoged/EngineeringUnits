@@ -7,8 +7,10 @@ namespace EngineeringUnits
     public partial class LuminousIntensity
     {
 
-
-
+        /// <summary>
+        ///     Get LuminousIntensity in Candela.
+        /// </summary>
+        public double Candela => As(LuminousIntensityUnit.Candela);
 
 
 

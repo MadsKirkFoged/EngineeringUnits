@@ -12,7 +12,7 @@ namespace EngineeringUnits
     {
 
         public static readonly LuminousIntensityUnit SI = new LuminousIntensityUnit(PreFix.SI, BaseUnits.luminousIntensity);
-
+        public static readonly LuminousIntensityUnit Candela = new LuminousIntensityUnit("cd", 1,1);
 
 
         public LuminousIntensityUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)

@@ -38,16 +38,6 @@ namespace EngineeringUnits
 
 
 
-
-        //public static IEnumerable<ElectricPotentialUnit> List()
-        //{
-        //    return new[] { Kilovolt, Megavolt, Microvolt, Millivolt, Volt, };
-        //}
-
-
-
-
-
     }
 
 

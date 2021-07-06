@@ -9,36 +9,35 @@ using System.Collections.Generic;
 namespace UnitTests
 {
     [TestClass]
-    public class LuminosityTest
+    public class ElectricPotentialDcTest
     {
 
 
 
         [TestMethod]
-        public void LuminosityAutoTest()
+        public void ElectricPotentialDcAutoTest()
         {
-            var A1 = new UnitsNet.Luminosity(1, UnitsNet.Units.LuminosityUnit.Watt);
-            var A2 = new EngineeringUnits.Luminosity(1, EngineeringUnits.PowerUnit.Watt);
+            var A1 = new UnitsNet.ElectricPotentialDc(1, UnitsNet.Units.ElectricPotentialDcUnit.MicrovoltDc);
+            var A2 = new EngineeringUnits.ElectricPotentialDc(1, EngineeringUnits.ElectricPotentialUnit.Microvolt);
 
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<PowerUnit>())
+            foreach (var EU in Enumeration.ListOf<ElectricPotentialUnit>())
             {
 
 
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Luminosity.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.ElectricPotentialDc.Units.Where(x => x.ToString() == EU.QuantityName + "Dc");
 
 
                 if (UNList.Count() == 1)
                 {
                     var UN = UNList.Single();
 
-                    if (UN == UnitsNet.Units.LuminosityUnit.Femtowatt) Error = 0.125;
-                    if (UN == UnitsNet.Units.LuminosityUnit.SolarLuminosity) RelError = 0.004000160006396456;
+                    //if (UN == UnitsNet.Units.ElectricPotentialDcUnit.SquareMicrometer) Error = 2629720.0009765625;
 
 
                     Debug.Print($"");
@@ -57,8 +56,8 @@ namespace UnitTests
                     //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                     A1.ToUnit(UN).ToString("a")
-
-
+                                    
+                                    .Replace("dc","")
                                     );
 
                     WorkingCompares++;
@@ -68,7 +67,7 @@ namespace UnitTests
             }
 
             //Number of comparables units
-            Assert.AreEqual(14, WorkingCompares);
+            Assert.AreEqual(5, WorkingCompares);
 
         }
     }

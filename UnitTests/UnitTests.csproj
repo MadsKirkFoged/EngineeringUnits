@@ -30,8 +30,6 @@
     <Folder Include="CombinedUnits\Density\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
     <Folder Include="CombinedUnits\ElectricConductance\" />
-    <Folder Include="CombinedUnits\ElectricPotentialAc\" />
-    <Folder Include="CombinedUnits\ElectricPotentialDc\" />
     <Folder Include="CombinedUnits\ElectricPotential\" />
     <Folder Include="CombinedUnits\Energy\" />
     <Folder Include="CombinedUnits\Entropy\" />
@@ -40,10 +38,7 @@
     <Folder Include="CombinedUnits\Frequency\" />
     <Folder Include="CombinedUnits\HeatTransferCoefficient\" />
     <Folder Include="CombinedUnits\KinematicViscosity\" />
-    <Folder Include="CombinedUnits\Luminosity\" />
-    <Folder Include="CombinedUnits\LuminousFlux\" />
     <Folder Include="CombinedUnits\MassFlow\" />
-    <Folder Include="CombinedUnits\MassFlux\" />
     <Folder Include="CombinedUnits\MassFraction\" />
     <Folder Include="CombinedUnits\MassMomentOfInertia\" />
     <Folder Include="CombinedUnits\MolarEnergy\" />
