@@ -67,7 +67,6 @@
     <Folder Include="CombinedUnits\VitaminA\" />
     <Folder Include="CombinedUnits\VolumeConcentration\" />
     <Folder Include="CombinedUnits\VolumeFlow\" />
-    <Folder Include="CombinedUnits\VolumePerLength\" />
     <Folder Include="CombinedUnits\Volume\" />
   </ItemGroup>
 

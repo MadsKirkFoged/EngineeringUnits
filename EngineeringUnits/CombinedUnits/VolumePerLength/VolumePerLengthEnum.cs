@@ -10,40 +10,26 @@ namespace EngineeringUnits
     public class VolumePerLengthUnit : Enumeration
     {
 
-        public static readonly VolumePerLengthUnit SI = new VolumePerLengthUnit(LengthUnit.Meter);
-        public static readonly VolumePerLengthUnit CubicMeter = new VolumePerLengthUnit(LengthUnit.Meter);
-        public static readonly VolumePerLengthUnit HectocubicMeter = new VolumePerLengthUnit(PreFix.hecto, CubicMeter);
-        public static readonly VolumePerLengthUnit KilocubicMeter = new VolumePerLengthUnit(PreFix.kilo, CubicMeter);
+        public static readonly VolumePerLengthUnit SI = new VolumePerLengthUnit(VolumeUnit.CubicMeter, LengthUnit.Meter);
+        public static readonly VolumePerLengthUnit CubicMeterPerMeter = new VolumePerLengthUnit(VolumeUnit.CubicMeter, LengthUnit.Meter);
+        public static readonly VolumePerLengthUnit CubicYardPerFoot = new VolumePerLengthUnit(VolumeUnit.CubicYard, LengthUnit.Foot);
+        public static readonly VolumePerLengthUnit CubicYardPerUsSurveyFoot = new VolumePerLengthUnit(VolumeUnit.CubicYard, LengthUnit.UsSurveyFoot);
+        public static readonly VolumePerLengthUnit LiterPerKilometer = new VolumePerLengthUnit(VolumeUnit.Liter, LengthUnit.Kilometer);
+        public static readonly VolumePerLengthUnit LiterPerMeter = new VolumePerLengthUnit(VolumeUnit.Liter, LengthUnit.Meter);
+        public static readonly VolumePerLengthUnit LiterPerMillimeter = new VolumePerLengthUnit(VolumeUnit.Liter, LengthUnit.Millimeter);
+        public static readonly VolumePerLengthUnit OilBarrelPerFoot = new VolumePerLengthUnit(VolumeUnit.OilBarrel, LengthUnit.Foot);
 
 
 
-        public VolumePerLengthUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public VolumePerLengthUnit(VolumeUnit volume, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = volume.Unit / Length.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{volume}/{Length}");
         }
 
-        public VolumePerLengthUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public VolumePerLengthUnit(PreFix SI, VolumePerLengthUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public VolumePerLengthUnit(VolumePerLengthUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 
