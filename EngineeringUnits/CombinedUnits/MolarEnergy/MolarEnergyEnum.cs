@@ -10,40 +10,22 @@ namespace EngineeringUnits
     public class MolarEnergyUnit : Enumeration
     {
 
-        public static readonly MolarEnergyUnit SI = new MolarEnergyUnit(LengthUnit.Meter);
-        public static readonly MolarEnergyUnit CubicMeter = new MolarEnergyUnit(LengthUnit.Meter);
-        public static readonly MolarEnergyUnit HectocubicMeter = new MolarEnergyUnit(PreFix.hecto, CubicMeter);
-        public static readonly MolarEnergyUnit KilocubicMeter = new MolarEnergyUnit(PreFix.kilo, CubicMeter);
+        public static readonly MolarEnergyUnit SI = new MolarEnergyUnit(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit JoulePerMole = new MolarEnergyUnit(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit KilojoulePerMole = new MolarEnergyUnit(EnergyUnit.Kilojoule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit MegajoulePerMole = new MolarEnergyUnit(EnergyUnit.Megajoule, AmountOfSubstanceUnit.Mole);
 
 
 
-        public MolarEnergyUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public MolarEnergyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = energy.Unit / amountOfSubstance.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            SetNewSymbol(NewSymbol, $"{energy}/{amountOfSubstance}");
         }
 
-        public MolarEnergyUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
-        public MolarEnergyUnit(PreFix SI, MolarEnergyUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public MolarEnergyUnit(MolarEnergyUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 
