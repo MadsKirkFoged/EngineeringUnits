@@ -61,10 +61,7 @@
     <Folder Include="CombinedUnits\test\" />
     <Folder Include="CombinedUnits\ThermalConductivity\" />
     <Folder Include="CombinedUnits\ThermalResistance\" />
-    <Folder Include="CombinedUnits\TorquePerLength\" />
     <Folder Include="CombinedUnits\Torque\" />
-    <Folder Include="CombinedUnits\Turbidity\" />
-    <Folder Include="CombinedUnits\VitaminA\" />
     <Folder Include="CombinedUnits\VolumeConcentration\" />
     <Folder Include="CombinedUnits\VolumeFlow\" />
     <Folder Include="CombinedUnits\Volume\" />
