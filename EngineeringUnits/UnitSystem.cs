@@ -355,9 +355,6 @@ namespace EngineeringUnits
             if (a.Combined is object && b.Combined is object)
             {
                 local.Combined = (CombinedUnit)a.Combined.Clone();
-                local.Combined.LocalC *= b.Combined.LocalC;
-                local.Combined.GlobalC *= b.Combined.GlobalC;
-
                 local.Combined.Count += b.Combined.Count;
             }
             else if (a.Combined is object)
@@ -662,11 +659,6 @@ namespace EngineeringUnits
             if (a.Combined is object && b.Combined is object)
             {
                 local.Combined = (CombinedUnit)a.Combined.Clone();
-
-                local.Combined.LocalC /= b.Combined.LocalC;
-                local.Combined.GlobalC /= b.Combined.GlobalC;
-
-
                 local.Combined.Count -= b.Combined.Count;
             }
             else if (a.Combined is object)
