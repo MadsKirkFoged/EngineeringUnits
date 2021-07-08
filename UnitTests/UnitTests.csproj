@@ -39,7 +39,6 @@
     <Folder Include="CombinedUnits\HeatTransferCoefficient\" />
     <Folder Include="CombinedUnits\KinematicViscosity\" />
     <Folder Include="CombinedUnits\MassFlow\" />
-    <Folder Include="CombinedUnits\MassFraction\" />
     <Folder Include="CombinedUnits\MolarMass\" />
     <Folder Include="CombinedUnits\PowerRatio\" />
     <Folder Include="CombinedUnits\Power\" />

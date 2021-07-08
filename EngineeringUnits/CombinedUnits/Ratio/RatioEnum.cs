@@ -18,7 +18,25 @@ namespace EngineeringUnits
         public static readonly RatioUnit PartPerTrillion = new RatioUnit("ppt", 1 / 1e12m);
         public static readonly RatioUnit Percent = new RatioUnit("%", 1 / 1e2m);
 
+        public static readonly RatioUnit CentigramPerGram =     new RatioUnit(MassUnit.Centigram, MassUnit.Gram);
+        public static readonly RatioUnit CentigramPerKilogram = new RatioUnit(MassUnit.Centigram, MassUnit.Kilogram);
+        public static readonly RatioUnit DecagramPerGram =      new RatioUnit(MassUnit.Decagram, MassUnit.Gram);
+        public static readonly RatioUnit DecagramPerKilogram =  new RatioUnit(MassUnit.Decagram, MassUnit.Kilogram);
+        public static readonly RatioUnit DecigramPerGram =      new RatioUnit(MassUnit.Decigram, MassUnit.Gram);
+        public static readonly RatioUnit DecigramPerKilogram =  new RatioUnit(MassUnit.Decigram, MassUnit.Kilogram);
 
+        public static readonly RatioUnit GramPerGram =          new RatioUnit(MassUnit.Gram, MassUnit.Gram);
+        public static readonly RatioUnit GramPerKilogram =      new RatioUnit(MassUnit.Gram, MassUnit.Kilogram);
+        public static readonly RatioUnit HectogramPerGram =     new RatioUnit(MassUnit.Hectogram, MassUnit.Gram);
+        public static readonly RatioUnit HectogramPerKilogram = new RatioUnit(MassUnit.Hectogram, MassUnit.Kilogram);
+        public static readonly RatioUnit KilogramPerGram =      new RatioUnit(MassUnit.Kilogram, MassUnit.Gram);
+        public static readonly RatioUnit KilogramPerKilogram =  new RatioUnit(MassUnit.Kilogram, MassUnit.Kilogram);
+        public static readonly RatioUnit MicrogramPerGram =     new RatioUnit(MassUnit.Microgram, MassUnit.Gram);
+        public static readonly RatioUnit MicrogramPerKilogram = new RatioUnit(MassUnit.Microgram, MassUnit.Kilogram);
+        public static readonly RatioUnit MilligramPerGram =     new RatioUnit(MassUnit.Milligram, MassUnit.Gram);
+        public static readonly RatioUnit MilligramPerKilogram = new RatioUnit(MassUnit.Milligram, MassUnit.Kilogram);
+        public static readonly RatioUnit NanogramPerGram =      new RatioUnit(MassUnit.Nanogram, MassUnit.Gram);
+        public static readonly RatioUnit NanogramPerKilogram =  new RatioUnit(MassUnit.Nanogram, MassUnit.Kilogram);
 
 
         //public static readonly RatioUnit HectocubicMeter = new RatioUnit(PreFix.hecto, CubicMeter);
@@ -33,11 +51,11 @@ namespace EngineeringUnits
             SetNewSymbol(NewSymbol);
         }
 
-        public RatioUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public RatioUnit(MassUnit mass1, MassUnit mass2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Area.Unit * Length.Unit;
+            Unit = mass1.Unit / mass2.Unit;
             SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
+            SetNewSymbol(NewSymbol, $"{mass1}/{mass2}");
         }
 
         public RatioUnit(PreFix SI, RatioUnit unit)
