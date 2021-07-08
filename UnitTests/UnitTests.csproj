@@ -57,7 +57,6 @@
     <Folder Include="CombinedUnits\ThermalConductivity\" />
     <Folder Include="CombinedUnits\ThermalResistance\" />
     <Folder Include="CombinedUnits\Torque\" />
-    <Folder Include="CombinedUnits\VolumeConcentration\" />
     <Folder Include="CombinedUnits\VolumeFlow\" />
     <Folder Include="CombinedUnits\Volume\" />
   </ItemGroup>

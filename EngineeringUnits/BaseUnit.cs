@@ -348,9 +348,14 @@ namespace EngineeringUnits
             Fraction b3 = a3 * (b1*-1) + b2;
 
 
-            Fraction y1 = (Fraction)ValueLocalUnit;         
-            
+            Fraction y1 = (Fraction)ValueLocalUnit;
+
+            //y1 *= Unit.GetCombi();
+
             Fraction y2 = a3 * y1 + b3;
+
+            //y2 /= To.GetCombi();
+
 
             return (decimal)y2;
         }
