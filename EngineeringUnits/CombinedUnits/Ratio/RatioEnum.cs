@@ -78,19 +78,7 @@ namespace EngineeringUnits
             SetNewSymbol(NewSymbol, $"{vol1}/{vol2}");
         }
 
-        public RatioUnit(PreFix SI, RatioUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public RatioUnit(RatioUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+       
 
     }
 

@@ -19,8 +19,6 @@ namespace EngineeringUnits
         [JsonProperty]
         public UnitSystem Unit { get; set;}
 
-        public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
-
         [JsonProperty]
         public decimal ValueLocalUnit { get; protected set; }
 
@@ -148,7 +146,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '==' on two differnt units!");
             }
 
-            return left.Value == right.As(left);
+            return (double)left.ValueLocalUnit == right.As(left);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
@@ -157,7 +155,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '!=' on two differnt units!");
             }
 
-            return left.Value != right.As(left);
+            return (double)left.ValueLocalUnit != right.As(left);
         }
 
         public static bool operator <=(BaseUnit left, BaseUnit right)
@@ -167,7 +165,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '<=' on two differnt units!");
             }
 
-            return left.Value <= right.As(left);
+            return (double)left.ValueLocalUnit <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
@@ -176,7 +174,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '>=' on two differnt units!");
             }
 
-            return left.Value >= right.As(left);
+            return (double)left.ValueLocalUnit >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
@@ -185,7 +183,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '<' on two differnt units!");
             }
 
-            return left.Value < right.As(left);
+            return (double)left.ValueLocalUnit < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
@@ -194,7 +192,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '>' on two differnt units!");
             }
 
-            return left.Value > right.As(left);
+            return (double)left.ValueLocalUnit > right.As(left);
         }
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
@@ -331,7 +329,9 @@ namespace EngineeringUnits
 
         protected void SetValue(decimal value)
         {
-            ValueLocalUnit = value / (decimal)Unit.GetActualC();
+            ValueLocalUnit = value / ((decimal)Unit.GetActualC());
+
+            //ValueLocalUnit = (decimal)Unit.GetCombi() / value;
         }
 
 
@@ -355,7 +355,8 @@ namespace EngineeringUnits
             return (decimal)y2;
         }
 
-       
+
+
 
         public Fraction FactorDifferent(UnitSystem To)
         {
@@ -366,13 +367,21 @@ namespace EngineeringUnits
             Fraction rightA1 = To.GetFactorLocal();
             Fraction rightA2 = To.GetFactorGlobal();
 
+            
+            Fraction leftCombi = Unit.GetCombi();
+            Fraction rightCombi = To.GetCombi();
+
+            Debug.Print(Unit.GetCombi().ToString());
+            Debug.Print(To.GetCombi().ToString());
 
             Fraction a1 = 1 / (leftA2 * leftA1);
             Fraction a2 = 1 / (rightA2 * rightA1);
 
-            Debug.Print(To.GetActualC().ToString());
+
+
 
             Fraction a3 = (a2 / a1) * To.GetActualC();
+
 
 
             return a3;
@@ -393,7 +402,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do CompareTo on two differnt units!");
             
 
-            return (int)(Value - local.As(this));
+            return (int)((double)ValueLocalUnit - local.As(this));
         }
     }
 }

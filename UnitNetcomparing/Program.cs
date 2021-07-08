@@ -14,6 +14,24 @@ namespace UnitNetcomparing
         {
 
 
+            Area A1 = Length.FromCentimeters(100) * Length.FromMeters(1);
+
+
+            Debug.Print($" {A1}");
+
+
+            RatioUnit RU1 = new RatioUnit(VolumeUnit.Centiliter, VolumeUnit.Milliliter);
+
+            Ratio R1 = new Ratio(1, RU1);
+
+
+
+            
+
+
+
+
+
 
             //Lav AcutalC til en del af Count systemet
 
@@ -35,7 +53,7 @@ namespace UnitNetcomparing
             //Console.WriteLine("Hello World!");
 
             //Energy E1 = new Energy(1, EnergyUnit.WattHour);
-            
+
 
             //UnitSystem Unit = MassUnit.Gram.Unit / EnergyUnit.KilowattHour.Unit;
 
@@ -43,7 +61,7 @@ namespace UnitNetcomparing
 
 
 
-           // Debug.Print($" {E1.As(EnergyUnit.Joule)}");
+            // Debug.Print($" {E1.As(EnergyUnit.Joule)}");
 
 
             BrakeSpecificFuelConsumption d1 = new BrakeSpecificFuelConsumption(1, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
@@ -63,7 +81,7 @@ namespace UnitNetcomparing
 
 
 
-            Area A1 = Area.FromCircleRadius(Length.FromChains(1));
+            //Area A1 = Area.FromCircleRadius(Length.FromChains(1));
             Debug.Print($"{A1}");
 
             Area A2 = Area.FromCircleDiameter(Length.FromChains(1));

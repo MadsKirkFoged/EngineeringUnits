@@ -9,8 +9,6 @@ namespace EngineeringUnits
     {
         public BaseUnit baseUnit { get; set; }
 
-        public double Value => baseUnit.Value;
-
         public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
         public UnitSystem unitsystem => baseUnit.Unit;
 
