@@ -426,10 +426,8 @@
     <Compile Include="CombinedUnits\VolumePerLength\VolumePerLengthEnum.cs" />
     <Compile Include="CombinedUnits\VolumePerLength\VolumePerLengthGet.cs" />
     <Compile Include="CombinedUnits\VolumePerLength\VolumePerLengthSet.cs" />
-    <Compile Include="CombinedUnits\Ratio\VolumeConcentration\VolumeConcentration.cs" />
-    <Compile Include="CombinedUnits\Ratio\VolumeConcentration\VolumeConcentrationEnum.cs" />
-    <Compile Include="CombinedUnits\Ratio\VolumeConcentration\VolumeConcentrationGet.cs" />
-    <Compile Include="CombinedUnits\Ratio\VolumeConcentration\VolumeConcentrationSet.cs" />
+    <Compile Include="CombinedUnits\Obsolete VolumeConcentration\VolumeConcentration.cs" />
+    <Compile Include="CombinedUnits\Obsolete VolumeConcentration\VolumeConcentrationEnum.cs" />
     <Compile Include="CombinedUnits\TorquePerLength\TorquePerLength.cs" />
     <Compile Include="CombinedUnits\TorquePerLength\TorquePerLengthEnum.cs" />
     <Compile Include="CombinedUnits\TorquePerLength\TorquePerLengthGet.cs" />
