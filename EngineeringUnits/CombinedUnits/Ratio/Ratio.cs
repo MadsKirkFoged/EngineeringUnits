@@ -5,34 +5,34 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class Ratio : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public Ratio()
+        {
+            Unit = RatioUnit.SI.Unit.Copy();
+        }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public Ratio(decimal value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Ratio(double value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Ratio(int value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
+        public static Ratio From(double value, RatioUnit unit) => new Ratio(value, unit);
+        public double As(RatioUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Ratio ToUnit(RatioUnit selectedUnit) => new Ratio(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Ratio Zero => new Ratio(0, RatioUnit.SI);
+
+        public static implicit operator Ratio(UnknownUnit Unit)
+        {
+            Ratio local = new Ratio(0, RatioUnit.SI);
+
+            local.Transform(Unit);
+            return local;
+        }
 
 
-    //}
+
+
+    }
 }

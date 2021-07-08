@@ -10,16 +10,25 @@ namespace EngineeringUnits
     public class RatioUnit : Enumeration
     {
 
-        public static readonly RatioUnit SI = new RatioUnit(LengthUnit.Meter);
-        public static readonly RatioUnit CubicMeter = new RatioUnit(LengthUnit.Meter);
-        public static readonly RatioUnit HectocubicMeter = new RatioUnit(PreFix.hecto, CubicMeter);
-        public static readonly RatioUnit KilocubicMeter = new RatioUnit(PreFix.kilo, CubicMeter);
+        public static readonly RatioUnit SI = new RatioUnit();
+        public static readonly RatioUnit DecimalFraction = new RatioUnit();
+        public static readonly RatioUnit PartPerBillion = new RatioUnit("ppb", 1/1e9m);
+        public static readonly RatioUnit PartPerMillion = new RatioUnit("ppm", 1 / 1e6m);
+        public static readonly RatioUnit PartPerThousand = new RatioUnit("‰", 1 / 1e3m);
+        public static readonly RatioUnit PartPerTrillion = new RatioUnit("ppt", 1 / 1e12m);
+        public static readonly RatioUnit Percent = new RatioUnit("%", 1 / 1e2m);
 
 
 
-        public RatioUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        //public static readonly RatioUnit HectocubicMeter = new RatioUnit(PreFix.hecto, CubicMeter);
+
+
+
+
+        public RatioUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = new UnitSystem();
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
