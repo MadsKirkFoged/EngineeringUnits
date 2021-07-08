@@ -36,6 +36,7 @@ namespace EngineeringUnits
         public static readonly VolumeUnit Hectoliter =           new VolumeUnit(PreFix.hecto, Liter);
         public static readonly VolumeUnit Kiloliter =            new VolumeUnit(PreFix.kilo, Liter);
         public static readonly VolumeUnit Megaliter =            new VolumeUnit(PreFix.mega, Liter);
+        public static readonly VolumeUnit Picoliter =            new VolumeUnit(PreFix.pico, Liter);
         public static readonly VolumeUnit AcreFoot =             new VolumeUnit(AreaUnit.Acre, LengthUnit.Foot);
         public static readonly VolumeUnit BoardFoot =            new VolumeUnit(AreaUnit.SquareFoot, LengthUnit.Inch, "bf");
         public static readonly VolumeUnit AuTablespoon =         new VolumeUnit(LengthUnit.Meter, "", 2e-5m);

@@ -39,7 +39,20 @@ namespace EngineeringUnits
         public static readonly RatioUnit NanogramPerKilogram =  new RatioUnit(MassUnit.Nanogram, MassUnit.Kilogram);
 
 
-        //public static readonly RatioUnit HectocubicMeter = new RatioUnit(PreFix.hecto, CubicMeter);
+        public static readonly RatioUnit CentilitersPerLiter =      new RatioUnit(VolumeUnit.Centiliter, VolumeUnit.Liter);
+        public static readonly RatioUnit CentilitersPerMililiter =  new RatioUnit(VolumeUnit.Centiliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit DecilitersPerLiter =       new RatioUnit(VolumeUnit.Deciliter, VolumeUnit.Liter);
+        public static readonly RatioUnit DecilitersPerMililiter =   new RatioUnit(VolumeUnit.Deciliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit LitersPerLiter =           new RatioUnit(VolumeUnit.Liter, VolumeUnit.Liter);
+        public static readonly RatioUnit LitersPerMililiter =       new RatioUnit(VolumeUnit.Liter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit MicrolitersPerLiter =      new RatioUnit(VolumeUnit.Microliter, VolumeUnit.Liter);
+        public static readonly RatioUnit MicrolitersPerMililiter =  new RatioUnit(VolumeUnit.Microliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit MillilitersPerLiter =      new RatioUnit(VolumeUnit.Milliliter, VolumeUnit.Liter);
+        public static readonly RatioUnit MillilitersPerMililiter =  new RatioUnit(VolumeUnit.Milliliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit NanolitersPerLiter =       new RatioUnit(VolumeUnit.Nanoliter, VolumeUnit.Liter);
+        public static readonly RatioUnit NanolitersPerMililiter =   new RatioUnit(VolumeUnit.Nanoliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit PicolitersPerLiter =       new RatioUnit(VolumeUnit.Picoliter, VolumeUnit.Liter);
+        public static readonly RatioUnit PicolitersPerMililiter =   new RatioUnit(VolumeUnit.Picoliter, VolumeUnit.Milliliter);
 
 
 
@@ -56,6 +69,13 @@ namespace EngineeringUnits
             Unit = mass1.Unit / mass2.Unit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass1}/{mass2}");
+        }
+
+        public RatioUnit(VolumeUnit vol1, VolumeUnit vol2, string NewSymbol = "Empty", decimal correction = 1)
+        {
+            Unit = vol1.Unit / vol2.Unit;
+            SetCombined(correction);
+            SetNewSymbol(NewSymbol, $"{vol1}/{vol2}");
         }
 
         public RatioUnit(PreFix SI, RatioUnit unit)

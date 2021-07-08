@@ -127,5 +127,77 @@ namespace EngineeringUnits
         /// </summary>
         public double NanogramsPerKilogram => As(RatioUnit.NanogramPerKilogram);
 
+        /// <summary>
+        ///     Get Ratio in CentilitersPerLiter.
+        /// </summary>
+        public double CentilitersPerLiter => As(RatioUnit.CentilitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in CentilitersPerMililiter.
+        /// </summary>
+        public double CentilitersPerMililiter => As(RatioUnit.CentilitersPerMililiter);
+
+        /// <summary>
+        ///     Get Ratio in DecilitersPerLiter.
+        /// </summary>
+        public double DecilitersPerLiter => As(RatioUnit.DecilitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in DecilitersPerMililiter.
+        /// </summary>
+        public double DecilitersPerMililiter => As(RatioUnit.DecilitersPerMililiter);
+
+        /// <summary>
+        ///     Get Ratio in LitersPerLiter.
+        /// </summary>
+        public double LitersPerLiter => As(RatioUnit.LitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in LitersPerMililiter.
+        /// </summary>
+        public double LitersPerMililiter => As(RatioUnit.LitersPerMililiter);
+
+        /// <summary>
+        ///     Get Ratio in MicrolitersPerLiter.
+        /// </summary>
+        public double MicrolitersPerLiter => As(RatioUnit.MicrolitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in MicrolitersPerMililiter.
+        /// </summary>
+        public double MicrolitersPerMililiter => As(RatioUnit.MicrolitersPerMililiter);
+
+        /// <summary>
+        ///     Get Ratio in MillilitersPerLiter.
+        /// </summary>
+        public double MillilitersPerLiter => As(RatioUnit.MillilitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in MillilitersPerMililiter.
+        /// </summary>
+        public double MillilitersPerMililiter => As(RatioUnit.MillilitersPerMililiter);
+
+        /// <summary>
+        ///     Get Ratio in NanolitersPerLiter.
+        /// </summary>
+        public double NanolitersPerLiter => As(RatioUnit.NanolitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in NanolitersPerMililiter.
+        /// </summary>
+        public double NanolitersPerMililiter => As(RatioUnit.NanolitersPerMililiter);
+
+       
+
+        /// <summary>
+        ///     Get Ratio in PicolitersPerLiter.
+        /// </summary>
+        public double PicolitersPerLiter => As(RatioUnit.PicolitersPerLiter);
+
+        /// <summary>
+        ///     Get Ratio in PicolitersPerMililiter.
+        /// </summary>
+        public double PicolitersPerMililiter => As(RatioUnit.PicolitersPerMililiter);
+
     }
 }
