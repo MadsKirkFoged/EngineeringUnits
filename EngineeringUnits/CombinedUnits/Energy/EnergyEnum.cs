@@ -75,7 +75,8 @@ namespace EngineeringUnits
         {
             Unit = ((mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit))* duration2.Unit;
             SetCombined(correction);
-            SetNewSymbol($"{NewSymbol}{duration2}");
+            //SetNewSymbol($"{NewSymbol}{duration2}");
+            SetNewSymbol("Empty", $"{NewSymbol}{duration2}");
         }
 
     }

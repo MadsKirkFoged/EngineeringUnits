@@ -10,8 +10,8 @@ namespace EngineeringUnits
     public class RatioUnit : Enumeration
     {
 
-        public static readonly RatioUnit SI = new RatioUnit();
-        public static readonly RatioUnit DecimalFraction = new RatioUnit();
+        public static readonly RatioUnit SI = new RatioUnit("");
+        public static readonly RatioUnit DecimalFraction = new RatioUnit("");
         public static readonly RatioUnit PartPerBillion = new RatioUnit("ppb", 1/1e9m);
         public static readonly RatioUnit PartPerMillion = new RatioUnit("ppm", 1 / 1e6m);
         public static readonly RatioUnit PartPerThousand = new RatioUnit("‰", 1 / 1e3m);

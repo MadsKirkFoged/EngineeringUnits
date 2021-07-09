@@ -883,8 +883,8 @@ namespace UnitTests
         [TestMethod]
         public void DensityAutoTest()
         {
-            var A1 = new UnitsNet.Density(65.743, UnitsNet.Units.DensityUnit.DecigramPerDeciliter);
-            var A2 = new EngineeringUnits.Density(65.743, EngineeringUnits.DensityUnit.DecigramPerDeciliter);
+            var A1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.KilogramPerCubicMeter);
+            var A2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilogramPerCubicMeter);
 
             int WorkingCompares = 0;
 

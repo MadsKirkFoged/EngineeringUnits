@@ -24,6 +24,10 @@ namespace EngineeringUnits
         [JsonProperty]
         public decimal ValueLocalUnit { get; protected set; }
 
+        [JsonProperty]
+        public decimal SymbolValue { get; set; }
+        public decimal BaseunitValue => SymbolValue * ((decimal)Unit.GetCombi() / (decimal)Unit.GetActualC());
+
         public BaseUnit()
         {
 
@@ -90,6 +94,7 @@ namespace EngineeringUnits
             
             Unit = a.unitsystem.Copy();
             ValueLocalUnit = a.baseUnit.ValueLocalUnit;
+            SymbolValue = a.baseUnit.SymbolValue;
         }
 
 
@@ -148,7 +153,9 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '==' on two differnt units!");
             }
 
-            return left.Value == right.As(left);
+            //Debug.Print();
+
+            return (double)left.SymbolValue == right.As(left);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
@@ -201,6 +208,7 @@ namespace EngineeringUnits
         {
             UnknownUnit local = new UnknownUnit();
             local.baseUnit = baseUnit;
+
             return local;
         }
 
@@ -267,14 +275,35 @@ namespace EngineeringUnits
 
 
 
+            //Testing new system
+            decimal x3Test = 0;
+            //Turn both into Baseunits
 
-            
+            //decimal LeftTest = left.SymbolValue * ((decimal)left.Unit.GetCombi() * (decimal)left.Unit.GetActualC());
+            //decimal RightTest = right.SymbolValue * (decimal)right.Unit.GetCombi() * (decimal)right.Unit.GetActualC();
+
+            decimal LeftTest = left.BaseunitValue;
+            decimal RightTest = right.BaseunitValue;
+
+            Debug.Print($"Combi:   {(decimal)left.Unit.GetCombi()}");
+            Debug.Print($"ActualC: {(decimal)left.Unit.GetActualC()}");
+
+            //Turn 'right' into lefts unitsystem
+            decimal ConvertionsFactor = (decimal)UnitSystem.Convert(right.Unit.BaseUnitSystem(), left.Unit.BaseUnitSystem());
+            decimal testRightConverted = RightTest * ConvertionsFactor;
+
+            //Do math
+
+            //turn left back to its orginale unitsystem
+
+
             switch (math)
             {
                 case MathEnum.Add:
 
                     //Value math
                     x3 = y1 + y2;
+                    x3Test = LeftTest + testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit + right.Unit;
@@ -283,6 +312,7 @@ namespace EngineeringUnits
 
                     //Value math
                     x3 = y1 - y2;
+                    x3Test = LeftTest - testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit- right.Unit;
@@ -291,6 +321,7 @@ namespace EngineeringUnits
 
                     //Value math
                     x3 = y1 * y2;
+                    x3Test = LeftTest * testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit * right.Unit;
@@ -298,8 +329,11 @@ namespace EngineeringUnits
                 case MathEnum.Divide:
 
                     //Value math
-                    if (y2 != 0)                    
-                        x3 = y1  / y2;                    
+                    if (y2 != 0)
+                    {
+                        x3 = y1  / y2;
+                        x3Test = LeftTest / testRightConverted;
+                    }
                     else                    
                         x3 = 0;
 
@@ -310,11 +344,19 @@ namespace EngineeringUnits
                     break;
             }
 
+
+            //Convert back to Left unitsystem
+            decimal x3TestConvertedBack = x3Test / ((decimal)left.Unit.GetCombi() / (decimal)left.Unit.GetActualC());
+
+
             //Telling unit system that value has been changed
-            local.Unit.Combined = new CombinedUnit("", 1, 1);
+            //local.Unit.Combined = new CombinedUnit("", 1, 1);
 
             //Removing traling zeros
             local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+            local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
+
+
             return local;
         }
 
@@ -332,7 +374,13 @@ namespace EngineeringUnits
         protected void SetValue(decimal value)
         {
             ValueLocalUnit = value / (decimal)Unit.GetActualC();
-        }
+
+
+            SymbolValue = value;
+            //BaseunitValue = 
+
+
+    }
 
 
         public decimal ToTheOutSide(UnitSystem To)
@@ -344,47 +392,55 @@ namespace EngineeringUnits
             Fraction b2 = To.SumOfBConstants();
            
 
-            Fraction a3 = FactorDifferent(To);
-            Fraction b3 = a3 * (b1*-1) + b2;
+            //Fraction a3 = FactorDifferent(To);
+            //Fraction b3 = a3 * (b1*-1) + b2;
 
 
-            Fraction y1 = (Fraction)ValueLocalUnit;
-
-            //y1 *= Unit.GetCombi();
-
-            Fraction y2 = a3 * y1 + b3;
-
-            //y2 /= To.GetCombi();
+            //Fraction y1 = (Fraction)ValueLocalUnit;
+            //Fraction y2 = a3 * y1 + b3;
 
 
-            return (decimal)y2;
+
+
+            Fraction test = UnitSystem.Convert(Unit, To);
+
+            Fraction b3test = test * (b1 * -1) + b2;
+            Fraction y2test = test * (Fraction)SymbolValue + b3test;
+            return (decimal)y2test;
+
+
+            //return (decimal)y2;
         }
 
        
 
-        public Fraction FactorDifferent(UnitSystem To)
-        {
+        //public Fraction FactorDifferent(UnitSystem To)
+        //{
 
-            //Samle konstanter
-            Fraction leftA1 = Unit.GetFactorLocal();
-            Fraction leftA2 = Unit.GetFactorGlobal();
-            Fraction rightA1 = To.GetFactorLocal();
-            Fraction rightA2 = To.GetFactorGlobal();
-
-
-            Fraction a1 = 1 / (leftA2 * leftA1);
-            Fraction a2 = 1 / (rightA2 * rightA1);
-
-            Debug.Print(To.GetActualC().ToString());
-
-            Fraction a3 = (a2 / a1) * To.GetActualC();
+        //    //Samle konstanter
+        //    Fraction leftA1 = Unit.GetFactorLocal();
+        //    Fraction leftA2 = Unit.GetFactorGlobal();
+        //    Fraction rightA1 = To.GetFactorLocal();
+        //    Fraction rightA2 = To.GetFactorGlobal();
 
 
-            return a3;
-        }
+        //    Fraction a1 = 1 / (leftA2 * leftA1);
+        //    Fraction a2 = 1 / (rightA2 * rightA1);
+
+        //    //Debug.Print(To.GetActualC().ToString());
+
+        //    Fraction a3 = (a2 / a1) * To.GetActualC();
+
+
+        //    return a3;
+        //}
 
         public string DisplaySymbol()
         {
+            if (Unit.Symbol is object)
+            {
+                return Unit.Symbol;
+            }
 
             return Unit.ToString();
 
@@ -400,5 +456,22 @@ namespace EngineeringUnits
 
             return (int)(Value - local.As(this));
         }
+    
+    
+        public string ResultWithSymbol()
+        {
+
+
+            return $"{SymbolValue} {Unit.Symbol}";
+        }
+
+        public string ResultWithBaseunit()
+        {
+
+            
+            return $"{BaseunitValue} {Unit}";
+        }
+
+
     }
 }

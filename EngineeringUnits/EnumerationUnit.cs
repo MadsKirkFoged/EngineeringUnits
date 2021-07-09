@@ -62,9 +62,9 @@ namespace EngineeringUnits
         public override string ToString()
         {
 
-            if (Symbol is object)
+            if (Unit.Symbol is object)
             {
-                return $"{Symbol}";
+                return $"{Unit.Symbol}";
             }
 
 

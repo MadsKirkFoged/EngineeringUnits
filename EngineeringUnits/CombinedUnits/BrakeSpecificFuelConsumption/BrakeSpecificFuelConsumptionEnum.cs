@@ -12,9 +12,7 @@ namespace EngineeringUnits
 
         public static readonly BrakeSpecificFuelConsumptionUnit SI = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
         public static readonly BrakeSpecificFuelConsumptionUnit KilogramPerJoule = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
-        //public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule, "g/kWh", 1/3.6e9m);
-        public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Gram, EnergyUnit.KilowattHour);
-        //public static readonly BrakeSpecificFuelConsumptionUnit PoundPerMechanicalHorsepowerHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule, "lb/hph", 1.689659410672e-7m);
+        public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Gram, EnergyUnit.KilowattHour);       
         public static readonly BrakeSpecificFuelConsumptionUnit PoundPerMechanicalHorsepowerHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Pound, PowerUnit.MechanicalHorsepower, DurationUnit.Hour, "lb/hph");
 
 

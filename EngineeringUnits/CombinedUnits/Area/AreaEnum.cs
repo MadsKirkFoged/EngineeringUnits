@@ -28,6 +28,8 @@ namespace EngineeringUnits
         public static readonly AreaUnit SquareMile           = new AreaUnit(LengthUnit.Mile);
         public static readonly AreaUnit SquareNauticalMile   = new AreaUnit(LengthUnit.NauticalMile, "nmi²"); //TODO Length and Area have diff naming
 
+        public static readonly AreaUnit SquareChain          = new AreaUnit(LengthUnit.Chain);
+
 
 
 

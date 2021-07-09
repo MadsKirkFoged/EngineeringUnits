@@ -13,247 +13,34 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            //Energy EngineeringUnits1 = new Energy(1, EnergyUnit.BritishThermalUnit);
+            //Energy EngineeringUnits2 = new Energy(1055.06, EnergyUnit.Joule);
 
-            Volume W1 = new Volume(1, VolumeUnit.Deciliter);
-            Volume W2 = new Volume(1, VolumeUnit.Milliliter);
 
-            double W3 = (double)(W1 / W2);
 
-            Debug.Print($" {W3}");
+            //Energy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
 
+            Mass mass = new Mass(1, MassUnit.Pound);
 
+            SpecificEnergy EngineeringUnits1 = new SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
+            SpecificEnergy EngineeringUnits2 = new SpecificEnergy(2326.000292, SpecificEnergyUnit.JoulePerKilogram);
 
-            RatioUnit test = new RatioUnit(VolumeUnit.Deciliter, VolumeUnit.Milliliter);
 
 
-            Ratio Ra1 = new Ratio(1, test);
+            SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
 
 
-            Debug.Print($" {Ra1.As(RatioUnit.DecimalFraction)}");
 
-            Debug.Print($" {Ra1.As(test)}");
 
+            //Debug.Print($"Percent: {L2.As(RatioUnit.Percent)}");
+            //Debug.Print($"GramPerLiter: {L2.As(DensityUnit.GramPerLiter)}");
+            //Debug.Print($"CentigramPerMilliliter: {L2.As(DensityUnit.CentigramPerMilliliter)}");
+            //Debug.Print($"GramPerCubicCentimeter: {L2.As(DensityUnit.GramPerCubicCentimeter)}");
+            //Debug.Print($"SquareChain: {A1.As(AreaUnit.SquareChain)}");
+            //Debug.Print($"SquareMeter: {A1.As(AreaUnit.SquareMeter)}");
 
-
-
-
-
-
-
-
-            //Console.WriteLine("Hello World!");
-
-            //Energy E1 = new Energy(1, EnergyUnit.WattHour);
-
-
-            //UnitSystem Unit = MassUnit.Gram.Unit / EnergyUnit.KilowattHour.Unit;
-
-
-
-
-
-            // Debug.Print($" {E1.As(EnergyUnit.Joule)}");
-
-
-            BrakeSpecificFuelConsumption d1 = new BrakeSpecificFuelConsumption(1, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
-
-
-
-            Debug.Print($" {d1.As(BrakeSpecificFuelConsumptionUnit.GramPerKiloWattHour)}");
-
-
-
-            //TemperatureDelta test = TemperatureDelta.FromKelvins(10);
-
-
-
-            //var estest = test == TemperatureDelta.Zero;
-
-
-
-
-            Area A1 = Area.FromCircleRadius(Length.FromChains(1));
-            Debug.Print($"{A1}");
-
-            Area A2 = Area.FromCircleDiameter(Length.FromChains(1));
-
-            List<Area> lister = new List<Area>();
-            List<int> lister2 = new List<int>();
-
-            lister2.Add(3);
-            lister2.Add(1);
-
-            lister.Add(A1);
-            lister.Add(A2);
-
-            lister.Sort((x, y) => x.CompareTo(y));
-            lister2.Sort((x, y) => x.CompareTo(y));
-
-
-            double A3 = (double)(A1 / A2);
-
-
-            //UnitsNet.Area A3 = UnitsNet.Area.FromCircleRadius(UnitsNet.Length.FromChains(1));
-
-            //UnitsNet.Area A4 = UnitsNet.Area.FromCircleDiameter(UnitsNet.Length.FromChains(1));
-
-
-
-
-            ////var etssets =  AreaUnit.List().Where(x => nameof(x) == "Acre").Single();
-
-
-            //AreaUnit test12 = Enumeration.GetUnitByString<AreaUnit>("SquareNanometer");
-
-
-            //var test123 = AreaUnit.ListOf<AreaUnit>();
-
-
-
-            //var testset = typeof(AreaUnit)
-            //.GetFields(BindingFlags.Static | BindingFlags.Public)
-            //.ToList();
-
-
-
-
-
-
-
-
-            //foreach (var item in testset)
-            //{
-
-
-
-
-
-            //}
-
-
-
-
-
-
-
-
-            ////foreach (var item in AreaUnit.List())
-            ////{
-
-            ////   var etstset = item.GetType();
-
-
-            ////    Debug.Print(nameof(item));
-
-            ////    if (nameof(item) == "Acre")
-            ////    {
-
-            ////    }
-
-            ////}
-
-
-
-            ////var testte = UnitsNet.Area.Units;
-
-            ////var testte2 = AreaUnit.List();
-
-            ////var estsetes = AreaUnit.Acre;
-
-
-            ////var name = nameof(AreaUnit.Acre);
-
-
-            ////Volume test3 = new Volume(5.4, VolumeUnit.UsGallon);
-
-
-            ////string jsonstring2 = JsonConvert.SerializeObject(test3);
-            ////Volume JSON1 = JsonConvert.DeserializeObject<Volume>(jsonstring2);
-
-
-
-
-            //Area test = new Area(1, AreaUnit.SI);
-            //string jsonstring = JsonConvert.SerializeObject(test);
-            //Area JSON = JsonConvert.DeserializeObject<Area>(jsonstring);
-
-
-            //AmountOfSubstance A2 = new AmountOfSubstance(10, EngineeringUnits.AmountOfSubstanceUnit.Mole);
-
-
-            //string test1 = JsonConvert.SerializeObject(A2);
-
-            //AmountOfSubstance A244 = JsonConvert.DeserializeObject<AmountOfSubstance>(test1);
-
-
-            //AmountOfSubstance A3 = AmountOfSubstance.FromCentimoles(123123165767567567567567231231231312123123d);
-
-
-
-
-            //string json = JsonConvert.SerializeObject(A2);
-
-            //AmountOfSubstance test2 = JsonConvert.DeserializeObject<AmountOfSubstance>(json);
-
-
-
-
-            //UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
-
-
-
-            ////A2.ToUnit(AmountOfSubstanceUnit.);
-
-
-
-            //Debug.Print(A1.ToString("a"));
-
-
-
-
-            //UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
-            //EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, EngineeringUnits.MassFlowUnit.PoundPerMinute);
-
-
-
-
-
-
-            ////Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificHeatCapacityUnit.JoulePerKilogramKelvin)}");
-            ////Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
-
-
-            ////Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificHeatCapacityUnit.BtuPerPoundFahrenheit)}");
-            ////Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit)}");
-
-
-            //Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour)}");
-            //Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour)}");
-
-            //Debug.Print($"EngineeringUnits: {((L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour)) / L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour))*100}");
-
-            ////Debug.Print($"{L2.As(EngineeringUnits.EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule)}");
-
-
-
-
-
-
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Millimeter) - L1.As(UnitsNet.Units.LengthUnit.Millimeter), 4);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Micrometer) - L1.As(UnitsNet.Units.LengthUnit.Micrometer), 4000);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Nanometer) - L1.As(UnitsNet.Units.LengthUnit.Nanometer), 4000001);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Inch) - L1.As(UnitsNet.Units.LengthUnit.Inch), 0.16);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Hand) - L1.As(UnitsNet.Units.LengthUnit.Hand), 5281);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Foot) - L1.As(UnitsNet.Units.LengthUnit.Foot), 0.014);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Yard) - L1.As(UnitsNet.Units.LengthUnit.Yard), 0.0044);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Chain) - L1.As(UnitsNet.Units.LengthUnit.Chain), 0.0002);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Mile) - L1.As(UnitsNet.Units.LengthUnit.Mile), 0);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.NauticalMile) - L1.As(UnitsNet.Units.LengthUnit.NauticalMile), 2.2E-06);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.LightYear) - L1.As(UnitsNet.Units.LengthUnit.LightYear), 4.3E-19);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.AstronomicalUnit) - L1.As(UnitsNet.Units.LengthUnit.AstronomicalUnit), 2.74E-14);
-            ////Assert.AreEqual(0, L2.As(EngineeringUnits.LengthUnit.Parsec) - L1.As(UnitsNet.Units.LengthUnit.Parsec), 1.3E-19);
-
-
+            Debug.Print($"SymbolValue: {EngineeringUnits3.ResultWithSymbol()}");
+            Debug.Print($"BaseunitValue: {EngineeringUnits3.ResultWithBaseunit()}");
 
         }
     }

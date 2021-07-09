@@ -30,7 +30,8 @@ namespace EngineeringUnits
 
         public UnitSystem()
         {
-            //UnitListBeta = new List<Enumeration>();
+            //Combined = new CombinedUnit("",1,1);
+           // Combined.Count = 1;
 
         }
 
@@ -670,6 +671,7 @@ namespace EngineeringUnits
             else if (b.Combined is object)
             {
                 local.Combined = (CombinedUnit)b.Combined.Clone();
+                local.Combined.GlobalC = 1 / b.Combined.GlobalC;
                 local.Combined.Count *= -1;
             }
 
@@ -694,7 +696,7 @@ namespace EngineeringUnits
                     if (ToUnit is object && FromUnit is object)
                     {
 
-                        if (ToUnit.GetType() == FromUnit.GetType() && ToUnit.GetType() != typeof(CombinedUnit)) //TODO Something that could be done better..
+                        if (ToUnit.GetType() == FromUnit.GetType()  && ToUnit.GetType() != typeof(CombinedUnit)) //TODO Something that could be done better..
                         {
                             Fraction CombinedFraction = 1;
 
@@ -704,8 +706,9 @@ namespace EngineeringUnits
                             CombinedFraction /= (Fraction)ToUnit.LocalC;
                             CombinedFraction /= (Fraction)ToUnit.GlobalC;
 
-
                             CombinedFraction = Fraction.Pow(CombinedFraction, FromUnit.Count);
+                            //CombinedFraction /= FromUnit.ActualC;
+                            //CombinedFraction *= ToUnit.ActualC;
 
                             CombinedFraction2 *= CombinedFraction;
 
@@ -717,12 +720,35 @@ namespace EngineeringUnits
 
             foreach (var FromUnit in From.UnitList())
             {
+                CombinedFraction2 /= (Fraction)FromUnit.ActualC;                
+            }
+
+            foreach (var ToUnit in To.UnitList())
+            {
+                CombinedFraction2 *= (Fraction)ToUnit.ActualC;
+            }
+
+
+            foreach (var FromUnit in From.UnitList())
+            {
 
                 if (FromUnit.GetType() == typeof(CombinedUnit))
                 {
                     Fraction CombinedFraction = 1;
                     CombinedFraction *= (Fraction)FromUnit.LocalC;
                     CombinedFraction *= (Fraction)FromUnit.GlobalC;
+                    CombinedFraction2 *= CombinedFraction;
+                }
+            }
+
+            foreach (var ToUnit in To.UnitList())
+            {
+
+                if (ToUnit.GetType() == typeof(CombinedUnit))
+                {
+                    Fraction CombinedFraction = 1;
+                    CombinedFraction /= (Fraction)ToUnit.LocalC;
+                    CombinedFraction /= (Fraction)ToUnit.GlobalC;
                     CombinedFraction2 *= CombinedFraction;
                 }
             }
@@ -878,14 +904,14 @@ namespace EngineeringUnits
 
             
 
-            if (Symbol is object)
-            {
-                return Symbol;
-            }
-            else
-            {
+            //if (Symbol is object)
+            //{
+            //    return Symbol;
+            //}
+            //else
+            //{
                 return local;
-            }
+            //}
 
         }
 
@@ -975,6 +1001,26 @@ namespace EngineeringUnits
 
             return local;
         }
+
+
+        public UnitSystem BaseUnitSystem()
+        {
+
+            UnitSystem local = Copy();
+
+
+            //Remove combi and acutalC
+
+            local.Combined = new CombinedUnit("",1,1);
+
+            foreach (var item in local.UnitList())
+            {
+                item.ActualC = 1;
+            }
+
+            return local;
+        }
+
 
 
 
