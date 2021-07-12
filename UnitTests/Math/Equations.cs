@@ -179,8 +179,6 @@ namespace UnitTests
         {
 
 
-            //JoulePerKilogramKelvin
-
 
             var massU = new UnitsNet.Mass(36, UnitsNet.Units.MassUnit.Kilogram);
             var EnergyU = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.Calorie);
