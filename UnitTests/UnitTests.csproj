@@ -40,7 +40,6 @@
     <Folder Include="CombinedUnits\MolarMass\" />
     <Folder Include="CombinedUnits\PowerRatio\" />
     <Folder Include="CombinedUnits\Power\" />
-    <Folder Include="CombinedUnits\Pressure\" />
     <Folder Include="CombinedUnits\RatioChangeRate\" />
     <Folder Include="CombinedUnits\RelativeHumidity\" />
     <Folder Include="CombinedUnits\RotationalAcceleration\" />
