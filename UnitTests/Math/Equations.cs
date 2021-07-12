@@ -2,6 +2,7 @@ using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Linq;
 using UnitsNet;
 
 namespace UnitTests
@@ -118,6 +119,115 @@ namespace UnitTests
 
             Assert.AreEqual(jsonString1, jsonString2);
 
+
+        }
+
+        [TestMethod]
+        public void ForceEquation()
+        {
+            var massU = new UnitsNet.Mass(36, UnitsNet.Units.MassUnit.Kilogram);
+            var gU = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.StandardGravity);
+            var g2U = new UnitsNet.Acceleration(4.5, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
+
+
+            var massE = new EngineeringUnits.Mass(36, EngineeringUnits.MassUnit.Kilogram);
+            var gE = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.StandardGravity);
+            var g2E = new EngineeringUnits.Acceleration(4.5, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+
+
+            UnitsNet.Force Result1 = massU * ( gU + g2U );
+
+            EngineeringUnits.Force Result2 = massE * (gE + g2E);
+
+            int WorkingCompares = 0;
+
+
+            foreach (var EU in Enumeration.ListOf<ForceUnit>())
+            {
+
+
+
+                double RelError = 2E-3;
+
+                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
+
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(Result2.As(EU),
+                                                            Result1.As(UN)),
+                                                            RelError);
+
+
+                    WorkingCompares++;
+
+                }
+
+            }
+
+            //Number of comparables units
+            Assert.AreEqual(15, WorkingCompares);
+
+        }
+
+        [TestMethod]
+        public void SpecificEntropyEquation()
+        {
+
+
+            //JoulePerKilogramKelvin
+
+
+            var massU = new UnitsNet.Mass(36, UnitsNet.Units.MassUnit.Kilogram);
+            var EnergyU = new UnitsNet.Energy(1, UnitsNet.Units.EnergyUnit.Calorie);
+            var TemperatureU = new UnitsNet.Temperature(4.5, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+
+
+            var massE = new EngineeringUnits.Mass(36, EngineeringUnits.MassUnit.Kilogram);
+            var EnergyE = new EngineeringUnits.Energy(1, EngineeringUnits.EnergyUnit.Calorie);
+            var TemperatureE = new EngineeringUnits.Temperature(4.5, EngineeringUnits.TemperatureUnit.DegreeCelsius);
+
+
+            UnitsNet.SpecificEntropy Result1 = UnitsNet.SpecificEntropy.FromJoulesPerKilogramKelvin( EnergyU.Joules / (massU.Kilograms * TemperatureU.Kelvins));
+
+            EngineeringUnits.SpecificEntropy Result2 = EnergyE / (massE * TemperatureE);
+
+            int WorkingCompares = 0;
+
+
+            foreach (var EU in Enumeration.ListOf<SpecificEntropyUnit>())
+            {
+
+
+
+                double RelError = 2E-3;
+
+                var UNList = UnitsNet.SpecificEntropy.Units.Where(x => x.ToString() == EU.QuantityName);
+
+
+                if (UNList.Count() == 1)
+                {
+                    var UN = UNList.Single();
+
+
+                    //All units relative difference
+                    Assert.AreEqual(0, HelperClass.Percent(Result2.As(EU),
+                                                            Result1.As(UN)),
+                                                            RelError);
+
+
+                    WorkingCompares++;
+
+                }
+
+            }
+
+            //Number of comparables units
+            Assert.AreEqual(9, WorkingCompares);
 
         }
 
