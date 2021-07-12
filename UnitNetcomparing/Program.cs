@@ -13,23 +13,13 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
-            //Energy EngineeringUnits1 = new Energy(1, EnergyUnit.BritishThermalUnit);
-            //Energy EngineeringUnits2 = new Energy(1055.06, EnergyUnit.Joule);
+            var A4 = new Length(1, LengthUnit.Meter);
+            var A6 = new Duration(1, DurationUnit.Hour);
+            var A5 = new Duration(1, DurationUnit.Second);
 
+            Acceleration Result2 = A4 / (A5 * A6);
 
-
-            //Energy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
-
-            Mass mass = new Mass(1, MassUnit.Pound);
-
-            SpecificEnergy EngineeringUnits1 = new SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
-            SpecificEnergy EngineeringUnits2 = new SpecificEnergy(2326.000292, SpecificEnergyUnit.JoulePerKilogram);
-
-
-
-            SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
-
-
+            Acceleration Result3 = Acceleration.FromMetersPerSecondSquared( A4.Meters / (A5.Seconds * A6.Seconds));
 
 
             //Debug.Print($"Percent: {L2.As(RatioUnit.Percent)}");
@@ -39,8 +29,8 @@ namespace UnitNetcomparing
             //Debug.Print($"SquareChain: {A1.As(AreaUnit.SquareChain)}");
             //Debug.Print($"SquareMeter: {A1.As(AreaUnit.SquareMeter)}");
 
-            Debug.Print($"SymbolValue: {EngineeringUnits3.ResultWithSymbol()}");
-            Debug.Print($"BaseunitValue: {EngineeringUnits3.ResultWithBaseunit()}");
+            Debug.Print($"SymbolValue: {Result2.ResultWithSymbol()}");
+            Debug.Print($"BaseunitValue: {Result2.ResultWithBaseunit()}");
 
         }
     }

@@ -540,7 +540,6 @@ namespace EngineeringUnits
             {
                 local.Duration = (DurationUnit)b.Duration.Clone();
                 local.Duration.ActualC = 1 / local.Duration.ActualC;
-
                 local.Duration.Count *= -1;
             }
 

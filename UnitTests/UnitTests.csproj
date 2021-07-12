@@ -24,10 +24,8 @@
     <Folder Include="BaseUnits\Electriccurrent\" />
     <Folder Include="BaseUnits\LuminousIntensity\" />
     <Folder Include="BaseUnits\Mass\" />
-    <Folder Include="CombinedUnits\Acceleration\" />
     <Folder Include="CombinedUnits\AmplitudeRatio\" />
     <Folder Include="CombinedUnits\AreaDensity\" />
-    <Folder Include="CombinedUnits\Density\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
     <Folder Include="CombinedUnits\ElectricConductance\" />
     <Folder Include="CombinedUnits\ElectricPotential\" />

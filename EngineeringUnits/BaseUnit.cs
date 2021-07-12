@@ -345,12 +345,10 @@ namespace EngineeringUnits
             }
 
 
-            //Convert back to Left unitsystem
-            decimal x3TestConvertedBack = x3Test / ((decimal)left.Unit.GetCombi() / (decimal)left.Unit.GetActualC());
+            //Convert back to New unitsystem
+            //decimal x3TestConvertedBack = x3Test / ((decimal)left.Unit.GetCombi() / (decimal)left.Unit.GetActualC());
+            decimal x3TestConvertedBack = x3Test / ((decimal)local.Unit.GetCombi() / (decimal)local.Unit.GetActualC());
 
-
-            //Telling unit system that value has been changed
-            //local.Unit.Combined = new CombinedUnit("", 1, 1);
 
             //Removing traling zeros
             local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
