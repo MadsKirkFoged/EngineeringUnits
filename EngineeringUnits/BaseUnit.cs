@@ -265,9 +265,7 @@ namespace EngineeringUnits
 
 
             //Convert back to New unitsystem
-            //decimal x3TestConvertedBack = x3Test / ((decimal)local.Unit.GetCombi() / (decimal)local.Unit.GetActualC());
             decimal x3TestConvertedBack = x3Test / local.ConvertToBaseUnit();
-
 
             //Removing traling zeros
             local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
@@ -276,33 +274,14 @@ namespace EngineeringUnits
             return local;
         }
 
-        public decimal ConvertToBaseUnit()
-        {
-            return (decimal)(Unit.GetCombi() / Unit.GetActualC());
-        }
+        public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
+        
 
 
-        protected void SetValue(int value)
-        {
-            SetValue((decimal)value);
-        }
+        protected void SetValue(int value)  => SetValue((decimal)value);
+        protected void SetValue(double value) => SetValue((decimal)value);
+        protected void SetValue(decimal value) => SymbolValue = value;
 
-
-        protected void SetValue(double value)
-        {
-            SetValue((decimal)value);
-        }
-
-        protected void SetValue(decimal value)
-        {
-            //ValueLocalUnit = value / (decimal)Unit.GetActualC();
-
-
-            SymbolValue = value;
-            //BaseunitValue = 
-
-
-    }
 
 
         public decimal ToTheOutSide(UnitSystem To)
@@ -336,26 +315,6 @@ namespace EngineeringUnits
 
        
 
-        //public Fraction FactorDifferent(UnitSystem To)
-        //{
-
-        //    //Samle konstanter
-        //    Fraction leftA1 = Unit.GetFactorLocal();
-        //    Fraction leftA2 = Unit.GetFactorGlobal();
-        //    Fraction rightA1 = To.GetFactorLocal();
-        //    Fraction rightA2 = To.GetFactorGlobal();
-
-
-        //    Fraction a1 = 1 / (leftA2 * leftA1);
-        //    Fraction a2 = 1 / (rightA2 * rightA1);
-
-        //    //Debug.Print(To.GetActualC().ToString());
-
-        //    Fraction a3 = (a2 / a1) * To.GetActualC();
-
-
-        //    return a3;
-        //}
 
         public string DisplaySymbol()
         {
