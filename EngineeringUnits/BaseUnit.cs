@@ -19,7 +19,7 @@ namespace EngineeringUnits
         [JsonProperty]
         public UnitSystem Unit { get; set;}
 
-        public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
+        //public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
 
         [JsonProperty]
         public decimal ValueLocalUnit { get; protected set; }
