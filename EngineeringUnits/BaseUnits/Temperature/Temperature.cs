@@ -22,7 +22,7 @@ namespace EngineeringUnits
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
-            ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
@@ -35,7 +35,7 @@ namespace EngineeringUnits
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
-            ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
@@ -48,7 +48,7 @@ namespace EngineeringUnits
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
-            ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit.Copy();
 

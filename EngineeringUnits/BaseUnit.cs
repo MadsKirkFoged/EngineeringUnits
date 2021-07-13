@@ -21,8 +21,8 @@ namespace EngineeringUnits
 
         //public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
 
-        [JsonProperty]
-        public decimal ValueLocalUnit { get; protected set; }
+        //[JsonProperty]
+        //public decimal ValueLocalUnit { get; protected set; }
 
         [JsonProperty]
         public decimal SymbolValue { get; set; }
@@ -35,7 +35,7 @@ namespace EngineeringUnits
 
         public BaseUnit(double valueLocalUnit) :this()
         {
-            ValueLocalUnit = (decimal)valueLocalUnit;
+            //ValueLocalUnit = (decimal)valueLocalUnit;
             SymbolValue = (decimal)valueLocalUnit;
 
         }
@@ -94,7 +94,7 @@ namespace EngineeringUnits
             }
             
             Unit = a.unitsystem.Copy();
-            ValueLocalUnit = a.baseUnit.ValueLocalUnit;
+            //ValueLocalUnit = a.baseUnit.ValueLocalUnit;
             SymbolValue = a.baseUnit.SymbolValue;
         }
 
@@ -362,7 +362,7 @@ namespace EngineeringUnits
 
 
             //Removing traling zeros
-            local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
+            //local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
             local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
 
 
@@ -382,7 +382,7 @@ namespace EngineeringUnits
 
         protected void SetValue(decimal value)
         {
-            ValueLocalUnit = value / (decimal)Unit.GetActualC();
+            //ValueLocalUnit = value / (decimal)Unit.GetActualC();
 
 
             SymbolValue = value;
