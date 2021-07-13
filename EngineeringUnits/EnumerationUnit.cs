@@ -16,6 +16,7 @@ namespace EngineeringUnits
         public decimal LocalC { get; set; }
         public decimal GlobalC { get; set; }
         public Fraction ActualC { get; set; }
+        public Fraction TotalFraction { get; set; }
         public decimal B { get; set; }
         public int Count { get; set; }
 
@@ -58,7 +59,18 @@ namespace EngineeringUnits
             ActualC = 1;
             Count = 1;
         }
-        
+
+        protected Enumeration(string symbol, Fraction fraction)
+        {
+            Symbol = symbol;
+
+            TotalFraction = fraction;
+            B = 0;
+            ActualC = 1;
+            Count = 1;
+        }
+
+
         public override string ToString()
         {
 

@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using Fractions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,17 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+
+
+            Fraction test = Fraction.FromString("40000/254");
+
+            //Fraction value = new Fraction(4, 0.0254);
+
+
+
+            //Debug.Print($"{test}");
+            Debug.Print($"{40000d / 254d} = {(double)test}");
+
 
             Length L1 = new Length(5, LengthUnit.Meter);
             Length L2 = new Length(2, LengthUnit.Inch);
