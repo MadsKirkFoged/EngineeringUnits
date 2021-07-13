@@ -59,7 +59,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
-            return (double)Unit.baseUnit.ValueLocalUnit;
+            return (double)Unit.baseUnit.BaseunitValue;
 
             //return Unit.baseUnit.Value;
             //return  Unit.baseUnit.Value;
@@ -72,7 +72,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
-            return (decimal)Unit.baseUnit.ValueLocalUnit;
+            return (decimal)Unit.baseUnit.BaseunitValue;
         }
 
         public override string ToString()

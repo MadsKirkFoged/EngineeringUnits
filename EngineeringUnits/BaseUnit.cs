@@ -36,6 +36,7 @@ namespace EngineeringUnits
         public BaseUnit(double valueLocalUnit) :this()
         {
             ValueLocalUnit = (decimal)valueLocalUnit;
+            SymbolValue = (decimal)valueLocalUnit;
 
         }
 
@@ -164,7 +165,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '!=' on two differnt units!");
             }
 
-            return left.Value != right.As(left);
+            return (double)left.SymbolValue != right.As(left);
         }
 
         public static bool operator <=(BaseUnit left, BaseUnit right)
@@ -174,7 +175,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '<=' on two differnt units!");
             }
 
-            return left.Value <= right.As(left);
+            return (double)left.SymbolValue <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
@@ -183,7 +184,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '>=' on two differnt units!");
             }
 
-            return left.Value >= right.As(left);
+            return (double)left.SymbolValue >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
@@ -192,7 +193,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '<' on two differnt units!");
             }
 
-            return left.Value < right.As(left);
+            return (double)left.SymbolValue < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
@@ -201,7 +202,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do '>' on two differnt units!");
             }
 
-            return left.Value > right.As(left);
+            return (double)left.SymbolValue > right.As(left);
         }
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
@@ -258,7 +259,17 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
-            return $"{ValueLocalUnit.ToString(format)} {Unit}";
+
+            if (Unit.Symbol is object)
+            {
+                return $"{SymbolValue.ToString(format)} {Unit.Symbol}";
+            }
+            else
+            {
+                return $"{BaseunitValue.ToString(format)} {Unit}";
+            }
+
+
         }
 
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
@@ -270,8 +281,8 @@ namespace EngineeringUnits
             Fraction b1 = left.Unit.SumOfBConstants();
             //Fraction b2 = right.Unit.SumOfBConstants();
 
-            decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
-            decimal y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit) + (decimal)b1 * -1;
+            //decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
+            //decimal y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit) + (decimal)b1 * -1;
 
 
 
@@ -285,8 +296,8 @@ namespace EngineeringUnits
             decimal LeftTest = left.BaseunitValue;
             decimal RightTest = right.BaseunitValue;
 
-            Debug.Print($"Combi:   {(decimal)left.Unit.GetCombi()}");
-            Debug.Print($"ActualC: {(decimal)left.Unit.GetActualC()}");
+            //Debug.Print($"Combi:   {(decimal)left.Unit.GetCombi()}");
+            //Debug.Print($"ActualC: {(decimal)left.Unit.GetActualC()}");
 
             //Turn 'right' into lefts unitsystem
             decimal ConvertionsFactor = (decimal)UnitSystem.Convert(right.Unit.BaseUnitSystem(), left.Unit.BaseUnitSystem());
@@ -302,7 +313,7 @@ namespace EngineeringUnits
                 case MathEnum.Add:
 
                     //Value math
-                    x3 = y1 + y2;
+                   // x3 = y1 + y2;
                     x3Test = LeftTest + testRightConverted;
 
                     //Unit math
@@ -311,7 +322,7 @@ namespace EngineeringUnits
                 case MathEnum.Subtract:
 
                     //Value math
-                    x3 = y1 - y2;
+                   // x3 = y1 - y2;
                     x3Test = LeftTest - testRightConverted;
 
                     //Unit math
@@ -320,7 +331,7 @@ namespace EngineeringUnits
                 case MathEnum.Multiply:
 
                     //Value math
-                    x3 = y1 * y2;
+                    //x3 = y1 * y2;
                     x3Test = LeftTest * testRightConverted;
 
                     //Unit math
@@ -329,9 +340,9 @@ namespace EngineeringUnits
                 case MathEnum.Divide:
 
                     //Value math
-                    if (y2 != 0)
+                    if (testRightConverted != 0)
                     {
-                        x3 = y1  / y2;
+                   //     x3 = y1  / y2;
                         x3Test = LeftTest / testRightConverted;
                     }
                     else                    

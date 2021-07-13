@@ -13,13 +13,14 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
-            var A4 = new Length(1, LengthUnit.Meter);
-            var A6 = new Duration(1, DurationUnit.Hour);
-            var A5 = new Duration(1, DurationUnit.Second);
+            Length L1 = new Length(5, LengthUnit.Meter);
+            Length L2 = new Length(2, LengthUnit.Inch);
 
-            Acceleration Result2 = A4 / (A5 * A6);
+            Debug.Print($"L1: {L1 * L1}");
+            Debug.Print($"L2: {L2 * L2}");
 
-            Acceleration Result3 = Acceleration.FromMetersPerSecondSquared( A4.Meters / (A5.Seconds * A6.Seconds));
+            Debug.Print($"IsTrue?: {L1 * L1 > L2 * L2}");
+
 
 
             //Debug.Print($"Percent: {L2.As(RatioUnit.Percent)}");
@@ -29,8 +30,8 @@ namespace UnitNetcomparing
             //Debug.Print($"SquareChain: {A1.As(AreaUnit.SquareChain)}");
             //Debug.Print($"SquareMeter: {A1.As(AreaUnit.SquareMeter)}");
 
-            Debug.Print($"SymbolValue: {Result2.ResultWithSymbol()}");
-            Debug.Print($"BaseunitValue: {Result2.ResultWithBaseunit()}");
+            //Debug.Print($"SymbolValue: {Result2.ResultWithSymbol()}");
+            //Debug.Print($"BaseunitValue: {Result2.ResultWithBaseunit()}");
 
         }
     }
