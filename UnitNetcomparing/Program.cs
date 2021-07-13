@@ -14,36 +14,88 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            int k = 10000;
 
-            Fraction test = Fraction.FromString("40000/254");
+            Stopwatch stopwatch2 = Stopwatch.StartNew();
+            for (int i = 0; i < k; i++)
+            {
+                MassFlow testee = MassFlow.FromKilogramsPerSecond(i);
+            }
+            stopwatch2.Stop();
 
-            //Fraction value = new Fraction(4, 0.0254);
-
-
-
-            //Debug.Print($"{test}");
-            Debug.Print($"{40000d / 254d} = {(double)test}");
-
-
-            Length L1 = new Length(5, LengthUnit.Meter);
-            Length L2 = new Length(2, LengthUnit.Inch);
-
-            Debug.Print($"L1: {L1 * L1}");
-            Debug.Print($"L2: {L2 * L2}");
-
-            Debug.Print($"IsTrue?: {L1 * L1 > L2 * L2}");
+            Debug.Print($"Create new Massflow: {stopwatch2.ElapsedTicks / k} tick/creation");
+            
 
 
+            MassFlow test1 = MassFlow.FromKilogramsPerSecond(654);
+            MassFlow test2 = MassFlow.FromKilogramsPerSecond(158.547);
+            MassFlow test3 = MassFlow.Zero;
 
-            //Debug.Print($"Percent: {L2.As(RatioUnit.Percent)}");
-            //Debug.Print($"GramPerLiter: {L2.As(DensityUnit.GramPerLiter)}");
-            //Debug.Print($"CentigramPerMilliliter: {L2.As(DensityUnit.CentigramPerMilliliter)}");
-            //Debug.Print($"GramPerCubicCentimeter: {L2.As(DensityUnit.GramPerCubicCentimeter)}");
-            //Debug.Print($"SquareChain: {A1.As(AreaUnit.SquareChain)}");
-            //Debug.Print($"SquareMeter: {A1.As(AreaUnit.SquareMeter)}");
+            stopwatch2.Restart();
+            for (int i = 0; i < k; i++)
+            {
+                test3 = test1 + test2;
+            }
+            stopwatch2.Stop();
 
-            //Debug.Print($"SymbolValue: {Result2.ResultWithSymbol()}");
-            //Debug.Print($"BaseunitValue: {Result2.ResultWithBaseunit()}");
+            Debug.Print($"add 1 time: {stopwatch2.ElapsedTicks / k} tick/addition");
+
+
+
+            stopwatch2.Restart();
+            for (int i = 0; i < k; i++)
+            {
+                test3 = test1 - test2;
+            }
+            stopwatch2.Stop();
+
+            Debug.Print($"sub 1 time: {stopwatch2.ElapsedTicks / k} tick/sub");
+
+
+
+            Length length = Length.FromMeters(132);
+            Area area = Area.Zero;
+
+
+            stopwatch2.Restart();
+            for (int i = 0; i < k; i++)
+            {
+                area = length * length;
+            }
+            stopwatch2.Stop();
+
+            Debug.Print($"Multiply 1 times: {stopwatch2.ElapsedTicks / k} tick/multi");
+
+
+
+
+
+
+            Duration duration = Duration.FromHours(3);
+            Speed speed = Speed.FromMetersPerSecond(3);
+
+            stopwatch2.Restart();
+            for (int i = 0; i < k; i++)
+            {
+                speed = length / duration;
+            }
+            stopwatch2.Stop();
+
+            Debug.Print($"Divide 1 times: {stopwatch2.ElapsedTicks / k} tick/division");
+
+
+
+            Length length2 = Length.FromMeters(132);
+            bool check = true;
+            stopwatch2.Restart();
+            for (int i = 0; i < k; i++)
+            {
+                check = length <= length2;
+            }
+            stopwatch2.Stop();
+
+            Debug.Print($"'<=' 1 time: {stopwatch2.ElapsedTicks / k} tick/operation");
+
 
         }
     }
