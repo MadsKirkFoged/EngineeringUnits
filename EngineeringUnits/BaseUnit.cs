@@ -166,39 +166,23 @@ namespace EngineeringUnits
             return (double)left.SymbolValue > right.As(left);
         }
 
-        public static implicit operator UnknownUnit(BaseUnit baseUnit)
-        {
-            return new UnknownUnit
-            {
-                baseUnit = baseUnit
-            };
-        }
+        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new UnknownUnit { baseUnit = baseUnit };
+        
 
-        //public override string ToString()
-        //{
-        //    return $"{ValueLocalUnit} {Unit}";
-        //}
 
         /// <summary>
         ///     Gets the default string representation of value and unit.
         /// </summary>
         /// <returns>String representation.</returns>
-        public override string ToString()
-        {
-            return ToString("g4");
-        }
+        public override string ToString() => ToString("g4");
+        
 
         /// <summary>
         ///     Gets the default string representation of value and unit using the given format provider.
         /// </summary>
         /// <returns>String representation.</returns>
         /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
-        public string ToString(IFormatProvider provider)
-        {
-            return ToString("g", provider);
-        }
-
-
+        public string ToString(IFormatProvider provider) => ToString("g", provider);      
 
         /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
         /// <summary>
@@ -206,10 +190,8 @@ namespace EngineeringUnits
         /// </summary>
         /// <param name="format">The format string.</param>
         /// <returns>The string representation.</returns>
-        public string ToString(string format)
-        {
-            return ToString(format, CultureInfo.CurrentUICulture);
-        }
+        public string ToString(string format) => ToString(format, CultureInfo.CurrentUICulture);
+        
 
         /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
         /// <summary>
@@ -220,62 +202,32 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
-
-            if (Unit.Symbol is object)
-            {
-                return $"{SymbolValue.ToString(format)} {Unit.Symbol}";
-            }
-            else
-            {
-                return $"{BaseunitValue.ToString(format)} {Unit}";
-            }
-
-
+            if (Unit.Symbol is object)            
+                return $"{SymbolValue.ToString(format)} {Unit.Symbol}";            
+            else            
+                return $"{BaseunitValue.ToString(format)} {Unit}";         
         }
 
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
             BaseUnit local = new BaseUnit();
-            decimal x3 = 0;
-
-            Fraction b1 = left.Unit.SumOfBConstants();
-            //Fraction b2 = right.Unit.SumOfBConstants();
-
-            //decimal y1 = left.ValueLocalUnit * (decimal)left.Unit.GetCombi();
-            //decimal y2 = right.ValueLocalUnit * (decimal)UnitSystem.Convert(right.Unit, left.Unit) + (decimal)b1 * -1;
-
-
-
-            //Testing new system
+            Fraction b1 = left.Unit.SumOfBConstants();         
             decimal x3Test = 0;
+
+
             //Turn both into Baseunits
-
-            //decimal LeftTest = left.SymbolValue * ((decimal)left.Unit.GetCombi() * (decimal)left.Unit.GetActualC());
-            //decimal RightTest = right.SymbolValue * (decimal)right.Unit.GetCombi() * (decimal)right.Unit.GetActualC();
-
-            decimal LeftTest = left.BaseunitValue;
-            decimal RightTest = right.BaseunitValue;
-
-            //Debug.Print($"Combi:   {(decimal)left.Unit.GetCombi()}");
-            //Debug.Print($"ActualC: {(decimal)left.Unit.GetActualC()}");
 
             //Turn 'right' into lefts unitsystem
             decimal ConvertionsFactor = (decimal)UnitSystem.Convert(right.Unit.BaseUnitSystem(), left.Unit.BaseUnitSystem());
-            decimal testRightConverted = RightTest * ConvertionsFactor;
-
-            //Do math
-
-            //turn left back to its orginale unitsystem
-
+            decimal testRightConverted = right.BaseunitValue * ConvertionsFactor;
 
             switch (math)
             {
                 case MathEnum.Add:
 
                     //Value math
-                   // x3 = y1 + y2;
-                    x3Test = LeftTest + testRightConverted;
+                    x3Test = left.BaseunitValue + testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit + right.Unit;
@@ -283,8 +235,7 @@ namespace EngineeringUnits
                 case MathEnum.Subtract:
 
                     //Value math
-                   // x3 = y1 - y2;
-                    x3Test = LeftTest - testRightConverted;
+                    x3Test = left.BaseunitValue - testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit- right.Unit;
@@ -292,8 +243,7 @@ namespace EngineeringUnits
                 case MathEnum.Multiply:
 
                     //Value math
-                    //x3 = y1 * y2;
-                    x3Test = LeftTest * testRightConverted;
+                    x3Test = left.BaseunitValue * testRightConverted;
 
                     //Unit math
                     local.Unit = left.Unit * right.Unit;
@@ -301,13 +251,10 @@ namespace EngineeringUnits
                 case MathEnum.Divide:
 
                     //Value math
-                    if (testRightConverted != 0)
-                    {
-                   //     x3 = y1  / y2;
-                        x3Test = LeftTest / testRightConverted;
-                    }
-                    else                    
-                        x3 = 0;
+                    if (testRightConverted != 0)                    
+                        x3Test = left.BaseunitValue / testRightConverted;                    
+                    else
+                        x3Test = 0;
 
                     //Unit math
                     local.Unit = left.Unit / right.Unit;
@@ -318,12 +265,10 @@ namespace EngineeringUnits
 
 
             //Convert back to New unitsystem
-            //decimal x3TestConvertedBack = x3Test / ((decimal)left.Unit.GetCombi() / (decimal)left.Unit.GetActualC());
             decimal x3TestConvertedBack = x3Test / ((decimal)local.Unit.GetCombi() / (decimal)local.Unit.GetActualC());
 
 
             //Removing traling zeros
-            //local.ValueLocalUnit = x3 / 1.000000000000000000000000000000000m;
             local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
 
 
