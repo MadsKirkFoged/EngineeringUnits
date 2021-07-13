@@ -12,12 +12,19 @@ namespace EngineeringUnits
     {
 
         public string QuantityName { get; set; }
-        public string Symbol { get; set; }
-        public decimal LocalC { get; set; }
-        public decimal GlobalC { get; set; }
+
+        [JsonProperty]
+        public string Symbol { get; private set; }
+
+        [JsonProperty]
+        public decimal LocalC { get; private set; }
+
+        [JsonProperty]
+        public decimal GlobalC { get; private  set; }
         public Fraction ActualC { get; set; }
-        public Fraction TotalFraction { get; set; }
-        public decimal B { get; set; }
+
+        [JsonProperty]
+        public decimal B { get; private set; }
         public int Count { get; set; }
 
         [JsonIgnore]
@@ -55,16 +62,6 @@ namespace EngineeringUnits
             LocalC = PrefixSISize(SI);
             GlobalC = 1;
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
-            B = 0;
-            ActualC = 1;
-            Count = 1;
-        }
-
-        protected Enumeration(string symbol, Fraction fraction)
-        {
-            Symbol = symbol;
-
-            TotalFraction = fraction;
             B = 0;
             ActualC = 1;
             Count = 1;
@@ -367,7 +364,10 @@ namespace EngineeringUnits
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
+        public void SetNewGlobalC(decimal globalC) => GlobalC = globalC;
 
+        
+           
 
         //public Enumeration Clone() 
         //{
