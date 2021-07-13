@@ -19,11 +19,6 @@ namespace EngineeringUnits
         [JsonProperty]
         public UnitSystem Unit { get; set;}
 
-        //public double Value => (double)Unit.GetActualC()* (double)ValueLocalUnit;
-
-        //[JsonProperty]
-        //public decimal ValueLocalUnit { get; protected set; }
-
         [JsonProperty]
         public decimal SymbolValue { get; set; }
         public decimal BaseunitValue => SymbolValue * ((decimal)Unit.GetCombi() / (decimal)Unit.GetActualC());
@@ -35,9 +30,7 @@ namespace EngineeringUnits
 
         public BaseUnit(double valueLocalUnit) :this()
         {
-            //ValueLocalUnit = (decimal)valueLocalUnit;
             SymbolValue = (decimal)valueLocalUnit;
-
         }
 
 
@@ -45,7 +38,6 @@ namespace EngineeringUnits
         {
             Unit = unitSystem.Copy();
             SetValue(value);
-
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
@@ -56,10 +48,7 @@ namespace EngineeringUnits
             if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue || Double.IsNaN(value))            
                 SetValue(0);            
             else            
-                SetValue(value);           
-
-           
-
+                SetValue(value);          
         }
 
         public BaseUnit(int value, UnitSystem unitSystem)
@@ -72,14 +61,10 @@ namespace EngineeringUnits
         public double As(UnitSystem a)
         {
 
-            if (Unit is object)
-            {
-                return (double)ToTheOutSide(a);
-            }
-            else
-            {
-                return 0;
-            }
+            if (Unit is object)            
+                return (double)ToTheOutSide(a);            
+            else            
+                return 0;           
 
         }
 
@@ -87,14 +72,12 @@ namespace EngineeringUnits
 
         public void Transform(UnknownUnit a)
         {
-
             if (a.unitsystem != Unit)
             {
                 throw new InvalidOperationException($"This is NOT a {Name} [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
             }
             
             Unit = a.unitsystem.Copy();
-            //ValueLocalUnit = a.baseUnit.ValueLocalUnit;
             SymbolValue = a.baseUnit.SymbolValue;
         }
 
@@ -102,20 +85,16 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '+' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '+' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Add);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
 
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '-' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '-' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Subtract);
         }
@@ -133,15 +112,10 @@ namespace EngineeringUnits
         public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-            {
-                return false;
-            }
-            else
-            {
-                BaseUnit p = (BaseUnit)obj;
-                return this == p;
-            }
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))            
+                return false;            
+            else          
+                return this == (BaseUnit)obj;            
         }
 
         
@@ -149,68 +123,55 @@ namespace EngineeringUnits
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
+            if (left.Unit != right.Unit)            
                 throw new InvalidOperationException($"Cant do '==' on two differnt units!");
-            }
-
-            //Debug.Print();
+            
 
             return (double)left.SymbolValue == right.As(left);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '!=' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '!=' on two differnt units!");            
 
             return (double)left.SymbolValue != right.As(left);
         }
 
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '<=' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '<=' on two differnt units!");            
 
             return (double)left.SymbolValue <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '>=' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '>=' on two differnt units!");            
 
             return (double)left.SymbolValue >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '<' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '<' on two differnt units!");            
 
             return (double)left.SymbolValue < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
-                throw new InvalidOperationException($"Cant do '>' on two differnt units!");
-            }
+            if (left.Unit != right.Unit)            
+                throw new InvalidOperationException($"Cant do '>' on two differnt units!");            
 
             return (double)left.SymbolValue > right.As(left);
         }
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
         {
-            UnknownUnit local = new UnknownUnit();
-            local.baseUnit = baseUnit;
-
-            return local;
+            return new UnknownUnit
+            {
+                baseUnit = baseUnit
+            };
         }
 
         //public override string ToString()
