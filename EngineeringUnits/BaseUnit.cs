@@ -463,7 +463,7 @@ namespace EngineeringUnits
                 throw new InvalidOperationException($"Cant do CompareTo on two differnt units!");
             
 
-            return (int)(Value - local.As(this));
+            return (int)((double)SymbolValue - local.As(this));
         }
     
     
