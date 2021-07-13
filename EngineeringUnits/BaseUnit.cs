@@ -117,10 +117,6 @@ namespace EngineeringUnits
             else          
                 return this == (BaseUnit)obj;            
         }
-
-        
-
-
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
@@ -136,7 +132,6 @@ namespace EngineeringUnits
 
             return (double)left.SymbolValue != right.As(left);
         }
-
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
@@ -211,8 +206,7 @@ namespace EngineeringUnits
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
-            BaseUnit local = new BaseUnit();
-            Fraction b1 = left.Unit.SumOfBConstants();         
+            BaseUnit local = new BaseUnit();   
             decimal x3Test = 0;
 
 
@@ -287,43 +281,24 @@ namespace EngineeringUnits
         public decimal ToTheOutSide(UnitSystem To)
         {
 
-            //Creating a new system call 3
 
             Fraction b1 = Unit.SumOfBConstants();
-            Fraction b2 = To.SumOfBConstants();
-           
-
-            //Fraction a3 = FactorDifferent(To);
-            //Fraction b3 = a3 * (b1*-1) + b2;
-
-
-            //Fraction y1 = (Fraction)ValueLocalUnit;
-            //Fraction y2 = a3 * y1 + b3;
-
-
-
+            Fraction b2 = To.SumOfBConstants();         
 
             Fraction test = UnitSystem.Convert(Unit, To);
 
             Fraction b3test = test * (b1 * -1) + b2;
             Fraction y2test = test * (Fraction)SymbolValue + b3test;
             return (decimal)y2test;
-
-
-            //return (decimal)y2;
         }
 
        
-
-
         public string DisplaySymbol()
         {
-            if (Unit.Symbol is object)
-            {
-                return Unit.Symbol;
-            }
-
-            return Unit.ToString();
+            if (Unit.Symbol is object)            
+                return Unit.Symbol;            
+            else
+                return Unit.ToString();
 
         }
 
@@ -339,19 +314,11 @@ namespace EngineeringUnits
         }
     
     
-        public string ResultWithSymbol()
-        {
+        public string ResultWithSymbol() => $"{SymbolValue} {Unit.Symbol}";
+        
 
-
-            return $"{SymbolValue} {Unit.Symbol}";
-        }
-
-        public string ResultWithBaseunit()
-        {
-
-            
-            return $"{BaseunitValue} {Unit}";
-        }
+        public string ResultWithBaseunit() => $"{BaseunitValue} {Unit}";
+        
 
 
     }
