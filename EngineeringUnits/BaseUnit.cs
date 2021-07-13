@@ -21,7 +21,7 @@ namespace EngineeringUnits
 
         [JsonProperty]
         public decimal SymbolValue { get; set; }
-        public decimal BaseunitValue => SymbolValue * ((decimal)Unit.GetCombi() / (decimal)Unit.GetActualC());
+        public decimal BaseunitValue => SymbolValue * ConvertToBaseUnit();
 
         public BaseUnit()
         {
@@ -265,7 +265,8 @@ namespace EngineeringUnits
 
 
             //Convert back to New unitsystem
-            decimal x3TestConvertedBack = x3Test / ((decimal)local.Unit.GetCombi() / (decimal)local.Unit.GetActualC());
+            //decimal x3TestConvertedBack = x3Test / ((decimal)local.Unit.GetCombi() / (decimal)local.Unit.GetActualC());
+            decimal x3TestConvertedBack = x3Test / local.ConvertToBaseUnit();
 
 
             //Removing traling zeros
@@ -274,6 +275,12 @@ namespace EngineeringUnits
 
             return local;
         }
+
+        public decimal ConvertToBaseUnit()
+        {
+            return (decimal)(Unit.GetCombi() / Unit.GetActualC());
+        }
+
 
         protected void SetValue(int value)
         {
