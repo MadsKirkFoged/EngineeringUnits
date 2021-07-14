@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public PermittivityUnit(CapacitanceUnit capacitance,LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = capacitance.Unit / Length.Unit;
+            Unit = capacitance / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{capacitance}/{Length}");
         }
