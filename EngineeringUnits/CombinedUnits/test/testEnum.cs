@@ -19,14 +19,14 @@ namespace EngineeringUnits
 
         public testUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length * Length * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
         public testUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Area.Unit * Length.Unit;
+            Unit = Area * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
