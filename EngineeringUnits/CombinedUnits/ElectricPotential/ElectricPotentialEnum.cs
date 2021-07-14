@@ -23,7 +23,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit);
+            Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
 
