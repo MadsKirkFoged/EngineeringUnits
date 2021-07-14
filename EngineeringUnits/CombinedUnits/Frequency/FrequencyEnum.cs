@@ -27,7 +27,7 @@ namespace EngineeringUnits
 
         public FrequencyUnit(DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = duration.Unit / (duration.Unit * duration.Unit);
+            Unit = duration.Pow(-1);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
