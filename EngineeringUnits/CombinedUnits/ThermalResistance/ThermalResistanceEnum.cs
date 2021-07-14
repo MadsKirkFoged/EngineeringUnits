@@ -22,14 +22,14 @@ namespace EngineeringUnits
 
         public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (area.Unit * temperature.Unit) / power.Unit;
+            Unit = (area * temperature) / power;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{area}{temperature}/{power}");
         }
 
         public ThermalResistanceUnit(AreaUnit area, DurationUnit duration, TemperatureUnit temperature, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (area.Unit * duration.Unit * temperature.Unit) / energy.Unit;
+            Unit = (area * duration * temperature) / energy;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{area}{duration}{temperature}/{energy}");
         }
