@@ -20,7 +20,7 @@ namespace EngineeringUnits
 
         public ReactivePowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential.Unit * electricCurrent.Unit;
+            Unit = electricPotential * electricCurrent;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
