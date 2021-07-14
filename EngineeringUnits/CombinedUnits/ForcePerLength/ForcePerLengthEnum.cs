@@ -56,7 +56,7 @@ namespace EngineeringUnits
         {
 
             //Name = "ForcePerLength";
-            Unit = force.Unit / length.Unit;
+            Unit = force / length;
 
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}/{length}");
@@ -67,7 +67,7 @@ namespace EngineeringUnits
         {
 
             //Name = "ForcePerLength";
-            Unit = Area.Unit * Length.Unit;
+            Unit = Area * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
