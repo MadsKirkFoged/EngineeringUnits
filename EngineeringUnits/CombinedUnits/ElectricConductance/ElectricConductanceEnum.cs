@@ -19,14 +19,14 @@ namespace EngineeringUnits
 
         public ElectricConductanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length.Pow(3);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
         public ElectricConductanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Area.Unit * Length.Unit;
+            Unit = Area * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
