@@ -29,7 +29,7 @@ namespace EngineeringUnits
         {
 
             //Name = "MolarMass";
-            Unit = mass.Unit / amount.Unit;
+            Unit = mass / amount;
 
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
