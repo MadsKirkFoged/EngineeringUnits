@@ -24,7 +24,7 @@ namespace EngineeringUnits
 
         public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit / duration.Unit;
+            Unit = Length / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
