@@ -53,7 +53,7 @@ namespace EngineeringUnits
 
         public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Energy.Unit / duration.Unit;
+            Unit = Energy / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Energy}/{duration}");    
         }
