@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public MagnetizationUnit(ElectricCurrentUnit electricCurrent, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricCurrent.Unit / Length.Unit;
+            Unit = electricCurrent / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricCurrent}/{Length}");
         }
