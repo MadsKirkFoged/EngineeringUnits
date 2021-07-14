@@ -24,7 +24,7 @@ namespace EngineeringUnits
 
         public IrradiationUnit(EnergyUnit energy, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = energy.Unit / area.Unit;
+            Unit = energy / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{area}");
         }       
