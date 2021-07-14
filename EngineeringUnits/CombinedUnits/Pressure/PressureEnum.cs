@@ -60,7 +60,7 @@ namespace EngineeringUnits
 
         public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / (length.Unit * duration.Unit * duration.Unit);
+            Unit = mass / (length * duration.Pow(2));
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
@@ -82,7 +82,7 @@ namespace EngineeringUnits
 
         public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = force.Unit / area.Unit;
+            Unit = force / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}/{area}");
         }
