@@ -33,8 +33,8 @@ namespace EngineeringUnits
 
         private AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            //Unit = length.Unit / (duration.Unit * duration.Unit);
-            Unit = length / (duration.Pow(2));
+
+            Unit = length / duration.Pow(2);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
 
@@ -42,7 +42,7 @@ namespace EngineeringUnits
 
         private AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = speed.Unit / (duration.Unit);
+            Unit = speed / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{speed}/{duration}");         
         }
