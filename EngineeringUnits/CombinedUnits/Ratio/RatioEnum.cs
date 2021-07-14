@@ -66,14 +66,14 @@ namespace EngineeringUnits
 
         public RatioUnit(MassUnit mass1, MassUnit mass2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass1.Unit / mass2.Unit;
+            Unit = mass1 / mass2;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass1}/{mass2}");
         }
 
         public RatioUnit(VolumeUnit vol1, VolumeUnit vol2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = vol1.Unit / vol2.Unit;
+            Unit = vol1 / vol2;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{vol1}/{vol2}");
         }
