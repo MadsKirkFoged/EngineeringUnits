@@ -37,7 +37,7 @@ namespace EngineeringUnits
 
         public TorquePerLengthUnit(TorqueUnit torque,LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = torque.Unit / Length.Unit;
+            Unit = torque / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{torque}/{Length}");
         }
