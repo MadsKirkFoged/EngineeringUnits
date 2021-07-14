@@ -53,7 +53,7 @@ namespace EngineeringUnits
 
         public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / duration.Unit;
+            Unit = mass / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{duration}");
         }
