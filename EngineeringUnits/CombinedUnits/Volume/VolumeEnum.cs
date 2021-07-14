@@ -73,7 +73,7 @@ namespace EngineeringUnits
 
         public VolumeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length.Pow(3);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);         
 
@@ -81,7 +81,7 @@ namespace EngineeringUnits
 
         public VolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Area.Unit * Length.Unit;
+            Unit = Area * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
