@@ -40,21 +40,21 @@ namespace EngineeringUnits
 
         public HeatFluxUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = power.Unit / area.Unit;
+            Unit = power / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{area}");
         }
 
         public HeatFluxUnit(ForcePerLengthUnit force, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = force.Unit * duration.Unit;
+            Unit = force * duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}*{duration}");
         }
 
         public HeatFluxUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / (duration.Unit * duration.Unit * duration.Unit);
+            Unit = mass / (duration.Pow(3));
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
