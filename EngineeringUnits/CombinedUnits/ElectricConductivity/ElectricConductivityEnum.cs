@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
         public ElectricConductivityUnit(ElectricAdmittanceUnit electricAdmittance, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricAdmittance.Unit / Length.Unit;
+            Unit = electricAdmittance / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricAdmittance}/{Length}");
         }
