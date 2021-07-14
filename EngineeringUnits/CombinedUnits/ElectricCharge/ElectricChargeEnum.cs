@@ -20,7 +20,7 @@ namespace EngineeringUnits
 
         public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricCurrent.Unit * duration.Unit;
+            Unit = electricCurrent * duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
