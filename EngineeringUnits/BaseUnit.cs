@@ -303,10 +303,7 @@ namespace EngineeringUnits
 
             if (toPower < 0)            
                 for (int i = 0; i > toPower; i--)                
-                    local = local / this;
-                
-
-            
+                    local = local / this;            
 
 
 

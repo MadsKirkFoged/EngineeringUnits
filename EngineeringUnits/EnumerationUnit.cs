@@ -420,5 +420,22 @@ namespace EngineeringUnits
         {
             return this.MemberwiseClone();
         }
+
+
+        public static UnitSystem operator *(Enumeration left, Enumeration right) => left.Unit* right.Unit;
+        public static UnitSystem operator *(UnitSystem left, Enumeration right) => left * right.Unit;
+        public static UnitSystem operator *(Enumeration left, UnitSystem right) => left.Unit * right;
+
+        public static UnitSystem operator /(Enumeration left, Enumeration right) => left.Unit / right.Unit;
+        public static UnitSystem operator /(Enumeration left, UnitSystem right) => left.Unit / right;
+        public static UnitSystem operator /(UnitSystem left, Enumeration right) => left / right.Unit;
+
+        public UnitSystem Pow(int toPower) =>  Unit.Pow(toPower);
+        
+
+
+
+
+
     }
 }
