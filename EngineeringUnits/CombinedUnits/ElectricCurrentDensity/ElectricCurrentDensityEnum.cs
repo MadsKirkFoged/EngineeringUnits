@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
         public ElectricCurrentDensityUnit(ElectricCurrentUnit electricCurrent, AreaUnit Area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricCurrent.Unit / Area.Unit;
+            Unit = electricCurrent / Area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricCurrent}/{Area}");
         }      
