@@ -16,9 +16,7 @@ namespace UnitNetcomparing
 
             var list1 = new List<MassFlow>();
 
-            //Average
-            //Max
-            //Min
+     
 
             list1.Add(MassFlow.FromKilogramsPerSecond(1));
             list1.Add(MassFlow.FromKilogramsPerSecond(2));
@@ -44,10 +42,7 @@ namespace UnitNetcomparing
             Debug.Print($"{test.Pow(2)}");
             Debug.Print($"{test.Pow(3)}");
 
-            //UnitsNet.UnitMath.Average();
-            //UnitsNet.UnitMath.Max
-            //UnitsNet.UnitMath.Min
-            //UnitsNet.UnitMath.Sum
+
 
 
             //Debug.Print($"'<=' 1 time: {stopwatch2.ElapsedTicks / k} tick/operation");
