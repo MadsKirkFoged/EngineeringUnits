@@ -33,7 +33,7 @@ namespace EngineeringUnits
 
         public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricResistance.Unit * Length.Unit;
+            Unit = electricResistance * Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricResistance}·{Length}");
         }

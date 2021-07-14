@@ -24,7 +24,7 @@ namespace EngineeringUnits
         public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
             //kg⋅m2⋅s−3⋅A−2
-            Unit = (mass.Unit * Length.Unit * Length.Unit) / (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit * electricCurrent.Unit);
+            Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent.Pow(2));
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
