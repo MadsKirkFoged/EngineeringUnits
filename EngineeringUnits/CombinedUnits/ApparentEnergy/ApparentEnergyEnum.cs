@@ -22,7 +22,7 @@ namespace EngineeringUnits
 
         public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential.Unit * electricCurrentUnit.Unit * durationUnit.Unit;
+            Unit = electricPotential * electricCurrentUnit * durationUnit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
