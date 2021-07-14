@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
         public ThermalConductivityUnit(PowerUnit power, LengthUnit length, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = power.Unit / (length.Unit * temperature.Unit);
+            Unit = power / (length * temperature);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{length}·{temperature}");
         }
