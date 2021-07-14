@@ -43,7 +43,7 @@ namespace EngineeringUnits
 
         public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = energy.Unit / mass.Unit;
+            Unit = energy / mass;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{mass}");
         }
