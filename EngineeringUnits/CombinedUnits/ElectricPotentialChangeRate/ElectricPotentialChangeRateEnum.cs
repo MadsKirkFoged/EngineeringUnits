@@ -41,7 +41,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialChangeRateUnit(ElectricPotentialUnit electricPotential, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential.Unit / duration.Unit;
+            Unit = electricPotential / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricPotential}/{duration}");
         }
