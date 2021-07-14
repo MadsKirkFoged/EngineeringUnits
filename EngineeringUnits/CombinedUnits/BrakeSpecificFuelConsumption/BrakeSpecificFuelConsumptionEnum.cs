@@ -20,14 +20,14 @@ namespace EngineeringUnits
 
         public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / energy.Unit;
+            Unit = mass / energy;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{energy}");
         }
 
         public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / (power.Unit * duration.Unit);
+            Unit = mass / (power * duration);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{power}*{duration}");
         }
