@@ -27,7 +27,7 @@ namespace EngineeringUnits
         public MagneticFieldUnit(MassUnit mass, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
             //kg⋅s−2⋅A−1
-            Unit = mass.Unit / (duration.Unit * duration.Unit * electricCurrent.Unit);
+            Unit = mass / (duration * duration * electricCurrent);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
