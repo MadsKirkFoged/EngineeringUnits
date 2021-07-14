@@ -22,7 +22,8 @@ namespace EngineeringUnits
 
         public WarpingMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit * Length.Unit * Length.Unit* Length.Unit * Length.Unit * Length.Unit;
+            //Unit = Length.Unit * Length.Unit * Length.Unit* Length.Unit * Length.Unit * Length.Unit;
+            Unit = Length.Pow(6);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }       
