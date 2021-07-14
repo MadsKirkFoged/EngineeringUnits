@@ -21,11 +21,16 @@ namespace UnitNetcomparing
 
 
 
-            Temperature test = Temperature.FromDegreesCelsius(-1);
+            Length test = Length.FromMeters(2);
 
 
-            Debug.Print($"{test}");
-            Debug.Print($"{test.Abs()}");
+            //Debug.Print($"{test}");
+            Debug.Print($"{test.Pow(-2)}");
+            Debug.Print($"{test.Pow(-1)}");
+            Debug.Print($"{test.Pow(0)}");
+            Debug.Print($"{test.Pow(1)}");
+            Debug.Print($"{test.Pow(2)}");
+            Debug.Print($"{test.Pow(3)}");
 
             //UnitsNet.UnitMath.Average();
             //UnitsNet.UnitMath.Max

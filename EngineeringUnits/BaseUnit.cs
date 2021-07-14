@@ -283,6 +283,36 @@ namespace EngineeringUnits
 
         }
 
+        public UnknownUnit Pow(int toPower)
+        {
+
+            if (toPower == 0 || toPower == 1)            
+                return this;
+            
+            UnknownUnit local = new UnknownUnit();
+            local.baseUnit.Unit = new UnitSystem();
+            local.baseUnit.SymbolValue = 1;
+
+            //error when 0?
+
+
+            if (toPower > 1)            
+                for (int i = 0; i < toPower; i++)                
+                    local = local * this;
+
+
+            if (toPower < 0)            
+                for (int i = 0; i > toPower; i--)                
+                    local = local / this;
+                
+
+            
+
+
+
+            return local;
+        }
+
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
 
