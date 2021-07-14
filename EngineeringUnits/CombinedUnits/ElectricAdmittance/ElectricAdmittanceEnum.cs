@@ -20,7 +20,7 @@ namespace EngineeringUnits
         public ElectricAdmittanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
             //kg−1⋅m−2⋅s3⋅A2
-            Unit = (duration.Unit * duration.Unit * duration.Unit * electricCurrent.Unit * electricCurrent.Unit) / (mass.Unit * Length.Unit * Length.Unit);
+            Unit = (duration.Pow(3) *  electricCurrent.Pow(2)) / (mass * Length.Pow(2));
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
