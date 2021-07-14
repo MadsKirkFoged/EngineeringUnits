@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = power.Unit / (area.Unit * temperature.Unit);
+            Unit = power / (area * temperature);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{area}{temperature}");
         }
