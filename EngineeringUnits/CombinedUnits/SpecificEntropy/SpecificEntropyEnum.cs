@@ -30,7 +30,7 @@ namespace EngineeringUnits
 
         public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = energy.Unit / (mass.Unit * temperature.Unit);
+            Unit = energy / (mass * temperature);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{mass}*{temperature}");
         }
