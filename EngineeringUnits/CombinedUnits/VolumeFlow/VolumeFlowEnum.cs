@@ -81,7 +81,7 @@ namespace EngineeringUnits
 
         public VolumeFlowUnit(VolumeUnit volume,DurationUnit duration , string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = volume.Unit / duration.Unit;
+            Unit = volume / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{volume}/{duration}");
         }
