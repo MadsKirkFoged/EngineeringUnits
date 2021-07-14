@@ -28,7 +28,7 @@ namespace EngineeringUnits
         {
 
             //Name = "DynamicViscosity";
-            Unit = Pressure.Unit * duration.Unit;
+            Unit = Pressure * duration;
 
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
@@ -40,14 +40,14 @@ namespace EngineeringUnits
 
         public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (force.Unit * duration.Unit) / area.Unit;
+            Unit = (force * duration) / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}·{duration}/{area}");
         }
 
         public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit /(  duration.Unit * length.Unit);
+            Unit = mass /(  duration * length);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{length}·{duration}");
         }
