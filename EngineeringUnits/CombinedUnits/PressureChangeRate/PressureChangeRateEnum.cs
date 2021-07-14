@@ -34,7 +34,7 @@ namespace EngineeringUnits
 
         public PressureChangeRateUnit(PressureUnit pressure, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = pressure.Unit / duration.Unit;
+            Unit = pressure / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{pressure}/{duration}");
         }    
