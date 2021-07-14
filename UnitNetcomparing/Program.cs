@@ -14,10 +14,22 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            var list1 = new List<MassFlow>();
 
-            UnitsNet.UnitMath.Abs(UnitsNet.MassFlow.FromKilogramsPerSecond(-1));
+            //Average
+            //Max
+            //Min
+
+            list1.Add(MassFlow.FromKilogramsPerSecond(1));
+            list1.Add(MassFlow.FromKilogramsPerSecond(2));
+            list1.Add(MassFlow.FromKilogramsPerSecond(3));
+            list1.Add(MassFlow.FromKilogramsPerSecond(4));
 
 
+            MassFlow tester1 = UnitMath.Max(list1);
+
+
+            MassFlow tester2 = UnitMath.Max(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), MassFlow.FromKilogramsPerSecond(3), MassFlow.FromKilogramsPerSecond(4));
 
 
 

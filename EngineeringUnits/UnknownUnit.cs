@@ -75,6 +75,12 @@ namespace EngineeringUnits
             return (decimal)Unit.baseUnit.BaseunitValue;
         }
 
+        //Im not sure about this!
+        public static explicit operator BaseUnit(UnknownUnit Unit)
+        {          
+            return Unit.baseUnit;
+        }
+
         public override string ToString()
         {
             return baseUnit.ToString();
