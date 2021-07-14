@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public AreaDensityUnit(MassUnit mass, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / area.Unit;
+            Unit = mass / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
