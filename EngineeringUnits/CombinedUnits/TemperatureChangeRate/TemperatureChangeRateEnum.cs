@@ -27,7 +27,7 @@ namespace EngineeringUnits
 
         public TemperatureChangeRateUnit(TemperatureUnit temperature, DurationUnit duration,  string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = temperature.Unit / duration.Unit;
+            Unit = temperature / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{TemperatureUnit.DegreeCelsius}/{duration}");
         }
