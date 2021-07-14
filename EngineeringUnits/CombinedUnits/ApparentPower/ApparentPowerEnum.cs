@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
         public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential.Unit * electricCurrentUnit.Unit;
+            Unit = electricPotential * electricCurrentUnit;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
