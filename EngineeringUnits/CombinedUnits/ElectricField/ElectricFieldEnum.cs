@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public ElectricFieldUnit(ElectricPotentialUnit electricPotential, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential.Unit / Length.Unit;
+            Unit = electricPotential / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricPotential}/{Length}");
         }
