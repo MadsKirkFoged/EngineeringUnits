@@ -48,11 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUnit.cs" />
+    <Compile Include="BaseUnits\Amount\Amount.extra.cs" />
     <Compile Include="BaseUnits\Amount\Amount.cs" />
     <Compile Include="BaseUnits\Amount\AmountEnum.cs" />
     <Compile Include="BaseUnits\Amount\AmountGet.cs" />
     <Compile Include="BaseUnits\Amount\AmountSet.cs" />
     <Compile Include="BaseUnits\CombinedUnits\CombinedUnitEnum.cs" />
+    <Compile Include="BaseUnits\Duration\Duration.extra.cs" />
     <Compile Include="BaseUnits\Duration\Duration.cs" />
     <Compile Include="BaseUnits\Duration\DurationEnum.cs" />
     <Compile Include="BaseUnits\Duration\DurationGet.cs" />
