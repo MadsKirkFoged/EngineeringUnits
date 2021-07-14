@@ -27,7 +27,7 @@ namespace EngineeringUnits
 
             //s4⋅A2⋅m−2⋅kg−1
 
-            Unit = (duration.Unit * duration.Unit * duration.Unit * duration.Unit *  electricCurrent.Unit * electricCurrent.Unit) / (Length.Unit * Length.Unit * Mass.Unit);
+            Unit = (duration.Pow(4) * electricCurrent.Pow(2)) / (Length.Pow(2) * Mass.Unit);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
