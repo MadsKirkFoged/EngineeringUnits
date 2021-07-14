@@ -22,21 +22,10 @@ namespace EngineeringUnits
 
         public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = energy.Unit / temperature.Unit;
+            Unit = energy / temperature;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{temperature}");
         }
-
-
-
-        //public static IEnumerable<EntropyUnit> List()
-        //{
-        //    return new[] { CaloriePerKelvin, JoulePerDegreeCelsius, JoulePerKelvin, KilocaloriePerKelvin, KilojoulePerDegreeCelsius, KilojoulePerKelvin, MegajoulePerKelvin, };
-        //}
-
-
-
-
 
     }
 
