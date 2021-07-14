@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
         public FuelEfficiencyUnit(LengthUnit Length, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Unit / volume.Unit;
+            Unit = Length / volume;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Length}/{volume}");
         }
