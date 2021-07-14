@@ -22,7 +22,7 @@ namespace EngineeringUnits
         public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
             //lm/m2
-            Unit = luminousIntensity.Unit / area.Unit;
+            Unit = luminousIntensity / area;
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
