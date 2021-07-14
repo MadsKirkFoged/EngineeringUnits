@@ -37,7 +37,7 @@ namespace EngineeringUnits
 
         public ForceChangeRateUnit(ForceUnit force, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = force.Unit / duration.Unit;
+            Unit = force / duration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}/{duration}");
         }
