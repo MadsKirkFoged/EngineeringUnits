@@ -24,7 +24,7 @@ namespace EngineeringUnits
 
         public MolarityUnit(AmountOfSubstanceUnit amountOfSubstance, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = amountOfSubstance.Unit / volume.Unit;
+            Unit = amountOfSubstance / volume;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{amountOfSubstance}/{volume}");
         }       
