@@ -29,14 +29,14 @@ namespace EngineeringUnits
 
         public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (mass.Unit * Length.Unit) / (duration.Unit * duration.Unit);
+            Unit = (mass * Length) / (duration.Pow(2));
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
         public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit * acceleration.Unit;
+            Unit = mass * acceleration;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}f");         
         }
