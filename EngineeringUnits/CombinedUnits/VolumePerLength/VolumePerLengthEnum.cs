@@ -24,7 +24,7 @@ namespace EngineeringUnits
 
         public VolumePerLengthUnit(VolumeUnit volume, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = volume.Unit / Length.Unit;
+            Unit = volume / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{volume}/{Length}");
         }
