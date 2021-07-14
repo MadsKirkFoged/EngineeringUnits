@@ -61,7 +61,7 @@ namespace EngineeringUnits
 
         public PowerDensityUnit(PowerUnit power, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = power.Unit / volume.Unit;
+            Unit = power / volume;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{volume}");
         }
