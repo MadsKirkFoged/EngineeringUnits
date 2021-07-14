@@ -34,7 +34,7 @@ namespace EngineeringUnits
 
         public LinearDensityUnit(MassUnit mass, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass.Unit / Length.Unit;
+            Unit = mass / Length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{Length}");
         }
