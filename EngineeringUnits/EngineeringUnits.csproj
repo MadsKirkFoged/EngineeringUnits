@@ -79,8 +79,6 @@
     <Compile Include="BaseUnits\Temperature\TemperatureEnum.cs" />
     <Compile Include="BaseUnits\Temperature\TemperatureGet.cs" />
     <Compile Include="BaseUnits\Temperature\TemperatureSet.cs" />
-    <Compile Include="BigDecimal.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="CombinedUnits\Acceleration\Acceleration.cs" />
     <Compile Include="CombinedUnits\Acceleration\AccelerationEnum.cs" />
     <Compile Include="CombinedUnits\Acceleration\AccelerationGet.cs" />
@@ -461,6 +459,7 @@
     <Compile Include="EnumerationUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitMath.cs" />
     <Compile Include="UnitSystem.cs" />
     <Compile Include="UnknownUnit.cs" />
     <Compile Include="Vector.cs" />

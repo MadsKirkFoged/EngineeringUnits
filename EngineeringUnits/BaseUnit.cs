@@ -268,6 +268,21 @@ namespace EngineeringUnits
             return local;
         }
 
+
+        public UnknownUnit Abs()
+        {
+            BaseUnit local = new BaseUnit();
+            local.Unit = Unit;
+
+            if (SymbolValue < 0)            
+                SymbolValue *= -1;
+            
+            local.SymbolValue = SymbolValue;
+
+            return local;
+
+        }
+
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
 
