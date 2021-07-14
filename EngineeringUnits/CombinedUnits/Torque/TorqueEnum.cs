@@ -42,7 +42,7 @@ namespace EngineeringUnits
 
         public TorqueUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = force.Unit * length.Unit;
+            Unit = force * length;
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}·{length}");
         }
