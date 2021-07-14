@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public MolarEntropyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = energy.Unit / (amountOfSubstance.Unit * temperature.Unit);
+            Unit = energy / (amountOfSubstance * temperature);
             SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/({amountOfSubstance}*{temperature})");
         }
