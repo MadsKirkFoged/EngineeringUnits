@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Information
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Information FromSI(double si)
+        {
+            double value = (double)si;
+            return new Information(value, InformationUnit.SI);
+        }
+
         /// <summary>
         ///     Get Information from Bits.
         /// </summary>

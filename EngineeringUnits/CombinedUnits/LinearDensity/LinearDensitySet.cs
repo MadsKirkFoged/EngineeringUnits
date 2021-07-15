@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class LinearDensity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static LinearDensity FromSI(double si)
+        {
+            double value = (double)si;
+            return new LinearDensity(value, LinearDensityUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get LinearDensity from GramsPerCentimeter.
         /// </summary>

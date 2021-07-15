@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class Irradiation
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Irradiation FromSI(double si)
+        {
+            double value = (double)si;
+            return new Irradiation(value, IrradiationUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get Irradiation from JoulesPerSquareCentimeter.
         /// </summary>

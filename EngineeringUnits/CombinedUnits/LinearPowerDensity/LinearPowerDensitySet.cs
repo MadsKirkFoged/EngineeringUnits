@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class LinearPowerDensity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static LinearPowerDensity FromSI(double si)
+        {
+            double value = (double)si;
+            return new LinearPowerDensity(value, LinearPowerDensityUnit.SI);
+        }
+
         /// <summary>
         ///     Get LinearPowerDensity from GigawattsPerCentimeter.
         /// </summary>

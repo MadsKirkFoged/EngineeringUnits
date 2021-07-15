@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class MagneticField
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MagneticField FromSI(double si)
+        {
+            double value = (double)si;
+            return new MagneticField(value, MagneticFieldUnit.SI);
+        }
+
         /// <summary>
         ///     Get MagneticField from Gausses.
         /// </summary>

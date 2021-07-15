@@ -8,6 +8,16 @@ namespace EngineeringUnits
     {
 
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MassFlow FromSI(double si)
+        {
+            double value = (double)si;
+            return new MassFlow(value, MassFlowUnit.SI);
+        }
+
+        /// <summary>
         ///     Get MassFlow from CentigramsPerDay.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

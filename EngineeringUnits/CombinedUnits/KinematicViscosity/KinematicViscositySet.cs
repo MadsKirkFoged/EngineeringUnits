@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class KinematicViscosity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static KinematicViscosity FromSI(double si)
+        {
+            double value = (double)si;
+            return new KinematicViscosity(value, KinematicViscosityUnit.SI);
+        }
+
         /// <summary>
         ///     Get KinematicViscosity from Centistokes.
         /// </summary>
