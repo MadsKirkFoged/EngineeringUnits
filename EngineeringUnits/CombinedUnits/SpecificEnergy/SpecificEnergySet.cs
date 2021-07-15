@@ -7,6 +7,17 @@ namespace EngineeringUnits
     public partial class SpecificEnergy
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static SpecificEnergy FromSI(double si)
+        {
+            double value = (double)si;
+            return new SpecificEnergy(value, SpecificEnergyUnit.SI);
+        }
+
+
+        /// <summary>
         ///     Get SpecificEnergy from BtuPerPound.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

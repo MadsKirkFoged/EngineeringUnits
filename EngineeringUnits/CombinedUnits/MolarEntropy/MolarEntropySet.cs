@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class MolarEntropy
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEntropy FromSI(double si)
+        {
+            double value = (double)si;
+            return new MolarEntropy(value, MolarEntropyUnit.SI);
+        }
+
         /// <summary>
         ///     Get MolarEntropy from JoulesPerMoleKelvin.
         /// </summary>

@@ -8,6 +8,16 @@ namespace EngineeringUnits
     {
 
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Molarity FromSI(double si)
+        {
+            double value = (double)si;
+            return new Molarity(value, MolarityUnit.SI);
+        }
+
+        /// <summary>
         ///     Get Molarity from CentimolesPerLiter.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

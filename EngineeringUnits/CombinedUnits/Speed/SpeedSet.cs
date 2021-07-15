@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Speed
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Speed FromSI(double si)
+        {
+            double value = (double)si;
+            return new Speed(value, SpeedUnit.SI);
+        }
+
         /// <summary>
         ///     Get Speed from CentimetersPerHour.
         /// </summary>

@@ -7,6 +7,17 @@ namespace EngineeringUnits
     public partial class Pressure
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Pressure FromSI(double si)
+        {
+            double value = (double)si;
+            return new Pressure(value, PressureUnit.SI);
+        }
+
+
+        /// <summary>
         ///     Get Pressure from Atmospheres.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Power
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Power FromSI(double si)
+        {
+            double value = (double)si;
+            return new Power(value, PowerUnit.SI);
+        }
+
         /// <summary>
         ///     Get Power from BoilerHorsepower.
         /// </summary>

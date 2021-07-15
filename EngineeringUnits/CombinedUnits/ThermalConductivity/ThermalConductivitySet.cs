@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ThermalConductivity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ThermalConductivity FromSI(double si)
+        {
+            double value = (double)si;
+            return new ThermalConductivity(value, ThermalConductivityUnit.SI);
+        }
+
         /// <summary>
         ///     Get ThermalConductivity from BtusPerHourFootFahrenheit.
         /// </summary>

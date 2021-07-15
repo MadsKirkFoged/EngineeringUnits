@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class MolarEnergy
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEnergy FromSI(double si)
+        {
+            double value = (double)si;
+            return new MolarEnergy(value, MolarEnergyUnit.SI);
+        }
+
         /// <summary>
         ///     Get MolarEnergy from JoulesPerMole.
         /// </summary>

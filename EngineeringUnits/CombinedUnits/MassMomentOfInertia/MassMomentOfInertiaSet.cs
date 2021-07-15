@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class MassMomentOfInertia
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MassMomentOfInertia FromSI(double si)
+        {
+            double value = (double)si;
+            return new MassMomentOfInertia(value, MassMomentOfInertiaUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get MassMomentOfInertia from GramSquareCentimeters.
         /// </summary>

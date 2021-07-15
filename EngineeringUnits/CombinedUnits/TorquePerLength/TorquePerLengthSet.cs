@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class TorquePerLength
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static TorquePerLength FromSI(double si)
+        {
+            double value = (double)si;
+            return new TorquePerLength(value, TorquePerLengthUnit.SI);
+        }
+
         /// <summary>
         ///     Get TorquePerLength from KilogramForceCentimetersPerMeter.
         /// </summary>

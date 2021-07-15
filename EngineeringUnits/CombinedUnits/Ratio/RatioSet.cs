@@ -7,6 +7,17 @@ namespace EngineeringUnits
     public partial class Ratio
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Ratio FromSI(double si)
+        {
+            double value = (double)si;
+            return new Ratio(value, RatioUnit.SI);
+        }
+
+
+        /// <summary>
         ///     Get Ratio from DecimalFractions.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

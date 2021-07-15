@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class ReactivePower
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromSI(double si)
+        {
+            double value = (double)si;
+            return new ReactivePower(value, ReactivePowerUnit.SI);
+        }
+
+        /// <summary>
         ///     Get ReactivePower from GigavoltamperesReactive.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

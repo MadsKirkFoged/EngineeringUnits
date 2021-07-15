@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class WarpingMomentOfInertia
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static WarpingMomentOfInertia FromSI(double si)
+        {
+            double value = (double)si;
+            return new WarpingMomentOfInertia(value, WarpingMomentOfInertiaUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get WarpingMomentOfInertia from CentimetersToTheSixth.
         /// </summary>

@@ -6,6 +6,19 @@ namespace EngineeringUnits
 {
     public partial class VolumePerLength
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static VolumePerLength FromSI(double si)
+        {
+            double value = (double)si;
+            return new VolumePerLength(value, VolumePerLengthUnit.SI);
+        }
+
+
+
         /// <summary>
         ///     Get VolumePerLength from CubicMetersPerMeter.
         /// </summary>

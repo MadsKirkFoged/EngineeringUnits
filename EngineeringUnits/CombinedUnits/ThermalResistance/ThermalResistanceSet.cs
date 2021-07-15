@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ThermalResistance
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ThermalResistance FromSI(double si)
+        {
+            double value = (double)si;
+            return new ThermalResistance(value, ThermalResistanceUnit.SI);
+        }
+
         /// <summary>
         ///     Get ThermalResistance from HourSquareFeetDegreesFahrenheitPerBtu.
         /// </summary>

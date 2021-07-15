@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class PressureChangeRate
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static PressureChangeRate FromSI(double si)
+        {
+            double value = (double)si;
+            return new PressureChangeRate(value, PressureChangeRateUnit.SI);
+        }
+
         /// <summary>
         ///     Get PressureChangeRate from AtmospheresPerSecond.
         /// </summary>

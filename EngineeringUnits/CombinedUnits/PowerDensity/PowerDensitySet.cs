@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class PowerDensity
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static PowerDensity FromSI(double si)
+        {
+            double value = (double)si;
+            return new PowerDensity(value, PowerDensityUnit.SI);
+        }
+
+        /// <summary>
         ///     Get PowerDensity from DecawattsPerCubicFoot.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

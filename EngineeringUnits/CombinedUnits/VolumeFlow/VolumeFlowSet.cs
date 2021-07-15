@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class VolumeFlow
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static VolumeFlow FromSI(double si)
+        {
+            double value = (double)si;
+            return new VolumeFlow(value, VolumeFlowUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get VolumeFlow from AcreFeetPerDay.
         /// </summary>

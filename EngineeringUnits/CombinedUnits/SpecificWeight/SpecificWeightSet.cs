@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class SpecificWeight
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static SpecificWeight FromSI(double si)
+        {
+            double value = (double)si;
+            return new SpecificWeight(value, SpecificWeightUnit.SI);
+        }
+
+        /// <summary>
         ///     Get SpecificWeight from KilogramsForcePerCubicCentimeter.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

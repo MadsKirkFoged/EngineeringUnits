@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class Torque
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Torque FromSI(double si)
+        {
+            double value = (double)si;
+            return new Torque(value, TorqueUnit.SI);
+        }
+
+        /// <summary>
         ///     Get Torque from KilogramForceCentimeters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
