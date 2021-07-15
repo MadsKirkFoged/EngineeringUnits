@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MassMomentOfInertiaAutoTest()
         {
             var A1 = new UnitsNet.MassMomentOfInertia(1, UnitsNet.Units.MassMomentOfInertiaUnit.KilogramSquareDecimeter);
-            var A2 = new EngineeringUnits.MassMomentOfInertia(1, EngineeringUnits.MassMomentOfInertiaUnit.KilogramSquareDecimeter);
+            var A2 = new EngineeringUnits.MassMomentOfInertia(1, MassMomentOfInertiaUnit.KilogramSquareDecimeter);
 
             int WorkingCompares = 0;
 

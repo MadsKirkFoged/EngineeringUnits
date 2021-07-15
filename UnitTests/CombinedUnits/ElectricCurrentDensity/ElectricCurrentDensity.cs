@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricCurrentDensityAutoTest()
         {
             var A1 = new UnitsNet.ElectricCurrentDensity(1, UnitsNet.Units.ElectricCurrentDensityUnit.AmperePerSquareMeter);
-            var A2 = new EngineeringUnits.ElectricCurrentDensity(1, EngineeringUnits.ElectricCurrentDensityUnit.AmperePerSquareMeter);
+            var A2 = new EngineeringUnits.ElectricCurrentDensity(1, ElectricCurrentDensityUnit.AmperePerSquareMeter);
 
             int WorkingCompares = 0;
 

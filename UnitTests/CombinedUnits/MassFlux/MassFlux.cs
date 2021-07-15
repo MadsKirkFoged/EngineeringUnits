@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MassFluxAutoTest()
         {
             var A1 = new UnitsNet.MassFlux(1, UnitsNet.Units.MassFluxUnit.GramPerSecondPerSquareMeter);
-            var A2 = new EngineeringUnits.MassFlux(1, EngineeringUnits.MassFluxUnit.GramPerSecondPerSquareMeter);
+            var A2 = new EngineeringUnits.MassFlux(1, MassFluxUnit.GramPerSecondPerSquareMeter);
 
             int WorkingCompares = 0;
 

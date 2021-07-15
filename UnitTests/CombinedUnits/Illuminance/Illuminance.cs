@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void IlluminanceAutoTest()
         {
             var A1 = new UnitsNet.Illuminance(1, UnitsNet.Units.IlluminanceUnit.Lux);
-            var A2 = new EngineeringUnits.Illuminance(1, EngineeringUnits.IlluminanceUnit.Lux);
+            var A2 = new EngineeringUnits.Illuminance(1, IlluminanceUnit.Lux);
 
             int WorkingCompares = 0;
 

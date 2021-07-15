@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricFieldAutoTest()
         {
             var A1 = new UnitsNet.ElectricField(1, UnitsNet.Units.ElectricFieldUnit.VoltPerMeter);
-            var A2 = new EngineeringUnits.ElectricField(1, EngineeringUnits.ElectricFieldUnit.VoltPerMeter);
+            var A2 = new EngineeringUnits.ElectricField(1, ElectricFieldUnit.VoltPerMeter);
 
             int WorkingCompares = 0;
 

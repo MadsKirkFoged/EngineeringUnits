@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MagneticFieldAutoTest()
         {
             var A1 = new UnitsNet.MagneticField(1, UnitsNet.Units.MagneticFieldUnit.Tesla);
-            var A2 = new EngineeringUnits.MagneticField(1, EngineeringUnits.MagneticFieldUnit.Tesla);
+            var A2 = new EngineeringUnits.MagneticField(1, MagneticFieldUnit.Tesla);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void VolumePerLengthAutoTest()
         {
             var A1 = new UnitsNet.VolumePerLength(1, UnitsNet.Units.VolumePerLengthUnit.CubicMeterPerMeter);
-            var A2 = new EngineeringUnits.VolumePerLength(1, EngineeringUnits.VolumePerLengthUnit.CubicMeterPerMeter);
+            var A2 = new EngineeringUnits.VolumePerLength(1, VolumePerLengthUnit.CubicMeterPerMeter);
 
             int WorkingCompares = 0;
 

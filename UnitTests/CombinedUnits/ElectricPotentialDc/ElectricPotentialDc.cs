@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricPotentialDcAutoTest()
         {
             var A1 = new UnitsNet.ElectricPotentialDc(1, UnitsNet.Units.ElectricPotentialDcUnit.MicrovoltDc);
-            var A2 = new EngineeringUnits.ElectricPotentialDc(1, EngineeringUnits.ElectricPotentialUnit.Microvolt);
+            var A2 = new EngineeringUnits.ElectricPotentialDc(1, ElectricPotentialUnit.Microvolt);
 
             int WorkingCompares = 0;
 

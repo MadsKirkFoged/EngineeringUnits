@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void PermeabilityAutoTest()
         {
             var A1 = new UnitsNet.Permeability(1, UnitsNet.Units.PermeabilityUnit.HenryPerMeter);
-            var A2 = new EngineeringUnits.Permeability(1, EngineeringUnits.PermeabilityUnit.HenryPerMeter);
+            var A2 = new EngineeringUnits.Permeability(1, PermeabilityUnit.HenryPerMeter);
 
             int WorkingCompares = 0;
 

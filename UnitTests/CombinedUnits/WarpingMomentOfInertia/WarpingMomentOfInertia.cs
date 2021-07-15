@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void WarpingMomentOfInertiaAutoTest()
         {
             var A1 = new UnitsNet.WarpingMomentOfInertia(1, UnitsNet.Units.WarpingMomentOfInertiaUnit.MeterToTheSixth);
-            var A2 = new EngineeringUnits.WarpingMomentOfInertia(1, EngineeringUnits.WarpingMomentOfInertiaUnit.MeterToTheSixth);
+            var A2 = new EngineeringUnits.WarpingMomentOfInertia(1, WarpingMomentOfInertiaUnit.MeterToTheSixth);
 
             int WorkingCompares = 0;
 

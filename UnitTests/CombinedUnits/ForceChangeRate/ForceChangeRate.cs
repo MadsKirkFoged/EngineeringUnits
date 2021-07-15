@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ForceChangeRateAutoTest()
         {
             var A1 = new UnitsNet.ForceChangeRate(1, UnitsNet.Units.ForceChangeRateUnit.DecanewtonPerSecond);
-            var A2 = new EngineeringUnits.ForceChangeRate(1, EngineeringUnits.ForceChangeRateUnit.DecanewtonPerSecond);
+            var A2 = new EngineeringUnits.ForceChangeRate(1, ForceChangeRateUnit.DecanewtonPerSecond);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void BrakeSpecificFuelConsumptionAutoTest()
         {
             var A1 = new UnitsNet.BrakeSpecificFuelConsumption(1, UnitsNet.Units.BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
-            var A2 = new EngineeringUnits.BrakeSpecificFuelConsumption(1, EngineeringUnits.BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
+            var A2 = new EngineeringUnits.BrakeSpecificFuelConsumption(1, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
 
             int WorkingCompares = 0;
 

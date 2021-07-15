@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MassConcentrationAutoTest()
         {
             var A1 = new UnitsNet.MassConcentration(1, UnitsNet.Units.MassConcentrationUnit.DecigramPerMilliliter);
-            var A2 = new EngineeringUnits.MassConcentration(1, EngineeringUnits.DensityUnit.DecigramPerMilliliter);
+            var A2 = new EngineeringUnits.MassConcentration(1, DensityUnit.DecigramPerMilliliter);
 
             int WorkingCompares = 0;
 

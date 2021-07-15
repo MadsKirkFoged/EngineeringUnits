@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricResistivityAutoTest()
         {
             var A1 = new UnitsNet.ElectricResistivity(1, UnitsNet.Units.ElectricResistivityUnit.KiloohmMeter);
-            var A2 = new EngineeringUnits.ElectricResistivity(1, EngineeringUnits.ElectricResistivityUnit.KiloohmMeter);
+            var A2 = new EngineeringUnits.ElectricResistivity(1, ElectricResistivityUnit.KiloohmMeter);
 
             int WorkingCompares = 0;
 

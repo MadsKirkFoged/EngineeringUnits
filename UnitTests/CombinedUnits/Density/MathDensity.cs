@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -27,16 +28,16 @@ namespace UnitTests
             var U9 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.PoundPerCubicInch);
 
 
-            var E0 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.DecigramPerLiter);
-            var E1 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.GramPerMilliliter);
-            var E2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.SlugPerCubicFoot);
-            var E3 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.GramPerCubicMeter);
-            var E4 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilogramPerCubicMeter);
-            var E5 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilopoundPerCubicInch);
-            var E6 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.PoundPerCubicInch);
-            var E7 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.TonnePerCubicMeter);
-            var E8 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilopoundPerCubicInch);
-            var E9 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.PoundPerCubicInch);
+            var E0 = new EngineeringUnits.Density(1, DensityUnit.DecigramPerLiter);
+            var E1 = new EngineeringUnits.Density(1, DensityUnit.GramPerMilliliter);
+            var E2 = new EngineeringUnits.Density(1, DensityUnit.SlugPerCubicFoot);
+            var E3 = new EngineeringUnits.Density(1, DensityUnit.GramPerCubicMeter);
+            var E4 = new EngineeringUnits.Density(1, DensityUnit.KilogramPerCubicMeter);
+            var E5 = new EngineeringUnits.Density(1, DensityUnit.KilopoundPerCubicInch);
+            var E6 = new EngineeringUnits.Density(1, DensityUnit.PoundPerCubicInch);
+            var E7 = new EngineeringUnits.Density(1, DensityUnit.TonnePerCubicMeter);
+            var E8 = new EngineeringUnits.Density(1, DensityUnit.KilopoundPerCubicInch);
+            var E9 = new EngineeringUnits.Density(1, DensityUnit.PoundPerCubicInch);
 
 
             UnitsNet.Density Result1 = U0 - U1 + U2 - U3 + U4 - U5 + U6 - U7 + U8 - U9 + U0 - U1 + U2 - U3 + U4 - U5 + U6 - U7 + U8 - U9 + U0 - U1 + U2 - U3 + U4 - U5 + U6 - U7 + U8 - U9;
@@ -87,11 +88,11 @@ namespace UnitTests
             var volumeU = new UnitsNet.Volume(1, UnitsNet.Units.VolumeUnit.Liter);
             var densityU = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.KilogramPerCubicMeter);
 
-            var massE = new EngineeringUnits.Mass(1, EngineeringUnits.MassUnit.Pound);
-            var lengthE = new EngineeringUnits.Length(1, EngineeringUnits.LengthUnit.Inch);
-            var areaE = new EngineeringUnits.Area(1, EngineeringUnits.AreaUnit.SquareFoot);
-            var volumeE = new EngineeringUnits.Volume(1, EngineeringUnits.VolumeUnit.Liter);
-            var densityE = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilogramPerCubicMeter);
+            var massE = new EngineeringUnits.Mass(1, EngineeringUnits.Units.MassUnit.Pound);
+            var lengthE = new EngineeringUnits.Length(1, EngineeringUnits.Units.LengthUnit.Inch);
+            var areaE = new EngineeringUnits.Area(1, EngineeringUnits.Units.AreaUnit.SquareFoot);
+            var volumeE = new EngineeringUnits.Volume(1, EngineeringUnits.Units.VolumeUnit.Liter);
+            var densityE = new EngineeringUnits.Density(1, EngineeringUnits.Units.DensityUnit.KilogramPerCubicMeter);
 
 
             UnitsNet.Density ResultU1 = UnitsNet.Density.FromKilogramsPerCubicMeter(massU.Kilograms / (lengthU.Meters * lengthU.Meters * lengthU.Meters));

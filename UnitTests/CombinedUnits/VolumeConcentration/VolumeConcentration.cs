@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void VolumeConcentrationAutoTest()
         {
             var A1 = new UnitsNet.VolumeConcentration(1, UnitsNet.Units.VolumeConcentrationUnit.LitersPerLiter);
-            var A2 = new EngineeringUnits.Ratio(1, EngineeringUnits.RatioUnit.LitersPerLiter);
+            var A2 = new EngineeringUnits.Ratio(1, RatioUnit.LitersPerLiter);
 
             int WorkingCompares = 0;
 

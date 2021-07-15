@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void LevelAutoTest()
         {
             var A1 = new UnitsNet.Level(1, UnitsNet.Units.LevelUnit.Decibel);
-            var A2 = new EngineeringUnits.Level(1, EngineeringUnits.LevelUnit.Decibel);
+            var A2 = new EngineeringUnits.Level(1, LevelUnit.Decibel);
 
             int WorkingCompares = 0;
 

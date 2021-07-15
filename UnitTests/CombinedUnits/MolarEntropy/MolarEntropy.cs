@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MolarEntropyAutoTest()
         {
             var A1 = new UnitsNet.MolarEntropy(1, UnitsNet.Units.MolarEntropyUnit.KilojoulePerMoleKelvin);
-            var A2 = new EngineeringUnits.MolarEntropy(1, EngineeringUnits.MolarEntropyUnit.KilojoulePerMoleKelvin);
+            var A2 = new EngineeringUnits.MolarEntropy(1, MolarEntropyUnit.KilojoulePerMoleKelvin);
 
             int WorkingCompares = 0;
 

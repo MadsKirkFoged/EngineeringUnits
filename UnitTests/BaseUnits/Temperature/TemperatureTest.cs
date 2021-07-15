@@ -1,4 +1,5 @@
 using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Diagnostics;

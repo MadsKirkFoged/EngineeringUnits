@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ReactivePowerAutoTest()
         {
             var A1 = new UnitsNet.ReactivePower(1, UnitsNet.Units.ReactivePowerUnit.KilovoltampereReactive);
-            var A2 = new EngineeringUnits.ReactivePower(1, EngineeringUnits.ReactivePowerUnit.KilovoltampereReactive);
+            var A2 = new EngineeringUnits.ReactivePower(1, ReactivePowerUnit.KilovoltampereReactive);
 
             int WorkingCompares = 0;
 

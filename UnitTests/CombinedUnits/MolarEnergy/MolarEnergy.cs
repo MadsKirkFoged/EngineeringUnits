@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MolarEnergyAutoTest()
         {
             var A1 = new UnitsNet.MolarEnergy(1, UnitsNet.Units.MolarEnergyUnit.KilojoulePerMole);
-            var A2 = new EngineeringUnits.MolarEnergy(1, EngineeringUnits.MolarEnergyUnit.KilojoulePerMole);
+            var A2 = new EngineeringUnits.MolarEnergy(1, MolarEnergyUnit.KilojoulePerMole);
 
             int WorkingCompares = 0;
 

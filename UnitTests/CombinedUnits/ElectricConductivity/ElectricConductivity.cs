@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricConductivityAutoTest()
         {
             var A1 = new UnitsNet.ElectricConductivity(1, UnitsNet.Units.ElectricConductivityUnit.SiemensPerMeter);
-            var A2 = new EngineeringUnits.ElectricConductivity(1, EngineeringUnits.ElectricConductivityUnit.SiemensPerMeter);
+            var A2 = new EngineeringUnits.ElectricConductivity(1, ElectricConductivityUnit.SiemensPerMeter);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -28,16 +29,16 @@ namespace UnitTests
             var U8 = new UnitsNet.PressureChangeRate(989866, UnitsNet.Units.PressureChangeRateUnit.KilopascalPerSecond);
             var U9 = new UnitsNet.PressureChangeRate(456, UnitsNet.Units.PressureChangeRateUnit.MegapascalPerMinute);
 
-            var E0 = new EngineeringUnits.PressureChangeRate(5464.48, EngineeringUnits.PressureChangeRateUnit.KilopascalPerMinute);
-            var E1 = new EngineeringUnits.PressureChangeRate(682, EngineeringUnits.PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
-            var E2 = new EngineeringUnits.PressureChangeRate(5, EngineeringUnits.PressureChangeRateUnit.PascalPerSecond);
-            var E3 = new EngineeringUnits.PressureChangeRate(468, EngineeringUnits.PressureChangeRateUnit.AtmospherePerSecond);
-            var E4 = new EngineeringUnits.PressureChangeRate(0.2458, EngineeringUnits.PressureChangeRateUnit.KilopascalPerMinute);
-            var E5 = new EngineeringUnits.PressureChangeRate(4.4568, EngineeringUnits.PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
-            var E6 = new EngineeringUnits.PressureChangeRate(1, EngineeringUnits.PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
-            var E7 = new EngineeringUnits.PressureChangeRate(4444577, EngineeringUnits.PressureChangeRateUnit.PascalPerMinute);
-            var E8 = new EngineeringUnits.PressureChangeRate(989866, EngineeringUnits.PressureChangeRateUnit.KilopascalPerSecond);
-            var E9 = new EngineeringUnits.PressureChangeRate(456, EngineeringUnits.PressureChangeRateUnit.MegapascalPerMinute);
+            var E0 = new EngineeringUnits.PressureChangeRate(5464.48, PressureChangeRateUnit.KilopascalPerMinute);
+            var E1 = new EngineeringUnits.PressureChangeRate(682, PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
+            var E2 = new EngineeringUnits.PressureChangeRate(5, PressureChangeRateUnit.PascalPerSecond);
+            var E3 = new EngineeringUnits.PressureChangeRate(468, PressureChangeRateUnit.AtmospherePerSecond);
+            var E4 = new EngineeringUnits.PressureChangeRate(0.2458, PressureChangeRateUnit.KilopascalPerMinute);
+            var E5 = new EngineeringUnits.PressureChangeRate(4.4568, PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
+            var E6 = new EngineeringUnits.PressureChangeRate(1, PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
+            var E7 = new EngineeringUnits.PressureChangeRate(4444577, PressureChangeRateUnit.PascalPerMinute);
+            var E8 = new EngineeringUnits.PressureChangeRate(989866, PressureChangeRateUnit.KilopascalPerSecond);
+            var E9 = new EngineeringUnits.PressureChangeRate(456, PressureChangeRateUnit.MegapascalPerMinute);
 
 
 

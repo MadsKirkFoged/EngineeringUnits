@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void LapseRateAutoTest()
         {
             var A1 = new UnitsNet.LapseRate(1, UnitsNet.Units.LapseRateUnit.DegreeCelsiusPerKilometer);
-            var A2 = new EngineeringUnits.LapseRate(1, EngineeringUnits.LapseRateUnit.DegreeCelsiusPerKilometer);
+            var A2 = new EngineeringUnits.LapseRate(1, LapseRateUnit.DegreeCelsiusPerKilometer);
 
             int WorkingCompares = 0;
 

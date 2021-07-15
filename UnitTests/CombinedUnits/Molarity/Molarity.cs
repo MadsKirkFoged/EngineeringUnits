@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MolarityAutoTest()
         {
             var A1 = new UnitsNet.Molarity(1, UnitsNet.Units.MolarityUnit.MolesPerLiter);
-            var A2 = new EngineeringUnits.Molarity(1, EngineeringUnits.MolarityUnit.MolesPerLiter);
+            var A2 = new EngineeringUnits.Molarity(1, MolarityUnit.MolesPerLiter);
 
             int WorkingCompares = 0;
 

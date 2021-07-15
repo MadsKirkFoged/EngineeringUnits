@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ReactiveEnergyAutoTest()
         {
             var A1 = new UnitsNet.ReactiveEnergy(1, UnitsNet.Units.ReactiveEnergyUnit.VoltampereReactiveHour);
-            var A2 = new EngineeringUnits.ReactiveEnergy(1, EngineeringUnits.ReactiveEnergyUnit.VoltampereReactiveHour);
+            var A2 = new EngineeringUnits.ReactiveEnergy(1, ReactiveEnergyUnit.VoltampereReactiveHour);
 
             int WorkingCompares = 0;
 

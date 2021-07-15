@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void BitRateAutoTest()
         {
             var A1 = new UnitsNet.BitRate(1, UnitsNet.Units.BitRateUnit.BitPerSecond);
-            var A2 = new EngineeringUnits.BitRate(1, EngineeringUnits.BitRateUnit.BitPerSecond);
+            var A2 = new EngineeringUnits.BitRate(1, BitRateUnit.BitPerSecond);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void PressureChangeRateAutoTest()
         {
             var A1 = new UnitsNet.PressureChangeRate(1, UnitsNet.Units.PressureChangeRateUnit.MegapascalPerMinute);
-            var A2 = new EngineeringUnits.PressureChangeRate(1, EngineeringUnits.PressureChangeRateUnit.MegapascalPerMinute);
+            var A2 = new EngineeringUnits.PressureChangeRate(1, PressureChangeRateUnit.MegapascalPerMinute);
 
             int WorkingCompares = 0;
 

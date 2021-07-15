@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void InformationAutoTest()
         {
             var A1 = new UnitsNet.Information(1, UnitsNet.Units.InformationUnit.Byte);
-            var A2 = new EngineeringUnits.Information(1, EngineeringUnits.InformationUnit.Byte);
+            var A2 = new EngineeringUnits.Information(1, InformationUnit.Byte);
 
             int WorkingCompares = 0;
 

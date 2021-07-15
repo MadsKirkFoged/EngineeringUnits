@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void PermittivityAutoTest()
         {
             var A1 = new UnitsNet.Permittivity(1, UnitsNet.Units.PermittivityUnit.FaradPerMeter);
-            var A2 = new EngineeringUnits.Permittivity(1, EngineeringUnits.PermittivityUnit.FaradPerMeter);
+            var A2 = new EngineeringUnits.Permittivity(1, PermittivityUnit.FaradPerMeter);
 
             int WorkingCompares = 0;
 

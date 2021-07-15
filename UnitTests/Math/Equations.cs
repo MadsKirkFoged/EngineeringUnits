@@ -1,4 +1,5 @@
 using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -21,10 +22,10 @@ namespace UnitTests
             //obs - UnitsNet cant do this eq..
 
 
-            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin);
-            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(1, EngineeringUnits.MassFlowUnit.KilogramPerSecond);
-            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(10, EngineeringUnits.TemperatureUnit.DegreeCelsius);
-            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(5, EngineeringUnits.TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(10, TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(5, TemperatureUnit.DegreeCelsius);
 
             EngineeringUnits.Power Q1 = M1 * P1 * (T2 - T1);
 
@@ -41,9 +42,9 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(0, Q1.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour) - q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 7.2E-05);
-            Assert.AreEqual(0, Q1.As(EngineeringUnits.PowerUnit.Kilowatt) - q1.As(UnitsNet.Units.PowerUnit.Kilowatt), 0);
-            Assert.AreEqual(0, Q1.As(EngineeringUnits.PowerUnit.Watt) - q1.As(UnitsNet.Units.PowerUnit.Watt), 0);
+            Assert.AreEqual(0, Q1.As(PowerUnit.BritishThermalUnitPerHour) - q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 7.2E-05);
+            Assert.AreEqual(0, Q1.As(PowerUnit.Kilowatt) - q1.As(UnitsNet.Units.PowerUnit.Kilowatt), 0);
+            Assert.AreEqual(0, Q1.As(PowerUnit.Watt) - q1.As(UnitsNet.Units.PowerUnit.Watt), 0);
 
 
         }
@@ -57,10 +58,10 @@ namespace UnitTests
             //obs - UnitsNet cant do this eq..
 
 
-            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(35345, EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine);
-            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(4356, EngineeringUnits.MassFlowUnit.PoundPerMinute);
-            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(342, EngineeringUnits.TemperatureUnit.DegreeRankine);
-            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(43, EngineeringUnits.TemperatureUnit.DegreeRankine);
+            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(35345, SpecificEntropyUnit.BtuPerPoundRankine);
+            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(4356, MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(342, TemperatureUnit.DegreeRankine);
+            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(43, TemperatureUnit.DegreeRankine);
 
             EngineeringUnits.Power Q1 = M1 * P1 * (T2 - T1);
 
@@ -81,13 +82,13 @@ namespace UnitTests
             //UnitsNet dont not use a high precision for this conversion which gives a off result
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(P1.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin),
+            Assert.AreEqual(0, HelperClass.Percent(P1.As(SpecificEntropyUnit.JoulePerKilogramKelvin),
                                                     p1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent(P1.As(EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine),
+            Assert.AreEqual(0, HelperClass.Percent(P1.As(SpecificEntropyUnit.BtuPerPoundRankine),
                                                     p1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent(M1.As(EngineeringUnits.MassFlowUnit.KilogramPerSecond),
+            Assert.AreEqual(0, HelperClass.Percent(M1.As(MassFlowUnit.KilogramPerSecond),
                                                     m1.As(UnitsNet.Units.MassFlowUnit.KilogramPerSecond)), 0.0003);
 
 
@@ -100,13 +101,13 @@ namespace UnitTests
             //Assert.AreEqual(0, Q1.As(EngineeringUnits.PowerUnit.Watt) - q1.As(UnitsNet.Units.PowerUnit.Watt), 0);
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(Q1.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour),
+            Assert.AreEqual(0, HelperClass.Percent(Q1.As(PowerUnit.BritishThermalUnitPerHour),
                                                     q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour)), 0.0003);
 
-            Assert.AreEqual(0, HelperClass.Percent(Q1.As(EngineeringUnits.PowerUnit.Kilowatt),
+            Assert.AreEqual(0, HelperClass.Percent(Q1.As(PowerUnit.Kilowatt),
                                                     q1.As(UnitsNet.Units.PowerUnit.Kilowatt)), 0.00013);
 
-            Assert.AreEqual(0, HelperClass.Percent(Q1.As(EngineeringUnits.PowerUnit.Watt),
+            Assert.AreEqual(0, HelperClass.Percent(Q1.As(PowerUnit.Watt),
                                                     q1.As(UnitsNet.Units.PowerUnit.Watt)), 0.00013);
 
 
@@ -130,9 +131,9 @@ namespace UnitTests
             var g2U = new UnitsNet.Acceleration(4.5, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
 
 
-            var massE = new EngineeringUnits.Mass(36, EngineeringUnits.MassUnit.Kilogram);
-            var gE = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.StandardGravity);
-            var g2E = new EngineeringUnits.Acceleration(4.5, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+            var massE = new EngineeringUnits.Mass(36, MassUnit.Kilogram);
+            var gE = new EngineeringUnits.Acceleration(1, AccelerationUnit.StandardGravity);
+            var g2E = new EngineeringUnits.Acceleration(4.5, AccelerationUnit.MeterPerSecondSquared);
 
 
             UnitsNet.Force Result1 = massU * ( gU + g2U );
@@ -185,9 +186,9 @@ namespace UnitTests
             var TemperatureU = new UnitsNet.Temperature(4.5, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
 
 
-            var massE = new EngineeringUnits.Mass(36, EngineeringUnits.MassUnit.Kilogram);
-            var EnergyE = new EngineeringUnits.Energy(1, EngineeringUnits.EnergyUnit.Calorie);
-            var TemperatureE = new EngineeringUnits.Temperature(4.5, EngineeringUnits.TemperatureUnit.DegreeCelsius);
+            var massE = new EngineeringUnits.Mass(36, MassUnit.Kilogram);
+            var EnergyE = new EngineeringUnits.Energy(1, EnergyUnit.Calorie);
+            var TemperatureE = new EngineeringUnits.Temperature(4.5, TemperatureUnit.DegreeCelsius);
 
 
             UnitsNet.SpecificEntropy Result1 = UnitsNet.SpecificEntropy.FromJoulesPerKilogramKelvin( EnergyU.Joules / (massU.Kilograms * TemperatureU.Kelvins));

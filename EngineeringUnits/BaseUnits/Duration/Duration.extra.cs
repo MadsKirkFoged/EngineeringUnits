@@ -1,6 +1,6 @@
-﻿using System;
+﻿using EngineeringUnits.Units;
 using System.Collections.Generic;
-using System.Text;
+using System;
 using Fractions;
 
 namespace EngineeringUnits

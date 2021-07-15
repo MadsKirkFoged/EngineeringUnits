@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricCurrentGradientAutoTest()
         {
             var A1 = new UnitsNet.ElectricCurrentGradient(1, UnitsNet.Units.ElectricCurrentGradientUnit.AmperePerSecond);
-            var A2 = new EngineeringUnits.ElectricCurrentGradient(1, EngineeringUnits.ElectricCurrentGradientUnit.AmperePerSecond);
+            var A2 = new EngineeringUnits.ElectricCurrentGradient(1, ElectricCurrentGradientUnit.AmperePerSecond);
 
             int WorkingCompares = 0;
 

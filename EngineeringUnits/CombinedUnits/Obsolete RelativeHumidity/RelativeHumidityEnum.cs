@@ -1,9 +1,9 @@
-﻿using System;
+﻿using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
+using System;
 
-namespace EngineeringUnits
+namespace EngineeringUnits.Units
 {
 
     [Obsolete("RelativeHumidity is deprecated, please use Ratio instead.", true)]

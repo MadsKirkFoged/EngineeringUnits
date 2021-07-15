@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricPotentialChangeRateAutoTest()
         {
             var A1 = new UnitsNet.ElectricPotentialChangeRate(1, UnitsNet.Units.ElectricPotentialChangeRateUnit.KilovoltPerSecond);
-            var A2 = new EngineeringUnits.ElectricPotentialChangeRate(1, EngineeringUnits.ElectricPotentialChangeRateUnit.KilovoltPerSecond);
+            var A2 = new EngineeringUnits.ElectricPotentialChangeRate(1, ElectricPotentialChangeRateUnit.KilovoltPerSecond);
 
             int WorkingCompares = 0;
 

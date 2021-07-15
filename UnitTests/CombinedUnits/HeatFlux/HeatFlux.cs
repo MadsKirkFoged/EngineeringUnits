@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void HeatFluxAutoTest()
         {
             var A1 = new UnitsNet.HeatFlux(1, UnitsNet.Units.HeatFluxUnit.WattPerSquareMeter);
-            var A2 = new EngineeringUnits.HeatFlux(1, EngineeringUnits.HeatFluxUnit.WattPerSquareMeter);
+            var A2 = new EngineeringUnits.HeatFlux(1, HeatFluxUnit.WattPerSquareMeter);
 
             int WorkingCompares = 0;
 

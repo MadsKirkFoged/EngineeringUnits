@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void MagnetizationAutoTest()
         {
             var A1 = new UnitsNet.Magnetization(1, UnitsNet.Units.MagnetizationUnit.AmperePerMeter);
-            var A2 = new EngineeringUnits.Magnetization(1, EngineeringUnits.MagnetizationUnit.AmperePerMeter);
+            var A2 = new EngineeringUnits.Magnetization(1, MagnetizationUnit.AmperePerMeter);
 
             int WorkingCompares = 0;
 

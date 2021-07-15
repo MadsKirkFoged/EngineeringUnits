@@ -1,9 +1,10 @@
-﻿using System;
+﻿using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace EngineeringUnits
+namespace EngineeringUnits.Units
 {
 
 

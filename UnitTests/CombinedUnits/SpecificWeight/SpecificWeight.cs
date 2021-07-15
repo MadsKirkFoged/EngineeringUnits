@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void SpecificWeightAutoTest()
         {
             var A1 = new UnitsNet.SpecificWeight(1, UnitsNet.Units.SpecificWeightUnit.KilogramForcePerCubicMillimeter);
-            var A2 = new EngineeringUnits.SpecificWeight(1, EngineeringUnits.SpecificWeightUnit.KilogramForcePerCubicMillimeter);
+            var A2 = new EngineeringUnits.SpecificWeight(1, SpecificWeightUnit.KilogramForcePerCubicMillimeter);
 
             int WorkingCompares = 0;
 

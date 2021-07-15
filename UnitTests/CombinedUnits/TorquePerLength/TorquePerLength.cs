@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void TorquePerLengthAutoTest()
         {
             var A1 = new UnitsNet.TorquePerLength(1, UnitsNet.Units.TorquePerLengthUnit.KilonewtonMeterPerMeter);
-            var A2 = new EngineeringUnits.TorquePerLength(1, EngineeringUnits.TorquePerLengthUnit.KilonewtonMeterPerMeter);
+            var A2 = new EngineeringUnits.TorquePerLength(1, TorquePerLengthUnit.KilonewtonMeterPerMeter);
 
             int WorkingCompares = 0;
 

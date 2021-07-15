@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void AngleAutoTest()
         {
             var A1 = new UnitsNet.Angle(1, UnitsNet.Units.AngleUnit.Degree);
-            var A2 = new EngineeringUnits.Angle(1, EngineeringUnits.AngleUnit.Degree);
+            var A2 = new EngineeringUnits.Angle(1, AngleUnit.Degree);
 
             int WorkingCompares = 0;
 

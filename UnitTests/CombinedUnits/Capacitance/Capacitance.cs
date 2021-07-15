@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void CapacitanceAutoTest()
         {
             var A1 = new UnitsNet.Capacitance(1, UnitsNet.Units.CapacitanceUnit.Farad);
-            var A2 = new EngineeringUnits.Capacitance(1, EngineeringUnits.CapacitanceUnit.Farad);
+            var A2 = new EngineeringUnits.Capacitance(1, CapacitanceUnit.Farad);
 
             int WorkingCompares = 0;
 

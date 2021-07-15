@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricChargeAutoTest()
         {
             var A1 = new UnitsNet.ElectricCharge(1, UnitsNet.Units.ElectricChargeUnit.AmpereHour);
-            var A2 = new EngineeringUnits.ElectricCharge(1, EngineeringUnits.ElectricChargeUnit.AmpereHour);
+            var A2 = new EngineeringUnits.ElectricCharge(1, ElectricChargeUnit.AmpereHour);
 
             int WorkingCompares = 0;
 

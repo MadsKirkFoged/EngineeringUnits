@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -17,8 +18,8 @@ namespace UnitTests
         {
             var A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.FootPerSecondSquared);
             var A2 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MicrometerPerSecondSquared);
-            var A3 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.FootPerSecondSquared);
-            var A4 = new EngineeringUnits.Acceleration(1, EngineeringUnits.AccelerationUnit.MicrometerPerSecondSquared);
+            var A3 = new EngineeringUnits.Acceleration(1, AccelerationUnit.FootPerSecondSquared);
+            var A4 = new EngineeringUnits.Acceleration(1, AccelerationUnit.MicrometerPerSecondSquared);
 
 
             var Result1 = A1 + A2;
@@ -78,9 +79,9 @@ namespace UnitTests
             var A3 = new UnitsNet.Duration(1, UnitsNet.Units.DurationUnit.Hour);
 
 
-            var A4 = new EngineeringUnits.Length(10, EngineeringUnits.LengthUnit.Kilometer);
-            var A5 = new EngineeringUnits.Duration(1, EngineeringUnits.DurationUnit.Minute);
-            var A6 = new EngineeringUnits.Duration(1, EngineeringUnits.DurationUnit.Hour);
+            var A4 = new EngineeringUnits.Length(10, LengthUnit.Kilometer);
+            var A5 = new EngineeringUnits.Duration(1, DurationUnit.Minute);
+            var A6 = new EngineeringUnits.Duration(1, DurationUnit.Hour);
 
 
             UnitsNet.Acceleration Result1 = UnitsNet.Acceleration.FromMetersPerSecondSquared( A1.Meters / (A2.Seconds * A3.Seconds));

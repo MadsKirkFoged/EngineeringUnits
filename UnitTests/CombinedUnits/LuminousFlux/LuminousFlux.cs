@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void LuminousFluxAutoTest()
         {
             var A1 = new UnitsNet.LuminousFlux(1, UnitsNet.Units.LuminousFluxUnit.Lumen);
-            var A2 = new EngineeringUnits.LuminousFlux(1, EngineeringUnits.LuminousFluxUnit.Lumen);
+            var A2 = new EngineeringUnits.LuminousFlux(1, LuminousFluxUnit.Lumen);
 
             int WorkingCompares = 0;
 

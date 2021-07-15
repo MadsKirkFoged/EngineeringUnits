@@ -1,6 +1,6 @@
 ﻿using Fractions;
 using Newtonsoft.Json;
-using System;
+using EngineeringUnits.Units;
 using System.Diagnostics;
 
 namespace EngineeringUnits

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void LinearDensityAutoTest()
         {
             var A1 = new UnitsNet.LinearDensity(1, UnitsNet.Units.LinearDensityUnit.KilogramPerMeter);
-            var A2 = new EngineeringUnits.LinearDensity(1, EngineeringUnits.LinearDensityUnit.KilogramPerMeter);
+            var A2 = new EngineeringUnits.LinearDensity(1, LinearDensityUnit.KilogramPerMeter);
 
             int WorkingCompares = 0;
 

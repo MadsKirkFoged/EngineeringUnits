@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void RatioAutoTest()
         {
             var A1 = new UnitsNet.Ratio(1, UnitsNet.Units.RatioUnit.PartPerMillion);
-            var A2 = new EngineeringUnits.Ratio(1, EngineeringUnits.RatioUnit.PartPerMillion);
+            var A2 = new EngineeringUnits.Ratio(1, RatioUnit.PartPerMillion);
 
             int WorkingCompares = 0;
 

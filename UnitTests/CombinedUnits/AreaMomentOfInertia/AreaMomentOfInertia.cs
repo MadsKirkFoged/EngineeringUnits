@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void AreaMomentOfInertiaAutoTest()
         {
             var A1 = new UnitsNet.AreaMomentOfInertia(1, UnitsNet.Units.AreaMomentOfInertiaUnit.MeterToTheFourth);
-            var A2 = new EngineeringUnits.AreaMomentOfInertia(1, EngineeringUnits.AreaMomentOfInertiaUnit.MeterToTheFourth);
+            var A2 = new EngineeringUnits.AreaMomentOfInertia(1, AreaMomentOfInertiaUnit.MeterToTheFourth);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void ElectricSurfaceChargeDensityAutoTest()
         {
             var A1 = new UnitsNet.ElectricSurfaceChargeDensity(1, UnitsNet.Units.ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
-            var A2 = new EngineeringUnits.ElectricSurfaceChargeDensity(1, EngineeringUnits.ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
+            var A2 = new EngineeringUnits.ElectricSurfaceChargeDensity(1, ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void IrradianceAutoTest()
         {
             var A1 = new UnitsNet.Irradiance(1, UnitsNet.Units.IrradianceUnit.KilowattPerSquareMeter);
-            var A2 = new EngineeringUnits.Irradiance(1, EngineeringUnits.IrradianceUnit.KilowattPerSquareMeter);
+            var A2 = new EngineeringUnits.Irradiance(1, IrradianceUnit.KilowattPerSquareMeter);
 
             int WorkingCompares = 0;
 

@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -16,7 +17,7 @@ namespace UnitTests
         public void ApparentPowerAutoTest()
         {
             var A1 = new UnitsNet.ApparentPower(1, UnitsNet.Units.ApparentPowerUnit.Megavoltampere);
-            var A2 = new EngineeringUnits.ApparentPower(1, EngineeringUnits.ApparentPowerUnit.Megavoltampere);
+            var A2 = new EngineeringUnits.ApparentPower(1, ApparentPowerUnit.Megavoltampere);
 
             int WorkingCompares = 0;
 

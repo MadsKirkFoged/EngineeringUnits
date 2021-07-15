@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -18,7 +19,7 @@ namespace UnitTests
         public void LinearPowerDensityAutoTest()
         {
             var A1 = new UnitsNet.LinearPowerDensity(1, UnitsNet.Units.LinearPowerDensityUnit.KilowattPerInch);
-            var A2 = new EngineeringUnits.LinearPowerDensity(1, EngineeringUnits.LinearPowerDensityUnit.KilowattPerInch);
+            var A2 = new EngineeringUnits.LinearPowerDensity(1, LinearPowerDensityUnit.KilowattPerInch);
 
             int WorkingCompares = 0;
 

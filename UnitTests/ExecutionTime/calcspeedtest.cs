@@ -1,4 +1,5 @@
 using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace UnitTests
             stopwatchUN.Stop();
 
             stopwatchEN.Start();
-            EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, EngineeringUnits.DurationUnit.Minute);
+            EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, DurationUnit.Minute);
             stopwatchEN.Stop();
 
 
@@ -46,7 +47,7 @@ namespace UnitTests
             stopwatchUN.Stop();
 
             stopwatchEN.Start();
-            var A2 = new EngineeringUnits.ForcePerLength(65.743, EngineeringUnits.ForcePerLengthUnit.DecanewtonPerCentimeter);
+            var A2 = new EngineeringUnits.ForcePerLength(65.743, ForcePerLengthUnit.DecanewtonPerCentimeter);
             stopwatchEN.Stop();
 
 
@@ -76,8 +77,8 @@ namespace UnitTests
             stopwatchUN.Stop();
 
             stopwatchEN.Start();
-            var M2 = new EngineeringUnits.Mass(65.743, EngineeringUnits.MassUnit.Kilopound);
-            var V2 = new EngineeringUnits.Volume(10.457, EngineeringUnits.VolumeUnit.Liter);
+            var M2 = new EngineeringUnits.Mass(65.743, MassUnit.Kilopound);
+            var V2 = new EngineeringUnits.Volume(10.457, VolumeUnit.Liter);
             EngineeringUnits.Density D2 = M2 / V2;
 
             stopwatchEN.Stop();
@@ -119,7 +120,7 @@ namespace UnitTests
 
             for (int i = 0; i < 100000; i++)
             {
-                ENList.Add(new EngineeringUnits.Power(i, EngineeringUnits.PowerUnit.Gigawatt));
+                ENList.Add(new EngineeringUnits.Power(i, PowerUnit.Gigawatt));
             }
 
             stopwatchEN.Stop();
@@ -157,7 +158,7 @@ namespace UnitTests
 
             stopwatchEN.Start();
 
-            var M2 = new EngineeringUnits.Mass(1, EngineeringUnits.MassUnit.Kilopound);
+            var M2 = new EngineeringUnits.Mass(1, MassUnit.Kilopound);
 
             for (int i = 0; i < 20; i++)
             {

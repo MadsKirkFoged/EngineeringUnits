@@ -5,6 +5,7 @@ using UnitsNet;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EngineeringUnits.Units;
 
 namespace UnitTests
 {
@@ -17,43 +18,43 @@ namespace UnitTests
         public void Energycompare()
         {
             UnitsNet.Energy L1 = new UnitsNet.Energy(56239676, UnitsNet.Units.EnergyUnit.Joule);
-            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EngineeringUnits.EnergyUnit.Joule);
+            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EnergyUnit.Joule);
 
 
             //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.BritishThermalUnit) - L1.As(UnitsNet.Units.EnergyUnit.BritishThermalUnit), 0.21);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.Calorie) - L1.As(UnitsNet.Units.EnergyUnit.Calorie), 1.9E-09);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.ElectronVolt) - L1.As(UnitsNet.Units.EnergyUnit.ElectronVolt), 0);
+            Assert.AreEqual(0, L2.As(EnergyUnit.BritishThermalUnit) - L1.As(UnitsNet.Units.EnergyUnit.BritishThermalUnit), 0.21);
+            Assert.AreEqual(0, L2.As(EnergyUnit.Calorie) - L1.As(UnitsNet.Units.EnergyUnit.Calorie), 1.9E-09);
+            Assert.AreEqual(0, L2.As(EnergyUnit.ElectronVolt) - L1.As(UnitsNet.Units.EnergyUnit.ElectronVolt), 0);
 
 
             //The %-error is still very small
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.FootPound) - L1.As(UnitsNet.Units.EnergyUnit.FootPound), 550);
+            Assert.AreEqual(0, L2.As(EnergyUnit.FootPound) - L1.As(UnitsNet.Units.EnergyUnit.FootPound), 550);
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.KilowattHour) - L1.As(UnitsNet.Units.EnergyUnit.KilowattHour), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.EnergyUnit.WattHour) - L1.As(UnitsNet.Units.EnergyUnit.WattHour), 0);
+            Assert.AreEqual(0, L2.As(EnergyUnit.Joule) - L1.As(UnitsNet.Units.EnergyUnit.Joule), 0);
+            Assert.AreEqual(0, L2.As(EnergyUnit.KilowattHour) - L1.As(UnitsNet.Units.EnergyUnit.KilowattHour), 0);
+            Assert.AreEqual(0, L2.As(EnergyUnit.WattHour) - L1.As(UnitsNet.Units.EnergyUnit.WattHour), 0);
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.Joule),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.Joule),
                                                     L1.As(UnitsNet.Units.EnergyUnit.Joule)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.BritishThermalUnit),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.BritishThermalUnit),
                                                      L1.As(UnitsNet.Units.EnergyUnit.BritishThermalUnit)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.Calorie),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.Calorie),
                                                     L1.As(UnitsNet.Units.EnergyUnit.Calorie)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.ElectronVolt),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.ElectronVolt),
                                                     L1.As(UnitsNet.Units.EnergyUnit.ElectronVolt)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.FootPound),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.FootPound),
                                                     L1.As(UnitsNet.Units.EnergyUnit.FootPound)), 0.002);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.KilowattHour),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.KilowattHour),
                                                     L1.As(UnitsNet.Units.EnergyUnit.KilowattHour)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent( L2.As(EngineeringUnits.EnergyUnit.WattHour),
+            Assert.AreEqual(0, HelperClass.Percent( L2.As(EnergyUnit.WattHour),
                                                     L1.As(UnitsNet.Units.EnergyUnit.WattHour)), 0);
         }
 
@@ -61,30 +62,30 @@ namespace UnitTests
         public void Energycompare2()
         {
             UnitsNet.Energy L1 = new UnitsNet.Energy(56239676, UnitsNet.Units.EnergyUnit.BritishThermalUnit);
-            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EngineeringUnits.EnergyUnit.BritishThermalUnit);
+            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EnergyUnit.BritishThermalUnit);
 
 
       
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.Joule),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.Joule),
                                                     L1.As(UnitsNet.Units.EnergyUnit.Joule)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.BritishThermalUnit),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.BritishThermalUnit),
                                                      L1.As(UnitsNet.Units.EnergyUnit.BritishThermalUnit)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.Calorie),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.Calorie),
                                                     L1.As(UnitsNet.Units.EnergyUnit.Calorie)), 0.0004);
 
             //Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.ElectronVolt),
                                                    // L1.As(UnitsNet.Units.EnergyUnit.ElectronVolt)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.FootPound),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.FootPound),
                                                     L1.As(UnitsNet.Units.EnergyUnit.FootPound)), 0.002);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.KilowattHour),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.KilowattHour),
                                                     L1.As(UnitsNet.Units.EnergyUnit.KilowattHour)), 0.0004);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.EnergyUnit.WattHour),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.WattHour),
                                                     L1.As(UnitsNet.Units.EnergyUnit.WattHour)), 0.0004);
         }
 
@@ -95,52 +96,52 @@ namespace UnitTests
             //Enthalpy is an alias for SpecificEnergy
 
             UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.Enthalpy L2 = new EngineeringUnits.Enthalpy(10, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.Enthalpy L2 = new EngineeringUnits.Enthalpy(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 1.9E-12);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 1.9E-12);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
         }
 
         [TestMethod]
         public void SpecificEnergycompare()
         {
             UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 1.9E-12);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 1.9E-12);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 0);
         }
 
         [TestMethod]
         public void SpecificEnergycompare2()
         {
             UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, EngineeringUnits.SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
 
 
 
             //UnitNets and EngineeringUnits does not agree on the exact conversing between JoulePerKilogram -> BtuPerPound
             //That what gives the 'large' different
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0.1);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 2.2E-5);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.BtuPerPound) - L1.As(UnitsNet.Units.SpecificEnergyUnit.BtuPerPound), 0.1);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.JoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram), 0.1);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.CaloriePerGram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.CaloriePerGram), 2.2E-5);
+            Assert.AreEqual(0, L2.As(SpecificEnergyUnit.KilojoulePerKilogram) - L1.As(UnitsNet.Units.SpecificEnergyUnit.KilojoulePerKilogram), 9.1E-05);
         }
 
         [TestMethod]
         public void SpecificEnergyAutoTest()
         {
             var A1 = new UnitsNet.SpecificEnergy(65.743, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            var A2 = new EngineeringUnits.SpecificEnergy(65.743, EngineeringUnits.SpecificEnergyUnit.JoulePerKilogram);
+            var A2 = new EngineeringUnits.SpecificEnergy(65.743, SpecificEnergyUnit.JoulePerKilogram);
 
             int WorkingCompares = 0;
 
@@ -204,11 +205,11 @@ namespace UnitTests
 
 
             UnitsNet.SpecificEntropy L1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
-            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin);
+            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 9.4E-10);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0);
+            Assert.AreEqual(0, L2.As(SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 9.4E-10);
+            Assert.AreEqual(0, L2.As(SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0);
 
         }
 
@@ -222,7 +223,7 @@ namespace UnitTests
 
 
             UnitsNet.SpecificEntropy L1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
-            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine);
+            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.BtuPerPoundRankine);
 
             //Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
             //Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
@@ -235,12 +236,12 @@ namespace UnitTests
             //UnitsNet dont not use a high precision for this conversion
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0.02);
+            Assert.AreEqual(0, L2.As(SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 0);
+            Assert.AreEqual(0, L2.As(SpecificEntropyUnit.JoulePerKilogramKelvin) - L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin), 0.02);
 
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin), L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)) , 0.0004);
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(SpecificEntropyUnit.JoulePerKilogramKelvin), L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)) , 0.0004);
 
             
         }
@@ -250,22 +251,22 @@ namespace UnitTests
         {
 
             UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
-            EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, EngineeringUnits.MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, MassFlowUnit.PoundPerMinute);
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerHour), 4);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerMinute), 0.06);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.KilogramPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerSecond), 0.00093);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour), 7);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerMinute), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.KilogramPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerHour), 4);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.KilogramPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerMinute), 0.06);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.KilogramPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerSecond), 0.00093);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.PoundPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerHour), 7);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.PoundPerMinute) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerMinute), 0);
+            Assert.AreEqual(0, L2.As(MassFlowUnit.PoundPerSecond) - L1.As(UnitsNet.Units.MassFlowUnit.PoundPerSecond), 0.0021);
         }
 
         [TestMethod]
         public void MassFlowAutoTest()
         {
             var A1 = new UnitsNet.MassFlow(65.743, UnitsNet.Units.MassFlowUnit.KilogramPerHour);
-            var A2 = new EngineeringUnits.MassFlow(65.743, EngineeringUnits.MassFlowUnit.KilogramPerHour);
+            var A2 = new EngineeringUnits.MassFlow(65.743, MassFlowUnit.KilogramPerHour);
 
             int WorkingCompares = 0;
 
@@ -320,24 +321,24 @@ namespace UnitTests
         [TestMethod]
         public void Powercompare()
         {
-            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, EngineeringUnits.PowerUnit.Watt);
+            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, PowerUnit.Watt);
             UnitsNet.Power L1 = new UnitsNet.Power(1, UnitsNet.Units.PowerUnit.Watt);
 
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.Watt) - L1.As(UnitsNet.Units.PowerUnit.Watt), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.Kilowatt) - L1.As(UnitsNet.Units.PowerUnit.Kilowatt), 0);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour) - L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 1.5E-05);
+            Assert.AreEqual(0, L2.As(PowerUnit.Watt) - L1.As(UnitsNet.Units.PowerUnit.Watt), 0);
+            Assert.AreEqual(0, L2.As(PowerUnit.Kilowatt) - L1.As(UnitsNet.Units.PowerUnit.Kilowatt), 0);
+            Assert.AreEqual(0, L2.As(PowerUnit.BritishThermalUnitPerHour) - L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 1.5E-05);
 
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.Watt),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.Watt),
                                                     L1.As(UnitsNet.Units.PowerUnit.Watt)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.Kilowatt),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.Kilowatt),
                                         L1.As(UnitsNet.Units.PowerUnit.Kilowatt)), 0);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.BritishThermalUnitPerHour),
                             L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour)), 0.00042);
 
 
@@ -347,24 +348,24 @@ namespace UnitTests
         [TestMethod]
         public void Powercompare2()
         {
-            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, EngineeringUnits.PowerUnit.BritishThermalUnitPerHour);
+            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, PowerUnit.BritishThermalUnitPerHour);
             UnitsNet.Power L1 = new UnitsNet.Power(1, UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour);
 
 
 
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.Watt) - L1.As(UnitsNet.Units.PowerUnit.Watt), 1.3E-06);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.Kilowatt) - L1.As(UnitsNet.Units.PowerUnit.Kilowatt), 1.3E-09);
-            Assert.AreEqual(0, L2.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour) - L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 0);
+            Assert.AreEqual(0, L2.As(PowerUnit.Watt) - L1.As(UnitsNet.Units.PowerUnit.Watt), 1.3E-06);
+            Assert.AreEqual(0, L2.As(PowerUnit.Kilowatt) - L1.As(UnitsNet.Units.PowerUnit.Kilowatt), 1.3E-09);
+            Assert.AreEqual(0, L2.As(PowerUnit.BritishThermalUnitPerHour) - L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 0);
 
 
             //Difference in procent
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.Watt),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.Watt),
                                                     L1.As(UnitsNet.Units.PowerUnit.Watt)), 0.00042);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.Kilowatt),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.Kilowatt),
                                         L1.As(UnitsNet.Units.PowerUnit.Kilowatt)), 0.00042);
 
-            Assert.AreEqual(0, HelperClass.Percent(L2.As(EngineeringUnits.PowerUnit.BritishThermalUnitPerHour),
+            Assert.AreEqual(0, HelperClass.Percent(L2.As(PowerUnit.BritishThermalUnitPerHour),
                             L1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour)), 0);
 
 
@@ -375,7 +376,7 @@ namespace UnitTests
         public void PowerAutoTest()
         {
             var A1 = new UnitsNet.Power(65.743m, UnitsNet.Units.PowerUnit.KilobritishThermalUnitPerHour);
-            var A2 = new EngineeringUnits.Power(65.743, EngineeringUnits.PowerUnit.KilobritishThermalUnitPerHour);
+            var A2 = new EngineeringUnits.Power(65.743, PowerUnit.KilobritishThermalUnitPerHour);
 
             int WorkingCompares = 0;
 
@@ -437,7 +438,7 @@ namespace UnitTests
         public void AreaCompareAutoTest()
         {
             var A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
-            var A2 = new EngineeringUnits.Area(65.743, EngineeringUnits.AreaUnit.SquareFoot);
+            var A2 = new EngineeringUnits.Area(65.743, AreaUnit.SquareFoot);
 
             int WorkingCompares = 0;
 
@@ -491,7 +492,7 @@ namespace UnitTests
         public void EnergyAutoTest()
         {
             var A1 = new UnitsNet.Energy(65.743, UnitsNet.Units.EnergyUnit.Joule);
-            var A2 = new EngineeringUnits.Energy(65.743, EngineeringUnits.EnergyUnit.Joule);
+            var A2 = new EngineeringUnits.Energy(65.743, EnergyUnit.Joule);
 
             int WorkingCompares = 0;
 
@@ -546,7 +547,7 @@ namespace UnitTests
         public void SpecificEntropyAutoTest()
         {
             var A1 = new UnitsNet.SpecificEntropy(65.743, UnitsNet.Units.SpecificEntropyUnit.KilocaloriePerGramKelvin);
-            var A2 = new EngineeringUnits.SpecificEntropy(65.743, EngineeringUnits.SpecificEntropyUnit.KilocaloriePerGramKelvin);
+            var A2 = new EngineeringUnits.SpecificEntropy(65.743, SpecificEntropyUnit.KilocaloriePerGramKelvin);
 
             int WorkingCompares = 0;
 
@@ -605,7 +606,7 @@ namespace UnitTests
         public void SpeedAutoTest()
         {
             var A1 = new UnitsNet.Speed(65.743, UnitsNet.Units.SpeedUnit.FootPerHour);
-            var A2 = new EngineeringUnits.Speed(65.743, EngineeringUnits.SpeedUnit.FootPerHour);
+            var A2 = new EngineeringUnits.Speed(65.743, SpeedUnit.FootPerHour);
 
             int WorkingCompares = 0;
 
@@ -661,7 +662,7 @@ namespace UnitTests
         public void PressureAutoTest()
         {
             var A1 = new UnitsNet.Pressure(65.743, UnitsNet.Units.PressureUnit.Bar);
-            var A2 = new EngineeringUnits.Pressure(65.743, EngineeringUnits.PressureUnit.Bar);
+            var A2 = new EngineeringUnits.Pressure(65.743, PressureUnit.Bar);
 
             int WorkingCompares = 0;
 
@@ -716,7 +717,7 @@ namespace UnitTests
         public void ForceAutoTest()
         {
             var A1 = new UnitsNet.Force(65.743, UnitsNet.Units.ForceUnit.Kilonewton);
-            var A2 = new EngineeringUnits.Force(65.743, EngineeringUnits.ForceUnit.Kilonewton);
+            var A2 = new EngineeringUnits.Force(65.743, ForceUnit.Kilonewton);
 
             int WorkingCompares = 0;
 
@@ -770,7 +771,7 @@ namespace UnitTests
         public void AccelerationAutoTest()
         {
             var A1 = new UnitsNet.Acceleration(65.743, UnitsNet.Units.AccelerationUnit.MeterPerSecondSquared);
-            var A2 = new EngineeringUnits.Acceleration(65.743, EngineeringUnits.AccelerationUnit.MeterPerSecondSquared);
+            var A2 = new EngineeringUnits.Acceleration(65.743, AccelerationUnit.MeterPerSecondSquared);
 
             int WorkingCompares = 0;
 
@@ -826,7 +827,7 @@ namespace UnitTests
         public void VolumeAutoTest()
         {
             var A1 = new UnitsNet.Volume(65.743, UnitsNet.Units.VolumeUnit.Liter);
-            var A2 = new EngineeringUnits.Volume(65.743, EngineeringUnits.VolumeUnit.Liter);
+            var A2 = new EngineeringUnits.Volume(65.743, VolumeUnit.Liter);
 
             int WorkingCompares = 0;
 
@@ -884,7 +885,7 @@ namespace UnitTests
         public void DensityAutoTest()
         {
             var A1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.KilogramPerCubicMeter);
-            var A2 = new EngineeringUnits.Density(1, EngineeringUnits.DensityUnit.KilogramPerCubicMeter);
+            var A2 = new EngineeringUnits.Density(1, DensityUnit.KilogramPerCubicMeter);
 
             int WorkingCompares = 0;
 
@@ -941,7 +942,7 @@ namespace UnitTests
         public void DynamicViscosityAutoTest()
         {
             var A1 = new UnitsNet.DynamicViscosity(65.743, UnitsNet.Units.DynamicViscosityUnit.PascalSecond);
-            var A2 = new EngineeringUnits.DynamicViscosity(65.743, EngineeringUnits.DynamicViscosityUnit.PascalSecond);
+            var A2 = new EngineeringUnits.DynamicViscosity(65.743, DynamicViscosityUnit.PascalSecond);
 
             int WorkingCompares = 0;
 
@@ -997,7 +998,7 @@ namespace UnitTests
         public void ThermalConductivityAutoTest()
         {
             var A1 = new UnitsNet.ThermalConductivity(65.743, UnitsNet.Units.ThermalConductivityUnit.WattPerMeterKelvin);
-            var A2 = new EngineeringUnits.ThermalConductivity(65.743, EngineeringUnits.ThermalConductivityUnit.WattPerMeterKelvin);
+            var A2 = new EngineeringUnits.ThermalConductivity(65.743, ThermalConductivityUnit.WattPerMeterKelvin);
 
             int WorkingCompares = 0;
 
@@ -1051,7 +1052,7 @@ namespace UnitTests
         public void ForcePerLengthAutoTest()
         {
             var A1 = new UnitsNet.ForcePerLength(65.743, UnitsNet.Units.ForcePerLengthUnit.DecanewtonPerCentimeter);
-            var A2 = new EngineeringUnits.ForcePerLength(65.743, EngineeringUnits.ForcePerLengthUnit.DecanewtonPerCentimeter);
+            var A2 = new EngineeringUnits.ForcePerLength(65.743, ForcePerLengthUnit.DecanewtonPerCentimeter);
 
             int WorkingCompares = 0;
 
@@ -1106,7 +1107,7 @@ namespace UnitTests
         public void VolumeFlowAutoTest()
         {
             var A1 = new UnitsNet.VolumeFlow(65.743, UnitsNet.Units.VolumeFlowUnit.CubicFootPerHour);
-            var A2 = new EngineeringUnits.VolumeFlow(65.743, EngineeringUnits.VolumeFlowUnit.CubicFootPerHour);
+            var A2 = new EngineeringUnits.VolumeFlow(65.743, VolumeFlowUnit.CubicFootPerHour);
 
             int WorkingCompares = 0;
 
@@ -1167,7 +1168,7 @@ namespace UnitTests
         public void MolarMassAutoTest()
         {
             var A1 = new UnitsNet.MolarMass(65.743, UnitsNet.Units.MolarMassUnit.KilopoundPerMole);
-            var A2 = new EngineeringUnits.MolarMass(65.743, EngineeringUnits.MolarMassUnit.KilopoundPerMole);
+            var A2 = new EngineeringUnits.MolarMass(65.743, MolarMassUnit.KilopoundPerMole);
 
             int WorkingCompares = 0;
 
@@ -1224,7 +1225,7 @@ namespace UnitTests
         public void EntropyAutoTest()
         {
             var A1 = new UnitsNet.Entropy(65.743, UnitsNet.Units.EntropyUnit.JoulePerKelvin);
-            var A2 = new EngineeringUnits.Entropy(65.743, EngineeringUnits.EntropyUnit.JoulePerKelvin);
+            var A2 = new EngineeringUnits.Entropy(65.743, EntropyUnit.JoulePerKelvin);
 
             int WorkingCompares = 0;
 
@@ -1280,7 +1281,7 @@ namespace UnitTests
         public void ThermalResistanceAutoTest()
         {
             var A1 = new UnitsNet.ThermalResistance(65.743, UnitsNet.Units.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
-            var A2 = new EngineeringUnits.ThermalResistance(65.743, EngineeringUnits.ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
+            var A2 = new EngineeringUnits.ThermalResistance(65.743, ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
 
             int WorkingCompares = 0;
 
@@ -1334,7 +1335,7 @@ namespace UnitTests
         public void HeatTransferCoefficientAutoTest()
         {
             var A1 = new UnitsNet.HeatTransferCoefficient(65.743, UnitsNet.Units.HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
-            var A2 = new EngineeringUnits.HeatTransferCoefficient(65.743, EngineeringUnits.HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
+            var A2 = new EngineeringUnits.HeatTransferCoefficient(65.743, HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
 
             int WorkingCompares = 0;
 
@@ -1388,7 +1389,7 @@ namespace UnitTests
         public void ElectricPotentialAutoTest()
         {
             var A1 = new UnitsNet.ElectricPotential(65.743, UnitsNet.Units.ElectricPotentialUnit.Megavolt);
-            var A2 = new EngineeringUnits.ElectricPotential(65.743, EngineeringUnits.ElectricPotentialUnit.Megavolt);
+            var A2 = new EngineeringUnits.ElectricPotential(65.743, ElectricPotentialUnit.Megavolt);
 
             int WorkingCompares = 0;
 
@@ -1442,7 +1443,7 @@ namespace UnitTests
         public void FrequencyAutoTest()
         {
             var A1 = new UnitsNet.Frequency(65.743, UnitsNet.Units.FrequencyUnit.Hertz);
-            var A2 = new EngineeringUnits.Frequency(65.743, EngineeringUnits.FrequencyUnit.Hertz);
+            var A2 = new EngineeringUnits.Frequency(65.743, FrequencyUnit.Hertz);
 
             int WorkingCompares = 0;
 
@@ -1496,7 +1497,7 @@ namespace UnitTests
         public void TorqueAutoTest()
         {
             var A1 = new UnitsNet.Torque(65.743, UnitsNet.Units.TorqueUnit.KilonewtonMeter);
-            var A2 = new EngineeringUnits.Torque(65.743, EngineeringUnits.TorqueUnit.KilonewtonMeter);
+            var A2 = new EngineeringUnits.Torque(65.743, TorqueUnit.KilonewtonMeter);
 
             int WorkingCompares = 0;
 
@@ -1551,7 +1552,7 @@ namespace UnitTests
         public void KinematicViscosityAutoTest()
         {
             var A1 = new UnitsNet.KinematicViscosity(65.743, UnitsNet.Units.KinematicViscosityUnit.Kilostokes);
-            var A2 = new EngineeringUnits.KinematicViscosity(65.743, EngineeringUnits.KinematicViscosityUnit.Kilostokes);
+            var A2 = new EngineeringUnits.KinematicViscosity(65.743, KinematicViscosityUnit.Kilostokes);
 
             int WorkingCompares = 0;
 
