@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class MassMomentOfInertiaUnit : Enumeration
     {
 
-        public static readonly MassMomentOfInertiaUnit SI = new MassMomentOfInertiaUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
+        public static readonly MassMomentOfInertiaUnit SI = new MassMomentOfInertiaUnit(MassUnit.SI, AreaUnit.SI);
         public static readonly MassMomentOfInertiaUnit KilogramSquareMeter = new MassMomentOfInertiaUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
 
 

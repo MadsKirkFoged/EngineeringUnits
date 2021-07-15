@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
     public class MolarityUnit : Enumeration
     {
 
-        public static readonly MolarityUnit SI = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.CubicMeter);
+        public static readonly MolarityUnit SI = new MolarityUnit(AmountOfSubstanceUnit.SI, VolumeUnit.SI);
         public static readonly MolarityUnit MolesPerCubicMeter = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.CubicMeter);
         public static readonly MolarityUnit MolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Mole, VolumeUnit.Liter);
         public static readonly MolarityUnit NanomolesPerLiter = new MolarityUnit(AmountOfSubstanceUnit.Nanomole, VolumeUnit.Liter);

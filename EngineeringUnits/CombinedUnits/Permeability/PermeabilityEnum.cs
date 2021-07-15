@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class PermeabilityUnit : Enumeration
     {
 
-        public static readonly PermeabilityUnit SI = new PermeabilityUnit(ElectricInductanceUnit.Henry, LengthUnit.Meter);
+        public static readonly PermeabilityUnit SI = new PermeabilityUnit(ElectricInductanceUnit.SI, LengthUnit.SI);
         public static readonly PermeabilityUnit HenryPerMeter = new PermeabilityUnit(ElectricInductanceUnit.Henry, LengthUnit.Meter);
 
 

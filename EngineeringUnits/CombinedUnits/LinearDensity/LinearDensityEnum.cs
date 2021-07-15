@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class LinearDensityUnit : Enumeration
     {
 
-        public static readonly LinearDensityUnit SI = new LinearDensityUnit(MassUnit.Kilogram, LengthUnit.Meter);
+        public static readonly LinearDensityUnit SI = new LinearDensityUnit(MassUnit.SI, LengthUnit.SI);
         public static readonly LinearDensityUnit KilogramPerMeter = new LinearDensityUnit(MassUnit.Kilogram, LengthUnit.Meter);
         public static readonly LinearDensityUnit GramPerCentimeter = new LinearDensityUnit(MassUnit.Gram, LengthUnit.Centimeter);
         public static readonly LinearDensityUnit GramPerMeter = new LinearDensityUnit(MassUnit.Gram, LengthUnit.Meter);

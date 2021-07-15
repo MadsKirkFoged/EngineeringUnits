@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
     public class MolarMassUnit : Enumeration
     {
 
-        public static readonly MolarMassUnit SI =                new MolarMassUnit(MassUnit.Kilogram,    AmountOfSubstanceUnit.Mole);
+        public static readonly MolarMassUnit SI =                new MolarMassUnit(MassUnit.SI,    AmountOfSubstanceUnit.SI);
         public static readonly MolarMassUnit KilogramPerMole =   new MolarMassUnit(MassUnit.Kilogram,    AmountOfSubstanceUnit.Mole);
         public static readonly MolarMassUnit CentigramPerMole =  new MolarMassUnit(MassUnit.Centigram,   AmountOfSubstanceUnit.Mole);
         public static readonly MolarMassUnit DecagramPerMole =   new MolarMassUnit(MassUnit.Decagram,    AmountOfSubstanceUnit.Mole);

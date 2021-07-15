@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class KinematicViscosityUnit : Enumeration
     {
 
-        public static readonly KinematicViscosityUnit SI =                   new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
+        public static readonly KinematicViscosityUnit SI =                   new KinematicViscosityUnit(AreaUnit.SI, DurationUnit.SI);
         public static readonly KinematicViscosityUnit SquareMeterPerSecond = new KinematicViscosityUnit(AreaUnit.SquareMeter, DurationUnit.Second);
         public static readonly KinematicViscosityUnit Stokes =               new KinematicViscosityUnit(AreaUnit.SquareCentimeter, DurationUnit.Second, "St");
         public static readonly KinematicViscosityUnit Centistokes =          new KinematicViscosityUnit(PreFix.centi, Stokes);

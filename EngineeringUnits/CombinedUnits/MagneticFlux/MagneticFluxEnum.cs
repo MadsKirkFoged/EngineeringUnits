@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class MagneticFluxUnit : Enumeration
     {
 
-        public static readonly MagneticFluxUnit SI = new MagneticFluxUnit(EnergyUnit.Joule, ElectricCurrentUnit.Ampere);
+        public static readonly MagneticFluxUnit SI = new MagneticFluxUnit(EnergyUnit.SI, ElectricCurrentUnit.SI);
         public static readonly MagneticFluxUnit Weber = new MagneticFluxUnit(EnergyUnit.Joule, ElectricCurrentUnit.Ampere, "Wb");
 
 

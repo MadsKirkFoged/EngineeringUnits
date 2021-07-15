@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class PermittivityUnit : Enumeration
     {
 
-        public static readonly PermittivityUnit SI = new PermittivityUnit(CapacitanceUnit.Farad, LengthUnit.Meter);
+        public static readonly PermittivityUnit SI = new PermittivityUnit(CapacitanceUnit.SI, LengthUnit.SI);
         public static readonly PermittivityUnit FaradPerMeter = new PermittivityUnit(CapacitanceUnit.Farad, LengthUnit.Meter);
 
 

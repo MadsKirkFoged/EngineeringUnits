@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class IrradiationUnit : Enumeration
     {
 
-        public static readonly IrradiationUnit SI = new IrradiationUnit(EnergyUnit.Joule, AreaUnit.SquareMeter);
+        public static readonly IrradiationUnit SI = new IrradiationUnit(EnergyUnit.SI, AreaUnit.SI);
         public static readonly IrradiationUnit JoulePerSquareMeter = new IrradiationUnit(EnergyUnit.Joule, AreaUnit.SquareMeter);
         public static readonly IrradiationUnit JoulePerSquareCentimeter = new IrradiationUnit(EnergyUnit.Joule, AreaUnit.SquareCentimeter);
         public static readonly IrradiationUnit JoulePerSquareMillimeter = new IrradiationUnit(EnergyUnit.Joule, AreaUnit.SquareMillimeter);

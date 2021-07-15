@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class LinearPowerDensityUnit : Enumeration
     {
 
-        public static readonly LinearPowerDensityUnit SI = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Meter);
+        public static readonly LinearPowerDensityUnit SI = new LinearPowerDensityUnit(PowerUnit.SI, LengthUnit.SI);
         public static readonly LinearPowerDensityUnit WattPerMeter = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Meter);
         public static readonly LinearPowerDensityUnit WattPerMillimeter = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Millimeter);
         public static readonly LinearPowerDensityUnit WattPerInch = new LinearPowerDensityUnit(PowerUnit.Watt, LengthUnit.Inch);

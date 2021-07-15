@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class MagneticFieldUnit : Enumeration
     {
 
-        public static readonly MagneticFieldUnit SI = new MagneticFieldUnit(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere);
+        public static readonly MagneticFieldUnit SI = new MagneticFieldUnit(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI);
         public static readonly MagneticFieldUnit Tesla = new MagneticFieldUnit(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere,"T");
 
         public static readonly MagneticFieldUnit Gauss = new MagneticFieldUnit(Tesla, "G", 1e-4m);

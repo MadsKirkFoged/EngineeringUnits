@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class MassFluxUnit : Enumeration
     {
 
-        public static readonly MassFluxUnit SI = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareMeter);
+        public static readonly MassFluxUnit SI = new MassFluxUnit(MassUnit.SI, DurationUnit.SI, AreaUnit.SI);
         public static readonly MassFluxUnit KilogramPerSecondPerSquareMeter = new MassFluxUnit(MassUnit.Kilogram, DurationUnit.Second, AreaUnit.SquareMeter);
 
         public static readonly MassFluxUnit GramPerHourPerSquareCentimeter = new MassFluxUnit(MassUnit.Gram, DurationUnit.Hour, AreaUnit.SquareCentimeter);
