@@ -17,6 +17,11 @@ namespace EngineeringUnits
         public double JoulesPerSquareMeter => As(IrradiationUnit.JoulePerSquareMeter);
 
         /// <summary>
+        ///     Get Irradiation in SI Unit (JoulesPerSquareMeter).
+        /// </summary>
+        public double SI => As(IrradiationUnit.SI);
+
+        /// <summary>
         ///     Get Irradiation in JoulesPerSquareMillimeter.
         /// </summary>
         public double JoulesPerSquareMillimeter => As(IrradiationUnit.JoulePerSquareMillimeter);

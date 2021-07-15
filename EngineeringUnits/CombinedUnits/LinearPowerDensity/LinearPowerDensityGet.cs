@@ -127,6 +127,11 @@ namespace EngineeringUnits
         public double WattsPerMeter => As(LinearPowerDensityUnit.WattPerMeter);
 
         /// <summary>
+        ///     Get LinearPowerDensity in SI Unit (WattsPerMeter).
+        /// </summary>
+        public double SI => As(LinearPowerDensityUnit.SI);
+
+        /// <summary>
         ///     Get LinearPowerDensity in WattsPerMillimeter.
         /// </summary>
         public double WattsPerMillimeter => As(LinearPowerDensityUnit.WattPerMillimeter);

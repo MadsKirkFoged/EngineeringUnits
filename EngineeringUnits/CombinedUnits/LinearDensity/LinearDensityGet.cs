@@ -32,6 +32,11 @@ namespace EngineeringUnits
         public double KilogramsPerMeter => As(LinearDensityUnit.KilogramPerMeter);
 
         /// <summary>
+        ///     Get LinearDensity in SI Unit (KilogramsPerMeter).
+        /// </summary>
+        public double SI => As(LinearDensityUnit.SI);
+
+        /// <summary>
         ///     Get LinearDensity in KilogramsPerMillimeter.
         /// </summary>
         public double KilogramsPerMillimeter => As(LinearDensityUnit.KilogramPerMillimeter);

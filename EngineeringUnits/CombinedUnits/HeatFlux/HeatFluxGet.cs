@@ -95,5 +95,10 @@ namespace EngineeringUnits
         ///     Get HeatFlux in WattsPerSquareMeter.
         /// </summary>
         public double WattsPerSquareMeter => As(HeatFluxUnit.WattPerSquareMeter);
+
+        /// <summary>
+        ///     Get HeatFlux in SI Unit (WattsPerSquareMeter).
+        /// </summary>
+        public double SI => As(HeatFluxUnit.SI);
     }
 }

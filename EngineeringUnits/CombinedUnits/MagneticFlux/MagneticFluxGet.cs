@@ -11,5 +11,9 @@ namespace EngineeringUnits
         /// </summary>
         public double Webers => As(MagneticFluxUnit.Weber);
 
+        /// <summary>
+        ///     Get MagneticFlux in SI Unit (Webers).
+        /// </summary>
+        public double SI => As(MagneticFluxUnit.SI);
     }
 }

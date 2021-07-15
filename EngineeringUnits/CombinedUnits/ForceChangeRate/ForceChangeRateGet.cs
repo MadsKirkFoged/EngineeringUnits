@@ -72,6 +72,11 @@ namespace EngineeringUnits
         public double NewtonsPerSecond => As(ForceChangeRateUnit.NewtonPerSecond);
 
         /// <summary>
+        ///     Get ForceChangeRate in SI Unit (NewtonsPerSecond).
+        /// </summary>
+        public double SI => As(ForceChangeRateUnit.SI);
+
+        /// <summary>
         ///     Get ForceChangeRate in PoundsForcePerMinute.
         /// </summary>
         public double PoundsForcePerMinute => As(ForceChangeRateUnit.PoundForcePerMinute);

@@ -17,6 +17,11 @@ namespace EngineeringUnits
         public double Lux => As(IlluminanceUnit.Lux);
 
         /// <summary>
+        ///     Get Illuminance in SI Unit (Lux).
+        /// </summary>
+        public double SI => As(IlluminanceUnit.SI);
+
+        /// <summary>
         ///     Get Illuminance in Megalux.
         /// </summary>
         public double Megalux => As(IlluminanceUnit.Megalux);

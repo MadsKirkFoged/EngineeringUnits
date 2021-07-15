@@ -11,5 +11,11 @@ namespace EngineeringUnits
         /// </summary>
         public double DegreesCelciusPerKilometer => As(LapseRateUnit.DegreeCelsiusPerKilometer);
 
+
+        /// <summary>
+        ///     Get LapseRate in SI Unit (KelvinCelciusPerKilometer).
+        /// </summary>
+        public double SI => As(LapseRateUnit.SI);
+
     }
 }

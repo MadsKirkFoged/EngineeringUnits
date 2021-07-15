@@ -11,5 +11,10 @@ namespace EngineeringUnits
         /// </summary>
         public double AmperesPerMeter => As(MagnetizationUnit.AmperePerMeter);
 
+        /// <summary>
+        ///     Get Magnetization in SI Unit (AmperesPerMeter).
+        /// </summary>
+        public double SI => As(MagnetizationUnit.SI);
+
     }
 }

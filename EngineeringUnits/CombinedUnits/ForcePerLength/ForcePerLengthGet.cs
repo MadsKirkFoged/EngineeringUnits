@@ -162,6 +162,11 @@ namespace EngineeringUnits
         public double NewtonsPerMeter => As(ForcePerLengthUnit.NewtonPerMeter);
 
         /// <summary>
+        ///     Get ForcePerLength in SI Unit (NewtonsPerMeter).
+        /// </summary>
+        public double SI => As(ForcePerLengthUnit.SI);
+
+        /// <summary>
         ///     Get ForcePerLength in NewtonsPerMillimeter.
         /// </summary>
         public double NewtonsPerMillimeter => As(ForcePerLengthUnit.NewtonPerMillimeter);

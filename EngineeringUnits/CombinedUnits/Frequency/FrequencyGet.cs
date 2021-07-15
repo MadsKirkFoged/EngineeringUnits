@@ -37,6 +37,11 @@ namespace EngineeringUnits
         public double Hertz => As(FrequencyUnit.Hertz);
 
         /// <summary>
+        ///     Get Frequency in SI Unit (Hertz).
+        /// </summary>
+        public double SI => As(FrequencyUnit.SI);
+
+        /// <summary>
         ///     Get Frequency in Kilohertz.
         /// </summary>
         public double Kilohertz => As(FrequencyUnit.Kilohertz);

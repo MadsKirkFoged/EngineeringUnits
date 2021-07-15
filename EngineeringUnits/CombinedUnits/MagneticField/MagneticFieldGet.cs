@@ -36,5 +36,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Teslas => As(MagneticFieldUnit.Tesla);
 
+        /// <summary>
+        ///     Get MagneticField in SI Unit (Teslas).
+        /// </summary>
+        public double SI => As(MagneticFieldUnit.SI);
+
     }
 }

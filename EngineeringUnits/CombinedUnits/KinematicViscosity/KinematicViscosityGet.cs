@@ -46,5 +46,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Stokes => As(KinematicViscosityUnit.Stokes);
 
+        /// <summary>
+        ///     Get KinematicViscosity in SI Unit (Stokes).
+        /// </summary>
+        public double SI => As(KinematicViscosityUnit.SI);
+
     }
 }

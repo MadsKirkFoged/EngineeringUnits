@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double Bits => As(InformationUnit.Bit);
 
         /// <summary>
+        ///     Get Information in SI Unit (Bits).
+        /// </summary>
+        public double SI => As(InformationUnit.SI);
+
+        /// <summary>
         ///     Get Information in Bytes.
         /// </summary>
         public double Bytes => As(InformationUnit.Byte);

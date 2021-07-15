@@ -21,5 +21,9 @@ namespace EngineeringUnits
         /// </summary>
         public double WattsPerSquareMeterKelvin => As(HeatTransferCoefficientUnit.WattPerSquareMeterKelvin);
 
+        /// <summary>
+        ///     Get HeatTransferCoefficient in SI Unit (WattsPerSquareMeterKelvin).
+        /// </summary>
+        public double SI => As(HeatTransferCoefficientUnit.SI);
     }
 }

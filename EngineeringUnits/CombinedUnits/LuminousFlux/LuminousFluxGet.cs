@@ -11,5 +11,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Lumens => As(LuminousFluxUnit.Lumen);
 
+        /// <summary>
+        ///     Get LuminousFlux in SI Unit (Lumens).
+        /// </summary>
+        public double SI => As(LuminousFluxUnit.SI);
+
     }
 }

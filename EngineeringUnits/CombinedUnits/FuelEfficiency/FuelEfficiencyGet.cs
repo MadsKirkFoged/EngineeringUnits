@@ -26,5 +26,10 @@ namespace EngineeringUnits
         /// </summary>
         public double MilesPerUsGallon => As(FuelEfficiencyUnit.MilePerUsGallon);
 
+        /// <summary>
+        ///     Get FuelEfficiency in SI Unit.
+        /// </summary>
+        public double SI => As(FuelEfficiencyUnit.SI);
+
     }
 }

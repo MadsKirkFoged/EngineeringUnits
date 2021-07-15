@@ -76,5 +76,10 @@ namespace EngineeringUnits
         /// </summary>
         public double WattsPerSquareMeter => As(IrradianceUnit.WattPerSquareMeter);
 
+
+        /// <summary>
+        ///     Get Irradiance in SI Unit (WattsPerSquareMeter).
+        /// </summary>
+        public double SI => As(IrradianceUnit.SI);
     }
 }
