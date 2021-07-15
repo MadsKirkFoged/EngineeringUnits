@@ -21,5 +21,10 @@ namespace EngineeringUnits
         /// </summary>
         public double SiemensPerMeter => As(ElectricConductivityUnit.SiemensPerMeter);
 
+        /// <summary>
+        ///     Get ElectricConductivity in SI Unit (SiemensPerMeter).
+        /// </summary>
+        public double SI => As(ElectricConductivityUnit.SI);
+
     }
 }

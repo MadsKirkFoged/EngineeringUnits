@@ -11,5 +11,9 @@ namespace EngineeringUnits
         /// </summary>
         public double VoltsPerMeter => As(ElectricFieldUnit.VoltPerMeter);
 
+        /// <summary>
+        ///     Get ElectricField in SI Unit (VoltsPerMeter).
+        /// </summary>
+        public double SI => As(ElectricFieldUnit.SI);
     }
 }

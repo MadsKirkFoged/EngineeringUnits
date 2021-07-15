@@ -67,6 +67,11 @@ namespace EngineeringUnits
         public double OhmMeters => As(ElectricResistivityUnit.OhmMeter);
 
         /// <summary>
+        ///     Get ElectricResistivity in SI Unit (OhmMeters).
+        /// </summary>
+        public double SI => As(ElectricResistivityUnit.SI);
+
+        /// <summary>
         ///     Get ElectricResistivity in PicoohmsCentimeter.
         /// </summary>
         public double PicoohmsCentimeter => As(ElectricResistivityUnit.PicoohmCentimeter);

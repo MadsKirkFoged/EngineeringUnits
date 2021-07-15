@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double Henries => As(ElectricInductanceUnit.Henry);
 
         /// <summary>
+        ///     Get ElectricInductance in SI Unit (Henries).
+        /// </summary>
+        public double SI => As(ElectricInductanceUnit.SI);
+
+        /// <summary>
         ///     Get ElectricInductance in Microhenries.
         /// </summary>
         public double Microhenries => As(ElectricInductanceUnit.Microhenry);

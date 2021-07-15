@@ -36,5 +36,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Ohms => As(ElectricResistanceUnit.Ohm);
 
+        /// <summary>
+        ///     Get ElectricResistance in SI Unit (Ohms).
+        /// </summary>
+        public double SI => As(ElectricResistanceUnit.SI);
+
     }
 }

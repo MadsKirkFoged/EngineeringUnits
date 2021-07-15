@@ -57,6 +57,11 @@ namespace EngineeringUnits
         public double Newtons => As(ForceUnit.Newton);
 
         /// <summary>
+        ///     Get Force in SI Unit (Newtons).
+        /// </summary>
+        public double SI => As(ForceUnit.SI);
+
+        /// <summary>
         ///     Get Force in OunceForce.
         /// </summary>
         public double OunceForce => As(ForceUnit.OunceForce);

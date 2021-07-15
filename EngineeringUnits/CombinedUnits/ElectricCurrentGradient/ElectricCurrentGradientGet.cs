@@ -26,5 +26,11 @@ namespace EngineeringUnits
         /// </summary>
         public double AmperesPerSecond => As(ElectricCurrentGradientUnit.AmperePerSecond);
 
+
+        /// <summary>
+        ///     Get ElectricCurrentGradient in SI Unit (AmperesPerSecond).
+        /// </summary>
+        public double SI => As(ElectricCurrentGradientUnit.SI);
+
     }
 }

@@ -21,5 +21,10 @@ namespace EngineeringUnits
         /// </summary>
         public double AmperesPerSquareMeter => As(ElectricCurrentDensityUnit.AmperePerSquareMeter);
 
+        /// <summary>
+        ///     Get ElectricCurrentDensity in SI Unit (AmperesPerSquareMeter).
+        /// </summary>
+        public double SI => As(ElectricCurrentDensityUnit.SI);
+
     }
 }

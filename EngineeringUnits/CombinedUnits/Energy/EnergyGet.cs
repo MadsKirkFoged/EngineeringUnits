@@ -82,6 +82,11 @@ namespace EngineeringUnits
         public double Joules => As(EnergyUnit.Joule);
 
         /// <summary>
+        ///     Get Energy in SI Unit (Joules).
+        /// </summary>
+        public double SI => As(EnergyUnit.SI);
+
+        /// <summary>
         ///     Get Energy in KilobritishThermalUnits.
         /// </summary>
         public double KilobritishThermalUnits => As(EnergyUnit.KilobritishThermalUnit);

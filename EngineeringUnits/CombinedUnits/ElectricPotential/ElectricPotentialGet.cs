@@ -31,5 +31,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Volts => As(ElectricPotentialUnit.Volt);
 
+        /// <summary>
+        ///     Get ElectricPotential in SI Unit (Volts).
+        /// </summary>
+        public double SI => As(ElectricPotentialUnit.SI);
+
     }
 }

@@ -23,6 +23,11 @@ namespace EngineeringUnits
         public double JoulesPerKelvin => As(EntropyUnit.JoulePerKelvin);
 
         /// <summary>
+        ///     Get Entropy in SI Unit (JoulesPerKelvin).
+        /// </summary>
+        public double SI => As(EntropyUnit.SI);
+
+        /// <summary>
         ///     Get Entropy in KilocaloriesPerKelvin.
         /// </summary>
         public double KilocaloriesPerKelvin => As(EntropyUnit.KilocaloriePerKelvin);

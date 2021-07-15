@@ -21,5 +21,10 @@ namespace EngineeringUnits
         /// </summary>
         public double CoulombsPerSquareMeter => As(ElectricSurfaceChargeDensityUnit.CoulombPerSquareMeter);
 
+        /// <summary>
+        ///     Get ElectricSurfaceChargeDensity in SI Unit (CoulombsPerSquareMeter).
+        /// </summary>
+        public double SI => As(ElectricSurfaceChargeDensityUnit.SI);
+
     }
 }

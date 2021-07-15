@@ -106,5 +106,10 @@ namespace EngineeringUnits
         /// </summary>
         public double VoltsPerSeconds => As(ElectricPotentialChangeRateUnit.VoltPerSecond);
 
+        /// <summary>
+        ///     Get ElectricPotentialChangeRate in SI Unit (VoltsPerSeconds).
+        /// </summary>
+        public double SI => As(ElectricPotentialChangeRateUnit.SI);
+
     }
 }
