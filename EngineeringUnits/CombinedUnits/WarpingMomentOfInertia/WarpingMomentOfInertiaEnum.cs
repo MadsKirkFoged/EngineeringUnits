@@ -10,7 +10,6 @@ namespace EngineeringUnits.Units
     public class WarpingMomentOfInertiaUnit : Enumeration
     {
 
-        public static readonly WarpingMomentOfInertiaUnit SI = new WarpingMomentOfInertiaUnit(LengthUnit.Meter);
         public static readonly WarpingMomentOfInertiaUnit MeterToTheSixth = new WarpingMomentOfInertiaUnit(LengthUnit.Meter);
         public static readonly WarpingMomentOfInertiaUnit MillimeterToTheSixth = new WarpingMomentOfInertiaUnit(LengthUnit.Millimeter);
         public static readonly WarpingMomentOfInertiaUnit InchToTheSixth = new WarpingMomentOfInertiaUnit(LengthUnit.Inch);
@@ -18,6 +17,7 @@ namespace EngineeringUnits.Units
         public static readonly WarpingMomentOfInertiaUnit DecimeterToTheSixth = new WarpingMomentOfInertiaUnit(LengthUnit.Decimeter);
         public static readonly WarpingMomentOfInertiaUnit CentimeterToTheSixth = new WarpingMomentOfInertiaUnit(LengthUnit.Centimeter);
 
+        public static readonly WarpingMomentOfInertiaUnit SI = MeterToTheSixth;
 
 
         public WarpingMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)

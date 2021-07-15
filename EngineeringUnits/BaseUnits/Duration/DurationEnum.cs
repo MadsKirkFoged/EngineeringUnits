@@ -18,7 +18,6 @@ namespace EngineeringUnits.Units
         public static readonly DurationUnit Millisecond =    new DurationUnit(PreFix.milli, BaseUnits.time);
         public static readonly DurationUnit Microsecond =    new DurationUnit(PreFix.micro, BaseUnits.time);
         public static readonly DurationUnit Second =         new DurationUnit(PreFix.SI, BaseUnits.time);
-        public static readonly DurationUnit SI =             new DurationUnit(PreFix.SI, BaseUnits.time);
 
         public static readonly DurationUnit Minute =         new DurationUnit("m", 1, 60m);
         public static readonly DurationUnit Hour =           new DurationUnit("h", 1, 3600m);
@@ -28,6 +27,7 @@ namespace EngineeringUnits.Units
         public static readonly DurationUnit Year365 =        new DurationUnit("yr", 1, (365*24*3600m));
 
 
+        public static readonly DurationUnit SI = Second;
 
         public DurationUnit() { }
 

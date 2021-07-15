@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using Fractions;
 using Newtonsoft.Json;
 using System;
@@ -14,14 +15,14 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
-            var list1 = new List<MassFlow>();
+            var list1 = new List<Duration>();
 
      
 
-            list1.Add(MassFlow.FromKilogramsPerSecond(1));
-            list1.Add(MassFlow.FromKilogramsPerSecond(2));
-            list1.Add(MassFlow.FromKilogramsPerSecond(3));
-            list1.Add(MassFlow.FromKilogramsPerSecond(4));
+            list1.Add(new Duration(1, DurationUnit.SI));
+            list1.Add(new Duration(1, DurationUnit.SI));
+            list1.Add(new Duration(1, DurationUnit.SI));
+            list1.Add(new Duration(1, DurationUnit.SI));
 
 
             MassFlow tester1 = UnitMath.Sum(list1);

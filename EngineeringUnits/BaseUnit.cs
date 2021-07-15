@@ -15,14 +15,14 @@ namespace EngineeringUnits
     {
 
         [JsonProperty]
-        public string Name { get; set; }
-
-        [JsonProperty]
         public UnitSystem Unit { get; set;}
 
         [JsonProperty]
-        public decimal SymbolValue { get; set; }
+        protected decimal SymbolValue { get; set; }
         public decimal BaseunitValue => SymbolValue * ConvertToBaseUnit();
+
+        [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
+        public double Value => (double)SymbolValue;
 
         public BaseUnit()
         {
@@ -75,7 +75,7 @@ namespace EngineeringUnits
         {
             if (a.unitsystem != Unit)
             {
-                throw new InvalidOperationException($"This is NOT a {Name} [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+                throw new InvalidOperationException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
             }
             
             Unit = a.unitsystem.Copy();
@@ -361,7 +361,7 @@ namespace EngineeringUnits
         
 
         public string ResultWithBaseunit() => $"{BaseunitValue} {Unit}";
-        
+
 
 
     }

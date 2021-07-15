@@ -10,14 +10,14 @@ namespace EngineeringUnits
     {
         public BaseUnit baseUnit { get; set; }
 
-        //public double Value => baseUnit.Value;
 
         public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
+
         public UnitSystem unitsystem => baseUnit.Unit;
 
-        public decimal SymbolValue => baseUnit.SymbolValue;
+        [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
+        public double Value => baseUnit.Value;
 
-        public decimal BaseunitValue => baseUnit.BaseunitValue;
 
         public UnknownUnit()
         {
@@ -26,9 +26,20 @@ namespace EngineeringUnits
 
         public UnknownUnit(double valueLocalUnit)
         {
-            baseUnit = new BaseUnit(valueLocalUnit);
-            baseUnit.Unit = new UnitSystem();
-            baseUnit.SymbolValue = (decimal)valueLocalUnit;
+            baseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
+
+        }
+
+        public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem)
+        {
+            baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
+
+        }
+
+        public UnknownUnit(BaseUnit baseunit)
+        {
+            baseUnit = baseunit;
+
         }
 
 
@@ -61,9 +72,6 @@ namespace EngineeringUnits
             }
 
             return (double)Unit.baseUnit.BaseunitValue;
-
-            //return Unit.baseUnit.Value;
-            //return  Unit.baseUnit.Value;
         }
 
         public static explicit operator decimal(UnknownUnit Unit)
