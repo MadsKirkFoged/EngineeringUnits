@@ -43,6 +43,11 @@ namespace EngineeringUnits
         public double JoulesPerKilogram => As(SpecificEnergyUnit.JoulePerKilogram);
 
         /// <summary>
+        ///     Get SpecificEnergy in SI unit (JoulesPerKilogram).
+        /// </summary>
+        public double SI => As(SpecificEnergyUnit.SI);
+
+        /// <summary>
         ///     Get SpecificEnergy in KilocaloriesPerGram.
         /// </summary>
         public double KilocaloriesPerGram => As(SpecificEnergyUnit.KilocaloriePerGram);

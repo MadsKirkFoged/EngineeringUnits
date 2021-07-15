@@ -97,6 +97,11 @@ namespace EngineeringUnits
         public double MetersPerSecond => As(SpeedUnit.MeterPerSecond);
 
         /// <summary>
+        ///     Get Speed in SI unit (MetersPerSecond).
+        /// </summary>
+        public double SI => As(SpeedUnit.SI);
+
+        /// <summary>
         ///     Get Speed in MicrometersPerMinutes.
         /// </summary>
         public double MicrometersPerMinutes => As(SpeedUnit.MicrometerPerMinute);

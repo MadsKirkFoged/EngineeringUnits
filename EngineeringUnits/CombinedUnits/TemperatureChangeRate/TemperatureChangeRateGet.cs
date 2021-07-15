@@ -33,6 +33,11 @@ namespace EngineeringUnits
         public double DegreesCelsiusPerSecond => As(TemperatureChangeRateUnit.DegreeCelsiusPerSecond);
 
         /// <summary>
+        ///     Get TemperatureChangeRate in SI unit (KelvinCelsiusPerSecond).
+        /// </summary>
+        public double SI => As(TemperatureChangeRateUnit.SI);
+
+        /// <summary>
         ///     Get TemperatureChangeRate in HectodegreesCelsiusPerSecond.
         /// </summary>
         public double HectodegreesCelsiusPerSecond => As(TemperatureChangeRateUnit.HectodegreeCelsiusPerSecond);

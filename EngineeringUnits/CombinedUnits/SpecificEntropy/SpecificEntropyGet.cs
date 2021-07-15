@@ -27,6 +27,11 @@ namespace EngineeringUnits
         public double JoulesPerKilogramKelvin => As(SpecificEntropyUnit.JoulePerKilogramKelvin);
 
         /// <summary>
+        ///     Get SpecificEntropy in SI unit (JoulesPerKilogramKelvin).
+        /// </summary>
+        public double SI => As(SpecificEntropyUnit.SI);
+
+        /// <summary>
         ///     Get SpecificEntropy in KilocaloriesPerGramKelvin.
         /// </summary>
         public double KilocaloriesPerGramKelvin => As(SpecificEntropyUnit.KilocaloriePerGramKelvin);

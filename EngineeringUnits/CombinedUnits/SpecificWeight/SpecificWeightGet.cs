@@ -62,6 +62,11 @@ namespace EngineeringUnits
         public double NewtonsPerCubicMeter => As(SpecificWeightUnit.NewtonPerCubicMeter);
 
         /// <summary>
+        ///     Get SpecificWeight in SI unit (NewtonsPerCubicMeter).
+        /// </summary>
+        public double SI => As(SpecificWeightUnit.SI);
+
+        /// <summary>
         ///     Get SpecificWeight in NewtonsPerCubicMillimeter.
         /// </summary>
         public double NewtonsPerCubicMillimeter => As(SpecificWeightUnit.NewtonPerCubicMillimeter);
