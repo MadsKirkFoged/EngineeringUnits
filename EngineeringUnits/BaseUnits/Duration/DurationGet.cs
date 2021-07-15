@@ -48,6 +48,11 @@ namespace EngineeringUnits
         public double Seconds => As(DurationUnit.Second);
 
         /// <summary>
+        ///     Get Duration in SI Unit (Seconds).
+        /// </summary>
+        public double SI => As(DurationUnit.SI);
+
+        /// <summary>
         ///     Get Duration in Weeks.
         /// </summary>
         public double Weeks => As(DurationUnit.Week);

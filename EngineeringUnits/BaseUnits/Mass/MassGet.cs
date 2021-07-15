@@ -49,6 +49,11 @@ namespace EngineeringUnits
         public double Kilograms => As(MassUnit.Kilogram);
 
         /// <summary>
+        ///     Get Mass in SI Unit (Kilograms).
+        /// </summary>
+        public double SI => As(MassUnit.SI);
+
+        /// <summary>
         ///     Get Mass in Kilopounds.
         /// </summary>
         //public double Kilopounds => As(MassUnit.Kilopound);

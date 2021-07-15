@@ -13,6 +13,11 @@ namespace EngineeringUnits
         public double Amperes => As(ElectricCurrentUnit.Ampere);
 
         /// <summary>
+        ///     Get ElectricCurrent in SI Unit (Amperes).
+        /// </summary>
+        public double SI => As(ElectricCurrentUnit.SI);
+
+        /// <summary>
         ///     Get ElectricCurrent in Centiamperes.
         /// </summary>
         public double Centiamperes => As(ElectricCurrentUnit.Centiampere);

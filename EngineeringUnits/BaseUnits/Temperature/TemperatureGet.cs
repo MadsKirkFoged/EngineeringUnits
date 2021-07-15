@@ -48,6 +48,11 @@ namespace EngineeringUnits
         public double Kelvins => As(TemperatureUnit.Kelvin);
 
         /// <summary>
+        ///     Get Temperature in SI Unit (Kelvin).
+        /// </summary>
+        public double SI => As(TemperatureUnit.SI);
+
+        /// <summary>
         ///     Get Temperature in MillidegreesCelsius.
         /// </summary>
         //public double MillidegreesCelsius => As(TemperatureUnit.MillidegreeCelsius);

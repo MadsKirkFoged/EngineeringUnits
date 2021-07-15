@@ -52,6 +52,11 @@ namespace EngineeringUnits
         public double MetersPerSecondSquared => As(AccelerationUnit.MeterPerSecondSquared);
 
         /// <summary>
+        ///     Get Acceleration in SI Unit (MetersPerSecondSquared).
+        /// </summary>
+        public double SI => As(AccelerationUnit.SI);
+
+        /// <summary>
         ///     Get Acceleration in MicrometersPerSecondSquared.
         /// </summary>
         public double MicrometersPerSecondSquared => As(AccelerationUnit.MicrometerPerSecondSquared);

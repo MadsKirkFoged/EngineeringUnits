@@ -99,6 +99,11 @@ namespace EngineeringUnits
         public double Meters => As(LengthUnit.Meter);
 
         /// <summary>
+        ///     Get Length in SI Unit (Meters).
+        /// </summary>
+        public double SI => As(LengthUnit.SI);
+
+        /// <summary>
         ///     Get Length in Microinches.
         /// </summary>
         public double Microinches => As(LengthUnit.Microinch);
