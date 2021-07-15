@@ -17,6 +17,11 @@ namespace EngineeringUnits
         public double KilogramsPerJoule => As(BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
 
         /// <summary>
+        ///     Get BrakeSpecificFuelConsumption in SI Unit (KilogramsPerJoule).
+        /// </summary>
+        public double SI => As(BrakeSpecificFuelConsumptionUnit.SI);
+
+        /// <summary>
         ///     Get BrakeSpecificFuelConsumption in PoundsPerMechanicalHorsepowerHour.
         /// </summary>
         public double PoundsPerMechanicalHorsepowerHour => As(BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour);

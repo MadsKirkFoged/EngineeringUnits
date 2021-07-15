@@ -26,5 +26,10 @@ namespace EngineeringUnits
         ///     Get ElectricAdmittance in Siemens.
         /// </summary>
         public double Siemens => As(ElectricAdmittanceUnit.Siemens);
+
+        /// <summary>
+        ///     Get ElectricAdmittance in SI Unit (Siemens).
+        /// </summary>
+        public double SI => As(ElectricAdmittanceUnit.SI);
     }
 }

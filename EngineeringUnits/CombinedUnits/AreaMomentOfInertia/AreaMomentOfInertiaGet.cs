@@ -32,6 +32,11 @@ namespace EngineeringUnits
         public double MetersToTheFourth => As(AreaMomentOfInertiaUnit.MeterToTheFourth);
 
         /// <summary>
+        ///     Get AreaMomentOfInertia in SI Unit (MetersToTheFourth).
+        /// </summary>
+        public double SI => As(AreaMomentOfInertiaUnit.SI);
+
+        /// <summary>
         ///     Get AreaMomentOfInertia in MillimetersToTheFourth.
         /// </summary>
         public double MillimetersToTheFourth => As(AreaMomentOfInertiaUnit.MillimeterToTheFourth);

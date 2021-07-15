@@ -26,5 +26,10 @@ namespace EngineeringUnits
         /// </summary>
         public double Voltamperes => As(ApparentPowerUnit.Voltampere);
 
+        /// <summary>
+        ///     Get ApparentPower in SI Unit (Voltamperes).
+        /// </summary>
+        public double SI => As(ApparentPowerUnit.SI);
+
     }
 }

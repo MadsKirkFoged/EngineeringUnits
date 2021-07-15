@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double Farads => As(CapacitanceUnit.Farad);
 
         /// <summary>
+        ///     Get Capacitance in SI Unit (Farads).
+        /// </summary>
+        public double SI => As(CapacitanceUnit.SI);
+
+        /// <summary>
         ///     Get Capacitance in Kilofarads.
         /// </summary>
         public double Kilofarads => As(CapacitanceUnit.Kilofarad);

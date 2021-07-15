@@ -71,6 +71,12 @@ namespace EngineeringUnits
         /// </summary>
         public double Radians => As(AngleUnit.Radian);
 
+
+        /// <summary>
+        ///     Get Angle in SI Unit (Radians).
+        /// </summary>
+        public double SI => As(AngleUnit.SI);
+
         /// <summary>
         ///     Get Angle in Revolutions.
         /// </summary>

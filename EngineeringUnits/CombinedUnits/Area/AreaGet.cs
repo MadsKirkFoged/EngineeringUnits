@@ -47,6 +47,12 @@ namespace EngineeringUnits
         /// </summary>
         public double SquareMeters => As(AreaUnit.SquareMeter);
 
+
+        /// <summary>
+        ///     Get Area in SI Unit (SquareMeters).
+        /// </summary>
+        public double SI => As(AreaUnit.SI);
+
         /// <summary>
         ///     Get Area in SquareMicrometers.
         /// </summary>

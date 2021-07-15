@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double BitsPerSecond => As(BitRateUnit.BitPerSecond);
 
         /// <summary>
+        ///     Get BitRate in SI Unit (BitsPerSecond).
+        /// </summary>
+        public double SI => As(BitRateUnit.SI);
+
+        /// <summary>
         ///     Get BitRate in BytesPerSecond.
         /// </summary>
         public double BytesPerSecond => As(BitRateUnit.BytePerSecond);

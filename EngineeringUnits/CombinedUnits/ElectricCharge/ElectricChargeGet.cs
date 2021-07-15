@@ -17,6 +17,11 @@ namespace EngineeringUnits
         public double Coulombs => As(ElectricChargeUnit.Coulomb);
 
         /// <summary>
+        ///     Get ElectricCharge in SI Unit (Coulombs).
+        /// </summary>
+        public double SI => As(ElectricChargeUnit.SI);
+
+        /// <summary>
         ///     Get ElectricCharge in KiloampereHours.
         /// </summary>
         public double KiloampereHours => As(ElectricChargeUnit.KiloampereHour);

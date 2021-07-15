@@ -37,6 +37,11 @@ namespace EngineeringUnits
         public double Poise => As(DynamicViscosityUnit.Poise);
 
         /// <summary>
+        ///     Get DynamicViscosity in SI Unit (Poise).
+        /// </summary>
+        public double SI => As(DynamicViscosityUnit.SI);
+
+        /// <summary>
         ///     Get DynamicViscosity in PoundsForceSecondPerSquareFoot.
         /// </summary>
         public double PoundsForceSecondPerSquareFoot => As(DynamicViscosityUnit.PoundForceSecondPerSquareFoot);

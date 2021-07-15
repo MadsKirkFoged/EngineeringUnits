@@ -77,6 +77,11 @@ namespace EngineeringUnits
         public double KilogramsPerCubicMeter => As(DensityUnit.KilogramPerCubicMeter);
 
         /// <summary>
+        ///     Get Density in SI Unit (KilogramsPerCubicMeter).
+        /// </summary>
+        public double SI => As(DensityUnit.SI);
+
+        /// <summary>
         ///     Get Density in KilogramsPerCubicMillimeter.
         /// </summary>
         public double KilogramsPerCubicMillimeter => As(DensityUnit.KilogramPerCubicMillimeter);

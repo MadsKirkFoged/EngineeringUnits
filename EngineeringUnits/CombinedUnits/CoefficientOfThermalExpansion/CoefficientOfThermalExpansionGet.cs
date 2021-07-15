@@ -21,5 +21,10 @@ namespace EngineeringUnits
         /// </summary>
         public double InverseKelvin => As(CoefficientOfThermalExpansionUnit.InverseKelvin);
 
+        /// <summary>
+        ///     Get CoefficientOfThermalExpansion in SI Unit (InverseKelvin).
+        /// </summary>
+        public double SI => As(CoefficientOfThermalExpansionUnit.SI);
+
     }
 }
