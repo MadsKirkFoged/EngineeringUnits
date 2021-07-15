@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class DensityUnit : Enumeration
     {
 
-        public static readonly DensityUnit SI = new DensityUnit(MassUnit.Kilogram, VolumeUnit.CubicMeter);
+        public static readonly DensityUnit SI =                          new DensityUnit(MassUnit.SI,        VolumeUnit.SI);
         public static readonly DensityUnit CentigramPerDeciliter =       new DensityUnit(MassUnit.Centigram, VolumeUnit.Deciliter);
         public static readonly DensityUnit CentigramPerLiter =           new DensityUnit(MassUnit.Centigram, VolumeUnit.Liter);
         public static readonly DensityUnit CentigramPerMilliliter =      new DensityUnit(MassUnit.Centigram, VolumeUnit.Milliliter);

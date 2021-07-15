@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricFieldUnit : Enumeration
     {
 
-        public static readonly ElectricFieldUnit SI = new ElectricFieldUnit(ElectricPotentialUnit.Volt, LengthUnit.Meter);
+        public static readonly ElectricFieldUnit SI = new ElectricFieldUnit(ElectricPotentialUnit.SI, LengthUnit.SI);
         public static readonly ElectricFieldUnit VoltPerMeter = new ElectricFieldUnit(ElectricPotentialUnit.Volt, LengthUnit.Meter);
 
 

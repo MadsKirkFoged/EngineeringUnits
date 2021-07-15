@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class BrakeSpecificFuelConsumptionUnit : Enumeration
     {
 
-        public static readonly BrakeSpecificFuelConsumptionUnit SI = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
+        public static readonly BrakeSpecificFuelConsumptionUnit SI = new BrakeSpecificFuelConsumptionUnit(MassUnit.SI, EnergyUnit.SI);
         public static readonly BrakeSpecificFuelConsumptionUnit KilogramPerJoule = new BrakeSpecificFuelConsumptionUnit(MassUnit.Kilogram, EnergyUnit.Joule);
         public static readonly BrakeSpecificFuelConsumptionUnit GramPerKiloWattHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Gram, EnergyUnit.KilowattHour);       
         public static readonly BrakeSpecificFuelConsumptionUnit PoundPerMechanicalHorsepowerHour = new BrakeSpecificFuelConsumptionUnit(MassUnit.Pound, PowerUnit.MechanicalHorsepower, DurationUnit.Hour, "lb/hph");

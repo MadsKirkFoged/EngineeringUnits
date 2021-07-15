@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class DynamicViscosityUnit : Enumeration
     {
 
-        public static readonly DynamicViscosityUnit SI =                             new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
+        public static readonly DynamicViscosityUnit SI =                             new DynamicViscosityUnit(PressureUnit.SI, DurationUnit.SI);
         public static readonly DynamicViscosityUnit PascalSecond =                   new DynamicViscosityUnit(PressureUnit.Pascal, DurationUnit.Second);
         public static readonly DynamicViscosityUnit MicropascalSecond =              new DynamicViscosityUnit(PreFix.micro, PascalSecond);
         public static readonly DynamicViscosityUnit MillipascalSecond =              new DynamicViscosityUnit(PreFix.milli, PascalSecond);

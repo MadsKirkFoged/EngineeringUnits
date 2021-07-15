@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricChargeDensityUnit : Enumeration
     {
 
-        public static readonly ElectricChargeDensityUnit SI = new ElectricChargeDensityUnit(ElectricChargeUnit.Coulomb, VolumeUnit.CubicMeter);
+        public static readonly ElectricChargeDensityUnit SI = new ElectricChargeDensityUnit(ElectricChargeUnit.SI, VolumeUnit.SI);
         public static readonly ElectricChargeDensityUnit CoulombPerCubicMeter = new ElectricChargeDensityUnit(ElectricChargeUnit.Coulomb, VolumeUnit.CubicMeter);
 
 

@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class CapacitanceUnit : Enumeration
     {
 
-        public static readonly CapacitanceUnit SI = new CapacitanceUnit(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
+        public static readonly CapacitanceUnit SI = new CapacitanceUnit(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");
         public static readonly CapacitanceUnit Farad = new CapacitanceUnit(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
         public static readonly CapacitanceUnit Kilofarad = new CapacitanceUnit(PreFix.kilo, Farad);
         public static readonly CapacitanceUnit Megafarad = new CapacitanceUnit(PreFix.mega, Farad);

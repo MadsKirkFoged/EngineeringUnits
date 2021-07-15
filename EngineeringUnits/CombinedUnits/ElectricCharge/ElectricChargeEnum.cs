@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricChargeUnit : Enumeration
     {
 
-        public static readonly ElectricChargeUnit SI = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second);
+        public static readonly ElectricChargeUnit SI = new ElectricChargeUnit(ElectricCurrentUnit.SI, DurationUnit.SI);
         public static readonly ElectricChargeUnit Coulomb = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Second, "C");
         public static readonly ElectricChargeUnit AmpereHour = new ElectricChargeUnit(ElectricCurrentUnit.Ampere, DurationUnit.Hour, "A-h");
         public static readonly ElectricChargeUnit KiloampereHour = new ElectricChargeUnit(PreFix.kilo, AmpereHour);

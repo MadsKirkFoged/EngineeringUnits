@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricCurrentDensityUnit : Enumeration
     {
 
-        public static readonly ElectricCurrentDensityUnit SI = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareMeter);
+        public static readonly ElectricCurrentDensityUnit SI = new ElectricCurrentDensityUnit(ElectricCurrentUnit.SI, AreaUnit.SI);
         public static readonly ElectricCurrentDensityUnit AmperePerSquareMeter = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareMeter);
         public static readonly ElectricCurrentDensityUnit AmperePerSquareInch = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareInch);
         public static readonly ElectricCurrentDensityUnit AmperePerSquareFoot = new ElectricCurrentDensityUnit(ElectricCurrentUnit.Ampere, AreaUnit.SquareFoot);
