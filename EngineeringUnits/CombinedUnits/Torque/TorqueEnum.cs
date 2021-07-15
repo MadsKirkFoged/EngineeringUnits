@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class TorqueUnit : Enumeration
     {
 
-        public static readonly TorqueUnit SI =                       new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
+        public static readonly TorqueUnit SI =                       new TorqueUnit(ForceUnit.SI, LengthUnit.SI);
         public static readonly TorqueUnit NewtonMeter =              new TorqueUnit(ForceUnit.Newton, LengthUnit.Meter);
         public static readonly TorqueUnit KilonewtonMeter =          new TorqueUnit(PreFix.kilo, NewtonMeter);
         public static readonly TorqueUnit MeganewtonMeter =          new TorqueUnit(PreFix.mega, NewtonMeter);

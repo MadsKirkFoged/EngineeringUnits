@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ThermalResistanceUnit : Enumeration
     {
 
-        public static readonly ThermalResistanceUnit SI = new ThermalResistanceUnit(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Watt);
+        public static readonly ThermalResistanceUnit SI = new ThermalResistanceUnit(AreaUnit.SI, TemperatureUnit.SI, PowerUnit.SI);
         public static readonly ThermalResistanceUnit SquareMeterDegreeCelsiusPerWatt = new ThermalResistanceUnit(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Watt, "m²°C/W");
         public static readonly ThermalResistanceUnit SquareMeterKelvinPerKilowatt = new ThermalResistanceUnit(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Kilowatt);
         public static readonly ThermalResistanceUnit SquareCentimeterKelvinPerWatt = new ThermalResistanceUnit(AreaUnit.SquareCentimeter, TemperatureUnit.Kelvin, PowerUnit.Watt);

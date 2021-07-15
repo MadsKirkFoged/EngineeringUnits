@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class VolumeUnit : Enumeration
     {
 
-        public static readonly VolumeUnit SI =                   new VolumeUnit(LengthUnit.Meter);
+        public static readonly VolumeUnit SI =                   new VolumeUnit(LengthUnit.SI);
         public static readonly VolumeUnit CubicMeter =           new VolumeUnit(LengthUnit.Meter);
         public static readonly VolumeUnit HectocubicMeter =      new VolumeUnit(PreFix.hecto, CubicMeter);
         public static readonly VolumeUnit KilocubicMeter =       new VolumeUnit(PreFix.kilo, CubicMeter);

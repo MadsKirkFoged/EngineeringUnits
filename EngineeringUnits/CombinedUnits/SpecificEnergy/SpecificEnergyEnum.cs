@@ -13,18 +13,18 @@ namespace EngineeringUnits.Units
     public class SpecificEnergyUnit : Enumeration
     {
 
-        public static readonly SpecificEnergyUnit SI =                       new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.SI);
-        public static readonly SpecificEnergyUnit JoulePerKilogram =         new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.SI);
-        public static readonly SpecificEnergyUnit KilojoulePerKilogram =     new SpecificEnergyUnit(EnergyUnit.Kilojoule, MassUnit.SI);
-        public static readonly SpecificEnergyUnit MegajoulePerKilogram =     new SpecificEnergyUnit(EnergyUnit.Megajoule, MassUnit.SI);
+        public static readonly SpecificEnergyUnit SI =                       new SpecificEnergyUnit(EnergyUnit.SI, MassUnit.SI);
+        public static readonly SpecificEnergyUnit JoulePerKilogram =         new SpecificEnergyUnit(EnergyUnit.Joule, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit KilojoulePerKilogram =     new SpecificEnergyUnit(EnergyUnit.Kilojoule, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit MegajoulePerKilogram =     new SpecificEnergyUnit(EnergyUnit.Megajoule, MassUnit.Kilogram);
         public static readonly SpecificEnergyUnit BtuPerPound =              new SpecificEnergyUnit(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
         public static readonly SpecificEnergyUnit CaloriePerGram =           new SpecificEnergyUnit(EnergyUnit.Calorie, MassUnit.Gram);
         public static readonly SpecificEnergyUnit KilocaloriePerGram =       new SpecificEnergyUnit(EnergyUnit.Kilocalorie, MassUnit.Gram);
-        public static readonly SpecificEnergyUnit WattDayPerKilogram =       new SpecificEnergyUnit(EnergyUnit.WattDay, MassUnit.SI);
-        public static readonly SpecificEnergyUnit KilowattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.KilowattDay, MassUnit.SI);
-        public static readonly SpecificEnergyUnit MegawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.MegawattDay, MassUnit.SI);
-        public static readonly SpecificEnergyUnit GigawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.GigawattDay, MassUnit.SI);
-        public static readonly SpecificEnergyUnit TerawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.TerawattDay, MassUnit.SI);
+        public static readonly SpecificEnergyUnit WattDayPerKilogram =       new SpecificEnergyUnit(EnergyUnit.WattDay, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit KilowattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.KilowattDay, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit MegawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.MegawattDay, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit GigawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.GigawattDay, MassUnit.Kilogram);
+        public static readonly SpecificEnergyUnit TerawattDayPerKilogram =   new SpecificEnergyUnit(EnergyUnit.TerawattDay, MassUnit.Kilogram);
         public static readonly SpecificEnergyUnit WattHourPerKilogram =      new SpecificEnergyUnit(EnergyUnit.WattHour, MassUnit.Kilogram);
         public static readonly SpecificEnergyUnit KilowattHourPerKilogram =  new SpecificEnergyUnit(EnergyUnit.KilowattHour, MassUnit.Kilogram);
         public static readonly SpecificEnergyUnit MegawattHourPerKilogram =  new SpecificEnergyUnit(EnergyUnit.MegawattHour, MassUnit.Kilogram);

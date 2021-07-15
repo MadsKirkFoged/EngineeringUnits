@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class TemperatureChangeRateUnit : Enumeration
     {
 
-        public static readonly TemperatureChangeRateUnit SI = new TemperatureChangeRateUnit(TemperatureUnit.Kelvin, DurationUnit.Second);
+        public static readonly TemperatureChangeRateUnit SI = new TemperatureChangeRateUnit(TemperatureUnit.SI, DurationUnit.SI);
         public static readonly TemperatureChangeRateUnit DegreeCelsiusPerSecond = new TemperatureChangeRateUnit(TemperatureUnit.Kelvin, DurationUnit.Second);
         public static readonly TemperatureChangeRateUnit DegreeCelsiusPerMinute = new TemperatureChangeRateUnit(TemperatureUnit.Kelvin, DurationUnit.Minute);
 

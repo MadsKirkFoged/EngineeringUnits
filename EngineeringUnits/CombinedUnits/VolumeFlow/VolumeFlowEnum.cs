@@ -28,7 +28,7 @@ namespace EngineeringUnits.Units
         public static readonly VolumeFlowUnit CubicMeterPerHour =        new VolumeFlowUnit(VolumeUnit.CubicMeter, DurationUnit.Hour);
         public static readonly VolumeFlowUnit CubicMeterPerMinute =      new VolumeFlowUnit(VolumeUnit.CubicMeter, DurationUnit.Minute);
         public static readonly VolumeFlowUnit CubicMeterPerSecond =      new VolumeFlowUnit(VolumeUnit.CubicMeter, DurationUnit.Second);
-        public static readonly VolumeFlowUnit SI =                       new VolumeFlowUnit(VolumeUnit.CubicMeter, DurationUnit.Second);
+        public static readonly VolumeFlowUnit SI =                       new VolumeFlowUnit(VolumeUnit.SI, DurationUnit.SI);
 
         public static readonly VolumeFlowUnit CubicMillimeterPerSecond = new VolumeFlowUnit(VolumeUnit.CubicMillimeter, DurationUnit.Second);
         public static readonly VolumeFlowUnit CubicYardPerDay =          new VolumeFlowUnit(VolumeUnit.CubicYard, DurationUnit.Day);

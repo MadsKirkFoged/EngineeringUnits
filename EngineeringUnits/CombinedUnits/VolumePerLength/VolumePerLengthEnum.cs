@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class VolumePerLengthUnit : Enumeration
     {
 
-        public static readonly VolumePerLengthUnit SI = new VolumePerLengthUnit(VolumeUnit.CubicMeter, LengthUnit.Meter);
+        public static readonly VolumePerLengthUnit SI = new VolumePerLengthUnit(VolumeUnit.SI, LengthUnit.SI);
         public static readonly VolumePerLengthUnit CubicMeterPerMeter = new VolumePerLengthUnit(VolumeUnit.CubicMeter, LengthUnit.Meter);
         public static readonly VolumePerLengthUnit CubicYardPerFoot = new VolumePerLengthUnit(VolumeUnit.CubicYard, LengthUnit.Foot);
         public static readonly VolumePerLengthUnit CubicYardPerUsSurveyFoot = new VolumePerLengthUnit(VolumeUnit.CubicYard, LengthUnit.UsSurveyFoot);

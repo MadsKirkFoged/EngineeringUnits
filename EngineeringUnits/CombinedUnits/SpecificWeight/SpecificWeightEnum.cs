@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class SpecificWeightUnit : Enumeration
     {
 
-        public static readonly SpecificWeightUnit SI = new SpecificWeightUnit(ForceUnit.Newton, VolumeUnit.CubicMeter);
+        public static readonly SpecificWeightUnit SI = new SpecificWeightUnit(ForceUnit.SI, VolumeUnit.SI);
         public static readonly SpecificWeightUnit NewtonPerCubicMeter =             new SpecificWeightUnit(ForceUnit.Newton,            VolumeUnit.CubicMeter);
         public static readonly SpecificWeightUnit KilogramForcePerCubicCentimeter = new SpecificWeightUnit(ForceUnit.KilogramForce,     VolumeUnit.CubicCentimeter);
         public static readonly SpecificWeightUnit KilogramForcePerCubicMeter =      new SpecificWeightUnit(ForceUnit.KilogramForce,     VolumeUnit.CubicMeter);
