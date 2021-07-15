@@ -16,5 +16,10 @@ namespace EngineeringUnits
         /// </summary>
         public double WattsPerMeterKelvin => As(ThermalConductivityUnit.WattPerMeterKelvin);
 
+        /// <summary>
+        ///     Get ThermalConductivity in SI unit (WattsPerMeterKelvin).
+        /// </summary>
+        public double SI => As(ThermalConductivityUnit.SI);
+
     }
 }

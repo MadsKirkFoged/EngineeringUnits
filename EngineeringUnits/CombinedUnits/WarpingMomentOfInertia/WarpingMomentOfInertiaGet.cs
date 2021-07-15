@@ -33,6 +33,11 @@ namespace EngineeringUnits
         public double MetersToTheSixth => As(WarpingMomentOfInertiaUnit.MeterToTheSixth);
 
         /// <summary>
+        ///     Get WarpingMomentOfInertia in SI unit (MetersToTheSixth).
+        /// </summary>
+        public double SI => As(WarpingMomentOfInertiaUnit.SI);
+
+        /// <summary>
         ///     Get WarpingMomentOfInertia in MillimetersToTheSixth.
         /// </summary>
         public double MillimetersToTheSixth => As(WarpingMomentOfInertiaUnit.MillimeterToTheSixth);

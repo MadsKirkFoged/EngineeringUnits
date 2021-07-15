@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double CubicMetersPerMeter => As(VolumePerLengthUnit.CubicMeterPerMeter);
 
         /// <summary>
+        ///     Get VolumePerLength in SI unit (CubicMetersPerMeter).
+        /// </summary>
+        public double SI => As(VolumePerLengthUnit.SI);
+
+        /// <summary>
         ///     Get VolumePerLength in CubicYardsPerFoot.
         /// </summary>
         public double CubicYardsPerFoot => As(VolumePerLengthUnit.CubicYardPerFoot);

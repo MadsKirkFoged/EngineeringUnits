@@ -62,6 +62,11 @@ namespace EngineeringUnits
         public double CubicMeters => As(VolumeUnit.CubicMeter);
 
         /// <summary>
+        ///     Get Volume in SI Unit (CubicMeters).
+        /// </summary>
+        public double SI => As(VolumeUnit.SI);
+
+        /// <summary>
         ///     Get Volume in CubicMicrometers.
         /// </summary>
         public double CubicMicrometers => As(VolumeUnit.CubicMicrometer);

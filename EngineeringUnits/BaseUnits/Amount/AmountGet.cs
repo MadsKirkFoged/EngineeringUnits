@@ -71,6 +71,11 @@ namespace EngineeringUnits
         public double Moles => As(AmountOfSubstanceUnit.Mole);
 
         /// <summary>
+        ///     Get AmountOfSubstance in SI unit (Moles).
+        /// </summary>
+        public double SI => As(AmountOfSubstanceUnit.SI);
+
+        /// <summary>
         ///     Get AmountOfSubstance in Nanomoles.
         /// </summary>
         public double Nanomoles => As(AmountOfSubstanceUnit.Nanomole);

@@ -82,6 +82,11 @@ namespace EngineeringUnits
         public double NewtonMeters => As(TorqueUnit.NewtonMeter);
 
         /// <summary>
+        ///     Get Torque in SI Unit (NewtonMeters).
+        /// </summary>
+        public double SI => As(TorqueUnit.SI);
+
+        /// <summary>
         ///     Get Torque in NewtonMillimeters.
         /// </summary>
         public double NewtonMillimeters => As(TorqueUnit.NewtonMillimeter);

@@ -31,5 +31,10 @@ namespace EngineeringUnits
         ///     Get ThermalResistance in SquareMeterKelvinsPerKilowatt.
         /// </summary>
         public double SquareMeterKelvinsPerKilowatt => As(ThermalResistanceUnit.SquareMeterKelvinPerKilowatt);
+
+        /// <summary>
+        ///     Get ThermalResistance in SI unit (SquareMeterKelvinsPerKilowatt).
+        /// </summary>
+        public double SI => As(ThermalResistanceUnit.SI);
     }
 }

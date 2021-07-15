@@ -87,6 +87,11 @@ namespace EngineeringUnits
         public double CubicMetersPerSecond => As(VolumeFlowUnit.CubicMeterPerSecond);
 
         /// <summary>
+        ///     Get VolumeFlow in SI unit (CubicMetersPerSecond).
+        /// </summary>
+        public double SI => As(VolumeFlowUnit.SI);
+
+        /// <summary>
         ///     Get VolumeFlow in CubicMillimetersPerSecond.
         /// </summary>
         public double CubicMillimetersPerSecond => As(VolumeFlowUnit.CubicMillimeterPerSecond);

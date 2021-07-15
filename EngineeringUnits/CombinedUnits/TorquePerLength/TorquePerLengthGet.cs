@@ -82,6 +82,11 @@ namespace EngineeringUnits
         public double NewtonMetersPerMeter => As(TorquePerLengthUnit.NewtonMeterPerMeter);
 
         /// <summary>
+        ///     Get TorquePerLength in SI unit (NewtonMetersPerMeter).
+        /// </summary>
+        public double SI => As(TorquePerLengthUnit.SI);
+
+        /// <summary>
         ///     Get TorquePerLength in NewtonMillimetersPerMeter.
         /// </summary>
         public double NewtonMillimetersPerMeter => As(TorquePerLengthUnit.NewtonMillimeterPerMeter);
