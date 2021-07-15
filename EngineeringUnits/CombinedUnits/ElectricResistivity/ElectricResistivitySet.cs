@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricResistivity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricResistivity FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricResistivity(value, ElectricResistivityUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricResistivity from KiloohmsCentimeter.
         /// </summary>

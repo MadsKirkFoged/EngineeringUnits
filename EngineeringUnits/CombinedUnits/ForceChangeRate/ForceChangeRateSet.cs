@@ -7,6 +7,17 @@ namespace EngineeringUnits
     public partial class ForceChangeRate
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ForceChangeRate FromSI(double si)
+        {
+            double value = (double)si;
+            return new ForceChangeRate(value, ForceChangeRateUnit.SI);
+        }
+
+
+        /// <summary>
         ///     Get ForceChangeRate from CentinewtonsPerSecond.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

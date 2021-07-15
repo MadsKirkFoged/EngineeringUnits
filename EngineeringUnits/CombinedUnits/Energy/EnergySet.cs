@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Energy
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Energy FromSI(double si)
+        {
+            double value = (double)si;
+            return new Energy(value, EnergyUnit.SI);
+        }
+
         /// <summary>
         ///     Get Energy from BritishThermalUnits.
         /// </summary>

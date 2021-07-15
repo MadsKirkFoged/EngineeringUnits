@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Force
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Force FromSI(double si)
+        {
+            double value = (double)si;
+            return new Force(value, ForceUnit.SI);
+        }
+
         /// <summary>
         ///     Get Force from Decanewtons.
         /// </summary>

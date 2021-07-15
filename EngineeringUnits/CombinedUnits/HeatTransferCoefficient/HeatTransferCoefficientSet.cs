@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class HeatTransferCoefficient
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static HeatTransferCoefficient FromSI(double si)
+        {
+            double value = (double)si;
+            return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.SI);
+        }
+
         /// <summary>
         ///     Get HeatTransferCoefficient from BtusPerSquareFootDegreeFahrenheit.
         /// </summary>

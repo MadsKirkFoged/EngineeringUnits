@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class HeatFlux
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static HeatFlux FromSI(double si)
+        {
+            double value = (double)si;
+            return new HeatFlux(value, HeatFluxUnit.SI);
+        }
+
+        /// <summary>
         ///     Get HeatFlux from BtusPerHourSquareFoot.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ForcePerLength
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ForcePerLength FromSI(double si)
+        {
+            double value = (double)si;
+            return new ForcePerLength(value, ForcePerLengthUnit.SI);
+        }
+
         /// <summary>
         ///     Get ForcePerLength from CentinewtonsPerCentimeter.
         /// </summary>

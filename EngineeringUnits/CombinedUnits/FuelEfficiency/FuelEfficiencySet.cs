@@ -7,6 +7,18 @@ namespace EngineeringUnits
     public partial class FuelEfficiency
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static FuelEfficiency FromSI(double si)
+        {
+            double value = (double)si;
+            return new FuelEfficiency(value, FuelEfficiencyUnit.SI);
+        }
+
+
+
+        /// <summary>
         ///     Get FuelEfficiency from KilometersPerLiters.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

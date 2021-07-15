@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Illuminance
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Illuminance FromSI(double si)
+        {
+            double value = (double)si;
+            return new Illuminance(value, IlluminanceUnit.SI);
+        }
+
         /// <summary>
         ///     Get Illuminance from Kilolux.
         /// </summary>

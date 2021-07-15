@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricSurfaceChargeDensity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricSurfaceChargeDensity FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricSurfaceChargeDensity from CoulombsPerSquareCentimeter.
         /// </summary>
