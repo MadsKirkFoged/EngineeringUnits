@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class AreaMomentOfInertiaUnit : Enumeration
     {
 
-        public static readonly AreaMomentOfInertiaUnit SI = new AreaMomentOfInertiaUnit(LengthUnit.Meter);
+        public static readonly AreaMomentOfInertiaUnit SI = new AreaMomentOfInertiaUnit(LengthUnit.SI);
         public static readonly AreaMomentOfInertiaUnit MeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Meter);
         public static readonly AreaMomentOfInertiaUnit CentimeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Centimeter);
         public static readonly AreaMomentOfInertiaUnit DecimeterToTheFourth = new AreaMomentOfInertiaUnit(LengthUnit.Decimeter);

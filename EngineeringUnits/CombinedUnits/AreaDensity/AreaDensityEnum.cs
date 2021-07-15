@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class AreaDensityUnit : Enumeration
     {
 
-        public static readonly AreaDensityUnit SI = new AreaDensityUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
+        public static readonly AreaDensityUnit SI = new AreaDensityUnit(MassUnit.SI, AreaUnit.SI);
         public static readonly AreaDensityUnit KilogramPerSquareMeter = new AreaDensityUnit(MassUnit.Kilogram, AreaUnit.SquareMeter);
 
 
