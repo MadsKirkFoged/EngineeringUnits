@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricInductance
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricInductance FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricInductance(value, ElectricInductanceUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricInductance from Henries.
         /// </summary>

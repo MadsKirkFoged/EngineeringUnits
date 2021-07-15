@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class ElectricPotential
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricPotential FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricPotential(value, ElectricPotentialUnit.SI);
+        }
+
+        /// <summary>
         ///     Get ElectricPotential from Kilovolts.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

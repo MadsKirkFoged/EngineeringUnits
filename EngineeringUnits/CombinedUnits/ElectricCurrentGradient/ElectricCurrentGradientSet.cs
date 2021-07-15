@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricCurrentGradient
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCurrentGradient FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricCurrentGradient(value, ElectricCurrentGradientUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricCurrentGradient from AmperesPerMicrosecond.
         /// </summary>

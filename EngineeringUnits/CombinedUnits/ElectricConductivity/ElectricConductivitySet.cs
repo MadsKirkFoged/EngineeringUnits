@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricConductivity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricConductivity FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricConductivity(value, ElectricConductivityUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricConductivity from SiemensPerFoot.
         /// </summary>

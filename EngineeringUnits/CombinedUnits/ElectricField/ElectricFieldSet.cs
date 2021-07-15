@@ -8,6 +8,16 @@ namespace EngineeringUnits
     {
 
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricField FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricField(value, ElectricFieldUnit.SI);
+        }
+
+        /// <summary>
         ///     Get ElectricField from VoltsPerMeter.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
