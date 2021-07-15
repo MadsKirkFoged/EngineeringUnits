@@ -27,7 +27,7 @@ namespace EngineeringUnits.Units
         public static readonly DurationUnit Year365 =        new DurationUnit("yr", 1, (365*24*3600m));
 
 
-        public static readonly DurationUnit SI = Second;
+        public static readonly DurationUnit SI =            new DurationUnit(PreFix.SI, BaseUnits.time);
 
         public DurationUnit() { }
 
