@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class PressureChangeRateUnit : Enumeration
     {
 
-        public static readonly PressureChangeRateUnit SI = new PressureChangeRateUnit(PressureUnit.Pascal, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit SI = new PressureChangeRateUnit(PressureUnit.SI, DurationUnit.SI);
         public static readonly PressureChangeRateUnit PascalPerSecond = new PressureChangeRateUnit(PressureUnit.Pascal, DurationUnit.Second);
         public static readonly PressureChangeRateUnit PascalPerMinute = new PressureChangeRateUnit(PressureUnit.Pascal, DurationUnit.Minute);
 

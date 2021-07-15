@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class RotationalAccelerationUnit : Enumeration
     {
 
-        public static readonly RotationalAccelerationUnit SI = new RotationalAccelerationUnit(LengthUnit.Meter);
+        public static readonly RotationalAccelerationUnit SI = new RotationalAccelerationUnit(LengthUnit.SI);
         public static readonly RotationalAccelerationUnit CubicMeter = new RotationalAccelerationUnit(LengthUnit.Meter);
         public static readonly RotationalAccelerationUnit HectocubicMeter = new RotationalAccelerationUnit(PreFix.hecto, CubicMeter);
         public static readonly RotationalAccelerationUnit KilocubicMeter = new RotationalAccelerationUnit(PreFix.kilo, CubicMeter);

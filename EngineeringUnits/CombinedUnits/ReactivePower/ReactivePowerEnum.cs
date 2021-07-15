@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ReactivePowerUnit : Enumeration
     {
 
-        public static readonly ReactivePowerUnit SI = new ReactivePowerUnit(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere);
+        public static readonly ReactivePowerUnit SI = new ReactivePowerUnit(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI);
         public static readonly ReactivePowerUnit VoltampereReactive = new ReactivePowerUnit(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, "var");
         public static readonly ReactivePowerUnit MegavoltampereReactive = new ReactivePowerUnit(ElectricPotentialUnit.Megavolt, ElectricCurrentUnit.Ampere, "Mvar");
         public static readonly ReactivePowerUnit KilovoltampereReactive = new ReactivePowerUnit(ElectricPotentialUnit.Kilovolt, ElectricCurrentUnit.Ampere, "kvar");

@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ScalarUnit : Enumeration
     {
 
-        public static readonly ScalarUnit SI = new ScalarUnit(LengthUnit.Meter);
+        public static readonly ScalarUnit SI = new ScalarUnit(LengthUnit.SI);
         public static readonly ScalarUnit CubicMeter = new ScalarUnit(LengthUnit.Meter);
         public static readonly ScalarUnit HectocubicMeter = new ScalarUnit(PreFix.hecto, CubicMeter);
         public static readonly ScalarUnit KilocubicMeter = new ScalarUnit(PreFix.kilo, CubicMeter);

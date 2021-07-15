@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class PowerDensityUnit : Enumeration
     {
 
-        public static readonly PowerDensityUnit SI = new PowerDensityUnit(PowerUnit.Watt, VolumeUnit.CubicMeter);
+        public static readonly PowerDensityUnit SI = new PowerDensityUnit(PowerUnit.SI, VolumeUnit.SI);
 
         public static readonly PowerDensityUnit WattPerCubicMeter = new PowerDensityUnit(PowerUnit.Watt, VolumeUnit.CubicMeter);
         public static readonly PowerDensityUnit WattPerLiter = new PowerDensityUnit(PowerUnit.Watt, VolumeUnit.Liter);
