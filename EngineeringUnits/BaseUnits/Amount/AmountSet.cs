@@ -8,6 +8,17 @@ namespace EngineeringUnits
     public partial class AmountOfSubstance
     {
         /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static AmountOfSubstance FromSI(double si)
+        {
+            double value = (double)si;
+            return new AmountOfSubstance(value, AmountOfSubstanceUnit.SI);
+        }
+
+
+        /// <summary>
         ///     Get AmountOfSubstance from Centimoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

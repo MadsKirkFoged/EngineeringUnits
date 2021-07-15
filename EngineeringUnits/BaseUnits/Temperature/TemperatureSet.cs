@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Temperature
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Temperature FromSI(double si)
+        {
+            double value = (double)si;
+            return new Temperature(value, TemperatureUnit.SI);
+        }
+
         /// <summary>
         ///     Get Temperature from DegreesCelsius.
         /// </summary>

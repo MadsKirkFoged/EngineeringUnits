@@ -6,6 +6,15 @@ namespace EngineeringUnits
 {
     public partial class Acceleration
     {
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Acceleration FromSI(double si)
+        {
+            double value = (double)si;
+            return new Acceleration(value, AccelerationUnit.SI);
+        }
 
         /// <summary>
         ///     Get Acceleration from CentimetersPerSecondSquared.

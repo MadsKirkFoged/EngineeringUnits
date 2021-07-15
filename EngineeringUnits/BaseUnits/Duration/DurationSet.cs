@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Duration
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Duration FromSI(double si)
+        {
+            double value = (double)si;
+            return new Duration(value, DurationUnit.SI);
+        }
+
         /// <summary>
         ///     Get Duration from Days.
         /// </summary>

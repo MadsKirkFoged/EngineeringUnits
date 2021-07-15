@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricCurrent
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCurrent FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricCurrent(value, ElectricCurrentUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricCurrent from Amperes.
         /// </summary>

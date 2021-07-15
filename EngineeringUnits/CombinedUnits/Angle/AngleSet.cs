@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Angle
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Angle FromSI(double si)
+        {
+            double value = (double)si;
+            return new Angle(value, AngleUnit.SI);
+        }
+
         /// <summary>
         ///     Get Angle from Arcminutes.
         /// </summary>

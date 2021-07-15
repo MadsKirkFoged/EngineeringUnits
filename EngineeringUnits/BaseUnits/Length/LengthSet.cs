@@ -7,6 +7,16 @@ namespace EngineeringUnits
     public partial class Length
     {
 
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Length FromSI(double si)
+        {
+            double value = (double)si;
+            return new Length(value, LengthUnit.SI);
+        }
+
         // <summary>
         ///     Get Length from AstronomicalUnits.
         /// </summary>

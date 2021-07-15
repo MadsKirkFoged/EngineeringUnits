@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Mass
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Mass FromSI(double si)
+        {
+            double value = (double)si;
+            return new Mass(value, MassUnit.SI);
+        }
+
         /// <summary>
         ///     Get Mass from Centigrams.
         /// </summary>
