@@ -26,5 +26,10 @@ namespace EngineeringUnits
         /// </summary>
         public double VoltamperesReactive => As(ReactivePowerUnit.VoltampereReactive);
 
+        /// <summary>
+        ///     Get ReactivePower in SI unit (VoltamperesReactive).
+        /// </summary>
+        public double SI => As(ReactivePowerUnit.SI);
+
     }
 }

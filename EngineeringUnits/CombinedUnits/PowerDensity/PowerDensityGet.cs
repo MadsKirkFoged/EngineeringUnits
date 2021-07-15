@@ -222,6 +222,11 @@ namespace EngineeringUnits
         public double WattsPerCubicMeter => As(PowerDensityUnit.WattPerCubicMeter);
 
         /// <summary>
+        ///     Get PowerDensity in SI unit (WattsPerCubicMeter).
+        /// </summary>
+        public double SI => As(PowerDensityUnit.SI);
+
+        /// <summary>
         ///     Get PowerDensity in WattsPerLiter.
         /// </summary>
         public double WattsPerLiter => As(PowerDensityUnit.WattPerLiter);

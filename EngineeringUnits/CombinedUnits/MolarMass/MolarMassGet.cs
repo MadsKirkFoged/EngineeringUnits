@@ -37,6 +37,11 @@ namespace EngineeringUnits
         public double KilogramsPerMole => As(MolarMassUnit.KilogramPerMole);
 
         /// <summary>
+        ///     Get MolarMass in SI Unit (KilogramsPerMole).
+        /// </summary>
+        public double SI => As(MolarMassUnit.SI);
+
+        /// <summary>
         ///     Get MolarMass in KilopoundsPerMole.
         /// </summary>
         public double KilopoundsPerMole => As(MolarMassUnit.KilopoundPerMole);

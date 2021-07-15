@@ -42,6 +42,11 @@ namespace EngineeringUnits
         public double KilogramSquareMeters => As(MassMomentOfInertiaUnit.KilogramSquareMeter);
 
         /// <summary>
+        ///     Get MassMomentOfInertia in SI Unit (KilogramSquareMeters).
+        /// </summary>
+        public double SI => As(MassMomentOfInertiaUnit.SI);
+
+        /// <summary>
         ///     Get MassMomentOfInertia in KilogramSquareMillimeters.
         /// </summary>
         public double KilogramSquareMillimeters => As(MassMomentOfInertiaUnit.KilogramSquareMillimeter);

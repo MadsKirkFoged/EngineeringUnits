@@ -82,6 +82,12 @@ namespace EngineeringUnits
         public double KilogramsPerSecond => As(MassFlowUnit.KilogramPerSecond);
 
         /// <summary>
+        ///     Get MassFlow in SI Unit (KilogramsPerSecond).
+        /// </summary>
+        public double SI => As(MassFlowUnit.SI);
+
+
+        /// <summary>
         ///     Get MassFlow in MegagramsPerDay.
         /// </summary>
         public double MegagramsPerDay => As(MassFlowUnit.MegagramPerDay);

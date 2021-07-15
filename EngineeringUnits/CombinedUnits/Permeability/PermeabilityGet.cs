@@ -11,5 +11,10 @@ namespace EngineeringUnits
         /// </summary>
         public double HenriesPerMeter => As(PermeabilityUnit.HenryPerMeter);
 
+        /// <summary>
+        ///     Get Permeability in SI Unit (HenriesPerMeter).
+        /// </summary>
+        public double SI => As(PermeabilityUnit.SI);
+
     }
 }

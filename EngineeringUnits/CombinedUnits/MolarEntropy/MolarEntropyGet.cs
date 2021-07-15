@@ -12,6 +12,11 @@ namespace EngineeringUnits
         public double JoulesPerMoleKelvin => As(MolarEntropyUnit.JoulePerMoleKelvin);
 
         /// <summary>
+        ///     Get MolarEntropy in SI Unit (JoulesPerMoleKelvin).
+        /// </summary>
+        public double SI => As(MolarEntropyUnit.SI);
+
+        /// <summary>
         ///     Get MolarEntropy in KilojoulesPerMoleKelvin.
         /// </summary>
         public double KilojoulesPerMoleKelvin => As(MolarEntropyUnit.KilojoulePerMoleKelvin);

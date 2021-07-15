@@ -62,6 +62,11 @@ namespace EngineeringUnits
         public double PascalsPerSecond => As(PressureChangeRateUnit.PascalPerSecond);
 
         /// <summary>
+        ///     Get PressureChangeRate in SI Unit (PascalsPerSecond).
+        /// </summary>
+        public double SI => As(PressureChangeRateUnit.SI);
+
+        /// <summary>
         ///     Get PressureChangeRate in PoundsForcePerSquareInchPerMinute.
         /// </summary>
         public double PoundsForcePerSquareInchPerMinute => As(PressureChangeRateUnit.PoundForcePerSquareInchPerMinute);

@@ -131,6 +131,11 @@ namespace EngineeringUnits
         /// </summary>
         public double Watts => As(PowerUnit.Watt);
 
+        /// <summary>
+        ///     Get Power in SI unit (Watts).
+        /// </summary>
+        public double SI => As(PowerUnit.SI);
+
 
 
     }

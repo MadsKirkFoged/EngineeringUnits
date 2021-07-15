@@ -186,6 +186,12 @@ namespace EngineeringUnits
         /// </summary>
         public double Pascals => As(PressureUnit.Pascal);
 
+
+        /// <summary>
+        ///     Get Pressure in SI unit (Pascals).
+        /// </summary>
+        public double SI => As(PressureUnit.SI);
+
         /// <summary>
         ///     Get Pressure in PoundsForcePerSquareFoot.
         /// </summary>

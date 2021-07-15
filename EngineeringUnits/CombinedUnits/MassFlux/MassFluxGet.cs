@@ -62,6 +62,11 @@ namespace EngineeringUnits
         public double KilogramsPerSecondPerSquareMeter => As(MassFluxUnit.KilogramPerSecondPerSquareMeter);
 
         /// <summary>
+        ///     Get MassFlux in SI Unit (KilogramsPerSecondPerSquareMeter).
+        /// </summary>
+        public double SI => As(MassFluxUnit.SI);
+
+        /// <summary>
         ///     Get MassFlux in KilogramsPerSecondPerSquareMillimeter.
         /// </summary>
         public double KilogramsPerSecondPerSquareMillimeter => As(MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
