@@ -24,10 +24,10 @@ namespace UnitNetcomparing
             list1.Add(MassFlow.FromKilogramsPerSecond(4));
 
 
-            MassFlow tester1 = UnitMath.Max(list1);
+            MassFlow tester1 = UnitMath.Sum(list1);
 
 
-            MassFlow tester2 = UnitMath.Max(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), MassFlow.FromKilogramsPerSecond(3), MassFlow.FromKilogramsPerSecond(4));
+            MassFlow tester2 = UnitMath.Sum(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), MassFlow.FromKilogramsPerSecond(3), MassFlow.FromKilogramsPerSecond(4));
 
 
 
