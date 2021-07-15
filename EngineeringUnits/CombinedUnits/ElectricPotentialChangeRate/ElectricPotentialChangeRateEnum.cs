@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricPotentialChangeRateUnit : Enumeration
     {
 
-        public static readonly ElectricPotentialChangeRateUnit SI = new ElectricPotentialChangeRateUnit(ElectricPotentialUnit.Volt, DurationUnit.Second);
+        public static readonly ElectricPotentialChangeRateUnit SI = new ElectricPotentialChangeRateUnit(ElectricPotentialUnit.SI, DurationUnit.SI);
         public static readonly ElectricPotentialChangeRateUnit VoltPerSecond = new ElectricPotentialChangeRateUnit(ElectricPotentialUnit.Volt, DurationUnit.Second);
         public static readonly ElectricPotentialChangeRateUnit VoltPerMinute = new ElectricPotentialChangeRateUnit(ElectricPotentialUnit.Volt, DurationUnit.Minute);
         public static readonly ElectricPotentialChangeRateUnit VoltPerMicrosecond = new ElectricPotentialChangeRateUnit(ElectricPotentialUnit.Volt, DurationUnit.Microsecond);

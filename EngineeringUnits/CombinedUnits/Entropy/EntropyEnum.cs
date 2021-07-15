@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class EntropyUnit : Enumeration
     {
 
-        public static readonly EntropyUnit SI = new EntropyUnit(EnergyUnit.Joule, TemperatureUnit.Kelvin);
+        public static readonly EntropyUnit SI = new EntropyUnit(EnergyUnit.SI, TemperatureUnit.SI);
         public static readonly EntropyUnit JoulePerKelvin = new EntropyUnit(EnergyUnit.Joule, TemperatureUnit.Kelvin);
         public static readonly EntropyUnit CaloriePerKelvin =            new EntropyUnit(EnergyUnit.Calorie, TemperatureUnit.Kelvin);
         public static readonly EntropyUnit JoulePerDegreeCelsius =       new EntropyUnit(EnergyUnit.Joule, TemperatureUnit.Kelvin);

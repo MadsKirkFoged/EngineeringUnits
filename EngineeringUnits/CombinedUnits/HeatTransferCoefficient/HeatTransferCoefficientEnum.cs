@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class HeatTransferCoefficientUnit : Enumeration
     {
 
-        public static readonly HeatTransferCoefficientUnit SI = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin);
+        public static readonly HeatTransferCoefficientUnit SI = new HeatTransferCoefficientUnit(PowerUnit.SI, AreaUnit.SI, TemperatureUnit.SI);
         public static readonly HeatTransferCoefficientUnit WattPerSquareMeterKelvin = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·K");
         public static readonly HeatTransferCoefficientUnit WattPerSquareMeterCelsius = new HeatTransferCoefficientUnit(PowerUnit.Watt, AreaUnit.SquareMeter, TemperatureUnit.Kelvin, "W/m²·°C");
         public static readonly HeatTransferCoefficientUnit BtuPerSquareFootDegreeFahrenheit = new HeatTransferCoefficientUnit(PowerUnit.BritishThermalUnitPerHour, AreaUnit.SquareFoot, TemperatureUnit.DegreeRankine, "Btu/ft²·hr·°F");

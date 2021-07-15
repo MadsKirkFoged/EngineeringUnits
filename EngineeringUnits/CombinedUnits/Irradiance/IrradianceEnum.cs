@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class IrradianceUnit : Enumeration
     {
 
-        public static readonly IrradianceUnit SI = new IrradianceUnit(PowerUnit.Watt, AreaUnit.SquareMeter);
+        public static readonly IrradianceUnit SI = new IrradianceUnit(PowerUnit.SI, AreaUnit.SI);
         public static readonly IrradianceUnit WattPerSquareMeter = new IrradianceUnit(PowerUnit.Watt, AreaUnit.SquareMeter);
         public static readonly IrradianceUnit WattPerSquareCentimeter = new IrradianceUnit(PowerUnit.Watt, AreaUnit.SquareCentimeter);
 

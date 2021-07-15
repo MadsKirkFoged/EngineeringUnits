@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class IlluminanceUnit : Enumeration
     {
 
-        public static readonly IlluminanceUnit SI = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SquareMeter);
+        public static readonly IlluminanceUnit SI = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SI);
         public static readonly IlluminanceUnit Lux = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SquareMeter, "lx");
 
 

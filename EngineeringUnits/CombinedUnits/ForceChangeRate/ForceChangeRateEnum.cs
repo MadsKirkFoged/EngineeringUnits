@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ForceChangeRateUnit : Enumeration
     {
 
-        public static readonly ForceChangeRateUnit SI = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit SI = new ForceChangeRateUnit(ForceUnit.SI, DurationUnit.SI);
         public static readonly ForceChangeRateUnit NewtonPerSecond = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Second);
         public static readonly ForceChangeRateUnit NewtonPerMinute = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Minute);
 

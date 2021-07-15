@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class HeatFluxUnit : Enumeration
     {
 
-        public static readonly HeatFluxUnit SI = new HeatFluxUnit(PowerUnit.Watt, AreaUnit.SquareMeter);
+        public static readonly HeatFluxUnit SI = new HeatFluxUnit(PowerUnit.SI, AreaUnit.SI);
         public static readonly HeatFluxUnit WattPerSquareMeter = new HeatFluxUnit(PowerUnit.Watt, AreaUnit.SquareMeter);
         public static readonly HeatFluxUnit WattPerSquareInch = new HeatFluxUnit(PowerUnit.Watt, AreaUnit.SquareInch);
         public static readonly HeatFluxUnit WattPerSquareFoot = new HeatFluxUnit(PowerUnit.Watt, AreaUnit.SquareFoot);

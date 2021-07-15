@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 
     public class ForcePerLengthUnit : Enumeration
     {
-        public static readonly ForcePerLengthUnit SI = new ForcePerLengthUnit(ForceUnit.Newton, LengthUnit.Meter);
+        public static readonly ForcePerLengthUnit SI = new ForcePerLengthUnit(ForceUnit.SI, LengthUnit.SI);
         public static readonly ForcePerLengthUnit NewtonPerMeter = new ForcePerLengthUnit(ForceUnit.Newton, LengthUnit.Meter);
         public static readonly ForcePerLengthUnit NewtonPerCentimeter = new ForcePerLengthUnit(ForceUnit.Newton, LengthUnit.Centimeter);
         public static readonly ForcePerLengthUnit NewtonPerMillimeter = new ForcePerLengthUnit(ForceUnit.Newton, LengthUnit.Millimeter);

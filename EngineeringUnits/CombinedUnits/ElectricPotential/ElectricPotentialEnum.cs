@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricPotentialUnit : Enumeration
     {
 
-        public static readonly ElectricPotentialUnit SI = new ElectricPotentialUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "V");
+        public static readonly ElectricPotentialUnit SI = new ElectricPotentialUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "V");
         public static readonly ElectricPotentialUnit Volt = new ElectricPotentialUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere , "V");
         public static readonly ElectricPotentialUnit Kilovolt = new ElectricPotentialUnit(PreFix.kilo, Volt);
         public static readonly ElectricPotentialUnit Megavolt = new ElectricPotentialUnit(PreFix.mega, Volt);

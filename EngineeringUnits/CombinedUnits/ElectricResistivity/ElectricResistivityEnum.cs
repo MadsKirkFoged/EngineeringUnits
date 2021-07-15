@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricResistivityUnit : Enumeration
     {
 
-        public static readonly ElectricResistivityUnit SI = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Meter);
+        public static readonly ElectricResistivityUnit SI = new ElectricResistivityUnit(ElectricResistanceUnit.SI, LengthUnit.SI);
         public static readonly ElectricResistivityUnit OhmMeter = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Meter);
         public static readonly ElectricResistivityUnit OhmCentimeter = new ElectricResistivityUnit(ElectricResistanceUnit.Ohm, LengthUnit.Centimeter);
 
