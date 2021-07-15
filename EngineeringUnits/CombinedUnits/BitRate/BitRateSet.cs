@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class BitRate
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static BitRate FromSI(double si)
+        {
+            double value = (double)si;
+            return new BitRate(value, BitRateUnit.SI);
+        }
+
         /// <summary>
         ///     Get BitRate from BitsPerSecond.
         /// </summary>

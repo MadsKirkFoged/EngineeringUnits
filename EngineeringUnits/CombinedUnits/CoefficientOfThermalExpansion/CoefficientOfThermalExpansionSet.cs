@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class CoefficientOfThermalExpansion
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static CoefficientOfThermalExpansion FromSI(double si)
+        {
+            double value = (double)si;
+            return new CoefficientOfThermalExpansion(value, CoefficientOfThermalExpansionUnit.SI);
+        }
+
         /// <summary>
         ///     Get CoefficientOfThermalExpansion from InverseDegreeCelsius.
         /// </summary>

@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Density
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Density FromSI(double si)
+        {
+            double value = (double)si;
+            return new Density(value, DensityUnit.SI);
+        }
+
         /// <summary>
         ///     Get Density from CentigramsPerDeciLiter.
         /// </summary>

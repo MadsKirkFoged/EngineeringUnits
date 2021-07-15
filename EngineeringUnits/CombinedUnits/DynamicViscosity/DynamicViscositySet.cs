@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class DynamicViscosity
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static DynamicViscosity FromSI(double si)
+        {
+            double value = (double)si;
+            return new DynamicViscosity(value, DynamicViscosityUnit.SI);
+        }
+
         /// <summary>
         ///     Get DynamicViscosity from Centipoise.
         /// </summary>

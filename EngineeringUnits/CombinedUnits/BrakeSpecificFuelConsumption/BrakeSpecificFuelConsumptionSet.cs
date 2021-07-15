@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class BrakeSpecificFuelConsumption
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static BrakeSpecificFuelConsumption FromSI(double si)
+        {
+            double value = (double)si;
+            return new BrakeSpecificFuelConsumption(value, BrakeSpecificFuelConsumptionUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get BrakeSpecificFuelConsumption from GramsPerKiloWattHour.
         /// </summary>

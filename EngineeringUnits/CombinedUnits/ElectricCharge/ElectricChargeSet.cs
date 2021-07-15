@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ElectricCharge
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromSI(double si)
+        {
+            double value = (double)si;
+            return new ElectricCharge(value, ElectricChargeUnit.SI);
+        }
+
         /// <summary>
         ///     Get ElectricCharge from AmpereHours.
         /// </summary>

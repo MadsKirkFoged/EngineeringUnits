@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class AreaMomentOfInertia
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static AreaMomentOfInertia FromSI(double si)
+        {
+            double value = (double)si;
+            return new AreaMomentOfInertia(value, AreaMomentOfInertiaUnit.SI);
+        }
+
         /// <summary>
         ///     Get AreaMomentOfInertia from CentimetersToTheFourth.
         /// </summary>

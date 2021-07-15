@@ -6,6 +6,18 @@ namespace EngineeringUnits
 {
     public partial class Area
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Area FromSI(double si)
+        {
+            double value = (double)si;
+            return new Area(value, AreaUnit.SI);
+        }
+
+
         /// <summary>
         ///     Get Area from Acres.
         /// </summary>

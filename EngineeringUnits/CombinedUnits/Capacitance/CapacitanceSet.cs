@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class Capacitance
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Capacitance FromSI(double si)
+        {
+            double value = (double)si;
+            return new Capacitance(value, CapacitanceUnit.SI);
+        }
+
         /// <summary>
         ///     Get Capacitance from Farads.
         /// </summary>

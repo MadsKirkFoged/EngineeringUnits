@@ -6,6 +6,17 @@ namespace EngineeringUnits
 {
     public partial class ApparentPower
     {
+
+        /// <summary>
+        ///     Get from SI Unit.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromSI(double si)
+        {
+            double value = (double)si;
+            return new ApparentPower(value, ApparentPowerUnit.SI);
+        }
+
         /// <summary>
         ///     Get ApparentPower from Gigavoltamperes.
         /// </summary>
