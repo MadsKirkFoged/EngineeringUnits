@@ -65,3 +65,5 @@ UnitsNet in Inch:         63359,84251968504
 ###### :green_square: Make EngineeringUnits and UnitsNet even more interchangeable
 ###### :green_square: Fix all user reported bug
 ###### :green_square: Add user requested functionality
+###### :green_square: Write a 'Getting started with EngineeringUnits' document
+###### :green_square: Show more user code examples of EngineeringUnits
