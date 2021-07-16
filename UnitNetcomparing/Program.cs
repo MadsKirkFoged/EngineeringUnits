@@ -15,38 +15,38 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
-            var list1 = new List<Duration>();
+            //How much Power (Watt) does it take to heat up the water
+            SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
 
-     
+            Power Q1 = M1 * P1 * (T2 - T1);
 
-            list1.Add(new Duration(1, DurationUnit.SI));
-            list1.Add(new Duration(1, DurationUnit.SI));
-            list1.Add(new Duration(1, DurationUnit.SI));
-            list1.Add(new Duration(1, DurationUnit.SI));
+            //Shows in baseunit
+            Debug.Print($"{Q1}");
 
-
-            MassFlow tester1 = UnitMath.Sum(list1);
-
-
-            MassFlow tester2 = UnitMath.Sum(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), MassFlow.FromKilogramsPerSecond(3), MassFlow.FromKilogramsPerSecond(4));
-
-
-
-            Length test = Length.FromMeters(2);
-
-
-            //Debug.Print($"{test}");
-            Debug.Print($"{test.Pow(-2)}");
-            Debug.Print($"{test.Pow(-1)}");
-            Debug.Print($"{test.Pow(0)}");
-            Debug.Print($"{test.Pow(1)}");
-            Debug.Print($"{test.Pow(2)}");
-            Debug.Print($"{test.Pow(3)}");
+            //Shows in baseunit
+            Debug.Print($"Shows result in Watt: {Q1.As(PowerUnit.Watt)}");
 
 
 
+            //Calculate Area of a square equal sides of 4.3 Foot
+            Length L1 = new Length(4.3, LengthUnit.Foot);
 
-            //Debug.Print($"'<=' 1 time: {stopwatch2.ElapsedTicks / k} tick/operation");
+            Area A1 = L1.Pow(2);
+
+            Debug.Print($"Area: {A1}");
+
+
+            //Precise Convertions
+            Length L2 = new Length(1, LengthUnit.Mile);
+            UnitsNet.Length U2 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
+
+
+
+            Debug.Print($"EngineeringUnits in Inch: {L2.As(LengthUnit.Inch)}");
+            Debug.Print($"UnitsNet in Inch: {U2.As(UnitsNet.Units.LengthUnit.Inch)}");
 
 
         }
