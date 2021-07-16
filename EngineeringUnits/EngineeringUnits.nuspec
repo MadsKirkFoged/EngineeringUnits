@@ -10,7 +10,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/MadsKirkFoged/EngineeringUnits</projectUrl>
     <description>An Engineering version of UnitsNet - Do calculations and converts between any type of unit</description>
-    <releaseNotes>Still in beta.</releaseNotes>
+    <releaseNotes>Working version</releaseNotes>
     <copyright>Open Source</copyright>
     <tags>UnitsNet Unit units measurement si metric imperial convert conversion Physics Engineering science Math mathematics calculation</tags>
 
