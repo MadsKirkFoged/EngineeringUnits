@@ -13,8 +13,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'any cpu'
   buildConfiguration: 'Release'
-  major: 0
-  minor: 0
+  major: 1
+  minor: 1
   Build: $[counter(variables['minor'], 0)]
   VersionNumber: $(major).$(minor).$(Build)
 
