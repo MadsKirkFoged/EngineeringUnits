@@ -459,6 +459,7 @@
     <Compile Include="CombinedUnits\Volume\VolumeEnum.cs" />
     <Compile Include="CombinedUnits\Volume\VolumeGet.cs" />
     <Compile Include="CombinedUnits\Volume\VolumeSet.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="EnumerationUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
