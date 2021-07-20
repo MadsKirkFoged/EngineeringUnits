@@ -32,30 +32,8 @@ namespace EngineeringUnits
             Power local = new Power(0, PowerUnit.SI);
 
             local.Transform(Unit);
-            return local;
+            return local.ToUnit(PowerUnit.SI);
         }
-
-
-        //public override string ToString()
-        //{
-        //    //If we know the unit
-        //    if (Unit.Symbol is object && Unit.Symbol != "")            
-        //        return $"{ValueLocalUnit} {Unit}";
-            
-
-
-        //    //Check if we have the unit in the list
-        //    foreach (var item in PowerUnit.List())
-        //    {
-        //        //Debug.Print($"{this.Unit.GetTotalFactor()} == {item.Unit.GetTotalFactor()}");
-
-        //        if (this.Unit.GetTotalFactor() == item.Unit.GetTotalFactor())
-        //            return $"{As(Unit)} {item.Unit}";
-        //    }
-
-
-        //    //Return unit in SI
-        //    return $"{As(PowerUnit.SI)} {PowerUnit.SI.Unit}";
-        //}
+      
     }
 }

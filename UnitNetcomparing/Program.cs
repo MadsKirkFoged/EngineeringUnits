@@ -23,6 +23,8 @@ namespace UnitNetcomparing
 
             Power Q1 = M1 * P1 * (T2 - T1);
 
+            //Q1 = Q1.ToUnit(PowerUnit.KilobritishThermalUnitPerHour);
+
             //Shows in baseunit
             Debug.Print($"{Q1}");
 

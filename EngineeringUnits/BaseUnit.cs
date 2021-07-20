@@ -76,10 +76,9 @@ namespace EngineeringUnits
             if (a.unitsystem != Unit)
             {
                 throw new InvalidOperationException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
-            }
-            
-            Unit = a.unitsystem.Copy();
-            SymbolValue = a.baseUnit.SymbolValue;
+            }                       
+
+            SetValue(a.baseUnit.ToTheOutSide(Unit));
         }
 
 
