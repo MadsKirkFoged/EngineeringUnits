@@ -54,6 +54,10 @@
     <Compile Include="BaseUnits\Amount\AmountGet.cs" />
     <Compile Include="BaseUnits\Amount\AmountSet.cs" />
     <Compile Include="BaseUnits\CombinedUnits\CombinedUnitEnum.cs" />
+    <Compile Include="BaseUnits\Dimensionless\Dimensionless.cs" />
+    <Compile Include="BaseUnits\Dimensionless\DimensionlessEnum.cs" />
+    <Compile Include="BaseUnits\Dimensionless\DimensionlessGet.cs" />
+    <Compile Include="BaseUnits\Dimensionless\DimensionlessSet.cs" />
     <Compile Include="BaseUnits\Duration\Duration.extra.cs" />
     <Compile Include="BaseUnits\Duration\Duration.cs" />
     <Compile Include="BaseUnits\Duration\DurationEnum.cs" />

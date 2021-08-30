@@ -1,17 +1,38 @@
 using EngineeringUnits;
-using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Linq;
+using EngineeringUnits.Units;
 using UnitsNet;
+using UnitsNet.Units;
+using AccelerationUnit = EngineeringUnits.Units.AccelerationUnit;
+using EnergyUnit = EngineeringUnits.Units.EnergyUnit;
+using ForceUnit = EngineeringUnits.Units.ForceUnit;
+using Luminosity = UnitsNet.Luminosity;
+using MassFlowUnit = EngineeringUnits.Units.MassFlowUnit;
+using MassUnit = EngineeringUnits.Units.MassUnit;
+using PowerUnit = EngineeringUnits.Units.PowerUnit;
+using SpecificEntropyUnit = EngineeringUnits.Units.SpecificEntropyUnit;
+using TemperatureUnit = EngineeringUnits.Units.TemperatureUnit;
 
 namespace UnitTests
 {
     [TestClass]
     public class Equations
     {
+        [TestMethod]
+        public void DimensionlessFromDivision()
+        {
+            
+            var cp = EngineeringUnits.SpecificEntropy.FromKilojoulesPerKilogramKelvin(1.00);
+            var cv = EngineeringUnits.SpecificEntropy.FromKilojoulesPerKilogramKelvin(0.5);
+            var result = cp / cv;
+            double quantity = 2.0;
+            var dimensionlessVariable = Dimensionless.FromDimensionless(2.00);
 
+            Assert.AreEqual(dimensionlessVariable, result);
+        }
 
         [TestMethod]
         public void Powerequation()

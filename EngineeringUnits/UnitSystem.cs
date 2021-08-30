@@ -27,6 +27,7 @@ namespace EngineeringUnits
         public TemperatureUnit Temperature { get; set; }
         public AmountOfSubstanceUnit Amount { get; set; }
         public LuminousIntensityUnit LuminousIntensity { get; set; }
+        public DimensionlessUnit Dimensionless { get; set; }
         public CombinedUnit Combined { get; set; }
 
 

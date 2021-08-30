@@ -17,9 +17,7 @@ namespace EngineeringUnits
         {
             throw new NotSupportedException("This has been moved to the unit itself -> ex lenght.Abs()");
         }
-
-
-
+        
         public static UnknownUnit Sum(IEnumerable<BaseUnit> list)
         {
             UnknownUnit test = new UnknownUnit(0, list.First().Unit);
