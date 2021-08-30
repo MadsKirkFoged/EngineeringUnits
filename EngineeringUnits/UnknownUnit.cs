@@ -3,6 +3,7 @@ using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Text;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace EngineeringUnits
 {
@@ -19,6 +20,7 @@ namespace EngineeringUnits
         public double Value => baseUnit.Value;
 
 
+        
         public UnknownUnit()
         {
             baseUnit = new BaseUnit();
@@ -61,11 +63,10 @@ namespace EngineeringUnits
         public static bool operator < (UnknownUnit left, UnknownUnit right) => left.baseUnit < right.baseUnit;
         public static bool operator > (UnknownUnit left, UnknownUnit right) => left.baseUnit > right.baseUnit;
 
-
-
-
+        // if this is NOT explicit, then operators in BaseUnit are ambiguous
         public static explicit operator double(UnknownUnit Unit)
         {
+
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
                 throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
@@ -73,6 +74,8 @@ namespace EngineeringUnits
 
             return (double)Unit.baseUnit.BaseunitValue;
         }
+
+        
 
         public static explicit operator decimal(UnknownUnit Unit)
         {

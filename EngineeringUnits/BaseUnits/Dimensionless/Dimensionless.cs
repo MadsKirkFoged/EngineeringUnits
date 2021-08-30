@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+﻿using System;
+using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -33,6 +34,13 @@ namespace EngineeringUnits
             local.Transform(Unit);
             return local;
         }
+        
+        public static implicit operator double (Dimensionless d)
+        {
+            return Convert.ToDouble(d.BaseunitValue);
+        }
+
+        
         
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Text;
+
 
 namespace EngineeringUnits
 {
@@ -19,10 +17,7 @@ namespace EngineeringUnits
             return new Dimensionless(value, DimensionlessUnit.Dimensionless);
         }
 
-        public static implicit operator double (Dimensionless d)
-        {
-            return Convert.ToDouble(d.BaseunitValue);
-        }
+
 
     }
 }
