@@ -869,11 +869,13 @@ namespace EngineeringUnits
         public UnitSystem Pow(int toPower)
         {
 
-            if (toPower == 0 || toPower == 1)
+            if (toPower == 1)
                 return this;
 
             UnitSystem local = new UnitSystem();
 
+            if (toPower == 0)
+                return this;
 
 
             if (toPower > 1)

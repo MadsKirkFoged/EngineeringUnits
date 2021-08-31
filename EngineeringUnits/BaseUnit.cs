@@ -285,13 +285,21 @@ namespace EngineeringUnits
 
         public UnknownUnit Pow(int toPower)
         {
+            
 
-            if (toPower == 0 || toPower == 1)            
+
+
+            if (toPower == 1)            
                 return this;
             
             UnknownUnit local = new UnknownUnit();
             local.baseUnit.Unit = new UnitSystem();
             local.baseUnit.SymbolValue = 1;
+
+
+            if (toPower == 0)
+                return local;
+
 
             //error when 0?
 
