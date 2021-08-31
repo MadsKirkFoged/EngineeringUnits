@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUnit.cs" />
+    <Compile Include="BaseUnitExtensions.cs" />
     <Compile Include="BaseUnits\Amount\Amount.extra.cs" />
     <Compile Include="BaseUnits\Amount\Amount.cs" />
     <Compile Include="BaseUnits\Amount\AmountEnum.cs" />
