@@ -23,6 +23,12 @@ namespace UnitNetcomparing
             Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
             Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
 
+
+            var test = M1 / M1;
+
+            double test2 = M1 / M1;
+
+
             Power Q1 = M1 * P1 * (T2 - T1);
 
             //Q1 = Q1.ToUnit(PowerUnit.KilobritishThermalUnitPerHour);

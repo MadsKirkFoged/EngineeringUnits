@@ -103,10 +103,13 @@ namespace EngineeringUnits
         public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => BaseUnit.DoMath(a, b, MathEnum.Divide);
 
 
-        public static UnknownUnit operator *(BaseUnit a, double b) => a * (new UnknownUnit(b));
-        public static UnknownUnit operator /(BaseUnit a, double b) => a / (new UnknownUnit(b));
-        public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;
-        public static UnknownUnit operator *(double a, BaseUnit b) => b * a;
+        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right) => left / right.baseUnit;
+        public static UnknownUnit operator /(UnknownUnit left, BaseUnit right) => left.baseUnit / right;
+
+        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right) => left * right.baseUnit;
+        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right) => left.baseUnit * right;
+
+
 
 
         public override bool Equals(Object obj)
