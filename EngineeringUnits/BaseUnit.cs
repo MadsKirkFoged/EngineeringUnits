@@ -264,15 +264,6 @@ namespace EngineeringUnits
             //Removing traling zeros
             local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
 
-            switch (math)
-            {
-                case MathEnum.Multiply:
-                case MathEnum.Divide:
-                    local = local.ToSimple();
-                    break;
-            }
-
-
             return local;
         }
 

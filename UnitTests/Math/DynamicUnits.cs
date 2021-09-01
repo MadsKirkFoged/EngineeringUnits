@@ -16,7 +16,7 @@ namespace UnitTests
             Power power1 = voltage1 * current1; // 15 microwatts
             var power2 = voltage1 * current1;
             dynamic power3 = voltage1 * current1;
-            BaseUnit power4 = (BaseUnit) (voltage1 * current1);
+            UnknownUnit power4 = voltage1 * current1;
 
             Assert.IsTrue(power1.ToString().Contains("W")); // needs to be in watts, not kg * m2 / s3
             Assert.AreEqual(power1.ToString(), power2.ToString());

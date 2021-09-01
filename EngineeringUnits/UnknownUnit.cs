@@ -92,7 +92,8 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            return baseUnit.ToString();
+            BaseUnit simple = this.IntelligentCast();
+            return simple.ToString();
         }
     }
 }
