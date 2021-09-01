@@ -264,6 +264,7 @@ namespace EngineeringUnits
             //Removing traling zeros
             local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
 
+
             return local;
         }
 

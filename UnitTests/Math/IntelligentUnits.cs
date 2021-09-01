@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests
 {
     [TestClass]
-    public class DynamicUnits
+    public class IntelligentUnits
     {
         [TestMethod]
-        public void TestDynamics01()
+        public void TestIntelligentUnits01()
         {
             ElectricPotential voltage1 = ElectricPotential.From(3, ElectricPotentialUnit.Millivolt); // 3 millivolts
             ElectricCurrent current1 = ElectricCurrent.From(5, ElectricCurrentUnit.Milliampere); // 5 milliamps
@@ -25,7 +25,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestDynamics02()
+        public void TestIntelligentUnits02()
         {
             UnknownUnit repetitions = Length.FromMeters(240) / Length.FromMeters(1); // TODO: Replace this with a Dimensionless scalar when that is supported !
             Duration minute = Duration.FromMinutes(2);
@@ -42,7 +42,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestDynamics03()
+        public void TestIntelligentUnits03()
         {
             SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
             MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
