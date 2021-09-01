@@ -20,13 +20,14 @@ namespace UnitNetcomparing
             //How much Power (Watt) does it take to heat up the water
             SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
             MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            MassFlow M2 = new MassFlow(4, MassFlowUnit.KilogramPerSecond);
             Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
             Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
 
 
-            var test = M1 / M1;
+            var test = M1 / M2;
 
-            double test2 = M1 / M1;
+            double test2 = M1 / M2;
 
 
             Power Q1 = M1 * P1 * (T2 - T1);
