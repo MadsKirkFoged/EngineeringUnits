@@ -58,6 +58,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(TargetDir)CodeGen.exe</PostBuildEvent>
+    <PostBuildEvent>msbuild "$(SolutionDir)EngineeringUnits/EngineeringUnits.csproj" /p:PreBuildEvent="$(TargetDir)CodeGen.exe"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{67CBBBA4-428F-483D-BB47-AFB18C3F309D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6505514A-A352-4B99-98A5-F95179022D94} = {6505514A-A352-4B99-98A5-F95179022D94}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitNetcomparing", "UnitNetcomparing\UnitNetcomparing.csproj", "{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}"
 EndProject
