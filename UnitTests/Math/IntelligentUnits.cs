@@ -59,5 +59,24 @@ namespace UnitTests
             Assert.AreEqual(Q1.ToString(), Q3.ToString());
             Assert.AreEqual(Q1.ToString(), Q4.ToString());
         }
+
+        [TestMethod]
+        public void TestIntelligentUnits04()
+        {
+            ElectricCharge charge = ElectricCharge.FromCoulombs(27e-6);
+            ElectricPotential voltage = ElectricPotential.FromVolts(3);
+            Length length = Length.FromMicrometers(9);
+
+            Permittivity p1 = charge / voltage / length;
+            var p2 = charge / voltage / length;
+            dynamic p3 = charge / voltage / length;
+            UnknownUnit p4 = charge / voltage / length;
+
+            Assert.IsTrue(p1.ToString().Contains("F")); // needs to be in Farads per meter
+            Assert.IsTrue(p1.ToString().Contains("m")); // needs to be in Farads per meter
+            Assert.AreEqual(p1.ToString(), p2.ToString());
+            Assert.AreEqual(p1.ToString(), p3.ToString());
+            Assert.AreEqual(p1.ToString(), p4.ToString());
+        }
     }
 }

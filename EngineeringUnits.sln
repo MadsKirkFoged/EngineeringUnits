@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitNetcomparing", "UnitNet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineeringUnits", "EngineeringUnits\EngineeringUnits.csproj", "{ECBCAB6F-EF44-4A2F-B262-87E3F1DCD5AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGen", "CodeGen\CodeGen.csproj", "{6505514A-A352-4B99-98A5-F95179022D94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ECBCAB6F-EF44-4A2F-B262-87E3F1DCD5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECBCAB6F-EF44-4A2F-B262-87E3F1DCD5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECBCAB6F-EF44-4A2F-B262-87E3F1DCD5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6505514A-A352-4B99-98A5-F95179022D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6505514A-A352-4B99-98A5-F95179022D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6505514A-A352-4B99-98A5-F95179022D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6505514A-A352-4B99-98A5-F95179022D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
