@@ -200,9 +200,16 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
+
+            if (Unit is null) //dimensionless            
+                return $"{SymbolValue.ToString(format)}";        
+
+
             if (Unit.Symbol is object)            
                 return $"{SymbolValue.ToString(format)} {Unit.Symbol}";            
-            else            
+            
+            
+
                 return $"{BaseunitValue.ToString(format)} {Unit}";         
         }
 
