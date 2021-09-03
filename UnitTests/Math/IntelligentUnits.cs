@@ -32,8 +32,8 @@ namespace UnitTests
 
             Frequency freq1 = repetitions / minute; // 2 Hertz
             var freq2 = repetitions / minute; 
-            dynamic freq3 = repetitions / minute; 
-            BaseUnit freq4 = (BaseUnit)(repetitions / minute);
+            dynamic freq3 = repetitions / minute;
+            UnknownUnit freq4 = repetitions / minute;
 
             Assert.IsTrue(freq1.ToString().Contains("Hz")); // needs to be in Hertz, not 1 / s
             Assert.AreEqual(freq1.ToString(), freq2.ToString());
