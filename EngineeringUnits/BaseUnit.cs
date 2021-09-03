@@ -281,15 +281,20 @@ namespace EngineeringUnits
 
         public UnknownUnit Abs()
         {
-            BaseUnit local = new BaseUnit();
-            local.Unit = Unit.Copy();
-            local.SymbolValue = SymbolValue;
 
-            if (local.SymbolValue < 0)
-                local.SymbolValue *= -1;
+            UnknownUnit local = new UnknownUnit();
+            local.baseUnit.Unit = Unit;
+            local.baseUnit.SymbolValue = SymbolValue;
+
+            if (SymbolValue < 0)
+                local.baseUnit.SymbolValue *= -1;
             
+
+
             return local;
         }
+
+
 
         public UnknownUnit Pow(int toPower)
         {
@@ -380,4 +385,8 @@ namespace EngineeringUnits
 
 
     }
-}
+
+
+
+
+    }

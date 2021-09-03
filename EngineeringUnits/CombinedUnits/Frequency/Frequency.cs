@@ -26,7 +26,13 @@ namespace EngineeringUnits
 
         public static implicit operator Frequency(UnknownUnit Unit)
         {
-            Frequency local = new Frequency(0, FrequencyUnit.SI);
+            Frequency local = new Frequency();
+
+            //TODO: this is a Special case for Frequency for now but we should change it
+            if (Unit.baseUnit.Unit.Symbol is object && Unit.baseUnit.Unit.Symbol.Contains(FrequencyUnit.SI.ToString()))
+            { 
+                local.Unit = Unit.unitsystem;
+            }
 
             local.Transform(Unit);
             return local;

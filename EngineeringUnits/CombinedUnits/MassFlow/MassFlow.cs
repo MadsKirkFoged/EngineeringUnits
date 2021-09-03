@@ -29,7 +29,10 @@ namespace EngineeringUnits
 
         public static implicit operator MassFlow(UnknownUnit Unit)
         {
-            MassFlow local = new MassFlow(0, MassFlowUnit.SI);
+            //MassFlow local = new MassFlow(0, MassFlowUnit.SI);
+            MassFlow local = new MassFlow();
+
+            local.Unit = Unit.unitsystem;
 
             local.Transform(Unit);
             return local;
