@@ -282,15 +282,13 @@ namespace EngineeringUnits
         public UnknownUnit Abs()
         {
             BaseUnit local = new BaseUnit();
-            local.Unit = Unit;
-
-            if (SymbolValue < 0)            
-                SymbolValue *= -1;
-            
+            local.Unit = Unit.Copy();
             local.SymbolValue = SymbolValue;
 
+            if (local.SymbolValue < 0)
+                local.SymbolValue *= -1;
+            
             return local;
-
         }
 
         public UnknownUnit Pow(int toPower)
