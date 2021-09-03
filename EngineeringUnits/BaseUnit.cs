@@ -1,4 +1,4 @@
-﻿using Fractions;
+using Fractions;
 using Newtonsoft.Json;
 using EngineeringUnits.Units;
 using System.Collections.Generic;

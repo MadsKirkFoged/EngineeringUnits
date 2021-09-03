@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUnit.cs" />
+    <Compile Include="UnknownUnitExtensions.cs" />
     <Compile Include="BaseUnits\Amount\Amount.extra.cs" />
     <Compile Include="BaseUnits\Amount\Amount.cs" />
     <Compile Include="BaseUnits\Amount\AmountEnum.cs" />
@@ -473,4 +474,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
