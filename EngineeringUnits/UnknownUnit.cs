@@ -48,10 +48,7 @@ namespace EngineeringUnits
         public static UnknownUnit operator +(UnknownUnit left, UnknownUnit right) => left.baseUnit + right.baseUnit;
         public static UnknownUnit operator -(UnknownUnit left, UnknownUnit right) => left.baseUnit - right.baseUnit;
 
-        public static UnknownUnit operator *(UnknownUnit left, double right) => left.baseUnit * right;
-        public static UnknownUnit operator /(UnknownUnit left, double right) => left.baseUnit / right;
-        public static UnknownUnit operator *(double left, UnknownUnit right) => left * right.baseUnit;
-        public static UnknownUnit operator /(double left, UnknownUnit right) => left / right.baseUnit;
+
 
         public static bool operator ==(UnknownUnit left, UnknownUnit right) => left.baseUnit == right.baseUnit;
         public static bool operator !=(UnknownUnit left, UnknownUnit right) => left.baseUnit != right.baseUnit;
@@ -64,7 +61,7 @@ namespace EngineeringUnits
 
 
 
-        public static explicit operator double(UnknownUnit Unit)
+        public static implicit operator double(UnknownUnit Unit)
         {
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
@@ -72,6 +69,16 @@ namespace EngineeringUnits
             }
 
             return (double)Unit.baseUnit.BaseunitValue;
+        }
+
+        public static implicit operator UnknownUnit(double Unit)
+        {
+            return new UnknownUnit(Unit);
+        }
+
+        public static implicit operator UnknownUnit(int Unit)
+        {
+            return new UnknownUnit(Unit);
         }
 
         public static explicit operator decimal(UnknownUnit Unit)

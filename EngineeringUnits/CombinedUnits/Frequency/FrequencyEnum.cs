@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
     public class FrequencyUnit : Enumeration
     {
 
-        public static readonly FrequencyUnit SI =        new FrequencyUnit(DurationUnit.SI);
+        public static readonly FrequencyUnit SI =        new FrequencyUnit(DurationUnit.Second, "Hz");
         public static readonly FrequencyUnit Hertz =     new FrequencyUnit(DurationUnit.Second, "Hz");
         public static readonly FrequencyUnit Kilohertz = new FrequencyUnit(PreFix.kilo, Hertz);
         public static readonly FrequencyUnit Megahertz = new FrequencyUnit(PreFix.mega, Hertz);

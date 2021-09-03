@@ -875,7 +875,7 @@ namespace EngineeringUnits
             UnitSystem local = new UnitSystem();
 
             if (toPower == 0)
-                return this;
+                return local;
 
 
             if (toPower > 1)

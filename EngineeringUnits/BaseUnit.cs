@@ -103,10 +103,13 @@ namespace EngineeringUnits
         public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => BaseUnit.DoMath(a, b, MathEnum.Divide);
 
 
-        public static UnknownUnit operator *(BaseUnit a, double b) => a * (new UnknownUnit(b));
-        public static UnknownUnit operator /(BaseUnit a, double b) => a / (new UnknownUnit(b));
-        public static UnknownUnit operator /(double a, BaseUnit b) => (new UnknownUnit(a)) / b;
-        public static UnknownUnit operator *(double a, BaseUnit b) => b * a;
+        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right) => left / right.baseUnit;
+        public static UnknownUnit operator /(UnknownUnit left, BaseUnit right) => left.baseUnit / right;
+
+        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right) => left * right.baseUnit;
+        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right) => left.baseUnit * right;
+
+
 
 
         public override bool Equals(Object obj)
@@ -197,9 +200,16 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
+
+            if (Unit is null) //dimensionless            
+                return $"{SymbolValue.ToString(format)}";        
+
+
             if (Unit.Symbol is object)            
                 return $"{SymbolValue.ToString(format)} {Unit.Symbol}";            
-            else            
+            
+            
+
                 return $"{BaseunitValue.ToString(format)} {Unit}";         
         }
 
