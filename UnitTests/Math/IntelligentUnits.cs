@@ -73,7 +73,7 @@ namespace UnitTests
             UnknownUnit p4 = charge / voltage / length;
 
             Assert.IsTrue(p1.ToString().Contains("F")); // needs to be in Farads per meter
-            Assert.IsTrue(p1.ToString().Contains("m")); // needs to be in Farads per meter
+            Assert.IsTrue(p1.ToString().Contains("m"));
             Assert.AreEqual(p1.ToString(), p2.ToString());
             Assert.AreEqual(p1.ToString(), p3.ToString());
             Assert.AreEqual(p1.ToString(), p4.ToString());
