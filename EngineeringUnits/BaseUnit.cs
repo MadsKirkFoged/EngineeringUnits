@@ -26,8 +26,6 @@ namespace EngineeringUnits
 
         public BaseUnit()
         {
-
-
         }
 
         public BaseUnit(double valueLocalUnit) :this()
