@@ -150,7 +150,7 @@ namespace UnitTests
 
                 double RelError = 2E-3;
 
-                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QN);
+                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
                 if (UNList.Count() == 1)
@@ -205,7 +205,7 @@ namespace UnitTests
 
                 double RelError = 2E-3;
 
-                var UNList = UnitsNet.SpecificEntropy.Units.Where(x => x.ToString() == EU.QN);
+                var UNList = UnitsNet.SpecificEntropy.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
                 if (UNList.Count() == 1)

@@ -14,21 +14,35 @@ namespace EngineeringUnits
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class UnitSystem
     {
-
-        [JsonProperty]
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Symbol { get; set; }
 
         //Just have a list of units?
         //public List<Enumeration> UnitListBeta = new List<Enumeration>();
 
-        public LengthUnit L { get; set; } //Length
-        public MassUnit M { get; set; } //Mass
-        public DurationUnit D { get; set; } //Duration
-        public ElectricCurrentUnit E { get; set; } //Electriccurrent
-        public TemperatureUnit T { get; set; } //Temperature
-        public AmountOfSubstanceUnit A { get; set; } //Amount
-        public LuminousIntensityUnit LI { get; set; } //LuminousIntensity
-        public CombinedUnit C { get; set; } //Combined
+        [JsonProperty(PropertyName = "L", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public LengthUnit Length { get; set; } //Length
+
+        [JsonProperty(PropertyName = "M", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public MassUnit Mass { get; set; } //Mass
+
+        [JsonProperty(PropertyName = "D", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public DurationUnit Duration { get; set; } //Duration
+
+        [JsonProperty(PropertyName = "E", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public ElectricCurrentUnit Electriccurrent { get; set; } //Electriccurrent
+
+        [JsonProperty(PropertyName = "T", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public TemperatureUnit Temperature { get; set; } //Temperature
+
+        [JsonProperty(PropertyName = "A", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public AmountOfSubstanceUnit Amount { get; set; } //Amount
+
+        [JsonProperty(PropertyName = "LI", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public LuminousIntensityUnit LuminousIntensity { get; set; } //LuminousIntensity
+
+        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public CombinedUnit Combined { get; set; } //Combined
 
 
         public UnitSystem()
@@ -45,13 +59,13 @@ namespace EngineeringUnits
         {
 
 
-            if (!Compareunits(a.L, b.L) ||
-                !Compareunits(a.M, b.M) ||
-                !Compareunits(a.D, b.D) ||
-                !Compareunits(a.E, b.E) ||
-                !Compareunits(a.T, b.T) ||
-                !Compareunits(a.A, b.A) ||
-                !Compareunits(a.LI, b.LI))
+            if (!Compareunits(a.Length, b.Length) ||
+                !Compareunits(a.Mass, b.Mass) ||
+                !Compareunits(a.Duration, b.Duration) ||
+                !Compareunits(a.Electriccurrent, b.Electriccurrent) ||
+                !Compareunits(a.Temperature, b.Temperature) ||
+                !Compareunits(a.Amount, b.Amount) ||
+                !Compareunits(a.LuminousIntensity, b.LuminousIntensity))
             { 
                 return false;            
             }
@@ -66,17 +80,17 @@ namespace EngineeringUnits
 
                 if (a1 is object && b1 is object)
                 {
-                    if (a1.Ct != b1.Ct)                    
+                    if (a1.Count != b1.Count)                    
                         return false;                    
                 }
                 else if (a1 is object)
                 {
-                    if (a1.Ct != 0)                    
+                    if (a1.Count != 0)                    
                         return false;                    
                 }
                 else if (b1 is object)
                 {
-                    if (b1.Ct != 0)                    
+                    if (b1.Count != 0)                    
                         return false;                    
                 }
 
@@ -120,211 +134,225 @@ namespace EngineeringUnits
             UnitSystem local = new UnitSystem();
 
 
-            if (a.L is object && b.L is object)
+            if (a.Length is object && b.Length is object)
             {
-                local.L = (LengthUnit)a.L.Clone();
-                local.L.Ct += b.L.Ct;
+                local.Length = (LengthUnit)a.Length.Clone();
+                local.Length.Count += b.Length.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.L.LC;
-                CombinedFraction *= (Fraction)a.L.GC;
+                CombinedFraction *= (Fraction)a.Length.LocalC;
+                CombinedFraction *= (Fraction)a.Length.GlobalC;
 
-                CombinedFraction /= (Fraction)b.L.LC;
-                CombinedFraction /= (Fraction)b.L.GC;
+                CombinedFraction /= (Fraction)b.Length.LocalC;
+                CombinedFraction /= (Fraction)b.Length.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.L.Ct);
-                local.L.AC *= CombinedFraction * b.L.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Length.Count);
+                local.Length.ActualC *= CombinedFraction * b.Length.ActualC;
             }
-            else if (a.L is object)
+            else if (a.Length is object)
             {
                 //local.L = (LengthUnit)a.L.Clone();
-                local.L = (LengthUnit)a.L;
+                local.Length = a.Length;
             }
-            else if (b.L is object)
+            else if (b.Length is object)
             {
                 //local.L = (LengthUnit)b.L.Clone();
-                local.L = (LengthUnit)b.L;
+                local.Length = b.Length;
             }
 
 
-            if (a.M is object && b.M is object)
+            if (a.Mass is object && b.Mass is object)
             {
-                local.M = (MassUnit)a.M.Clone();
-                local.M.Ct += b.M.Ct;
+                local.Mass = (MassUnit)a.Mass.Clone();
+                local.Mass.Count += b.Mass.Count;
 
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.M.LC;
-                CombinedFraction *= (Fraction)a.M.GC;
+                CombinedFraction *= (Fraction)a.Mass.LocalC;
+                CombinedFraction *= (Fraction)a.Mass.GlobalC;
 
-                CombinedFraction /= (Fraction)b.M.LC;
-                CombinedFraction /= (Fraction)b.M.GC;
+                CombinedFraction /= (Fraction)b.Mass.LocalC;
+                CombinedFraction /= (Fraction)b.Mass.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.M.Ct);
-                local.M.AC *= CombinedFraction * b.M.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Mass.Count);
+                local.Mass.ActualC *= CombinedFraction * b.Mass.ActualC;
 
 
 
             }
-            else if (a.M is object)
+            else if (a.Mass is object)
             {
-                local.M = (MassUnit)a.M.Clone();
+                //local.M = (MassUnit)a.M.Clone();
+                local.Mass = a.Mass;
             }
-            else if (b.M is object)
+            else if (b.Mass is object)
             {
-                local.M = (MassUnit)b.M.Clone();
+                //local.M = (MassUnit)b.M.Clone();
+                local.Mass = b.Mass;
             }
 
 
 
-            if (a.D is object && b.D is object)
+            if (a.Duration is object && b.Duration is object)
             {
-                local.D = (DurationUnit)a.D.Clone();
-                local.D.Ct += b.D.Ct;
+                local.Duration = (DurationUnit)a.Duration.Clone();
+                local.Duration.Count += b.Duration.Count;
 
                 Fraction CombinedFraction = 1;
 
-                CombinedFraction *= (Fraction)a.D.LC;
-                CombinedFraction *= (Fraction)a.D.GC;
+                CombinedFraction *= (Fraction)a.Duration.LocalC;
+                CombinedFraction *= (Fraction)a.Duration.GlobalC;
 
-                CombinedFraction /= (Fraction)b.D.LC;
-                CombinedFraction /= (Fraction)b.D.GC;
+                CombinedFraction /= (Fraction)b.Duration.LocalC;
+                CombinedFraction /= (Fraction)b.Duration.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.D.Ct);
-                local.D.AC *= CombinedFraction * b.D.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Duration.Count);
+                local.Duration.ActualC *= CombinedFraction * b.Duration.ActualC;
             }
-            else if (a.D is object)
+            else if (a.Duration is object)
             {
-                local.D = (DurationUnit)a.D.Clone();
+                //local.D = (DurationUnit)a.D.Clone();
+                local.Duration = a.Duration;
             }
-            else if (b.D is object)
+            else if (b.Duration is object)
             {
-                local.D = (DurationUnit)b.D.Clone();
+                //local.D = (DurationUnit)b.D.Clone();
+                local.Duration = b.Duration;
             }
 
 
 
 
-            if (a.E is object && b.E is object)
+            if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)a.E.Clone();
-                local.E.Ct += b.E.Ct;
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
+                local.Electriccurrent.Count += b.Electriccurrent.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.E.LC;
-                CombinedFraction *= (Fraction)a.E.GC;
+                CombinedFraction *= (Fraction)a.Electriccurrent.LocalC;
+                CombinedFraction *= (Fraction)a.Electriccurrent.GlobalC;
 
-                CombinedFraction /= (Fraction)b.E.LC;
-                CombinedFraction /= (Fraction)b.E.GC;
+                CombinedFraction /= (Fraction)b.Electriccurrent.LocalC;
+                CombinedFraction /= (Fraction)b.Electriccurrent.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.E.Ct);
-                local.E.AC *= CombinedFraction * b.E.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Electriccurrent.Count);
+                local.Electriccurrent.ActualC *= CombinedFraction * b.Electriccurrent.ActualC;
             }
-            else if (a.E is object)
+            else if (a.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)a.E.Clone();
+                //local.E = (ElectricCurrentUnit)a.E.Clone();
+                local.Electriccurrent = a.Electriccurrent;
             }
-            else if (b.E is object)
+            else if (b.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)b.E.Clone();
+                //local.E = (ElectricCurrentUnit)b.E.Clone();
+                local.Electriccurrent = b.Electriccurrent;
             }
 
 
 
-            if (a.T is object && b.T is object)
+            if (a.Temperature is object && b.Temperature is object)
             {
-                local.T = (TemperatureUnit)a.T.Clone();
-                local.T.Ct += b.T.Ct;
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
+                local.Temperature.Count += b.Temperature.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.T.LC;
-                CombinedFraction *= (Fraction)a.T.GC;
+                CombinedFraction *= (Fraction)a.Temperature.LocalC;
+                CombinedFraction *= (Fraction)a.Temperature.GlobalC;
 
-                CombinedFraction /= (Fraction)b.T.LC;
-                CombinedFraction /= (Fraction)b.T.GC;
+                CombinedFraction /= (Fraction)b.Temperature.LocalC;
+                CombinedFraction /= (Fraction)b.Temperature.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.T.Ct);
-                local.T.AC *= CombinedFraction * b.T.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Temperature.Count);
+                local.Temperature.ActualC *= CombinedFraction * b.Temperature.ActualC;
             }
-            else if (a.T is object)
+            else if (a.Temperature is object)
             {
-                local.T = (TemperatureUnit)a.T.Clone();
+                //local.T = (TemperatureUnit)a.T.Clone();
+                local.Temperature = (TemperatureUnit)a.Temperature;
             }
-            else if (b.T is object)
+            else if (b.Temperature is object)
             {
-                local.T = (TemperatureUnit)b.T.Clone();
+                //local.T = (TemperatureUnit)b.T.Clone();
+                local.Temperature = (TemperatureUnit)b.Temperature;
             }
 
 
 
 
 
-            if (a.A is object && b.A is object)
+            if (a.Amount is object && b.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)a.A.Clone();
-                local.A.Ct += b.A.Ct;
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
+                local.Amount.Count += b.Amount.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.A.LC;
-                CombinedFraction *= (Fraction)a.A.GC;
+                CombinedFraction *= (Fraction)a.Amount.LocalC;
+                CombinedFraction *= (Fraction)a.Amount.GlobalC;
 
-                CombinedFraction /= (Fraction)b.A.LC;
-                CombinedFraction /= (Fraction)b.A.GC;
+                CombinedFraction /= (Fraction)b.Amount.LocalC;
+                CombinedFraction /= (Fraction)b.Amount.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.A.Ct);
-                local.A.AC *= CombinedFraction * b.A.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Amount.Count);
+                local.Amount.ActualC *= CombinedFraction * b.Amount.ActualC;
             }
-            else if (a.A is object)
+            else if (a.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)a.A.Clone();
+                //local.A = (AmountOfSubstanceUnit)a.A.Clone();
+                local.Amount = a.Amount;
             }
-            else if (b.A is object)
+            else if (b.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)b.A.Clone();
+                //local.A = (AmountOfSubstanceUnit)b.A.Clone();
+                local.Amount = b.Amount;
             }
 
 
 
 
-            if (a.LI is object && b.LI is object)
+            if (a.LuminousIntensity is object && b.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)a.LI.Clone();
-                local.LI.Ct += b.LI.Ct;
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
+                local.LuminousIntensity.Count += b.LuminousIntensity.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= (Fraction)a.LI.LC;
-                CombinedFraction *= (Fraction)a.LI.GC;
+                CombinedFraction *= (Fraction)a.LuminousIntensity.LocalC;
+                CombinedFraction *= (Fraction)a.LuminousIntensity.GlobalC;
 
-                CombinedFraction /= (Fraction)b.LI.LC;
-                CombinedFraction /= (Fraction)b.LI.GC;
+                CombinedFraction /= (Fraction)b.LuminousIntensity.LocalC;
+                CombinedFraction /= (Fraction)b.LuminousIntensity.GlobalC;
 
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.LI.Ct);
-                local.LI.AC *= CombinedFraction * b.LI.AC;
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.LuminousIntensity.Count);
+                local.LuminousIntensity.ActualC *= CombinedFraction * b.LuminousIntensity.ActualC;
             }
-            else if (a.LI is object)
+            else if (a.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)a.LI.Clone();
+                //local.LI = (LuminousIntensityUnit)a.LI.Clone();
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity;
             }
-            else if (b.LI is object)
+            else if (b.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)b.LI.Clone();
+                //local.LI = (LuminousIntensityUnit)b.LI.Clone();
+                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity;
             }
 
 
 
-            if (a.C is object && b.C is object)
+            if (a.Combined is object && b.Combined is object)
             {
-                local.C = (CombinedUnit)a.C.Clone();
-                local.C.SetNewGlobalC(local.C.GC * b.C.GC);
-                local.C.Ct += b.C.Ct;
+                local.Combined = (CombinedUnit)a.Combined.Clone();
+                local.Combined.SetNewGlobalC(local.Combined.GlobalC * b.Combined.GlobalC);
+                local.Combined.Count += b.Combined.Count;
             }
-            else if (a.C is object)
+            else if (a.Combined is object)
             {
-                local.C = (CombinedUnit)a.C.Clone();
+                //local.C = (CombinedUnit)a.C.Clone();
+                local.Combined = a.Combined;
             }
-            else if (b.C is object)
+            else if (b.Combined is object)
             {
-                local.C = (CombinedUnit)b.C.Clone();
+                //local.C = (CombinedUnit)b.C.Clone();
+                local.Combined = b.Combined;
             }
 
 
@@ -338,164 +366,170 @@ namespace EngineeringUnits
 
             //LENGTH
 
-            if (a.L is object && b.L is object)
+            if (a.Length is object && b.Length is object)
             {
-                local.L = (LengthUnit)a.L.Clone();             
-                local.L.Ct -= b.L.Ct;
+                local.Length = (LengthUnit)a.Length.Clone();             
+                local.Length.Count -= b.Length.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.L.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.L.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.L.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.L.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.L.Ct);
-                local.L.AC *= (1 / CombinedFraction) * b.L.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Length.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Length.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Length.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Length.Count);
+                local.Length.ActualC *= (1 / CombinedFraction) * b.Length.ActualC;
             }
-            else if (a.L is object)
+            else if (a.Length is object)
             {
-                local.L = (LengthUnit)a.L.Clone();
+                //local.L = (LengthUnit)a.L.Clone();
+                local.Length = a.Length;
             }
-            else if (b.L is object)
+            else if (b.Length is object)
             {
-                local.L = (LengthUnit)b.L.Clone();
-                local.L.AC = 1 / local.L.AC;
-                local.L.Ct *= -1;
+                local.Length = (LengthUnit)b.Length.Clone();
+                local.Length.ActualC = 1 / local.Length.ActualC;
+                local.Length.Count *= -1;
             }
 
 
             //MASS
-            if (a.M is object && b.M is object)
+            if (a.Mass is object && b.Mass is object)
             {
-                local.M = (MassUnit)a.M.Clone();               
-                local.M.Ct -= b.M.Ct;
+                local.Mass = (MassUnit)a.Mass.Clone();               
+                local.Mass.Count -= b.Mass.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.M.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.M.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.M.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.M.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.M.Ct);
-                local.M.AC *= (1 / CombinedFraction) * b.M.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Mass.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Mass.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Mass.Count);
+                local.Mass.ActualC *= (1 / CombinedFraction) * b.Mass.ActualC;
             }
-            else if (a.M is object)
+            else if (a.Mass is object)
             {
-                local.M = (MassUnit)a.M.Clone();
+                //local.M = (MassUnit)a.M.Clone();
+                local.Mass = a.Mass;
             }
-            else if (b.M is object)
+            else if (b.Mass is object)
             {
-                local.M = (MassUnit)b.M.Clone();
-                local.M.AC = 1 / local.M.AC;
-                local.M.Ct *= -1;
+                local.Mass = (MassUnit)b.Mass.Clone();
+                local.Mass.ActualC = 1 / local.Mass.ActualC;
+                local.Mass.Count *= -1;
             }
 
 
 
             //DURATION
-            if (a.D is object && b.D is object)
+            if (a.Duration is object && b.Duration is object)
             {
-                local.D = (DurationUnit)a.D.Clone();             
-                local.D.Ct -= b.D.Ct;
+                local.Duration = (DurationUnit)a.Duration.Clone();             
+                local.Duration.Count -= b.Duration.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.D.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.D.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.D.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.D.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.D.Ct);
-                local.D.AC *= (1 / CombinedFraction) * b.D.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Duration.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Duration.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Duration.Count);
+                local.Duration.ActualC *= (1 / CombinedFraction) * b.Duration.ActualC;
             }
-            else if (a.D is object)
+            else if (a.Duration is object)
             {
-                local.D = (DurationUnit)a.D.Clone();
+                //local.D = (DurationUnit)a.D.Clone();
+                local.Duration = a.Duration;
             }
-            else if (b.D is object)
+            else if (b.Duration is object)
             {
-                local.D = (DurationUnit)b.D.Clone();
-                local.D.AC = 1 / local.D.AC;
-                local.D.Ct *= -1;
+                local.Duration = (DurationUnit)b.Duration.Clone();
+                local.Duration.ActualC = 1 / local.Duration.ActualC;
+                local.Duration.Count *= -1;
             }
 
 
 
             //ELECTRICCURRENT
-            if (a.E is object && b.E is object)
+            if (a.Electriccurrent is object && b.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)a.E.Clone();
-                local.E.Ct -= b.E.Ct;
+                local.Electriccurrent = (ElectricCurrentUnit)a.Electriccurrent.Clone();
+                local.Electriccurrent.Count -= b.Electriccurrent.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.E.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.E.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.E.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.E.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.E.Ct);
-                local.E.AC *= (1 / CombinedFraction) * b.E.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Electriccurrent.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Electriccurrent.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Electriccurrent.Count);
+                local.Electriccurrent.ActualC *= (1 / CombinedFraction) * b.Electriccurrent.ActualC;
             }
-            else if (a.E is object)
+            else if (a.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)a.E.Clone();
+                //local.E = (ElectricCurrentUnit)a.E.Clone();
+                local.Electriccurrent = a.Electriccurrent;
             }
-            else if (b.E is object)
+            else if (b.Electriccurrent is object)
             {
-                local.E = (ElectricCurrentUnit)b.E.Clone();
-                local.E.AC = 1 / local.E.AC;
-                local.E.Ct *= -1;
+                local.Electriccurrent = (ElectricCurrentUnit)b.Electriccurrent.Clone();
+                local.Electriccurrent.ActualC = 1 / local.Electriccurrent.ActualC;
+                local.Electriccurrent.Count *= -1;
             }
 
 
 
             //TEMPERATURE
 
-            if (a.T is object && b.T is object)
+            if (a.Temperature is object && b.Temperature is object)
             {
-                local.T = (TemperatureUnit)a.T.Clone();
-                local.T.Ct -= b.T.Ct;
+                local.Temperature = (TemperatureUnit)a.Temperature.Clone();
+                local.Temperature.Count -= b.Temperature.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.T.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.T.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.T.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.T.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.T.Ct);
-                local.T.AC *= (1 / CombinedFraction) * b.T.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Temperature.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Temperature.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Temperature.Count);
+                local.Temperature.ActualC *= (1 / CombinedFraction) * b.Temperature.ActualC;
             }
-            else if (a.T is object)
+            else if (a.Temperature is object)
             {
-                local.T = (TemperatureUnit)a.T.Clone();
+                //local.T = (TemperatureUnit)a.T.Clone();
+                local.Temperature = a.Temperature;
             }
-            else if (b.T is object)
+            else if (b.Temperature is object)
             {
-                local.T = (TemperatureUnit)b.T.Clone();
-                local.T.AC = 1 / local.T.AC;
-                local.T.Ct *= -1;
+                local.Temperature = (TemperatureUnit)b.Temperature.Clone();
+                local.Temperature.ActualC = 1 / local.Temperature.ActualC;
+                local.Temperature.Count *= -1;
             }
 
 
 
             //AMOUNT
 
-            if (a.A is object && b.A is object)
+            if (a.Amount is object && b.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)a.A.Clone();
-                local.A.Ct -= b.A.Ct;
+                local.Amount = (AmountOfSubstanceUnit)a.Amount.Clone();
+                local.Amount.Count -= b.Amount.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.A.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.A.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.A.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.A.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.A.Ct);
-                local.A.AC *= (1 / CombinedFraction) * b.A.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.Amount.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.Amount.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.Amount.Count);
+                local.Amount.ActualC *= (1 / CombinedFraction) * b.Amount.ActualC;
             }
-            else if (a.A is object)
+            else if (a.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)a.A.Clone();
+                //local.A = (AmountOfSubstanceUnit)a.A.Clone();
+                local.Amount = a.Amount;
             }
-            else if (b.A is object)
+            else if (b.Amount is object)
             {
-                local.A = (AmountOfSubstanceUnit)b.A.Clone();
-                local.A.AC = 1 / local.A.AC;
-                local.A.Ct *= -1;
+                local.Amount = (AmountOfSubstanceUnit)b.Amount.Clone();
+                local.Amount.ActualC = 1 / local.Amount.ActualC;
+                local.Amount.Count *= -1;
             }
 
 
@@ -503,48 +537,50 @@ namespace EngineeringUnits
 
             //LUMINOUSINTERSITY
 
-            if (a.LI is object && b.LI is object)
+            if (a.LuminousIntensity is object && b.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)a.LI.Clone();
-                local.LI.Ct -= b.LI.Ct;
+                local.LuminousIntensity = (LuminousIntensityUnit)a.LuminousIntensity.Clone();
+                local.LuminousIntensity.Count -= b.LuminousIntensity.Count;
 
                 Fraction CombinedFraction = 1;
-                CombinedFraction *= Fraction.Pow((Fraction)a.LI.LC, 1);
-                CombinedFraction *= Fraction.Pow((Fraction)a.LI.GC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.LI.LC, 1);
-                CombinedFraction /= Fraction.Pow((Fraction)b.LI.GC, 1);
-                CombinedFraction = Fraction.Pow(CombinedFraction, b.LI.Ct);
-                local.LI.AC *= (1 / CombinedFraction) * b.LI.AC;
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.LocalC, 1);
+                CombinedFraction *= Fraction.Pow((Fraction)a.LuminousIntensity.GlobalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.LocalC, 1);
+                CombinedFraction /= Fraction.Pow((Fraction)b.LuminousIntensity.GlobalC, 1);
+                CombinedFraction = Fraction.Pow(CombinedFraction, b.LuminousIntensity.Count);
+                local.LuminousIntensity.ActualC *= (1 / CombinedFraction) * b.LuminousIntensity.ActualC;
             }
-            else if (a.LI is object)
+            else if (a.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)a.LI.Clone();
+                //local.LI = (LuminousIntensityUnit)a.LI.Clone();
+                local.LuminousIntensity = a.LuminousIntensity;
             }
-            else if (b.LI is object)
+            else if (b.LuminousIntensity is object)
             {
-                local.LI = (LuminousIntensityUnit)b.LI.Clone();
-                local.LI.AC = 1 / local.LI.AC;
-                local.LI.Ct *= -1;
+                local.LuminousIntensity = (LuminousIntensityUnit)b.LuminousIntensity.Clone();
+                local.LuminousIntensity.ActualC = 1 / local.LuminousIntensity.ActualC;
+                local.LuminousIntensity.Count *= -1;
             }
 
 
             //COMBINED
-            if (a.C is object && b.C is object)
+            if (a.Combined is object && b.Combined is object)
             {
-                local.C = (CombinedUnit)a.C.Clone();
+                local.Combined = (CombinedUnit)a.Combined.Clone();
 
-                local.C.SetNewGlobalC(local.C.GC / b.C.GC);
-                local.C.Ct -= b.C.Ct;
+                local.Combined.SetNewGlobalC(local.Combined.GlobalC / b.Combined.GlobalC);
+                local.Combined.Count -= b.Combined.Count;
             }
-            else if (a.C is object)
+            else if (a.Combined is object)
             {
-                local.C = (CombinedUnit)a.C.Clone();
+                //local.C = (CombinedUnit)a.C.Clone();
+                local.Combined = a.Combined;
             }
-            else if (b.C is object)
+            else if (b.Combined is object)
             {
-                local.C = (CombinedUnit)b.C.Clone();
-                local.C.SetNewGlobalC(1 / b.C.GC);
-                local.C.Ct *= -1;
+                local.Combined = (CombinedUnit)b.Combined.Clone();
+                local.Combined.SetNewGlobalC(1 / b.Combined.GlobalC);
+                local.Combined.Count *= -1;
             }
 
 
@@ -572,13 +608,13 @@ namespace EngineeringUnits
                         {
                             Fraction CombinedFraction = 1;
 
-                            CombinedFraction *= (Fraction)FromUnit.LC;
-                            CombinedFraction *= (Fraction)FromUnit.GC;
+                            CombinedFraction *= (Fraction)FromUnit.LocalC;
+                            CombinedFraction *= (Fraction)FromUnit.GlobalC;
 
-                            CombinedFraction /= (Fraction)ToUnit.LC;
-                            CombinedFraction /= (Fraction)ToUnit.GC;
+                            CombinedFraction /= (Fraction)ToUnit.LocalC;
+                            CombinedFraction /= (Fraction)ToUnit.GlobalC;
 
-                            CombinedFraction = Fraction.Pow(CombinedFraction, FromUnit.Ct);
+                            CombinedFraction = Fraction.Pow(CombinedFraction, FromUnit.Count);
 
                             CombinedFraction2 *= CombinedFraction;
 
@@ -590,12 +626,12 @@ namespace EngineeringUnits
 
             foreach (var FromUnit in From.UnitList())
             {
-                CombinedFraction2 /= (Fraction)FromUnit.AC;                
+                CombinedFraction2 /= (Fraction)FromUnit.ActualC;                
             }
 
             foreach (var ToUnit in To.UnitList())
             {
-                CombinedFraction2 *= (Fraction)ToUnit.AC;
+                CombinedFraction2 *= (Fraction)ToUnit.ActualC;
             }
 
 
@@ -605,8 +641,8 @@ namespace EngineeringUnits
                 if (FromUnit.GetType() == typeof(CombinedUnit))
                 {
                     Fraction CombinedFraction = 1;
-                    CombinedFraction *= (Fraction)FromUnit.LC;
-                    CombinedFraction *= (Fraction)FromUnit.GC;
+                    CombinedFraction *= (Fraction)FromUnit.LocalC;
+                    CombinedFraction *= (Fraction)FromUnit.GlobalC;
                     CombinedFraction2 *= CombinedFraction;
                 }
             }
@@ -617,8 +653,8 @@ namespace EngineeringUnits
                 if (ToUnit.GetType() == typeof(CombinedUnit))
                 {
                     Fraction CombinedFraction = 1;
-                    CombinedFraction /= (Fraction)ToUnit.LC;
-                    CombinedFraction /= (Fraction)ToUnit.GC;
+                    CombinedFraction /= (Fraction)ToUnit.LocalC;
+                    CombinedFraction /= (Fraction)ToUnit.GlobalC;
                     CombinedFraction2 *= CombinedFraction;
                 }
             }
@@ -641,7 +677,7 @@ namespace EngineeringUnits
             foreach (var Unit in UnitList())
             {
                 if (Unit.GetType() == typeof(CombinedUnit))                
-                    CombinedFraction *= (Fraction)Unit.GC;                
+                    CombinedFraction *= (Fraction)Unit.GlobalC;                
             }
 
             return CombinedFraction;
@@ -682,7 +718,7 @@ namespace EngineeringUnits
 
             foreach (var item in UnitList())            
                 if (item is object)                
-                    a *= item.AC;
+                    a *= item.ActualC;
                 
             
 
@@ -714,17 +750,17 @@ namespace EngineeringUnits
             foreach (var unit in UnitList())
             {
 
-                if (unit is object && unit.Ct > 0)
+                if (unit is object && unit.Count > 0)
                 {
 
                     if (unit is object)                    
-                        local += unit.S;
+                        local += unit.Symbol;
                     
 
 
 
-                    if (unit.Ct > 1)
-                        local += $"{ToSuperScript(unit.Ct)}";
+                    if (unit.Count > 1)
+                        local += $"{ToSuperScript(unit.Count)}";
 
                 }
 
@@ -735,7 +771,7 @@ namespace EngineeringUnits
 
 
             //If any negative values
-            if (UnitList().Any(x => x.Ct < 0))            
+            if (UnitList().Any(x => x.Count < 0))            
                 local += "/";
 
 
@@ -744,12 +780,12 @@ namespace EngineeringUnits
             foreach (var unit in UnitList())
             {
 
-                if (unit is object && unit.Ct < 0)
+                if (unit is object && unit.Count < 0)
                 {
-                    local += unit.S;
+                    local += unit.Symbol;
 
-                    if (unit.Ct < -1)
-                        local += $"{ToSuperScript(unit.Ct * -1)}";
+                    if (unit.Count < -1)
+                        local += $"{ToSuperScript(unit.Count * -1)}";
 
                 }
 
@@ -786,29 +822,29 @@ namespace EngineeringUnits
         {
             var local = new List<Enumeration>();
 
-            if (L is object)
-                local.Add(L);
+            if (Length is object)
+                local.Add(Length);
 
-            if (M is object)
-                local.Add(M);
+            if (Mass is object)
+                local.Add(Mass);
 
-            if (D is object)
-                local.Add(D);
+            if (Duration is object)
+                local.Add(Duration);
 
-            if (E is object)
-                local.Add(E);
+            if (Electriccurrent is object)
+                local.Add(Electriccurrent);
 
-            if (T is object)
-                local.Add(T);
+            if (Temperature is object)
+                local.Add(Temperature);
 
-            if (A is object)
-                local.Add(A);
+            if (Amount is object)
+                local.Add(Amount);
 
-            if (LI is object)
-                local.Add(LI);
+            if (LuminousIntensity is object)
+                local.Add(LuminousIntensity);
 
-            if (C is object)
-                local.Add(C);
+            if (Combined is object)
+                local.Add(Combined);
 
 
 
@@ -823,29 +859,29 @@ namespace EngineeringUnits
             if (Symbol is object)
                 local.Symbol = Symbol;
 
-            if (L is object)
-                local.L = (LengthUnit)L.Clone();
+            if (Length is object)
+                local.Length = (LengthUnit)Length.Clone();
 
-            if (M is object)
-                local.M = (MassUnit)M.Clone();
+            if (Mass is object)
+                local.Mass = (MassUnit)Mass.Clone();
 
-            if (D is object)
-                local.D = (DurationUnit)D.Clone();
+            if (Duration is object)
+                local.Duration = (DurationUnit)Duration.Clone();
 
-            if (E is object)
-                local.E = (ElectricCurrentUnit)E.Clone();
+            if (Electriccurrent is object)
+                local.Electriccurrent = (ElectricCurrentUnit)Electriccurrent.Clone();
 
-            if (T is object)
-                local.T = (TemperatureUnit)T.Clone();
+            if (Temperature is object)
+                local.Temperature = (TemperatureUnit)Temperature.Clone();
 
-            if (A is object)
-                local.A = (AmountOfSubstanceUnit)A.Clone();
+            if (Amount is object)
+                local.Amount = (AmountOfSubstanceUnit)Amount.Clone();
 
-            if (LI is object)
-                local.LI = (LuminousIntensityUnit)LI.Clone();
+            if (LuminousIntensity is object)
+                local.LuminousIntensity = (LuminousIntensityUnit)LuminousIntensity.Clone();
 
-            if (C is object)
-                local.C = (CombinedUnit)C.Clone();
+            if (Combined is object)
+                local.Combined = (CombinedUnit)Combined.Clone();
 
 
             return local;
@@ -859,11 +895,11 @@ namespace EngineeringUnits
 
 
             //Remove combi and acutalC
-            local.C = new CombinedUnit("",1,1);
+            local.Combined = new CombinedUnit("",1,1);
 
             foreach (var item in local.UnitList())
             {
-                item.AC = 1;
+                item.ActualC = 1;
             }
 
             return local;

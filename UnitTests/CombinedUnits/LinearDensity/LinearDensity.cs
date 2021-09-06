@@ -31,7 +31,7 @@ namespace UnitTests
                 double Error = 1E-4;
                 double RelError = 1E-3;
 
-                var UNList = UnitsNet.LinearDensity.Units.Where(x => x.ToString() == EU.QN);
+                var UNList = UnitsNet.LinearDensity.Units.Where(x => x.ToString() == EU.QuantityName);
 
 
                 if (UNList.Count() == 1)
@@ -43,7 +43,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 

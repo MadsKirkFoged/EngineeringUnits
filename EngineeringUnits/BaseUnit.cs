@@ -14,10 +14,10 @@ namespace EngineeringUnits
     public class BaseUnit : IComparable
     {
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "U")]
         public UnitSystem Unit { get; set;}
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
         protected decimal SymbolValue { get; set; }
         public decimal BaseunitValue => SymbolValue * ConvertToBaseUnit();
 
@@ -336,9 +336,6 @@ namespace EngineeringUnits
 
         public UnknownUnit Pow(int toPower)
         {
-            
-
-
 
             if (toPower == 1)            
                 return this;
@@ -350,9 +347,6 @@ namespace EngineeringUnits
 
             if (toPower == 0)
                 return local;
-
-
-            //error when 0?
 
 
             if (toPower > 1)            

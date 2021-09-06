@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System;
+using System.ComponentModel;
 
 namespace EngineeringUnits
 {
@@ -12,21 +13,31 @@ namespace EngineeringUnits
     public class Enumeration :ICloneable
     {
 
-        public string QN { get; set; } //QuantityName
+        [JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string QuantityName { get; set; } //QuantityName
 
-        [JsonProperty]
-        public string S { get; private set; } //Symbol
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Symbol { get; private set; } //Symbol
 
-        [JsonProperty]
-        public decimal LC { get; private set; } //LocalC
+        [JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[DefaultValue(1d)]
+        public decimal LocalC { get; private set; } //LocalC
 
-        [JsonProperty]
-        public decimal GC { get; private  set; } //GlobalC
-        public Fraction AC { get; set; } //ActualC
+        [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[DefaultValue(1d)]
+        public decimal GlobalC { get; private  set; } //GlobalC
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[DefaultValue("1")]
+        public Fraction ActualC { get; set; } //ActualC
+
+        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[DefaultValue(0d)]
         public decimal B { get; private set; }
-        public int Ct { get; set; } //Count
+
+        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[DefaultValue(1)]
+        public int Count { get; set; } //Count
 
         [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
@@ -39,33 +50,33 @@ namespace EngineeringUnits
 
         protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
         {
-            S = symbol;
-            LC = a1;
-            GC = a2;
+            Symbol = symbol;
+            LocalC = a1;
+            GlobalC = a2;
             B = b;
-            AC = 1;
-            Ct = 1;
+            ActualC = 1;
+            Count = 1;
 
         }
 
         protected Enumeration(string symbol, decimal a1, decimal a2)
         {
-            S = symbol;
-            LC = a1;
-            GC = a2;
+            Symbol = symbol;
+            LocalC = a1;
+            GlobalC = a2;
             B = 0;
-            AC = 1;
-            Ct = 1;
+            ActualC = 1;
+            Count = 1;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            LC = PrefixSISize(SI);
-            GC = 1;
-            S = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
+            LocalC = PrefixSISize(SI);
+            GlobalC = 1;
+            Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
-            AC = 1;
-            Ct = 1;
+            ActualC = 1;
+            Count = 1;
         }
 
 
@@ -331,12 +342,12 @@ namespace EngineeringUnits
         {
             decimal correction2 = 1;
 
-            if (Unit.C is object)
-                correction2 = Unit.C.GC;
+            if (Unit.Combined is object)
+                correction2 = Unit.Combined.GlobalC;
 
 
             if (correction != 1)
-                Unit.C = new CombinedUnit("", 1, correction * correction2);
+                Unit.Combined = new CombinedUnit("", 1, correction * correction2);
 
         }
 
@@ -365,7 +376,7 @@ namespace EngineeringUnits
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
-        public void SetNewGlobalC(decimal globalC) => GC = globalC;
+        public void SetNewGlobalC(decimal globalC) => GlobalC = globalC;
 
         
            
@@ -406,7 +417,7 @@ namespace EngineeringUnits
             {
 
                 T localunit = (T)field.GetValue(field);
-                localunit.QN = field.Name;
+                localunit.QuantityName = field.Name;
 
 
                 local.Add(localunit);
