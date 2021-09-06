@@ -1,8 +1,6 @@
 ﻿using Fractions;
 using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
-using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,12 +9,14 @@ namespace EngineeringUnits
 
         public Permittivity()
         {
-            Unit = PermittivityUnit.SI.Unit.Copy();
+            Unit = PermittivityUnit.SI.Unit;
         }
+
 
         public Permittivity(decimal value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Permittivity(double value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Permittivity(int value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Permittivity(UnknownUnit value) : base(value) { }
 
 
         public static Permittivity From(double value, PermittivityUnit unit) => new Permittivity(value, unit);
@@ -24,16 +24,6 @@ namespace EngineeringUnits
         public Permittivity ToUnit(PermittivityUnit selectedUnit) => new Permittivity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Permittivity Zero => new Permittivity(0, PermittivityUnit.SI);
 
-        public static implicit operator Permittivity(UnknownUnit Unit)
-        {
-            Permittivity local = new Permittivity(0, PermittivityUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator Permittivity(UnknownUnit Unit) => new Permittivity(Unit);
     }
 }
