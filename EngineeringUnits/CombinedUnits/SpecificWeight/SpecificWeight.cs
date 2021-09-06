@@ -1,8 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits
 {
@@ -11,12 +7,14 @@ namespace EngineeringUnits
 
         public SpecificWeight()
         {
-            Unit = SpecificWeightUnit.SI.Unit.Copy();
+            Unit = SpecificWeightUnit.SI.Unit;
         }
+
 
         public SpecificWeight(decimal value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public SpecificWeight(double value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public SpecificWeight(int value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificWeight(UnknownUnit value) : base(value) { }
 
 
         public static SpecificWeight From(double value, SpecificWeightUnit unit) => new SpecificWeight(value, unit);
@@ -24,16 +22,6 @@ namespace EngineeringUnits
         public SpecificWeight ToUnit(SpecificWeightUnit selectedUnit) => new SpecificWeight(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static SpecificWeight Zero => new SpecificWeight(0, SpecificWeightUnit.SI);
 
-        public static implicit operator SpecificWeight(UnknownUnit Unit)
-        {
-            SpecificWeight local = new SpecificWeight(0, SpecificWeightUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator SpecificWeight(UnknownUnit Unit) => new SpecificWeight(Unit);
     }
 }
