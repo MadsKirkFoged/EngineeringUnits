@@ -17,9 +17,6 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Symbol { get; set; }
 
-        //Just have a list of units?
-        //public List<Enumeration> UnitListBeta = new List<Enumeration>();
-
         [JsonProperty(PropertyName = "L", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public LengthUnit Length { get; set; } //Length
 

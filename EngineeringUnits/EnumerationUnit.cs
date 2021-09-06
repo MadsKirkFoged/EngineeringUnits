@@ -13,30 +13,31 @@ namespace EngineeringUnits
     public class Enumeration :ICloneable
     {
 
-        [JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public string QuantityName { get; set; } //QuantityName
 
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue("")]
         public string Symbol { get; private set; } //Symbol
 
-        [JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        //[DefaultValue(1d)]
+        [JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(1.0d)]
         public decimal LocalC { get; private set; } //LocalC
 
-        [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        //[DefaultValue(1d)]
+        [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(1.0d)]
         public decimal GlobalC { get; private  set; } //GlobalC
 
-        [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        //[DefaultValue("1")]
+        [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[DefaultValue(value: Fraction.One)]
         public Fraction ActualC { get; set; } //ActualC
 
-        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        //[DefaultValue(0d)]
+        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(0d)]
         public decimal B { get; private set; }
 
-        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        //[DefaultValue(1)]
+        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(1)]
         public int Count { get; set; } //Count
 
         [JsonIgnore]
