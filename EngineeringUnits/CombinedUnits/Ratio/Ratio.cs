@@ -1,8 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits
 {
@@ -11,12 +7,14 @@ namespace EngineeringUnits
 
         public Ratio()
         {
-            Unit = RatioUnit.SI.Unit.Copy();
+            Unit = RatioUnit.SI.Unit;
         }
+
 
         public Ratio(decimal value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Ratio(double value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Ratio(int value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Ratio(UnknownUnit value) : base(value) { }
 
 
         public static Ratio From(double value, RatioUnit unit) => new Ratio(value, unit);
@@ -24,16 +22,6 @@ namespace EngineeringUnits
         public Ratio ToUnit(RatioUnit selectedUnit) => new Ratio(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Ratio Zero => new Ratio(0, RatioUnit.SI);
 
-        public static implicit operator Ratio(UnknownUnit Unit)
-        {
-            Ratio local = new Ratio(0, RatioUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator Ratio(UnknownUnit Unit) => new Ratio(Unit);
     }
 }
