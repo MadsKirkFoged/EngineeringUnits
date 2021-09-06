@@ -59,7 +59,7 @@ namespace EngineeringUnits.Units
         public LengthUnit(string NewSymbol, decimal a1, decimal a2) : base(NewSymbol, a1, a2)
         {
             Unit = new UnitSystem();
-            Unit.Length = (LengthUnit)Clone();
+            Unit.L = (LengthUnit)Clone();
 
         }
 
@@ -74,7 +74,7 @@ namespace EngineeringUnits.Units
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Length = (LengthUnit)Clone();
+            Unit.L = (LengthUnit)Clone();
 
         }             
 

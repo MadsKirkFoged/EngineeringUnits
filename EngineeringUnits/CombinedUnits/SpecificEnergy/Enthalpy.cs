@@ -12,7 +12,7 @@ namespace EngineeringUnits
 
         public Enthalpy()
         {
-            Unit = SpecificEnergyUnit.SI.Unit.Copy();
+            //Unit = SpecificEnergyUnit.SI.Unit.Copy();
         }
 
 

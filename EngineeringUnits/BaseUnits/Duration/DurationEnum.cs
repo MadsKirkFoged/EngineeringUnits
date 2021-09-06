@@ -35,7 +35,7 @@ namespace EngineeringUnits.Units
         public DurationUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
             Unit = new UnitSystem();
-            Unit.Duration = (DurationUnit)Clone();
+            Unit.D = (DurationUnit)Clone();
 
 
             //Beta
@@ -46,7 +46,7 @@ namespace EngineeringUnits.Units
         public DurationUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Duration = (DurationUnit)Clone();
+            Unit.D = (DurationUnit)Clone();
 
 
             //Beta

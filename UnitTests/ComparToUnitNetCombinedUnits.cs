@@ -153,7 +153,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.SpecificEnergy.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.SpecificEnergy.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -165,7 +165,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -278,7 +278,7 @@ namespace UnitTests
                 double Error = 7E-4;
                 double RelError = 3E-4;
 
-                var UNList = UnitsNet.MassFlow.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.MassFlow.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -290,7 +290,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -388,7 +388,7 @@ namespace UnitTests
                 double Error = 80352555552768;
                 double RelError = 5E-4;
 
-                var UNList = UnitsNet.Power.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Power.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -406,7 +406,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -450,7 +450,7 @@ namespace UnitTests
                 double Error = 5E-2;
                 double RelError = 1E-3;
 
-                var UNList = UnitsNet.Area.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Area.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -462,7 +462,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -504,7 +504,7 @@ namespace UnitTests
                 double Error = 7E-5;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.Energy.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Energy.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -517,7 +517,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -559,7 +559,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.SpecificEntropy.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.SpecificEntropy.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -571,7 +571,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -618,7 +618,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-4;
 
-                var UNList = UnitsNet.Speed.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Speed.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -630,7 +630,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -674,7 +674,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Pressure.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Pressure.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -687,7 +687,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -729,7 +729,7 @@ namespace UnitTests
                 double Error = 2E-5;
                 double RelError = 6E-5;
 
-                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Force.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -741,7 +741,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -783,7 +783,7 @@ namespace UnitTests
                 double Error = 2E-4;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Acceleration.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Acceleration.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -795,7 +795,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -839,7 +839,7 @@ namespace UnitTests
                 double Error = 1E-4;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.Volume.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Volume.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -855,7 +855,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -897,7 +897,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 2E-4;
 
-                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -909,7 +909,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -954,7 +954,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.DynamicViscosity.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.DynamicViscosity.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -966,7 +966,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1010,7 +1010,7 @@ namespace UnitTests
                 double Error = 2E-4;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.ThermalConductivity.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.ThermalConductivity.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1022,7 +1022,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1064,7 +1064,7 @@ namespace UnitTests
                 double Error = 2E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.ForcePerLength.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.ForcePerLength.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1077,7 +1077,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1119,7 +1119,7 @@ namespace UnitTests
                 double Error = 9E-4;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.VolumeFlow.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.VolumeFlow.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1132,7 +1132,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1180,7 +1180,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.MolarMass.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.MolarMass.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1192,7 +1192,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1237,7 +1237,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Entropy.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Entropy.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1249,7 +1249,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1293,7 +1293,7 @@ namespace UnitTests
                 double Error = 3E-4;
                 double RelError = 1E-1;
 
-                var UNList = UnitsNet.ThermalResistance.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.ThermalResistance.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1305,7 +1305,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1347,7 +1347,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 4E-4;
 
-                var UNList = UnitsNet.HeatTransferCoefficient.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.HeatTransferCoefficient.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1359,7 +1359,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1401,7 +1401,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.ElectricPotential.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.ElectricPotential.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1413,7 +1413,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1455,7 +1455,7 @@ namespace UnitTests
                 double Error = 1E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Frequency.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Frequency.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1467,7 +1467,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1509,7 +1509,7 @@ namespace UnitTests
                 double Error = 2E-4;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.Torque.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Torque.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1522,7 +1522,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
@@ -1564,7 +1564,7 @@ namespace UnitTests
                 double Error = 2E-5;
                 double RelError = 1E-5;
 
-                var UNList = UnitsNet.KinematicViscosity.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.KinematicViscosity.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -1576,7 +1576,7 @@ namespace UnitTests
 
                     Debug.Print($"");
                     Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                    Debug.Print($"EngineeringUnit: {EU.QN} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 

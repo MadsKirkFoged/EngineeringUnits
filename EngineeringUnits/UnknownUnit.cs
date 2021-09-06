@@ -33,13 +33,11 @@ namespace EngineeringUnits
         public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem)
         {
             baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
-
         }
 
         public UnknownUnit(BaseUnit baseunit)
         {
             baseUnit = baseunit;
-
         }
 
 

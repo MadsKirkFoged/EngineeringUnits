@@ -53,7 +53,7 @@ namespace UnitTests
 
                 double RelError = 3E-4;
 
-                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)
@@ -117,7 +117,7 @@ namespace UnitTests
 
                 double RelError = 2E-3;
 
-                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QuantityName);
+                var UNList = UnitsNet.Density.Units.Where(x => x.ToString() == EU.QN);
 
 
                 if (UNList.Count() == 1)

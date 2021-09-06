@@ -33,7 +33,7 @@ namespace EngineeringUnits
         public void SetUnitSystem()
         {
             Unit = new UnitSystem();
-            Unit.Combined = (CombinedUnit)this.Clone();
+            Unit.C = (CombinedUnit)this.Clone();
         }
 
        

@@ -8,25 +8,25 @@ using System;
 
 namespace EngineeringUnits
 {
-
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class Enumeration :ICloneable
     {
 
-        public string QuantityName { get; set; }
+        public string QN { get; set; } //QuantityName
 
         [JsonProperty]
-        public string Symbol { get; private set; }
+        public string S { get; private set; } //Symbol
 
         [JsonProperty]
-        public decimal LocalC { get; private set; }
+        public decimal LC { get; private set; } //LocalC
 
         [JsonProperty]
-        public decimal GlobalC { get; private  set; }
-        public Fraction ActualC { get; set; }
+        public decimal GC { get; private  set; } //GlobalC
+        public Fraction AC { get; set; } //ActualC
 
         [JsonProperty]
         public decimal B { get; private set; }
-        public int Count { get; set; }
+        public int Ct { get; set; } //Count
 
         [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
@@ -39,33 +39,33 @@ namespace EngineeringUnits
 
         protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
         {
-            Symbol = symbol;
-            LocalC = a1;
-            GlobalC = a2;
+            S = symbol;
+            LC = a1;
+            GC = a2;
             B = b;
-            ActualC = 1;
-            Count = 1;
+            AC = 1;
+            Ct = 1;
 
         }
 
         protected Enumeration(string symbol, decimal a1, decimal a2)
         {
-            Symbol = symbol;
-            LocalC = a1;
-            GlobalC = a2;
+            S = symbol;
+            LC = a1;
+            GC = a2;
             B = 0;
-            ActualC = 1;
-            Count = 1;
+            AC = 1;
+            Ct = 1;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            LocalC = PrefixSISize(SI);
-            GlobalC = 1;
-            Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
+            LC = PrefixSISize(SI);
+            GC = 1;
+            S = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
-            ActualC = 1;
-            Count = 1;
+            AC = 1;
+            Ct = 1;
         }
 
 
@@ -331,12 +331,12 @@ namespace EngineeringUnits
         {
             decimal correction2 = 1;
 
-            if (Unit.Combined is object)
-                correction2 = Unit.Combined.GlobalC;
+            if (Unit.C is object)
+                correction2 = Unit.C.GC;
 
 
             if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction * correction2);
+                Unit.C = new CombinedUnit("", 1, correction * correction2);
 
         }
 
@@ -365,7 +365,7 @@ namespace EngineeringUnits
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
-        public void SetNewGlobalC(decimal globalC) => GlobalC = globalC;
+        public void SetNewGlobalC(decimal globalC) => GC = globalC;
 
         
            
@@ -406,7 +406,7 @@ namespace EngineeringUnits
             {
 
                 T localunit = (T)field.GetValue(field);
-                localunit.QuantityName = field.Name;
+                localunit.QN = field.Name;
 
 
                 local.Add(localunit);

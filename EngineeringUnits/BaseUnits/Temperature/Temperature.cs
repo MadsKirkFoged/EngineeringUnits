@@ -9,7 +9,7 @@ namespace EngineeringUnits
 
         public Temperature()
         {
-            Unit = TemperatureUnit.SI.Unit.Copy();
+            //Unit = TemperatureUnit.SI.Unit.Copy();
         }
 
         public Temperature(int value, TemperatureUnit selectedUnit) : this()
@@ -21,7 +21,8 @@ namespace EngineeringUnits
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
@@ -34,20 +35,23 @@ namespace EngineeringUnits
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
         public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit = selectedUnit.Unit.Copy();
+            //Unit = selectedUnit.Unit.Copy();
+            Unit = selectedUnit.Unit;
             SetValue(value);
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
