@@ -24,6 +24,7 @@ namespace EngineeringUnits
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)SymbolValue;
 
+        [JsonConstructor]
         public BaseUnit()
         {
         }
@@ -37,7 +38,7 @@ namespace EngineeringUnits
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
             //Unit = unitSystem.Copy();
-            Unit = unitSystem;
+            Unit = unitSystem.Copy();
             SetValue(value);
         }
 
@@ -45,7 +46,7 @@ namespace EngineeringUnits
         {
             
             //Unit = unitSystem.Copy();
-            Unit = unitSystem;
+            Unit = unitSystem.Copy();
 
             if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue || Double.IsNaN(value))            
                 SetValue(0);            
@@ -56,15 +57,30 @@ namespace EngineeringUnits
         public BaseUnit(int value, UnitSystem unitSystem)
         {
             //Unit = unitSystem.Copy();
-            Unit = unitSystem;
+            Unit = unitSystem.Copy();
             SetValue(value);
         }
 
         public BaseUnit(UnknownUnit unit)
         {
-            //Unit = unit.unitsystem.Copy();
-            Unit = unit.unitsystem;
-            SymbolValue = unit.baseUnit.SymbolValue;
+
+            Unit = unit.unitsystem.Copy();
+            SetValue(unit.baseUnit.ToTheOutSide(Unit));
+
+
+            UnitCheck(unit);
+        }
+
+        public BaseUnit(UnknownUnit unit, UnitSystem unitSystem)
+        {
+            if (unit.baseUnit.Unit.Symbol is null)            
+                Unit = unitSystem.Copy();            
+            else            
+                Unit = unit.unitsystem.Copy();
+            
+
+            SetValue(unit.baseUnit.ToTheOutSide(Unit));
+
 
             UnitCheck(unit);
         }
