@@ -1,9 +1,5 @@
 ﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using EngineeringUnits.Units;
-using Fractions;
+
 
 namespace EngineeringUnits
 {
