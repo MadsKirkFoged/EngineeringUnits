@@ -1,8 +1,5 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace EngineeringUnits
 {
@@ -11,12 +8,14 @@ namespace EngineeringUnits
 
         public VolumePerLength()
         {
-            Unit = VolumePerLengthUnit.SI.Unit.Copy();
+            Unit = VolumePerLengthUnit.SI.Unit;
         }
+
 
         public VolumePerLength(decimal value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public VolumePerLength(double value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public VolumePerLength(int value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public VolumePerLength(UnknownUnit value) : base(value) { }
 
 
         public static VolumePerLength From(double value, VolumePerLengthUnit unit) => new VolumePerLength(value, unit);
@@ -24,16 +23,6 @@ namespace EngineeringUnits
         public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new VolumePerLength(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static VolumePerLength Zero => new VolumePerLength(0, VolumePerLengthUnit.SI);
 
-        public static implicit operator VolumePerLength(UnknownUnit Unit)
-        {
-            VolumePerLength local = new VolumePerLength(0, VolumePerLengthUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator VolumePerLength(UnknownUnit Unit) => new VolumePerLength(Unit);
     }
 }
