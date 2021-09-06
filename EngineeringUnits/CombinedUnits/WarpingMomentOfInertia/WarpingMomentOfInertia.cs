@@ -11,12 +11,14 @@ namespace EngineeringUnits
 
         public WarpingMomentOfInertia()
         {
-            Unit = WarpingMomentOfInertiaUnit.SI.Unit.Copy();
+            Unit = WarpingMomentOfInertiaUnit.SI.Unit;
         }
+
 
         public WarpingMomentOfInertia(decimal value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public WarpingMomentOfInertia(double value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public WarpingMomentOfInertia(int value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public WarpingMomentOfInertia(UnknownUnit value) : base(value) { }
 
 
         public static WarpingMomentOfInertia From(double value, WarpingMomentOfInertiaUnit unit) => new WarpingMomentOfInertia(value, unit);
@@ -24,13 +26,7 @@ namespace EngineeringUnits
         public WarpingMomentOfInertia ToUnit(WarpingMomentOfInertiaUnit selectedUnit) => new WarpingMomentOfInertia(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static WarpingMomentOfInertia Zero => new WarpingMomentOfInertia(0, WarpingMomentOfInertiaUnit.SI);
 
-        public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit)
-        {
-            WarpingMomentOfInertia local = new WarpingMomentOfInertia(0, WarpingMomentOfInertiaUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
+        public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit) => new WarpingMomentOfInertia(Unit);
 
 
 
