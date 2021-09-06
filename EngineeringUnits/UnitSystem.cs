@@ -137,11 +137,13 @@ namespace EngineeringUnits
             }
             else if (a.L is object)
             {
-                local.L = (LengthUnit)a.L.Clone();
+                //local.L = (LengthUnit)a.L.Clone();
+                local.L = (LengthUnit)a.L;
             }
             else if (b.L is object)
             {
-                local.L = (LengthUnit)b.L.Clone();
+                //local.L = (LengthUnit)b.L.Clone();
+                local.L = (LengthUnit)b.L;
             }
 
 

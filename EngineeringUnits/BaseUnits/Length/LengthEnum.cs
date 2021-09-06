@@ -63,13 +63,6 @@ namespace EngineeringUnits.Units
 
         }
 
-        //public LengthUnit(string NewSymbol, Fraction fraction) : base(NewSymbol, a1, a2)
-        //{
-        //    Unit = new UnitSystem();
-        //    Unit.Length = (LengthUnit)Clone();
-
-        //}
-
 
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
