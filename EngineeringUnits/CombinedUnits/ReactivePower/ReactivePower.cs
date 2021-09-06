@@ -1,8 +1,5 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace EngineeringUnits
 {
@@ -11,12 +8,14 @@ namespace EngineeringUnits
 
         public ReactivePower()
         {
-            Unit = ReactivePowerUnit.SI.Unit.Copy();
+            Unit = ReactivePowerUnit.SI.Unit;
         }
+
 
         public ReactivePower(decimal value, ReactivePowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ReactivePower(double value, ReactivePowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ReactivePower(int value, ReactivePowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ReactivePower(UnknownUnit value) : base(value) { }
 
 
         public static ReactivePower From(double value, ReactivePowerUnit unit) => new ReactivePower(value, unit);
@@ -24,16 +23,6 @@ namespace EngineeringUnits
         public ReactivePower ToUnit(ReactivePowerUnit selectedUnit) => new ReactivePower(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ReactivePower Zero => new ReactivePower(0, ReactivePowerUnit.SI);
 
-        public static implicit operator ReactivePower(UnknownUnit Unit)
-        {
-            ReactivePower local = new ReactivePower(0, ReactivePowerUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator ReactivePower(UnknownUnit Unit) => new ReactivePower(Unit);
     }
 }
