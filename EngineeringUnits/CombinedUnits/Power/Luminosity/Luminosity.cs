@@ -1,8 +1,5 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace EngineeringUnits
 {
@@ -11,29 +8,21 @@ namespace EngineeringUnits
 
         public Luminosity()
         {
-            Unit = PowerUnit.SI.Unit.Copy();
-        }
-
-        public Luminosity(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Luminosity(double value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Luminosity(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
-
-        public static Luminosity From(double value, PowerUnit unit) => new Luminosity(value, unit);
-        public double As(PowerUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        public Luminosity ToUnit(PowerUnit selectedUnit) => new Luminosity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Luminosity Zero => new Luminosity(0, PowerUnit.SI);
-
-        public static implicit operator Luminosity(UnknownUnit Unit)
-        {
-            Luminosity local = new Luminosity(0, PowerUnit.SI);
-
-            local.Transform(Unit);
-            return local;
+            Unit = LuminosityUnit.SI.Unit;
         }
 
 
+        public Luminosity(decimal value, LuminosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Luminosity(double value, LuminosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Luminosity(int value, LuminosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Luminosity(UnknownUnit value) : base(value) { }
 
 
+        public static Luminosity From(double value, LuminosityUnit unit) => new Luminosity(value, unit);
+        public double As(LuminosityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public Luminosity ToUnit(LuminosityUnit selectedUnit) => new Luminosity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Luminosity Zero => new Luminosity(0, LuminosityUnit.SI);
+
+        public static implicit operator Luminosity(UnknownUnit Unit) => new Luminosity(Unit);
     }
 }
