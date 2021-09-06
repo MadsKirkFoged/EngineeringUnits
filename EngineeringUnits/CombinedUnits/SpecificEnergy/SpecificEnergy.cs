@@ -1,9 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 namespace EngineeringUnits
 {
@@ -13,13 +8,14 @@ namespace EngineeringUnits
 
         public SpecificEnergy()
         {
-            Unit = SpecificEnergyUnit.SI.Unit.Copy();
+            Unit = SpecificEnergyUnit.SI.Unit;
         }
 
 
         public SpecificEnergy(decimal value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public SpecificEnergy(double value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public SpecificEnergy(int value, SpecificEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificEnergy(UnknownUnit value) : base(value) { }
 
 
         public static SpecificEnergy From(double value, SpecificEnergyUnit unit) => new SpecificEnergy(value, unit);
@@ -27,34 +23,7 @@ namespace EngineeringUnits
         public SpecificEnergy ToUnit(SpecificEnergyUnit selectedUnit) => new SpecificEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static SpecificEnergy Zero => new SpecificEnergy(0, SpecificEnergyUnit.SI);
 
-        public static implicit operator SpecificEnergy(UnknownUnit Unit)
-        {
-            SpecificEnergy local = new SpecificEnergy(0, SpecificEnergyUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-        //public override string ToString()
-        //{
-        //    //If we know the unit
-        //    if (Unit.Symbol != "")
-        //        return $"{As(Unit)} {Unit}";
-
-
-
-        //    //Check if we have the unit in the list
-        //    foreach (var item in SpecificEnergyUnit.List())
-        //    {
-        //        if (this.Unit.GetTotalFactor() == item.Unit.GetTotalFactor())
-        //            return $"{As(Unit)} {item.Unit}";
-        //    }
-
-
-        //    //Return unit in SI
-        //    return $"{Value} {SpecificEnergyUnit.SI}";
-        //}
+        public static implicit operator SpecificEnergy(UnknownUnit Unit) => new SpecificEnergy(Unit);
 
     }
 }
