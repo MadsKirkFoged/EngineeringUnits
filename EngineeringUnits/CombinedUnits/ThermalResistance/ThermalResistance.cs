@@ -1,8 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits
 {
@@ -11,12 +7,14 @@ namespace EngineeringUnits
 
         public ThermalResistance()
         {
-            Unit = ThermalResistanceUnit.SI.Unit.Copy();
+            Unit = ThermalResistanceUnit.SI.Unit;
         }
+
 
         public ThermalResistance(decimal value, ThermalResistanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ThermalResistance(double value, ThermalResistanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ThermalResistance(int value, ThermalResistanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ThermalResistance(UnknownUnit value) : base(value) { }
 
 
         public static ThermalResistance From(double value, ThermalResistanceUnit unit) => new ThermalResistance(value, unit);
@@ -24,16 +22,6 @@ namespace EngineeringUnits
         public ThermalResistance ToUnit(ThermalResistanceUnit selectedUnit) => new ThermalResistance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ThermalResistance Zero => new ThermalResistance(0, ThermalResistanceUnit.SI);
 
-        public static implicit operator ThermalResistance(UnknownUnit Unit)
-        {
-            ThermalResistance local = new ThermalResistance(0, ThermalResistanceUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator ThermalResistance(UnknownUnit Unit) => new ThermalResistance(Unit);
     }
 }
