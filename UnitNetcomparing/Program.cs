@@ -23,10 +23,10 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
-            Frequency f1 = Frequency.FromMegahertz(32);
-            Frequency f2 = f1.Abs();
-            Frequency f3 = Frequency.FromMegahertz(-32);
-            Frequency f4 = f3.Abs();
+            Mass f1 = Mass.FromGrams(32);
+            Mass f2 = f1.Abs();
+            Mass f3 = Mass.FromGrams(-32);
+            Mass f4 = f3.Abs();
 
             Debug.Print($"{f1}");
             Debug.Print($"{f2}");

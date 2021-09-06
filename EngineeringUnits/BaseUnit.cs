@@ -36,14 +36,16 @@ namespace EngineeringUnits
 
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
-            Unit = unitSystem.Copy();
+            //Unit = unitSystem.Copy();
+            Unit = unitSystem;
             SetValue(value);
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
         {
             
-            Unit = unitSystem.Copy();
+            //Unit = unitSystem.Copy();
+            Unit = unitSystem;
 
             if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue || Double.IsNaN(value))            
                 SetValue(0);            
@@ -53,11 +55,21 @@ namespace EngineeringUnits
 
         public BaseUnit(int value, UnitSystem unitSystem)
         {
-            Unit = unitSystem.Copy();
+            //Unit = unitSystem.Copy();
+            Unit = unitSystem;
             SetValue(value);
         }
 
-     
+        public BaseUnit(UnknownUnit unit)
+        {
+            //Unit = unit.unitsystem.Copy();
+            Unit = unit.unitsystem;
+            SymbolValue = unit.baseUnit.SymbolValue;
+
+            UnitCheck(unit);
+        }
+
+
         public double As(UnitSystem a)
         {
 
@@ -78,6 +90,17 @@ namespace EngineeringUnits
             }                       
 
             SetValue(a.baseUnit.ToTheOutSide(Unit));
+        }
+
+
+        public void UnitCheck(UnknownUnit a)
+        {
+
+            if (a.unitsystem != Unit)
+            {
+                throw new InvalidOperationException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+            }
+
         }
 
 
