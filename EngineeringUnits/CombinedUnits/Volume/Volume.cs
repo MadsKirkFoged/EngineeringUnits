@@ -1,8 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits
 {
@@ -11,12 +7,14 @@ namespace EngineeringUnits
 
         public Volume()
         {
-            Unit = VolumeUnit.SI.Unit.Copy();
+            Unit = VolumeUnit.SI.Unit;
         }
+
 
         public Volume(decimal value, VolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Volume(double value, VolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Volume(int value, VolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Volume(UnknownUnit value) : base(value) { }
 
 
         public static Volume From(double value, VolumeUnit unit) => new Volume(value, unit);
@@ -24,16 +22,6 @@ namespace EngineeringUnits
         public Volume ToUnit(VolumeUnit selectedUnit) => new Volume(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Volume Zero => new Volume(0, VolumeUnit.SI);
 
-        public static implicit operator Volume(UnknownUnit Unit)
-        {
-            Volume local = new Volume(0, VolumeUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
-
-
-
-
+        public static implicit operator Volume(UnknownUnit Unit) => new Volume(Unit);
     }
 }
