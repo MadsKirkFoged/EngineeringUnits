@@ -1,8 +1,5 @@
-﻿using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
-using EngineeringUnits.Units;
+﻿using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,7 +8,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialDc()
         {
-            Unit = ElectricPotentialUnit.SI.Unit.Copy();
+            
         }
 
         public ElectricPotentialDc(decimal value, ElectricPotentialUnit selectedUnit) : base(value, selectedUnit.Unit) { }
