@@ -1,419 +1,339 @@
+using EngineeringUnits.Units;
+
 namespace EngineeringUnits
 {
     public static class UnknownUnitExtensions
     {
 
-		static UnitSystem amountofsubstance = AmountOfSubstance.FromSI(1).Unit;
-		static UnitSystem duration = Duration.FromSI(1).Unit;
-		static UnitSystem electriccurrent = ElectricCurrent.FromSI(1).Unit;
-		static UnitSystem length = Length.FromSI(1).Unit;
-		static UnitSystem luminousintensity = LuminousIntensity.FromSI(1).Unit;
-		static UnitSystem mass = Mass.FromSI(1).Unit;
-		static UnitSystem temperaturedelta = TemperatureDelta.FromSI(1).Unit;
-		static UnitSystem temperature = Temperature.FromSI(1).Unit;
-		static UnitSystem acceleration = Acceleration.FromSI(1).Unit;
-		static UnitSystem area = Area.FromSI(1).Unit;
-		static UnitSystem density = Density.FromSI(1).Unit;
-		static UnitSystem dynamicviscosity = DynamicViscosity.FromSI(1).Unit;
-		static UnitSystem electricpotential = ElectricPotential.FromSI(1).Unit;
-		static UnitSystem molarmass = MolarMass.FromSI(1).Unit;
-		static UnitSystem energy = Energy.FromSI(1).Unit;
-		static UnitSystem entropy = Entropy.FromSI(1).Unit;
-		static UnitSystem forceperlength = ForcePerLength.FromSI(1).Unit;
-		static UnitSystem force = Force.FromSI(1).Unit;
-		static UnitSystem frequency = Frequency.FromSI(1).Unit;
-		static UnitSystem heattransfercoefficient = HeatTransferCoefficient.FromSI(1).Unit;
-		static UnitSystem kinematicviscosity = KinematicViscosity.FromSI(1).Unit;
-		static UnitSystem massflow = MassFlow.FromSI(1).Unit;
-		static UnitSystem power = Power.FromSI(1).Unit;
-		static UnitSystem pressure = Pressure.FromSI(1).Unit;
-		static UnitSystem specificenergy = SpecificEnergy.FromSI(1).Unit;
-		static UnitSystem specificentropy = SpecificEntropy.FromSI(1).Unit;
-		static UnitSystem speed = Speed.FromSI(1).Unit;
-		static UnitSystem angle = Angle.FromSI(1).Unit;
-		static UnitSystem apparentpower = ApparentPower.FromSI(1).Unit;
-		static UnitSystem areadensity = AreaDensity.FromSI(1).Unit;
-		static UnitSystem areamomentofinertia = AreaMomentOfInertia.FromSI(1).Unit;
-		static UnitSystem bitrate = BitRate.FromSI(1).Unit;
-		static UnitSystem brakespecificfuelconsumption = BrakeSpecificFuelConsumption.FromSI(1).Unit;
-		static UnitSystem capacitance = Capacitance.FromSI(1).Unit;
-		static UnitSystem coefficientofthermalexpansion = CoefficientOfThermalExpansion.FromSI(1).Unit;
-		static UnitSystem electriccharge = ElectricCharge.FromSI(1).Unit;
-		static UnitSystem electricchargedensity = ElectricChargeDensity.FromSI(1).Unit;
-		static UnitSystem electricconductivity = ElectricConductivity.FromSI(1).Unit;
-		static UnitSystem electriccurrentdensity = ElectricCurrentDensity.FromSI(1).Unit;
-		static UnitSystem electriccurrentgradient = ElectricCurrentGradient.FromSI(1).Unit;
-		static UnitSystem electricfield = ElectricField.FromSI(1).Unit;
-		static UnitSystem electricinductance = ElectricInductance.FromSI(1).Unit;
-		static UnitSystem electricpotentialchangerate = ElectricPotentialChangeRate.FromSI(1).Unit;
-		static UnitSystem electricresistance = ElectricResistance.FromSI(1).Unit;
-		static UnitSystem electricresistivity = ElectricResistivity.FromSI(1).Unit;
-		static UnitSystem electricsurfacechargedensity = ElectricSurfaceChargeDensity.FromSI(1).Unit;
-		static UnitSystem forcechangerate = ForceChangeRate.FromSI(1).Unit;
-		static UnitSystem fuelefficiency = FuelEfficiency.FromSI(1).Unit;
-		static UnitSystem heatflux = HeatFlux.FromSI(1).Unit;
-		static UnitSystem illuminance = Illuminance.FromSI(1).Unit;
-		static UnitSystem information = Information.FromSI(1).Unit;
-		static UnitSystem irradiance = Irradiance.FromSI(1).Unit;
-		static UnitSystem irradiation = Irradiation.FromSI(1).Unit;
-		static UnitSystem lapserate = LapseRate.FromSI(1).Unit;
-		static UnitSystem lineardensity = LinearDensity.FromSI(1).Unit;
-		static UnitSystem linearpowerdensity = LinearPowerDensity.FromSI(1).Unit;
-		static UnitSystem luminousflux = LuminousFlux.FromSI(1).Unit;
-		static UnitSystem magneticfield = MagneticField.FromSI(1).Unit;
-		static UnitSystem magneticflux = MagneticFlux.FromSI(1).Unit;
-		static UnitSystem magnetization = Magnetization.FromSI(1).Unit;
-		static UnitSystem massflux = MassFlux.FromSI(1).Unit;
-		static UnitSystem massmomentofinertia = MassMomentOfInertia.FromSI(1).Unit;
-		static UnitSystem molarenergy = MolarEnergy.FromSI(1).Unit;
-		static UnitSystem molarentropy = MolarEntropy.FromSI(1).Unit;
-		static UnitSystem molarity = Molarity.FromSI(1).Unit;
-		static UnitSystem permeability = Permeability.FromSI(1).Unit;
-		static UnitSystem permittivity = Permittivity.FromSI(1).Unit;
-		static UnitSystem powerdensity = PowerDensity.FromSI(1).Unit;
-		static UnitSystem pressurechangerate = PressureChangeRate.FromSI(1).Unit;
-		static UnitSystem ratio = Ratio.FromSI(1).Unit;
-		static UnitSystem reactiveenergy = ReactiveEnergy.FromSI(1).Unit;
-		static UnitSystem reactivepower = ReactivePower.FromSI(1).Unit;
-		static UnitSystem specificweight = SpecificWeight.FromSI(1).Unit;
-		static UnitSystem temperaturechangerate = TemperatureChangeRate.FromSI(1).Unit;
-		static UnitSystem warpingmomentofinertia = WarpingMomentOfInertia.FromSI(1).Unit;
-		static UnitSystem volumeperlength = VolumePerLength.FromSI(1).Unit;
-		static UnitSystem torqueperlength = TorquePerLength.FromSI(1).Unit;
-		static UnitSystem thermalconductivity = ThermalConductivity.FromSI(1).Unit;
-		static UnitSystem thermalresistance = ThermalResistance.FromSI(1).Unit;
-		static UnitSystem torque = Torque.FromSI(1).Unit;
-		static UnitSystem volumeflow = VolumeFlow.FromSI(1).Unit;
-		static UnitSystem volume = Volume.FromSI(1).Unit;
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
             BaseUnit output = (BaseUnit) toCast;
             UnitSystem unit = output.Unit;
-			if (unit == amountofsubstance)
+			if (toCast.unitsystem == AmountOfSubstanceUnit.SI.Unit)
 			{
 				return (AmountOfSubstance) toCast;
 			}
-			if (unit == duration)
+			if (toCast.unitsystem == DurationUnit.SI.Unit)
 			{
 				return (Duration) toCast;
 			}
-			if (unit == electriccurrent)
+			if (toCast.unitsystem == ElectricCurrentUnit.SI.Unit)
 			{
 				return (ElectricCurrent) toCast;
 			}
-			if (unit == length)
+			if (toCast.unitsystem == LengthUnit.SI.Unit)
 			{
 				return (Length) toCast;
 			}
-			if (unit == luminousintensity)
+			if (toCast.unitsystem == LuminousIntensityUnit.SI.Unit)
 			{
 				return (LuminousIntensity) toCast;
 			}
-			if (unit == mass)
+			if (toCast.unitsystem == MassUnit.SI.Unit)
 			{
 				return (Mass) toCast;
 			}
-			if (unit == temperaturedelta)
+			if (toCast.unitsystem == TemperatureDeltaUnit.SI.Unit)
 			{
 				return (TemperatureDelta) toCast;
 			}
-			if (unit == temperature)
+			if (toCast.unitsystem == TemperatureUnit.SI.Unit)
 			{
 				return (Temperature) toCast;
 			}
-			if (unit == acceleration)
+			if (toCast.unitsystem == AccelerationUnit.SI.Unit)
 			{
 				return (Acceleration) toCast;
 			}
-			if (unit == area)
+			if (toCast.unitsystem == AreaUnit.SI.Unit)
 			{
 				return (Area) toCast;
 			}
-			if (unit == density)
+			if (toCast.unitsystem == DensityUnit.SI.Unit)
 			{
 				return (Density) toCast;
 			}
-			if (unit == dynamicviscosity)
+			if (toCast.unitsystem == DynamicViscosityUnit.SI.Unit)
 			{
 				return (DynamicViscosity) toCast;
 			}
-			if (unit == electricpotential)
+			if (toCast.unitsystem == ElectricPotentialUnit.SI.Unit)
 			{
 				return (ElectricPotential) toCast;
 			}
-			if (unit == molarmass)
+			if (toCast.unitsystem == MolarMassUnit.SI.Unit)
 			{
 				return (MolarMass) toCast;
 			}
-			if (unit == energy)
+			if (toCast.unitsystem == EnergyUnit.SI.Unit)
 			{
 				return (Energy) toCast;
 			}
-			if (unit == entropy)
+			if (toCast.unitsystem == EntropyUnit.SI.Unit)
 			{
 				return (Entropy) toCast;
 			}
-			if (unit == forceperlength)
+			if (toCast.unitsystem == ForcePerLengthUnit.SI.Unit)
 			{
 				return (ForcePerLength) toCast;
 			}
-			if (unit == force)
+			if (toCast.unitsystem == ForceUnit.SI.Unit)
 			{
 				return (Force) toCast;
 			}
-			if (unit == frequency)
+			if (toCast.unitsystem == FrequencyUnit.SI.Unit)
 			{
 				return (Frequency) toCast;
 			}
-			if (unit == heattransfercoefficient)
+			if (toCast.unitsystem == HeatTransferCoefficientUnit.SI.Unit)
 			{
 				return (HeatTransferCoefficient) toCast;
 			}
-			if (unit == kinematicviscosity)
+			if (toCast.unitsystem == KinematicViscosityUnit.SI.Unit)
 			{
 				return (KinematicViscosity) toCast;
 			}
-			if (unit == massflow)
+			if (toCast.unitsystem == MassFlowUnit.SI.Unit)
 			{
 				return (MassFlow) toCast;
 			}
-			if (unit == power)
+			if (toCast.unitsystem == PowerUnit.SI.Unit)
 			{
 				return (Power) toCast;
 			}
-			if (unit == pressure)
+			if (toCast.unitsystem == PressureUnit.SI.Unit)
 			{
 				return (Pressure) toCast;
 			}
-			if (unit == specificenergy)
+			if (toCast.unitsystem == SpecificEnergyUnit.SI.Unit)
 			{
 				return (SpecificEnergy) toCast;
 			}
-			if (unit == specificentropy)
+			if (toCast.unitsystem == SpecificEntropyUnit.SI.Unit)
 			{
 				return (SpecificEntropy) toCast;
 			}
-			if (unit == speed)
+			if (toCast.unitsystem == SpeedUnit.SI.Unit)
 			{
 				return (Speed) toCast;
 			}
-			if (unit == angle)
+			if (toCast.unitsystem == AngleUnit.SI.Unit)
 			{
 				return (Angle) toCast;
 			}
-			if (unit == apparentpower)
+			if (toCast.unitsystem == ApparentPowerUnit.SI.Unit)
 			{
 				return (ApparentPower) toCast;
 			}
-			if (unit == areadensity)
+			if (toCast.unitsystem == AreaDensityUnit.SI.Unit)
 			{
 				return (AreaDensity) toCast;
 			}
-			if (unit == areamomentofinertia)
+			if (toCast.unitsystem == AreaMomentOfInertiaUnit.SI.Unit)
 			{
 				return (AreaMomentOfInertia) toCast;
 			}
-			if (unit == bitrate)
+			if (toCast.unitsystem == BitRateUnit.SI.Unit)
 			{
 				return (BitRate) toCast;
 			}
-			if (unit == brakespecificfuelconsumption)
+			if (toCast.unitsystem == BrakeSpecificFuelConsumptionUnit.SI.Unit)
 			{
 				return (BrakeSpecificFuelConsumption) toCast;
 			}
-			if (unit == capacitance)
+			if (toCast.unitsystem == CapacitanceUnit.SI.Unit)
 			{
 				return (Capacitance) toCast;
 			}
-			if (unit == coefficientofthermalexpansion)
+			if (toCast.unitsystem == CoefficientOfThermalExpansionUnit.SI.Unit)
 			{
 				return (CoefficientOfThermalExpansion) toCast;
 			}
-			if (unit == electriccharge)
+			if (toCast.unitsystem == ElectricChargeUnit.SI.Unit)
 			{
 				return (ElectricCharge) toCast;
 			}
-			if (unit == electricchargedensity)
+			if (toCast.unitsystem == ElectricChargeDensityUnit.SI.Unit)
 			{
 				return (ElectricChargeDensity) toCast;
 			}
-			if (unit == electricconductivity)
+			if (toCast.unitsystem == ElectricConductivityUnit.SI.Unit)
 			{
 				return (ElectricConductivity) toCast;
 			}
-			if (unit == electriccurrentdensity)
+			if (toCast.unitsystem == ElectricCurrentDensityUnit.SI.Unit)
 			{
 				return (ElectricCurrentDensity) toCast;
 			}
-			if (unit == electriccurrentgradient)
+			if (toCast.unitsystem == ElectricCurrentGradientUnit.SI.Unit)
 			{
 				return (ElectricCurrentGradient) toCast;
 			}
-			if (unit == electricfield)
+			if (toCast.unitsystem == ElectricFieldUnit.SI.Unit)
 			{
 				return (ElectricField) toCast;
 			}
-			if (unit == electricinductance)
+			if (toCast.unitsystem == ElectricInductanceUnit.SI.Unit)
 			{
 				return (ElectricInductance) toCast;
 			}
-			if (unit == electricpotentialchangerate)
+			if (toCast.unitsystem == ElectricPotentialChangeRateUnit.SI.Unit)
 			{
 				return (ElectricPotentialChangeRate) toCast;
 			}
-			if (unit == electricresistance)
+			if (toCast.unitsystem == ElectricResistanceUnit.SI.Unit)
 			{
 				return (ElectricResistance) toCast;
 			}
-			if (unit == electricresistivity)
+			if (toCast.unitsystem == ElectricResistivityUnit.SI.Unit)
 			{
 				return (ElectricResistivity) toCast;
 			}
-			if (unit == electricsurfacechargedensity)
+			if (toCast.unitsystem == ElectricSurfaceChargeDensityUnit.SI.Unit)
 			{
 				return (ElectricSurfaceChargeDensity) toCast;
 			}
-			if (unit == forcechangerate)
+			if (toCast.unitsystem == ForceChangeRateUnit.SI.Unit)
 			{
 				return (ForceChangeRate) toCast;
 			}
-			if (unit == fuelefficiency)
+			if (toCast.unitsystem == FuelEfficiencyUnit.SI.Unit)
 			{
 				return (FuelEfficiency) toCast;
 			}
-			if (unit == heatflux)
+			if (toCast.unitsystem == HeatFluxUnit.SI.Unit)
 			{
 				return (HeatFlux) toCast;
 			}
-			if (unit == illuminance)
+			if (toCast.unitsystem == IlluminanceUnit.SI.Unit)
 			{
 				return (Illuminance) toCast;
 			}
-			if (unit == information)
+			if (toCast.unitsystem == InformationUnit.SI.Unit)
 			{
 				return (Information) toCast;
 			}
-			if (unit == irradiance)
+			if (toCast.unitsystem == IrradianceUnit.SI.Unit)
 			{
 				return (Irradiance) toCast;
 			}
-			if (unit == irradiation)
+			if (toCast.unitsystem == IrradiationUnit.SI.Unit)
 			{
 				return (Irradiation) toCast;
 			}
-			if (unit == lapserate)
+			if (toCast.unitsystem == LapseRateUnit.SI.Unit)
 			{
 				return (LapseRate) toCast;
 			}
-			if (unit == lineardensity)
+			if (toCast.unitsystem == LinearDensityUnit.SI.Unit)
 			{
 				return (LinearDensity) toCast;
 			}
-			if (unit == linearpowerdensity)
+			if (toCast.unitsystem == LinearPowerDensityUnit.SI.Unit)
 			{
 				return (LinearPowerDensity) toCast;
 			}
-			if (unit == luminousflux)
+			if (toCast.unitsystem == LuminousFluxUnit.SI.Unit)
 			{
 				return (LuminousFlux) toCast;
 			}
-			if (unit == magneticfield)
+			if (toCast.unitsystem == MagneticFieldUnit.SI.Unit)
 			{
 				return (MagneticField) toCast;
 			}
-			if (unit == magneticflux)
+			if (toCast.unitsystem == MagneticFluxUnit.SI.Unit)
 			{
 				return (MagneticFlux) toCast;
 			}
-			if (unit == magnetization)
+			if (toCast.unitsystem == MagnetizationUnit.SI.Unit)
 			{
 				return (Magnetization) toCast;
 			}
-			if (unit == massflux)
+			if (toCast.unitsystem == MassFluxUnit.SI.Unit)
 			{
 				return (MassFlux) toCast;
 			}
-			if (unit == massmomentofinertia)
+			if (toCast.unitsystem == MassMomentOfInertiaUnit.SI.Unit)
 			{
 				return (MassMomentOfInertia) toCast;
 			}
-			if (unit == molarenergy)
+			if (toCast.unitsystem == MolarEnergyUnit.SI.Unit)
 			{
 				return (MolarEnergy) toCast;
 			}
-			if (unit == molarentropy)
+			if (toCast.unitsystem == MolarEntropyUnit.SI.Unit)
 			{
 				return (MolarEntropy) toCast;
 			}
-			if (unit == molarity)
+			if (toCast.unitsystem == MolarityUnit.SI.Unit)
 			{
 				return (Molarity) toCast;
 			}
-			if (unit == permeability)
+			if (toCast.unitsystem == PermeabilityUnit.SI.Unit)
 			{
 				return (Permeability) toCast;
 			}
-			if (unit == permittivity)
+			if (toCast.unitsystem == PermittivityUnit.SI.Unit)
 			{
 				return (Permittivity) toCast;
 			}
-			if (unit == powerdensity)
+			if (toCast.unitsystem == PowerDensityUnit.SI.Unit)
 			{
 				return (PowerDensity) toCast;
 			}
-			if (unit == pressurechangerate)
+			if (toCast.unitsystem == PressureChangeRateUnit.SI.Unit)
 			{
 				return (PressureChangeRate) toCast;
 			}
-			if (unit == ratio)
+			if (toCast.unitsystem == RatioUnit.SI.Unit)
 			{
 				return (Ratio) toCast;
 			}
-			if (unit == reactiveenergy)
+			if (toCast.unitsystem == ReactiveEnergyUnit.SI.Unit)
 			{
 				return (ReactiveEnergy) toCast;
 			}
-			if (unit == reactivepower)
+			if (toCast.unitsystem == ReactivePowerUnit.SI.Unit)
 			{
 				return (ReactivePower) toCast;
 			}
-			if (unit == specificweight)
+			if (toCast.unitsystem == SpecificWeightUnit.SI.Unit)
 			{
 				return (SpecificWeight) toCast;
 			}
-			if (unit == temperaturechangerate)
+			if (toCast.unitsystem == TemperatureChangeRateUnit.SI.Unit)
 			{
 				return (TemperatureChangeRate) toCast;
 			}
-			if (unit == warpingmomentofinertia)
+			if (toCast.unitsystem == WarpingMomentOfInertiaUnit.SI.Unit)
 			{
 				return (WarpingMomentOfInertia) toCast;
 			}
-			if (unit == volumeperlength)
+			if (toCast.unitsystem == VolumePerLengthUnit.SI.Unit)
 			{
 				return (VolumePerLength) toCast;
 			}
-			if (unit == torqueperlength)
+			if (toCast.unitsystem == TorquePerLengthUnit.SI.Unit)
 			{
 				return (TorquePerLength) toCast;
 			}
-			if (unit == thermalconductivity)
+			if (toCast.unitsystem == ThermalConductivityUnit.SI.Unit)
 			{
 				return (ThermalConductivity) toCast;
 			}
-			if (unit == thermalresistance)
+			if (toCast.unitsystem == ThermalResistanceUnit.SI.Unit)
 			{
 				return (ThermalResistance) toCast;
 			}
-			if (unit == torque)
+			if (toCast.unitsystem == TorqueUnit.SI.Unit)
 			{
 				return (Torque) toCast;
 			}
-			if (unit == volumeflow)
+			if (toCast.unitsystem == VolumeFlowUnit.SI.Unit)
 			{
 				return (VolumeFlow) toCast;
 			}
-			if (unit == volume)
+			if (toCast.unitsystem == VolumeUnit.SI.Unit)
 			{
 				return (Volume) toCast;
 			}

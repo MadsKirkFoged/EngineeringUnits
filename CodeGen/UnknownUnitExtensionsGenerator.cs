@@ -22,15 +22,17 @@ namespace CodeGen
                 .Where(t => null != t.GetMethod("FromSI")).ToList()
                 .ForEach(type =>
                 {
-                    staticUnits.AppendLine($"\t\tstatic UnitSystem {type.Name.ToLower()} = {type.Name}.FromSI(1).Unit;");
+                    //staticUnits.AppendLine($"\t\tstatic UnitSystem {type.Name.ToLower()} = {type.Name}.FromSI(1).Unit;");
 
-                    conditionals.AppendLine($"\t\t\tif (unit == {type.Name.ToLower()})");
+                    conditionals.AppendLine($"\t\t\tif (toCast.unitsystem == {type.Name}Unit.SI.Unit)");
                     conditionals.AppendLine($"\t\t\t{{");
                     conditionals.AppendLine($"\t\t\t\treturn ({type.Name}) toCast;");
                     conditionals.AppendLine($"\t\t\t}}");
                 });
 
-            builder.AppendLine(@"namespace EngineeringUnits
+            builder.AppendLine(@"using EngineeringUnits.Units;
+
+namespace EngineeringUnits
 {
     public static class UnknownUnitExtensions
     {");
