@@ -14,10 +14,10 @@ namespace EngineeringUnits
     public class BaseUnit : IComparable
     {
 
-        [JsonProperty(PropertyName = "U")]
+        [JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public UnitSystem Unit { get; set;}
 
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         protected decimal SymbolValue { get; set; }
         public decimal BaseunitValue => SymbolValue * ConvertToBaseUnit();
 

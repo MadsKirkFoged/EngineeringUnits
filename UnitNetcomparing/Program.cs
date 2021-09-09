@@ -22,18 +22,36 @@ namespace UnitNetcomparing
 
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
-            Power f1 = new Power(3, PowerUnit.KilojoulePerHour);
 
+            Power f1 = new Power(3, PowerUnit.KilojoulePerHour);
+            Power f2 = f1;
+
+            Power f3 = f1 + f2;
+            Power f4 = f2 + f1;
+            Power f5 = f4 + f3;
 
             string jsonString1 = JsonConvert.SerializeObject(f1);
+            Power f6 = JsonConvert.DeserializeObject<Power>(jsonString1);
 
-            var howManyBytes = jsonString1.Length * sizeof(Char);
+            List<Power> locallist = new List<Power>();
+
+            locallist.Add(f1);
+            locallist.Add(f1);
+            locallist.Add(f2);
+            locallist.Add(f3);
+            locallist.Add(f4);
+            locallist.Add(f5);
+            locallist.Add(f6);
+
+            string jsonString2 = JsonConvert.SerializeObject(locallist);
+            List<Power> locallist2 = JsonConvert.DeserializeObject<List<Power>>(jsonString2);
+
+            string jsonString3 = JsonConvert.SerializeObject(locallist2);
 
 
-            Debug.Print($"Size is: {howManyBytes}");
 
 
-
+            Debug.Print($"{jsonString2 == jsonString3 }");
 
 
 
