@@ -100,5 +100,12 @@ namespace EngineeringUnits
             BaseUnit simple = this.IntelligentCast();
             return simple.ToString();
         }
+
+        public UnknownUnit Pow(int toPower) => baseUnit.Pow(toPower);
+
+        public UnknownUnit Abs() => baseUnit.Abs();
+
+        public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max) => baseUnit.InRangeOf(Min, Max);
+
     }
 }

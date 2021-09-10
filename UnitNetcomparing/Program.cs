@@ -26,6 +26,9 @@ namespace UnitNetcomparing
             Power f1 = new Power(-19, PowerUnit.KilojoulePerHour);
             Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
+            Power f222 = (Power.FromWatts(-50) + Power.FromWatts(5)).Abs();
+
+
             Power f3 = f1 + f2;
             Power f4 = f2 + f1;
             Power f5 = f4 + f3;
