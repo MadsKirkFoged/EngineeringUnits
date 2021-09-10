@@ -23,8 +23,8 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
-            Power f1 = new Power(3, PowerUnit.KilojoulePerHour);
-            Power f2 = f1;
+            Power f1 = new Power(-19, PowerUnit.KilojoulePerHour);
+            Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
             Power f3 = f1 + f2;
             Power f4 = f2 + f1;

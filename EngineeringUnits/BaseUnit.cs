@@ -363,6 +363,34 @@ namespace EngineeringUnits
             return local;
         }
 
+        public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max)
+        {
+
+            UnitCheck(Min);
+            UnitCheck(Max);
+
+            if (Max < Min)
+            {
+                //TODO you need max to be larger then min
+                return this;
+            }
+
+
+            if (this < Min)            
+                return Min;
+            
+
+            if (this > Max)            
+                return Max;
+            
+
+            return this;
+
+            
+        }
+
+
+
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
 
