@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public Irradiation(UnknownUnit value, IrradiationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Irradiation From(double value, IrradiationUnit unit) => new Irradiation(value, unit);
-        public double As(IrradiationUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(IrradiationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Irradiation ToUnit(IrradiationUnit selectedUnit) => new Irradiation(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Irradiation Zero => new Irradiation(0, IrradiationUnit.SI);
 
