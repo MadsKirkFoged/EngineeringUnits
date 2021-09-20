@@ -16,7 +16,7 @@ namespace EngineeringUnits
         public Energy(UnknownUnit value, EnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Energy From(double value, EnergyUnit unit) => new Energy(value, unit);
-        public double As(EnergyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(EnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Energy ToUnit(EnergyUnit selectedUnit) => new Energy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Energy Zero => new Energy(0, EnergyUnit.SI);
 
