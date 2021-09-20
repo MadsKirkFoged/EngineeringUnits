@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public HeatTransferCoefficient(UnknownUnit value, HeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static HeatTransferCoefficient From(double value, HeatTransferCoefficientUnit unit) => new HeatTransferCoefficient(value, unit);
-        public double As(HeatTransferCoefficientUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(HeatTransferCoefficientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public HeatTransferCoefficient ToUnit(HeatTransferCoefficientUnit selectedUnit) => new HeatTransferCoefficient(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static HeatTransferCoefficient Zero => new HeatTransferCoefficient(0, HeatTransferCoefficientUnit.SI);
 
