@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public MolarEnergy(UnknownUnit value, MolarEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static MolarEnergy From(double value, MolarEnergyUnit unit) => new MolarEnergy(value, unit);
-        public double As(MolarEnergyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(MolarEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MolarEnergy ToUnit(MolarEnergyUnit selectedUnit) => new MolarEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MolarEnergy Zero => new MolarEnergy(0, MolarEnergyUnit.SI);
 
