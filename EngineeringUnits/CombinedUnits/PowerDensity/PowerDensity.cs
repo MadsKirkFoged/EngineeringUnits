@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public PowerDensity(UnknownUnit value, PowerDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static PowerDensity From(double value, PowerDensityUnit unit) => new PowerDensity(value, unit);
-        public double As(PowerDensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(PowerDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public PowerDensity ToUnit(PowerDensityUnit selectedUnit) => new PowerDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PowerDensity Zero => new PowerDensity(0, PowerDensityUnit.SI);
 
