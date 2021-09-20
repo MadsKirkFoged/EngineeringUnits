@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public Permeability(UnknownUnit value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Permeability From(double value, PermeabilityUnit unit) => new Permeability(value, unit);
-        public double As(PermeabilityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(PermeabilityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Permeability ToUnit(PermeabilityUnit selectedUnit) => new Permeability(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Permeability Zero => new Permeability(0, PermeabilityUnit.SI);
 
