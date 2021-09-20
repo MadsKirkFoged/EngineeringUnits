@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public MagneticField(UnknownUnit value, MagneticFieldUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static MagneticField From(double value, MagneticFieldUnit unit) => new MagneticField(value, unit);
-        public double As(MagneticFieldUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(MagneticFieldUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MagneticField ToUnit(MagneticFieldUnit selectedUnit) => new MagneticField(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MagneticField Zero => new MagneticField(0, MagneticFieldUnit.SI);
 
