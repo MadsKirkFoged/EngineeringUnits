@@ -25,7 +25,9 @@ namespace UnitNetcomparing
 
             //Inf
 
-            MassFlow MM1 = Mass.FromKilograms(1) / Duration.FromSeconds(0);
+
+
+            MassFlow MM1 = UnitMath.Min(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1) - MassFlow.FromKilogramsPerSecond(2));
 
 
             MassFlow MM2 = MM1 - MM1;
