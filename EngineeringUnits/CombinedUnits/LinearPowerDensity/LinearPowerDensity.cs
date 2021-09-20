@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public LinearPowerDensity(UnknownUnit value, LinearPowerDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static LinearPowerDensity From(double value, LinearPowerDensityUnit unit) => new LinearPowerDensity(value, unit);
-        public double As(LinearPowerDensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(LinearPowerDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public LinearPowerDensity ToUnit(LinearPowerDensityUnit selectedUnit) => new LinearPowerDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LinearPowerDensity Zero => new LinearPowerDensity(0, LinearPowerDensityUnit.SI);
 
