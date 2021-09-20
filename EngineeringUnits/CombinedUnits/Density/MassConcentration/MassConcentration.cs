@@ -17,7 +17,7 @@ namespace EngineeringUnits
 
 
         public static MassConcentration From(double value, DensityUnit unit) => new MassConcentration(value, unit);
-        public double As(DensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(DensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MassConcentration ToUnit(DensityUnit selectedUnit) => new MassConcentration(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MassConcentration Zero => new MassConcentration(0, DensityUnit.SI);
 
