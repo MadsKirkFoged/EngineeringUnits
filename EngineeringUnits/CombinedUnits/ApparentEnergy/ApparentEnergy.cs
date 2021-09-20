@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public ApparentEnergy(UnknownUnit value, ApparentEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static ApparentEnergy From(double value, ApparentEnergyUnit unit) => new ApparentEnergy(value, unit);
-        public double As(ApparentEnergyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(ApparentEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ApparentEnergy ToUnit(ApparentEnergyUnit selectedUnit) => new ApparentEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ApparentEnergy Zero => new ApparentEnergy(0, ApparentEnergyUnit.SI);
 
