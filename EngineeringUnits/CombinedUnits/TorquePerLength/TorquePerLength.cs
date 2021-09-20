@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public TorquePerLength(UnknownUnit value, TorquePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static TorquePerLength From(double value, TorquePerLengthUnit unit) => new TorquePerLength(value, unit);
-        public double As(TorquePerLengthUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(TorquePerLengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public TorquePerLength ToUnit(TorquePerLengthUnit selectedUnit) => new TorquePerLength(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static TorquePerLength Zero => new TorquePerLength(0, TorquePerLengthUnit.SI);
 
