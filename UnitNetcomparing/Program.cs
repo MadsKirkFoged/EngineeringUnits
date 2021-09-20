@@ -23,6 +23,15 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
+            //Inf
+
+            MassFlow MM1 = Mass.FromKilograms(1) / Duration.FromSeconds(0);
+
+
+            MassFlow MM2 = MM1 - MM1;
+
+
+
             Power f1 = new Power(-19, PowerUnit.KilojoulePerHour);
             Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 

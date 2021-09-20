@@ -10,9 +10,12 @@ using System;
 namespace EngineeringUnits
 {
 
+
     [JsonObject(MemberSerialization.OptIn)]
     public class BaseUnit : IComparable
     {
+
+        public bool Inf { get; set; }
 
         [JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public UnitSystem Unit { get; set;}
@@ -80,7 +83,7 @@ namespace EngineeringUnits
             
 
             SetValue(unit.baseUnit.ToTheOutSide(Unit));
-
+            Inf = unit.baseUnit.Inf;
 
             UnitCheck(unit);
         }
@@ -202,7 +205,7 @@ namespace EngineeringUnits
             return (double)left.SymbolValue > right.As(left);
         }
 
-        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new UnknownUnit { baseUnit = baseUnit };
+        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new UnknownUnit(baseUnit);
         
 
 
@@ -239,16 +242,29 @@ namespace EngineeringUnits
         public string ToString(string format, IFormatProvider provider)
         {
 
+
             if (Unit is null) //dimensionless            
+            {
+                if (Inf)
+                    return $"{double.PositiveInfinity.ToString(format)}";
+
                 return $"{SymbolValue.ToString(format)}";        
+            } 
 
 
-            if (Unit.Symbol is object)            
+            if (Unit.Symbol is object)
+            {
+                if (Inf)
+                    return $"{double.PositiveInfinity.ToString(format)} {Unit.Symbol}";
+
                 return $"{SymbolValue.ToString(format)} {Unit.Symbol}";            
-            
-            
+            }
 
-                return $"{BaseunitValue.ToString(format)} {Unit}";         
+
+            if (Inf)
+                return $"{double.PositiveInfinity.ToString(format)} {Unit}";
+
+            return $"{BaseunitValue.ToString(format)} {Unit}";         
         }
 
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
@@ -266,7 +282,7 @@ namespace EngineeringUnits
 
             switch (math)
             {
-                case MathEnum.Add:
+                case MathEnum.Add:                   
 
                     //Value math
                     x3Test = left.BaseunitValue + testRightConverted;
@@ -293,10 +309,16 @@ namespace EngineeringUnits
                 case MathEnum.Divide:
 
                     //Value math
-                    if (testRightConverted != 0)                    
-                        x3Test = left.BaseunitValue / testRightConverted;                    
+                    if (testRightConverted != 0)
+                    {
+                        x3Test = left.BaseunitValue / testRightConverted;
+                        local.Inf = false;
+                    }
                     else
+                    {
                         x3Test = 0;
+                        local.Inf = true;
+                    }
 
                     //Unit math
                     local.Unit = left.Unit / right.Unit;
@@ -305,6 +327,8 @@ namespace EngineeringUnits
                     break;
             }
 
+            if (left.Inf || right.Inf)
+                local.Inf = true;
 
             //Convert back to New unitsystem
             decimal x3TestConvertedBack = x3Test / local.ConvertToBaseUnit();
@@ -415,7 +439,15 @@ namespace EngineeringUnits
             return (decimal)y2test;
         }
 
-       
+        public double ToTheOutSideDouble(UnitSystem To)
+        {
+            if (Inf)
+                return double.PositiveInfinity;
+
+            return (double)ToTheOutSide(To);
+        }
+
+
         public string DisplaySymbol()
         {
             if (Unit.Symbol is object)            
