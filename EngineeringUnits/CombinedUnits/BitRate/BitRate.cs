@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public BitRate(UnknownUnit value, BitRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static BitRate From(double value, BitRateUnit unit) => new BitRate(value, unit);
-        public double As(BitRateUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(BitRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public BitRate ToUnit(BitRateUnit selectedUnit) => new BitRate(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static BitRate Zero => new BitRate(0, BitRateUnit.SI);
 
