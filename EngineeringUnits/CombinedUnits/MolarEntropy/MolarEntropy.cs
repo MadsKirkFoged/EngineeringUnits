@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public MolarEntropy(UnknownUnit value, MolarEntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static MolarEntropy From(double value, MolarEntropyUnit unit) => new MolarEntropy(value, unit);
-        public double As(MolarEntropyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(MolarEntropyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MolarEntropy ToUnit(MolarEntropyUnit selectedUnit) => new MolarEntropy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MolarEntropy Zero => new MolarEntropy(0, MolarEntropyUnit.SI);
 
