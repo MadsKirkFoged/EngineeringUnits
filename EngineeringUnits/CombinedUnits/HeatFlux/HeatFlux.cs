@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public HeatFlux(UnknownUnit value, HeatFluxUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static HeatFlux From(double value, HeatFluxUnit unit) => new HeatFlux(value, unit);
-        public double As(HeatFluxUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(HeatFluxUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public HeatFlux ToUnit(HeatFluxUnit selectedUnit) => new HeatFlux(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static HeatFlux Zero => new HeatFlux(0, HeatFluxUnit.SI);
 
