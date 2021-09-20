@@ -14,7 +14,7 @@ namespace EngineeringUnits
         public Torque(UnknownUnit value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Torque From(double value, TorqueUnit unit) => new Torque(value, unit);
-        public double As(TorqueUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(TorqueUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Torque ToUnit(TorqueUnit selectedUnit) => new Torque(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Torque Zero => new Torque(0, TorqueUnit.SI);
 
