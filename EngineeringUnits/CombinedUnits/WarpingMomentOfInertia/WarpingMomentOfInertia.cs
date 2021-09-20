@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public WarpingMomentOfInertia(UnknownUnit value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static WarpingMomentOfInertia From(double value, WarpingMomentOfInertiaUnit unit) => new WarpingMomentOfInertia(value, unit);
-        public double As(WarpingMomentOfInertiaUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(WarpingMomentOfInertiaUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public WarpingMomentOfInertia ToUnit(WarpingMomentOfInertiaUnit selectedUnit) => new WarpingMomentOfInertia(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static WarpingMomentOfInertia Zero => new WarpingMomentOfInertia(0, WarpingMomentOfInertiaUnit.SI);
 
