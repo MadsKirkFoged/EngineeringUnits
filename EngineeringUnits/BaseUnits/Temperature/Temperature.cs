@@ -57,7 +57,7 @@ namespace EngineeringUnits
 
         public static Temperature From(double value, TemperatureUnit unit) => new Temperature(value, unit);
 
-        public double As(TemperatureUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(TemperatureUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
 
         public Temperature ToUnit(TemperatureUnit selectedUnit)
         {
