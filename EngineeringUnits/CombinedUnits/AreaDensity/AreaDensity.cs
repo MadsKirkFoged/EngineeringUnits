@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public AreaDensity(UnknownUnit value, AreaDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static AreaDensity From(double value, AreaDensityUnit unit) => new AreaDensity(value, unit);
-        public double As(AreaDensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(AreaDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public AreaDensity ToUnit(AreaDensityUnit selectedUnit) => new AreaDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static AreaDensity Zero => new AreaDensity(0, AreaDensityUnit.SI);
 
