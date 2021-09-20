@@ -20,7 +20,7 @@ namespace EngineeringUnits
 
 
         public static PowerRatio From(double value, PowerRatioUnit unit) => new PowerRatio(value, unit);
-        public double As(PowerRatioUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(PowerRatioUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public PowerRatio ToUnit(PowerRatioUnit selectedUnit) => new PowerRatio(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PowerRatio Zero => new PowerRatio(0, PowerRatioUnit.SI);
 
