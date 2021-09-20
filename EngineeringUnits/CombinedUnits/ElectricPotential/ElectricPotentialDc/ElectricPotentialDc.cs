@@ -17,7 +17,7 @@ namespace EngineeringUnits
 
 
         public static ElectricPotentialDc From(double value, ElectricPotentialUnit unit) => new ElectricPotentialDc(value, unit);
-        public double As(ElectricPotentialUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(ElectricPotentialUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricPotentialDc ToUnit(ElectricPotentialUnit selectedUnit) => new ElectricPotentialDc(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricPotentialDc Zero => new ElectricPotentialDc(0, ElectricPotentialUnit.SI);
 
