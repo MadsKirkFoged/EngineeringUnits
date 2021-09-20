@@ -14,7 +14,7 @@ namespace EngineeringUnits
         public LapseRate(UnknownUnit value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static LapseRate From(double value, LapseRateUnit unit) => new LapseRate(value, unit);
-        public double As(LapseRateUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(LapseRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public LapseRate ToUnit(LapseRateUnit selectedUnit) => new LapseRate(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LapseRate Zero => new LapseRate(0, LapseRateUnit.SI);
 
