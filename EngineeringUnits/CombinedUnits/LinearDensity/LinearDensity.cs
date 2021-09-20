@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public LinearDensity(UnknownUnit value, LinearDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static LinearDensity From(double value, LinearDensityUnit unit) => new LinearDensity(value, unit);
-        public double As(LinearDensityUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(LinearDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public LinearDensity ToUnit(LinearDensityUnit selectedUnit) => new LinearDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LinearDensity Zero => new LinearDensity(0, LinearDensityUnit.SI);
 
