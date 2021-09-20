@@ -14,7 +14,7 @@ namespace EngineeringUnits
         public SpecificWeight(UnknownUnit value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static SpecificWeight From(double value, SpecificWeightUnit unit) => new SpecificWeight(value, unit);
-        public double As(SpecificWeightUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(SpecificWeightUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public SpecificWeight ToUnit(SpecificWeightUnit selectedUnit) => new SpecificWeight(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static SpecificWeight Zero => new SpecificWeight(0, SpecificWeightUnit.SI);
 
