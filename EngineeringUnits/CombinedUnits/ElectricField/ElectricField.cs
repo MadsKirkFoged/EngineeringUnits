@@ -15,7 +15,7 @@ namespace EngineeringUnits
         public ElectricField(UnknownUnit value, ElectricFieldUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static ElectricField From(double value, ElectricFieldUnit unit) => new ElectricField(value, unit);
-        public double As(ElectricFieldUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
+        public double As(ElectricFieldUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new ElectricField(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricField Zero => new ElectricField(0, ElectricFieldUnit.SI);
 
