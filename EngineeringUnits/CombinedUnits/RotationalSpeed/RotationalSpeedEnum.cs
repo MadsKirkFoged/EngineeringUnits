@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -7,29 +8,35 @@ namespace EngineeringUnits.Units
 {
 
 
+
     public class RotationalSpeedUnit : Enumeration
     {
 
-        public static readonly RotationalSpeedUnit SI = new RotationalSpeedUnit(LengthUnit.SI);
-        public static readonly RotationalSpeedUnit CubicMeter = new RotationalSpeedUnit(LengthUnit.Meter);
-        public static readonly RotationalSpeedUnit HectocubicMeter = new RotationalSpeedUnit(PreFix.hecto, CubicMeter);
-        public static readonly RotationalSpeedUnit KilocubicMeter = new RotationalSpeedUnit(PreFix.kilo, CubicMeter);
+        public static readonly RotationalSpeedUnit SI = new RotationalSpeedUnit(DurationUnit.Second, "rad/s");
+        public static readonly RotationalSpeedUnit RadianPerSecond = new RotationalSpeedUnit(DurationUnit.Second, "rad/s");
+
+
+        public static readonly RotationalSpeedUnit Hertz = new RotationalSpeedUnit(DurationUnit.Second, "Hz", (2 * (decimal)Math.PI));
+        public static readonly RotationalSpeedUnit Kilohertz = new RotationalSpeedUnit(PreFix.kilo, Hertz);
+        public static readonly RotationalSpeedUnit Megahertz = new RotationalSpeedUnit(PreFix.mega, Hertz);
+        public static readonly RotationalSpeedUnit Gigahertz = new RotationalSpeedUnit(PreFix.giga, Hertz);
+        public static readonly RotationalSpeedUnit Terahertz = new RotationalSpeedUnit(PreFix.tera, Hertz);
+
+        public static readonly RotationalSpeedUnit PerSecond = new RotationalSpeedUnit(DurationUnit.Second, "s⁻¹", (2 * (decimal)Math.PI));
+        public static readonly RotationalSpeedUnit BeatPerMinute = new RotationalSpeedUnit(DurationUnit.Minute, "bpm", (2 * (decimal)Math.PI));
+        public static readonly RotationalSpeedUnit CyclePerHour = new RotationalSpeedUnit(DurationUnit.Hour, "cph", (2 * (decimal)Math.PI));
+        public static readonly RotationalSpeedUnit CyclePerMinute = new RotationalSpeedUnit(DurationUnit.Minute, "cpm", (2 * (decimal)Math.PI));
 
 
 
-        public RotationalSpeedUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+
+        public RotationalSpeedUnit(DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Pow(3);
+            Unit = duration.Pow(-1);
             SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public RotationalSpeedUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area * Length;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
 
         public RotationalSpeedUnit(PreFix SI, RotationalSpeedUnit unit)
         {
@@ -38,12 +45,6 @@ namespace EngineeringUnits.Units
             SetNewSymbol(SI);
         }
 
-        public RotationalSpeedUnit(RotationalSpeedUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 

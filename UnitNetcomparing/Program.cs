@@ -27,6 +27,15 @@ namespace UnitNetcomparing
 
 
 
+            Power P11 = new Power(360, PowerUnit.Kilowatt);
+
+            RotationalSpeed F1 = new RotationalSpeed(1500, RotationalSpeedUnit.BeatPerMinute);
+
+
+            Torque TQ1 = P11 / F1;
+
+
+
             MassFlow MM1 = UnitMath.Min(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1) - MassFlow.FromKilogramsPerSecond(2));
 
 

@@ -1,38 +1,27 @@
-﻿using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+﻿using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    public partial class RotationalSpeed : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public RotationalSpeed() { }
+        public RotationalSpeed(decimal value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public RotationalSpeed(double value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public RotationalSpeed(int value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public RotationalSpeed(UnknownUnit value) : base(value) { }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public RotationalSpeed(UnknownUnit value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
+        public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new RotationalSpeed(value, unit);
+        public double As(RotationalSpeedUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
+        public RotationalSpeed ToUnit(RotationalSpeedUnit selectedUnit) => new RotationalSpeed(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static RotationalSpeed Zero => new RotationalSpeed(0, RotationalSpeedUnit.SI);
 
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
-
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
-
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
+        public static implicit operator RotationalSpeed(UnknownUnit Unit) => new RotationalSpeed(Unit, RotationalSpeedUnit.SI);
 
 
 
-
-    //}
+    }
 }
