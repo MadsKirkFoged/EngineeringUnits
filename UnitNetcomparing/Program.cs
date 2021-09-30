@@ -27,7 +27,38 @@ namespace UnitNetcomparing
 
 
 
+            SpecificEnergy EEE = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+            
+
+            Enthalpy SSS = EEE;
+
+
+
+
+            SpecificEnergy EEE2 = SSS;
+
+
+
+
+
+            int totalcount = 1000000;
             Power P11 = new Power(360, PowerUnit.Kilowatt);
+            bool speedtest = true;
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
+
+            for (int i = 0; i < totalcount; i++)
+            {
+                speedtest = Power.Zero > P11;
+            }
+
+
+            watch.Stop();
+            Debug.Print($"Time: {watch.ElapsedTicks / totalcount}");
+
+
+
+
 
             RotationalSpeed F1 = new RotationalSpeed(1500, RotationalSpeedUnit.BeatPerMinute);
 

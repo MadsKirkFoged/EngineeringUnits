@@ -817,35 +817,43 @@ namespace EngineeringUnits
 
         public IEnumerable<Enumeration> UnitList()
         {
-            var local = new List<Enumeration>();
+            //var local = new List<Enumeration>();
 
             if (Length is object)
-                local.Add(Length);
+                yield return Length;
+                //local.Add(Length);
 
             if (Mass is object)
-                local.Add(Mass);
+                yield return Mass;
+                //local.Add(Mass);
 
             if (Duration is object)
-                local.Add(Duration);
+                yield return Duration;
+            //local.Add(Duration);
 
             if (Electriccurrent is object)
-                local.Add(Electriccurrent);
+                yield return Electriccurrent;
+            //local.Add(Electriccurrent);
 
             if (Temperature is object)
-                local.Add(Temperature);
+                yield return Temperature;
+            //local.Add(Temperature);
 
             if (Amount is object)
-                local.Add(Amount);
+                yield return Amount;
+            //local.Add(Amount);
 
             if (LuminousIntensity is object)
-                local.Add(LuminousIntensity);
+                yield return LuminousIntensity;
+            //local.Add(LuminousIntensity);
 
             if (Combined is object)
-                local.Add(Combined);
+                yield return Combined;
+            //local.Add(Combined);
 
 
 
-            return local;
+            //return local;
         }
 
         public UnitSystem Copy()
