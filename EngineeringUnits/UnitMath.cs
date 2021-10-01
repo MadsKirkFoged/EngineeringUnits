@@ -124,5 +124,16 @@ namespace EngineeringUnits
         public static UnknownUnit Min(params BaseUnit[] x) { return Min((IEnumerable<BaseUnit>)x); }
         public static UnknownUnit Min(params UnknownUnit[] x) { return Min((IEnumerable<UnknownUnit>)x); }
 
+
+
+        static public UnknownUnit LinearInterpolation(UnknownUnit x, UnknownUnit x0, UnknownUnit x1, UnknownUnit y0, UnknownUnit y1)
+        {
+            return y0 + (x - x0) * (y1 - y0) / (x1 - x0);
+        }
+
+
+
+
+
     }
 }

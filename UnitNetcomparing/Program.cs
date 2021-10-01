@@ -26,6 +26,9 @@ namespace UnitNetcomparing
             //Inf
 
 
+            Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1.25), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), Pressure.FromBars(10), Pressure.FromBars(20));
+
+
 
             SpecificEnergy EEE = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
             
