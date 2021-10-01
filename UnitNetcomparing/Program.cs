@@ -26,7 +26,7 @@ namespace UnitNetcomparing
             //Inf
 
 
-            Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1.25), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(2), Pressure.FromBars(10), Pressure.FromBars(20));
+            Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), Pressure.FromBars(10), Pressure.FromBars(20));
 
 
 
