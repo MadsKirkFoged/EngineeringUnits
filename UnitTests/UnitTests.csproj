@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="BaseUnits\Amount\" />
     <Folder Include="BaseUnits\CombinedUnits\" />
     <Folder Include="BaseUnits\Electriccurrent\" />
@@ -56,6 +52,10 @@
     <Folder Include="CombinedUnits\Torque\" />
     <Folder Include="CombinedUnits\VolumeFlow\" />
     <Folder Include="CombinedUnits\Volume\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>
 
 </Project>

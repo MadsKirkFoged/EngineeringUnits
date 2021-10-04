@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj">
-      <Project>{ecbcab6f-ef44-4a2f-b262-87e3f1dcd5aa}</Project>
+      <Project>{114fd29f-bcaf-44e1-9743-df2a3c472c3e}</Project>
       <Name>EngineeringUnits</Name>
     </ProjectReference>
   </ItemGroup>
