@@ -13,7 +13,7 @@ namespace UnitTests
         [TestMethod]
         public void DurationConverts()
         {
-            Duration L1 = new Duration(3600, DurationUnit.Second);
+            Duration L1 = new(3600, DurationUnit.Second);
 
             Assert.AreEqual(3600, (double)L1.As(DurationUnit.Second), 0000000000.1);
             Assert.AreEqual(0.041666666666666664d, (double)L1.As(DurationUnit.Day), 0000000000.1);
@@ -26,7 +26,7 @@ namespace UnitTests
         [TestMethod]
         public void DurationConverts2()
         {
-            Duration L1 = new Duration(1, DurationUnit.Hour);
+            Duration L1 = new(1, DurationUnit.Hour);
 
 
             Assert.AreEqual(3600, (double)L1.As(DurationUnit.Second), 0000000000.1);

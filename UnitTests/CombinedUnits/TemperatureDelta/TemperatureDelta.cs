@@ -18,10 +18,10 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureDeltaAutoTest()
         {
-            var A1 = new UnitsNet.TemperatureDelta(1, UnitsNet.Units.TemperatureDeltaUnit.DegreeCelsius);
-            var A2 = new EngineeringUnits.TemperatureDelta(1, TemperatureUnit.DegreeCelsius);
+           // var A1 = new UnitsNet.TemperatureDelta(1, UnitsNet.Units.TemperatureDeltaUnit.DegreeCelsius);
+           // var A2 = new EngineeringUnits.TemperatureDelta(1, TemperatureUnit.DegreeCelsius);
 
-            int WorkingCompares = 0;
+           // int WorkingCompares = 0;
 
 
             //foreach (var EU in Enumeration.ListOf<TemperatureUnit>())

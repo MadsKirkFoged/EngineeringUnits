@@ -7,264 +7,264 @@ using System.Diagnostics;
 
 namespace UnitTests
 {
-    [TestClass]
-    public class CalcSpeedTest
-    {
-        [TestMethod]
-        public void CreateNewDurationUnit()
-        {
-            Stopwatch stopwatchUN = new Stopwatch();
-            Stopwatch stopwatchEN = new Stopwatch();
+    //[TestClass]
+    //public class CalcSpeedTest
+    //{
+    //    [TestMethod]
+    //    public void CreateNewDurationUnit()
+    //    {
+    //        Stopwatch stopwatchUN = new();
+    //        Stopwatch stopwatchEN = new();
 
-            stopwatchUN.Start();
-            UnitsNet.Duration A1 = new UnitsNet.Duration(6544444.743, UnitsNet.Units.DurationUnit.Minute);
-            stopwatchUN.Stop();
+    //        stopwatchUN.Start();
+    //        UnitsNet.Duration A1 = new UnitsNet.Duration(6544444.743, UnitsNet.Units.DurationUnit.Minute);
+    //        stopwatchUN.Stop();
 
-            stopwatchEN.Start();
-            EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, DurationUnit.Minute);
-            stopwatchEN.Stop();
-
-
-            Debug.Print($" UnitNets:         { stopwatchUN.ElapsedTicks.ToString()}");
-            Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedTicks.ToString()}");
+    //        stopwatchEN.Start();
+    //        EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, DurationUnit.Minute);
+    //        stopwatchEN.Stop();
 
 
-            //Assert.IsTrue( stopwatchUN.ElapsedTicks > stopwatchEN.ElapsedTicks);
+    //        Debug.Print($" UnitNets:         { stopwatchUN.ElapsedTicks}");
+    //        Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedTicks}");
 
 
-        }
+    //        //Assert.IsTrue( stopwatchUN.ElapsedTicks > stopwatchEN.ElapsedTicks);
 
-        [TestMethod]
-        public void CreateNewForcePerLengthUnit()
-        {
-            Stopwatch stopwatchUN = new Stopwatch();
-            Stopwatch stopwatchEN = new Stopwatch();            
+
+    //    }
+
+    //    [TestMethod]
+    //    public void CreateNewForcePerLengthUnit()
+    //    {
+    //        Stopwatch stopwatchUN = new Stopwatch();
+    //        Stopwatch stopwatchEN = new Stopwatch();            
             
 
 
-            stopwatchUN.Start();
-            var A1 = new UnitsNet.ForcePerLength(65.743, UnitsNet.Units.ForcePerLengthUnit.DecanewtonPerCentimeter);
-            stopwatchUN.Stop();
+    //        stopwatchUN.Start();
+    //        var A1 = new UnitsNet.ForcePerLength(65.743, UnitsNet.Units.ForcePerLengthUnit.DecanewtonPerCentimeter);
+    //        stopwatchUN.Stop();
 
-            stopwatchEN.Start();
-            var A2 = new EngineeringUnits.ForcePerLength(65.743, ForcePerLengthUnit.DecanewtonPerCentimeter);
-            stopwatchEN.Stop();
+    //        stopwatchEN.Start();
+    //        var A2 = new EngineeringUnits.ForcePerLength(65.743, ForcePerLengthUnit.DecanewtonPerCentimeter);
+    //        stopwatchEN.Stop();
 
 
-            Debug.Print($" UnitNets:         { stopwatchUN.ElapsedTicks.ToString()}");
-            Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedTicks.ToString()}");
+    //        Debug.Print($" UnitNets:         { stopwatchUN.ElapsedTicks}");
+    //        Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedTicks}");
 
 
-            //Assert.IsTrue(100 *stopwatchUN.ElapsedTicks > stopwatchEN.ElapsedTicks);
+    //        //Assert.IsTrue(100 *stopwatchUN.ElapsedTicks > stopwatchEN.ElapsedTicks);
 
 
-        }
+    //    }
 
 
-        [TestMethod]
-        public void DoCalculation()
-        {
-            Stopwatch stopwatchUN = new Stopwatch();
-            Stopwatch stopwatchEN = new Stopwatch();
+    //    [TestMethod]
+    //    public void DoCalculation()
+    //    {
+    //        Stopwatch stopwatchUN = new Stopwatch();
+    //        Stopwatch stopwatchEN = new Stopwatch();
 
 
 
-            stopwatchUN.Start();
-            var M1 = new UnitsNet.Mass(65.743, UnitsNet.Units.MassUnit.Kilopound);
-            var V1 = new UnitsNet.Volume(10.457, UnitsNet.Units.VolumeUnit.Liter);
-            UnitsNet.Density D1 = M1 / V1;
+    //        stopwatchUN.Start();
+    //        var M1 = new UnitsNet.Mass(65.743, UnitsNet.Units.MassUnit.Kilopound);
+    //        var V1 = new UnitsNet.Volume(10.457, UnitsNet.Units.VolumeUnit.Liter);
+    //        UnitsNet.Density D1 = M1 / V1;
 
-            stopwatchUN.Stop();
+    //        stopwatchUN.Stop();
 
-            stopwatchEN.Start();
-            var M2 = new EngineeringUnits.Mass(65.743, MassUnit.Kilopound);
-            var V2 = new EngineeringUnits.Volume(10.457, VolumeUnit.Liter);
-            EngineeringUnits.Density D2 = M2 / V2;
+    //        stopwatchEN.Start();
+    //        var M2 = new EngineeringUnits.Mass(65.743, MassUnit.Kilopound);
+    //        var V2 = new EngineeringUnits.Volume(10.457, VolumeUnit.Liter);
+    //        EngineeringUnits.Density D2 = M2 / V2;
 
-            stopwatchEN.Stop();
+    //        stopwatchEN.Stop();
 
 
-            Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds.ToString()}");
-            Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds.ToString()}");
+    //        Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds}");
+    //        Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds}");
 
 
-            //Assert.IsTrue(100 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
+    //        //Assert.IsTrue(100 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
 
 
-        }
+    //    }
 
-        [TestMethod]
-        public void CreateManyPutToList()
-        {
-            Stopwatch stopwatchUN = new Stopwatch();
-            Stopwatch stopwatchEN = new Stopwatch();
+    //    [TestMethod]
+    //    public void CreateManyPutToList()
+    //    {
+    //        Stopwatch stopwatchUN = new Stopwatch();
+    //        Stopwatch stopwatchEN = new Stopwatch();
 
 
 
-            stopwatchUN.Start();
-            List<UnitsNet.Power> UNList = new List<UnitsNet.Power>();
+    //        stopwatchUN.Start();
+    //        List<UnitsNet.Power> UNList = new List<UnitsNet.Power>();
 
-            for (int i = 0; i < 100000; i++)
-            {
-                UNList.Add(new UnitsNet.Power(i, UnitsNet.Units.PowerUnit.Gigawatt));
-            }
+    //        for (int i = 0; i < 100000; i++)
+    //        {
+    //            UNList.Add(new UnitsNet.Power(i, UnitsNet.Units.PowerUnit.Gigawatt));
+    //        }
 
-            stopwatchUN.Stop();
+    //        stopwatchUN.Stop();
 
 
 
-            stopwatchEN.Start();
+    //        stopwatchEN.Start();
 
 
-            List<EngineeringUnits.Power> ENList = new List<EngineeringUnits.Power>();
+    //        List<EngineeringUnits.Power> ENList = new List<EngineeringUnits.Power>();
 
-            for (int i = 0; i < 100000; i++)
-            {
-                ENList.Add(new EngineeringUnits.Power(i, PowerUnit.Gigawatt));
-            }
+    //        for (int i = 0; i < 100000; i++)
+    //        {
+    //            ENList.Add(new EngineeringUnits.Power(i, PowerUnit.Gigawatt));
+    //        }
 
-            stopwatchEN.Stop();
+    //        stopwatchEN.Stop();
 
 
-            Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds.ToString()}");
-            Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds.ToString()}");
+    //        Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds}");
+    //        Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds}");
 
 
-            //Assert.IsTrue(100 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
+    //        //Assert.IsTrue(100 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
 
 
-        }
+    //    }
 
-        [TestMethod]
-        public void Adding()
-        {
-            Stopwatch stopwatchUN = new Stopwatch();
-            Stopwatch stopwatchEN = new Stopwatch();
+    //    [TestMethod]
+    //    public void Adding()
+    //    {
+    //        Stopwatch stopwatchUN = new Stopwatch();
+    //        Stopwatch stopwatchEN = new Stopwatch();
 
 
 
-            stopwatchUN.Start();
-            var M1 = new UnitsNet.Mass(1, UnitsNet.Units.MassUnit.Kilopound);
+    //        stopwatchUN.Start();
+    //        var M1 = new UnitsNet.Mass(1, UnitsNet.Units.MassUnit.Kilopound);
 
-            for (int i = 0; i < 20; i++)
-            {
-                M1 = M1 + M1;
-            }
+    //        for (int i = 0; i < 20; i++)
+    //        {
+    //            M1 = M1 + M1;
+    //        }
 
 
-            stopwatchUN.Stop();
+    //        stopwatchUN.Stop();
 
 
 
-            stopwatchEN.Start();
+    //        stopwatchEN.Start();
 
-            var M2 = new EngineeringUnits.Mass(1, MassUnit.Kilopound);
+    //        var M2 = new EngineeringUnits.Mass(1, MassUnit.Kilopound);
 
-            for (int i = 0; i < 20; i++)
-            {
-                M2 = M2 + M2;
-            }
+    //        for (int i = 0; i < 20; i++)
+    //        {
+    //            M2 = M2 + M2;
+    //        }
 
-            stopwatchEN.Stop();
+    //        stopwatchEN.Stop();
 
 
-            Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds.ToString()}");
-            Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds.ToString()}");
+    //        Debug.Print($" UnitNets:         { stopwatchUN.ElapsedMilliseconds}");
+    //        Debug.Print($" EngineeringUnits: { stopwatchEN.ElapsedMilliseconds}");
 
 
-            //Assert.IsTrue(10 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
+    //        //Assert.IsTrue(10 * stopwatchUN.ElapsedMilliseconds > stopwatchEN.ElapsedMilliseconds);
 
 
-        }
+    //    }
 
-        [TestMethod]
-        public void ticks()
-        {
-            int k = 10000;
+    //    [TestMethod]
+    //    public void Ticks()
+    //    {
+    //        int k = 10000;
 
-            Stopwatch stopwatch2 = Stopwatch.StartNew();
-            for (int i = 0; i < k; i++)
-            {
-                MassFlow testee = MassFlow.FromKilogramsPerSecond(i);
-            }
-            stopwatch2.Stop();
+    //        Stopwatch stopwatch2 = Stopwatch.StartNew();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            MassFlow testee = MassFlow.FromKilogramsPerSecond(i);
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"Create new Massflow: {stopwatch2.ElapsedTicks / k} tick/creation");
+    //        Debug.Print($"Create new Massflow: {stopwatch2.ElapsedTicks / k} tick/creation");
 
 
 
-            MassFlow test1 = MassFlow.FromKilogramsPerSecond(654);
-            MassFlow test2 = MassFlow.FromKilogramsPerSecond(158.547);
-            MassFlow test3 = MassFlow.Zero;
+    //        MassFlow test1 = MassFlow.FromKilogramsPerSecond(654);
+    //        MassFlow test2 = MassFlow.FromKilogramsPerSecond(158.547);
+    //        MassFlow test3 = MassFlow.Zero;
 
-            stopwatch2.Restart();
-            for (int i = 0; i < k; i++)
-            {
-                test3 = test1 + test2;
-            }
-            stopwatch2.Stop();
+    //        stopwatch2.Restart();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            test3 = test1 + test2;
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"add 1 time: {stopwatch2.ElapsedTicks / k} tick/addition");
+    //        Debug.Print($"add 1 time: {stopwatch2.ElapsedTicks / k} tick/addition");
 
 
 
-            stopwatch2.Restart();
-            for (int i = 0; i < k; i++)
-            {
-                test3 = test1 - test2;
-            }
-            stopwatch2.Stop();
+    //        stopwatch2.Restart();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            test3 = test1 - test2;
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"sub 1 time: {stopwatch2.ElapsedTicks / k} tick/sub");
+    //        Debug.Print($"sub 1 time: {stopwatch2.ElapsedTicks / k} tick/sub");
 
 
 
-            Length length = Length.FromMeters(132);
-            Area area = Area.Zero;
+    //        Length length = Length.FromMeters(132);
+    //        Area area = Area.Zero;
 
 
-            stopwatch2.Restart();
-            for (int i = 0; i < k; i++)
-            {
-                area = length * length;
-            }
-            stopwatch2.Stop();
+    //        stopwatch2.Restart();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            area = length * length;
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"Multiply 1 times: {stopwatch2.ElapsedTicks / k} tick/multi");
+    //        Debug.Print($"Multiply 1 times: {stopwatch2.ElapsedTicks / k} tick/multi");
 
 
 
 
 
 
-            Duration duration = Duration.FromHours(3);
-            Speed speed = Speed.FromMetersPerSecond(3);
+    //        Duration duration = Duration.FromHours(3);
+    //        Speed speed = Speed.FromMetersPerSecond(3);
 
-            stopwatch2.Restart();
-            for (int i = 0; i < k; i++)
-            {
-                speed = length / duration;
-            }
-            stopwatch2.Stop();
+    //        stopwatch2.Restart();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            speed = length / duration;
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"Divide 1 times: {stopwatch2.ElapsedTicks / k} tick/division");
+    //        Debug.Print($"Divide 1 times: {stopwatch2.ElapsedTicks / k} tick/division");
 
 
 
-            Length length2 = Length.FromMeters(132);
-            bool check = true;
-            stopwatch2.Restart();
-            for (int i = 0; i < k; i++)
-            {
-                check = length <= length2;
-            }
-            stopwatch2.Stop();
+    //        Length length2 = Length.FromMeters(132);
+    //        bool check = true;
+    //        stopwatch2.Restart();
+    //        for (int i = 0; i < k; i++)
+    //        {
+    //            check = length <= length2;
+    //        }
+    //        stopwatch2.Stop();
 
-            Debug.Print($"'<=' 1 time: {stopwatch2.ElapsedTicks / k} tick/operation");
+    //        Debug.Print($"'<=' 1 time: {stopwatch2.ElapsedTicks / k} tick/operation");
 
 
-        }
+    //    }
 
 
-    }
+    //}
 }

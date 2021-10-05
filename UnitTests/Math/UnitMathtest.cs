@@ -120,12 +120,12 @@ namespace UnitTests
             var pow2 = twoMeters.Pow(2);
             var pow3 = twoMeters.Pow(3);
 
-            Assert.AreEqual(Math.Pow(2, -2), powMinus2.Value);
-            Assert.AreEqual(Math.Pow(2, -1), powMinus1.Value);
-            Assert.AreEqual(Math.Pow(2, 0), pow0.Value);
-            Assert.AreEqual(Math.Pow(2, 1), pow1.Value);
-            Assert.AreEqual(Math.Pow(2, 2), pow2.Value);
-            Assert.AreEqual(Math.Pow(2, 3), pow3.Value);
+            Assert.AreEqual(Math.Pow(2, -2), powMinus2.SI);
+            Assert.AreEqual(Math.Pow(2, -1), powMinus1.SI);
+            Assert.AreEqual(Math.Pow(2, 0), pow0.SI);
+            Assert.AreEqual(Math.Pow(2, 1), pow1.SI);
+            Assert.AreEqual(Math.Pow(2, 2), pow2.SI);
+            Assert.AreEqual(Math.Pow(2, 3), pow3.SI);
         }
 
 

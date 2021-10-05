@@ -18,6 +18,7 @@ namespace EngineeringUnits
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => baseUnit.Value;
 
+        public double SI => (double)baseUnit.BaseunitValue;
 
         public UnknownUnit()
         {
