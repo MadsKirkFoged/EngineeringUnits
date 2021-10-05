@@ -10,9 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'any cpu'
-  buildConfiguration: 'Release'
   major: 1
   minor: 1
   Build: $[counter(variables['minor'], 0)]
@@ -28,15 +25,6 @@ steps:
     versionSpec: 
     checkLatest: true
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -46,27 +34,25 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
+    projects: |
+     **/EngineeringUnits.csproj
+     **/UnitTests.csproj
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    projects: '**/UnitTests.csproj'
 
 
-
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
     packagesToPack: '**/EngineeringUnits.csproj'
+    includesymbols: true
+    includesource: true
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'VersionNumber'
-    includeSymbols: true
-    buildProperties: '-IncludeReferencedProjects'
+
 
 
 - task: NuGetCommand@2
