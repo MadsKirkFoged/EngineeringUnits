@@ -1,7 +1,6 @@
 ﻿using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Text;
-using EngineeringUnits.Units;
 
 namespace EngineeringUnits
 {

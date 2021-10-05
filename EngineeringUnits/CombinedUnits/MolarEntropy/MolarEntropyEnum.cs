@@ -1,5 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;

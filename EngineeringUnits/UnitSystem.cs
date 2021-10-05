@@ -1,7 +1,6 @@
 ﻿using EngineeringUnits.Units;
 using Fractions;
 using Newtonsoft.Json;
-using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;

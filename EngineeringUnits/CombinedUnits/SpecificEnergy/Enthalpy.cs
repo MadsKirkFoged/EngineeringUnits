@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using EngineeringUnits.Units;
 
 namespace EngineeringUnits
 {

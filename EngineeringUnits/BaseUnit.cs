@@ -205,7 +205,7 @@ namespace EngineeringUnits
             return (double)left.SymbolValue > right.As(left);
         }
 
-        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new UnknownUnit(baseUnit);
+        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new(baseUnit);
         
 
 
@@ -474,8 +474,12 @@ namespace EngineeringUnits
 
         public string ResultWithBaseunit() => $"{BaseunitValue} {Unit}";
 
+        //public override int GetHashCode()
+        //{
+        //    //TODO
 
-
+        //    throw new NotImplementedException();
+        //}
     }
 
 
