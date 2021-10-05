@@ -37,7 +37,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '**/EngineeringUnits.csproj;**/UnitTests.csproj'
+    projects: |
+     **/EngineeringUnits.csproj
+     **/UnitTests.csproj
 
 - task: DotNetCoreCLI@2
   inputs:
