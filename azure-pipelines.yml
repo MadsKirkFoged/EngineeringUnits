@@ -10,9 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'any cpu'
-  buildConfiguration: 'Release'
   major: 1
   minor: 1
   Build: $[counter(variables['minor'], 0)]
