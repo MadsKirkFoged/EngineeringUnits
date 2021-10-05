@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricChargeDensity(UnknownUnit value, ElectricChargeDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricChargeDensity From(double value, ElectricChargeDensityUnit unit) => new ElectricChargeDensity(value, unit);
+        public static ElectricChargeDensity From(double value, ElectricChargeDensityUnit unit) => new(value, unit);
         public double As(ElectricChargeDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricChargeDensity ToUnit(ElectricChargeDensityUnit selectedUnit) => new ElectricChargeDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricChargeDensity Zero => new ElectricChargeDensity(0, ElectricChargeDensityUnit.SI);
+        public ElectricChargeDensity ToUnit(ElectricChargeDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricChargeDensity Zero => new(0, ElectricChargeDensityUnit.SI);
 
-        public static implicit operator ElectricChargeDensity(UnknownUnit Unit) => new ElectricChargeDensity(Unit, ElectricChargeDensityUnit.SI);
+        public static implicit operator ElectricChargeDensity(UnknownUnit Unit) => new(Unit, ElectricChargeDensityUnit.SI);
 
 
     }

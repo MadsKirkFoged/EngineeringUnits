@@ -10,16 +10,16 @@ namespace UnitTests
         [TestMethod]
         public void InRangeOf1()
         {
-            Power f1 = new Power(19, PowerUnit.KilojoulePerHour);
+            Power f1 = new(19, PowerUnit.KilojoulePerHour);
             Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
-            Power f3 = new Power(17, PowerUnit.KilojoulePerHour);
+            Power f3 = new(17, PowerUnit.KilojoulePerHour);
             Power f4 = f3.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
-            Power f5 = new Power(-17, PowerUnit.KilojoulePerHour);
+            Power f5 = new(-17, PowerUnit.KilojoulePerHour);
             Power f6 = f5.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
-            Power f7 = new Power(-19, PowerUnit.KilojoulePerHour);
+            Power f7 = new(-19, PowerUnit.KilojoulePerHour);
             Power f8 = f7.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
 

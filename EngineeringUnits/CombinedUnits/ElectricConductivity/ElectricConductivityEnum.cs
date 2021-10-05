@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class ElectricConductivityUnit : Enumeration
     {
 
-        public static readonly ElectricConductivityUnit SI = new ElectricConductivityUnit(ElectricAdmittanceUnit.SI, LengthUnit.SI);
-        public static readonly ElectricConductivityUnit SiemensPerMeter = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Meter);
-        public static readonly ElectricConductivityUnit SiemensPerInch = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Inch);
-        public static readonly ElectricConductivityUnit SiemensPerFoot = new ElectricConductivityUnit(ElectricAdmittanceUnit.Siemens, LengthUnit.Foot);
+        public static readonly ElectricConductivityUnit SI = new(ElectricAdmittanceUnit.SI, LengthUnit.SI);
+        public static readonly ElectricConductivityUnit SiemensPerMeter = new(ElectricAdmittanceUnit.Siemens, LengthUnit.Meter);
+        public static readonly ElectricConductivityUnit SiemensPerInch = new(ElectricAdmittanceUnit.Siemens, LengthUnit.Inch);
+        public static readonly ElectricConductivityUnit SiemensPerFoot = new(ElectricAdmittanceUnit.Siemens, LengthUnit.Foot);
 
 
 

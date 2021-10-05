@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class ElectricSurfaceChargeDensityUnit : Enumeration
     {
 
-        public static readonly ElectricSurfaceChargeDensityUnit SI = new ElectricSurfaceChargeDensityUnit(ElectricChargeUnit.SI, AreaUnit.SI);
-        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareMeter = new ElectricSurfaceChargeDensityUnit(ElectricChargeUnit.Coulomb, AreaUnit.SquareMeter);
-        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareCentimeter = new ElectricSurfaceChargeDensityUnit(ElectricChargeUnit.Coulomb, AreaUnit.SquareCentimeter);
-        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareInch = new ElectricSurfaceChargeDensityUnit(ElectricChargeUnit.Coulomb, AreaUnit.SquareInch);
+        public static readonly ElectricSurfaceChargeDensityUnit SI = new(ElectricChargeUnit.SI, AreaUnit.SI);
+        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareMeter = new(ElectricChargeUnit.Coulomb, AreaUnit.SquareMeter);
+        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareCentimeter = new(ElectricChargeUnit.Coulomb, AreaUnit.SquareCentimeter);
+        public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareInch = new(ElectricChargeUnit.Coulomb, AreaUnit.SquareInch);
 
 
         public ElectricSurfaceChargeDensityUnit(ElectricChargeUnit electricCharge, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)

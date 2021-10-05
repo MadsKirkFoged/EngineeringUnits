@@ -105,7 +105,7 @@ namespace EngineeringUnits
         {
             if (a.unitsystem != Unit)
             {
-                throw new InvalidOperationException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+                throw new($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
             }                       
 
             SetValue(a.baseUnit.ToTheOutSide(Unit));
@@ -117,7 +117,7 @@ namespace EngineeringUnits
 
             if (a.unitsystem != Unit)
             {
-                throw new InvalidOperationException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+                throw new($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
             }
 
         }
@@ -127,7 +127,7 @@ namespace EngineeringUnits
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '+' on two differnt units!");            
+                throw new($"Cant do '+' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Add);
         }
@@ -135,7 +135,7 @@ namespace EngineeringUnits
         {
 
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '-' on two differnt units!");            
+                throw new($"Cant do '-' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Subtract);
         }
@@ -164,7 +164,7 @@ namespace EngineeringUnits
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '==' on two differnt units!");
+                throw new($"Cant do '==' on two differnt units!");
             
 
             return (double)left.SymbolValue == right.As(left);
@@ -172,35 +172,35 @@ namespace EngineeringUnits
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '!=' on two differnt units!");            
+                throw new($"Cant do '!=' on two differnt units!");            
 
             return (double)left.SymbolValue != right.As(left);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '<=' on two differnt units!");            
+                throw new($"Cant do '<=' on two differnt units!");            
 
             return (double)left.SymbolValue <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '>=' on two differnt units!");            
+                throw new($"Cant do '>=' on two differnt units!");            
 
             return (double)left.SymbolValue >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '<' on two differnt units!");            
+                throw new($"Cant do '<' on two differnt units!");            
 
             return (double)left.SymbolValue < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new InvalidOperationException($"Cant do '>' on two differnt units!");            
+                throw new($"Cant do '>' on two differnt units!");            
 
             return (double)left.SymbolValue > right.As(left);
         }
@@ -270,7 +270,7 @@ namespace EngineeringUnits
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
-            BaseUnit local = new BaseUnit();   
+            BaseUnit local = new();   
             decimal x3Test = 0;
 
 
@@ -344,7 +344,7 @@ namespace EngineeringUnits
         public UnknownUnit Abs()
         {
 
-            UnknownUnit local = new UnknownUnit();
+            UnknownUnit local = new();
             local.baseUnit.Unit = Unit;
             local.baseUnit.SymbolValue = SymbolValue;
 
@@ -364,8 +364,8 @@ namespace EngineeringUnits
             if (toPower == 1)            
                 return this;
             
-            UnknownUnit local = new UnknownUnit();
-            local.baseUnit.Unit = new UnitSystem();
+            UnknownUnit local = new();
+            local.baseUnit.Unit = new();
             local.baseUnit.SymbolValue = 1;
 
 
@@ -375,12 +375,12 @@ namespace EngineeringUnits
 
             if (toPower > 1)            
                 for (int i = 0; i < toPower; i++)                
-                    local = local * this;
+                    local *= this;
 
 
             if (toPower < 0)            
                 for (int i = 0; i > toPower; i--)                
-                    local = local / this;            
+                    local /= this;            
 
 
 
@@ -462,7 +462,7 @@ namespace EngineeringUnits
             BaseUnit local = (BaseUnit)obj; 
 
             if (Unit != local.Unit)            
-                throw new InvalidOperationException($"Cant do CompareTo on two differnt units!");
+                throw new($"Cant do CompareTo on two differnt units!");
             
 
             return (int)((double)SymbolValue - local.As(this));

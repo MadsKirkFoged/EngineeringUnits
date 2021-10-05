@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public Frequency(UnknownUnit value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static Frequency From(double value, FrequencyUnit unit) => new Frequency(value, unit);
+        public static Frequency From(double value, FrequencyUnit unit) => new(value, unit);
         public double As(FrequencyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Frequency ToUnit(FrequencyUnit selectedUnit) => new Frequency(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Frequency Zero => new Frequency(0, FrequencyUnit.SI);
+        public Frequency ToUnit(FrequencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Frequency Zero => new(0, FrequencyUnit.SI);
 
-        public static implicit operator Frequency(UnknownUnit Unit) => new Frequency(Unit, FrequencyUnit.SI);
+        public static implicit operator Frequency(UnknownUnit Unit) => new(Unit, FrequencyUnit.SI);
 
 
 

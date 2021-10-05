@@ -10,12 +10,12 @@ namespace EngineeringUnits.Units
     public class ThermalResistanceUnit : Enumeration
     {
 
-        public static readonly ThermalResistanceUnit SI = new ThermalResistanceUnit(AreaUnit.SI, TemperatureUnit.SI, PowerUnit.SI);
-        public static readonly ThermalResistanceUnit SquareMeterDegreeCelsiusPerWatt = new ThermalResistanceUnit(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Watt, "m²°C/W");
-        public static readonly ThermalResistanceUnit SquareMeterKelvinPerKilowatt = new ThermalResistanceUnit(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Kilowatt);
-        public static readonly ThermalResistanceUnit SquareCentimeterKelvinPerWatt = new ThermalResistanceUnit(AreaUnit.SquareCentimeter, TemperatureUnit.Kelvin, PowerUnit.Watt);
-        public static readonly ThermalResistanceUnit SquareCentimeterHourDegreeCelsiusPerKilocalorie = new ThermalResistanceUnit(AreaUnit.SquareCentimeter, DurationUnit.Hour, TemperatureUnit.Kelvin, EnergyUnit.Kilocalorie, "cm²Hr°C/kcal");
-        public static readonly ThermalResistanceUnit HourSquareFeetDegreeFahrenheitPerBtu = new ThermalResistanceUnit(AreaUnit.SquareFoot, DurationUnit.Hour, TemperatureUnit.DegreeRankine, EnergyUnit.BritishThermalUnit, "Hrft²°F/Btu");
+        public static readonly ThermalResistanceUnit SI = new(AreaUnit.SI, TemperatureUnit.SI, PowerUnit.SI);
+        public static readonly ThermalResistanceUnit SquareMeterDegreeCelsiusPerWatt = new(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Watt, "m²°C/W");
+        public static readonly ThermalResistanceUnit SquareMeterKelvinPerKilowatt = new(AreaUnit.SquareMeter, TemperatureUnit.Kelvin, PowerUnit.Kilowatt);
+        public static readonly ThermalResistanceUnit SquareCentimeterKelvinPerWatt = new(AreaUnit.SquareCentimeter, TemperatureUnit.Kelvin, PowerUnit.Watt);
+        public static readonly ThermalResistanceUnit SquareCentimeterHourDegreeCelsiusPerKilocalorie = new(AreaUnit.SquareCentimeter, DurationUnit.Hour, TemperatureUnit.Kelvin, EnergyUnit.Kilocalorie, "cm²Hr°C/kcal");
+        public static readonly ThermalResistanceUnit HourSquareFeetDegreeFahrenheitPerBtu = new(AreaUnit.SquareFoot, DurationUnit.Hour, TemperatureUnit.DegreeRankine, EnergyUnit.BritishThermalUnit, "Hrft²°F/Btu");
 
 
 

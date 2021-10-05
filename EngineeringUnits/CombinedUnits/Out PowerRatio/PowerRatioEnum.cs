@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class PowerRatioUnit : Enumeration
     {
 
-        public static readonly PowerRatioUnit SI = new PowerRatioUnit(LengthUnit.SI);
-        public static readonly PowerRatioUnit CubicMeter = new PowerRatioUnit(LengthUnit.Meter);
-        public static readonly PowerRatioUnit HectocubicMeter = new PowerRatioUnit(PreFix.hecto, CubicMeter);
-        public static readonly PowerRatioUnit KilocubicMeter = new PowerRatioUnit(PreFix.kilo, CubicMeter);
+        public static readonly PowerRatioUnit SI = new(LengthUnit.SI);
+        public static readonly PowerRatioUnit CubicMeter = new(LengthUnit.Meter);
+        public static readonly PowerRatioUnit HectocubicMeter = new(PreFix.hecto, CubicMeter);
+        public static readonly PowerRatioUnit KilocubicMeter = new(PreFix.kilo, CubicMeter);
 
 
 

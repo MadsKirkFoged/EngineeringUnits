@@ -13,11 +13,11 @@ namespace EngineeringUnits
 
         public TemperatureChangeRate(UnknownUnit value, TemperatureChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static TemperatureChangeRate From(double value, TemperatureChangeRateUnit unit) => new TemperatureChangeRate(value, unit);
+        public static TemperatureChangeRate From(double value, TemperatureChangeRateUnit unit) => new(value, unit);
         public double As(TemperatureChangeRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public TemperatureChangeRate ToUnit(TemperatureChangeRateUnit selectedUnit) => new TemperatureChangeRate(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static TemperatureChangeRate Zero => new TemperatureChangeRate(0, TemperatureChangeRateUnit.SI);
+        public TemperatureChangeRate ToUnit(TemperatureChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static TemperatureChangeRate Zero => new(0, TemperatureChangeRateUnit.SI);
 
-        public static implicit operator TemperatureChangeRate(UnknownUnit Unit) => new TemperatureChangeRate(Unit, TemperatureChangeRateUnit.SI);
+        public static implicit operator TemperatureChangeRate(UnknownUnit Unit) => new(Unit, TemperatureChangeRateUnit.SI);
     }
 }

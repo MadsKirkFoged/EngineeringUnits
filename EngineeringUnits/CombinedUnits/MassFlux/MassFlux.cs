@@ -14,11 +14,11 @@ namespace EngineeringUnits
 
         public MassFlux(UnknownUnit value, MassFluxUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static MassFlux From(double value, MassFluxUnit unit) => new MassFlux(value, unit);
+        public static MassFlux From(double value, MassFluxUnit unit) => new(value, unit);
         public double As(MassFluxUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public MassFlux ToUnit(MassFluxUnit selectedUnit) => new MassFlux(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static MassFlux Zero => new MassFlux(0, MassFluxUnit.SI);
+        public MassFlux ToUnit(MassFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static MassFlux Zero => new(0, MassFluxUnit.SI);
 
-        public static implicit operator MassFlux(UnknownUnit Unit) => new MassFlux(Unit, MassFluxUnit.SI);
+        public static implicit operator MassFlux(UnknownUnit Unit) => new(Unit, MassFluxUnit.SI);
     }
 }

@@ -55,7 +55,7 @@ namespace EngineeringUnits
 
         }
 
-        public static Temperature From(double value, TemperatureUnit unit) => new Temperature(value, unit);
+        public static Temperature From(double value, TemperatureUnit unit) => new(value, unit);
 
         public double As(TemperatureUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
 
@@ -63,11 +63,11 @@ namespace EngineeringUnits
         {
             return new Temperature(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         }
-        public static Temperature Zero => new Temperature(0, TemperatureUnit.SI);
+        public static Temperature Zero => new(0, TemperatureUnit.SI);
 
         public static implicit operator Temperature(UnknownUnit Unit)
         {
-            Temperature local = new Temperature(0, TemperatureUnit.SI);
+            Temperature local = new(0, TemperatureUnit.SI);
 
             local.Transform(Unit);
             return local;

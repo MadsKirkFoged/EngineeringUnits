@@ -10,25 +10,25 @@ namespace EngineeringUnits.Units
     public class PressureChangeRateUnit : Enumeration
     {
 
-        public static readonly PressureChangeRateUnit SI = new PressureChangeRateUnit(PressureUnit.SI, DurationUnit.SI);
-        public static readonly PressureChangeRateUnit PascalPerSecond = new PressureChangeRateUnit(PressureUnit.Pascal, DurationUnit.Second);
-        public static readonly PressureChangeRateUnit PascalPerMinute = new PressureChangeRateUnit(PressureUnit.Pascal, DurationUnit.Minute);
+        public static readonly PressureChangeRateUnit SI = new(PressureUnit.SI, DurationUnit.SI);
+        public static readonly PressureChangeRateUnit PascalPerSecond = new(PressureUnit.Pascal, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit PascalPerMinute = new(PressureUnit.Pascal, DurationUnit.Minute);
 
-        public static readonly PressureChangeRateUnit MegapascalPerSecond = new PressureChangeRateUnit(PressureUnit.Megapascal, DurationUnit.Second);
-        public static readonly PressureChangeRateUnit MegapascalPerMinute = new PressureChangeRateUnit(PressureUnit.Megapascal, DurationUnit.Minute);
+        public static readonly PressureChangeRateUnit MegapascalPerSecond = new(PressureUnit.Megapascal, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit MegapascalPerMinute = new(PressureUnit.Megapascal, DurationUnit.Minute);
 
-        public static readonly PressureChangeRateUnit KilopoundForcePerSquareInchPerSecond = new PressureChangeRateUnit(PressureUnit.KilopoundForcePerSquareInch, DurationUnit.Second);
-        public static readonly PressureChangeRateUnit KilopoundForcePerSquareInchPerMinute = new PressureChangeRateUnit(PressureUnit.KilopoundForcePerSquareInch, DurationUnit.Minute);
+        public static readonly PressureChangeRateUnit KilopoundForcePerSquareInchPerSecond = new(PressureUnit.KilopoundForcePerSquareInch, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit KilopoundForcePerSquareInchPerMinute = new(PressureUnit.KilopoundForcePerSquareInch, DurationUnit.Minute);
 
-        public static readonly PressureChangeRateUnit KilopascalPerSecond = new PressureChangeRateUnit(PressureUnit.Kilopascal, DurationUnit.Second);
-        public static readonly PressureChangeRateUnit KilopascalPerMinute = new PressureChangeRateUnit(PressureUnit.Kilopascal, DurationUnit.Minute);
+        public static readonly PressureChangeRateUnit KilopascalPerSecond = new(PressureUnit.Kilopascal, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit KilopascalPerMinute = new(PressureUnit.Kilopascal, DurationUnit.Minute);
 
-        public static readonly PressureChangeRateUnit AtmospherePerSecond = new PressureChangeRateUnit(PressureUnit.Atmosphere, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit AtmospherePerSecond = new(PressureUnit.Atmosphere, DurationUnit.Second);
 
-        public static readonly PressureChangeRateUnit PoundForcePerSquareInchPerMinute = new PressureChangeRateUnit(PressureUnit.PoundForcePerSquareInch, DurationUnit.Minute);
-        public static readonly PressureChangeRateUnit PoundForcePerSquareInchPerSecond = new PressureChangeRateUnit(PressureUnit.PoundForcePerSquareInch, DurationUnit.Second);
-        public static readonly PressureChangeRateUnit MegapoundForcePerSquareInchPerSecond = new PressureChangeRateUnit(PreFix.mega, PoundForcePerSquareInchPerSecond);
-        public static readonly PressureChangeRateUnit MegapoundForcePerSquareInchPerMinute = new PressureChangeRateUnit(PreFix.mega, PoundForcePerSquareInchPerMinute);
+        public static readonly PressureChangeRateUnit PoundForcePerSquareInchPerMinute = new(PressureUnit.PoundForcePerSquareInch, DurationUnit.Minute);
+        public static readonly PressureChangeRateUnit PoundForcePerSquareInchPerSecond = new(PressureUnit.PoundForcePerSquareInch, DurationUnit.Second);
+        public static readonly PressureChangeRateUnit MegapoundForcePerSquareInchPerSecond = new(PreFix.mega, PoundForcePerSquareInchPerSecond);
+        public static readonly PressureChangeRateUnit MegapoundForcePerSquareInchPerMinute = new(PreFix.mega, PoundForcePerSquareInchPerMinute);
 
 
 

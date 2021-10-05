@@ -17,8 +17,8 @@ namespace UnitTests
         [TestMethod]
         public void Energycompare()
         {
-            UnitsNet.Energy L1 = new UnitsNet.Energy(56239676, UnitsNet.Units.EnergyUnit.Joule);
-            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EnergyUnit.Joule);
+            UnitsNet.Energy L1 = new(56239676, UnitsNet.Units.EnergyUnit.Joule);
+            EngineeringUnits.Energy L2 = new(56239676, EnergyUnit.Joule);
 
 
             //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
@@ -61,8 +61,8 @@ namespace UnitTests
         [TestMethod]
         public void Energycompare2()
         {
-            UnitsNet.Energy L1 = new UnitsNet.Energy(56239676, UnitsNet.Units.EnergyUnit.BritishThermalUnit);
-            EngineeringUnits.Energy L2 = new EngineeringUnits.Energy(56239676, EnergyUnit.BritishThermalUnit);
+            UnitsNet.Energy L1 = new(56239676, UnitsNet.Units.EnergyUnit.BritishThermalUnit);
+            EngineeringUnits.Energy L2 = new(56239676, EnergyUnit.BritishThermalUnit);
 
 
       
@@ -95,8 +95,8 @@ namespace UnitTests
 
             //Enthalpy is an alias for SpecificEnergy
 
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.Enthalpy L2 = new EngineeringUnits.Enthalpy(10, SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy L1 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.Enthalpy L2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
 
@@ -109,8 +109,8 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergycompare()
         {
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy L1 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy L2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
 
@@ -123,8 +123,8 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergycompare2()
         {
-            UnitsNet.SpecificEnergy L1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy L2 = new EngineeringUnits.SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
+            UnitsNet.SpecificEnergy L1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy L2 = new(1, SpecificEnergyUnit.BtuPerPound);
 
 
 
@@ -204,8 +204,8 @@ namespace UnitTests
 
 
 
-            UnitsNet.SpecificEntropy L1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
-            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            UnitsNet.SpecificEntropy L1 = new(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
+            EngineeringUnits.SpecificEntropy L2 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
 
 
             Assert.AreEqual(0, L2.As(SpecificEntropyUnit.BtuPerPoundRankine) - L1.As(UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit), 9.4E-10);
@@ -222,8 +222,8 @@ namespace UnitTests
 
 
 
-            UnitsNet.SpecificEntropy L1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
-            EngineeringUnits.SpecificEntropy L2 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.BtuPerPoundRankine);
+            UnitsNet.SpecificEntropy L1 = new(1, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
+            EngineeringUnits.SpecificEntropy L2 = new(1, SpecificEntropyUnit.BtuPerPoundRankine);
 
             //Debug.Print($"UnitsNet: {L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
             //Debug.Print($"EngineeringUnits: {L2.As(EngineeringUnits.SpecificEntropyUnit.JoulePerKilogramKelvin)}");
@@ -250,8 +250,8 @@ namespace UnitTests
         public void MassFlowcompare()
         {
 
-            UnitsNet.MassFlow L1 = new UnitsNet.MassFlow(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
-            EngineeringUnits.MassFlow L2 = new EngineeringUnits.MassFlow(45442, MassFlowUnit.PoundPerMinute);
+            UnitsNet.MassFlow L1 = new(45442, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.MassFlow L2 = new(45442, MassFlowUnit.PoundPerMinute);
 
 
             Assert.AreEqual(0, L2.As(MassFlowUnit.KilogramPerHour) - L1.As(UnitsNet.Units.MassFlowUnit.KilogramPerHour), 4);
@@ -321,8 +321,8 @@ namespace UnitTests
         [TestMethod]
         public void Powercompare()
         {
-            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, PowerUnit.Watt);
-            UnitsNet.Power L1 = new UnitsNet.Power(1, UnitsNet.Units.PowerUnit.Watt);
+            EngineeringUnits.Power L2 = new(1, PowerUnit.Watt);
+            UnitsNet.Power L1 = new(1, UnitsNet.Units.PowerUnit.Watt);
 
 
 
@@ -348,8 +348,8 @@ namespace UnitTests
         [TestMethod]
         public void Powercompare2()
         {
-            EngineeringUnits.Power L2 = new EngineeringUnits.Power(1, PowerUnit.BritishThermalUnitPerHour);
-            UnitsNet.Power L1 = new UnitsNet.Power(1, UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour);
+            EngineeringUnits.Power L2 = new(1, PowerUnit.BritishThermalUnitPerHour);
+            UnitsNet.Power L1 = new(1, UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour);
 
 
 

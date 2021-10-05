@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public MolarEnergy(UnknownUnit value, MolarEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static MolarEnergy From(double value, MolarEnergyUnit unit) => new MolarEnergy(value, unit);
+        public static MolarEnergy From(double value, MolarEnergyUnit unit) => new(value, unit);
         public double As(MolarEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public MolarEnergy ToUnit(MolarEnergyUnit selectedUnit) => new MolarEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static MolarEnergy Zero => new MolarEnergy(0, MolarEnergyUnit.SI);
+        public MolarEnergy ToUnit(MolarEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static MolarEnergy Zero => new(0, MolarEnergyUnit.SI);
 
-        public static implicit operator MolarEnergy(UnknownUnit Unit) => new MolarEnergy(Unit, MolarEnergyUnit.SI);
+        public static implicit operator MolarEnergy(UnknownUnit Unit) => new(Unit, MolarEnergyUnit.SI);
 
     }
 }

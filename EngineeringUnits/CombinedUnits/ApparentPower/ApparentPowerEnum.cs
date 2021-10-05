@@ -10,11 +10,11 @@ namespace EngineeringUnits.Units
     public class ApparentPowerUnit : Enumeration
     {
 
-        public static readonly ApparentPowerUnit SI = new ApparentPowerUnit(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI);
-        public static readonly ApparentPowerUnit Voltampere = new ApparentPowerUnit(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, "VA");
-        public static readonly ApparentPowerUnit Megavoltampere = new ApparentPowerUnit(PreFix.mega, Voltampere);
-        public static readonly ApparentPowerUnit Kilovoltampere = new ApparentPowerUnit(PreFix.kilo, Voltampere);
-        public static readonly ApparentPowerUnit Gigavoltampere = new ApparentPowerUnit(PreFix.giga, Voltampere);
+        public static readonly ApparentPowerUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI);
+        public static readonly ApparentPowerUnit Voltampere = new(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, "VA");
+        public static readonly ApparentPowerUnit Megavoltampere = new(PreFix.mega, Voltampere);
+        public static readonly ApparentPowerUnit Kilovoltampere = new(PreFix.kilo, Voltampere);
+        public static readonly ApparentPowerUnit Gigavoltampere = new(PreFix.giga, Voltampere);
 
 
         public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = "Empty", decimal correction = 1)

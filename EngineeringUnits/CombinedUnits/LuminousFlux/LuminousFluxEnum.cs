@@ -10,8 +10,8 @@ namespace EngineeringUnits.Units
     public class LuminousFluxUnit : Enumeration
     {
 
-        public static readonly LuminousFluxUnit SI = new LuminousFluxUnit(LuminousIntensityUnit.SI);
-        public static readonly LuminousFluxUnit Lumen = new LuminousFluxUnit(LuminousIntensityUnit.Candela, "lm");
+        public static readonly LuminousFluxUnit SI = new(LuminousIntensityUnit.SI);
+        public static readonly LuminousFluxUnit Lumen = new(LuminousIntensityUnit.Candela, "lm");
 
 
 

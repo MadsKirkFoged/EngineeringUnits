@@ -14,8 +14,8 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureEqual()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(20, TemperatureUnit.DegreeCelsius);
 
             Assert.AreEqual(T1, T2);
 
@@ -25,8 +25,8 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureNotEqual()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(21, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(21, TemperatureUnit.DegreeCelsius);
 
             Assert.AreNotEqual(T1, T2);
 
@@ -38,7 +38,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureCelsiusDivideDouble()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
 
 
             T1 /= 10;
@@ -52,7 +52,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureCelsiusTimesDouble()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
 
 
             T1 *= 10;
@@ -66,7 +66,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureKelvinTimesDouble()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.Kelvin);
+            Temperature T1 = new(20, TemperatureUnit.Kelvin);
 
 
             T1 *= 10;
@@ -81,7 +81,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureConvertsFromKelvin()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.Kelvin);
+            Temperature T1 = new(20, TemperatureUnit.Kelvin);
 
 
             Assert.AreEqual(-423.67, (double)T1.As(TemperatureUnit.DegreeFahrenheit),0.00000001);            
@@ -93,7 +93,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureConvertsFromCelsius()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
 
             Debug.Print($"{T1}");
 
@@ -105,7 +105,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureConvertsFromCelsiusJSON()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
 
             string jsonstring = JsonConvert.SerializeObject(T1);
             Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonstring);
@@ -121,7 +121,7 @@ namespace UnitTests
         [TestMethod]
         public void TemperatureConvertsFromFahrenheit()
         {
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(20, TemperatureUnit.DegreeFahrenheit);
 
 
             Assert.AreEqual(266.48333333333335, (double)T1.As(TemperatureUnit.Kelvin), 0.0000001);
@@ -134,9 +134,9 @@ namespace UnitTests
         public void TemperatureAdd()
         {
 
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(293.15, TemperatureUnit.Kelvin);
+            Temperature T3 = new(68, TemperatureUnit.DegreeFahrenheit);
 
 
 
@@ -155,9 +155,9 @@ namespace UnitTests
         public void TemperatureAdd2()
         {
 
-            Temperature T1 = new Temperature(0, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(0, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(0, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(0, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(0, TemperatureUnit.Kelvin);
+            Temperature T3 = new(0, TemperatureUnit.DegreeFahrenheit);
 
 
 
@@ -176,9 +176,9 @@ namespace UnitTests
         public void TemperatureMultiply()
         {
 
-            Temperature T1 = new Temperature(0, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(0, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(0, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(0, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(0, TemperatureUnit.Kelvin);
+            Temperature T3 = new(0, TemperatureUnit.DegreeFahrenheit);
 
 
             var T4 = T1 * T1;
@@ -196,9 +196,9 @@ namespace UnitTests
         public void TemperatureDivideTemperature()
         {
 
-            Temperature T1 = new Temperature(20, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(293.15, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(293.15, TemperatureUnit.Kelvin);
+            Temperature T3 = new(68, TemperatureUnit.DegreeFahrenheit);
 
 
 
@@ -226,9 +226,9 @@ namespace UnitTests
         public void TemperatureDivideTemperature2()
         {
 
-            Temperature T1 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            Temperature T2 = new Temperature(10, TemperatureUnit.Kelvin);
-            Temperature T3 = new Temperature(10, TemperatureUnit.DegreeFahrenheit);
+            Temperature T1 = new(10, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(10, TemperatureUnit.Kelvin);
+            Temperature T3 = new(10, TemperatureUnit.DegreeFahrenheit);
 
 
 

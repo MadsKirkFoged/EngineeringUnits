@@ -412,7 +412,7 @@ namespace EngineeringUnits
 
         public static List<T> ListOf<T>() where T: Enumeration
         {
-            List<T> local = new List<T>();
+            List<T> local = new();
 
             foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
             {

@@ -10,9 +10,9 @@ namespace EngineeringUnits.Units
     public class LevelUnit : Enumeration
     {
 
-        public static readonly LevelUnit SI = new LevelUnit();
-        public static readonly LevelUnit Decibel = new LevelUnit("dB");
-        public static readonly LevelUnit Neper = new LevelUnit("Np", 1/0.115129254m);
+        public static readonly LevelUnit SI = new();
+        public static readonly LevelUnit Decibel = new("dB");
+        public static readonly LevelUnit Neper = new("Np", 1/0.115129254m);
 
 
 

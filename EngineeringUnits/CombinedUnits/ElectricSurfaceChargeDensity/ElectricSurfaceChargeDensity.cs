@@ -13,12 +13,12 @@ namespace EngineeringUnits
 
         public ElectricSurfaceChargeDensity(UnknownUnit value, ElectricSurfaceChargeDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricSurfaceChargeDensity From(double value, ElectricSurfaceChargeDensityUnit unit) => new ElectricSurfaceChargeDensity(value, unit);
+        public static ElectricSurfaceChargeDensity From(double value, ElectricSurfaceChargeDensityUnit unit) => new(value, unit);
         public double As(ElectricSurfaceChargeDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricSurfaceChargeDensity ToUnit(ElectricSurfaceChargeDensityUnit selectedUnit) => new ElectricSurfaceChargeDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricSurfaceChargeDensity Zero => new ElectricSurfaceChargeDensity(0, ElectricSurfaceChargeDensityUnit.SI);
+        public ElectricSurfaceChargeDensity ToUnit(ElectricSurfaceChargeDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricSurfaceChargeDensity Zero => new(0, ElectricSurfaceChargeDensityUnit.SI);
 
-        public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit) => new ElectricSurfaceChargeDensity(Unit, ElectricSurfaceChargeDensityUnit.SI);
+        public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit) => new(Unit, ElectricSurfaceChargeDensityUnit.SI);
 
 
     }

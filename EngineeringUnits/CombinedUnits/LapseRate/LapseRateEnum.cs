@@ -10,8 +10,8 @@ namespace EngineeringUnits.Units
     public class LapseRateUnit : Enumeration
     {
 
-        public static readonly LapseRateUnit SI = new LapseRateUnit(TemperatureUnit.SI, LengthUnit.SI);
-        public static readonly LapseRateUnit DegreeCelsiusPerKilometer = new LapseRateUnit(TemperatureUnit.Kelvin, LengthUnit.Meter, "∆°C/km");
+        public static readonly LapseRateUnit SI = new(TemperatureUnit.SI, LengthUnit.SI);
+        public static readonly LapseRateUnit DegreeCelsiusPerKilometer = new(TemperatureUnit.Kelvin, LengthUnit.Meter, "∆°C/km");
 
 
 

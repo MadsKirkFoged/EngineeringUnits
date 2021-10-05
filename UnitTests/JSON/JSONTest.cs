@@ -13,8 +13,8 @@ namespace UnitTests
         [TestMethod]
         public void AreaJSON()
         {
-            Length L1 = new Length(1d, LengthUnit.Meter);
-            Length L2 = new Length(1d, LengthUnit.Meter);
+            Length L1 = new(1d, LengthUnit.Meter);
+            Length L2 = new(1d, LengthUnit.Meter);
 
             Debug.WriteLine($"{L1}");
             Debug.WriteLine($"{L2}");
@@ -44,10 +44,10 @@ namespace UnitTests
         [TestMethod]
         public void AreaListJSON()
         {
-            Area L1 = new Area(1, AreaUnit.SquareMeter);
-            Area L2 = new Area(1, AreaUnit.SquareInch);
+            Area L1 = new(1, AreaUnit.SquareMeter);
+            Area L2 = new(1, AreaUnit.SquareInch);
 
-            List<Area> LocalList = new List<Area>();
+            List<Area> LocalList = new();
 
             LocalList.Add(L1);
             LocalList.Add(L2);
@@ -66,10 +66,10 @@ namespace UnitTests
         [TestMethod]
         public void PowerListJSON()
         {
-            Power L1 = new Power(1, PowerUnit.KilojoulePerHour);
-            Power L2 = new Power(1, PowerUnit.Watt);
+            Power L1 = new(1, PowerUnit.KilojoulePerHour);
+            Power L2 = new(1, PowerUnit.Watt);
 
-            List<Power> LocalList = new List<Power>();
+            List<Power> LocalList = new();
 
             LocalList.Add(L1);
             LocalList.Add(L2);
@@ -88,7 +88,7 @@ namespace UnitTests
         [TestMethod]
         public void PowerList2JSON()
         {
-            Power f1 = new Power(3, PowerUnit.KilojoulePerHour);
+            Power f1 = new(3, PowerUnit.KilojoulePerHour);
             Power f2 = f1;
 
             Power f3 = f1 + f2;
@@ -98,7 +98,7 @@ namespace UnitTests
             string jsonString1 = JsonConvert.SerializeObject(f1);
             Power f6 = JsonConvert.DeserializeObject<Power>(jsonString1);
 
-            List<Power> locallist = new List<Power>();
+            List<Power> locallist = new();
 
             locallist.Add(f1);
             locallist.Add(f1);

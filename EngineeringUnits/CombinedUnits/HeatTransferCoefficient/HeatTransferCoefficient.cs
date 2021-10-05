@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public HeatTransferCoefficient(UnknownUnit value, HeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static HeatTransferCoefficient From(double value, HeatTransferCoefficientUnit unit) => new HeatTransferCoefficient(value, unit);
+        public static HeatTransferCoefficient From(double value, HeatTransferCoefficientUnit unit) => new(value, unit);
         public double As(HeatTransferCoefficientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public HeatTransferCoefficient ToUnit(HeatTransferCoefficientUnit selectedUnit) => new HeatTransferCoefficient(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static HeatTransferCoefficient Zero => new HeatTransferCoefficient(0, HeatTransferCoefficientUnit.SI);
+        public HeatTransferCoefficient ToUnit(HeatTransferCoefficientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static HeatTransferCoefficient Zero => new(0, HeatTransferCoefficientUnit.SI);
 
-        public static implicit operator HeatTransferCoefficient(UnknownUnit Unit) => new HeatTransferCoefficient(Unit, HeatTransferCoefficientUnit.SI);
+        public static implicit operator HeatTransferCoefficient(UnknownUnit Unit) => new(Unit, HeatTransferCoefficientUnit.SI);
 
     }
 }

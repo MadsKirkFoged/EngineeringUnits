@@ -15,12 +15,12 @@ namespace EngineeringUnits
 
         public LuminousIntensity(UnknownUnit value, LuminousIntensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static LuminousIntensity From(double value, LuminousIntensityUnit unit) => new LuminousIntensity(value, unit);
+        public static LuminousIntensity From(double value, LuminousIntensityUnit unit) => new(value, unit);
         public double As(LuminousIntensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit) => new LuminousIntensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static LuminousIntensity Zero => new LuminousIntensity(0, LuminousIntensityUnit.SI);
+        public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static LuminousIntensity Zero => new(0, LuminousIntensityUnit.SI);
 
-        public static implicit operator LuminousIntensity(UnknownUnit Unit) => new LuminousIntensity(Unit, LuminousIntensityUnit.SI);
+        public static implicit operator LuminousIntensity(UnknownUnit Unit) => new(Unit, LuminousIntensityUnit.SI);
 
 
     }

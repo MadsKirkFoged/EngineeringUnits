@@ -17,10 +17,10 @@ namespace UnitTests
         [TestMethod]
         public void Ratio()
         {
-            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            MassFlow M2 = new MassFlow(4, MassFlowUnit.KilogramPerSecond);
-            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+            MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+            MassFlow M2 = new(4, MassFlowUnit.KilogramPerSecond);
+            Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
 
             double Ratio1 = M1 / M2;
             double Ratio2 = M2 / M1;

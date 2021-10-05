@@ -14,11 +14,11 @@ namespace EngineeringUnits
 
         public ReactiveEnergy(UnknownUnit value, ReactiveEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new ReactiveEnergy(value, unit);
+        public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new(value, unit);
         public double As(ReactiveEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new ReactiveEnergy(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ReactiveEnergy Zero => new ReactiveEnergy(0, ReactiveEnergyUnit.SI);
+        public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
 
-        public static implicit operator ReactiveEnergy(UnknownUnit Unit) => new ReactiveEnergy(Unit, ReactiveEnergyUnit.SI);
+        public static implicit operator ReactiveEnergy(UnknownUnit Unit) => new(Unit, ReactiveEnergyUnit.SI);
     }
 }

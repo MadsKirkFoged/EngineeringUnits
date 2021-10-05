@@ -71,7 +71,7 @@ namespace EngineeringUnits
 
 
             //Local function
-            bool Compareunits(Enumeration a1, Enumeration b1)
+            static bool Compareunits(Enumeration a1, Enumeration b1)
             {
 
                 if (a1 is object && b1 is object)
@@ -127,7 +127,7 @@ namespace EngineeringUnits
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
 
-            UnitSystem local = new UnitSystem();
+            UnitSystem local = new();
 
 
             if (a.Length is object && b.Length is object)
@@ -357,7 +357,7 @@ namespace EngineeringUnits
         }
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
-            UnitSystem local = new UnitSystem();
+            UnitSystem local = new();
 
 
             //LENGTH
@@ -801,12 +801,12 @@ namespace EngineeringUnits
 
         }
 
-        private string ToSuperScript(int number)
+        private static string ToSuperScript(int number)
         {
             const string SuperscriptDigits =
                 "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079";
 
-            string superscript = new string(number.ToString().Select(x => SuperscriptDigits[x - '0'])
+            string superscript = new(number.ToString().Select(x => SuperscriptDigits[x - '0'])
                                     .ToArray());
 
             return superscript;
@@ -858,7 +858,7 @@ namespace EngineeringUnits
         public UnitSystem Copy()
         {
 
-            UnitSystem local = new UnitSystem();
+            UnitSystem local = new();
 
             if (Symbol is object)
                 local.Symbol = Symbol;
@@ -915,7 +915,7 @@ namespace EngineeringUnits
             if (toPower == 1)
                 return this;
 
-            UnitSystem local = new UnitSystem();
+            UnitSystem local = new();
 
             if (toPower == 0)
                 return local;

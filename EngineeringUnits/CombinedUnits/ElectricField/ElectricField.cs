@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricField(UnknownUnit value, ElectricFieldUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricField From(double value, ElectricFieldUnit unit) => new ElectricField(value, unit);
+        public static ElectricField From(double value, ElectricFieldUnit unit) => new(value, unit);
         public double As(ElectricFieldUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new ElectricField(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricField Zero => new ElectricField(0, ElectricFieldUnit.SI);
+        public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricField Zero => new(0, ElectricFieldUnit.SI);
 
-        public static implicit operator ElectricField(UnknownUnit Unit) => new ElectricField(Unit, ElectricFieldUnit.SI);
+        public static implicit operator ElectricField(UnknownUnit Unit) => new(Unit, ElectricFieldUnit.SI);
 
 
     }

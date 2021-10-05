@@ -9,9 +9,9 @@ namespace EngineeringUnits.Units
 
     public class ThermalConductivityUnit : Enumeration
     {
-        public static readonly ThermalConductivityUnit SI = new ThermalConductivityUnit(PowerUnit.SI, LengthUnit.SI, TemperatureUnit.SI);
-        public static readonly ThermalConductivityUnit WattPerMeterKelvin = new ThermalConductivityUnit(PowerUnit.Watt, LengthUnit.Meter, TemperatureUnit.Kelvin);
-        public static readonly ThermalConductivityUnit BtuPerHourFootFahrenheit = new ThermalConductivityUnit(PowerUnit.BritishThermalUnitPerHour, LengthUnit.Foot, TemperatureUnit.DegreeRankine, "BTU/h·ft·°F"); //Not sure this is correct in UnitNets
+        public static readonly ThermalConductivityUnit SI = new(PowerUnit.SI, LengthUnit.SI, TemperatureUnit.SI);
+        public static readonly ThermalConductivityUnit WattPerMeterKelvin = new(PowerUnit.Watt, LengthUnit.Meter, TemperatureUnit.Kelvin);
+        public static readonly ThermalConductivityUnit BtuPerHourFootFahrenheit = new(PowerUnit.BritishThermalUnitPerHour, LengthUnit.Foot, TemperatureUnit.DegreeRankine, "BTU/h·ft·°F"); //Not sure this is correct in UnitNets
 
 
 

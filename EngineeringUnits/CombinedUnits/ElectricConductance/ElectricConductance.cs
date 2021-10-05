@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricConductance(UnknownUnit value, ElectricConductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricConductance From(double value, ElectricConductanceUnit unit) => new ElectricConductance(value, unit);
+        public static ElectricConductance From(double value, ElectricConductanceUnit unit) => new(value, unit);
         public double As(ElectricConductanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new ElectricConductance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricConductance Zero => new ElectricConductance(0, ElectricConductanceUnit.SI);
+        public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricConductance Zero => new(0, ElectricConductanceUnit.SI);
 
-        public static implicit operator ElectricConductance(UnknownUnit Unit) => new ElectricConductance(Unit, ElectricConductanceUnit.SI);
+        public static implicit operator ElectricConductance(UnknownUnit Unit) => new(Unit, ElectricConductanceUnit.SI);
 
 
     }

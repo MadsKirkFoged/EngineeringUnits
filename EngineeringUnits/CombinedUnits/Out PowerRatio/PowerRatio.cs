@@ -18,14 +18,14 @@ namespace EngineeringUnits
         public PowerRatio(int value, PowerRatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-        public static PowerRatio From(double value, PowerRatioUnit unit) => new PowerRatio(value, unit);
+        public static PowerRatio From(double value, PowerRatioUnit unit) => new(value, unit);
         public double As(PowerRatioUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public PowerRatio ToUnit(PowerRatioUnit selectedUnit) => new PowerRatio(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static PowerRatio Zero => new PowerRatio(0, PowerRatioUnit.SI);
+        public PowerRatio ToUnit(PowerRatioUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static PowerRatio Zero => new(0, PowerRatioUnit.SI);
 
         public static implicit operator PowerRatio(UnknownUnit Unit)
         {
-            PowerRatio local = new PowerRatio(0, PowerRatioUnit.SI);
+            PowerRatio local = new(0, PowerRatioUnit.SI);
 
             local.Transform(Unit);
             return local;

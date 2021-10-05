@@ -22,7 +22,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(IEnumerable<BaseUnit> list)
         {
-            UnknownUnit test = new UnknownUnit(0, list.First().Unit);
+            UnknownUnit test = new(0, list.First().Unit);
 
             foreach (var item in list)        
                 test += item;            
@@ -32,7 +32,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(IEnumerable<UnknownUnit> list)
         {
-            UnknownUnit test = new UnknownUnit(0, list.First().baseUnit.Unit);
+            UnknownUnit test = new(0, list.First().baseUnit.Unit);
 
             foreach (var item in list)
                 test += item;
@@ -61,7 +61,7 @@ namespace EngineeringUnits
         public static UnknownUnit Min(IEnumerable<BaseUnit> list)
         {
 
-            UnknownUnit test = new UnknownUnit(list.First());
+            UnknownUnit test = new(list.First());
 
             foreach (var item in list)
             {
@@ -89,7 +89,7 @@ namespace EngineeringUnits
         public static UnknownUnit Max(IEnumerable<BaseUnit> list)
         {
 
-            UnknownUnit test = new UnknownUnit(list.First());
+            UnknownUnit test = new(list.First());
 
             foreach (var item in list)
             {

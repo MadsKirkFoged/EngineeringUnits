@@ -12,11 +12,11 @@ namespace EngineeringUnits.Units
 
 
 
-        public static readonly ApparentEnergyUnit SI = new ApparentEnergyUnit(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, DurationUnit.SI);
+        public static readonly ApparentEnergyUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, DurationUnit.SI);
 
-        public static readonly ApparentEnergyUnit VoltampereHour = new ApparentEnergyUnit(ElectricPotentialUnit.Volt , ElectricCurrentUnit.Ampere , DurationUnit.Hour, "VAh");
-        public static readonly ApparentEnergyUnit MegavoltampereHour = new ApparentEnergyUnit(PreFix.mega, VoltampereHour);
-        public static readonly ApparentEnergyUnit KilovoltampereHour = new ApparentEnergyUnit(PreFix.kilo, VoltampereHour);
+        public static readonly ApparentEnergyUnit VoltampereHour = new(ElectricPotentialUnit.Volt , ElectricCurrentUnit.Ampere , DurationUnit.Hour, "VAh");
+        public static readonly ApparentEnergyUnit MegavoltampereHour = new(PreFix.mega, VoltampereHour);
+        public static readonly ApparentEnergyUnit KilovoltampereHour = new(PreFix.kilo, VoltampereHour);
 
 
 

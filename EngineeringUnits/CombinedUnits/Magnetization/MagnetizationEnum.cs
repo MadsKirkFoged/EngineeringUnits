@@ -10,8 +10,8 @@ namespace EngineeringUnits.Units
     public class MagnetizationUnit : Enumeration
     {
 
-        public static readonly MagnetizationUnit SI = new MagnetizationUnit(ElectricCurrentUnit.SI, LengthUnit.SI);
-        public static readonly MagnetizationUnit AmperePerMeter = new MagnetizationUnit(ElectricCurrentUnit.Ampere, LengthUnit.Meter);
+        public static readonly MagnetizationUnit SI = new(ElectricCurrentUnit.SI, LengthUnit.SI);
+        public static readonly MagnetizationUnit AmperePerMeter = new(ElectricCurrentUnit.Ampere, LengthUnit.Meter);
 
 
 

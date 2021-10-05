@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public Level(UnknownUnit value, LevelUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static Level From(double value, LevelUnit unit) => new Level(value, unit);
+        public static Level From(double value, LevelUnit unit) => new(value, unit);
         public double As(LevelUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Level ToUnit(LevelUnit selectedUnit) => new Level(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Level Zero => new Level(0, LevelUnit.SI);
+        public Level ToUnit(LevelUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Level Zero => new(0, LevelUnit.SI);
 
-        public static implicit operator Level(UnknownUnit Unit) => new Level(Unit, LevelUnit.SI);
+        public static implicit operator Level(UnknownUnit Unit) => new(Unit, LevelUnit.SI);
 
 
     }

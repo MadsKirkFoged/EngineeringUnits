@@ -15,7 +15,7 @@ namespace EngineeringUnits.Units
     {
 
 
-        public static readonly TemperatureUnit SI = new TemperatureUnit("K", 1, 1, 0);
+        public static readonly TemperatureUnit SI = new("K", 1, 1, 0);
 
         public TemperatureDeltaUnit() { }
 

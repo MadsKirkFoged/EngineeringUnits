@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+
 using Fractions;
 using System;
 
@@ -56,7 +57,7 @@ namespace EngineeringUnits
 
         }
 
-        public static TemperatureDelta From(double value, TemperatureUnit unit) => new TemperatureDelta(value, unit);
+        public static TemperatureDelta From(double value, TemperatureUnit unit) => new(value, unit);
 
         public double As(TemperatureUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
 
@@ -64,11 +65,11 @@ namespace EngineeringUnits
         {
             return new TemperatureDelta(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         }
-        public static TemperatureDelta Zero => new TemperatureDelta(0, TemperatureUnit.SI);
+        public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);
 
         public static implicit operator TemperatureDelta(UnknownUnit Unit)
         {
-            TemperatureDelta local = new TemperatureDelta(0, TemperatureUnit.SI);
+            TemperatureDelta local = new(0, TemperatureUnit.SI);
 
             local.Transform(Unit);
             return local;

@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricPotential(UnknownUnit value, ElectricPotentialUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricPotential From(double value, ElectricPotentialUnit unit) => new ElectricPotential(value, unit);
+        public static ElectricPotential From(double value, ElectricPotentialUnit unit) => new(value, unit);
         public double As(ElectricPotentialUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new ElectricPotential(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricPotential Zero => new ElectricPotential(0, ElectricPotentialUnit.SI);
+        public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);
 
-        public static implicit operator ElectricPotential(UnknownUnit Unit) => new ElectricPotential(Unit, ElectricPotentialUnit.SI);
+        public static implicit operator ElectricPotential(UnknownUnit Unit) => new(Unit, ElectricPotentialUnit.SI);
 
 
     }

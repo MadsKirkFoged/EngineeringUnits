@@ -16,14 +16,14 @@ namespace EngineeringUnits
         public Luminosity(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-        public static Luminosity From(double value, PowerUnit unit) => new Luminosity(value, unit);
+        public static Luminosity From(double value, PowerUnit unit) => new(value, unit);
         public double As(PowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Luminosity ToUnit(PowerUnit selectedUnit) => new Luminosity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Luminosity Zero => new Luminosity(0, PowerUnit.SI);
+        public Luminosity ToUnit(PowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Luminosity Zero => new(0, PowerUnit.SI);
 
         public static implicit operator Luminosity(UnknownUnit Unit)
         {
-            Luminosity local = new Luminosity(0, PowerUnit.SI);
+            Luminosity local = new(0, PowerUnit.SI);
 
             local.Transform(Unit);
             return local;

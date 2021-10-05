@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricResistivity(UnknownUnit value, ElectricResistivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricResistivity From(double value, ElectricResistivityUnit unit) => new ElectricResistivity(value, unit);
+        public static ElectricResistivity From(double value, ElectricResistivityUnit unit) => new(value, unit);
         public double As(ElectricResistivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricResistivity ToUnit(ElectricResistivityUnit selectedUnit) => new ElectricResistivity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricResistivity Zero => new ElectricResistivity(0, ElectricResistivityUnit.SI);
+        public ElectricResistivity ToUnit(ElectricResistivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricResistivity Zero => new(0, ElectricResistivityUnit.SI);
 
-        public static implicit operator ElectricResistivity(UnknownUnit Unit) => new ElectricResistivity(Unit, ElectricResistivityUnit.SI);
+        public static implicit operator ElectricResistivity(UnknownUnit Unit) => new(Unit, ElectricResistivityUnit.SI);
 
     }
 }

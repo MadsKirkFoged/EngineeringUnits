@@ -44,10 +44,10 @@ namespace UnitTests
         [TestMethod]
         public void TestIntelligentUnits03()
         {
-            SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-            Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+            SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+            Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+            Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
 
             Power Q1 = M1 * P1 * (T2 - T1);
             var Q2 = M1 * P1 * (T2 - T1);

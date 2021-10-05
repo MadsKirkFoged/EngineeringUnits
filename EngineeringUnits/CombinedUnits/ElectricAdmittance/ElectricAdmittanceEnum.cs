@@ -10,11 +10,11 @@ namespace EngineeringUnits.Units
     public class ElectricAdmittanceUnit : Enumeration
     {
 
-        public static readonly ElectricAdmittanceUnit SI = new ElectricAdmittanceUnit(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "S");
-        public static readonly ElectricAdmittanceUnit Siemens = new ElectricAdmittanceUnit(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "S");
-        public static readonly ElectricAdmittanceUnit Microsiemens = new ElectricAdmittanceUnit(PreFix.micro, Siemens);
-        public static readonly ElectricAdmittanceUnit Millisiemens = new ElectricAdmittanceUnit(PreFix.milli, Siemens);
-        public static readonly ElectricAdmittanceUnit Nanosiemens = new ElectricAdmittanceUnit(PreFix.nano, Siemens);
+        public static readonly ElectricAdmittanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "S");
+        public static readonly ElectricAdmittanceUnit Siemens = new(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "S");
+        public static readonly ElectricAdmittanceUnit Microsiemens = new(PreFix.micro, Siemens);
+        public static readonly ElectricAdmittanceUnit Millisiemens = new(PreFix.milli, Siemens);
+        public static readonly ElectricAdmittanceUnit Nanosiemens = new(PreFix.nano, Siemens);
 
 
         public ElectricAdmittanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)

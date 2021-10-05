@@ -12,8 +12,8 @@ namespace UnitTests
         [TestMethod]
         public void SpeedSimple()
         {
-            Length L1 = new Length(100, LengthUnit.Meter);
-            Duration D1 = new Duration(10, DurationUnit.Second);
+            Length L1 = new(100, LengthUnit.Meter);
+            Duration D1 = new(10, DurationUnit.Second);
 
             string jsonString = JsonConvert.SerializeObject(L1);
             Length L1JSON = JsonConvert.DeserializeObject<Length>(jsonString);
@@ -36,8 +36,8 @@ namespace UnitTests
         [TestMethod]
         public void SpeedSimple2()
         {
-            Length L1 = new Length(100, LengthUnit.Yard);
-            Duration D1 = new Duration(10, DurationUnit.Hour);
+            Length L1 = new(100, LengthUnit.Yard);
+            Duration D1 = new(10, DurationUnit.Hour);
 
             Speed S1 = L1 / D1;
 

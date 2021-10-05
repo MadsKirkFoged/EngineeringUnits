@@ -16,14 +16,14 @@ namespace EngineeringUnits
         public ElectricPotentialDc(int value, ElectricPotentialUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
 
-        public static ElectricPotentialDc From(double value, ElectricPotentialUnit unit) => new ElectricPotentialDc(value, unit);
+        public static ElectricPotentialDc From(double value, ElectricPotentialUnit unit) => new(value, unit);
         public double As(ElectricPotentialUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricPotentialDc ToUnit(ElectricPotentialUnit selectedUnit) => new ElectricPotentialDc(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricPotentialDc Zero => new ElectricPotentialDc(0, ElectricPotentialUnit.SI);
+        public ElectricPotentialDc ToUnit(ElectricPotentialUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricPotentialDc Zero => new(0, ElectricPotentialUnit.SI);
 
         public static implicit operator ElectricPotentialDc(UnknownUnit Unit)
         {
-            ElectricPotentialDc local = new ElectricPotentialDc(0, ElectricPotentialUnit.SI);
+            ElectricPotentialDc local = new(0, ElectricPotentialUnit.SI);
 
             local.Transform(Unit);
             return local;

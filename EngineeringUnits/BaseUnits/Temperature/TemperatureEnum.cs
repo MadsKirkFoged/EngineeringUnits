@@ -13,11 +13,11 @@ namespace EngineeringUnits.Units
     public class TemperatureUnit : Enumeration
     {
 
-        public static readonly TemperatureUnit Kelvin =              new TemperatureUnit("K",    1,      1,  0);
-        public static readonly TemperatureUnit SI =                  new TemperatureUnit("K",    1,      1,  0);
-        public static readonly TemperatureUnit DegreeCelsius =       new TemperatureUnit("°C",   1,      1,  -273.15m);
-        public static readonly TemperatureUnit DegreeFahrenheit =    new TemperatureUnit("°F",   5/9m,   1,  (-273.15m*(9/5m))+ 32m);
-        public static readonly TemperatureUnit DegreeRankine =       new TemperatureUnit("°R",    5/9m,  1,  0);
+        public static readonly TemperatureUnit Kelvin =              new("K",    1,      1,  0);
+        public static readonly TemperatureUnit SI =                  new("K",    1,      1,  0);
+        public static readonly TemperatureUnit DegreeCelsius =       new("°C",   1,      1,  -273.15m);
+        public static readonly TemperatureUnit DegreeFahrenheit =    new("°F",   5/9m,   1,  (-273.15m*(9/5m))+ 32m);
+        public static readonly TemperatureUnit DegreeRankine =       new("°R",    5/9m,  1,  0);
 
 
         public TemperatureUnit() { }

@@ -14,11 +14,11 @@ namespace EngineeringUnits
 
         public Area(UnknownUnit value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static Area From(double value, AreaUnit unit) => new Area(value, unit);
+        public static Area From(double value, AreaUnit unit) => new(value, unit);
         public double As(AreaUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Area ToUnit(AreaUnit selectedUnit) => new Area(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Area Zero => new Area(0, AreaUnit.SI);
+        public Area ToUnit(AreaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Area Zero => new(0, AreaUnit.SI);
 
-        public static implicit operator Area(UnknownUnit Unit) => new Area(Unit, AreaUnit.SI);
+        public static implicit operator Area(UnknownUnit Unit) => new(Unit, AreaUnit.SI);
     }
 }

@@ -10,14 +10,14 @@ namespace EngineeringUnits.Units
     public class CapacitanceUnit : Enumeration
     {
 
-        public static readonly CapacitanceUnit SI = new CapacitanceUnit(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");
-        public static readonly CapacitanceUnit Farad = new CapacitanceUnit(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
-        public static readonly CapacitanceUnit Kilofarad = new CapacitanceUnit(PreFix.kilo, Farad);
-        public static readonly CapacitanceUnit Megafarad = new CapacitanceUnit(PreFix.mega, Farad);
-        public static readonly CapacitanceUnit Microfarad = new CapacitanceUnit(PreFix.micro, Farad);
-        public static readonly CapacitanceUnit Millifarad = new CapacitanceUnit(PreFix.milli, Farad);
-        public static readonly CapacitanceUnit Nanofarad = new CapacitanceUnit(PreFix.nano, Farad);
-        public static readonly CapacitanceUnit Picofarad = new CapacitanceUnit(PreFix.pico, Farad);
+        public static readonly CapacitanceUnit SI = new(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");
+        public static readonly CapacitanceUnit Farad = new(DurationUnit.Second, ElectricCurrentUnit.Ampere, LengthUnit.Meter, MassUnit.Kilogram, "F");
+        public static readonly CapacitanceUnit Kilofarad = new(PreFix.kilo, Farad);
+        public static readonly CapacitanceUnit Megafarad = new(PreFix.mega, Farad);
+        public static readonly CapacitanceUnit Microfarad = new(PreFix.micro, Farad);
+        public static readonly CapacitanceUnit Millifarad = new(PreFix.milli, Farad);
+        public static readonly CapacitanceUnit Nanofarad = new(PreFix.nano, Farad);
+        public static readonly CapacitanceUnit Picofarad = new(PreFix.pico, Farad);
 
 
 

@@ -20,8 +20,8 @@ namespace UnitTests
         public void AmountCompare()
         {
 
-            UnitsNet.AmountOfSubstance A1 = new UnitsNet.AmountOfSubstance(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
-            AmountOfSubstance A2 = new AmountOfSubstance(65.743, AmountOfSubstanceUnit.Mole);
+            UnitsNet.AmountOfSubstance A1 = new(65.743, UnitsNet.Units.AmountOfSubstanceUnit.Mole);
+            AmountOfSubstance A2 = new(65.743, AmountOfSubstanceUnit.Mole);
 
 
 
@@ -191,8 +191,8 @@ namespace UnitTests
         public void DurationCompare()
         {
 
-            UnitsNet.Duration A1 = new UnitsNet.Duration(6544444.743, UnitsNet.Units.DurationUnit.Minute);
-            EngineeringUnits.Duration A2 = new EngineeringUnits.Duration(6544444.743, DurationUnit.Minute);
+            UnitsNet.Duration A1 = new(6544444.743, UnitsNet.Units.DurationUnit.Minute);
+            EngineeringUnits.Duration A2 = new(6544444.743, DurationUnit.Minute);
 
             string jsonString = JsonConvert.SerializeObject(A2);
             EngineeringUnits.Duration JSON = JsonConvert.DeserializeObject<EngineeringUnits.Duration>(jsonString);
@@ -332,8 +332,8 @@ namespace UnitTests
         public void ElectriccurrentCompare()
         {
 
-            UnitsNet.ElectricCurrent A1 = new UnitsNet.ElectricCurrent(0.0000546, UnitsNet.Units.ElectricCurrentUnit.Ampere);
-            EngineeringUnits.ElectricCurrent A2 = new EngineeringUnits.ElectricCurrent(0.0000546, ElectricCurrentUnit.Ampere);
+            UnitsNet.ElectricCurrent A1 = new(0.0000546, UnitsNet.Units.ElectricCurrentUnit.Ampere);
+            EngineeringUnits.ElectricCurrent A2 = new(0.0000546, ElectricCurrentUnit.Ampere);
 
 
      
@@ -456,8 +456,8 @@ namespace UnitTests
         [TestMethod]
         public void Lenghtcompare()
         {
-            UnitsNet.Length L1 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
-            EngineeringUnits.Length L2 = new EngineeringUnits.Length(1d, LengthUnit.Mile);
+            UnitsNet.Length L1 = new(1, UnitsNet.Units.LengthUnit.Mile);
+            EngineeringUnits.Length L2 = new(1d, LengthUnit.Mile);
 
 
             //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
@@ -557,8 +557,8 @@ namespace UnitTests
         [TestMethod]
         public void Masscompare()
         {
-            UnitsNet.Mass L1 = new UnitsNet.Mass(5674.889, UnitsNet.Units.MassUnit.Kilogram);
-            EngineeringUnits.Mass L2 = new EngineeringUnits.Mass(5674.889, MassUnit.Kilogram);
+            UnitsNet.Mass L1 = new(5674.889, UnitsNet.Units.MassUnit.Kilogram);
+            EngineeringUnits.Mass L2 = new(5674.889, MassUnit.Kilogram);
 
 
             //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
@@ -644,8 +644,8 @@ namespace UnitTests
         [TestMethod]
         public void Temperaturecompare()
         {
-            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.Kelvin);
-            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, TemperatureUnit.Kelvin);
+            UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.Kelvin);
+            EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.Kelvin);
 
             string jsonString = JsonConvert.SerializeObject(L2);
             EngineeringUnits.Temperature JSON = JsonConvert.DeserializeObject<EngineeringUnits.Temperature>(jsonString);
@@ -667,8 +667,8 @@ namespace UnitTests
         [TestMethod]
         public void Temperaturecompare2()
         {
-            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
-            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, TemperatureUnit.DegreeCelsius);
+            UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeCelsius);
 
 
 
@@ -686,8 +686,8 @@ namespace UnitTests
         [TestMethod]
         public void Temperaturecompare3()
         {
-            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
-            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, TemperatureUnit.DegreeFahrenheit);
+            UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
+            EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeFahrenheit);
 
 
 
@@ -705,8 +705,8 @@ namespace UnitTests
         [TestMethod]
         public void Temperaturecompare4()
         {
-            UnitsNet.Temperature L1 = new UnitsNet.Temperature(657.4, UnitsNet.Units.TemperatureUnit.DegreeRankine);
-            EngineeringUnits.Temperature L2 = new EngineeringUnits.Temperature(657.4, TemperatureUnit.DegreeRankine);
+            UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+            EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeRankine);
 
             Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 5.7E-14);
             Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 5.7E-14);

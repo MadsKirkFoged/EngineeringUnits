@@ -10,13 +10,13 @@ namespace EngineeringUnits.Units
     public class IlluminanceUnit : Enumeration
     {
 
-        public static readonly IlluminanceUnit SI = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SI);
-        public static readonly IlluminanceUnit Lux = new IlluminanceUnit(LuminousIntensityUnit.SI, AreaUnit.SquareMeter, "lx");
+        public static readonly IlluminanceUnit SI = new(LuminousIntensityUnit.SI, AreaUnit.SI);
+        public static readonly IlluminanceUnit Lux = new(LuminousIntensityUnit.SI, AreaUnit.SquareMeter, "lx");
 
 
-        public static readonly IlluminanceUnit Kilolux = new IlluminanceUnit(PreFix.kilo, Lux);
-        public static readonly IlluminanceUnit Megalux = new IlluminanceUnit(PreFix.mega, Lux);
-        public static readonly IlluminanceUnit Millilux = new IlluminanceUnit(PreFix.milli, Lux);
+        public static readonly IlluminanceUnit Kilolux = new(PreFix.kilo, Lux);
+        public static readonly IlluminanceUnit Megalux = new(PreFix.mega, Lux);
+        public static readonly IlluminanceUnit Millilux = new(PreFix.milli, Lux);
 
 
         public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)

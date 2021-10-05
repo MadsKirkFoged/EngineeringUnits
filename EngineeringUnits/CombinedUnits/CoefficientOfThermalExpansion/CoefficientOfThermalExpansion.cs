@@ -13,12 +13,12 @@ namespace EngineeringUnits
 
         public CoefficientOfThermalExpansion(UnknownUnit value, CoefficientOfThermalExpansionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static CoefficientOfThermalExpansion From(double value, CoefficientOfThermalExpansionUnit unit) => new CoefficientOfThermalExpansion(value, unit);
+        public static CoefficientOfThermalExpansion From(double value, CoefficientOfThermalExpansionUnit unit) => new(value, unit);
         public double As(CoefficientOfThermalExpansionUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new CoefficientOfThermalExpansion(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static CoefficientOfThermalExpansion Zero => new CoefficientOfThermalExpansion(0, CoefficientOfThermalExpansionUnit.SI);
+        public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static CoefficientOfThermalExpansion Zero => new(0, CoefficientOfThermalExpansionUnit.SI);
 
-        public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit) => new CoefficientOfThermalExpansion(Unit, CoefficientOfThermalExpansionUnit.SI);
+        public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit) => new(Unit, CoefficientOfThermalExpansionUnit.SI);
 
 
     }

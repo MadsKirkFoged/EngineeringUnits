@@ -14,20 +14,20 @@ namespace EngineeringUnits.Units
     {
 
 
-        public static readonly DurationUnit Nanosecond =     new DurationUnit(PreFix.nano, BaseUnits.time);
-        public static readonly DurationUnit Millisecond =    new DurationUnit(PreFix.milli, BaseUnits.time);
-        public static readonly DurationUnit Microsecond =    new DurationUnit(PreFix.micro, BaseUnits.time);
-        public static readonly DurationUnit Second =         new DurationUnit(PreFix.SI, BaseUnits.time);
+        public static readonly DurationUnit Nanosecond =     new(PreFix.nano, BaseUnits.time);
+        public static readonly DurationUnit Millisecond =    new(PreFix.milli, BaseUnits.time);
+        public static readonly DurationUnit Microsecond =    new(PreFix.micro, BaseUnits.time);
+        public static readonly DurationUnit Second =         new(PreFix.SI, BaseUnits.time);
 
-        public static readonly DurationUnit Minute =         new DurationUnit("m", 1, 60m);
-        public static readonly DurationUnit Hour =           new DurationUnit("h", 1, 3600m);
-        public static readonly DurationUnit Day =            new DurationUnit("d", 1, (24*3600m));
-        public static readonly DurationUnit Week =           new DurationUnit("wk", 1, (7*24*3600m));
-        public static readonly DurationUnit Month30 =        new DurationUnit("mo", 1, (30 * 24 * 3600m));
-        public static readonly DurationUnit Year365 =        new DurationUnit("yr", 1, (365*24*3600m));
+        public static readonly DurationUnit Minute =         new("m", 1, 60m);
+        public static readonly DurationUnit Hour =           new("h", 1, 3600m);
+        public static readonly DurationUnit Day =            new("d", 1, (24*3600m));
+        public static readonly DurationUnit Week =           new("wk", 1, (7*24*3600m));
+        public static readonly DurationUnit Month30 =        new("mo", 1, (30 * 24 * 3600m));
+        public static readonly DurationUnit Year365 =        new("yr", 1, (365*24*3600m));
 
 
-        public static readonly DurationUnit SI =            new DurationUnit(PreFix.SI, BaseUnits.time);
+        public static readonly DurationUnit SI =            new(PreFix.SI, BaseUnits.time);
 
         public DurationUnit() { }
 

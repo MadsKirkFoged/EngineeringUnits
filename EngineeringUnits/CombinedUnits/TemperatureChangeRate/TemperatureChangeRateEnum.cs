@@ -10,18 +10,18 @@ namespace EngineeringUnits.Units
     public class TemperatureChangeRateUnit : Enumeration
     {
 
-        public static readonly TemperatureChangeRateUnit SI = new TemperatureChangeRateUnit(TemperatureUnit.SI, DurationUnit.SI);
-        public static readonly TemperatureChangeRateUnit DegreeCelsiusPerSecond = new TemperatureChangeRateUnit(TemperatureUnit.Kelvin, DurationUnit.Second);
-        public static readonly TemperatureChangeRateUnit DegreeCelsiusPerMinute = new TemperatureChangeRateUnit(TemperatureUnit.Kelvin, DurationUnit.Minute);
+        public static readonly TemperatureChangeRateUnit SI = new(TemperatureUnit.SI, DurationUnit.SI);
+        public static readonly TemperatureChangeRateUnit DegreeCelsiusPerSecond = new(TemperatureUnit.Kelvin, DurationUnit.Second);
+        public static readonly TemperatureChangeRateUnit DegreeCelsiusPerMinute = new(TemperatureUnit.Kelvin, DurationUnit.Minute);
 
-        public static readonly TemperatureChangeRateUnit CentidegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.centi, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit DecadegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.deka, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit DecidegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.deci, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit HectodegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.hecto, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit KilodegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.kilo, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit MicrodegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.micro, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit MillidegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.milli, DegreeCelsiusPerSecond);
-        public static readonly TemperatureChangeRateUnit NanodegreeCelsiusPerSecond = new TemperatureChangeRateUnit(PreFix.nano, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit CentidegreeCelsiusPerSecond = new(PreFix.centi, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit DecadegreeCelsiusPerSecond = new(PreFix.deka, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit DecidegreeCelsiusPerSecond = new(PreFix.deci, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit HectodegreeCelsiusPerSecond = new(PreFix.hecto, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit KilodegreeCelsiusPerSecond = new(PreFix.kilo, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit MicrodegreeCelsiusPerSecond = new(PreFix.micro, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit MillidegreeCelsiusPerSecond = new(PreFix.milli, DegreeCelsiusPerSecond);
+        public static readonly TemperatureChangeRateUnit NanodegreeCelsiusPerSecond = new(PreFix.nano, DegreeCelsiusPerSecond);
 
 
 

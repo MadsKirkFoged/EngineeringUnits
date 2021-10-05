@@ -14,7 +14,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthTimesDouble()
         {
-            Length L1 = new Length(65.948443434, LengthUnit.Meter);
+            Length L1 = new(65.948443434, LengthUnit.Meter);
 
             L1 *= 10;
 
@@ -26,7 +26,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthTimesDouble2()
         {
-            Length L1 = new Length(65.948443434, LengthUnit.Yard);
+            Length L1 = new(65.948443434, LengthUnit.Yard);
 
             L1 *= 10;
 
@@ -39,7 +39,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthTimesDouble3()
         {
-            Length L1 = new Length(65.948443434, LengthUnit.Yard);
+            Length L1 = new(65.948443434, LengthUnit.Yard);
 
             L1 = 10 * L1;
 
@@ -52,7 +52,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthDivideDouble()
         {
-            Length L1 = new Length(65.948443434, LengthUnit.Meter);
+            Length L1 = new(65.948443434, LengthUnit.Meter);
 
 
             L1 /= 10;
@@ -67,7 +67,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthSI2SI()
         {
-            Length L1 = new Length(65.948443434, LengthUnit.Meter);
+            Length L1 = new(65.948443434, LengthUnit.Meter);
 
 
             Assert.AreEqual(6594.8443434, L1.As(LengthUnit.Centimeter));
@@ -79,7 +79,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthSI2SI2()
         {
-            Length L1 = new Length(659484434, LengthUnit.Kilometer);
+            Length L1 = new(659484434, LengthUnit.Kilometer);
 
 
             Assert.AreEqual(65948443400000, L1.As(LengthUnit.Centimeter));
@@ -92,7 +92,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthIP2IP()
         {
-            Length L1 = new Length(1, LengthUnit.Mile);
+            Length L1 = new(1, LengthUnit.Mile);
 
 
             Assert.AreEqual(1, L1.As(LengthUnit.Mile));
@@ -104,7 +104,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthIP2SI()
         {
-            Length L1 = new Length(1, LengthUnit.Mile);
+            Length L1 = new(1, LengthUnit.Mile);
 
 
             Assert.AreEqual(160934.4, L1.As(LengthUnit.Centimeter));
@@ -115,8 +115,8 @@ namespace UnitTests
         [TestMethod]
         public void LengthAddDifferent()
         {
-            Length L1 = new Length(3.87, LengthUnit.Inch);
-            Length L2 = new Length(2.78, LengthUnit.Meter);
+            Length L1 = new(3.87, LengthUnit.Inch);
+            Length L2 = new(2.78, LengthUnit.Meter);
 
             Length L3 = L1 + L2;
             Length L4 = L2 + L1;
@@ -134,8 +134,8 @@ namespace UnitTests
         [TestMethod]
         public void LengthAddToExactNumber()
         {
-            Length L1 = new Length(1000, LengthUnit.Inch);
-            Length L2 = new Length(10000, LengthUnit.Yard);
+            Length L1 = new(1000, LengthUnit.Inch);
+            Length L2 = new(10000, LengthUnit.Yard);
 
             Length L3 = L1 + L2;
             Length L4 = L2 + L1;
@@ -153,8 +153,8 @@ namespace UnitTests
         [TestMethod]
         public void LengthSub()
         {
-            Length L1 = new Length(3.87, LengthUnit.Inch);
-            Length L2 = new Length(2.78, LengthUnit.Meter);
+            Length L1 = new(3.87, LengthUnit.Inch);
+            Length L2 = new(2.78, LengthUnit.Meter);
 
             Length L3 = L2 - L1;
 
@@ -166,14 +166,14 @@ namespace UnitTests
         [TestMethod]
         public void LengthDivide()
         {
-            Length L1 = new Length(3.87, LengthUnit.Inch);
-            Length L2 = new Length(2.78, LengthUnit.Meter);
+            Length L1 = new(3.87, LengthUnit.Inch);
+            Length L2 = new(2.78, LengthUnit.Meter);
 
-            Length L3 = new Length(9, LengthUnit.Meter);
-            Length L4 = new Length(3, LengthUnit.Meter);
+            Length L3 = new(9, LengthUnit.Meter);
+            Length L4 = new(3, LengthUnit.Meter);
 
-            Length L5 = new Length(80, LengthUnit.Inch);
-            Length L6 = new Length(20, LengthUnit.Inch);
+            Length L5 = new(80, LengthUnit.Inch);
+            Length L6 = new(20, LengthUnit.Inch);
 
             Assert.AreEqual(0.0353589928057554, (double)(L1 / L2));
             Assert.AreEqual(28.281348552361184, (double)(L2 / L1));
@@ -190,8 +190,8 @@ namespace UnitTests
         public void LengthDivide2()
         {
 
-            Length L1 = new Length(200, LengthUnit.Centimeter);
-            Length L2 = new Length(3, LengthUnit.Foot);
+            Length L1 = new(200, LengthUnit.Centimeter);
+            Length L2 = new(3, LengthUnit.Foot);
 
 
             var A1 = (L1 * L1 * L1) / (L2 * L2);
@@ -214,8 +214,8 @@ namespace UnitTests
         [TestMethod]
         public void LengthMultiply2()
         {
-            Length L1 = new Length(3, LengthUnit.Inch);
-            Length L2 = new Length(2, LengthUnit.Meter);
+            Length L1 = new(3, LengthUnit.Inch);
+            Length L2 = new(2, LengthUnit.Meter);
 
             var test13 = (L1 * 10) / L1;
             var test14 = (L1 * 10);
@@ -252,8 +252,8 @@ namespace UnitTests
         [TestMethod]
         public void LengthOperators()
         {
-            Length L1 = new Length(5, LengthUnit.Meter);
-            Length L2 = new Length(2, LengthUnit.Inch);
+            Length L1 = new(5, LengthUnit.Meter);
+            Length L2 = new(2, LengthUnit.Inch);
 
             Length L3 = L1;
 
@@ -283,7 +283,7 @@ namespace UnitTests
         [TestMethod]
         public void LengthJSON()
         {
-            Length L1 = new Length(1, LengthUnit.Mile);
+            Length L1 = new(1, LengthUnit.Mile);
 
 
             string jsonstring = JsonConvert.SerializeObject(L1);

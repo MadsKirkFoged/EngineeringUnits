@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class RotationalStiffnessPerLengthUnit : Enumeration
     {
 
-        public static readonly RotationalStiffnessPerLengthUnit SI = new RotationalStiffnessPerLengthUnit(LengthUnit.SI);
-        public static readonly RotationalStiffnessPerLengthUnit CubicMeter = new RotationalStiffnessPerLengthUnit(LengthUnit.Meter);
-        public static readonly RotationalStiffnessPerLengthUnit HectocubicMeter = new RotationalStiffnessPerLengthUnit(PreFix.hecto, CubicMeter);
-        public static readonly RotationalStiffnessPerLengthUnit KilocubicMeter = new RotationalStiffnessPerLengthUnit(PreFix.kilo, CubicMeter);
+        public static readonly RotationalStiffnessPerLengthUnit SI = new(LengthUnit.SI);
+        public static readonly RotationalStiffnessPerLengthUnit CubicMeter = new(LengthUnit.Meter);
+        public static readonly RotationalStiffnessPerLengthUnit HectocubicMeter = new(PreFix.hecto, CubicMeter);
+        public static readonly RotationalStiffnessPerLengthUnit KilocubicMeter = new(PreFix.kilo, CubicMeter);
 
 
 

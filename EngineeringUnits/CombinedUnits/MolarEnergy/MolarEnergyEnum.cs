@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class MolarEnergyUnit : Enumeration
     {
 
-        public static readonly MolarEnergyUnit SI = new MolarEnergyUnit(EnergyUnit.SI, AmountOfSubstanceUnit.SI);
-        public static readonly MolarEnergyUnit JoulePerMole = new MolarEnergyUnit(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole);
-        public static readonly MolarEnergyUnit KilojoulePerMole = new MolarEnergyUnit(EnergyUnit.Kilojoule, AmountOfSubstanceUnit.Mole);
-        public static readonly MolarEnergyUnit MegajoulePerMole = new MolarEnergyUnit(EnergyUnit.Megajoule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit SI = new(EnergyUnit.SI, AmountOfSubstanceUnit.SI);
+        public static readonly MolarEnergyUnit JoulePerMole = new(EnergyUnit.Joule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit KilojoulePerMole = new(EnergyUnit.Kilojoule, AmountOfSubstanceUnit.Mole);
+        public static readonly MolarEnergyUnit MegajoulePerMole = new(EnergyUnit.Megajoule, AmountOfSubstanceUnit.Mole);
 
 
 

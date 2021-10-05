@@ -10,16 +10,16 @@ namespace EngineeringUnits.Units
     public class MagneticFieldUnit : Enumeration
     {
 
-        public static readonly MagneticFieldUnit SI = new MagneticFieldUnit(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI);
-        public static readonly MagneticFieldUnit Tesla = new MagneticFieldUnit(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere,"T");
+        public static readonly MagneticFieldUnit SI = new(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI);
+        public static readonly MagneticFieldUnit Tesla = new(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere,"T");
 
-        public static readonly MagneticFieldUnit Gauss = new MagneticFieldUnit(Tesla, "G", 1e-4m);
-        public static readonly MagneticFieldUnit Milligauss = new MagneticFieldUnit(PreFix.milli, Gauss);
+        public static readonly MagneticFieldUnit Gauss = new(Tesla, "G", 1e-4m);
+        public static readonly MagneticFieldUnit Milligauss = new(PreFix.milli, Gauss);
 
 
-        public static readonly MagneticFieldUnit Microtesla = new MagneticFieldUnit(PreFix.micro, Tesla);
-        public static readonly MagneticFieldUnit Millitesla = new MagneticFieldUnit(PreFix.milli, Tesla);
-        public static readonly MagneticFieldUnit Nanotesla = new MagneticFieldUnit(PreFix.nano, Tesla);
+        public static readonly MagneticFieldUnit Microtesla = new(PreFix.micro, Tesla);
+        public static readonly MagneticFieldUnit Millitesla = new(PreFix.milli, Tesla);
+        public static readonly MagneticFieldUnit Nanotesla = new(PreFix.nano, Tesla);
 
 
 

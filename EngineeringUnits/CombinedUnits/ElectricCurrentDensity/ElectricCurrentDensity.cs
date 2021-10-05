@@ -14,12 +14,12 @@ namespace EngineeringUnits
 
         public ElectricCurrentDensity(UnknownUnit value, ElectricCurrentDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static ElectricCurrentDensity From(double value, ElectricCurrentDensityUnit unit) => new ElectricCurrentDensity(value, unit);
+        public static ElectricCurrentDensity From(double value, ElectricCurrentDensityUnit unit) => new(value, unit);
         public double As(ElectricCurrentDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricCurrentDensity ToUnit(ElectricCurrentDensityUnit selectedUnit) => new ElectricCurrentDensity(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static ElectricCurrentDensity Zero => new ElectricCurrentDensity(0, ElectricCurrentDensityUnit.SI);
+        public ElectricCurrentDensity ToUnit(ElectricCurrentDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static ElectricCurrentDensity Zero => new(0, ElectricCurrentDensityUnit.SI);
 
-        public static implicit operator ElectricCurrentDensity(UnknownUnit Unit) => new ElectricCurrentDensity(Unit, ElectricCurrentDensityUnit.SI);
+        public static implicit operator ElectricCurrentDensity(UnknownUnit Unit) => new(Unit, ElectricCurrentDensityUnit.SI);
 
 
     }

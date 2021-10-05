@@ -8,7 +8,7 @@ namespace EngineeringUnits
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
             BaseUnit output = (BaseUnit) toCast;
-            UnitSystem unit = output.Unit;
+            //UnitSystem unit = output.Unit;
 			if (toCast.unitsystem == AmountOfSubstanceUnit.SI.Unit)
 			{
 				return (AmountOfSubstance) toCast;

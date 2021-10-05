@@ -17,7 +17,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (ForceUnit.SI * LengthUnit.SI.Pow(2)) / (MassUnit.SI.Pow(2));                          
-                BaseUnit local = new BaseUnit(0.0000000000667408, unit);
+                BaseUnit local = new(0.0000000000667408, unit);
 
                 return local;
             }
@@ -30,7 +30,7 @@ namespace EngineeringUnits
 
             get
             {
-                Speed local = new Speed(299792458, SpeedUnit.SI);
+                Speed local = new(299792458, SpeedUnit.SI);
                 return local;
             }
 
@@ -43,7 +43,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (EnergyUnit.SI) / (FrequencyUnit.SI);
-                BaseUnit local = new BaseUnit(6.62607015e-34m, unit);
+                BaseUnit local = new(6.62607015e-34m, unit);
                 return local;
             }
 

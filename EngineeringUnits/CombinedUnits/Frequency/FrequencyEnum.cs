@@ -11,17 +11,17 @@ namespace EngineeringUnits.Units
     public class FrequencyUnit : Enumeration
     {
 
-        public static readonly FrequencyUnit SI =        new FrequencyUnit(DurationUnit.Second, "Hz");
-        public static readonly FrequencyUnit Hertz =     new FrequencyUnit(DurationUnit.Second, "Hz");
-        public static readonly FrequencyUnit Kilohertz = new FrequencyUnit(PreFix.kilo, Hertz);
-        public static readonly FrequencyUnit Megahertz = new FrequencyUnit(PreFix.mega, Hertz);
-        public static readonly FrequencyUnit Gigahertz = new FrequencyUnit(PreFix.giga, Hertz);
-        public static readonly FrequencyUnit Terahertz = new FrequencyUnit(PreFix.tera, Hertz);
-        public static readonly FrequencyUnit PerSecond =         new FrequencyUnit(DurationUnit.Second, "s⁻¹");
-        public static readonly FrequencyUnit BeatPerMinute =     new FrequencyUnit(DurationUnit.Minute, "bpm");
-        public static readonly FrequencyUnit CyclePerHour =      new FrequencyUnit(DurationUnit.Hour, "cph");
-        public static readonly FrequencyUnit CyclePerMinute =    new FrequencyUnit(DurationUnit.Minute, "cpm");
-        public static readonly FrequencyUnit RadianPerSecond = new FrequencyUnit(DurationUnit.Second, "rad/s", 1/(2*(decimal)Math.PI));
+        public static readonly FrequencyUnit SI =        new(DurationUnit.Second, "Hz");
+        public static readonly FrequencyUnit Hertz =     new(DurationUnit.Second, "Hz");
+        public static readonly FrequencyUnit Kilohertz = new(PreFix.kilo, Hertz);
+        public static readonly FrequencyUnit Megahertz = new(PreFix.mega, Hertz);
+        public static readonly FrequencyUnit Gigahertz = new(PreFix.giga, Hertz);
+        public static readonly FrequencyUnit Terahertz = new(PreFix.tera, Hertz);
+        public static readonly FrequencyUnit PerSecond =         new(DurationUnit.Second, "s⁻¹");
+        public static readonly FrequencyUnit BeatPerMinute =     new(DurationUnit.Minute, "bpm");
+        public static readonly FrequencyUnit CyclePerHour =      new(DurationUnit.Hour, "cph");
+        public static readonly FrequencyUnit CyclePerMinute =    new(DurationUnit.Minute, "cpm");
+        public static readonly FrequencyUnit RadianPerSecond = new(DurationUnit.Second, "rad/s", 1/(2*(decimal)Math.PI));
 
 
 

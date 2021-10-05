@@ -14,11 +14,11 @@ namespace EngineeringUnits
 
         public Pressure(UnknownUnit value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
-        public static Pressure From(double value, PressureUnit unit) => new Pressure(value, unit);
+        public static Pressure From(double value, PressureUnit unit) => new(value, unit);
         public double As(PressureUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Pressure ToUnit(PressureUnit selectedUnit) => new Pressure(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Pressure Zero => new Pressure(0, PressureUnit.SI);
+        public Pressure ToUnit(PressureUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Pressure Zero => new(0, PressureUnit.SI);
 
-        public static implicit operator Pressure(UnknownUnit Unit) => new Pressure(Unit, PressureUnit.SI);
+        public static implicit operator Pressure(UnknownUnit Unit) => new(Unit, PressureUnit.SI);
     }
 }

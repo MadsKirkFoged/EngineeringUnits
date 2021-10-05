@@ -22,20 +22,20 @@ namespace UnitTests
             //obs - UnitsNet cant do this eq..
 
 
-            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(10, TemperatureUnit.DegreeCelsius);
-            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(5, TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            EngineeringUnits.MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+            EngineeringUnits.Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+            EngineeringUnits.Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
 
             EngineeringUnits.Power Q1 = M1 * P1 * (T2 - T1);
 
 
 
 
-            UnitsNet.SpecificEntropy p1 = new UnitsNet.SpecificEntropy(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
-            UnitsNet.MassFlow m1 = new UnitsNet.MassFlow(1, UnitsNet.Units.MassFlowUnit.KilogramPerSecond);
-            UnitsNet.Temperature t2 = new UnitsNet.Temperature(10, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
-            UnitsNet.Temperature t1 = new UnitsNet.Temperature(5, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+            UnitsNet.SpecificEntropy p1 = new(1, UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin);
+            UnitsNet.MassFlow m1 = new(1, UnitsNet.Units.MassFlowUnit.KilogramPerSecond);
+            UnitsNet.Temperature t2 = new(10, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+            UnitsNet.Temperature t1 = new(5, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
 
             UnitsNet.Power q1 = UnitsNet.Power.FromWatts( p1.JoulesPerKilogramKelvin * m1.KilogramsPerSecond * (t2.Kelvins - t1.Kelvins));
 
@@ -58,19 +58,19 @@ namespace UnitTests
             //obs - UnitsNet cant do this eq..
 
 
-            EngineeringUnits.SpecificEntropy P1 = new EngineeringUnits.SpecificEntropy(35345, SpecificEntropyUnit.BtuPerPoundRankine);
-            EngineeringUnits.MassFlow M1 = new EngineeringUnits.MassFlow(4356, MassFlowUnit.PoundPerMinute);
-            EngineeringUnits.Temperature T2 = new EngineeringUnits.Temperature(342, TemperatureUnit.DegreeRankine);
-            EngineeringUnits.Temperature T1 = new EngineeringUnits.Temperature(43, TemperatureUnit.DegreeRankine);
+            EngineeringUnits.SpecificEntropy P1 = new(35345, SpecificEntropyUnit.BtuPerPoundRankine);
+            EngineeringUnits.MassFlow M1 = new(4356, MassFlowUnit.PoundPerMinute);
+            EngineeringUnits.Temperature T2 = new(342, TemperatureUnit.DegreeRankine);
+            EngineeringUnits.Temperature T1 = new(43, TemperatureUnit.DegreeRankine);
 
             EngineeringUnits.Power Q1 = M1 * P1 * (T2 - T1);
 
 
 
-            UnitsNet.SpecificEntropy p1 = new UnitsNet.SpecificEntropy(35345, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
-            UnitsNet.MassFlow m1 = new UnitsNet.MassFlow(4356, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
-            UnitsNet.Temperature t2 = new UnitsNet.Temperature(342, UnitsNet.Units.TemperatureUnit.DegreeRankine);
-            UnitsNet.Temperature t1 = new UnitsNet.Temperature(43, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+            UnitsNet.SpecificEntropy p1 = new(35345, UnitsNet.Units.SpecificEntropyUnit.BtuPerPoundFahrenheit);
+            UnitsNet.MassFlow m1 = new(4356, UnitsNet.Units.MassFlowUnit.PoundPerMinute);
+            UnitsNet.Temperature t2 = new(342, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+            UnitsNet.Temperature t1 = new(43, UnitsNet.Units.TemperatureUnit.DegreeRankine);
 
             UnitsNet.Power q1 = UnitsNet.Power.FromWatts(p1.JoulesPerKilogramKelvin * m1.KilogramsPerSecond * (t2.Kelvins - t1.Kelvins));
 

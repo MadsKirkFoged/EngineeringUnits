@@ -19,12 +19,12 @@ namespace EngineeringUnits
         public AmountOfSubstance(UnknownUnit value) : base(value) { }
 
 
-        public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit) => new AmountOfSubstance(value, unit);
+        public static AmountOfSubstance From(double value, AmountOfSubstanceUnit unit) => new(value, unit);
         public double As(AmountOfSubstanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new AmountOfSubstance(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static AmountOfSubstance Zero => new AmountOfSubstance(0, AmountOfSubstanceUnit.SI);
+        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static AmountOfSubstance Zero => new(0, AmountOfSubstanceUnit.SI);
 
-        public static implicit operator AmountOfSubstance(UnknownUnit Unit) => new AmountOfSubstance(Unit);
+        public static implicit operator AmountOfSubstance(UnknownUnit Unit) => new(Unit);
 
     }
 }

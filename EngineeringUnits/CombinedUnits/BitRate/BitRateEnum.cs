@@ -10,43 +10,43 @@ namespace EngineeringUnits.Units
     public class BitRateUnit : Enumeration
     {
 
-        public static readonly BitRateUnit SI = new BitRateUnit("");
-        public static readonly BitRateUnit BytePerSecond = new BitRateUnit("B/s", 8m);
-        public static readonly BitRateUnit BitPerSecond = new BitRateUnit("bit/s");
+        public static readonly BitRateUnit SI = new("");
+        public static readonly BitRateUnit BytePerSecond = new("B/s", 8m);
+        public static readonly BitRateUnit BitPerSecond = new("bit/s");
 
 
 
-        public static readonly BitRateUnit KibibitPerSecond = new BitRateUnit(BitPerSecond, "Kibit/s", (1024m));
-        public static readonly BitRateUnit MebibitPerSecond = new BitRateUnit(BitPerSecond, "Mibit/s", (1024m * 1024));
-        public static readonly BitRateUnit GibibitPerSecond = new BitRateUnit(BitPerSecond, "Gibit/s", (1024m * 1024 * 1024));
-        public static readonly BitRateUnit TebibitPerSecond = new BitRateUnit(BitPerSecond, "Tibit/s", (1024m * 1024 * 1024 * 1024));
-        public static readonly BitRateUnit PebibitPerSecond = new BitRateUnit(BitPerSecond, "Pibit/s", (1024m * 1024 * 1024 * 1024 * 1024));
-        public static readonly BitRateUnit ExbibitPerSecond = new BitRateUnit(BitPerSecond, "Eibit/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit KibibitPerSecond = new(BitPerSecond, "Kibit/s", (1024m));
+        public static readonly BitRateUnit MebibitPerSecond = new(BitPerSecond, "Mibit/s", (1024m * 1024));
+        public static readonly BitRateUnit GibibitPerSecond = new(BitPerSecond, "Gibit/s", (1024m * 1024 * 1024));
+        public static readonly BitRateUnit TebibitPerSecond = new(BitPerSecond, "Tibit/s", (1024m * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit PebibitPerSecond = new(BitPerSecond, "Pibit/s", (1024m * 1024 * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit ExbibitPerSecond = new(BitPerSecond, "Eibit/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
 
 
-        public static readonly BitRateUnit KibibytePerSecond = new BitRateUnit(BytePerSecond, "KiB/s", (1024m));
-        public static readonly BitRateUnit MebibytePerSecond = new BitRateUnit(BytePerSecond, "MiB/s", (1024m * 1024));
-        public static readonly BitRateUnit GibibytePerSecond = new BitRateUnit(BytePerSecond, "GiB/s", (1024m * 1024 * 1024));
-        public static readonly BitRateUnit TebibytePerSecond = new BitRateUnit(BytePerSecond, "TiB/s", (1024m * 1024 * 1024 * 1024));
-        public static readonly BitRateUnit PebibytePerSecond = new BitRateUnit(BytePerSecond, "PiB/s", (1024m * 1024 * 1024 * 1024 * 1024));
-        public static readonly BitRateUnit ExbibytePerSecond = new BitRateUnit(BytePerSecond, "EiB/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit KibibytePerSecond = new(BytePerSecond, "KiB/s", (1024m));
+        public static readonly BitRateUnit MebibytePerSecond = new(BytePerSecond, "MiB/s", (1024m * 1024));
+        public static readonly BitRateUnit GibibytePerSecond = new(BytePerSecond, "GiB/s", (1024m * 1024 * 1024));
+        public static readonly BitRateUnit TebibytePerSecond = new(BytePerSecond, "TiB/s", (1024m * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit PebibytePerSecond = new(BytePerSecond, "PiB/s", (1024m * 1024 * 1024 * 1024 * 1024));
+        public static readonly BitRateUnit ExbibytePerSecond = new(BytePerSecond, "EiB/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
 
 
-        public static readonly BitRateUnit KilobytePerSecond = new BitRateUnit(PreFix.kilo, BytePerSecond);
-        public static readonly BitRateUnit MegabytePerSecond = new BitRateUnit(PreFix.mega, BytePerSecond);
-        public static readonly BitRateUnit GigabytePerSecond = new BitRateUnit(PreFix.giga, BytePerSecond);
-        public static readonly BitRateUnit TerabytePerSecond = new BitRateUnit(PreFix.tera, BytePerSecond);
-        public static readonly BitRateUnit PetabytePerSecond = new BitRateUnit(PreFix.peta, BytePerSecond);
-        public static readonly BitRateUnit ExabytePerSecond = new BitRateUnit(PreFix.exa, BytePerSecond);
+        public static readonly BitRateUnit KilobytePerSecond = new(PreFix.kilo, BytePerSecond);
+        public static readonly BitRateUnit MegabytePerSecond = new(PreFix.mega, BytePerSecond);
+        public static readonly BitRateUnit GigabytePerSecond = new(PreFix.giga, BytePerSecond);
+        public static readonly BitRateUnit TerabytePerSecond = new(PreFix.tera, BytePerSecond);
+        public static readonly BitRateUnit PetabytePerSecond = new(PreFix.peta, BytePerSecond);
+        public static readonly BitRateUnit ExabytePerSecond = new(PreFix.exa, BytePerSecond);
 
 
 
-        public static readonly BitRateUnit KilobitPerSecond = new BitRateUnit(PreFix.kilo, BitPerSecond);
-        public static readonly BitRateUnit MegabitPerSecond = new BitRateUnit(PreFix.mega, BitPerSecond);
-        public static readonly BitRateUnit GigabitPerSecond = new BitRateUnit(PreFix.giga, BitPerSecond);
-        public static readonly BitRateUnit TerabitPerSecond = new BitRateUnit(PreFix.tera, BitPerSecond);
-        public static readonly BitRateUnit PetabitPerSecond = new BitRateUnit(PreFix.peta, BitPerSecond);
-        public static readonly BitRateUnit ExabitPerSecond = new BitRateUnit(PreFix.exa, BitPerSecond);
+        public static readonly BitRateUnit KilobitPerSecond = new(PreFix.kilo, BitPerSecond);
+        public static readonly BitRateUnit MegabitPerSecond = new(PreFix.mega, BitPerSecond);
+        public static readonly BitRateUnit GigabitPerSecond = new(PreFix.giga, BitPerSecond);
+        public static readonly BitRateUnit TerabitPerSecond = new(PreFix.tera, BitPerSecond);
+        public static readonly BitRateUnit PetabitPerSecond = new(PreFix.peta, BitPerSecond);
+        public static readonly BitRateUnit ExabitPerSecond = new(PreFix.exa, BitPerSecond);
 
 
 

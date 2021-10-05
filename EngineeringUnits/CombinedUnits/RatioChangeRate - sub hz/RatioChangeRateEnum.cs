@@ -10,10 +10,10 @@ namespace EngineeringUnits.Units
     public class RatioChangeRateUnit : Enumeration
     {
 
-        public static readonly RatioChangeRateUnit SI = new RatioChangeRateUnit(LengthUnit.SI);
-        public static readonly RatioChangeRateUnit CubicMeter = new RatioChangeRateUnit(LengthUnit.Meter);
-        public static readonly RatioChangeRateUnit HectocubicMeter = new RatioChangeRateUnit(PreFix.hecto, CubicMeter);
-        public static readonly RatioChangeRateUnit KilocubicMeter = new RatioChangeRateUnit(PreFix.kilo, CubicMeter);
+        public static readonly RatioChangeRateUnit SI = new(LengthUnit.SI);
+        public static readonly RatioChangeRateUnit CubicMeter = new(LengthUnit.Meter);
+        public static readonly RatioChangeRateUnit HectocubicMeter = new(PreFix.hecto, CubicMeter);
+        public static readonly RatioChangeRateUnit KilocubicMeter = new(PreFix.kilo, CubicMeter);
 
 
 

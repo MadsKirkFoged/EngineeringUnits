@@ -15,11 +15,11 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergyAdd()
         {
-            UnitsNet.SpecificEnergy UnitNet1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            UnitsNet.SpecificEnergy UnitNet2 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
 
-            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new EngineeringUnits.SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new EngineeringUnits.SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
             UnitsNet.SpecificEnergy UnitNet3 = UnitNet1 + UnitNet2;
@@ -47,11 +47,11 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergysub()
         {
-            UnitsNet.SpecificEnergy UnitNet1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            UnitsNet.SpecificEnergy UnitNet2 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
 
-            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new EngineeringUnits.SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new EngineeringUnits.SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
             UnitsNet.SpecificEnergy UnitNet3 = UnitNet1 - UnitNet2;
@@ -68,11 +68,11 @@ namespace UnitTests
         [TestMethod]
         public void SpecificEnergysubSJON()
         {
-            UnitsNet.SpecificEnergy UnitNet1 = new UnitsNet.SpecificEnergy(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
-            UnitsNet.SpecificEnergy UnitNet2 = new UnitsNet.SpecificEnergy(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
+            UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
+            UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
 
-            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new EngineeringUnits.SpecificEnergy(1, SpecificEnergyUnit.BtuPerPound);
-            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new EngineeringUnits.SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
+            EngineeringUnits.SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
             string jsonstring = JsonConvert.SerializeObject(EngineeringUnits2);
             EngineeringUnits.SpecificEnergy JSON = JsonConvert.DeserializeObject<EngineeringUnits.SpecificEnergy>(jsonstring);

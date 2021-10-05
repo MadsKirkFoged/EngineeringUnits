@@ -10,49 +10,49 @@ namespace EngineeringUnits.Units
     public class RatioUnit : Enumeration
     {
 
-        public static readonly RatioUnit SI = new RatioUnit("");
-        public static readonly RatioUnit DecimalFraction = new RatioUnit("");
-        public static readonly RatioUnit PartPerBillion = new RatioUnit("ppb", 1/1e9m);
-        public static readonly RatioUnit PartPerMillion = new RatioUnit("ppm", 1 / 1e6m);
-        public static readonly RatioUnit PartPerThousand = new RatioUnit("‰", 1 / 1e3m);
-        public static readonly RatioUnit PartPerTrillion = new RatioUnit("ppt", 1 / 1e12m);
-        public static readonly RatioUnit Percent = new RatioUnit("%", 1 / 1e2m);
+        public static readonly RatioUnit SI = new("");
+        public static readonly RatioUnit DecimalFraction = new("");
+        public static readonly RatioUnit PartPerBillion = new("ppb", 1/1e9m);
+        public static readonly RatioUnit PartPerMillion = new("ppm", 1 / 1e6m);
+        public static readonly RatioUnit PartPerThousand = new("‰", 1 / 1e3m);
+        public static readonly RatioUnit PartPerTrillion = new("ppt", 1 / 1e12m);
+        public static readonly RatioUnit Percent = new("%", 1 / 1e2m);
 
-        public static readonly RatioUnit CentigramPerGram =     new RatioUnit(MassUnit.Centigram, MassUnit.Gram);
-        public static readonly RatioUnit CentigramPerKilogram = new RatioUnit(MassUnit.Centigram, MassUnit.Kilogram);
-        public static readonly RatioUnit DecagramPerGram =      new RatioUnit(MassUnit.Decagram, MassUnit.Gram);
-        public static readonly RatioUnit DecagramPerKilogram =  new RatioUnit(MassUnit.Decagram, MassUnit.Kilogram);
-        public static readonly RatioUnit DecigramPerGram =      new RatioUnit(MassUnit.Decigram, MassUnit.Gram);
-        public static readonly RatioUnit DecigramPerKilogram =  new RatioUnit(MassUnit.Decigram, MassUnit.Kilogram);
+        public static readonly RatioUnit CentigramPerGram =     new(MassUnit.Centigram, MassUnit.Gram);
+        public static readonly RatioUnit CentigramPerKilogram = new(MassUnit.Centigram, MassUnit.Kilogram);
+        public static readonly RatioUnit DecagramPerGram =      new(MassUnit.Decagram, MassUnit.Gram);
+        public static readonly RatioUnit DecagramPerKilogram =  new(MassUnit.Decagram, MassUnit.Kilogram);
+        public static readonly RatioUnit DecigramPerGram =      new(MassUnit.Decigram, MassUnit.Gram);
+        public static readonly RatioUnit DecigramPerKilogram =  new(MassUnit.Decigram, MassUnit.Kilogram);
 
-        public static readonly RatioUnit GramPerGram =          new RatioUnit(MassUnit.Gram, MassUnit.Gram);
-        public static readonly RatioUnit GramPerKilogram =      new RatioUnit(MassUnit.Gram, MassUnit.Kilogram);
-        public static readonly RatioUnit HectogramPerGram =     new RatioUnit(MassUnit.Hectogram, MassUnit.Gram);
-        public static readonly RatioUnit HectogramPerKilogram = new RatioUnit(MassUnit.Hectogram, MassUnit.Kilogram);
-        public static readonly RatioUnit KilogramPerGram =      new RatioUnit(MassUnit.Kilogram, MassUnit.Gram);
-        public static readonly RatioUnit KilogramPerKilogram =  new RatioUnit(MassUnit.Kilogram, MassUnit.Kilogram);
-        public static readonly RatioUnit MicrogramPerGram =     new RatioUnit(MassUnit.Microgram, MassUnit.Gram);
-        public static readonly RatioUnit MicrogramPerKilogram = new RatioUnit(MassUnit.Microgram, MassUnit.Kilogram);
-        public static readonly RatioUnit MilligramPerGram =     new RatioUnit(MassUnit.Milligram, MassUnit.Gram);
-        public static readonly RatioUnit MilligramPerKilogram = new RatioUnit(MassUnit.Milligram, MassUnit.Kilogram);
-        public static readonly RatioUnit NanogramPerGram =      new RatioUnit(MassUnit.Nanogram, MassUnit.Gram);
-        public static readonly RatioUnit NanogramPerKilogram =  new RatioUnit(MassUnit.Nanogram, MassUnit.Kilogram);
+        public static readonly RatioUnit GramPerGram =          new(MassUnit.Gram, MassUnit.Gram);
+        public static readonly RatioUnit GramPerKilogram =      new(MassUnit.Gram, MassUnit.Kilogram);
+        public static readonly RatioUnit HectogramPerGram =     new(MassUnit.Hectogram, MassUnit.Gram);
+        public static readonly RatioUnit HectogramPerKilogram = new(MassUnit.Hectogram, MassUnit.Kilogram);
+        public static readonly RatioUnit KilogramPerGram =      new(MassUnit.Kilogram, MassUnit.Gram);
+        public static readonly RatioUnit KilogramPerKilogram =  new(MassUnit.Kilogram, MassUnit.Kilogram);
+        public static readonly RatioUnit MicrogramPerGram =     new(MassUnit.Microgram, MassUnit.Gram);
+        public static readonly RatioUnit MicrogramPerKilogram = new(MassUnit.Microgram, MassUnit.Kilogram);
+        public static readonly RatioUnit MilligramPerGram =     new(MassUnit.Milligram, MassUnit.Gram);
+        public static readonly RatioUnit MilligramPerKilogram = new(MassUnit.Milligram, MassUnit.Kilogram);
+        public static readonly RatioUnit NanogramPerGram =      new(MassUnit.Nanogram, MassUnit.Gram);
+        public static readonly RatioUnit NanogramPerKilogram =  new(MassUnit.Nanogram, MassUnit.Kilogram);
 
 
-        public static readonly RatioUnit CentilitersPerLiter =      new RatioUnit(VolumeUnit.Centiliter, VolumeUnit.Liter);
-        public static readonly RatioUnit CentilitersPerMililiter =  new RatioUnit(VolumeUnit.Centiliter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit DecilitersPerLiter =       new RatioUnit(VolumeUnit.Deciliter, VolumeUnit.Liter);
-        public static readonly RatioUnit DecilitersPerMililiter =   new RatioUnit(VolumeUnit.Deciliter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit LitersPerLiter =           new RatioUnit(VolumeUnit.Liter, VolumeUnit.Liter);
-        public static readonly RatioUnit LitersPerMililiter =       new RatioUnit(VolumeUnit.Liter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit MicrolitersPerLiter =      new RatioUnit(VolumeUnit.Microliter, VolumeUnit.Liter);
-        public static readonly RatioUnit MicrolitersPerMililiter =  new RatioUnit(VolumeUnit.Microliter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit MillilitersPerLiter =      new RatioUnit(VolumeUnit.Milliliter, VolumeUnit.Liter);
-        public static readonly RatioUnit MillilitersPerMililiter =  new RatioUnit(VolumeUnit.Milliliter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit NanolitersPerLiter =       new RatioUnit(VolumeUnit.Nanoliter, VolumeUnit.Liter);
-        public static readonly RatioUnit NanolitersPerMililiter =   new RatioUnit(VolumeUnit.Nanoliter, VolumeUnit.Milliliter);
-        public static readonly RatioUnit PicolitersPerLiter =       new RatioUnit(VolumeUnit.Picoliter, VolumeUnit.Liter);
-        public static readonly RatioUnit PicolitersPerMililiter =   new RatioUnit(VolumeUnit.Picoliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit CentilitersPerLiter =      new(VolumeUnit.Centiliter, VolumeUnit.Liter);
+        public static readonly RatioUnit CentilitersPerMililiter =  new(VolumeUnit.Centiliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit DecilitersPerLiter =       new(VolumeUnit.Deciliter, VolumeUnit.Liter);
+        public static readonly RatioUnit DecilitersPerMililiter =   new(VolumeUnit.Deciliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit LitersPerLiter =           new(VolumeUnit.Liter, VolumeUnit.Liter);
+        public static readonly RatioUnit LitersPerMililiter =       new(VolumeUnit.Liter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit MicrolitersPerLiter =      new(VolumeUnit.Microliter, VolumeUnit.Liter);
+        public static readonly RatioUnit MicrolitersPerMililiter =  new(VolumeUnit.Microliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit MillilitersPerLiter =      new(VolumeUnit.Milliliter, VolumeUnit.Liter);
+        public static readonly RatioUnit MillilitersPerMililiter =  new(VolumeUnit.Milliliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit NanolitersPerLiter =       new(VolumeUnit.Nanoliter, VolumeUnit.Liter);
+        public static readonly RatioUnit NanolitersPerMililiter =   new(VolumeUnit.Nanoliter, VolumeUnit.Milliliter);
+        public static readonly RatioUnit PicolitersPerLiter =       new(VolumeUnit.Picoliter, VolumeUnit.Liter);
+        public static readonly RatioUnit PicolitersPerMililiter =   new(VolumeUnit.Picoliter, VolumeUnit.Milliliter);
 
 
 

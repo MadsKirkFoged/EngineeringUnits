@@ -10,28 +10,28 @@ namespace EngineeringUnits.Units
     public class ForceChangeRateUnit : Enumeration
     {
 
-        public static readonly ForceChangeRateUnit SI = new ForceChangeRateUnit(ForceUnit.SI, DurationUnit.SI);
-        public static readonly ForceChangeRateUnit NewtonPerSecond = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Second);
-        public static readonly ForceChangeRateUnit NewtonPerMinute = new ForceChangeRateUnit(ForceUnit.Newton, DurationUnit.Minute);
+        public static readonly ForceChangeRateUnit SI = new(ForceUnit.SI, DurationUnit.SI);
+        public static readonly ForceChangeRateUnit NewtonPerSecond = new(ForceUnit.Newton, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit NewtonPerMinute = new(ForceUnit.Newton, DurationUnit.Minute);
 
-        public static readonly ForceChangeRateUnit PoundForcePerSecond = new ForceChangeRateUnit(ForceUnit.PoundForce, DurationUnit.Second);
-        public static readonly ForceChangeRateUnit PoundForcePerMinute = new ForceChangeRateUnit(ForceUnit.PoundForce, DurationUnit.Minute);
+        public static readonly ForceChangeRateUnit PoundForcePerSecond = new(ForceUnit.PoundForce, DurationUnit.Second);
+        public static readonly ForceChangeRateUnit PoundForcePerMinute = new(ForceUnit.PoundForce, DurationUnit.Minute);
 
-        public static readonly ForceChangeRateUnit KilopoundForcePerSecond = new ForceChangeRateUnit(PreFix.kilo, PoundForcePerSecond);
+        public static readonly ForceChangeRateUnit KilopoundForcePerSecond = new(PreFix.kilo, PoundForcePerSecond);
 
-        public static readonly ForceChangeRateUnit KilopoundForcePerMinute = new ForceChangeRateUnit(PreFix.kilo, PoundForcePerMinute);
+        public static readonly ForceChangeRateUnit KilopoundForcePerMinute = new(PreFix.kilo, PoundForcePerMinute);
 
-        public static readonly ForceChangeRateUnit NanonewtonPerSecond = new ForceChangeRateUnit(PreFix.nano, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit MillinewtonPerSecond = new ForceChangeRateUnit(PreFix.milli, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit MicronewtonPerSecond = new ForceChangeRateUnit(PreFix.micro, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit CentinewtonPerSecond = new ForceChangeRateUnit(PreFix.centi, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit DecanewtonPerSecond = new ForceChangeRateUnit(PreFix.deka, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit DecinewtonPerSecond = new ForceChangeRateUnit(PreFix.deci, NewtonPerSecond);
-        public static readonly ForceChangeRateUnit KilonewtonPerSecond = new ForceChangeRateUnit(PreFix.kilo, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit NanonewtonPerSecond = new(PreFix.nano, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit MillinewtonPerSecond = new(PreFix.milli, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit MicronewtonPerSecond = new(PreFix.micro, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit CentinewtonPerSecond = new(PreFix.centi, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit DecanewtonPerSecond = new(PreFix.deka, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit DecinewtonPerSecond = new(PreFix.deci, NewtonPerSecond);
+        public static readonly ForceChangeRateUnit KilonewtonPerSecond = new(PreFix.kilo, NewtonPerSecond);
 
 
-        public static readonly ForceChangeRateUnit DecanewtonPerMinute = new ForceChangeRateUnit(PreFix.deka, NewtonPerMinute);
-        public static readonly ForceChangeRateUnit KilonewtonPerMinute = new ForceChangeRateUnit(PreFix.kilo, NewtonPerMinute);
+        public static readonly ForceChangeRateUnit DecanewtonPerMinute = new(PreFix.deka, NewtonPerMinute);
+        public static readonly ForceChangeRateUnit KilonewtonPerMinute = new(PreFix.kilo, NewtonPerMinute);
 
 
 

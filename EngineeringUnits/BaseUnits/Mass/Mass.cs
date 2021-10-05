@@ -19,12 +19,12 @@ namespace EngineeringUnits
         public Mass(UnknownUnit value) : base(value) { }
 
 
-        public static Mass From(double value, MassUnit unit) => new Mass(value, unit);
+        public static Mass From(double value, MassUnit unit) => new(value, unit);
         public double As(MassUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Mass ToUnit(MassUnit selectedUnit) => new Mass(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-        public static Mass Zero => new Mass(0, MassUnit.SI);
+        public Mass ToUnit(MassUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public static Mass Zero => new(0, MassUnit.SI);
 
-        public static implicit operator Mass(UnknownUnit Unit) => new Mass(Unit);
+        public static implicit operator Mass(UnknownUnit Unit) => new(Unit);
 
     }
 }
