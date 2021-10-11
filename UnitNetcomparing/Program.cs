@@ -29,7 +29,11 @@ namespace UnitNetcomparing
             Volume volume = new Volume(4, VolumeUnit.CubicMeter);
 
             Density D1 = mass / volume; // 2.5 kg/m³
-            Density D2 = volume / mass; // System.Exception: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg] '
+            //Density D2 = volume / mass; // System.Exception: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg] '
+
+            Debug.Print(mass.GetHashCode().ToString());
+            Debug.Print(volume.GetHashCode().ToString());
+            Debug.Print(D1.GetHashCode().ToString());
 
 
             Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), Pressure.FromBars(10), Pressure.FromBars(20));

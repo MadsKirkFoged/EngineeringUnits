@@ -935,6 +935,26 @@ namespace EngineeringUnits
             return local;
         }
 
+        public override int GetHashCode()
+        {
+
+
+            HashCode hashCode = new HashCode();
+            hashCode.Add(Symbol);
+            hashCode.Add(Length);
+            hashCode.Add(Mass);
+            hashCode.Add(Duration);
+            hashCode.Add(Electriccurrent);
+            hashCode.Add(Temperature);
+            hashCode.Add(Amount);
+            hashCode.Add(LuminousIntensity);
+            hashCode.Add(Combined);
+
+            return hashCode.ToHashCode();
+
+
+        }
+
 
     }
 

@@ -474,12 +474,21 @@ namespace EngineeringUnits
 
         public string ResultWithBaseunit() => $"{BaseunitValue} {Unit}";
 
-        //public override int GetHashCode()
-        //{
-        //    //TODO
+        public override int GetHashCode()
+        {
 
-        //    throw new NotImplementedException();
-        //}
+
+            HashCode hashCode = new HashCode();
+            hashCode.Add(SymbolValue);
+            hashCode.Add(Unit.GetHashCode());
+
+            return hashCode.ToHashCode();
+
+
+
+        }
+
+
     }
 
 
