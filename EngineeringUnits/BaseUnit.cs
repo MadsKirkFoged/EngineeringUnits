@@ -120,19 +120,6 @@ namespace EngineeringUnits
 
         public double As(BaseUnit a) => As(a.Unit);
 
-        //public void Transform(UnknownUnit a)
-        //{
-        //    if (a.unitsystem != Unit)
-        //    {
-        //        throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");
-        //    }                       
-
-        //    //SetValue(a.baseUnit.ToTheOutSide(Unit));
-
-        //    SymbolValue = a.baseUnit.ToTheOutSide(Unit);
-        //}
-
-
         public void UnitCheck(UnknownUnit a)
         {
 
@@ -142,7 +129,6 @@ namespace EngineeringUnits
             }
 
         }
-
 
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
@@ -434,13 +420,6 @@ namespace EngineeringUnits
 
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
-
-
-        //protected void SetValue(int value)  => SetValue((decimal)value);
-        //protected void SetValue(double value) => SetValue((decimal)value);
-        //protected void SetValue(decimal value) => SymbolValue = value / 1.000000000000000000000000000000000m;
-
-
 
         public decimal ToTheOutSide(UnitSystem To)
         {
