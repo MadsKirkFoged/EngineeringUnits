@@ -735,6 +735,7 @@ namespace EngineeringUnits
             return b;
         }
 
+        public decimal ConvertToBaseUnit() => (decimal)(GetCombi() / GetActualC());
 
         public override string ToString()
         {
@@ -939,7 +940,7 @@ namespace EngineeringUnits
         {
 
 
-            HashCode hashCode = new HashCode();
+            HashCode hashCode = new();
             hashCode.Add(Symbol);
             hashCode.Add(Length);
             hashCode.Add(Mass);
@@ -954,7 +955,6 @@ namespace EngineeringUnits
 
 
         }
-
 
     }
 

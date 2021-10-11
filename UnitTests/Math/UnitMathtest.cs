@@ -113,6 +113,7 @@ namespace UnitTests
         {
             Length twoMeters = Length.From(2, LengthUnit.Meter);
 
+            var powMinus3 = twoMeters.Pow(-3);
             var powMinus2 = twoMeters.Pow(-2);
             var powMinus1 = twoMeters.Pow(-1);
             var pow0 = twoMeters.Pow(0);
@@ -120,6 +121,7 @@ namespace UnitTests
             var pow2 = twoMeters.Pow(2);
             var pow3 = twoMeters.Pow(3);
 
+            Assert.AreEqual(Math.Pow(2, -3), powMinus3.SI);
             Assert.AreEqual(Math.Pow(2, -2), powMinus2.SI);
             Assert.AreEqual(Math.Pow(2, -1), powMinus1.SI);
             Assert.AreEqual(Math.Pow(2, 0), pow0.SI);

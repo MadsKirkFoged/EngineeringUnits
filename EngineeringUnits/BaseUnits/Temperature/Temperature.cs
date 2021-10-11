@@ -16,12 +16,10 @@ namespace EngineeringUnits
         {
 
             Unit = selectedUnit.Unit;
-            SetValue(value);
+            SymbolValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
@@ -30,7 +28,7 @@ namespace EngineeringUnits
         {
 
             Unit = selectedUnit.Unit;
-            SetValue(value);
+            SymbolValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
@@ -45,7 +43,7 @@ namespace EngineeringUnits
 
             //Unit = selectedUnit.Unit.Copy();
             Unit = selectedUnit.Unit;
-            SetValue(value);
+            SymbolValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
@@ -54,6 +52,8 @@ namespace EngineeringUnits
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
+
+        public Temperature(UnknownUnit value) : base(value) { }
 
         public static Temperature From(double value, TemperatureUnit unit) => new(value, unit);
 
@@ -65,13 +65,15 @@ namespace EngineeringUnits
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
 
-        public static implicit operator Temperature(UnknownUnit Unit)
-        {
-            Temperature local = new(0, TemperatureUnit.SI);
+        //public static implicit operator Temperature(UnknownUnit Unit)
+        //{
+        //    Temperature local = new(0, TemperatureUnit.SI);
 
-            local.Transform(Unit);
-            return local;
-        }
+        //    local.Transform(Unit);
+        //    return local;
+        //}
+
+        public static implicit operator Temperature(UnknownUnit Unit) => new(Unit);
 
 
 

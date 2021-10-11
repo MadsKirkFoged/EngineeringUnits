@@ -108,5 +108,11 @@ namespace EngineeringUnits
 
         public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max) => baseUnit.InRangeOf(Min, Max);
 
+
+        public override int GetHashCode()
+        {
+            return baseUnit.GetHashCode();
+        }
+
     }
 }

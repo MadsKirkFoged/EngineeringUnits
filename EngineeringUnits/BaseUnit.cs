@@ -18,10 +18,10 @@ namespace EngineeringUnits
         public bool Inf { get; set; }
 
         [JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public UnitSystem Unit { get; set;}
+        public UnitSystem Unit { get; init;}
 
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        protected decimal SymbolValue { get; set; }
+        protected decimal SymbolValue { get; init; }
         public decimal BaseunitValue => SymbolValue * ConvertToBaseUnit();
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
@@ -34,7 +34,18 @@ namespace EngineeringUnits
 
         public BaseUnit(double valueLocalUnit) :this()
         {
-            SymbolValue = (decimal)valueLocalUnit;
+            if (double.IsInfinity(valueLocalUnit) || valueLocalUnit > (double)decimal.MaxValue || valueLocalUnit < (double)decimal.MinValue || double.IsNaN(valueLocalUnit))
+            {
+                SymbolValue = 0;
+                Inf = true;
+            }
+            else
+            {                
+                SymbolValue = (decimal)valueLocalUnit;
+                Inf = false;
+            }
+
+
         }
 
 
@@ -42,7 +53,8 @@ namespace EngineeringUnits
         {
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
-            SetValue(value);
+            //SetValue(value);
+            SymbolValue = value / 1.000000000000000000000000000000000m;
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
@@ -51,24 +63,30 @@ namespace EngineeringUnits
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
 
-            if (value < (double)Decimal.MinValue || value > (double)Decimal.MaxValue || Double.IsNaN(value))            
-                SetValue(0);            
-            else            
-                SetValue(value);          
+            if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
+            {
+                Inf = true;
+                SymbolValue = 0;           
+            }
+            else
+            {
+                Inf = false;
+                SymbolValue = (decimal)value;         
+            }
         }
 
         public BaseUnit(int value, UnitSystem unitSystem)
         {
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
-            SetValue(value);
+            SymbolValue = (decimal)value;
         }
 
         public BaseUnit(UnknownUnit unit)
         {
 
             Unit = unit.unitsystem;
-            SetValue(unit.baseUnit.ToTheOutSide(Unit));
+            SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
 
 
             UnitCheck(unit);
@@ -80,9 +98,10 @@ namespace EngineeringUnits
                 Unit = unitSystem;            
             else            
                 Unit = unit.unitsystem;
-            
 
-            SetValue(unit.baseUnit.ToTheOutSide(Unit));
+
+            //SetValue(unit.baseUnit.ToTheOutSide(Unit));
+            SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
             Inf = unit.baseUnit.Inf;
 
             UnitCheck(unit);
@@ -101,15 +120,17 @@ namespace EngineeringUnits
 
         public double As(BaseUnit a) => As(a.Unit);
 
-        public void Transform(UnknownUnit a)
-        {
-            if (a.unitsystem != Unit)
-            {
-                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");
-            }                       
+        //public void Transform(UnknownUnit a)
+        //{
+        //    if (a.unitsystem != Unit)
+        //    {
+        //        throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");
+        //    }                       
 
-            SetValue(a.baseUnit.ToTheOutSide(Unit));
-        }
+        //    //SetValue(a.baseUnit.ToTheOutSide(Unit));
+
+        //    SymbolValue = a.baseUnit.ToTheOutSide(Unit);
+        //}
 
 
         public void UnitCheck(UnknownUnit a)
@@ -270,8 +291,10 @@ namespace EngineeringUnits
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
-            BaseUnit local = new();   
-            decimal x3Test = 0;
+            //BaseUnit local = new();
+            UnitSystem LocalUnit = new();
+            bool LocalINF = false;
+            decimal X3 = 0;
 
 
             //Turn both into Baseunits
@@ -285,75 +308,75 @@ namespace EngineeringUnits
                 case MathEnum.Add:                   
 
                     //Value math
-                    x3Test = left.BaseunitValue + testRightConverted;
+                    X3 = left.BaseunitValue + testRightConverted;
 
                     //Unit math
-                    local.Unit = left.Unit + right.Unit;
+                    LocalUnit = left.Unit + right.Unit;
                     break;
                 case MathEnum.Subtract:
 
                     //Value math
-                    x3Test = left.BaseunitValue - testRightConverted;
+                    X3 = left.BaseunitValue - testRightConverted;
 
                     //Unit math
-                    local.Unit = left.Unit- right.Unit;
+                    //local.Unit = left.Unit- right.Unit;
+                    LocalUnit = left.Unit - right.Unit;
                     break;
                 case MathEnum.Multiply:
 
                     //Value math
-                    x3Test = left.BaseunitValue * testRightConverted;
+                    X3 = left.BaseunitValue * testRightConverted;
 
                     //Unit math
-                    local.Unit = left.Unit * right.Unit;
+                    //local.Unit = left.Unit * right.Unit;
+                    LocalUnit = left.Unit * right.Unit;
                     break;
                 case MathEnum.Divide:
 
                     //Value math
                     if (testRightConverted != 0)
                     {
-                        x3Test = left.BaseunitValue / testRightConverted;
-                        local.Inf = false;
+                        X3 = left.BaseunitValue / testRightConverted;
+                        LocalINF = false;
                     }
                     else
                     {
-                        x3Test = 0;
-                        local.Inf = true;
+                        X3 = 0;
+                        LocalINF = true;
                     }
 
                     //Unit math
-                    local.Unit = left.Unit / right.Unit;
+                    LocalUnit = left.Unit / right.Unit;
                     break;
                 default:
                     break;
             }
 
             if (left.Inf || right.Inf)
-                local.Inf = true;
+                LocalINF = true;
 
             //Convert back to New unitsystem
-            decimal x3TestConvertedBack = x3Test / local.ConvertToBaseUnit();
-
-            //Removing traling zeros
-            local.SymbolValue = x3TestConvertedBack / 1.000000000000000000000000000000000m;
+            decimal x3TestConvertedBack = X3 / LocalUnit.ConvertToBaseUnit();
 
 
-            return local;
+            //return local;
+            if (LocalINF)
+            {
+                return new BaseUnit(double.PositiveInfinity, LocalUnit);
+            }
+            else
+            {
+                return new BaseUnit(x3TestConvertedBack, LocalUnit);
+            }
         }
 
 
         public UnknownUnit Abs()
         {
-
-            UnknownUnit local = new();
-            local.baseUnit.Unit = Unit;
-            local.baseUnit.SymbolValue = SymbolValue;
-
             if (SymbolValue < 0)
-                local.baseUnit.SymbolValue *= -1;
-            
-
-
-            return local;
+                return this * -1;
+            else         
+                return this;
         }
 
 
@@ -361,30 +384,24 @@ namespace EngineeringUnits
         public UnknownUnit Pow(int toPower)
         {
 
-            if (toPower == 1)            
-                return this;
+            UnknownUnit localtest = this;
             
-            UnknownUnit local = new();
-            local.baseUnit.Unit = new();
-            local.baseUnit.SymbolValue = 1;
-
-
             if (toPower == 0)
-                return local;
+                return 1;
 
 
             if (toPower > 1)            
-                for (int i = 0; i < toPower; i++)                
-                    local *= this;
+                for (int i = 1; i < toPower; i++)
+                    localtest *= this;
 
 
             if (toPower < 0)            
-                for (int i = 0; i > toPower; i--)                
-                    local /= this;            
+                for (int i = 1; i > toPower; i--)
+                    localtest /= this;            
 
 
 
-            return local;
+            return localtest;
         }
 
         public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max)
@@ -419,9 +436,9 @@ namespace EngineeringUnits
         
 
 
-        protected void SetValue(int value)  => SetValue((decimal)value);
-        protected void SetValue(double value) => SetValue((decimal)value);
-        protected void SetValue(decimal value) => SymbolValue = value;
+        //protected void SetValue(int value)  => SetValue((decimal)value);
+        //protected void SetValue(double value) => SetValue((decimal)value);
+        //protected void SetValue(decimal value) => SymbolValue = value / 1.000000000000000000000000000000000m;
 
 
 

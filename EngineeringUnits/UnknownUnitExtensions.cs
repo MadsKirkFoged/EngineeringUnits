@@ -33,10 +33,10 @@ namespace EngineeringUnits
 			{
 				return (Mass) toCast;
 			}
-			if (toCast.unitsystem == TemperatureDeltaUnit.SI.Unit)
-			{
-				return (TemperatureDelta) toCast;
-			}
+			//if (toCast.unitsystem == TemperatureDeltaUnit.SI.Unit)
+			//{
+			//	return (TemperatureDelta) toCast;
+			//}
 			if (toCast.unitsystem == TemperatureUnit.SI.Unit)
 			{
 				return (Temperature) toCast;

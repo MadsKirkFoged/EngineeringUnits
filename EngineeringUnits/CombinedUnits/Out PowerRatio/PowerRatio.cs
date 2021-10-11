@@ -16,6 +16,7 @@ namespace EngineeringUnits
         public PowerRatio(decimal value, PowerRatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public PowerRatio(double value, PowerRatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public PowerRatio(int value, PowerRatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public PowerRatio(UnknownUnit value) : base(value) { }
 
 
         public static PowerRatio From(double value, PowerRatioUnit unit) => new(value, unit);
@@ -23,13 +24,7 @@ namespace EngineeringUnits
         public PowerRatio ToUnit(PowerRatioUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PowerRatio Zero => new(0, PowerRatioUnit.SI);
 
-        public static implicit operator PowerRatio(UnknownUnit Unit)
-        {
-            PowerRatio local = new(0, PowerRatioUnit.SI);
-
-            local.Transform(Unit);
-            return local;
-        }
+        public static implicit operator PowerRatio(UnknownUnit Unit) => new(Unit);
 
 
 

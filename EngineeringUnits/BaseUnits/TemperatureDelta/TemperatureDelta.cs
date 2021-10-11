@@ -15,45 +15,45 @@ namespace EngineeringUnits
 
         public TemperatureDelta()
         {
-            Unit = TemperatureUnit.SI.Unit.Copy();
+            //Unit = TemperatureUnit.SI.Unit.Copy();
         }
 
         public TemperatureDelta(int value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit = selectedUnit.Unit;
-            SetValue(value);
+            //Unit = selectedUnit.Unit;
+            //SetValue(value);
 
-            //Forcing all TemperatureDeltas to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            ////Forcing all TemperatureDeltas to stay in kelvin
+            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
         public TemperatureDelta(double value, TemperatureUnit selectedUnit) :this()
         {
 
-            Unit = selectedUnit.Unit;
-            SetValue(value);
+            //Unit = selectedUnit.Unit;
+            //SetValue(value);
 
-            //Forcing all TemperatureDeltas to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            ////Forcing all TemperatureDeltas to stay in kelvin
+            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
         public TemperatureDelta(decimal value, TemperatureUnit selectedUnit) : this()
         {
 
-            Unit = selectedUnit.Unit.Copy();
-            SetValue(value);
+            //Unit = selectedUnit.Unit.Copy();
+            //SetValue(value);
 
-            //Forcing all TemperatureDeltas to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit.Copy();
+            ////Forcing all TemperatureDeltas to stay in kelvin
+            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
         }
 
@@ -71,7 +71,7 @@ namespace EngineeringUnits
         {
             TemperatureDelta local = new(0, TemperatureUnit.SI);
 
-            local.Transform(Unit);
+            //local.Transform(Unit);
             return local;
         }
 
