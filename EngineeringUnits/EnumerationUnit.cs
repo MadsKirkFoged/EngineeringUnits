@@ -143,11 +143,6 @@ namespace EngineeringUnits
 
                _ => 0
            };
-
-
-       
-
-
         public static string PrefixSISymbol(PreFix preFix) =>
            preFix switch
            {
@@ -174,10 +169,6 @@ namespace EngineeringUnits
 
                _ => ""
            };
-
-       
-
-
         public static string BaseUnitSISymbol(BaseUnits baseUnits) =>
            baseUnits switch
            {
@@ -192,8 +183,6 @@ namespace EngineeringUnits
            };
 
         
-
-
         public void SetCombined(decimal correction)
         {
             decimal correction2 = 1;

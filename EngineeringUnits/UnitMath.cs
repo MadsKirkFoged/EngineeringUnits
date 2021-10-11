@@ -25,7 +25,7 @@ namespace EngineeringUnits
             UnknownUnit test = new(0, list.First().Unit);
 
             foreach (var item in list)        
-                test += item;            
+                test += item;
 
             return test;
         }
@@ -126,7 +126,7 @@ namespace EngineeringUnits
 
 
 
-        static public UnknownUnit LinearInterpolation(UnknownUnit x, UnknownUnit x0, UnknownUnit x1, UnknownUnit y0, UnknownUnit y1)
+        public static UnknownUnit LinearInterpolation(UnknownUnit x, UnknownUnit x0, UnknownUnit x1, UnknownUnit y0, UnknownUnit y1)
         {
 
             if (x1 == x0)

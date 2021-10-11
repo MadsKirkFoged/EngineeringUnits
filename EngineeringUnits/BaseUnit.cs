@@ -15,7 +15,7 @@ namespace EngineeringUnits
     public class BaseUnit : IComparable
     {
 
-        public bool Inf { get; set; }
+        public bool Inf { get; init; }
 
         [JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public UnitSystem Unit { get; init;}
