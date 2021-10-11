@@ -25,6 +25,12 @@ namespace UnitNetcomparing
 
             //Inf
 
+            Mass mass = new Mass(10, MassUnit.Kilogram);
+            Volume volume = new Volume(4, VolumeUnit.CubicMeter);
+
+            Density D1 = mass / volume; // 2.5 kg/m³
+            Density D2 = volume / mass; // System.Exception: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg] '
+
 
             Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), Pressure.FromBars(10), Pressure.FromBars(20));
 
@@ -116,7 +122,7 @@ namespace UnitNetcomparing
             //Debug.Print($"{f3}");
             //Debug.Print($"{f4}");
 
-            Mass mass = new Mass(1, MassUnit.Centigram);
+            //Mass mass = new Mass(1, MassUnit.Centigram);
             Duration d = new Duration(1, DurationUnit.Minute);
 
             MassFlow M0 = mass / d;

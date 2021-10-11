@@ -64,7 +64,7 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
-                throw new InvalidOperationException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
             return (double)Unit.baseUnit.BaseunitValue;
@@ -84,7 +84,7 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit.baseUnit.Unit)
             {
-                throw new InvalidOperationException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
             }
 
             return (decimal)Unit.baseUnit.BaseunitValue;

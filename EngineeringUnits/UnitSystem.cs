@@ -106,7 +106,7 @@ namespace EngineeringUnits
 
             if (a != b)
             {
-                throw new InvalidOperationException($"Failed to do: {a} + {b}. Expected both units to be the same!");
+                throw new WrongUnitException($"Failed to do: {a} + {b}. Expected both units to be the same!");
             }
 
             //Using a unitsystem as the final system
@@ -117,7 +117,7 @@ namespace EngineeringUnits
         {
             if (a != b)
             {
-                throw new InvalidOperationException($"Failed to do: {a} - {b}. Expected both units to be the same!");
+                throw new WrongUnitException($"Failed to do: {a} - {b}. Expected both units to be the same!");
             }
 
             //Subtract does the same to a unit as add

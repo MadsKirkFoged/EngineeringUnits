@@ -105,7 +105,7 @@ namespace EngineeringUnits
         {
             if (a.unitsystem != Unit)
             {
-                throw new($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");
             }                       
 
             SetValue(a.baseUnit.ToTheOutSide(Unit));
@@ -117,7 +117,7 @@ namespace EngineeringUnits
 
             if (a.unitsystem != Unit)
             {
-                throw new($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");
             }
 
         }
@@ -127,7 +127,7 @@ namespace EngineeringUnits
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '+' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '+' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Add);
         }
@@ -135,7 +135,7 @@ namespace EngineeringUnits
         {
 
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '-' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '-' on two differnt units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Subtract);
         }
@@ -164,7 +164,7 @@ namespace EngineeringUnits
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '==' on two differnt units!");
+                throw new WrongUnitException($"Cant do '==' on two differnt units!");
             
 
             return (double)left.SymbolValue == right.As(left);
@@ -172,35 +172,35 @@ namespace EngineeringUnits
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '!=' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '!=' on two differnt units!");            
 
             return (double)left.SymbolValue != right.As(left);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '<=' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '<=' on two differnt units!");            
 
             return (double)left.SymbolValue <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '>=' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '>=' on two differnt units!");            
 
             return (double)left.SymbolValue >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '<' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '<' on two differnt units!");            
 
             return (double)left.SymbolValue < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new($"Cant do '>' on two differnt units!");            
+                throw new WrongUnitException($"Cant do '>' on two differnt units!");            
 
             return (double)left.SymbolValue > right.As(left);
         }
@@ -462,7 +462,7 @@ namespace EngineeringUnits
             BaseUnit local = (BaseUnit)obj; 
 
             if (Unit != local.Unit)            
-                throw new($"Cant do CompareTo on two differnt units!");
+                throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
             
 
             return (int)((double)SymbolValue - local.As(this));
