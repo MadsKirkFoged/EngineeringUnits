@@ -21,5 +21,12 @@ namespace EngineeringUnits
 
         public static implicit operator VolumeFlow(UnknownUnit Unit) => new(Unit, VolumeFlowUnit.SI);
 
+        public static implicit operator VolumeFlow(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
