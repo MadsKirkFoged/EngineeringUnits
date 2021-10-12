@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static MassMomentOfInertia Zero => new(0, MassMomentOfInertiaUnit.SI);
 
         public static implicit operator MassMomentOfInertia(UnknownUnit Unit) => new(Unit, MassMomentOfInertiaUnit.SI);
+
+        public static implicit operator MassMomentOfInertia(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
