@@ -20,5 +20,14 @@ namespace EngineeringUnits
         public static TorquePerLength Zero => new(0, TorquePerLengthUnit.SI);
 
         public static implicit operator TorquePerLength(UnknownUnit Unit) => new(Unit, TorquePerLengthUnit.SI);
+
+        public static implicit operator TorquePerLength(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
+
     }
 }
