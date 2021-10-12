@@ -19,5 +19,13 @@ namespace EngineeringUnits
         public static TemperatureChangeRate Zero => new(0, TemperatureChangeRateUnit.SI);
 
         public static implicit operator TemperatureChangeRate(UnknownUnit Unit) => new(Unit, TemperatureChangeRateUnit.SI);
+
+        public static implicit operator TemperatureChangeRate(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
