@@ -20,7 +20,15 @@ namespace EngineeringUnits
         public Power ToUnit(PowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Power Zero => new(0, PowerUnit.SI);
 
-        public static implicit operator Power(UnknownUnit Unit) => new(Unit, PowerUnit.SI);       
+        public static implicit operator Power(UnknownUnit Unit) => new(Unit, PowerUnit.SI);
+
+        public static implicit operator Power(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
 
     }
 }
