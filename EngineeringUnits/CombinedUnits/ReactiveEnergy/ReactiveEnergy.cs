@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
 
         public static implicit operator ReactiveEnergy(UnknownUnit Unit) => new(Unit, ReactiveEnergyUnit.SI);
+
+        public static implicit operator Mass(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
