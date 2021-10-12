@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static LuminousFlux Zero => new(0, LuminousFluxUnit.SI);
 
         public static implicit operator LuminousFlux(UnknownUnit Unit) => new(Unit, LuminousFluxUnit.SI);
+
+        public static implicit operator LuminousFlux(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
