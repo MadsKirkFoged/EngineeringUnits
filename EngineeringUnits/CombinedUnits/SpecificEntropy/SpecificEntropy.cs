@@ -19,5 +19,13 @@ namespace EngineeringUnits
         public static SpecificEntropy Zero => new(0, SpecificEntropyUnit.SI);
 
         public static implicit operator SpecificEntropy(UnknownUnit Unit) => new(Unit, SpecificEntropyUnit.SI);
+
+        public static implicit operator SpecificEntropy(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
