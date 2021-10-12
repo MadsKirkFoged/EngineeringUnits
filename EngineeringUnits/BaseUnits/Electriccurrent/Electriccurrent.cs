@@ -22,5 +22,13 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit) => new(Unit, ElectricCurrentUnit.SI);
 
+        public static implicit operator ElectricCurrent(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
+
     }
 }
