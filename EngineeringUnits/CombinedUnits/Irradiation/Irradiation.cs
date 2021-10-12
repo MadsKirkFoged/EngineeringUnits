@@ -21,5 +21,13 @@ namespace EngineeringUnits
 
         public static implicit operator Irradiation(UnknownUnit Unit) => new(Unit, IrradiationUnit.SI);
 
+        public static implicit operator Irradiation(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
+
     }
 }
