@@ -21,5 +21,13 @@ namespace EngineeringUnits
 
         public static implicit operator MolarEntropy(UnknownUnit Unit) => new(Unit, MolarEntropyUnit.SI);
 
+        public static implicit operator MolarEntropy(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
+
     }
 }
