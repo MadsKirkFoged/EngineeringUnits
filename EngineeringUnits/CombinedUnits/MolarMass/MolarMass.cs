@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static MolarMass Zero => new(0, MolarMassUnit.SI);
 
         public static implicit operator MolarMass(UnknownUnit Unit) => new(Unit, MolarMassUnit.SI);
+
+        public static implicit operator MolarMass(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
