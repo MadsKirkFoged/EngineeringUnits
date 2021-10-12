@@ -19,5 +19,13 @@ namespace EngineeringUnits
         public static SpecificWeight Zero => new(0, SpecificWeightUnit.SI);
 
         public static implicit operator SpecificWeight(UnknownUnit Unit) => new(Unit, SpecificWeightUnit.SI);
+
+        public static implicit operator SpecificWeight(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
