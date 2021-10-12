@@ -21,6 +21,12 @@ namespace EngineeringUnits
 
         public static implicit operator SpecificEnergy(UnknownUnit Unit) => new(Unit, SpecificEnergyUnit.SI);
 
+        public static implicit operator SpecificEnergy(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
 
+            return Zero;
+        }
     }
 }
