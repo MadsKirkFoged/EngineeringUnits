@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static Pressure Zero => new(0, PressureUnit.SI);
 
         public static implicit operator Pressure(UnknownUnit Unit) => new(Unit, PressureUnit.SI);
+
+        public static implicit operator Pressure(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
