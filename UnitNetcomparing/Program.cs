@@ -27,7 +27,12 @@ namespace UnitNetcomparing
             Mass M2 = new Mass(2, MassUnit.Megapound);
             Mass M3 = new Mass(77644, MassUnit.Milligram);
             Mass M4 = new Mass(345, MassUnit.Pound);
+            Mass M5 = 0;
 
+            if (M4.IsNotZero())
+            {
+
+            }
 
             Mass MinMass = UnitMath.Min(M1, M2, M3, M4);    //7.764e+04 mg
             Mass MaxMass = UnitMath.Max(M1, M2, M3, M4);    //2 Mlb

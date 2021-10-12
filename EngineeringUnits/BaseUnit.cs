@@ -416,6 +416,15 @@ namespace EngineeringUnits
             
         }
 
+        public bool IsZero()
+        {
+            return BaseunitValue == 0;
+        }
+
+        public bool IsNotZero()
+        {
+            return !IsZero();
+        }
 
 
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());

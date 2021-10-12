@@ -11,36 +11,10 @@ namespace EngineeringUnits
         public BaseUnit baseUnit { get; set; }
 
 
-        public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
-
-        public UnitSystem unitsystem => baseUnit.Unit;
-
-        [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => baseUnit.Value;
-
-        public double SI => (double)baseUnit.BaseunitValue;
-
-        public UnknownUnit()
-        {
-            baseUnit = new BaseUnit();
-        }
-
-        public UnknownUnit(double valueLocalUnit)
-        {
-            baseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
-
-        }
-
-        public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem)
-        {
-            baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
-        }
-
-        public UnknownUnit(BaseUnit baseunit)
-        {
-            baseUnit = baseunit;
-        }
-
+        public UnknownUnit() => baseUnit = new BaseUnit();
+        public UnknownUnit(double valueLocalUnit) => baseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
+        public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
+        public UnknownUnit(BaseUnit baseunit) => baseUnit = baseunit;
 
 
         public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left.baseUnit * right.baseUnit;
@@ -71,15 +45,10 @@ namespace EngineeringUnits
             return (double)Unit.baseUnit.BaseunitValue;
         }
 
-        public static implicit operator UnknownUnit(double Unit)
-        {
-            return new UnknownUnit(Unit);
-        }
+        public static implicit operator UnknownUnit(double Unit) => new (Unit);
 
-        public static implicit operator UnknownUnit(int Unit)
-        {
-            return new UnknownUnit(Unit);
-        }
+        public static implicit operator UnknownUnit(int Unit) => new (Unit);
+ 
 
         public static explicit operator decimal(UnknownUnit Unit)
         {
@@ -92,10 +61,17 @@ namespace EngineeringUnits
         }
 
         //Im not sure about this!
-        public static explicit operator BaseUnit(UnknownUnit Unit)
-        {          
-            return Unit.baseUnit;
-        }
+        public static explicit operator BaseUnit(UnknownUnit Unit) => Unit.baseUnit;
+
+
+        public double As(UnknownUnit a) => baseUnit.As(a.baseUnit);
+
+        public UnitSystem unitsystem => baseUnit.Unit;
+
+        [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
+        public double Value => baseUnit.Value;
+
+        public double SI => (double)baseUnit.BaseunitValue;
 
         public override string ToString()
         {
@@ -108,12 +84,8 @@ namespace EngineeringUnits
         public UnknownUnit Abs() => baseUnit.Abs();
 
         public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max) => baseUnit.InRangeOf(Min, Max);
+        public override int GetHashCode() => baseUnit.GetHashCode();
 
-
-        public override int GetHashCode()
-        {
-            return baseUnit.GetHashCode();
-        }
 
     }
 }

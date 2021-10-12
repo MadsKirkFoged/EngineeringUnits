@@ -7,6 +7,8 @@ namespace EngineeringUnits
     public partial class Mass : BaseUnit
     {
 
+
+
         public Mass()
         {
             Unit = MassUnit.SI.Unit;
@@ -25,6 +27,16 @@ namespace EngineeringUnits
         public static Mass Zero => new(0, MassUnit.SI);
 
         public static implicit operator Mass(UnknownUnit Unit) => new(Unit);
+
+        public static implicit operator Mass(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
+    
+
 
     }
 }
