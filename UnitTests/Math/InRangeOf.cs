@@ -22,12 +22,16 @@ namespace UnitTests
             Power f7 = new(-19, PowerUnit.KilojoulePerHour);
             Power f8 = f7.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
+            Power f9 = new(4, PowerUnit.Watt);
+            Power f10 = f9.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
+
 
 
             Assert.AreEqual(5, f2.Watts);
             Assert.AreEqual(17, f4.KilojoulesPerHour);
             Assert.AreEqual(-17, f6.KilojoulesPerHour);
             Assert.AreEqual(-5, f8.Watts);
+            Assert.AreEqual(4, f10.Watts);
         }
 
       

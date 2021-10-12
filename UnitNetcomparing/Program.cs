@@ -23,13 +23,25 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
+            Mass M1 = new Mass(43, MassUnit.Kilogram);
+            Mass M2 = new Mass(2, MassUnit.Megapound);
+            Mass M3 = new Mass(77644, MassUnit.Milligram);
+            Mass M4 = new Mass(345, MassUnit.Pound);
+
+
+            Mass MinMass = UnitMath.Min(M1, M2, M3, M4);    //7.764e+04 mg
+            Mass MaxMass = UnitMath.Max(M1, M2, M3, M4);    //2 Mlb
+            Mass MaxAvg = UnitMath.Average(M1, M2, M3, M4); //2.268e+05 kg
+            Mass MaxSum = UnitMath.Sum(M1, M2, M3, M4);     //9.074e+05 kg
+
+
             //Inf
 
             Mass mass = new Mass(10, MassUnit.Kilogram);
             Volume volume = new Volume(0, VolumeUnit.CubicMeter);
 
             Density D1 = mass / volume; // 2.5 kg/m³
-            //Density D2 = volume / mass; // System.Exception: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg] '
+            //Density D2 = volume / mass; // WrongUnitException: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
 
             Debug.Print(mass.GetHashCode().ToString());
             Debug.Print(volume.GetHashCode().ToString());
@@ -134,7 +146,7 @@ namespace UnitNetcomparing
             Debug.Print($"{M0}");
 
 
-            MassFlow M11 = new MassFlow(10, MassFlowUnit.HectogramPerSecond);
+            MassFlow M11 = new MassFlow(-10, MassFlowUnit.KilogramPerSecond);
 
             MassFlow M22 = M11.Abs();
             Debug.Print($"{M22}");
@@ -149,18 +161,18 @@ namespace UnitNetcomparing
 
 
 
-            IEnumerable<BaseUnit> exporters = typeof(BaseUnit)
-            .Assembly.GetTypes()
-            .Where(t => t.IsSubclassOf(typeof(BaseUnit)))
-            .Select(t => (BaseUnit)Activator.CreateInstance(t));
+            //IEnumerable<BaseUnit> exporters = typeof(BaseUnit)
+            //.Assembly.GetTypes()
+            //.Where(t => t.IsSubclassOf(typeof(BaseUnit)))
+            //.Select(t => (BaseUnit)Activator.CreateInstance(t));
 
 
 
-            foreach (BaseUnit item in exporters)
-            {
-                //Print name of unit
-                Console.WriteLine(item.GetType());
-            }
+            //foreach (BaseUnit item in exporters)
+            //{
+            //    //Print name of unit
+            //    Console.WriteLine(item.GetType());
+            //}
 
 
 
@@ -187,8 +199,8 @@ namespace UnitNetcomparing
 
             //How much Power (Watt) does it take to heat up the water
             SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-            MassFlow M2 = new MassFlow(4, MassFlowUnit.KilogramPerSecond);
+            //MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+            //MassFlow M2 = new MassFlow(4, MassFlowUnit.KilogramPerSecond);
             Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
             Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
 
@@ -209,7 +221,6 @@ namespace UnitNetcomparing
 
             //Calculate Area of a square equal sides of 4.3 Foot
             Length L1 = new Length(4.3, LengthUnit.Foot);
-
             Area A1 = L1.Pow(2);
 
             Debug.Print($"Area: {A1}");
