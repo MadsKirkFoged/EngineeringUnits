@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static Permeability Zero => new(0, PermeabilityUnit.SI);
 
         public static implicit operator Permeability(UnknownUnit Unit) => new(Unit, PermeabilityUnit.SI);
+
+        public static implicit operator Permeability(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
