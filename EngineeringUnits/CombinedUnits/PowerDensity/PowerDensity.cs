@@ -20,5 +20,13 @@ namespace EngineeringUnits
         public static PowerDensity Zero => new(0, PowerDensityUnit.SI);
 
         public static implicit operator PowerDensity(UnknownUnit Unit) => new(Unit, PowerDensityUnit.SI);
+
+        public static implicit operator PowerDensity(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
+
+            return Zero;
+        }
     }
 }
