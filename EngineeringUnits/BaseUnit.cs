@@ -134,15 +134,15 @@ namespace EngineeringUnits
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '+' on two differnt units!");            
+                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");            
 
             return BaseUnit.DoMath(left, right, MathEnum.Add);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
 
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '-' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
 
             return BaseUnit.DoMath(left, right, MathEnum.Subtract);
         }
@@ -170,44 +170,44 @@ namespace EngineeringUnits
         }
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '==' on two differnt units!");
-            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
+
 
             return (double)left.SymbolValue == right.As(left);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '!=' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] != [{right.Unit}]. Can't compare two different units!");
 
             return (double)left.SymbolValue != right.As(left);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '<=' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] <= [{right.Unit}]. Can't compare two different units!");
 
             return (double)left.SymbolValue <= right.As(left);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '>=' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] >= [{right.Unit}]. Can't compare two different units!");
 
             return (double)left.SymbolValue >= right.As(left);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '<' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] < [{right.Unit}]. Can't compare two different units!");
 
             return (double)left.SymbolValue < right.As(left);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Cant do '>' on two differnt units!");            
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] > [{right.Unit}]. Can't compare two different units!");
 
             return (double)left.SymbolValue > right.As(left);
         }
