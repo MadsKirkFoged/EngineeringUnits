@@ -75,10 +75,13 @@ MassFlow M1 = new MassFlow(10, MassFlowUnit.HectogramPerSecond); //-10 kg/s
 MassFlow M2 = M1.Abs(); //10 kg/s                   
 ```
 
-###### To the power of
+###### Powers and Square Roots
 ```C#
-Length L1 = new Length(4.3, LengthUnit.Foot);
-Area A1 = L1.Pow(2);  //1.718 m²                 
+Length L1 = new Length(54.3, LengthUnit.Foot); //16.55064 m
+
+Area A1 = L1.Pow(2);  //273.9236844096 m²    
+
+Length L2 = A1.Sqrt(); //16.55064 m               
 ```
 
 ###### Get the min/max/Average/Sum
