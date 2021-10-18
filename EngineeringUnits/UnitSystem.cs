@@ -936,6 +936,88 @@ namespace EngineeringUnits
             return local;
         }
 
+        public UnitSystem Sqrt()
+        {
+
+            UnitSystem local = new();
+
+            //if (Length is object )
+            //{
+            //    if (Length.Count % 2 != 0)
+            //    {
+            //        //throw new WrongUnitException($"We can't handle taking the square root of your unit: [] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+            //if (Mass is object)
+            //{ 
+            //    if (Mass.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+            //if (Duration is object)
+            //{
+            //    if (Duration.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+            //if (Electriccurrent is object)
+            //{
+            //    if (Electriccurrent.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+            //if (Temperature is object)
+            //{
+            //    if (Temperature.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+            //if (Amount is object)
+            //{
+            //    if (Amount.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+            //if (LuminousIntensity is object)
+            //{
+            //    if (LuminousIntensity.Count % 2 != 0)
+            //    {
+            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+            //    }
+            //}
+
+
+
+
+            //local.Length.Count = (int)(Length.Count / 2);
+            //local.Mass.Count = (int)(Mass.Count / 2);
+            //local.Duration.Count = (int)(Duration.Count / 2);
+            //local.Electriccurrent.Count = (int)(Electriccurrent.Count / 2);
+            //local.Temperature.Count = (int)(Temperature.Count / 2);
+            //local.Amount.Count = (int)(Amount.Count / 2);
+            //local.LuminousIntensity.Count = (int)(LuminousIntensity.Count / 2);
+
+
+            return local;
+        }
+
+
         public override int GetHashCode()
         {
 

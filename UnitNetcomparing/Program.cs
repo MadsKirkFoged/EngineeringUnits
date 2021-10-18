@@ -27,7 +27,15 @@ namespace UnitNetcomparing
             Mass M2 = new Mass(2, MassUnit.Megapound);
             Mass M3 = new Mass(77644, MassUnit.Milligram);
             Mass M4 = new Mass(345, MassUnit.Pound);
-            Mass M5 = M1 + Pressure.FromBars(1);
+
+
+
+            Area A12 = Area.FromAcres(10);
+
+            Mass M6 = A12.Sqrt();
+
+
+
 
             if (M4.IsNotZero())
             {
