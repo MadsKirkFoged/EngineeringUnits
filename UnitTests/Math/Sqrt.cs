@@ -12,16 +12,17 @@ namespace UnitTests
         {
             Speed M6 = (Area.FromAcres(10) / (Duration.FromSeconds(1).Pow(2))).Sqrt();
 
-            Assert.AreEqual(201.168, M6.SI); // calling Abs should not mutate F1 if it returns F2
+            Assert.AreEqual(201.168, M6.SI); 
         }
 
+        [TestMethod]
         public void Sqrt2()
         {
             Area A1 = Area.FromSquareFeet(19);
 
             Length L1 = A1.Sqrt();
 
-            Assert.AreEqual(201.168, L1.SI); // calling Abs should not mutate F1 if it returns F2
+            Assert.AreEqual(1.3285923979911973, L1.SI); 
         }
 
 
