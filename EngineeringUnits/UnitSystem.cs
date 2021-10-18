@@ -941,80 +941,123 @@ namespace EngineeringUnits
 
             UnitSystem local = new();
 
-            //if (Length is object )
-            //{
-            //    if (Length.Count % 2 != 0)
-            //    {
-            //        //throw new WrongUnitException($"We can't handle taking the square root of your unit: [] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Length is object)
+            {
+                if (Length.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.Length = (LengthUnit)Length.Clone();
+                local.Length.Count = (int)(Length.Count / 2);
+            }
 
 
-            //if (Mass is object)
-            //{ 
-            //    if (Mass.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Mass is object)
+            {
+                if (Mass.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.Mass = (MassUnit)Mass.Clone();
+                local.Mass.Count = (int)(Mass.Count / 2);
+            }
 
 
-            //if (Duration is object)
-            //{
-            //    if (Duration.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Duration is object)
+            {
+                if (Duration.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.Duration = (DurationUnit)Duration.Clone();
+                local.Duration.Count = (int)(Duration.Count / 2);
+            }
 
 
-            //if (Electriccurrent is object)
-            //{
-            //    if (Electriccurrent.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Electriccurrent is object)
+            {
+                if (Electriccurrent.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.Electriccurrent = (ElectricCurrentUnit)Electriccurrent.Clone();
+                local.Electriccurrent.Count = (int)(Electriccurrent.Count / 2);
+            }
 
 
-            //if (Temperature is object)
-            //{
-            //    if (Temperature.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Temperature is object)
+            {
+                if (Temperature.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.Temperature = (TemperatureUnit)Temperature.Clone();
+                local.Temperature.Count = (int)(Temperature.Count / 2);
+            }
 
 
-            //if (Amount is object)
-            //{
-            //    if (Amount.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+            if (Amount is object)
+            {
+                if (Amount.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
 
-            //if (LuminousIntensity is object)
-            //{
-            //    if (LuminousIntensity.Count % 2 != 0)
-            //    {
-            //        throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
-            //    }
-            //}
+                local.Amount = (AmountOfSubstanceUnit)Amount.Clone();
+                local.Amount.Count = (int)(Amount.Count / 2);
+            }
+
+            if (LuminousIntensity is object)
+            {
+                if (LuminousIntensity.Count % 2 != 0)
+                {
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit: [{this}] - If the resulting unit ends in ex. [meter^0.5] you get this error.");
+                }
+
+                local.LuminousIntensity = (LuminousIntensityUnit)LuminousIntensity.Clone();
+                local.LuminousIntensity.Count = (int)(LuminousIntensity.Count / 2);
+            }
+
+
+
+            if (Combined is object)
+            {
+                local.Combined = (CombinedUnit)Combined.Clone();
+                local.Combined.SetNewGlobalC(Sqrt(Combined.GlobalC));
+            }
 
 
 
 
-            //local.Length.Count = (int)(Length.Count / 2);
-            //local.Mass.Count = (int)(Mass.Count / 2);
-            //local.Duration.Count = (int)(Duration.Count / 2);
-            //local.Electriccurrent.Count = (int)(Electriccurrent.Count / 2);
-            //local.Temperature.Count = (int)(Temperature.Count / 2);
-            //local.Amount.Count = (int)(Amount.Count / 2);
-            //local.LuminousIntensity.Count = (int)(LuminousIntensity.Count / 2);
+
+
 
 
             return local;
+        }
+
+        // x - a number, from which we need to calculate the square root
+        // epsilon - an accuracy of calculation of the root from our number.
+        // The result of the calculations will differ from an actual value
+        // of the root on less than epslion.
+        public static decimal Sqrt(decimal x, decimal epsilon = 0.0M)
+        {
+            if (x < 0) throw new OverflowException("Cannot calculate square root from a negative number");
+
+            decimal current = (decimal)Math.Sqrt((double)x), previous;
+            do
+            {
+                previous = current;
+                if (previous == 0.0M) return 0;
+                current = (previous + x / previous) / 2;
+            }
+            while (Math.Abs(previous - current) > epsilon);
+            return current;
         }
 
 

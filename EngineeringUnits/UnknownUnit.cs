@@ -81,6 +81,8 @@ namespace EngineeringUnits
 
         public UnknownUnit Pow(int toPower) => baseUnit.Pow(toPower);
 
+        public UnknownUnit Sqrt() => baseUnit.Sqrt();
+
         public UnknownUnit Abs() => baseUnit.Abs();
 
         public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max) => baseUnit.InRangeOf(Min, Max);

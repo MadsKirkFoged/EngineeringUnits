@@ -32,7 +32,7 @@ namespace UnitNetcomparing
 
             Area A12 = Area.FromAcres(10);
 
-            Mass M6 = A12.Sqrt();
+            Speed M6 = (A12 / (Duration.FromSeconds(1).Pow(2))).Sqrt();
 
 
 
