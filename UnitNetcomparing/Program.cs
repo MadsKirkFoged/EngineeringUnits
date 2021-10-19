@@ -29,12 +29,14 @@ namespace UnitNetcomparing
             Mass M4 = new Mass(345, MassUnit.Pound);
 
 
-
-            Area A12 = Area.FromAcres(10);
-
-            Speed M6 = (A12 / (Duration.FromSeconds(1).Pow(2))).Sqrt();
+            MassFlowUnit test11 = MassFlowUnit.KilogramPerSecond;
 
 
+            Length L11 = new Length(54.3, LengthUnit.Foot); //16.55064 m
+
+            Area A11 = L11.Pow(2);  //273.9236844096 m²    
+
+            Length L21 = A11.Sqrt(); //16.55064 m
 
 
             if (M4.IsNotZero())

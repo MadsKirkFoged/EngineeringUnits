@@ -14,23 +14,23 @@ namespace EngineeringUnits
     {
 
         [JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public string QuantityName { get; set; } //QuantityName
+        public string QuantityName { get; set; }
 
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue("")]
-        public string Symbol { get; init; } //Symbol
+        public string Symbol { get; init; } 
 
         [JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(1.0d)]
-        public decimal LocalC { get; init; } //LocalC
+        public decimal LocalC { get; init; } 
 
         [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(1.0d)]
-        public decimal GlobalC { get; private  set; } //GlobalC
+        public decimal GlobalC { get; private  set; } 
 
         [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         //[DefaultValue(value: Fraction.One)]
-        public Fraction ActualC { get; set; } //ActualC
+        public Fraction ActualC { get; set; } 
 
         [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(0d)]
