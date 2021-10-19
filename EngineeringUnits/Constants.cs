@@ -10,10 +10,14 @@ namespace EngineeringUnits
     public class Constants : BaseUnit
     {
 
-
+        /// <summary>
+        /// Gravitational Constant
+        /// <br>Value: 6.67430×10−11</br>
+        /// <br>Unit: [m3⋅kg–1⋅s–2]</br>
+        /// <br>If you are looking for the gravity on Earth use: StandardGravity</br>
+        /// </summary>
         public static BaseUnit GravitationalConstant
         {
-
             get
             {
                 UnitSystem unit = (ForceUnit.SI * LengthUnit.SI.Pow(2)) / (MassUnit.SI.Pow(2));                          
@@ -21,10 +25,13 @@ namespace EngineeringUnits
 
                 return local;
             }
-
-
         }
 
+        /// <summary>
+        /// Speed Of Light in vacuum
+        /// <br>Value: 299792458</br>
+        /// <br>Unit: [m⋅s−1]</br>
+        /// </summary>
         public static Speed SpeedOfLight
         {
 
@@ -37,6 +44,28 @@ namespace EngineeringUnits
 
         }
 
+        /// <summary>
+        /// Nominal gravitational acceleration of an object in a vacuum near the surface of the Earth
+        /// <br>Value: 9.80665</br>
+        /// <br>Unit: [m⋅s−2]</br>
+        /// </summary>
+        public static Acceleration StandardGravity
+        {
+
+            get
+            {
+                Acceleration local = new(1, AccelerationUnit.StandardGravity);
+                return local;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Planck Constant
+        /// <br>Value: 6.62607004 × 10-34</br>
+        /// <br>Unit: [m2 kg s-1]</br>
+        /// </summary>
         public static BaseUnit PlanckConstant
         {
 
@@ -50,15 +79,84 @@ namespace EngineeringUnits
 
         }
 
-        //speed of light in vacuum	299792458 m⋅s−1
 
-        //vacuum electric permittivity	8.8541878128(13)×10−12 F⋅m−1
+        /// <summary>
+        /// Vacuum electric permittivity
+        /// <br>Value: 8.8541878128 × 10−12</br>
+        /// <br>Unit: [F⋅m−1]</br>
+        /// </summary>
+        public static BaseUnit VacuumElectricPermittivity
+        {
 
-        //vacuum magnetic permeability	1.25663706212(19)×10−6 N⋅A−2[7]
+            get
+            {
+                UnitSystem unit = (CapacitanceUnit.Farad) / (LengthUnit.Meter);
+                BaseUnit local = new(8.8541878128e-12m, unit);
+                return local;
+            }
 
-        //characteristic impedance of vacuum	376.730313668(57) Ω[8]
 
-        //elementary charge	1.602176634×10−19 C[9]
+        }
+
+        /// <summary>
+        /// Vacuum Magnetic Permeability
+        /// <br>Value: 1.25663706212 × 10−6</br>
+        /// <br>Unit: [H/m]</br>
+        /// </summary>
+        public static BaseUnit VacuumMagneticPermeability
+        {
+
+            get
+            {
+                UnitSystem unit = (ElectricInductanceUnit.Henry) / (LengthUnit.Meter);
+                BaseUnit local = new(1.25663706212e-6m, unit);
+                return local;
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// Impedance of free space
+        /// <br>Value: 376.730313668</br>
+        /// <br>Unit: [Ω]</br>
+        /// </summary>
+        public static BaseUnit ImpedanceOfFreeSpace
+        {
+
+            get
+            {
+                UnitSystem unit = (ElectricResistanceUnit.Ohm.Unit);
+                BaseUnit local = new(376.730313668, unit);
+                return local;
+            }
+
+
+        }
+
+
+
+        /// <summary>
+        /// Impedance of free space
+        /// <br>Value: 1.602176634×10−19</br>
+        /// <br>Unit: [C]</br>
+        /// </summary>
+        public static BaseUnit ElementaryCharge
+        {
+
+            get
+            {
+                UnitSystem unit = (ElectricChargeUnit.Coulomb.Unit);
+                BaseUnit local = new(1.602176634e-19m, unit);
+                return local;
+            }
+
+
+        }
+
+
+
 
         //hyperfine transition frequency of 133Cs	9192631770 Hz[10]
 

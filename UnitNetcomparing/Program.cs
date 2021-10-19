@@ -29,7 +29,7 @@ namespace UnitNetcomparing
             Mass M4 = new Mass(345, MassUnit.Pound);
 
 
-            MassFlowUnit test11 = MassFlowUnit.KilogramPerSecond;
+            var test11 = 5e5m;
 
 
             Length L11 = new Length(54.3, LengthUnit.Foot); //16.55064 m
