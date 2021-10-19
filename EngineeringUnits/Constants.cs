@@ -138,7 +138,7 @@ namespace EngineeringUnits
 
 
         /// <summary>
-        /// Impedance of free space
+        /// Elementary charge
         /// <br>Value: 1.602176634×10−19</br>
         /// <br>Unit: [C]</br>
         /// </summary>
@@ -155,12 +155,26 @@ namespace EngineeringUnits
 
         }
 
+        /// <summary>
+        /// Avogadro constant
+        /// <br>Value: 6.02214076×1023</br>
+        /// <br>Unit: [C]</br>
+        /// </summary>
+        public static BaseUnit AvogadroConstant
+        {
+
+            get
+            {
+                UnitSystem unit = (AmountOfSubstanceUnit.Mole.Pow(-1));
+                BaseUnit local = new(6.02214076e23m, unit);
+                return local;
+            }
+
+
+        }
 
 
 
-        //hyperfine transition frequency of 133Cs	9192631770 Hz[10]
-
-        //Avogadro constant	6.02214076×1023 mol−1[11]
 
         //Boltzmann constant	1.380649×10−23 J⋅K−1[12]
 
@@ -235,6 +249,7 @@ namespace EngineeringUnits
         //Wien frequency displacement law constant	5.878925757...×1010 Hz⋅K−1[47]
 
         //Wien entropy displacement law constant	3.002916077...×10−3 m⋅K[48]
+        //hyperfine transition frequency of 133Cs	9192631770 Hz[10]
 
     }
 }
