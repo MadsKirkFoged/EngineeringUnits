@@ -158,7 +158,7 @@ namespace EngineeringUnits
         /// <summary>
         /// Avogadro constant
         /// <br>Value: 6.02214076×1023</br>
-        /// <br>Unit: [C]</br>
+        /// <br>Unit: [Mol-1]</br>
         /// </summary>
         public static BaseUnit AvogadroConstant
         {
@@ -173,10 +173,28 @@ namespace EngineeringUnits
 
         }
 
+        /// <summary>
+        /// Boltzmann constant
+        /// <br>Value: 1.380649×10−23</br>
+        /// <br>Unit: [J⋅K−1]</br>
+        /// </summary>
+        public static BaseUnit BoltzmannConstant
+        {
+
+            get
+            {
+                UnitSystem unit = (EnergyUnit.Joule / TemperatureUnit.Kelvin);
+                BaseUnit local = new(1.380649e-23m, unit);
+                return local;
+            }
+
+
+        }
 
 
 
-        //Boltzmann constant	1.380649×10−23 J⋅K−1[12]
+
+
 
         //conductance quantum	7.748091729...×10−5 S[13]
 
