@@ -61,23 +61,23 @@ namespace EngineeringUnits
 
         }
 
-        /// <summary>
-        /// Planck Constant
-        /// <br>Value: 6.62607004 × 10-34</br>
-        /// <br>Unit: [m2 kg s-1]</br>
-        /// </summary>
-        public static BaseUnit PlanckConstant
-        {
+        ///// <summary>
+        ///// Planck Constant
+        ///// <br>Value: 6.62607004 × 10-34</br>
+        ///// <br>Unit: [m2 kg s-1]</br>
+        ///// </summary>
+        //public static BaseUnit PlanckConstant
+        //{
 
-            get
-            {
-                UnitSystem unit = (EnergyUnit.SI) / (FrequencyUnit.SI);
-                BaseUnit local = new(6.62607015e-34m, unit);
-                return local;
-            }
+        //    get
+        //    {
+        //        UnitSystem unit = (EnergyUnit.SI) / (FrequencyUnit.SI);
+        //        BaseUnit local = new(6.62607015e-34m, unit);
+        //        return local;
+        //    }
 
 
-        }
+        //}
 
 
         /// <summary>
