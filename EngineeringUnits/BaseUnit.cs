@@ -359,13 +359,8 @@ namespace EngineeringUnits
 
         public UnknownUnit Sqrt()
         {
-
-            UnitSystem local = Unit.Sqrt();           
-
-
-            return new BaseUnit(Sqrt(SymbolValue), local);
+            return new BaseUnit(Sqrt(SymbolValue), Unit.Sqrt());
         }
-
 
         public UnknownUnit Abs()
         {
