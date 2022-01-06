@@ -29,8 +29,6 @@ namespace UnitNetcomparing
             Mass M4 = new Mass(345, MassUnit.Pound);
 
 
-            var test11 = Constants.BoltzmannConstant;
-
 
             Length L11 = new Length(54.3, LengthUnit.Foot); //16.55064 m
 

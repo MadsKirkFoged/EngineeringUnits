@@ -28,7 +28,17 @@ namespace EngineeringUnits
         {
 
             Unit = selectedUnit.Unit;
-            SymbolValue = (decimal)value;
+
+            if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
+            {
+                Inf = true;
+                SymbolValue = 0;
+            }
+            else
+            {
+                Inf = false;
+                SymbolValue = (decimal)value;
+            }
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
