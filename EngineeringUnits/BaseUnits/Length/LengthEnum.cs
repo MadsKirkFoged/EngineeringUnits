@@ -60,7 +60,6 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
-
         }
 
 
@@ -68,7 +67,6 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
-
         }             
 
 

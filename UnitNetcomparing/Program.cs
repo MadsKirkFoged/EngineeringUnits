@@ -23,12 +23,21 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
-            Mass M1 = new Mass(43, MassUnit.Kilogram);
+            SpecificEnergy EE1 = new SpecificEnergy(84100, SpecificEnergyUnit.JoulePerKilogram);
+            SpecificEnergy EE2 = new SpecificEnergy(3907000000000000d, SpecificEnergyUnit.JoulePerKilogram);
+
+            MassFlow MMM1 = new MassFlow(3.47e+13, MassFlowUnit.KilogramPerSecond);
+
+
+            Power PP1 = (EE2 - EE1) * MMM1;
+
+            Mass M1 = new Mass(4300.125, MassUnit.Kilogram);
             Mass M2 = new Mass(2, MassUnit.Megapound);
             Mass M3 = new Mass(77644, MassUnit.Milligram);
             Mass M4 = new Mass(345, MassUnit.Pound);
 
 
+            Debug.Print($"{M1.ToString("g5")}");
 
             Length L11 = new Length(54.3, LengthUnit.Foot); //16.55064 m
 

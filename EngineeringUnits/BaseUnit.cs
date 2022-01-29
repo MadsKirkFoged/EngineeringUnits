@@ -293,8 +293,16 @@ namespace EngineeringUnits
             {
                 case MathEnum.Add:                   
 
-                    //Value math
-                    X3 = left.BaseunitValue + testRightConverted;
+                    //Value math                    
+                    try
+                    {
+                        X3 = left.BaseunitValue + testRightConverted;
+                    }
+                    catch (OverflowException)
+                    {
+                        X3 = 0;
+                        LocalINF = true;
+                    }
 
                     //Unit math
                     LocalUnit = left.Unit + right.Unit;
@@ -302,7 +310,15 @@ namespace EngineeringUnits
                 case MathEnum.Subtract:
 
                     //Value math
-                    X3 = left.BaseunitValue - testRightConverted;
+                    try
+                    {
+                        X3 = left.BaseunitValue - testRightConverted;
+                    }
+                    catch (OverflowException)
+                    {
+                        X3 = 0;
+                        LocalINF = true;
+                    }
 
                     //Unit math
                     //local.Unit = left.Unit- right.Unit;
@@ -311,7 +327,15 @@ namespace EngineeringUnits
                 case MathEnum.Multiply:
 
                     //Value math
-                    X3 = left.BaseunitValue * testRightConverted;
+                    try
+                    {
+                        X3 = left.BaseunitValue * testRightConverted;
+                    }
+                    catch (OverflowException)
+                    {
+                        X3 = 0;
+                        LocalINF = true;
+                    }
 
                     //Unit math
                     //local.Unit = left.Unit * right.Unit;
@@ -321,8 +345,18 @@ namespace EngineeringUnits
 
                     //Value math
                     if (testRightConverted != 0)
-                    {
-                        X3 = left.BaseunitValue / testRightConverted;
+                    {                        
+                        try
+                        {
+                            X3 = left.BaseunitValue / testRightConverted;
+                        }
+                        catch (OverflowException)
+                        {
+                            X3 = 0;
+                            LocalINF = true;
+                        }
+
+
                         LocalINF = false;
                     }
                     else
@@ -429,6 +463,9 @@ namespace EngineeringUnits
             return !IsZero();
         }
 
+        //Add isAboveZero
+
+        //Add isBelowZero
 
         public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
