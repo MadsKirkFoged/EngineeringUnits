@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);
 
-        public static implicit operator ElectricPotential(UnknownUnit Unit) => new(Unit, ElectricPotentialUnit.SI);
+        public static implicit operator ElectricPotential(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricPotential(int zero)
         {
