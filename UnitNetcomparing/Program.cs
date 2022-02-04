@@ -22,6 +22,9 @@ namespace UnitNetcomparing
 
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
+            var A3 = new Acceleration(1, AccelerationUnit.SI);
+
+            Debug.Print(A3.As(AccelerationUnit.StandardGravity).ToString());
 
 
             //Precise Convertions

@@ -17,6 +17,7 @@ namespace EngineeringUnits
 
             Unit = selectedUnit.Unit;
             SymbolValue = (decimal)value;
+            NEWValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
             SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
@@ -38,6 +39,7 @@ namespace EngineeringUnits
             {
                 Inf = false;
                 SymbolValue = (decimal)value;
+                NEWValue = (decimal)value;
             }
 
             //Forcing all temperatures to stay in kelvin

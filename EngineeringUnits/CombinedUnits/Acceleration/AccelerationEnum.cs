@@ -36,6 +36,7 @@ namespace EngineeringUnits.Units
 
             Unit = length / duration.Pow(2);
             SetCombined(correction);
+            //Unit.ListOfUnits.Add(Unit.Combined);
             SetNewSymbol(NewSymbol);
 
         }

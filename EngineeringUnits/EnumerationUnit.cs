@@ -220,7 +220,10 @@ namespace EngineeringUnits
 
 
             if (correction != 1)
+            {
                 Unit.Combined = new CombinedUnit("", (Fraction)correction * correction2);
+                Unit.ListOfUnits.Add(Unit.Combined);
+            }
 
         }
 

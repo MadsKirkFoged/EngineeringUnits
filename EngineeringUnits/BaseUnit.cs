@@ -27,6 +27,7 @@ namespace EngineeringUnits
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)SymbolValue;
 
+        [JsonProperty(PropertyName = "NewVAlue", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public decimal NEWValue { get; set; }
 
         [JsonConstructor]
@@ -519,22 +520,35 @@ namespace EngineeringUnits
         public decimal ToTheOutSide(UnitSystem To)
         {
 
-            var NewTEST = NEWValue *  (decimal)To.ConvertionFactor(Unit);
-
-
-
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();         
+
+
+
+            Fraction Factor = To.ConvertionFactor(Unit);
+
+            Fraction b3test2 = Factor * (b1 * -1) + b2;
+            Fraction y2test2 = Factor * (Fraction)NEWValue + b3test2;
+
+            var NewTEST = (decimal)y2test2;
+
+            //var NewTEST = NEWValue *  (decimal)Factor;
+
+
+
 
             Fraction test = UnitSystem.Convert(Unit, To);
 
             Fraction b3test = test * (b1 * -1) + b2;
             Fraction y2test = test * (Fraction)SymbolValue + b3test;
-            return (decimal)y2test;
+            //return (decimal)y2test;
+
+
+
 
             var deleteMe = (decimal)y2test;
 
-            //return NewTEST;
+            return NewTEST;
         }
 
         public double ToTheOutSideDouble(UnitSystem To)
