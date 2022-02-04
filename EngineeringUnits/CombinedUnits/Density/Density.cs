@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Density ToUnit(DensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Density Zero => new(0, DensityUnit.SI);
 
-        public static implicit operator Density(UnknownUnit Unit) => new(Unit, DensityUnit.SI);
+        public static implicit operator Density(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Density(int zero)
         {
