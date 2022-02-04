@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricField Zero => new(0, ElectricFieldUnit.SI);
 
-        public static implicit operator ElectricField(UnknownUnit Unit) => new(Unit, ElectricFieldUnit.SI);
+        public static implicit operator ElectricField(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricField(int zero)
         {
