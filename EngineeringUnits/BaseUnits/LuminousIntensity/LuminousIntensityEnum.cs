@@ -12,16 +12,13 @@ namespace EngineeringUnits.Units
     {
 
         public static readonly LuminousIntensityUnit SI = new(PreFix.SI, BaseUnits.luminousIntensity);
-        public static readonly LuminousIntensityUnit Candela = new("cd", 1,1);
+        public static readonly LuminousIntensityUnit Candela = new("cd", 1);
 
 
-        public LuminousIntensityUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        public LuminousIntensityUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem();
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
         }
 
 
@@ -29,9 +26,6 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
         }     
        
     }
