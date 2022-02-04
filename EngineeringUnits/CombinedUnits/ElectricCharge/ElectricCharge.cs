@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ElectricCharge ToUnit(ElectricChargeUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricCharge Zero => new(0, ElectricChargeUnit.SI);
 
-        public static implicit operator ElectricCharge(UnknownUnit Unit) => new(Unit, ElectricChargeUnit.SI);
+        public static implicit operator ElectricCharge(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricCharge(int zero)
         {
