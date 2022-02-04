@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ForceChangeRate ToUnit(ForceChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ForceChangeRate Zero => new(0, ForceChangeRateUnit.SI);
 
-        public static implicit operator ForceChangeRate(UnknownUnit Unit) => new(Unit, ForceChangeRateUnit.SI);
+        public static implicit operator ForceChangeRate(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ForceChangeRate(int zero)
         {
