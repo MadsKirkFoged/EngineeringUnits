@@ -33,7 +33,7 @@ namespace EngineeringUnits.Units
         public static readonly LengthUnit Inch =         new("in",        1 * 0.0254m);
         public static readonly LengthUnit Hand =         new("h",         4 * 0.0254m);
         public static readonly LengthUnit Foot =         new("ft",        12 * 0.0254m);
-        public static readonly LengthUnit Yard =         new("yd",        36,             0.0254m);
+        public static readonly LengthUnit Yard =         new("yd",        36 * 0.0254m);
         public static readonly LengthUnit Fathom =       new("fathom",    72,             0.0254m);
         public static readonly LengthUnit Chain =        new("ch",        792,            0.0254m);
         public static readonly LengthUnit Shackle =      new("shackle",   1080,           0.0254m);
