@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ForcePerLength ToUnit(ForcePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ForcePerLength Zero => new(0, ForcePerLengthUnit.SI);
 
-        public static implicit operator ForcePerLength(UnknownUnit Unit) => new(Unit, ForcePerLengthUnit.SI);
+        public static implicit operator ForcePerLength(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ForcePerLength(int zero)
         {
