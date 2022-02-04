@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Capacitance ToUnit(CapacitanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Capacitance Zero => new(0, CapacitanceUnit.SI);
 
-        public static implicit operator Capacitance(UnknownUnit Unit) => new(Unit, CapacitanceUnit.SI);
+        public static implicit operator Capacitance(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Capacitance(int zero)
         {
