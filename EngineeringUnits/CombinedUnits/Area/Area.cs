@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Area ToUnit(AreaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Area Zero => new(0, AreaUnit.SI);
 
-        public static implicit operator Area(UnknownUnit Unit) => new(Unit, AreaUnit.SI);
+        public static implicit operator Area(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Area(int zero)
         {
