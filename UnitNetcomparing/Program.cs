@@ -24,6 +24,8 @@ namespace UnitNetcomparing
 
             var A3 = new Acceleration(1, AccelerationUnit.SI);
 
+
+
             Debug.Print(A3.As(AccelerationUnit.StandardGravity).ToString());
 
 
