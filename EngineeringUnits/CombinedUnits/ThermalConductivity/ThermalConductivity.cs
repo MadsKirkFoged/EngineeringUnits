@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public ThermalConductivity ToUnit(ThermalConductivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ThermalConductivity Zero => new(0, ThermalConductivityUnit.SI);
 
-        public static implicit operator ThermalConductivity(UnknownUnit Unit) => new(Unit, ThermalConductivityUnit.SI);
+        public static implicit operator ThermalConductivity(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ThermalConductivity(int zero)
         {

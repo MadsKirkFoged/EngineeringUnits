@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Level ToUnit(LevelUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Level Zero => new(0, LevelUnit.SI);
 
-        public static implicit operator Level(UnknownUnit Unit) => new(Unit, LevelUnit.SI);
+        public static implicit operator Level(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Level(int zero)
         {

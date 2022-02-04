@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public FuelEfficiency ToUnit(FuelEfficiencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static FuelEfficiency Zero => new(0, FuelEfficiencyUnit.SI);
 
-        public static implicit operator FuelEfficiency(UnknownUnit Unit) => new(Unit, FuelEfficiencyUnit.SI);
+        public static implicit operator FuelEfficiency(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator FuelEfficiency(int zero)
         {

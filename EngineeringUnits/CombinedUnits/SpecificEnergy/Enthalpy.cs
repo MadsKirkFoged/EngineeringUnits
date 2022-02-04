@@ -22,7 +22,7 @@ namespace EngineeringUnits
         public Enthalpy ToUnit(SpecificEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Enthalpy Zero => new(0, SpecificEnergyUnit.SI);
 
-        public static implicit operator Enthalpy(UnknownUnit Unit) => new(Unit, SpecificEnergyUnit.SI);
+        public static implicit operator Enthalpy(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Enthalpy(int zero)
         {

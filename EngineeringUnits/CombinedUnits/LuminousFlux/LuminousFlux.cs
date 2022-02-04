@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public LuminousFlux ToUnit(LuminousFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LuminousFlux Zero => new(0, LuminousFluxUnit.SI);
 
-        public static implicit operator LuminousFlux(UnknownUnit Unit) => new(Unit, LuminousFluxUnit.SI);
+        public static implicit operator LuminousFlux(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator LuminousFlux(int zero)
         {

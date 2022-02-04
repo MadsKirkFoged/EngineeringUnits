@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public Ratio ToUnit(RatioUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Ratio Zero => new(0, RatioUnit.SI);
 
-        public static implicit operator Ratio(UnknownUnit Unit) => new(Unit, RatioUnit.SI);
+        public static implicit operator Ratio(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Ratio(int zero)
         {

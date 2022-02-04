@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
 
-        public static implicit operator ReactiveEnergy(UnknownUnit Unit) => new(Unit, ReactiveEnergyUnit.SI);
+        public static implicit operator ReactiveEnergy(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ReactiveEnergy(int zero)
         {

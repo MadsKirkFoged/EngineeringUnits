@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public LinearDensity ToUnit(LinearDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LinearDensity Zero => new(0, LinearDensityUnit.SI);
 
-        public static implicit operator LinearDensity(UnknownUnit Unit) => new(Unit, LinearDensityUnit.SI);
+        public static implicit operator LinearDensity(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator LinearDensity(int zero)
         {

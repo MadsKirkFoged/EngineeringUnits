@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static VolumePerLength Zero => new(0, VolumePerLengthUnit.SI);
 
-        public static implicit operator VolumePerLength(UnknownUnit Unit) => new(Unit, VolumePerLengthUnit.SI);
+        public static implicit operator VolumePerLength(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator VolumePerLength(int zero)
         {

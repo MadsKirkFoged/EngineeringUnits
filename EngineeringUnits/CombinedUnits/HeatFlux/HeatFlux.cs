@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public HeatFlux ToUnit(HeatFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static HeatFlux Zero => new(0, HeatFluxUnit.SI);
 
-        public static implicit operator HeatFlux(UnknownUnit Unit) => new(Unit, HeatFluxUnit.SI);
+        public static implicit operator HeatFlux(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator HeatFlux(int zero)
         {

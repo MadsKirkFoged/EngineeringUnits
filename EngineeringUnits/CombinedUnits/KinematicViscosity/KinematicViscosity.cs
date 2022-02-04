@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public KinematicViscosity ToUnit(KinematicViscosityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static KinematicViscosity Zero => new(0, KinematicViscosityUnit.SI);
 
-        public static implicit operator KinematicViscosity(UnknownUnit Unit) => new(Unit, KinematicViscosityUnit.SI);
+        public static implicit operator KinematicViscosity(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator KinematicViscosity(int zero)
         {

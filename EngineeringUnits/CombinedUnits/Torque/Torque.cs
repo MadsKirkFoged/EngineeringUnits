@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public Torque ToUnit(TorqueUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Torque Zero => new(0, TorqueUnit.SI);
 
-        public static implicit operator Torque(UnknownUnit Unit) => new(Unit, TorqueUnit.SI);
+        public static implicit operator Torque(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Torque(int zero)
         {

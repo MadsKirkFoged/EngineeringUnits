@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public SpecificWeight ToUnit(SpecificWeightUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static SpecificWeight Zero => new(0, SpecificWeightUnit.SI);
 
-        public static implicit operator SpecificWeight(UnknownUnit Unit) => new(Unit, SpecificWeightUnit.SI);
+        public static implicit operator SpecificWeight(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator SpecificWeight(int zero)
         {

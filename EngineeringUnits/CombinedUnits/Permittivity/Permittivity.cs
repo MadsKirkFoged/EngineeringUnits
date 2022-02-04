@@ -20,7 +20,7 @@ namespace EngineeringUnits
         public Permittivity ToUnit(PermittivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Permittivity Zero => new(0, PermittivityUnit.SI);
 
-        public static implicit operator Permittivity(UnknownUnit Unit) => new(Unit, PermittivityUnit.SI);
+        public static implicit operator Permittivity(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Permittivity(int zero)
         {

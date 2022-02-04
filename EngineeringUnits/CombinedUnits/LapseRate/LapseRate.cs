@@ -18,7 +18,7 @@ namespace EngineeringUnits
         public LapseRate ToUnit(LapseRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LapseRate Zero => new(0, LapseRateUnit.SI);
 
-        public static implicit operator LapseRate(UnknownUnit Unit) => new(Unit, LapseRateUnit.SI);
+        public static implicit operator LapseRate(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator LapseRate(int zero)
         {

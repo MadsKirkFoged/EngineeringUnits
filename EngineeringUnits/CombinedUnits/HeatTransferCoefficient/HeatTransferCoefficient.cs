@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public HeatTransferCoefficient ToUnit(HeatTransferCoefficientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static HeatTransferCoefficient Zero => new(0, HeatTransferCoefficientUnit.SI);
 
-        public static implicit operator HeatTransferCoefficient(UnknownUnit Unit) => new(Unit, HeatTransferCoefficientUnit.SI);
+        public static implicit operator HeatTransferCoefficient(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator HeatTransferCoefficient(int zero)
         {

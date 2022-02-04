@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Illuminance ToUnit(IlluminanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Illuminance Zero => new(0, IlluminanceUnit.SI);
 
-        public static implicit operator Illuminance(UnknownUnit Unit) => new(Unit, IlluminanceUnit.SI);
+        public static implicit operator Illuminance(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Illuminance(int zero)
         {

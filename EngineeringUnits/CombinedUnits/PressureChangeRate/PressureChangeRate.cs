@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public PressureChangeRate ToUnit(PressureChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PressureChangeRate Zero => new(0, PressureChangeRateUnit.SI);
 
-        public static implicit operator PressureChangeRate(UnknownUnit Unit) => new(Unit, PressureChangeRateUnit.SI);
+        public static implicit operator PressureChangeRate(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator PressureChangeRate(int zero)
         {

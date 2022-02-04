@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public MolarEnergy ToUnit(MolarEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MolarEnergy Zero => new(0, MolarEnergyUnit.SI);
 
-        public static implicit operator MolarEnergy(UnknownUnit Unit) => new(Unit, MolarEnergyUnit.SI);
+        public static implicit operator MolarEnergy(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator MolarEnergy(int zero)
         {

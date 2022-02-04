@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public Irradiation ToUnit(IrradiationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Irradiation Zero => new(0, IrradiationUnit.SI);
 
-        public static implicit operator Irradiation(UnknownUnit Unit) => new(Unit, IrradiationUnit.SI);
+        public static implicit operator Irradiation(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Irradiation(int zero)
         {
