@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ElectricAdmittance ToUnit(ElectricAdmittanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricAdmittance Zero => new(0, ElectricAdmittanceUnit.SI);
 
-        public static implicit operator ElectricAdmittance(UnknownUnit Unit) => new(Unit, ElectricAdmittanceUnit.SI);
+        public static implicit operator ElectricAdmittance(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricAdmittance(int zero)
         {
