@@ -224,7 +224,6 @@ namespace EngineeringUnits
             {
                 Unit.Combined = new CombinedUnit("", (Fraction)correction * correction2);
                 Unit.ListOfUnits.Add(Unit.Combined);
-                Debug.Print("I was here!");
             }
 
         }

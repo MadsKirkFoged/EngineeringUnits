@@ -157,12 +157,12 @@ namespace EngineeringUnits
 
             //Testing a new way to store units
 
-            foreach (var item in a.UnitList())
+            foreach (var item in a.ListOfUnits)
             {
                 local.ListOfUnits.Add(item);
             }
 
-            foreach (var item in b.UnitList())
+            foreach (var item in b.ListOfUnits)
             {
                 local.ListOfUnits.Add(item);
             }
@@ -240,12 +240,12 @@ namespace EngineeringUnits
 
             //Testing a new way to store units
 
-            foreach (var item in a.UnitList())
+            foreach (var item in a.ListOfUnits)
             {
                 local.ListOfUnits.Add(item);
             }
 
-            foreach (var item in b.UnitList())
+            foreach (var item in b.ListOfUnits)
             {
                 Enumeration test = (Enumeration)item.Clone();
 

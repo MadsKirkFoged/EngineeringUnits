@@ -22,6 +22,23 @@ namespace UnitNetcomparing
 
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
+
+            SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
+            SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
+
+            SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
+
+
+            var A4 = new EngineeringUnits.Length(10, LengthUnit.Kilometer);
+            var A5 = new EngineeringUnits.Duration(1, DurationUnit.Minute);
+            var A6 = new EngineeringUnits.Duration(1, DurationUnit.Hour);
+
+            var test56 = (A5 * A6);
+
+            Acceleration Result2 = A4 / (A5 * A6);
+
+
+
             var A3 = new Acceleration(1, AccelerationUnit.SI);
 
 
@@ -34,7 +51,7 @@ namespace UnitNetcomparing
             Length L3 = new Length(1, LengthUnit.Hand);
 
 
-            var A4 = L2 + L3;
+            //var A4 = L2 + L3;
 
 
 
