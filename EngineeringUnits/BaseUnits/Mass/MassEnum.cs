@@ -26,9 +26,9 @@ namespace EngineeringUnits.Units
         public static readonly MassUnit Microgram =  new(PreFix.micro,  BaseUnits.mass);
         public static readonly MassUnit Milligram =  new(PreFix.milli,  BaseUnits.mass);
         public static readonly MassUnit Nanogram =   new(PreFix.nano,   BaseUnits.mass);
-        public static readonly MassUnit Tonne =      new("t",  1000 * 1000);
-        public static readonly MassUnit Kilotonne =  new("kt", 1000 * 1000 * 1000);
-        public static readonly MassUnit Megatonne =  new("Mt", 1000 * 1000 * 1e+6m);
+        public static readonly MassUnit Tonne =      new("t",  1e+6m);
+        public static readonly MassUnit Kilotonne =  new("kt", 1e+9m);
+        public static readonly MassUnit Megatonne =  new("Mt", 1e+12m);
 
         public static readonly MassUnit EarthMass = new("em", 1000 * 5.9722m * 1e24m);
 
