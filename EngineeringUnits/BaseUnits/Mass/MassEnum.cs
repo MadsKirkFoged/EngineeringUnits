@@ -26,26 +26,25 @@ namespace EngineeringUnits.Units
         public static readonly MassUnit Microgram =  new(PreFix.micro,  BaseUnits.mass);
         public static readonly MassUnit Milligram =  new(PreFix.milli,  BaseUnits.mass);
         public static readonly MassUnit Nanogram =   new(PreFix.nano,   BaseUnits.mass);
-        public static readonly MassUnit Tonne =      new("t", 1 , 1000 * 1000);
-        public static readonly MassUnit Kilotonne =  new("kt", 1, 1000 * 1000*1000);
-        public static readonly MassUnit Megatonne =  new("Mt", 1, 1000 * 1000 * 1e+6m);
+        public static readonly MassUnit Tonne =      new("t",  1000 * 1000);
+        public static readonly MassUnit Kilotonne =  new("kt", 1000 * 1000 * 1000);
+        public static readonly MassUnit Megatonne =  new("Mt", 1000 * 1000 * 1e+6m);
+
+        public static readonly MassUnit EarthMass = new("em", 1000 * 5.9722m * 1e24m);
 
 
-        public static readonly MassUnit EarthMass = new("em", 1, 1000 * 5.9722m * 1e24m);
+        public static readonly MassUnit Ounce =              new("oz",          1/ 16m * 453.59237m);
+        public static readonly MassUnit Pound =              new("lb", 1 * 453.59237m);
+        public static readonly MassUnit Stone =              new("st", 14 * 453.59237m);
+        public static readonly MassUnit Slug =               new("slug", 32.174m * 453.59237m);
+        public static readonly MassUnit ShortHundredweight = new("cwt", 100 * 453.59237m);
+        public static readonly MassUnit LongHundredweight =  new("cwt", 112 * 453.59237m);
+        public static readonly MassUnit Kilopound =          new("kip", 1000 * 453.59237m);
+        public static readonly MassUnit ShortTon =           new("t (short)", 2000 * 453.59237m);
+        public static readonly MassUnit LongTon =            new("long tn", 2240 * 453.59237m);
 
-
-        public static readonly MassUnit Ounce =              new("oz",          1/16m,      453.59237m);
-        public static readonly MassUnit Pound =              new("lb",          1,          453.59237m);
-        public static readonly MassUnit Stone =              new("st",          14,         453.59237m);
-        public static readonly MassUnit Slug =               new("slug",        32.174m,    453.59237m);
-        public static readonly MassUnit ShortHundredweight = new("cwt",         100,        453.59237m);
-        public static readonly MassUnit LongHundredweight =  new("cwt",         112,        453.59237m);
-        public static readonly MassUnit Kilopound =          new("kip",         1000,       453.59237m);
-        public static readonly MassUnit ShortTon =           new("t (short)",   2000,       453.59237m);
-        public static readonly MassUnit LongTon =            new("long tn",     2240,       453.59237m);
-
-        public static readonly MassUnit Megapound =          new("Mlb", 1e6m,   453.59237m);
-        public static readonly MassUnit Grain =              new("gr",  1,      0.06479891m);
+        public static readonly MassUnit Megapound =          new("Mlb", 1e6m * 453.59237m);
+        public static readonly MassUnit Grain =              new("gr",       0.06479891m);
 
 
         public MassUnit() { }
@@ -55,10 +54,12 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
+        }
 
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
+        public MassUnit(string symbol, decimal Constant) : base(symbol, Constant)
+        {
+            Unit = new UnitSystem();
+            Unit.Mass = (MassUnit)Clone();
         }
 
 
@@ -66,10 +67,6 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
-
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
         }
      
        
