@@ -25,7 +25,7 @@ namespace EngineeringUnits.Units
         public static readonly LengthUnit Millimeter =   new(PreFix.milli,    BaseUnits.length);
         public static readonly LengthUnit Micrometer =   new(PreFix.micro,    BaseUnits.length);
         public static readonly LengthUnit Nanometer =    new(PreFix.nano,     BaseUnits.length);
-        public static readonly LengthUnit Microinch =    new("µin",       1e-6m,          0.0254m);
+        public static readonly LengthUnit Microinch =    new("µin",       1e-6m * 0.0254m);
         public static readonly LengthUnit Twip =         new("twip",      1/1440m,        0.0254m);
         public static readonly LengthUnit Mil =          new("mil",       1/1000m,        0.0254m);
         public static readonly LengthUnit DtpPoint =     new("pt",        1/72m,          0.0254m);
@@ -54,6 +54,12 @@ namespace EngineeringUnits.Units
 
 
         public LengthUnit() { }
+
+        public LengthUnit(string NewSymbol, decimal Constant) : base(NewSymbol, Constant)
+        {
+            Unit = new UnitSystem();
+            Unit.Length = (LengthUnit)Clone();
+        }
 
 
         public LengthUnit(string NewSymbol, decimal a1, decimal a2) : base(NewSymbol, a1, a2)

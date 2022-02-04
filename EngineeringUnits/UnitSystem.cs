@@ -167,12 +167,7 @@ namespace EngineeringUnits
                     local = (Enumeration)a.Clone();
                     local.Count += b.Count;
 
-                    Fraction CombinedFraction = 1;
-                    CombinedFraction *= (Fraction)a.LocalC;
-                    CombinedFraction *= (Fraction)a.GlobalC;
-
-                    CombinedFraction /= (Fraction)b.LocalC;
-                    CombinedFraction /= (Fraction)b.GlobalC;
+                    Fraction CombinedFraction = a.NewC / b.NewC;
 
                     CombinedFraction = Fraction.Pow(CombinedFraction, b.Count);
                     local.ActualC *= CombinedFraction * b.ActualC;
@@ -243,11 +238,8 @@ namespace EngineeringUnits
                     local = (Enumeration)a.Clone();
                     local.Count -= b.Count;
 
-                    Fraction CombinedFraction = 1;
-                    CombinedFraction *= Fraction.Pow((Fraction)a.LocalC, 1);
-                    CombinedFraction *= Fraction.Pow((Fraction)a.GlobalC, 1);
-                    CombinedFraction /= Fraction.Pow((Fraction)b.LocalC, 1);
-                    CombinedFraction /= Fraction.Pow((Fraction)b.GlobalC, 1);
+                    Fraction CombinedFraction = a.NewC / b.NewC;
+
                     CombinedFraction = Fraction.Pow(CombinedFraction, b.Count);
                     local.ActualC *= (1 / CombinedFraction) * b.ActualC;
                     return local;
@@ -287,13 +279,7 @@ namespace EngineeringUnits
 
                         if (ToUnit.GetType() == FromUnit.GetType()  && ToUnit.GetType() != typeof(CombinedUnit))
                         {
-                            Fraction CombinedFraction = 1;
-
-                            CombinedFraction *= (Fraction)FromUnit.LocalC;
-                            CombinedFraction *= (Fraction)FromUnit.GlobalC;
-
-                            CombinedFraction /= (Fraction)ToUnit.LocalC;
-                            CombinedFraction /= (Fraction)ToUnit.GlobalC;
+                            Fraction CombinedFraction = FromUnit.NewC / ToUnit.NewC;
 
                             CombinedFraction = Fraction.Pow(CombinedFraction, FromUnit.Count);
 
@@ -321,9 +307,14 @@ namespace EngineeringUnits
 
                 if (FromUnit.GetType() == typeof(CombinedUnit))
                 {
-                    Fraction CombinedFraction = 1;
-                    CombinedFraction *= (Fraction)FromUnit.LocalC;
-                    CombinedFraction *= (Fraction)FromUnit.GlobalC;
+                    //Fraction CombinedFraction = 1;
+                    //CombinedFraction *= (Fraction)FromUnit.LocalC;
+                    //CombinedFraction *= (Fraction)FromUnit.GlobalC;
+
+                    decimal decA = FromUnit.LocalC * FromUnit.GlobalC;
+                    Fraction CombinedFraction = new Fraction(decA);
+
+
                     CombinedFraction2 *= CombinedFraction;
                 }
             }
@@ -333,10 +324,15 @@ namespace EngineeringUnits
 
                 if (ToUnit.GetType() == typeof(CombinedUnit))
                 {
-                    Fraction CombinedFraction = 1;
-                    CombinedFraction /= (Fraction)ToUnit.LocalC;
-                    CombinedFraction /= (Fraction)ToUnit.GlobalC;
-                    CombinedFraction2 *= CombinedFraction;
+                    //Fraction CombinedFraction = 1;
+                    //CombinedFraction /= (Fraction)ToUnit.LocalC;
+                    //CombinedFraction /= (Fraction)ToUnit.GlobalC;
+
+                    decimal decA = ToUnit.LocalC * ToUnit.GlobalC;
+                    Fraction CombinedFraction = new Fraction(decA);
+
+
+                    CombinedFraction2 /= CombinedFraction;
                 }
             }
 

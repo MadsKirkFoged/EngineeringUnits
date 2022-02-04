@@ -23,6 +23,17 @@ namespace UnitNetcomparing
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
 
+
+            //Precise Convertions
+            Length L2 = new Length(1, LengthUnit.Mile);
+            UnitsNet.Length U2 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
+
+
+
+            Debug.Print($"EngineeringUnits in Inch: {L2.As(LengthUnit.Inch)}");
+            Debug.Print($"UnitsNet in Inch: {U2.As(UnitsNet.Units.LengthUnit.Inch)}");
+
+
             SpecificEnergy EE1 = new SpecificEnergy(84100, SpecificEnergyUnit.JoulePerKilogram);
             SpecificEnergy EE2 = new SpecificEnergy(3907000000000000d, SpecificEnergyUnit.JoulePerKilogram);
 
@@ -248,14 +259,7 @@ namespace UnitNetcomparing
             Debug.Print($"Area: {A1}");
 
 
-            //Precise Convertions
-            Length L2 = new Length(1, LengthUnit.Mile);
-            UnitsNet.Length U2 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
-
-
-
-            Debug.Print($"EngineeringUnits in Inch: {L2.As(LengthUnit.Inch)}");
-            Debug.Print($"UnitsNet in Inch: {U2.As(UnitsNet.Units.LengthUnit.Inch)}");
+           
 
 
         }

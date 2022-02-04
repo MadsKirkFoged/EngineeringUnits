@@ -26,7 +26,10 @@ namespace EngineeringUnits
 
         [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(1.0d)]
-        public decimal GlobalC { get; private  set; } 
+        public decimal GlobalC { get; private  set; }
+
+        [JsonProperty(PropertyName = "NC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public Fraction NewC { get; set; }
 
         [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         //[DefaultValue(value: Fraction.One)]
@@ -54,6 +57,7 @@ namespace EngineeringUnits
             Symbol = symbol;
             LocalC = a1;
             GlobalC = a2;
+            NewC = new Fraction(a1 * a2);
             B = b;
             ActualC = 1;
             Count = 1;
@@ -65,6 +69,25 @@ namespace EngineeringUnits
             Symbol = symbol;
             LocalC = a1;
             GlobalC = a2;
+            NewC = new Fraction(a1 * a2);             
+            B = 0;
+            ActualC = 1;
+            Count = 1;
+        }
+
+        protected Enumeration(string symbol, Fraction Constant)
+        {
+            Symbol = symbol;
+            NewC = Constant;
+            B = 0;
+            ActualC = 1;
+            Count = 1;
+        }
+
+        protected Enumeration(string symbol, decimal Constant)
+        {
+            Symbol = symbol;
+            NewC = new Fraction(Constant);
             B = 0;
             ActualC = 1;
             Count = 1;
@@ -74,6 +97,8 @@ namespace EngineeringUnits
         {
             LocalC = PrefixSISize(SI);
             GlobalC = 1;
+            NewC = new Fraction(LocalC * GlobalC);
+
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
             ActualC = 1;
