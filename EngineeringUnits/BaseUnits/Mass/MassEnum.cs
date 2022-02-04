@@ -54,6 +54,8 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
+
+            Unit.ListOfUnits.Add(Unit.Mass);
         }
 
 
@@ -61,6 +63,8 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
+
+            Unit.ListOfUnits.Add(Unit.Mass);
         }
      
        

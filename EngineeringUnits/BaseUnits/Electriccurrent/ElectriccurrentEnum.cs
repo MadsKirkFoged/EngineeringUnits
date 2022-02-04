@@ -33,9 +33,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
+            Unit.ListOfUnits.Add(Unit.Electriccurrent);
         }
 
 
@@ -44,9 +42,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
+            Unit.ListOfUnits.Add(Unit.Electriccurrent);
         }     
 
        

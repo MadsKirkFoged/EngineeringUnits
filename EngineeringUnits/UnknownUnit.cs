@@ -16,6 +16,8 @@ namespace EngineeringUnits
         public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
         public UnknownUnit(BaseUnit baseunit) => baseUnit = baseunit;
 
+        
+
 
         public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left.baseUnit * right.baseUnit;
         public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right) => left.baseUnit / right.baseUnit;

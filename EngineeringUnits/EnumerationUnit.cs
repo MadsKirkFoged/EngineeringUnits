@@ -20,13 +20,13 @@ namespace EngineeringUnits
         [DefaultValue("")]
         public string Symbol { get; init; } 
 
-        [JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        [DefaultValue(1.0d)]
-        public decimal LocalC { get; init; } 
+        //[JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[DefaultValue(1.0d)]
+        //public decimal LocalC { get; init; } 
 
-        [JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        [DefaultValue(1.0d)]
-        public decimal GlobalC { get; private  set; }
+        //[JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[DefaultValue(1.0d)]
+        //public decimal GlobalC { get; private  set; }
 
         [JsonProperty(PropertyName = "NC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public Fraction NewC { get; set; }
@@ -46,6 +46,9 @@ namespace EngineeringUnits
         [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
 
+        public Fraction TotalConstant => Fraction.Pow(NewC, Count);
+
+
 
         public Enumeration()
         {
@@ -55,8 +58,8 @@ namespace EngineeringUnits
         protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
         {
             Symbol = symbol;
-            LocalC = a1;
-            GlobalC = a2;
+            //LocalC = a1;
+            //GlobalC = a2;
             NewC = new Fraction(a1 * a2);
             B = b;
             ActualC = 1;
@@ -67,9 +70,9 @@ namespace EngineeringUnits
         protected Enumeration(string symbol, decimal a1, decimal a2)
         {
             Symbol = symbol;
-            LocalC = a1;
-            GlobalC = a2;
-            NewC = new Fraction(a1 * a2);             
+            //LocalC = a1;
+            //GlobalC = a2;
+            NewC = new Fraction(a1 * a2);
             B = 0;
             ActualC = 1;
             Count = 1;
@@ -95,9 +98,9 @@ namespace EngineeringUnits
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            LocalC = PrefixSISize(SI);
-            GlobalC = 1;
-            NewC = new Fraction(LocalC * GlobalC);
+            //LocalC = PrefixSISize(SI);
+            //GlobalC = 1;
+            NewC = new Fraction(PrefixSISize(SI));
 
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
             B = 0;
@@ -210,14 +213,14 @@ namespace EngineeringUnits
         
         public void SetCombined(decimal correction)
         {
-            decimal correction2 = 1;
+            Fraction correction2 = 1;
 
             if (Unit.Combined is object)
-                correction2 = Unit.Combined.GlobalC;
+                correction2 = Unit.Combined.NewC;
 
 
             if (correction != 1)
-                Unit.Combined = new CombinedUnit("", 1, correction * correction2);
+                Unit.Combined = new CombinedUnit("", (Fraction)correction * correction2);
 
         }
 
@@ -241,9 +244,11 @@ namespace EngineeringUnits
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
-        public void SetNewGlobalC(decimal globalC) => GlobalC = globalC;
+        public void SetNewGlobalC(decimal globalC) => NewC = new Fraction(globalC);
 
-        
+        public void SetNewGlobalC(Fraction globalC) => NewC = globalC;
+
+
 
         public static T GetUnitByString<T>(string name)
         {
@@ -295,8 +300,8 @@ namespace EngineeringUnits
         {
             HashCode hashCode = new();
             hashCode.Add(Symbol);
-            hashCode.Add(LocalC);
-            hashCode.Add(GlobalC);
+            hashCode.Add(NewC);
+            //hashCode.Add(GlobalC);
             hashCode.Add(ActualC);
             hashCode.Add(B);
             hashCode.Add(Count);

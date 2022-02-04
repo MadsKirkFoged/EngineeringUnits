@@ -28,9 +28,16 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Temperature = (TemperatureUnit)Clone();
 
-            //Beta
-            //Unit.UnitListBeta.Add(this);
+            Unit.ListOfUnits.Add(Unit.Temperature);
+
         }
+
+        //public TemperatureUnit(string symbol, decimal Constant, decimal b) : base(symbol, a1, a2, b)
+        //{
+        //    Unit = new UnitSystem();
+        //    Unit.Temperature = (TemperatureUnit)Clone();
+
+        //}
 
 
         public TemperatureUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
@@ -38,17 +45,11 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Temperature = (TemperatureUnit)Clone();
 
-            //Beta
-            //Unit.UnitListBeta.Add(this);
+            Unit.ListOfUnits.Add(Unit.Temperature);
+
         }
 
      
-
-
-        //public static IEnumerable<TemperatureUnit> List()
-        //{
-        //    return new[] { DegreeCelsius, DegreeFahrenheit, DegreeRankine, Kelvin, };
-        //}
        
     }
 

@@ -27,6 +27,8 @@ namespace EngineeringUnits
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)SymbolValue;
 
+        public decimal NEWValue { get; set; }
+
         [JsonConstructor]
         public BaseUnit()
         {
@@ -55,6 +57,7 @@ namespace EngineeringUnits
             Unit = unitSystem;
             //SetValue(value);
             SymbolValue = value / 1.000000000000000000000000000000000m;
+            NEWValue = value / 1.000000000000000000000000000000000m;
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
@@ -71,7 +74,8 @@ namespace EngineeringUnits
             else
             {
                 Inf = false;
-                SymbolValue = (decimal)value;         
+                SymbolValue = (decimal)value;
+                NEWValue = (decimal)value;
             }
         }
 
@@ -80,6 +84,7 @@ namespace EngineeringUnits
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
             SymbolValue = (decimal)value;
+            NEWValue = (decimal)value;
         }
 
         public BaseUnit(UnknownUnit unit)
@@ -87,6 +92,8 @@ namespace EngineeringUnits
 
             Unit = unit.unitsystem;
             SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
+
+            NEWValue = unit.baseUnit.NEWValue;
 
 
             UnitCheck(unit);
@@ -103,6 +110,8 @@ namespace EngineeringUnits
             //SetValue(unit.baseUnit.ToTheOutSide(Unit));
             SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
             Inf = unit.baseUnit.Inf;
+
+            NEWValue = unit.baseUnit.NEWValue;
 
             UnitCheck(unit);
         }
@@ -274,6 +283,18 @@ namespace EngineeringUnits
             return $"{BaseunitValue.ToString(format)} {Unit}";         
         }
 
+
+        public Fraction ConvertionFactor(BaseUnit To)
+        {
+            return Unit.SumConstant() / To.Unit.SumConstant();
+        }
+
+        public decimal ConvertValueInto(BaseUnit From)
+        {
+            return (decimal)ConvertionFactor(From) * NEWValue;
+        }
+
+
         public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
         {
 
@@ -289,6 +310,9 @@ namespace EngineeringUnits
             decimal ConvertionsFactor = (decimal)UnitSystem.Convert(right.Unit.BaseUnitSystem(), left.Unit.BaseUnitSystem());
             decimal testRightConverted = right.BaseunitValue * ConvertionsFactor;
 
+
+            decimal NewTestValue = 0;
+
             switch (math)
             {
                 case MathEnum.Add:                   
@@ -296,6 +320,9 @@ namespace EngineeringUnits
                     //Value math                    
                     try
                     {
+                        NewTestValue = left.NEWValue + right.ConvertValueInto(left);
+
+
                         X3 = left.BaseunitValue + testRightConverted;
                     }
                     catch (OverflowException)
@@ -312,6 +339,9 @@ namespace EngineeringUnits
                     //Value math
                     try
                     {
+                        NewTestValue = left.NEWValue - right.ConvertValueInto(left);
+
+
                         X3 = left.BaseunitValue - testRightConverted;
                     }
                     catch (OverflowException)
@@ -329,6 +359,9 @@ namespace EngineeringUnits
                     //Value math
                     try
                     {
+                        //We try to multiply them together
+                        NewTestValue = left.NEWValue * right.NEWValue;
+
                         X3 = left.BaseunitValue * testRightConverted;
                     }
                     catch (OverflowException)
@@ -348,6 +381,15 @@ namespace EngineeringUnits
                     {                        
                         try
                         {
+                            //We try to multiply them together
+
+
+                            if (right.NEWValue != 0m)
+                            {
+                                NewTestValue = left.NEWValue / right.NEWValue;
+                            }
+
+
                             X3 = left.BaseunitValue / testRightConverted;
                         }
                         catch (OverflowException)
@@ -382,11 +424,15 @@ namespace EngineeringUnits
             //return local;
             if (LocalINF)
             {
-                return new BaseUnit(double.PositiveInfinity, LocalUnit);
+                var test2 = new BaseUnit(double.PositiveInfinity, LocalUnit);
+                
+                return test2;
             }
             else
             {
-                return new BaseUnit(x3TestConvertedBack, LocalUnit);
+                var test2 = new BaseUnit(x3TestConvertedBack, LocalUnit);
+                test2.NEWValue = NewTestValue;
+                return test2;
             }
         }
 
@@ -473,6 +519,9 @@ namespace EngineeringUnits
         public decimal ToTheOutSide(UnitSystem To)
         {
 
+            var NewTEST = NEWValue *  (decimal)To.ConvertionFactor(Unit);
+
+
 
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();         
@@ -482,6 +531,10 @@ namespace EngineeringUnits
             Fraction b3test = test * (b1 * -1) + b2;
             Fraction y2test = test * (Fraction)SymbolValue + b3test;
             return (decimal)y2test;
+
+            var deleteMe = (decimal)y2test;
+
+            //return NewTEST;
         }
 
         public double ToTheOutSideDouble(UnitSystem To)

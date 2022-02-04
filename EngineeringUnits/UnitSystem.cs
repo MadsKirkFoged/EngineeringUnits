@@ -40,6 +40,8 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public CombinedUnit Combined { get; set; } //Combined
 
+        public List<Enumeration> ListOfUnits = new List<Enumeration>();
+
 
         public UnitSystem()
         {
@@ -100,6 +102,23 @@ namespace EngineeringUnits
         }
 
 
+        public Fraction SumConstant()
+        {
+            Fraction test = 1;
+
+            foreach (var item in ListOfUnits)
+            {
+                test *= item.TotalConstant;
+            }
+
+            return test;
+        }
+
+        public Fraction ConvertionFactor(UnitSystem To)
+        {
+            return To.SumConstant() / SumConstant();
+        }
+
 
         public static UnitSystem Add(UnitSystem a, UnitSystem b)
         {
@@ -136,11 +155,24 @@ namespace EngineeringUnits
             local.LuminousIntensity = (LuminousIntensityUnit)MultiplyLocal(a.LuminousIntensity, b.LuminousIntensity);
 
 
+            //Testing a new way to store units
+
+            foreach (var item in a.UnitList())
+            {
+                local.ListOfUnits.Add(item);
+            }
+
+            foreach (var item in b.UnitList())
+            {
+                local.ListOfUnits.Add(item);
+            }
+
+
 
             if (a.Combined is object && b.Combined is object)
             {
                 local.Combined = (CombinedUnit)a.Combined.Clone();
-                local.Combined.SetNewGlobalC(local.Combined.GlobalC * b.Combined.GlobalC);
+                local.Combined.SetNewGlobalC(local.Combined.NewC * b.Combined.NewC);
                 local.Combined.Count += b.Combined.Count;
             }
             else if (a.Combined is object)
@@ -203,14 +235,37 @@ namespace EngineeringUnits
             local.Temperature = (TemperatureUnit)DivideLocal(a.Temperature, b.Temperature);
             local.Amount = (AmountOfSubstanceUnit)DivideLocal(a.Amount, b.Amount);
             local.LuminousIntensity = (LuminousIntensityUnit)DivideLocal(a.LuminousIntensity, b.LuminousIntensity);
-           
+
+
+
+            //Testing a new way to store units
+
+            foreach (var item in a.UnitList())
+            {
+                local.ListOfUnits.Add(item);
+            }
+
+            foreach (var item in b.UnitList())
+            {
+                Enumeration test = (Enumeration)item.Clone();
+
+                test.Count *= -1; 
+
+                local.ListOfUnits.Add(test);
+            }
+
+
+
+
+
+
 
             //COMBINED
             if (a.Combined is object && b.Combined is object)
             {
                 local.Combined = (CombinedUnit)a.Combined.Clone();
 
-                local.Combined.SetNewGlobalC(local.Combined.GlobalC / b.Combined.GlobalC);
+                local.Combined.SetNewGlobalC(local.Combined.NewC / b.Combined.NewC);
                 local.Combined.Count -= b.Combined.Count;
             }
             else if (a.Combined is object)
@@ -221,7 +276,7 @@ namespace EngineeringUnits
             else if (b.Combined is object)
             {
                 local.Combined = (CombinedUnit)b.Combined.Clone();
-                local.Combined.SetNewGlobalC(1 / b.Combined.GlobalC);
+                local.Combined.SetNewGlobalC(1 / b.Combined.NewC);
                 local.Combined.Count *= -1;
             }
 
@@ -307,15 +362,7 @@ namespace EngineeringUnits
 
                 if (FromUnit.GetType() == typeof(CombinedUnit))
                 {
-                    //Fraction CombinedFraction = 1;
-                    //CombinedFraction *= (Fraction)FromUnit.LocalC;
-                    //CombinedFraction *= (Fraction)FromUnit.GlobalC;
-
-                    decimal decA = FromUnit.LocalC * FromUnit.GlobalC;
-                    Fraction CombinedFraction = new Fraction(decA);
-
-
-                    CombinedFraction2 *= CombinedFraction;
+                    CombinedFraction2 *= FromUnit.NewC;
                 }
             }
 
@@ -324,15 +371,7 @@ namespace EngineeringUnits
 
                 if (ToUnit.GetType() == typeof(CombinedUnit))
                 {
-                    //Fraction CombinedFraction = 1;
-                    //CombinedFraction /= (Fraction)ToUnit.LocalC;
-                    //CombinedFraction /= (Fraction)ToUnit.GlobalC;
-
-                    decimal decA = ToUnit.LocalC * ToUnit.GlobalC;
-                    Fraction CombinedFraction = new Fraction(decA);
-
-
-                    CombinedFraction2 /= CombinedFraction;
+                    CombinedFraction2 /= ToUnit.NewC;
                 }
             }
 
@@ -354,7 +393,7 @@ namespace EngineeringUnits
             foreach (var Unit in UnitList())
             {
                 if (Unit.GetType() == typeof(CombinedUnit))                
-                    CombinedFraction *= (Fraction)Unit.GlobalC;                
+                    CombinedFraction *= Unit.NewC;                
             }
 
             return CombinedFraction;
@@ -536,7 +575,7 @@ namespace EngineeringUnits
             UnitSystem local = Copy();
 
             //Remove combi and acutalC
-            local.Combined = new CombinedUnit("",1,1);
+            local.Combined = new CombinedUnit("",1m);
 
             foreach (var item in local.UnitList())
             {
@@ -591,7 +630,7 @@ namespace EngineeringUnits
             if (Combined is object)
             {
                 local.Combined = (CombinedUnit)Combined.Clone();
-                local.Combined.SetNewGlobalC(Sqrt(Combined.GlobalC));
+                local.Combined.SetNewGlobalC(Sqrt((decimal)Combined.NewC));
             }
 
 

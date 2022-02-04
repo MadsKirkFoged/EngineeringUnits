@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,7 +20,17 @@ namespace EngineeringUnits
         public CombinedUnit() { }
 
 
-        public CombinedUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        //public CombinedUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        //{
+        //    SetUnitSystem();
+        //}
+
+        public CombinedUnit(string symbol, decimal Constant) : base(symbol, Constant)
+        {
+            SetUnitSystem();
+        }
+
+        public CombinedUnit(string symbol, Fraction Constant) : base(symbol, Constant)
         {
             SetUnitSystem();
         }
@@ -34,6 +45,8 @@ namespace EngineeringUnits
         {
             Unit = new UnitSystem();
             Unit.Combined = (CombinedUnit)this.Clone();
+
+            Unit.ListOfUnits.Add(Unit.Combined);
         }
 
        

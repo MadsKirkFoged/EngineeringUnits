@@ -25,13 +25,13 @@ namespace UnitNetcomparing
 
 
             //Precise Convertions
-            Length L2 = new Length(1, LengthUnit.Mile);
-            UnitsNet.Length U2 = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Mile);
+            Length L2 = new Length(1, LengthUnit.Inch);
+            Length L3 = new Length(1, LengthUnit.Hand);
 
 
+            var A4 = L2 + L3;
 
-            Debug.Print($"EngineeringUnits in Inch: {L2.As(LengthUnit.Inch)}");
-            Debug.Print($"UnitsNet in Inch: {U2.As(UnitsNet.Units.LengthUnit.Inch)}");
+
 
 
             SpecificEnergy EE1 = new SpecificEnergy(84100, SpecificEnergyUnit.JoulePerKilogram);

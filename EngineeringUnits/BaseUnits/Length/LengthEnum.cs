@@ -59,12 +59,16 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
+
+            Unit.ListOfUnits.Add(Unit.Length);
         }
 
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
+
+            Unit.ListOfUnits.Add(Unit.Length);
         }             
 
 
