@@ -20,7 +20,7 @@ namespace EngineeringUnits
         public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrent Zero => new(0, ElectricCurrentUnit.SI);
 
-        public static implicit operator ElectricCurrent(UnknownUnit Unit) => new(Unit, ElectricCurrentUnit.SI);
+        public static implicit operator ElectricCurrent(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricCurrent(int zero)
         {

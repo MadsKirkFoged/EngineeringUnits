@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ApparentEnergy ToUnit(ApparentEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ApparentEnergy Zero => new(0, ApparentEnergyUnit.SI);
 
-        public static implicit operator ApparentEnergy(UnknownUnit Unit) => new(Unit, ApparentEnergyUnit.SI);
+        public static implicit operator ApparentEnergy(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ApparentEnergy(int zero)
         {
