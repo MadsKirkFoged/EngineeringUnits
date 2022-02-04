@@ -29,7 +29,7 @@ namespace EngineeringUnits.Units
         public static readonly LengthUnit Twip =         new("twip",      1/1440m * 0.0254m);
         public static readonly LengthUnit Mil =          new("mil",       1/1000m * 0.0254m);
         public static readonly LengthUnit DtpPoint =     new("pt",        1/72m * 0.0254m);
-        public static readonly LengthUnit DtpPica =      new("pica",      1/6m,           0.0254m);
+        public static readonly LengthUnit DtpPica =      new("pica",      1/6m * 0.0254m);
         public static readonly LengthUnit Inch =         new("in",        1,              0.0254m);
         public static readonly LengthUnit Hand =         new("h",         4,              0.0254m);
         public static readonly LengthUnit Foot =         new("ft",        12,             0.0254m);
