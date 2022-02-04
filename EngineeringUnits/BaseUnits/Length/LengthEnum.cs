@@ -35,8 +35,8 @@ namespace EngineeringUnits.Units
         public static readonly LengthUnit Foot =         new("ft",        12 * 0.0254m);
         public static readonly LengthUnit Yard =         new("yd",        36 * 0.0254m);
         public static readonly LengthUnit Fathom =       new("fathom",    72 * 0.0254m);
-        public static readonly LengthUnit Chain =        new("ch",        792,            0.0254m);
-        public static readonly LengthUnit Shackle =      new("shackle",   1080,           0.0254m);
+        public static readonly LengthUnit Chain =        new("ch",          792 * 0.0254m);
+        public static readonly LengthUnit Shackle =      new("shackle",     1080 * 0.0254m);
         public static readonly LengthUnit Mile =         new("mi",        63360,          0.0254m);
         public static readonly LengthUnit NauticalMile = new("NM",        72913.3858m,    0.0254m);
         public static readonly LengthUnit UsSurveyFoot = new("ftUS",      1m,             1200/3937m);
