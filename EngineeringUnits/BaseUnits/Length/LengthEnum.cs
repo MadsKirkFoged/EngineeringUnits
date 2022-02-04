@@ -39,15 +39,15 @@ namespace EngineeringUnits.Units
         public static readonly LengthUnit Shackle =      new("shackle",     1080 * 0.0254m);
         public static readonly LengthUnit Mile =         new("mi", 63360 * 0.0254m);
         public static readonly LengthUnit NauticalMile = new("NM", 72913.3858m * 0.0254m);
-        public static readonly LengthUnit UsSurveyFoot = new("ftUS",      1m,             1200/3937m);
-        public static readonly LengthUnit LightYear =        new("ly",    1,      9460730472580800m);
-        public static readonly LengthUnit KilolightYear =    new("kly",   1e+3m,  9460730472580800m);
-        public static readonly LengthUnit MegalightYear =    new("Mly",   1e+6m,  9460730472580800m);
-        public static readonly LengthUnit SolarRadius =      new("R⊙",    1,      6.95510000E+08m);
-        public static readonly LengthUnit AstronomicalUnit = new("au",    1,      149597870700m);
-        public static readonly LengthUnit Parsec =           new("pc",    1,      30856775814913673m);
-        public static readonly LengthUnit Kiloparsec =       new("kpc",   1e+3m,  30856775814913673m);
-        public static readonly LengthUnit Megaparsec =       new("Mpc",   1e+6m,  30856775814913673m);
+        public static readonly LengthUnit UsSurveyFoot = new("ftUS",      1200/3937m);
+        public static readonly LengthUnit LightYear =        new("ly",    9460730472580800m);
+        public static readonly LengthUnit KilolightYear =    new("kly", 1e+3m * 9460730472580800m);
+        public static readonly LengthUnit MegalightYear =    new("Mly", 1e+6m * 9460730472580800m);
+        public static readonly LengthUnit SolarRadius =      new("R⊙",    6.95510000E+08m);
+        public static readonly LengthUnit AstronomicalUnit = new("au",    149597870700m);
+        public static readonly LengthUnit Parsec =           new("pc",    30856775814913673m);
+        public static readonly LengthUnit Kiloparsec =       new("kpc", 1e+3m * 30856775814913673m);
+        public static readonly LengthUnit Megaparsec =       new("Mpc", 1e+6m * 30856775814913673m);
 
 
 
