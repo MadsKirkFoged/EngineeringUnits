@@ -24,25 +24,22 @@ namespace EngineeringUnits.Units
         public static readonly AmountOfSubstanceUnit Nanomole =  new(PreFix.nano, BaseUnits.amountOfSubstance);
         public static readonly AmountOfSubstanceUnit Picomole = new(PreFix.pico, BaseUnits.amountOfSubstance);
 
-        public static readonly AmountOfSubstanceUnit NanopoundMole =     new("nlbmol", 1e-9m,  453.59237m);
-        public static readonly AmountOfSubstanceUnit MicropoundMole =    new("µlbmol", 1e-6m,  453.59237m);
-        public static readonly AmountOfSubstanceUnit MillipoundMole =    new("mlbmol", 1e-3m,  453.59237m);
-        public static readonly AmountOfSubstanceUnit PoundMole =         new("lbmol",  1,      453.59237m);
-        public static readonly AmountOfSubstanceUnit KilopoundMole =     new("klbmol", 1e3m,   453.59237m);
-        public static readonly AmountOfSubstanceUnit DecipoundMole =     new("dlbmol", 1e-1m,  453.59237m);
-        public static readonly AmountOfSubstanceUnit CentipoundMole =    new("clbmol", 1e-2m,  453.59237m);
+        public static readonly AmountOfSubstanceUnit NanopoundMole =     new("nlbmol",  1e-9m * 453.59237m);
+        public static readonly AmountOfSubstanceUnit MicropoundMole =    new("µlbmol",  1e-6m * 453.59237m);
+        public static readonly AmountOfSubstanceUnit MillipoundMole =    new("mlbmol",  1e-3m * 453.59237m);
+        public static readonly AmountOfSubstanceUnit PoundMole =         new("lbmol",   1 *     453.59237m);
+        public static readonly AmountOfSubstanceUnit KilopoundMole =     new("klbmol",  1e3m *  453.59237m);
+        public static readonly AmountOfSubstanceUnit DecipoundMole =     new("dlbmol",  1e-1m * 453.59237m);
+        public static readonly AmountOfSubstanceUnit CentipoundMole =    new("clbmol",  1e-2m * 453.59237m);
 
 
         public AmountOfSubstanceUnit() { }
 
 
-        public AmountOfSubstanceUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem();
             Unit.Amount = (AmountOfSubstanceUnit)Clone();
-
-            //Beta
-            //Unit.UnitListBeta.Add(this);
         }
 
 
