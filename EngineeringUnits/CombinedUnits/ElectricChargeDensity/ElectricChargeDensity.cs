@@ -19,7 +19,7 @@ namespace EngineeringUnits
         public ElectricChargeDensity ToUnit(ElectricChargeDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricChargeDensity Zero => new(0, ElectricChargeDensityUnit.SI);
 
-        public static implicit operator ElectricChargeDensity(UnknownUnit Unit) => new(Unit, ElectricChargeDensityUnit.SI);
+        public static implicit operator ElectricChargeDensity(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ElectricChargeDensity(int zero)
         {
