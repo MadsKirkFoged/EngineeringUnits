@@ -30,7 +30,7 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "NewVAlue", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public decimal NEWValue { get; set; }
 
-        [JsonConstructor]
+        //[JsonConstructor]
         public BaseUnit()
         {
         }

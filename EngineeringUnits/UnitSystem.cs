@@ -40,14 +40,8 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public CombinedUnit Combined { get; set; } //Combined
 
-        [JsonProperty]
+        [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public List<Enumeration> ListOfUnits = new List<Enumeration>();
-
-        [JsonConstructor]
-        public UnitSystem(List<Enumeration> listOfUnits)
-        {
-            ListOfUnits = listOfUnits;
-        }
 
 
         public UnitSystem()

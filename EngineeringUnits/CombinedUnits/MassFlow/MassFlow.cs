@@ -1,5 +1,6 @@
 ﻿using EngineeringUnits.Units;
-
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace EngineeringUnits
 {
@@ -7,7 +8,11 @@ namespace EngineeringUnits
     public partial class MassFlow : BaseUnit
     {
 
-        public MassFlow() { }
+        [JsonConstructor]
+        public MassFlow() 
+        {
+        }
+
         public MassFlow(decimal value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public MassFlow(double value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public MassFlow(int value, MassFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
