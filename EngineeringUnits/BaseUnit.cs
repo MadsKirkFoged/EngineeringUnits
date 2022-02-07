@@ -51,12 +51,11 @@ namespace EngineeringUnits
 
         }
 
-
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
-            //SetValue(value);
+            CheckForStandardUnit();
             SymbolValue = value / 1.000000000000000000000000000000000m;
             NEWValue = value / 1.000000000000000000000000000000000m;
         }
@@ -66,6 +65,7 @@ namespace EngineeringUnits
             
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
+            CheckForStandardUnit();
 
             if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
             {
@@ -84,6 +84,7 @@ namespace EngineeringUnits
         {
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
+            CheckForStandardUnit();
             SymbolValue = (decimal)value;
             NEWValue = (decimal)value;
         }
@@ -92,6 +93,8 @@ namespace EngineeringUnits
         {
 
             Unit = unit.unitsystem;
+            CheckForStandardUnit();
+
             SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
 
             NEWValue = unit.baseUnit.NEWValue;
@@ -107,6 +110,7 @@ namespace EngineeringUnits
             else            
                 Unit = unit.unitsystem;
 
+            CheckForStandardUnit();
 
             //SetValue(unit.baseUnit.ToTheOutSide(Unit));
             SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
@@ -184,7 +188,8 @@ namespace EngineeringUnits
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
 
-            return (double)left.SymbolValue == right.As(left);
+            //return (double)left.SymbolValue == right.As(left
+            return left.NEWValue == right.ToTheOutSide(left.Unit);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
@@ -438,10 +443,10 @@ namespace EngineeringUnits
         }
 
 
-        public UnknownUnit Sqrt()
-        {
-            return new BaseUnit(Sqrt(SymbolValue), Unit.Sqrt());
-        }
+        //public UnknownUnit Sqrt()
+        //{
+        //    return new BaseUnit(Sqrt(SymbolValue), Unit.Sqrt());
+        //}
 
         public UnknownUnit Abs()
         {
@@ -621,9 +626,27 @@ namespace EngineeringUnits
         }
 
 
+
+        public void CheckForStandardUnit<T>()
+            where T : Enumeration
+        {
+            if (string.IsNullOrEmpty(Unit.Symbol))
+            {
+                Unit.Symbol = Enumeration.ListOf<T>()
+                .Find(x => x.Unit.SumConstant() == Unit.SumConstant())?
+                .Unit.Symbol;
+            }
+        }
+
+        public virtual void CheckForStandardUnit()
+        {
+
+        }
+
+
     }
 
 
 
 
-    }
+}

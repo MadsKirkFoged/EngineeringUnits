@@ -22,8 +22,13 @@ namespace UnitNetcomparing
 
             //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
 
+            Temperature T112 = new(20, TemperatureUnit.DegreeCelsius);
+
 
             SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
+
+            Debug.Print($"{EngineeringUnits1.As(SpecificEnergyUnit.JoulePerKilogram)}");
+
             SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
             SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
@@ -76,7 +81,7 @@ namespace UnitNetcomparing
 
             Area A11 = L11.Pow(2);  //273.9236844096 m²    
 
-            Length L21 = A11.Sqrt(); //16.55064 m
+            //Length L21 = A11.Sqrt(); //16.55064 m
 
 
             if (M4.IsNotZero())

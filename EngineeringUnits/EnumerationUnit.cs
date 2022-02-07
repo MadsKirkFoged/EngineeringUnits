@@ -223,7 +223,9 @@ namespace EngineeringUnits
             if (correction != 1)
             {
                 Unit.Combined = new CombinedUnit("", (Fraction)correction * correction2);
-                Unit.ListOfUnits.Add(Unit.Combined);
+                
+                //New way (now we dont add it 2x times)
+                Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));
             }
 
         }

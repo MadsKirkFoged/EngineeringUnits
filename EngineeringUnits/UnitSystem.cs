@@ -507,7 +507,6 @@ namespace EngineeringUnits
 
         public IEnumerable<Enumeration> UnitList()
         {
-
             if (Length is object)
                 yield return Length;
 
@@ -565,6 +564,12 @@ namespace EngineeringUnits
 
             if (Combined is object)
                 local.Combined = (CombinedUnit)Combined.Clone();
+
+            foreach (var item in ListOfUnits)
+            {
+                local.ListOfUnits.Add((Enumeration)item.Clone());
+            }
+
 
 
             return local;

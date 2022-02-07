@@ -30,5 +30,8 @@ namespace EngineeringUnits
             return Zero;
         }
 
+
+        public override void CheckForStandardUnit() => CheckForStandardUnit<PowerUnit>();
+
     }
 }

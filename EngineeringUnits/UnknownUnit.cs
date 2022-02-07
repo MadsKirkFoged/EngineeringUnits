@@ -83,7 +83,7 @@ namespace EngineeringUnits
 
         public UnknownUnit Pow(int toPower) => baseUnit.Pow(toPower);
 
-        public UnknownUnit Sqrt() => baseUnit.Sqrt();
+        //public UnknownUnit Sqrt() => baseUnit.Sqrt();
 
         public UnknownUnit Abs() => baseUnit.Abs();
 
