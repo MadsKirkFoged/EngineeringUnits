@@ -45,6 +45,8 @@ namespace EngineeringUnits
 
         public UnitSystem()
         {
+            ListOfUnits = new List<Enumeration>();
+
         }
 
         public UnitSystem(string symbol)

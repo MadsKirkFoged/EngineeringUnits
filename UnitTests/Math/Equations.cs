@@ -39,8 +39,7 @@ namespace UnitTests
 
             UnitsNet.Power q1 = UnitsNet.Power.FromWatts( p1.JoulesPerKilogramKelvin * m1.KilogramsPerSecond * (t2.Kelvins - t1.Kelvins));
 
-
-
+          
 
             Assert.AreEqual(0, Q1.As(PowerUnit.BritishThermalUnitPerHour) - q1.As(UnitsNet.Units.PowerUnit.BritishThermalUnitPerHour), 7.2E-05);
             Assert.AreEqual(0, Q1.As(PowerUnit.Kilowatt) - q1.As(UnitsNet.Units.PowerUnit.Kilowatt), 0);
