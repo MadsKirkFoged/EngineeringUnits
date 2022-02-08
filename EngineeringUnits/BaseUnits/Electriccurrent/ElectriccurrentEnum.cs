@@ -31,7 +31,7 @@ namespace EngineeringUnits.Units
         public ElectricCurrentUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
             Unit = new UnitSystem();
-            Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
+            //Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }
@@ -40,7 +40,7 @@ namespace EngineeringUnits.Units
         public ElectricCurrentUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
+           // Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }     

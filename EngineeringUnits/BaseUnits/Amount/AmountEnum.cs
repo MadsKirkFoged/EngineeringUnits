@@ -39,7 +39,7 @@ namespace EngineeringUnits.Units
         public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem();
-            Unit.Amount = (AmountOfSubstanceUnit)Clone();
+            //Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }
@@ -48,7 +48,7 @@ namespace EngineeringUnits.Units
         public AmountOfSubstanceUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Amount = (AmountOfSubstanceUnit)Clone();
+            //Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }     

@@ -176,7 +176,7 @@ namespace UnitTests
             Length L6 = new(20, LengthUnit.Inch);
 
             Assert.AreEqual(0.0353589928057554, (double)(L1 / L2));
-            Assert.AreEqual(28.281348552361184, (double)(L2 / L1));
+            Assert.AreEqual(28.281348552361187, (double)(L2 / L1));
             
             Assert.AreEqual(1, (double)(L1 / L1));
             Assert.AreEqual(1, (double)(L2 / L2));

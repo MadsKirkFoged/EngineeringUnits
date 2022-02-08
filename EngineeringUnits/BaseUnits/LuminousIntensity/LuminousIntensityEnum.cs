@@ -18,7 +18,7 @@ namespace EngineeringUnits.Units
         public LuminousIntensityUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem();
-            Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
+            //Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }
@@ -27,7 +27,7 @@ namespace EngineeringUnits.Units
         public LuminousIntensityUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
+            //Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }     

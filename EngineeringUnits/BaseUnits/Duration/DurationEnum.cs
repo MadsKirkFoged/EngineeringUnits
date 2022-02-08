@@ -33,7 +33,7 @@ namespace EngineeringUnits.Units
         public DurationUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem();
-            Unit.Duration = (DurationUnit)Clone();
+            //Unit.Duration = (DurationUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }
@@ -42,7 +42,7 @@ namespace EngineeringUnits.Units
         public DurationUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Duration = (DurationUnit)Clone();
+            //Unit.Duration = (DurationUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
         }      

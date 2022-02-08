@@ -26,7 +26,7 @@ namespace EngineeringUnits.Units
         public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, a1, a2,b)
         {
             Unit = new UnitSystem();
-            Unit.Temperature = (TemperatureUnit)Clone();
+            //Unit.Temperature = (TemperatureUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
 
@@ -43,7 +43,7 @@ namespace EngineeringUnits.Units
         public TemperatureUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem();
-            Unit.Temperature = (TemperatureUnit)Clone();
+            //Unit.Temperature = (TemperatureUnit)Clone();
 
             Unit.ListOfUnits.Add(this);
 

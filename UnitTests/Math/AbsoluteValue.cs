@@ -23,14 +23,14 @@ namespace UnitTests
         public void TestAbsoluteValue02()
         {
             Frequency f1 = Frequency.FromMegahertz(32);
-            decimal baseUnitValue = f1.BaseunitValue;
+            //decimal baseUnitValue = f1.BaseunitValue;
             string toString = f1.ToString();
             Frequency f2 = f1.Abs();
             UnknownUnit f3 = f1.Abs();
 
-            Assert.AreEqual(baseUnitValue, f1.BaseunitValue);
-            Assert.AreEqual(baseUnitValue, f2.BaseunitValue);
-            Assert.AreEqual(baseUnitValue, ((BaseUnit)f3).BaseunitValue);
+            Assert.AreEqual(Frequency.FromMegahertz(32).As(FrequencyUnit.Megahertz), f1.As(FrequencyUnit.Megahertz));
+            Assert.AreEqual(f1.As(FrequencyUnit.Megahertz), f2.As(FrequencyUnit.Megahertz));
+            Assert.AreEqual(f1.As(FrequencyUnit.Megahertz), f3.As(FrequencyUnit.Megahertz));
 
             Assert.AreEqual(toString, f1.ToString());
             Assert.AreEqual(toString, f2.ToString());
@@ -41,7 +41,7 @@ namespace UnitTests
         public void TestAbsoluteValue03()
         {
             Frequency f0 = Frequency.FromMegahertz(32);
-            decimal baseUnitValue = f0.BaseunitValue;
+            //decimal baseUnitValue = f0.BaseunitValue;
             string toString = f0.ToString();
 
             Frequency f1 = Frequency.FromMegahertz(-32);
@@ -49,11 +49,11 @@ namespace UnitTests
             Frequency f2 = f1.Abs();
             UnknownUnit f3 = f1.Abs();
 
-            Assert.AreEqual(baseUnitValue, f2.BaseunitValue);
-            Assert.AreEqual(baseUnitValue, ((BaseUnit)f3).BaseunitValue);
+            Assert.AreEqual(Frequency.FromMegahertz(32).As(FrequencyUnit.SI), f2.As(FrequencyUnit.SI));
+            Assert.AreEqual(f2.As(FrequencyUnit.SI), f3.As(FrequencyUnit.SI));
 
-            //Assert.AreEqual(toString, f2.ToString());
-            //Assert.AreEqual(toString, f3.ToString());
+            Assert.AreEqual(toString, f2.ToString());
+            Assert.AreEqual(toString, f3.ToString());
         }
     }
 }
