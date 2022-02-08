@@ -35,7 +35,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Duration = (DurationUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Duration);
+            Unit.ListOfUnits.Add(this);
         }
 
 
@@ -44,7 +44,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Duration = (DurationUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Duration);
+            Unit.ListOfUnits.Add(this);
         }      
 
     }

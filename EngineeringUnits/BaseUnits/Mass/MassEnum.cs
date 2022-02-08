@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace EngineeringUnits.Units
 {
 
 
-    
 
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
     public class MassUnit : Enumeration
     {
 
@@ -55,7 +56,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Mass);
+            Unit.ListOfUnits.Add(this);
         }
 
 
@@ -64,7 +65,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Mass = (MassUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Mass);
+            Unit.ListOfUnits.Add(this);
         }
      
        

@@ -41,7 +41,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Amount);
+            Unit.ListOfUnits.Add(this);
         }
 
 
@@ -50,7 +50,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Amount);
+            Unit.ListOfUnits.Add(this);
         }     
 
     }

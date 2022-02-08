@@ -20,7 +20,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.LuminousIntensity);
+            Unit.ListOfUnits.Add(this);
         }
 
 
@@ -29,7 +29,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.LuminousIntensity = (LuminousIntensityUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.LuminousIntensity);
+            Unit.ListOfUnits.Add(this);
         }     
        
     }

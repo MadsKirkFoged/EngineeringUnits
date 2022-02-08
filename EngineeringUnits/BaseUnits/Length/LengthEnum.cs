@@ -60,7 +60,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Length);
+            Unit.ListOfUnits.Add(this);
         }
 
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
@@ -68,7 +68,7 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem();
             Unit.Length = (LengthUnit)Clone();
 
-            Unit.ListOfUnits.Add(Unit.Length);
+            Unit.ListOfUnits.Add(this);
         }             
 
 

@@ -46,7 +46,7 @@ namespace EngineeringUnits
             Unit = new UnitSystem();
             Unit.Combined = (CombinedUnit)this.Clone();
 
-            Unit.ListOfUnits.Add(Unit.Combined);
+            Unit.ListOfUnits.Add(this);
         }
 
        

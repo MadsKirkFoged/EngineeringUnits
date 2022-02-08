@@ -28,11 +28,22 @@ namespace UnitTests
             ClassWithUnits JSON = JsonConvert.DeserializeObject<ClassWithUnits>(jsonString1);
             string jsonString2 = JsonConvert.SerializeObject(JSON);
 
+
+            foreach (var item in test.massflow.Unit.ListOfUnits)
+            {
+                Debug.Print($"{item.GetType()}");
+            }
+
+            foreach (var item in JSON.massflow.Unit.ListOfUnits)
+            {
+                Debug.Print($"{item.GetType()}");
+            }
+
             Debug.WriteLine($"{JSON.massflow}");
             Debug.WriteLine($"List count: {JSON.massflow.Unit.ListOfUnits.Count}");
 
 
-            //Assert.AreEqual(1, A1.As(AreaUnit.SquareMeter));
+            Assert.AreEqual(JSON.massflow.Unit.ListOfUnits.Count, test.massflow.Unit.ListOfUnits.Count);
             //Assert.AreEqual(10000, A1.As(AreaUnit.SquareCentimeter));
             //Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.SquareYard));
 

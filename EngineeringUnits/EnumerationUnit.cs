@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace EngineeringUnits
 {
-    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
     public class Enumeration :ICloneable
     {
 
@@ -49,6 +49,9 @@ namespace EngineeringUnits
 
         public Fraction TotalConstant => Fraction.Pow(NewC, Count);
 
+        [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public string TypeOfUnit { get; protected set; }
+
 
 
         public Enumeration()
@@ -65,6 +68,7 @@ namespace EngineeringUnits
             B = b;
             ActualC = 1;
             Count = 1;
+            TypeOfUnit = GetType().Name;
 
         }
 
@@ -77,6 +81,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
             Count = 1;
+            TypeOfUnit = GetType().Name;
         }
 
         protected Enumeration(string symbol, Fraction Constant)
@@ -86,6 +91,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
             Count = 1;
+            TypeOfUnit = GetType().Name;
         }
 
         protected Enumeration(string symbol, decimal Constant)
@@ -95,6 +101,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
             Count = 1;
+            TypeOfUnit = GetType().Name;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
@@ -107,6 +114,7 @@ namespace EngineeringUnits
             B = 0;
             ActualC = 1;
             Count = 1;
+            TypeOfUnit = GetType().Name;
         }
 
 

@@ -187,6 +187,8 @@ namespace EngineeringUnits
                 local.Combined = b.Combined;
             }
 
+            local.ReduceUnits();
+
 
             return local;
 
@@ -281,6 +283,7 @@ namespace EngineeringUnits
                 local.Combined.Count *= -1;
             }
 
+            local.ReduceUnits();
 
             return local;
 
@@ -433,39 +436,48 @@ namespace EngineeringUnits
 
              string local = "";
 
-            
-
-            foreach (var unit in UnitList())
+            //New Way
+            foreach (var unit in ListOfUnits)
             {
 
                 if (unit is object && unit.Count > 0)
                 {
 
-                    if (unit is object)                    
+                    if (unit is object)
                         local += unit.Symbol;
-                    
-
-
 
                     if (unit.Count > 1)
                         local += $"{ToSuperScript(unit.Count)}";
-
                 }
-
-
             }
 
 
 
 
+            //foreach (var unit in UnitList())
+            //{
+
+            //    if (unit is object && unit.Count > 0)
+            //    {
+
+            //        if (unit is object)                    
+            //            local += unit.Symbol;                  
+
+            //        if (unit.Count > 1)
+            //            local += $"{ToSuperScript(unit.Count)}";
+            //    }
+            //}
+
+
+
+
             //If any negative values
-            if (UnitList().Any(x => x.Count < 0))            
+            if (ListOfUnits.Any(x => x.Count < 0))            
                 local += "/";
 
 
 
-
-            foreach (var unit in UnitList())
+            foreach (var unit in ListOfUnits)
             {
 
                 if (unit is object && unit.Count < 0)
@@ -480,17 +492,27 @@ namespace EngineeringUnits
 
             }
 
+
+
+            //foreach (var unit in UnitList())
+            //{
+
+            //    if (unit is object && unit.Count < 0)
+            //    {
+            //        local += unit.Symbol;
+
+            //        if (unit.Count < -1)
+            //            local += $"{ToSuperScript(unit.Count * -1)}";
+
+            //    }
+
+
+            //}
+
             
 
-            //if (Symbol is object)
-            //{
-            //    return Symbol;
-            //}
-            //else
-            //{
-                return local;
-            //}
 
+                return local;
         }
 
         private static string ToSuperScript(int number)
@@ -502,6 +524,49 @@ namespace EngineeringUnits
                                     .ToArray());
 
             return superscript;
+
+        }
+
+
+        public void ReduceUnits()
+        {
+
+           var test = ListOfUnits.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+
+                    var groupOfSameConstant = GroupOfTypes
+                        .Select(x => x)
+                        .GroupBy(x => x.NewC);
+
+     
+                    foreach (var item in groupOfSameConstant)
+                    {
+
+                        Enumeration NewUnit = (Enumeration)item.First().Clone();
+
+                        NewUnit.Count = item.Sum(x => x.Count);
+
+                        NewUnitList.Add(NewUnit);
+
+                    }
+                }           
+
+            }
+
+            ListOfUnits = NewUnitList;
+
 
         }
 
