@@ -21,20 +21,9 @@ namespace EngineeringUnits
         [DefaultValue("")]
         public string Symbol { get; init; } 
 
-        //[JsonProperty(PropertyName = "LC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        //[DefaultValue(1.0d)]
-        //public decimal LocalC { get; init; } 
-
-        //[JsonProperty(PropertyName = "GC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        //[DefaultValue(1.0d)]
-        //public decimal GlobalC { get; private  set; }
 
         [JsonProperty(PropertyName = "NC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public Fraction NewC { get; set; }
-
-        [JsonProperty(PropertyName = "AC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        //[DefaultValue(value: Fraction.One)]
-        public Fraction ActualC { get; set; } 
 
         [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(0d)]
@@ -47,6 +36,7 @@ namespace EngineeringUnits
         [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
 
+        [JsonIgnore]
         public Fraction TotalConstant => Fraction.Pow(NewC, Count);
 
         [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
@@ -58,61 +48,39 @@ namespace EngineeringUnits
         {
         }
 
-
-        protected Enumeration(string symbol, decimal a1, decimal a2, decimal b)
+        protected Enumeration(string symbol)
         {
             Symbol = symbol;
-            //LocalC = a1;
-            //GlobalC = a2;
+            Count = 1;
+            TypeOfUnit = GetType().Name;
+        }
+
+
+        protected Enumeration(string symbol, decimal a1, decimal a2, decimal b) : this(symbol)
+        {
             NewC = new Fraction(a1 * a2);
             B = b;
-            ActualC = 1;
-            Count = 1;
-            TypeOfUnit = GetType().Name;
-
         }
 
-        protected Enumeration(string symbol, decimal a1, decimal a2)
+        protected Enumeration(string symbol, decimal a1, decimal a2) :this(symbol, a1, a2, 0)
         {
-            Symbol = symbol;
-            //LocalC = a1;
-            //GlobalC = a2;
-            NewC = new Fraction(a1 * a2);
-            B = 0;
-            ActualC = 1;
-            Count = 1;
-            TypeOfUnit = GetType().Name;
         }
 
-        protected Enumeration(string symbol, Fraction Constant)
+        protected Enumeration(string symbol, Fraction Constant) : this(symbol)
         {
-            Symbol = symbol;
             NewC = Constant;
             B = 0;
-            ActualC = 1;
-            Count = 1;
-            TypeOfUnit = GetType().Name;
         }
 
-        protected Enumeration(string symbol, decimal Constant)
+        protected Enumeration(string symbol, decimal Constant) : this(symbol, new Fraction(Constant))
         {
-            Symbol = symbol;
-            NewC = new Fraction(Constant);
-            B = 0;
-            ActualC = 1;
-            Count = 1;
-            TypeOfUnit = GetType().Name;
         }
 
         protected Enumeration(PreFix SI, BaseUnits baseunit)
         {
-            //LocalC = PrefixSISize(SI);
-            //GlobalC = 1;
-            NewC = new Fraction(PrefixSISize(SI));
-
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
+            NewC = new Fraction(PrefixSISize(SI));
             B = 0;
-            ActualC = 1;
             Count = 1;
             TypeOfUnit = GetType().Name;
         }
@@ -120,22 +88,14 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-
             if (Unit.Symbol is not null)
             {
                 return $"{Unit.Symbol}";
             }
 
 
-
             return $"{Unit}";
         }
-
-        public string BaseUnitsToString()
-        {
-            return $"{Unit}";
-        }
-
      
         public override bool Equals(object obj)
         {
@@ -221,20 +181,9 @@ namespace EngineeringUnits
 
         
         public void SetCombined(decimal correction)
-        {
-            Fraction correction2 = 1;
-
-            //if (Unit.Combined is object)
-              //  correction2 = Unit.Combined.NewC;
-
-
-            if (correction != 1)
-            {
-                //Unit.Combined = new CombinedUnit("", (Fraction)correction * correction2);
-                
-                //New way (now we dont add it 2x times)
-                Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));
-            }
+        {  
+            if (correction != 1)            
+                Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));            
 
         }
 
@@ -258,22 +207,17 @@ namespace EngineeringUnits
             Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
         }
 
-        public void SetNewGlobalC(decimal globalC) => NewC = new Fraction(globalC);
 
-        public void SetNewGlobalC(Fraction globalC) => NewC = globalC;
+        //public static T GetUnitByString<T>(string name)
+        //{
+        //    foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
+        //    {
+        //        if (field.Name == name)
+        //            return (T)field.GetValue(field);
+        //    }
 
-
-
-        public static T GetUnitByString<T>(string name)
-        {
-            foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
-            {
-                if (field.Name == name)
-                    return (T)field.GetValue(field);
-            }
-
-            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
-        }
+        //    throw new ArgumentException($"Could not find a unit with a name of '{name}'");
+        //}
 
         public static List<T> ListOf<T>() where T: Enumeration
         {
@@ -316,10 +260,10 @@ namespace EngineeringUnits
             hashCode.Add(Symbol);
             hashCode.Add(NewC);
             //hashCode.Add(GlobalC);
-            hashCode.Add(ActualC);
+            //hashCode.Add(ActualC);
             hashCode.Add(B);
             hashCode.Add(Count);
-            hashCode.Add(Count);
+            //hashCode.Add(Count);
             //hashCode.Add(Unit.GetHashCode());
 
             return hashCode.ToHashCode();

@@ -11,26 +11,26 @@ namespace EngineeringUnits
 {
 
 
-    [JsonObject(MemberSerialization.OptIn)]
+    [JsonObject(MemberSerialization.Fields)]
     public class BaseUnit : IComparable
     {
 
         public bool Inf { get; init; }
 
-        [JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public UnitSystem Unit { get; init;}
 
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         protected decimal SymbolValue { get; init; }
 
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => SI;
 
-        [JsonProperty(PropertyName = "NewVAlue", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[JsonProperty(PropertyName = "NewVAlue", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public decimal NEWValue { get; set; }
 
-        //[JsonConstructor]
+
         public BaseUnit()
         {
         }
@@ -123,36 +123,43 @@ namespace EngineeringUnits
         public void UnitCheck(UnknownUnit a)
         {
             if (a.unitsystem != Unit)            
-                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");            
-
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");           
         }
 
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");            
-
-            return BaseUnit.DoMath(left, right, MathEnum.Add);
+            return AddUnits(left, right);
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
-
-            if (left.Unit != right.Unit)
-                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
-
-            return BaseUnit.DoMath(left, right, MathEnum.Subtract);
+            return SubtractUnits(left, right);
+        }
+        public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
+        {
+            return MultiplyUnits(left, right);
+        }
+        public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
+        {
+            return DivideUnits(left, right);
         }
 
-        public static UnknownUnit operator *(BaseUnit a, BaseUnit b) => BaseUnit.DoMath(a, b, MathEnum.Multiply);
-        public static UnknownUnit operator /(BaseUnit a, BaseUnit b) => BaseUnit.DoMath(a, b, MathEnum.Divide);
-
-
-        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right) => left / right.baseUnit;
-        public static UnknownUnit operator /(UnknownUnit left, BaseUnit right) => left.baseUnit / right;
-
-        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right) => left * right.baseUnit;
-        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right) => left.baseUnit * right;
+        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
+        {
+            return left / right.baseUnit;
+        }
+        public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
+        {
+            return left.baseUnit / right;
+        }
+        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
+        {
+            return left * right.baseUnit;
+        }
+        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
+        {
+            return left.baseUnit * right;
+        }
 
 
 
@@ -170,8 +177,6 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
-
-            //return (double)left.SymbolValue == right.As(left
             return left.NEWValue == right.ToTheOutSide(left.Unit);
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
@@ -210,8 +215,10 @@ namespace EngineeringUnits
             return (double)left.SymbolValue > right.As(left);
         }
 
-        public static implicit operator UnknownUnit(BaseUnit baseUnit) => new(baseUnit);
-        
+        public static implicit operator UnknownUnit(BaseUnit baseUnit)
+        {
+            return new(baseUnit);
+        }
 
 
         /// <summary>
@@ -278,127 +285,89 @@ namespace EngineeringUnits
         {
             return Unit.SumConstant() / To.Unit.SumConstant();
         }
-
         public decimal ConvertValueInto(BaseUnit From)
         {
             return (decimal)ConvertionFactor(From) * NEWValue;
         }
 
 
-        public static UnknownUnit DoMath(BaseUnit left, BaseUnit right, MathEnum math)
+        private static BaseUnit AddUnits(BaseUnit left, BaseUnit right)
+        {
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
+
+
+            try
+            {
+                var NewTestValue = left.NEWValue + right.ConvertValueInto(left);
+
+                return new BaseUnit(NewTestValue, left.Unit + right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new BaseUnit(double.PositiveInfinity, left.Unit + right.Unit);
+            }
+
+        }
+        private static BaseUnit SubtractUnits(BaseUnit left, BaseUnit right)
         {
 
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
 
-            UnitSystem LocalUnit = new();
-            bool LocalINF = false;
-           
-            decimal NewTestValue = 0;
 
-            switch (math)
+            try
             {
-                case MathEnum.Add:                   
+                var NewTestValue = left.NEWValue - right.ConvertValueInto(left);
 
-                    //Value math                    
-                    try
-                    {
-                        NewTestValue = left.NEWValue + right.ConvertValueInto(left);
-                    }
-                    catch (OverflowException)
-                    {
-                        LocalINF = true;
-                    }
+                return new BaseUnit(NewTestValue, left.Unit - right.Unit);
 
-                    //Unit math
-                    LocalUnit = left.Unit + right.Unit;
-                    break;
-                case MathEnum.Subtract:
-
-                    //Value math
-                    try
-                    {
-                        NewTestValue = left.NEWValue - right.ConvertValueInto(left);
-                    }
-                    catch (OverflowException)
-                    {
-                       // X3 = 0;
-                        LocalINF = true;
-                    }
-
-                    //Unit math
-                    LocalUnit = left.Unit - right.Unit;
-                    break;
-                case MathEnum.Multiply:
-
-                    //Value math
-                    try
-                    {
-                        //We try to multiply them together
-                        NewTestValue = left.NEWValue * right.NEWValue;
-                    }
-                    catch (OverflowException)
-                    {
-                       // X3 = 0;
-                        LocalINF = true;
-                    }
-
-                    //Unit math
-                    LocalUnit = left.Unit * right.Unit;
-                    break;
-                case MathEnum.Divide:
-
-                    //Value math
-
-                    try
-                    {
-                        //We try to multiply them together
-
-
-                        if (right.NEWValue != 0m)
-                        {
-                            NewTestValue = left.NEWValue / right.NEWValue;
-                        }
-                        else
-                        {
-                            LocalINF = true;
-                        }
-
-                    }
-                    catch (OverflowException)
-                    {
-                        // X3 = 0;
-                        LocalINF = true;
-                    }
-
-
-                    LocalINF = false;
-
-
-
-                    //Unit math
-                    LocalUnit = left.Unit / right.Unit;
-                    break;
-                default:
-                    break;
+            }
+            catch (OverflowException)
+            {
+                return new BaseUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
 
-            if (left.Inf || right.Inf)
-                LocalINF = true;
-
-
-
-
-            if (LocalINF)
-            {
-                var test2 = new BaseUnit(double.PositiveInfinity, LocalUnit);
-                
-                return test2;
-            }
-            else
-            {
-                var test2 = new BaseUnit(NewTestValue, LocalUnit);
-                return test2;
-            }
         }
+        private static BaseUnit MultiplyUnits(BaseUnit left, BaseUnit right)
+        {
+
+            try
+            {
+                var NewTestValue = left.NEWValue * right.NEWValue;
+
+                return new BaseUnit(NewTestValue, left.Unit * right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new BaseUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            }
+
+        }
+        private static BaseUnit DivideUnits(BaseUnit left, BaseUnit right)
+        {
+
+            if (right.NEWValue == 0)            
+                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            
+
+
+            try
+            {
+                var NewTestValue = left.NEWValue / right.NEWValue;
+
+                return new BaseUnit(NewTestValue, left.Unit / right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
+
+        }
+
 
 
         //public UnknownUnit Sqrt()
@@ -546,8 +515,6 @@ namespace EngineeringUnits
     
         public string ResultWithSymbol() => $"{SymbolValue} {Unit.Symbol}";
         
-
-        //public string ResultWithBaseunit() => $"{BaseunitValue} {Unit}";
 
         public override int GetHashCode()
         {

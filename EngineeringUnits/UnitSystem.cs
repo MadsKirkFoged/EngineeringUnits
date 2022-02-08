@@ -13,7 +13,7 @@ namespace EngineeringUnits
     //[JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class UnitSystem
     {
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        //[JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Symbol { get; set; }       
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
