@@ -30,19 +30,19 @@ namespace EngineeringUnits.Units
 
         public ElectricCurrentUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
         {
-            Unit = new UnitSystem();
+            Unit = new UnitSystem(this);
             //Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
-            Unit.ListOfUnits.Add(this);
+            //Unit.ListOfUnits.Add(this);
         }
 
 
         public ElectricCurrentUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
-            Unit = new UnitSystem();
+            Unit = new UnitSystem(this);
            // Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
 
-            Unit.ListOfUnits.Add(this);
+            //Unit.ListOfUnits.Add(this);
         }     
 
        

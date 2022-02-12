@@ -36,15 +36,15 @@ namespace EngineeringUnits.Units
 
         public AngleUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem();
-            SetCombined(correction);
+            Unit = new UnitSystem() * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }       
 
         public AngleUnit(PreFix SI, AngleUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
         }
 

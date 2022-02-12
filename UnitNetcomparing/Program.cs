@@ -28,7 +28,7 @@ namespace UnitNetcomparing
             SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
 
 
-            EngineeringUnits1.Unit.ReduceUnits();
+            //EngineeringUnits1.Unit.ReduceUnits();
 
 
 

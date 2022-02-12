@@ -17,8 +17,8 @@ namespace EngineeringUnits
         public string Symbol { get; set; }       
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
+        //public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
         public List<Enumeration> ListOfUnits = new List<Enumeration>();
-
 
         public UnitSystem()
         {
@@ -27,6 +27,26 @@ namespace EngineeringUnits
         public UnitSystem(string symbol)
         {
             Symbol = symbol;
+        }
+
+        public UnitSystem(List<Enumeration> LocalUnitList)
+        {
+            ListOfUnits = ReduceUnits(LocalUnitList);
+        }
+
+        public UnitSystem(List<Enumeration> LocalUnitList, string symbol)
+        {
+            ListOfUnits = ReduceUnits(LocalUnitList);
+            Symbol = symbol;
+        }
+
+        public UnitSystem(Enumeration unit)
+        {
+            List<Enumeration> LocalUnitList = new();
+
+            LocalUnitList.Add(unit);
+
+            ListOfUnits = LocalUnitList;
         }
 
         public List<Tuple<string,int>> UnitCount()
@@ -100,49 +120,47 @@ namespace EngineeringUnits
         }
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
 
-            UnitSystem local = new();
+            LocalUnitList.AddRange(a.ListOfUnits);
+            LocalUnitList.AddRange(b.ListOfUnits);
+
+            return new UnitSystem(LocalUnitList);
+
+        }
+        public static UnitSystem Multiply(UnitSystem a, decimal constant)
+        {
+            if (constant == 1)            
+                return a;
+            
 
 
-            foreach (var item in a.ListOfUnits)
-            {
-                local.ListOfUnits.Add(item);
-            }
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
 
-            foreach (var item in b.ListOfUnits)
-            {
-                local.ListOfUnits.Add(item);
-            }
+            LocalUnitList.AddRange(a.ListOfUnits);
+            LocalUnitList.Add(new CombinedUnit("", (Fraction)constant));
 
-            local.ReduceUnits();
-
-            return local;
+            return new UnitSystem(LocalUnitList, a.Symbol);
 
         }
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
-            UnitSystem local = new();
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
 
-           
-            //Testing a new way to store units
+            LocalUnitList.AddRange(a.ListOfUnits);
 
-            foreach (var item in a.ListOfUnits)
-            {
-                local.ListOfUnits.Add(item);
-            }
 
             foreach (var item in b.ListOfUnits)
             {
                 Enumeration test = (Enumeration)item.Clone();
+                test.Count *= -1;
 
-                test.Count *= -1; 
-
-                local.ListOfUnits.Add(test);
+                LocalUnitList.Add(test);
             }
 
-            local.ReduceUnits();
+           
 
-            return local;
+            return new UnitSystem(LocalUnitList);
 
         }
 
@@ -152,6 +170,8 @@ namespace EngineeringUnits
         public static UnitSystem operator -(UnitSystem left, UnitSystem right) => Subtract(left, right);
 
         public static UnitSystem operator *(UnitSystem left, UnitSystem right) => Multiply(left, right);
+        public static UnitSystem operator *(decimal left, UnitSystem right) => Multiply(right, left);
+        public static UnitSystem operator *(UnitSystem left, decimal right) => Multiply(left, right);
         public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
@@ -264,10 +284,10 @@ namespace EngineeringUnits
         }
 
 
-        public void ReduceUnits()
+        public List<Enumeration> ReduceUnits(List<Enumeration> ListToBeReduced)
         {
 
-           var test = ListOfUnits.GroupBy(x => x.TypeOfUnit);
+           var test = ListToBeReduced.GroupBy(x => x.TypeOfUnit);
 
             var NewUnitList = new List<Enumeration>();
 
@@ -301,9 +321,7 @@ namespace EngineeringUnits
 
             }
 
-            ListOfUnits = NewUnitList;
-
-
+            return NewUnitList;
         }
 
 
@@ -315,19 +333,24 @@ namespace EngineeringUnits
         public UnitSystem Copy()
         {
 
-            UnitSystem local = new();
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
+            LocalUnitList.AddRange(ListOfUnits);
 
-            if (Symbol is object)
-                local.Symbol = Symbol;
+            return new UnitSystem(LocalUnitList, Symbol);
+
+            //UnitSystem local = new();
+
+            //if (Symbol is object)
+            //    local.Symbol = Symbol;
             
 
-            foreach (var item in ListOfUnits)
-            {
-                local.ListOfUnits.Add((Enumeration)item.Clone());
-            }
+            //foreach (var item in ListOfUnits)
+            //{
+            //    local.ListOfUnits.Add((Enumeration)item.Clone());
+            //}
 
 
-            return local;
+            //return local;
         }
 
        

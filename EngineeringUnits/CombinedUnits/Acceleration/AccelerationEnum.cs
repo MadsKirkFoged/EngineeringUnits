@@ -33,24 +33,20 @@ namespace EngineeringUnits.Units
 
         private AccelerationUnit(LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-
-            Unit = length / duration.Pow(2);
-            SetCombined(correction);
+            Unit = length / duration.Pow(2) * correction;
             SetNewSymbol(NewSymbol);
-
         }
 
-        private AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        private AccelerationUnit(SpeedUnit speed, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = speed / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{speed}/{duration}");         
         }
 
         private AccelerationUnit(PreFix SI, AccelerationUnit energyunit)
         {
-            Unit = energyunit.Unit.Copy();
-            SetCombined(SI);
+            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
 
         }

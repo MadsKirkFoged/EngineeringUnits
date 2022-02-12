@@ -59,8 +59,8 @@ namespace EngineeringUnits.Units
 
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (mass * Length.Pow(2)) / duration.Pow(2);
-            SetCombined(correction);
+            Unit = (mass * Length.Pow(2)) / duration.Pow(2) * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);         
         }
 
@@ -74,8 +74,8 @@ namespace EngineeringUnits.Units
 
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = ((mass * Length.Pow(2)) / (duration.Pow(3)))* duration2.Unit;
-            SetCombined(correction);
+            Unit = ((mass * Length.Pow(2)) / (duration.Pow(3)))* duration2.Unit * correction;
+            //SetCombined(correction);
             //SetNewSymbol($"{NewSymbol}{duration2}");
             SetNewSymbol("Empty", $"{NewSymbol}{duration2}");
         }

@@ -38,19 +38,19 @@ namespace EngineeringUnits.Units
 
         public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, Constant)
         {
-            Unit = new UnitSystem();
+            Unit = new UnitSystem(this);
             //Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
-            Unit.ListOfUnits.Add(this);
+            //Unit.ListOfUnits.Add(this);
         }
 
 
         public AmountOfSubstanceUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
-            Unit = new UnitSystem();
+            Unit = new UnitSystem(this);
             //Unit.Amount = (AmountOfSubstanceUnit)Clone();
 
-            Unit.ListOfUnits.Add(this);
+            //Unit.ListOfUnits.Add(this);
         }     
 
     }
