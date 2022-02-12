@@ -66,9 +66,9 @@ namespace EngineeringUnits.Units
 
         public EnergyUnit(PreFix SI, EnergyUnit energyunit) 
         {
-            Unit = energyunit.Unit.Copy();
+            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
             //Unit = energyunit.Unit;
-            SetCombined(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);          
         }
 
