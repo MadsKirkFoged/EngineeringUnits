@@ -22,13 +22,12 @@ namespace EngineeringUnits.Units
 
 
 
-        public CapacitanceUnit(DurationUnit duration, ElectricCurrentUnit electricCurrent, LengthUnit Length, MassUnit Mass, string NewSymbol = "Empty", decimal correction = 1)
+        public CapacitanceUnit(DurationUnit duration, ElectricCurrentUnit electricCurrent, LengthUnit Length, MassUnit Mass, string NewSymbol = "Empty")
         {
 
             //s4⋅A2⋅m−2⋅kg−1
 
             Unit = (duration.Pow(4) * electricCurrent.Pow(2)) / (Length.Pow(2) * Mass.Unit);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -36,8 +35,7 @@ namespace EngineeringUnits.Units
 
         public CapacitanceUnit(PreFix SI, CapacitanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
