@@ -22,19 +22,12 @@ namespace EngineeringUnits.Units
 
 
 
-        public AreaMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public AreaMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(4);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }     
 
-        public AreaMomentOfInertiaUnit(PreFix SI, AreaMomentOfInertiaUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
 
     }
 
