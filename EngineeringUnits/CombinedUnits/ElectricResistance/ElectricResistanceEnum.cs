@@ -21,11 +21,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             //kg⋅m2⋅s−3⋅A−2
             Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent.Pow(2));
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -33,8 +32,7 @@ namespace EngineeringUnits.Units
 
         public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
