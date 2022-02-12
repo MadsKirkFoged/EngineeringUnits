@@ -54,22 +54,22 @@ namespace EngineeringUnits.Units
 
         public BitRateUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem();
-            SetCombined(correction);
+            Unit = new UnitSystem() * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
         public BitRateUnit(PreFix SI, BitRateUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
         }
 
         public BitRateUnit(BitRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
+            Unit = unit.Unit.Copy() * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
