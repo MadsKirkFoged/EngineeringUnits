@@ -17,11 +17,10 @@ namespace EngineeringUnits.Units
         public static readonly ElectricAdmittanceUnit Nanosiemens = new(PreFix.nano, Siemens);
 
 
-        public ElectricAdmittanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricAdmittanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             //kg−1⋅m−2⋅s3⋅A2
             Unit = (duration.Pow(3) *  electricCurrent.Pow(2)) / (mass * Length.Pow(2));
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -29,8 +28,8 @@ namespace EngineeringUnits.Units
 
         public ElectricAdmittanceUnit(PreFix SI, ElectricAdmittanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
         }
 

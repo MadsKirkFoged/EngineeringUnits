@@ -18,18 +18,16 @@ namespace EngineeringUnits.Units
         public static readonly ElectricChargeUnit MilliampereHour = new(PreFix.milli, AmpereHour);
 
 
-        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = electricCurrent * duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
              
 
         public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
