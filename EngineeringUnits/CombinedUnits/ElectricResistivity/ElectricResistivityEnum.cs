@@ -31,18 +31,16 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = electricResistance * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricResistance}·{Length}");
         }
 
 
         public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
