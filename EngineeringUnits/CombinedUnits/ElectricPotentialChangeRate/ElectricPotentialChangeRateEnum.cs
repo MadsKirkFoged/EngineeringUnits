@@ -39,26 +39,12 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricPotentialChangeRateUnit(ElectricPotentialUnit electricPotential, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricPotentialChangeRateUnit(ElectricPotentialUnit electricPotential, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = electricPotential / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricPotential}/{duration}");
         }
 
-        public ElectricPotentialChangeRateUnit(PreFix SI, ElectricPotentialChangeRateUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
-
-        public ElectricPotentialChangeRateUnit(ElectricPotentialChangeRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 
