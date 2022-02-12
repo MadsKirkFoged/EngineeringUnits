@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
         public static readonly ElectricSurfaceChargeDensityUnit CoulombPerSquareInch = new(ElectricChargeUnit.Coulomb, AreaUnit.SquareInch);
 
 
-        public ElectricSurfaceChargeDensityUnit(ElectricChargeUnit electricCharge, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricSurfaceChargeDensityUnit(ElectricChargeUnit electricCharge, AreaUnit area, string NewSymbol = "Empty")
         {
             Unit = electricCharge / area;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricCharge}/{area}");
         }
 
