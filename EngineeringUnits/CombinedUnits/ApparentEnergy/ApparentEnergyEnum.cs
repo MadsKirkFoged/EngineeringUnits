@@ -22,16 +22,15 @@ namespace EngineeringUnits.Units
 
         public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential * electricCurrentUnit * durationUnit;
-            SetCombined(correction);
+            Unit = electricPotential * electricCurrentUnit * durationUnit * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
     
         public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

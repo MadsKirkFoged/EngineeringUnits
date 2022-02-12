@@ -19,8 +19,8 @@ namespace EngineeringUnits.Units
 
         public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = electricPotential * electricCurrentUnit;
-            SetCombined(correction);
+            Unit = electricPotential * electricCurrentUnit * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -28,8 +28,7 @@ namespace EngineeringUnits.Units
 
         public ApparentPowerUnit(PreFix SI, ApparentPowerUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
