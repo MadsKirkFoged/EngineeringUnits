@@ -21,10 +21,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
 
         }
@@ -32,8 +31,7 @@ namespace EngineeringUnits.Units
 
         public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

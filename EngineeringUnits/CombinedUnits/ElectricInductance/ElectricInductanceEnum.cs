@@ -17,19 +17,18 @@ namespace EngineeringUnits.Units
         public static readonly ElectricInductanceUnit Nanohenry = new(PreFix.nano, Henry);
 
 
-        public ElectricInductanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration,ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricInductanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration,ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             //kg⋅m2⋅s−2⋅A−2
             Unit = (mass * Length.Pow(2))/(duration.Pow(2)  * electricCurrent.Pow(2));
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
 
         public ElectricInductanceUnit(PreFix SI, ElectricInductanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
         }
 
