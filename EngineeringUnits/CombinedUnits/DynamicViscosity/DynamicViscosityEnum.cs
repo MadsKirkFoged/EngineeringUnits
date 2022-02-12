@@ -24,39 +24,31 @@ namespace EngineeringUnits.Units
 
 
 
-        public DynamicViscosityUnit(PressureUnit Pressure, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public DynamicViscosityUnit(PressureUnit Pressure, DurationUnit duration, string NewSymbol = "Empty")
         {
-
-            //Name = "DynamicViscosity";
             Unit = Pressure * duration;
 
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
             SetNewSymbol(NewSymbol, $"{Pressure}·{duration}");
-
-
-
         }
 
-        public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty")
         {
             Unit = (force * duration) / area;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}·{duration}/{area}");
         }
 
-        public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = mass /(  duration * length);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{length}·{duration}");
         }
 
 
         public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
+            //SetCombined(SI);
             SetNewSymbol(SI);
         }
 
