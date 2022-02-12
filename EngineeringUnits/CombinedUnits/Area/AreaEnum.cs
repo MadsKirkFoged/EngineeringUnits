@@ -35,8 +35,8 @@ namespace EngineeringUnits.Units
 
         public AreaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Length.Pow(2);
-            SetCombined(correction);
+            Unit = Length.Pow(2) * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }     
 
