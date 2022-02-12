@@ -20,10 +20,9 @@ namespace EngineeringUnits.Units
         public static readonly EntropyUnit MegajoulePerKelvin =          new(EnergyUnit.Megajoule, TemperatureUnit.Kelvin);
 
 
-        public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
+        public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature, string NewSymbol = "Empty")
         {
             Unit = energy / temperature;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{temperature}");
         }
 
