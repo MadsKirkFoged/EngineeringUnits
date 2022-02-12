@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricChargeDensityUnit(ElectricChargeUnit electricCharge, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricChargeDensityUnit(ElectricChargeUnit electricCharge, VolumeUnit volume, string NewSymbol = "Empty")
         {
             Unit = electricCharge / volume;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricCharge}/{volume}");
         }
 
