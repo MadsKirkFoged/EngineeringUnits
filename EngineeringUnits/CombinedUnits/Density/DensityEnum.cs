@@ -65,10 +65,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public DensityUnit(MassUnit mass, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
+        public DensityUnit(MassUnit mass, VolumeUnit volume, string NewSymbol = "Empty")
         {
             Unit = mass / volume;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{volume}");
         }
 
