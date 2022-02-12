@@ -18,17 +18,15 @@ namespace EngineeringUnits.Units
 
 
 
-        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy, string NewSymbol = "Empty", decimal correction = 1)
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy, string NewSymbol = "Empty")
         {
             Unit = mass / energy;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{energy}");
         }
 
-        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = mass / (power * duration);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{power}*{duration}");
         }
 
