@@ -17,10 +17,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public CoefficientOfThermalExpansionUnit(TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
+        public CoefficientOfThermalExpansionUnit(TemperatureUnit temperature, string NewSymbol = "Empty")
         {
             Unit = temperature.Pow(-1);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }      
 
