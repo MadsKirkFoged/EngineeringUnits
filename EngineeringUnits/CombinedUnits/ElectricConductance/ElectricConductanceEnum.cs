@@ -17,33 +17,19 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricConductanceUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ElectricConductanceUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ElectricConductanceUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area * Length;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
 
         public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public ElectricConductanceUnit(ElectricConductanceUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 
