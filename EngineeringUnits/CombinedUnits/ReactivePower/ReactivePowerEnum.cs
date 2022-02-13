@@ -18,10 +18,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public ReactivePowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public ReactivePowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             Unit = electricPotential * electricCurrent;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 

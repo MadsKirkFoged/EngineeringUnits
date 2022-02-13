@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
         public static readonly ReactiveEnergyUnit KilovoltampereReactiveHour = new(ElectricPotentialUnit.Kilovolt, ElectricCurrentUnit.Ampere, DurationUnit.Hour, "kvarh");
 
 
-        public ReactiveEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public ReactiveEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = electricPotential * electricCurrent * duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 

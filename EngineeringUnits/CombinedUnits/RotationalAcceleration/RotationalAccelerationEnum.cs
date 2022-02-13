@@ -17,31 +17,27 @@ namespace EngineeringUnits.Units
 
 
 
-        public RotationalAccelerationUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public RotationalAccelerationUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public RotationalAccelerationUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public RotationalAccelerationUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Area * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public RotationalAccelerationUnit(PreFix SI, RotationalAccelerationUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public RotationalAccelerationUnit(RotationalAccelerationUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public RotationalAccelerationUnit(RotationalAccelerationUnit unit, string NewSymbol = "Empty")
         {
             Unit = unit.Unit.Copy();
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
