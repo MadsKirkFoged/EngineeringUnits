@@ -32,10 +32,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public LinearDensityUnit(MassUnit mass, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public LinearDensityUnit(MassUnit mass, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = mass / Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}/{Length}");
         }
 

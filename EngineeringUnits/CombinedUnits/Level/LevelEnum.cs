@@ -18,8 +18,7 @@ namespace EngineeringUnits.Units
 
         public LevelUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem();
-            SetCombined(correction);
+            Unit = new UnitSystem() * correction;
             SetNewSymbol(NewSymbol);
         }
 

@@ -33,17 +33,15 @@ namespace EngineeringUnits.Units
 
 
 
-        public IrradianceUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public IrradianceUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty")
         {
             Unit = power / area;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{area}");
         }       
 
         public IrradianceUnit(PreFix SI, IrradianceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

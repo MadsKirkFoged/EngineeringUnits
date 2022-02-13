@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public LuminousFluxUnit(LuminousIntensityUnit luminousIntensity, string NewSymbol = "Empty", decimal correction = 1)
+        public LuminousFluxUnit(LuminousIntensityUnit luminousIntensity, string NewSymbol = "Empty")
         {
-            Unit = luminousIntensity.Unit.Copy(); ;
-            SetCombined(correction);
+            Unit = luminousIntensity.Unit.Copy(); 
             SetNewSymbol(NewSymbol);
         }
 

@@ -27,8 +27,7 @@ namespace EngineeringUnits.Units
         public MagneticFieldUnit(MassUnit mass, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
         {
             //kg⋅s−2⋅A−1
-            Unit = mass / (duration * duration * electricCurrent);
-            SetCombined(correction);
+            Unit = mass / (duration * duration * electricCurrent) * correction;
             SetNewSymbol(NewSymbol);
         }
 
@@ -36,14 +35,12 @@ namespace EngineeringUnits.Units
 
         public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
         public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
+            Unit = unit.Unit.Copy() * correction;
             SetNewSymbol(NewSymbol);
         }
 

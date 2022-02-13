@@ -22,10 +22,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = Length / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -33,8 +32,7 @@ namespace EngineeringUnits.Units
 
         public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
