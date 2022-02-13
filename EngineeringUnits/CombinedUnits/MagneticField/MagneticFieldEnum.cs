@@ -36,10 +36,8 @@ namespace EngineeringUnits.Units
         public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit) : base(SI, unit)
         {
         }
-        public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
         {
-            Unit = unit.Unit.Copy() * correction;
-            SetNewSymbol(NewSymbol);
         }
 
 

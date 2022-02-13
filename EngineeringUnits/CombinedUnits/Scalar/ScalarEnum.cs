@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public ScalarUnit(ScalarUnit unit, string NewSymbol = "Empty")
+        public ScalarUnit(ScalarUnit unit, string NewSymbol = "Empty") : base(unit, NewSymbol, 1)
         {
-            Unit = unit.Unit.Copy();
-            SetNewSymbol(NewSymbol);
         }
 
     }

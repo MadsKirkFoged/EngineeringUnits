@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public RotationalStiffnessUnit(RotationalStiffnessUnit unit, string NewSymbol = "Empty")
+        public RotationalStiffnessUnit(RotationalStiffnessUnit unit, string NewSymbol = "Empty") : base(unit, NewSymbol, 1)
         {
-            Unit = unit.Unit.Copy();
-            SetNewSymbol(NewSymbol);
         }
 
     }

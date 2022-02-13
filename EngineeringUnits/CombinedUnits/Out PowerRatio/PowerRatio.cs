@@ -10,7 +10,7 @@ namespace EngineeringUnits
 
         public PowerRatio()
         {
-            Unit = PowerRatioUnit.SI.Unit.Copy();
+            Unit = new UnitSystem(PowerRatioUnit.SI);
         }
 
         public PowerRatio(decimal value, PowerRatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }

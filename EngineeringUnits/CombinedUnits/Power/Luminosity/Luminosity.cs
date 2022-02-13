@@ -8,7 +8,7 @@ namespace EngineeringUnits
 
         public Luminosity()
         {
-            Unit = PowerUnit.SI.Unit.Copy();
+            Unit = new UnitSystem(PowerUnit.SI);
         }
 
         public Luminosity(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }

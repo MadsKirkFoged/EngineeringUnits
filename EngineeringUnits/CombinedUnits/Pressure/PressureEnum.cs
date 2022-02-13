@@ -68,10 +68,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy() * correction;
-            SetNewSymbol(NewSymbol);                  
+        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
+        {               
         }
 
 

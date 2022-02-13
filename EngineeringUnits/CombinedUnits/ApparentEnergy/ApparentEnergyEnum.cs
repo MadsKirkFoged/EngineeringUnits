@@ -20,17 +20,13 @@ namespace EngineeringUnits.Units
 
 
 
-        public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string NewSymbol = "Empty", decimal correction = 1)
+        public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string NewSymbol = null)
         {
-            Unit = electricPotential * electricCurrentUnit * durationUnit * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem( electricPotential * electricCurrentUnit * durationUnit, NewSymbol);
         }
 
     
-        public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit) : base(SI, unit)
-        {
-        }
+        public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit) : base(SI, unit) {}
 
 
     }

@@ -88,10 +88,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
         {
-            Unit = unit.Unit.Copy() * correction;
-            SetNewSymbol(NewSymbol);
         }
 
     }

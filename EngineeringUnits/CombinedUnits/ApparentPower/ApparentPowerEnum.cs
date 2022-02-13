@@ -17,18 +17,14 @@ namespace EngineeringUnits.Units
         public static readonly ApparentPowerUnit Gigavoltampere = new(PreFix.giga, Voltampere);
 
 
-        public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = "Empty", decimal correction = 1)
+        public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = null)
         {
-            Unit = electricPotential * electricCurrentUnit * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(electricPotential * electricCurrentUnit, NewSymbol);
         }
 
      
 
-        public ApparentPowerUnit(PreFix SI, ApparentPowerUnit unit) : base(SI, unit)
-        {
-        }
+        public ApparentPowerUnit(PreFix SI, ApparentPowerUnit unit) : base(SI, unit) {}
 
 
 

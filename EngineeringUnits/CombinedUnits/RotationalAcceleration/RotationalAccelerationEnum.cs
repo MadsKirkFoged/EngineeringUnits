@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public RotationalAccelerationUnit(RotationalAccelerationUnit unit, string NewSymbol = "Empty")
+        public RotationalAccelerationUnit(RotationalAccelerationUnit unit, string NewSymbol = "Empty") : base(unit, NewSymbol, 1)
         {
-            Unit = unit.Unit.Copy();
-            SetNewSymbol(NewSymbol);
         }
 
     }

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(1)]
-        public int Count { get; set; } //Count
+        public int Count { get; set; } 
 
         [JsonIgnore]
         public UnitSystem Unit { get; protected set; }
@@ -86,8 +86,13 @@ namespace EngineeringUnits
         }
         protected Enumeration(PreFix SI, Enumeration baseunit)
         {
-            Unit = baseunit.Unit.Copy() * PrefixSISize(SI);
+            Unit = baseunit.Unit * PrefixSISize(SI);
             SetNewSymbol(SI);
+        }
+
+        protected Enumeration(Enumeration unit, string NewSymbol, decimal correction)
+        {
+            Unit = new UnitSystem(unit * correction, NewSymbol);
         }
 
 
@@ -186,31 +191,22 @@ namespace EngineeringUnits
            };
 
         
-        //public void SetCombined(decimal correction)
-        //{  
-        //    if (correction != 1)            
-        //        Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));            
-
-        //}
-
-        //public void SetCombined(PreFix SI)
-        //{
-        //    SetCombined(PrefixSISize(SI));
-        //}
-
+        
         public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
         {
             if (NewSymbol != "Empty")
                 Unit.Symbol = NewSymbol;
             else if (CustomAutoSymbol != "Empty")            
                 Unit.Symbol = CustomAutoSymbol;            
-            else           
-                Unit.Symbol = $"{Unit}";
+
         }
 
         public void SetNewSymbol(PreFix SI)
         {
-            Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+            if (Unit.Symbol is null)            
+                Unit.Symbol = PrefixSISymbol(SI) + $"{Unit}";            
+            else            
+                Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;       
         }
 
 
@@ -250,6 +246,9 @@ namespace EngineeringUnits
         public static UnitSystem operator *(Enumeration left, Enumeration right) => left.Unit* right.Unit;
         public static UnitSystem operator *(UnitSystem left, Enumeration right) => left * right.Unit;
         public static UnitSystem operator *(Enumeration left, UnitSystem right) => left.Unit * right;
+
+        public static UnitSystem operator *(decimal left, Enumeration right) => left * right.Unit;
+        public static UnitSystem operator *(Enumeration left, decimal right) => left.Unit * right;
 
         public static UnitSystem operator /(Enumeration left, Enumeration right) => left.Unit / right.Unit;
         public static UnitSystem operator /(Enumeration left, UnitSystem right) => left.Unit / right;

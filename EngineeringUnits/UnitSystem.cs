@@ -49,31 +49,54 @@ namespace EngineeringUnits
             ListOfUnits = LocalUnitList;
         }
 
-        public List<Tuple<string,int>> UnitCount()
+        public UnitSystem(Enumeration unit, string symbol)
         {
+            List<Enumeration> LocalUnitList = new();
 
-            List<Tuple<string, int>> local = new();
+            LocalUnitList.Add(unit);
 
-            var Group = ListOfUnits
-                        .Where(x=> x.TypeOfUnit != "CombinedUnit") 
-                        .GroupBy(x => x.TypeOfUnit);
+            ListOfUnits = LocalUnitList;
 
-            foreach (var item in Group)
-            {
-                local.Add(new Tuple<string, int>(item.Key, item.Sum(x => x.Count)));
-            }
+            Symbol = symbol;
+        }
 
-            local.RemoveAll(x=> x.Item2 == 0);
+        public UnitSystem(decimal unit, string symbol)
+        {
+            List<Enumeration> LocalUnitList = new();
 
-            return local;
+            LocalUnitList.Add(new CombinedUnit("", (Fraction)unit));
 
+            ListOfUnits = LocalUnitList;
+
+            Symbol = symbol;
+        }
+
+        public UnitSystem(UnitSystem unit, string symbol)
+        {
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
+            LocalUnitList.AddRange(unit.ListOfUnits);
+
+            ListOfUnits = LocalUnitList;
+            Symbol = symbol;
+        }
+
+        public List<Tuple<string,int>> UnitsCount()
+        {
+            //This returns <typeOfUnit,UnitCount>
+
+            return ListOfUnits
+                    .Where(x => x.TypeOfUnit != "CombinedUnit")
+                    .GroupBy(x => x.TypeOfUnit)
+                    .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
+                    .Where(x=> x.Item2 != 0)
+                    .ToList();
         }
 
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
-            return a.UnitCount().All(b.UnitCount().Contains) && 
-                   a.UnitCount().Count == b.UnitCount().Count;         
+            return a.UnitsCount().All(b.UnitsCount().Contains) && 
+                   a.UnitsCount().Count == b.UnitsCount().Count;         
         }
         public static bool operator !=(UnitSystem a, UnitSystem b)
         {
@@ -83,14 +106,12 @@ namespace EngineeringUnits
 
         public Fraction SumConstant()
         {
-            Fraction test = 1;
+            return ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);            
+        }
 
-            foreach (var item in ListOfUnits)
-            {
-                test *= item.TotalConstant;
-            }
-
-            return test;
+        public Fraction SumOfBConstants()
+        {
+            return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
         }
 
         public Fraction ConvertionFactor(UnitSystem To)
@@ -175,17 +196,7 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
-        public Fraction SumOfBConstants()
-        {
-            Fraction b = 0;
-
-            foreach (var item in UnitList())
-            {
-                if (item is object)                
-                    b += (Fraction)item.B;              
-            }
-            return b;
-        }
+        
 
          public override string ToString()
         {
@@ -324,37 +335,7 @@ namespace EngineeringUnits
             return NewUnitList;
         }
 
-
-        public IEnumerable<Enumeration> UnitList()
-        {          
-            return ListOfUnits;
-        }
-
-        public UnitSystem Copy()
-        {
-
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
-            LocalUnitList.AddRange(ListOfUnits);
-
-            return new UnitSystem(LocalUnitList, Symbol);
-
-            //UnitSystem local = new();
-
-            //if (Symbol is object)
-            //    local.Symbol = Symbol;
-            
-
-            //foreach (var item in ListOfUnits)
-            //{
-            //    local.ListOfUnits.Add((Enumeration)item.Clone());
-            //}
-
-
-            //return local;
-        }
-
        
-
         public UnitSystem Pow(int toPower)
         {
 

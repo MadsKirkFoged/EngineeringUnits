@@ -63,11 +63,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public BitRateUnit(BitRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public BitRateUnit(BitRateUnit unit, string NewSymbol = "Empty", decimal correction = 1) :base(unit, NewSymbol, correction)
         {
-            Unit = unit.Unit.Copy() * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);
         }
 
     }

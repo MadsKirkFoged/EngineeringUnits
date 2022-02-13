@@ -63,10 +63,8 @@ namespace EngineeringUnits.Units
         {
         }
 
-        public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
         {
-            Unit = unit.Unit.Copy() * correction;
-            SetNewSymbol(NewSymbol);
         }
 
     }
