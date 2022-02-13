@@ -59,10 +59,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public PowerDensityUnit(PowerUnit power, VolumeUnit volume, string NewSymbol = "Empty", decimal correction = 1)
+        public PowerDensityUnit(PowerUnit power, VolumeUnit volume, string NewSymbol = "Empty")
         {
             Unit = power / volume;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{volume}");
         }
        

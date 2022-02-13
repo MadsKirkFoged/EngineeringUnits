@@ -60,30 +60,26 @@ namespace EngineeringUnits.Units
 
         public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass / (length * duration.Pow(2));
-            SetCombined(correction);
+            Unit = mass / (length * duration.Pow(2)) * correction;
             SetNewSymbol(NewSymbol);
         }
 
         public PressureUnit(PreFix SI, PressureUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
         public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
+            Unit = unit.Unit.Copy() * correction;
             SetNewSymbol(NewSymbol);                  
         }
 
 
         public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = force / area;
-            SetCombined(correction);
+            Unit = (force / area)  * correction;
             SetNewSymbol(NewSymbol, $"{force}/{area}");
         }
 
