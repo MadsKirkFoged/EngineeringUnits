@@ -57,22 +57,21 @@ namespace EngineeringUnits.Units
 
 
 
-        public RatioUnit(string NewSymbol = "Empty", decimal correction = 1)
+        public RatioUnit(string NewSymbol, decimal correction = 1)
         {
-            Unit = new UnitSystem()  * correction;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(correction, NewSymbol);
         }
 
-        public RatioUnit(MassUnit mass1, MassUnit mass2, string NewSymbol = "Empty", decimal correction = 1)
+        public RatioUnit(MassUnit mass1, MassUnit mass2)
         {
-            Unit = (mass1 / mass2) * correction;
-            SetNewSymbol(NewSymbol, $"{mass1}/{mass2}");
+            Unit = new UnitSystem((mass1 / mass2), 
+                                $"{mass1}/{mass2}");
         }
 
-        public RatioUnit(VolumeUnit vol1, VolumeUnit vol2, string NewSymbol = "Empty", decimal correction = 1)
+        public RatioUnit(VolumeUnit vol1, VolumeUnit vol2)
         {
-            Unit = (vol1 / vol2) * correction;
-            SetNewSymbol(NewSymbol, $"{vol1}/{vol2}");
+            Unit = new UnitSystem((vol1 / vol2),
+                                $"{vol1}/{vol2}");
         }
 
 

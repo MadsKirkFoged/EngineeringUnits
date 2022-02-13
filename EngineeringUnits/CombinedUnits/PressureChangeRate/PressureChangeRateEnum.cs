@@ -32,15 +32,13 @@ namespace EngineeringUnits.Units
 
 
 
-        public PressureChangeRateUnit(PressureUnit pressure, DurationUnit duration, string NewSymbol = "Empty")
+        public PressureChangeRateUnit(PressureUnit pressure, DurationUnit duration)
         {
-            Unit = pressure / duration;
-            SetNewSymbol(NewSymbol, $"{pressure}/{duration}");
+            Unit = new UnitSystem(pressure / duration, 
+                               $"{pressure}/{duration}");
         }    
 
-        public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit) : base(SI, unit)
-        {
-        }
+        public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit) : base(SI, unit)  { }
 
     }
 
