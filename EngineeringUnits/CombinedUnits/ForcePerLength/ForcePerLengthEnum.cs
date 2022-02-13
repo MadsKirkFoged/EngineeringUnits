@@ -52,44 +52,18 @@ namespace EngineeringUnits.Units
 
 
 
-        public ForcePerLengthUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty", decimal correction = 1)
+        public ForcePerLengthUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty")
         {
-
-            //Name = "ForcePerLength";
             Unit = force / length;
-
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}/{length}");
-
         }
-
-        public ForcePerLengthUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-
-            //Name = "ForcePerLength";
-            Unit = Area * Length;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
-
         public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit)
         {
-            //Name = "ForcePerLength";
-            Unit = unit.Unit.Copy();
-
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public ForcePerLengthUnit(ForcePerLengthUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-
-            //Name = "ForcePerLength";
-            Unit = unit.Unit.Copy();
-
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 

@@ -35,18 +35,16 @@ namespace EngineeringUnits.Units
 
 
 
-        public ForceChangeRateUnit(ForceUnit force, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public ForceChangeRateUnit(ForceUnit force, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = force / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}/{duration}");
         }
 
        
         public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
