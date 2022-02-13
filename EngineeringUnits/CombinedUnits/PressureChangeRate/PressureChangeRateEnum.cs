@@ -32,17 +32,15 @@ namespace EngineeringUnits.Units
 
 
 
-        public PressureChangeRateUnit(PressureUnit pressure, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public PressureChangeRateUnit(PressureUnit pressure, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = pressure / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{pressure}/{duration}");
         }    
 
         public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

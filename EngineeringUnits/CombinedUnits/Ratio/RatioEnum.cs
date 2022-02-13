@@ -59,39 +59,24 @@ namespace EngineeringUnits.Units
 
         public RatioUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem();
-            SetCombined(correction);
+            Unit = new UnitSystem()  * correction;
             SetNewSymbol(NewSymbol);
         }
 
         public RatioUnit(MassUnit mass1, MassUnit mass2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = mass1 / mass2;
-            SetCombined(correction);
+            Unit = (mass1 / mass2) * correction;
             SetNewSymbol(NewSymbol, $"{mass1}/{mass2}");
         }
 
         public RatioUnit(VolumeUnit vol1, VolumeUnit vol2, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = vol1 / vol2;
-            SetCombined(correction);
+            Unit = (vol1 / vol2) * correction;
             SetNewSymbol(NewSymbol, $"{vol1}/{vol2}");
         }
 
-        public RatioUnit(PreFix SI, RatioUnit unit)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
-            SetNewSymbol(SI);
-        }
 
-        public RatioUnit(RatioUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
-
+        
     }
 
 
