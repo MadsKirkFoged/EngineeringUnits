@@ -29,18 +29,13 @@ namespace EngineeringUnits.Units
         public static readonly ElectricResistivityUnit PicoohmMeter = new(PreFix.pico, OhmMeter);
 
 
-
-
-        public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length, string NewSymbol = "Empty")
+        public ElectricResistivityUnit(ElectricResistanceUnit electricResistance, LengthUnit Length)
         {
-            Unit = electricResistance * Length;
-            SetNewSymbol(NewSymbol, $"{electricResistance}·{Length}");
+            Unit = new UnitSystem(electricResistance * Length , 
+                               $"{electricResistance}·{Length}");
         }
 
-
-        public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit) : base(SI, unit)
-        {
-        }
+        public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit) : base(SI, unit) {}
 
     }
 

@@ -19,20 +19,12 @@ namespace EngineeringUnits.Units
         public static readonly ElectricResistanceUnit Milliohm = new(PreFix.milli, Ohm);
 
 
-
-
-        public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
+        public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol)
         {
-            //kg⋅m2⋅s−3⋅A−2
-            Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent.Pow(2));
-            SetNewSymbol(NewSymbol);
-        }
+            Unit = new UnitSystem((mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent.Pow(2)), NewSymbol);
+        }      
 
-       
-
-        public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit) : base(SI, unit)
-        {
-        }
+        public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit) : base(SI, unit) { }
 
 
 
