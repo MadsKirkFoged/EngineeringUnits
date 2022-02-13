@@ -55,29 +55,23 @@ namespace EngineeringUnits.Units
 
 
 
-
-
-
-        public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol)
         {
-            Unit = mass / (length * duration.Pow(2)) * correction;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(mass / (length * duration.Pow(2)), NewSymbol);
         }
 
-        public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit)
+        public PressureUnit(ForceUnit force, AreaUnit area)
         {
+            Unit = new UnitSystem((force / area), 
+                                $"{force}/{area}");
         }
 
-        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
-        {               
-        }
-
-
-        public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol)
         {
-            Unit = (force / area)  * correction;
-            SetNewSymbol(NewSymbol, $"{force}/{area}");
+            Unit = new UnitSystem((force / area), NewSymbol);
         }
+        public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit) {}
+        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  {}
 
     }
 

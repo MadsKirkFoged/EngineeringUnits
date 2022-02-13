@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public LapseRateUnit(TemperatureUnit temperature, LengthUnit length, string NewSymbol = "Empty")
+        public LapseRateUnit(TemperatureUnit temperature, LengthUnit length, string NewSymbol = null)
         {
-            Unit = temperature / length;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(temperature / length, NewSymbol);
         }
 
       

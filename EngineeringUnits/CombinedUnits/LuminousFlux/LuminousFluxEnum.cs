@@ -16,11 +16,7 @@ namespace EngineeringUnits.Units
 
 
 
-        public LuminousFluxUnit(LuminousIntensityUnit unit, string NewSymbol = "Empty") : base(unit, NewSymbol, 1)
-        {
-            //Unit = luminousIntensity.Unit.Copy(); 
-            //SetNewSymbol(NewSymbol);
-        }
+        public LuminousFluxUnit(LuminousIntensityUnit unit, string NewSymbol = "Empty") : base(unit, NewSymbol, 1) {}
 
 
 

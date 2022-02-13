@@ -51,15 +51,18 @@ namespace EngineeringUnits.Units
         public static readonly PowerUnit SolarLuminosity = new(EnergyUnit.SI, DurationUnit.SI, "L⊙", 3.846e26m);
 
 
-        public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol, decimal correction = 1)
         {
-            Unit = (Energy / duration) * correction;
-            SetNewSymbol(NewSymbol, $"{Energy}/{duration}");    
+            Unit = new UnitSystem((Energy / duration) * correction, NewSymbol);
         }
 
-        public PowerUnit(PreFix SI, PowerUnit unit) : base(SI, unit)
+        public PowerUnit(EnergyUnit Energy, DurationUnit duration)
         {
+            Unit = new UnitSystem((Energy / duration), 
+                                $"{Energy}/{duration}");
         }
+
+        public PowerUnit(PreFix SI, PowerUnit unit) : base(SI, unit) {}
 
     }
 }

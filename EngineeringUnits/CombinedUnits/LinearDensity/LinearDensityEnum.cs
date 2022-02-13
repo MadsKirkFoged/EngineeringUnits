@@ -28,14 +28,9 @@ namespace EngineeringUnits.Units
         public static readonly LinearDensityUnit PoundPerInch = new(MassUnit.Pound, LengthUnit.Inch);
 
 
-
-
-
-
-        public LinearDensityUnit(MassUnit mass, LengthUnit Length, string NewSymbol = "Empty")
+        public LinearDensityUnit(MassUnit mass, LengthUnit Length)
         {
             Unit = mass / Length;
-            SetNewSymbol(NewSymbol, $"{mass}/{Length}");
         }
 
         

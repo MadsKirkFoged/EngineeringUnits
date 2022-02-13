@@ -51,10 +51,9 @@ namespace EngineeringUnits.Units
        
 
 
-        public MassMomentOfInertiaUnit(MassUnit mass, AreaUnit area, string NewSymbol = "Empty")
+        public MassMomentOfInertiaUnit(MassUnit mass, AreaUnit area)
         {
             Unit = mass * area;
-            SetNewSymbol(NewSymbol);
         }
      
 

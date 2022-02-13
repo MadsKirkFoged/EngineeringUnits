@@ -22,10 +22,11 @@ namespace EngineeringUnits.Units
 
 
 
-        public MolarityUnit(AmountOfSubstanceUnit amountOfSubstance, VolumeUnit volume, string NewSymbol = "Empty")
+        public MolarityUnit(AmountOfSubstanceUnit amountOfSubstance, VolumeUnit volume)
         {
-            Unit = amountOfSubstance / volume;
-            SetNewSymbol(NewSymbol, $"{amountOfSubstance}/{volume}");
+            Unit = new UnitSystem(amountOfSubstance / volume, 
+                               $"{amountOfSubstance}/{volume}");
+
         }       
 
     }

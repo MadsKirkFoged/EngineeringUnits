@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class MagneticFieldUnit : Enumeration
     {
 
-        public static readonly MagneticFieldUnit SI = new(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI);
+        public static readonly MagneticFieldUnit SI = new(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "T");
         public static readonly MagneticFieldUnit Tesla = new(MassUnit.Kilogram, DurationUnit.Second, ElectricCurrentUnit.Ampere,"T");
 
         public static readonly MagneticFieldUnit Gauss = new(Tesla, "G", 1e-4m);
@@ -22,23 +22,13 @@ namespace EngineeringUnits.Units
         public static readonly MagneticFieldUnit Nanotesla = new(PreFix.nano, Tesla);
 
 
-
-
-        public MagneticFieldUnit(MassUnit mass, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public MagneticFieldUnit(MassUnit mass, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol)
         {
-            //kg⋅s−2⋅A−1
-            Unit = mass / (duration * duration * electricCurrent) * correction;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem( mass / (duration * duration * electricCurrent), NewSymbol);
         }
 
-
-
-        public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit) : base(SI, unit)
-        {
-        }
-        public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
-        {
-        }
+        public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit) : base(SI, unit) {}
+        public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction) {}
 
 
     }

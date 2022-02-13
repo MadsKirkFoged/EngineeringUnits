@@ -14,12 +14,9 @@ namespace EngineeringUnits.Units
         public static readonly MagnetizationUnit AmperePerMeter = new(ElectricCurrentUnit.Ampere, LengthUnit.Meter);
 
 
-
-
-        public MagnetizationUnit(ElectricCurrentUnit electricCurrent, LengthUnit Length, string NewSymbol = "Empty")
+        public MagnetizationUnit(ElectricCurrentUnit electricCurrent, LengthUnit Length)
         {
             Unit = electricCurrent / Length;
-            SetNewSymbol(NewSymbol, $"{electricCurrent}/{Length}");
         }
 
        

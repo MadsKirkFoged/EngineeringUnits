@@ -44,10 +44,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public LinearPowerDensityUnit(PowerUnit power, LengthUnit Length, string NewSymbol = "Empty")
+        public LinearPowerDensityUnit(PowerUnit power, LengthUnit Length)
         {
-            Unit = power / Length ;
-            SetNewSymbol(NewSymbol, $"{power}/{Length}");
+            Unit = new UnitSystem(power / Length, 
+                               $"{power}/{Length}");
         }       
 
 

@@ -25,10 +25,9 @@ namespace EngineeringUnits.Units
         public static readonly MolarMassUnit PoundPerMole =      new(MassUnit.Pound,       AmountOfSubstanceUnit.Mole);
 
 
-        public MolarMassUnit(MassUnit mass, AmountOfSubstanceUnit amount, string NewSymbol = "Empty")
+        public MolarMassUnit(MassUnit mass, AmountOfSubstanceUnit amount)
         {
             Unit = mass / amount;
-            SetNewSymbol(NewSymbol);
         }
 
         
