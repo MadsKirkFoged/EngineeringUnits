@@ -29,22 +29,21 @@ namespace EngineeringUnits.Units
 
         public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = (mass * Length) / (duration.Pow(2));
-            SetCombined(correction);
+            Unit = (mass * Length) / (duration.Pow(2)) * correction;
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol = "Empty", decimal correction = 1)
+        public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol = "Empty")
         {
             Unit = mass * acceleration;
-            SetCombined(correction);
+            //SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{mass}f");         
         }
 
         public ForceUnit(PreFix SI, ForceUnit energyunit)
         {
-            Unit = energyunit.Unit.Copy();
-            SetCombined(SI);
+            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
