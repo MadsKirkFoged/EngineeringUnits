@@ -32,16 +32,14 @@ namespace EngineeringUnits.Units
 
         public RotationalSpeedUnit(DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = duration.Pow(-1);
-            SetCombined(correction);
+            Unit = duration.Pow(-1) * correction;
             SetNewSymbol(NewSymbol);
         }
 
 
         public RotationalSpeedUnit(PreFix SI, RotationalSpeedUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

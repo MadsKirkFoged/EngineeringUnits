@@ -17,33 +17,20 @@ namespace EngineeringUnits.Units
 
 
 
-        public SolidAngleUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public SolidAngleUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public SolidAngleUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area * Length;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
 
         public SolidAngleUnit(PreFix SI, SolidAngleUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public SolidAngleUnit(SolidAngleUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+
 
     }
 

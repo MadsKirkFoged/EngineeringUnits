@@ -17,31 +17,27 @@ namespace EngineeringUnits.Units
 
 
 
-        public ScalarUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ScalarUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public ScalarUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public ScalarUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Area * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public ScalarUnit(PreFix SI, ScalarUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public ScalarUnit(ScalarUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public ScalarUnit(ScalarUnit unit, string NewSymbol = "Empty")
         {
             Unit = unit.Unit.Copy();
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 

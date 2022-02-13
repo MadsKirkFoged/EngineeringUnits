@@ -17,33 +17,21 @@ namespace EngineeringUnits.Units
 
 
 
-        public RotationalStiffnessPerLengthUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public RotationalStiffnessPerLengthUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public RotationalStiffnessPerLengthUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = Area * Length;
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
-        }
+
 
         public RotationalStiffnessPerLengthUnit(PreFix SI, RotationalStiffnessPerLengthUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public RotationalStiffnessPerLengthUnit(RotationalStiffnessPerLengthUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+
 
     }
 
