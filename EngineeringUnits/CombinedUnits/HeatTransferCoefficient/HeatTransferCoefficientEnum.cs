@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
         public static readonly HeatTransferCoefficientUnit BtuPerSquareFootDegreeFahrenheit = new(PowerUnit.BritishThermalUnitPerHour, AreaUnit.SquareFoot, TemperatureUnit.DegreeRankine, "Btu/ft²·hr·°F");
 
 
-        public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
+        public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol = "Empty")
         {
             Unit = power / (area * temperature);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{area}{temperature}");
         }
 

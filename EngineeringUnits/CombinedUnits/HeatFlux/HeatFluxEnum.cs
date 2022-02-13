@@ -38,24 +38,21 @@ namespace EngineeringUnits.Units
 
 
 
-        public HeatFluxUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public HeatFluxUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty")
         {
             Unit = power / area;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{power}/{area}");
         }
 
-        public HeatFluxUnit(ForcePerLengthUnit force, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public HeatFluxUnit(ForcePerLengthUnit force, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = force * duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{force}*{duration}");
         }
 
-        public HeatFluxUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public HeatFluxUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty")
         {
             Unit = mass / (duration.Pow(3));
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
@@ -63,8 +60,7 @@ namespace EngineeringUnits.Units
         
         public HeatFluxUnit(PreFix SI, HeatFluxUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

@@ -55,22 +55,19 @@ namespace EngineeringUnits.Units
 
         public InformationUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem();
-            SetCombined(correction);
+            Unit = new UnitSystem() * correction;
             SetNewSymbol(NewSymbol);
         }
 
         public InformationUnit(PreFix SI, InformationUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
         public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
+            Unit = unit.Unit.Copy() * correction;
             SetNewSymbol(NewSymbol);
         }
 

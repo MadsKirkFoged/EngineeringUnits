@@ -19,19 +19,17 @@ namespace EngineeringUnits.Units
         public static readonly IlluminanceUnit Millilux = new(PreFix.milli, Lux);
 
 
-        public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty")
         {
             //lm/m2
             Unit = luminousIntensity / area;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
      
         public IlluminanceUnit(PreFix SI, IlluminanceUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
