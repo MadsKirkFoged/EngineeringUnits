@@ -17,8 +17,8 @@ namespace EngineeringUnits
         public string Symbol { get; set; }       
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
-        //public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
-        public List<Enumeration> ListOfUnits = new List<Enumeration>();
+        public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
+        //public List<Enumeration> ListOfUnits = new List<Enumeration>();
 
         public UnitSystem()
         {

@@ -17,33 +17,25 @@ namespace EngineeringUnits.Units
 
 
 
-        public PowerRatioUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public PowerRatioUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Unit * Length.Unit * Length.Unit;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public PowerRatioUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public PowerRatioUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Area.Unit * Length.Unit;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public PowerRatioUnit(PreFix SI, PowerRatioUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public PowerRatioUnit(PowerRatioUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
+      
 
     }
 

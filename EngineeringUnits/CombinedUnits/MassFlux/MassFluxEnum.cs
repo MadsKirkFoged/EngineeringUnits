@@ -29,10 +29,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public MassFluxUnit(MassUnit mass, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty", decimal correction = 1)
+        public MassFluxUnit(MassUnit mass, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty")
         {
             Unit = mass / (duration * area);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
             //SetNewSymbol(NewSymbol, $"{mass}/{duration}{area}");
         }

@@ -17,31 +17,27 @@ namespace EngineeringUnits.Units
 
 
 
-        public testUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public testUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length * Length * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public testUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public testUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Area * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public testUnit(PreFix SI, testUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public testUnit(testUnit unit, string NewSymbol = "Empty", decimal correction = 1)
+        public testUnit(testUnit unit, string NewSymbol = "Empty")
         {
             Unit = unit.Unit.Copy();
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 

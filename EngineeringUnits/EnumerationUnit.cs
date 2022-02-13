@@ -180,17 +180,17 @@ namespace EngineeringUnits
            };
 
         
-        public void SetCombined(decimal correction)
-        {  
-            if (correction != 1)            
-                Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));            
+        //public void SetCombined(decimal correction)
+        //{  
+        //    if (correction != 1)            
+        //        Unit.ListOfUnits.Add(new CombinedUnit("", (Fraction)correction));            
 
-        }
+        //}
 
-        public void SetCombined(PreFix SI)
-        {
-            SetCombined(PrefixSISize(SI));
-        }
+        //public void SetCombined(PreFix SI)
+        //{
+        //    SetCombined(PrefixSISize(SI));
+        //}
 
         public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
         {
