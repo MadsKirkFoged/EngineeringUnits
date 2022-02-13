@@ -57,10 +57,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Energy}/{duration}");    
         }
 
-        public PowerUnit(PreFix SI, PowerUnit unit)
+        public PowerUnit(PreFix SI, PowerUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
     }

@@ -59,10 +59,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol);
         }
 
-        public InformationUnit(PreFix SI, InformationUnit unit)
+        public InformationUnit(PreFix SI, InformationUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1)

@@ -30,10 +30,8 @@ namespace EngineeringUnits.Units
 
      
 
-        public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit)
+        public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
     }

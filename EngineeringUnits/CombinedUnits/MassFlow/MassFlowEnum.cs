@@ -57,10 +57,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{mass}/{duration}");
         }
 
-        public MassFlowUnit(PreFix SI, MassFlowUnit unit)
+        public MassFlowUnit(PreFix SI, MassFlowUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

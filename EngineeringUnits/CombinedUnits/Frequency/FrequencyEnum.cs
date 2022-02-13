@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public FrequencyUnit(PreFix SI, FrequencyUnit unit)
+        public FrequencyUnit(PreFix SI, FrequencyUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

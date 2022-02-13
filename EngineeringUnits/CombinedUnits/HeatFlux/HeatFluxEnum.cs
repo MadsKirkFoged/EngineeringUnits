@@ -58,10 +58,8 @@ namespace EngineeringUnits.Units
 
 
         
-        public HeatFluxUnit(PreFix SI, HeatFluxUnit unit)
+        public HeatFluxUnit(PreFix SI, HeatFluxUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

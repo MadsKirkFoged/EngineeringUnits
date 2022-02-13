@@ -27,10 +27,8 @@ namespace EngineeringUnits.Units
         }
 
      
-        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit)
+        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
        

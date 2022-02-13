@@ -39,10 +39,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{power}/{area}");
         }       
 
-        public IrradianceUnit(PreFix SI, IrradianceUnit unit)
+        public IrradianceUnit(PreFix SI, IrradianceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
      
