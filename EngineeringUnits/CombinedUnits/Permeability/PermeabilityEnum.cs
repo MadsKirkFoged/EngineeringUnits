@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public PermeabilityUnit(ElectricInductanceUnit electricInductance,LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public PermeabilityUnit(ElectricInductanceUnit electricInductance,LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = electricInductance / Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{electricInductance}/{Length}");
         }
 

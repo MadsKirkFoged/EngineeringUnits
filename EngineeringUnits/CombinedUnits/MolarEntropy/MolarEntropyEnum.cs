@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
         public static readonly MolarEntropyUnit MegajoulePerMoleKelvin = new(EnergyUnit.Megajoule, AmountOfSubstanceUnit.Mole, TemperatureUnit.Kelvin);
 
 
-        public MolarEntropyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, TemperatureUnit temperature, string NewSymbol = "Empty", decimal correction = 1)
+        public MolarEntropyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, TemperatureUnit temperature, string NewSymbol = "Empty")
         {
             Unit = energy / (amountOfSubstance * temperature);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/({amountOfSubstance}*{temperature})");
         }
 

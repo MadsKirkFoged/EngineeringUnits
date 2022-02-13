@@ -16,10 +16,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public MagneticFluxUnit(EnergyUnit energy, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty", decimal correction = 1)
+        public MagneticFluxUnit(EnergyUnit energy, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
         {
             Unit = energy / electricCurrent;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 

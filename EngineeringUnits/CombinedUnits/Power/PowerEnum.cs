@@ -53,15 +53,13 @@ namespace EngineeringUnits.Units
 
         public PowerUnit(EnergyUnit Energy, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = Energy / duration;
-            SetCombined(correction);
+            Unit = (Energy / duration) * correction;
             SetNewSymbol(NewSymbol, $"{Energy}/{duration}");    
         }
 
         public PowerUnit(PreFix SI, PowerUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

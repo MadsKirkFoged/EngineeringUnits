@@ -18,10 +18,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public MolarEnergyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, string NewSymbol = "Empty", decimal correction = 1)
+        public MolarEnergyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, string NewSymbol = "Empty")
         {
             Unit = energy / amountOfSubstance;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{amountOfSubstance}");
         }
 
