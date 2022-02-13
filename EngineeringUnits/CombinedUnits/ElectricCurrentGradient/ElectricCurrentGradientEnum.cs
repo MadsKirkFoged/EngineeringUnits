@@ -16,10 +16,11 @@ namespace EngineeringUnits.Units
         public static readonly ElectricCurrentGradientUnit AmperePerMillisecond = new(ElectricCurrentUnit.Ampere, DurationUnit.Millisecond);
         public static readonly ElectricCurrentGradientUnit AmperePerNanosecond = new(ElectricCurrentUnit.Ampere, DurationUnit.Nanosecond);
 
-        public ElectricCurrentGradientUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty")
+        public ElectricCurrentGradientUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration)
         {
-            Unit = electricCurrent / duration;
-            SetNewSymbol(NewSymbol, $"{electricCurrent}/{duration}");
+            Unit = new UnitSystem(electricCurrent / duration, 
+                               $"{electricCurrent}/{duration}");
+ 
         }
 
       

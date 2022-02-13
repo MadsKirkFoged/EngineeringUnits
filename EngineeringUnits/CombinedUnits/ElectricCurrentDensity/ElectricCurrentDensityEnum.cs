@@ -17,10 +17,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricCurrentDensityUnit(ElectricCurrentUnit electricCurrent, AreaUnit Area, string NewSymbol = "Empty")
+        public ElectricCurrentDensityUnit(ElectricCurrentUnit electricCurrent, AreaUnit Area)
         {
-            Unit = electricCurrent / Area;
-            SetNewSymbol(NewSymbol, $"{electricCurrent}/{Area}");
+            Unit = new UnitSystem(electricCurrent / Area, 
+                               $"{electricCurrent}/{Area}");
         }      
 
       

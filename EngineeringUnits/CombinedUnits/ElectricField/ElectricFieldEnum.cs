@@ -16,10 +16,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricFieldUnit(ElectricPotentialUnit electricPotential, LengthUnit Length, string NewSymbol = "Empty")
+        public ElectricFieldUnit(ElectricPotentialUnit electricPotential, LengthUnit Length)
         {
-            Unit = electricPotential / Length;
-            SetNewSymbol(NewSymbol, $"{electricPotential}/{Length}");
+            Unit = new UnitSystem(electricPotential / Length, 
+                               $"{electricPotential}/{Length}");
         }
 
 
