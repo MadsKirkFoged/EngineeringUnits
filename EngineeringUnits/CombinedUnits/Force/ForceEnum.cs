@@ -27,23 +27,23 @@ namespace EngineeringUnits.Units
         public static readonly ForceUnit MegapoundForce =    new(MassUnit.Megapound, AccelerationUnit.StandardGravity, "Mlbf");
         public static readonly ForceUnit Poundal =           new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "pdl", 0.138254954376m);
 
-        public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public ForceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol, decimal correction = 1)
         {
-            Unit = (mass * Length) / (duration.Pow(2)) * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem((mass * Length) / (duration.Pow(2)) * correction, NewSymbol);
         }
 
-        public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol = "Empty")
+        public ForceUnit(MassUnit mass, AccelerationUnit acceleration, string NewSymbol)
         {
-            Unit = mass * acceleration;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol, $"{mass}f");         
+            Unit = new UnitSystem(mass * acceleration, NewSymbol);     
         }
 
-        public ForceUnit(PreFix SI, ForceUnit unit) : base(SI, unit)
+        public ForceUnit(MassUnit mass, AccelerationUnit acceleration)
         {
+            Unit = new UnitSystem(mass * acceleration, 
+                               $"{mass}f");
         }
+
+        public ForceUnit(PreFix SI, ForceUnit unit) : base(SI, unit) {}
 
 
     }

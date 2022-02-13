@@ -57,26 +57,20 @@ namespace EngineeringUnits.Units
 
 
 
-        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, string NewSymbol, decimal correction = 1)
         {
-            Unit = (mass * Length.Pow(2)) / duration.Pow(2) * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);         
+            Unit = new UnitSystem((mass * Length.Pow(2)) / duration.Pow(2) * correction, NewSymbol);     
         }
 
-        public EnergyUnit(PreFix SI, EnergyUnit unit) : base(SI, unit)
-        {        
-        }
 
-        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)
+        public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol)
         {
-            Unit = ((mass * Length.Pow(2)) / (duration.Pow(3)))* duration2.Unit * correction;
-            //SetCombined(correction);
-            //SetNewSymbol($"{NewSymbol}{duration2}");
-            SetNewSymbol("Empty", $"{NewSymbol}{duration2}");
+            Unit = new UnitSystem(((mass * Length.Pow(2)) / (duration.Pow(3)))* duration2.Unit, 
+                                    $"{NewSymbol}{duration2}");
         }
 
-       
+
+        public EnergyUnit(PreFix SI, EnergyUnit unit) : base(SI, unit) {}
 
     }
 

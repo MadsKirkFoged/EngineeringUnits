@@ -10,8 +10,8 @@ namespace EngineeringUnits.Units
     public class EntropyUnit : Enumeration
     {
 
-        public static readonly EntropyUnit SI = new(EnergyUnit.SI, TemperatureUnit.SI);
-        public static readonly EntropyUnit JoulePerKelvin = new(EnergyUnit.Joule, TemperatureUnit.Kelvin);
+        public static readonly EntropyUnit SI =                          new(EnergyUnit.SI, TemperatureUnit.SI);
+        public static readonly EntropyUnit JoulePerKelvin =              new(EnergyUnit.Joule, TemperatureUnit.Kelvin);
         public static readonly EntropyUnit CaloriePerKelvin =            new(EnergyUnit.Calorie, TemperatureUnit.Kelvin);
         public static readonly EntropyUnit JoulePerDegreeCelsius =       new(EnergyUnit.Joule, TemperatureUnit.Kelvin);
         public static readonly EntropyUnit KilocaloriePerKelvin =        new(EnergyUnit.Kilocalorie, TemperatureUnit.Kelvin);
@@ -20,10 +20,10 @@ namespace EngineeringUnits.Units
         public static readonly EntropyUnit MegajoulePerKelvin =          new(EnergyUnit.Megajoule, TemperatureUnit.Kelvin);
 
 
-        public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature, string NewSymbol = "Empty")
+        public EntropyUnit(EnergyUnit energy, TemperatureUnit temperature)
         {
-            Unit = energy / temperature;
-            SetNewSymbol(NewSymbol, $"{energy}/{temperature}");
+            Unit = new UnitSystem(energy / temperature, 
+                               $"{energy}/{temperature}");
         }
 
     }
