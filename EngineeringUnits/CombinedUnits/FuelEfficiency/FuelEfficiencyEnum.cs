@@ -17,13 +17,18 @@ namespace EngineeringUnits.Units
         public static readonly FuelEfficiencyUnit MilePerUsGallon = new(LengthUnit.Mile, VolumeUnit.UsGallon, "mpg (U.S.)");
 
 
-        public FuelEfficiencyUnit(LengthUnit Length, VolumeUnit volume, string NewSymbol = "Empty")
+        public FuelEfficiencyUnit(LengthUnit Length, VolumeUnit volume)
         {
-            Unit = Length / volume;
-            SetNewSymbol(NewSymbol, $"{Length}/{volume}");
+            Unit = new UnitSystem(Length / volume, 
+                               $"{Length}/{volume}");
         }
 
-    
+        public FuelEfficiencyUnit(LengthUnit Length, VolumeUnit volume, string NewSymbol)
+        {
+            Unit = new UnitSystem(Length / volume, NewSymbol);
+        }
+
+
 
     }
 

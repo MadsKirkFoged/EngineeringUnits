@@ -38,29 +38,30 @@ namespace EngineeringUnits.Units
 
 
 
-        public HeatFluxUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty")
+        public HeatFluxUnit(PowerUnit power, AreaUnit area)
         {
-            Unit = power / area;
-            SetNewSymbol(NewSymbol, $"{power}/{area}");
+            Unit = new UnitSystem(power / area, 
+                               $"{power}/{area}");
         }
 
-        public HeatFluxUnit(ForcePerLengthUnit force, DurationUnit duration, string NewSymbol = "Empty")
+        public HeatFluxUnit(PowerUnit power, AreaUnit area, string NewSymbol)
         {
-            Unit = force * duration;
-            SetNewSymbol(NewSymbol, $"{force}*{duration}");
+            Unit = new UnitSystem(power / area, NewSymbol);
         }
 
-        public HeatFluxUnit(MassUnit mass, DurationUnit duration, string NewSymbol = "Empty")
+        public HeatFluxUnit(ForcePerLengthUnit force, DurationUnit duration, string NewSymbol)
+        {
+            Unit = new UnitSystem(force * duration, NewSymbol);
+        }
+
+        public HeatFluxUnit(MassUnit mass, DurationUnit duration)
         {
             Unit = mass / (duration.Pow(3));
-            SetNewSymbol(NewSymbol);
         }
 
 
         
-        public HeatFluxUnit(PreFix SI, HeatFluxUnit unit) : base(SI, unit)
-        {
-        }
+        public HeatFluxUnit(PreFix SI, HeatFluxUnit unit) : base(SI, unit)  {}
 
 
     }
