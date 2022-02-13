@@ -35,16 +35,14 @@ namespace EngineeringUnits.Units
 
 
 
-        public ForceChangeRateUnit(ForceUnit force, DurationUnit duration, string NewSymbol = "Empty")
+        public ForceChangeRateUnit(ForceUnit force, DurationUnit duration)
         {
-            Unit = force / duration;
-            SetNewSymbol(NewSymbol, $"{force}/{duration}");
+            Unit = new UnitSystem(force / duration, 
+                               $"{force}/{duration}");
         }
 
        
-        public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit) : base(SI, unit)
-        {
-        }
+        public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit) : base(SI, unit) {}
 
        
 

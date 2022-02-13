@@ -52,14 +52,12 @@ namespace EngineeringUnits.Units
 
 
 
-        public ForcePerLengthUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty")
+        public ForcePerLengthUnit(ForceUnit force, LengthUnit length)
         {
-            Unit = force / length;
-            SetNewSymbol(NewSymbol, $"{force}/{length}");
+            Unit = new UnitSystem(force / length, 
+                               $"{force}/{length}");
         }
-        public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit) : base(SI, unit)
-        {
-        }
+        public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit) : base(SI, unit) {}
 
       
 

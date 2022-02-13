@@ -26,16 +26,13 @@ namespace EngineeringUnits.Units
 
 
 
-        public FrequencyUnit(DurationUnit duration, string NewSymbol = "Empty", decimal correction = 1)
+        public FrequencyUnit(DurationUnit duration, string NewSymbol, decimal correction = 1)
         {
-            Unit = duration.Pow(-1) * correction;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(duration.Pow(-1) * correction, NewSymbol);
         }
 
 
-        public FrequencyUnit(PreFix SI, FrequencyUnit unit) : base(SI, unit)
-        {
-        }
+        public FrequencyUnit(PreFix SI, FrequencyUnit unit) : base(SI, unit) {}
 
 
     }
