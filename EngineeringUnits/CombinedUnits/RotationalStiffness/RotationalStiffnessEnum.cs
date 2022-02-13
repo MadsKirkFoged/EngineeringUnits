@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public RotationalStiffnessUnit(PreFix SI, RotationalStiffnessUnit unit)
+        public RotationalStiffnessUnit(PreFix SI, RotationalStiffnessUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public RotationalStiffnessUnit(RotationalStiffnessUnit unit, string NewSymbol = "Empty")

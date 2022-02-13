@@ -24,10 +24,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public SolidAngleUnit(PreFix SI, SolidAngleUnit unit)
+        public SolidAngleUnit(PreFix SI, SolidAngleUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

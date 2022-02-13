@@ -84,10 +84,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public VolumeUnit(PreFix SI, VolumeUnit unit)
+        public VolumeUnit(PreFix SI, VolumeUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1)

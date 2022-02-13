@@ -64,10 +64,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol);
         }
 
-        public PressureUnit(PreFix SI, PressureUnit unit)
+        public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1)

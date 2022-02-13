@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
 
        
 
-        public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit)
+        public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

@@ -86,10 +86,8 @@ namespace EngineeringUnits.Units
         }
 
       
-        public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit)
+        public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
     }
 }

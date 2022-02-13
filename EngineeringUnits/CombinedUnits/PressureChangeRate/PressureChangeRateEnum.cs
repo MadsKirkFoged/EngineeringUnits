@@ -38,10 +38,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{pressure}/{duration}");
         }    
 
-        public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit)
+        public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
     }

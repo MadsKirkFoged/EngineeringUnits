@@ -37,10 +37,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public RotationalSpeedUnit(PreFix SI, RotationalSpeedUnit unit)
+        public RotationalSpeedUnit(PreFix SI, RotationalSpeedUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

@@ -25,10 +25,8 @@ namespace EngineeringUnits.Units
 
 
 
-        public RotationalStiffnessPerLengthUnit(PreFix SI, RotationalStiffnessPerLengthUnit unit)
+        public RotationalStiffnessPerLengthUnit(PreFix SI, RotationalStiffnessPerLengthUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

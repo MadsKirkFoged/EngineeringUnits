@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public ScalarUnit(PreFix SI, ScalarUnit unit)
+        public ScalarUnit(PreFix SI, ScalarUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public ScalarUnit(ScalarUnit unit, string NewSymbol = "Empty")

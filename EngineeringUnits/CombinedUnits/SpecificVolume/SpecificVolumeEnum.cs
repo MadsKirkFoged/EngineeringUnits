@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public SpecificVolumeUnit(PreFix SI, SpecificVolumeUnit unit)
+        public SpecificVolumeUnit(PreFix SI, SpecificVolumeUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public RotationalAccelerationUnit(PreFix SI, RotationalAccelerationUnit unit)
+        public RotationalAccelerationUnit(PreFix SI, RotationalAccelerationUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
         public RotationalAccelerationUnit(RotationalAccelerationUnit unit, string NewSymbol = "Empty")

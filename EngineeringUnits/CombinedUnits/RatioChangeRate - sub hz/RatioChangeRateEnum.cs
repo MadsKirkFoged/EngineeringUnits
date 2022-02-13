@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
-        public RatioChangeRateUnit(PreFix SI, RatioChangeRateUnit unit)
+        public RatioChangeRateUnit(PreFix SI, RatioChangeRateUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

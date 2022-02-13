@@ -48,10 +48,8 @@ namespace EngineeringUnits.Units
 
      
 
-        public TorqueUnit(PreFix SI, TorqueUnit unit)
+        public TorqueUnit(PreFix SI, TorqueUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
     }
 }
