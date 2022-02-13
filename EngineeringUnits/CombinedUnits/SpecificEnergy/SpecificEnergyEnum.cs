@@ -41,10 +41,9 @@ namespace EngineeringUnits.Units
         public static readonly SpecificEnergyUnit TerawattDayPerShortTon =   new(EnergyUnit.TerawattDay, MassUnit.ShortTon);
 
 
-        public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass, string NewSymbol = "Empty", decimal correction = 1)
+        public SpecificEnergyUnit(EnergyUnit energy, MassUnit mass, string NewSymbol = "Empty")
         {
             Unit = energy / mass;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{energy}/{mass}");
         }
 

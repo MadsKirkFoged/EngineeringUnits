@@ -25,10 +25,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public TemperatureChangeRateUnit(TemperatureUnit temperature, DurationUnit duration,  string NewSymbol = "Empty", decimal correction = 1)
+        public TemperatureChangeRateUnit(TemperatureUnit temperature, DurationUnit duration,  string NewSymbol = "Empty")
         {
             Unit = temperature / duration;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{TemperatureUnit.DegreeCelsius}/{duration}");
         }
 
@@ -36,8 +35,7 @@ namespace EngineeringUnits.Units
 
         public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 

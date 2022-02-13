@@ -48,10 +48,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol = "Empty", decimal correction = 1)
+        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol = "Empty")
         {
             Unit = length / time;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{length}/{time}");
         }
 

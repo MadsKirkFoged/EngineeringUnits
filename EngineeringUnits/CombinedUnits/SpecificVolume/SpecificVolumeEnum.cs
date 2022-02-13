@@ -17,33 +17,24 @@ namespace EngineeringUnits.Units
 
 
 
-        public SpecificVolumeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public SpecificVolumeUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Length.Pow(3);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }
 
-        public SpecificVolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public SpecificVolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty")
         {
             Unit = Area * Length;
-            SetCombined(correction);
             SetNewSymbol(NewSymbol, $"{Area}-{Length}");
         }
 
         public SpecificVolumeUnit(PreFix SI, SpecificVolumeUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
 
-        public SpecificVolumeUnit(SpecificVolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1)
-        {
-            Unit = unit.Unit.Copy();
-            SetCombined(correction);
-            SetNewSymbol(NewSymbol);
-        }
 
     }
 
