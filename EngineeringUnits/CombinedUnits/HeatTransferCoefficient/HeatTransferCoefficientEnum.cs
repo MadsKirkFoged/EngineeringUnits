@@ -18,8 +18,8 @@ namespace EngineeringUnits.Units
 
         public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature)
         {
-            Unit = new UnitSystem( power /(area* temperature), 
-                                $"{power}/{area}{temperature}");
+            Unit = new UnitSystem(power /(area* temperature), 
+                               $"{power}/{area}{temperature}");
         }
 
         public HeatTransferCoefficientUnit(PowerUnit power, AreaUnit area, TemperatureUnit temperature, string NewSymbol)

@@ -55,17 +55,12 @@ namespace EngineeringUnits.Units
 
         public InformationUnit(string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = new UnitSystem() * correction;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(correction, NewSymbol);
         }
 
-        public InformationUnit(PreFix SI, InformationUnit unit) : base(SI, unit)
-        {
-        }
+        public InformationUnit(PreFix SI, InformationUnit unit) : base(SI, unit) {}
 
-        public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
-        {
-        }
+        public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction) {}
 
     }
 

@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class IlluminanceUnit : Enumeration
     {
 
-        public static readonly IlluminanceUnit SI = new(LuminousIntensityUnit.SI, AreaUnit.SI);
+        public static readonly IlluminanceUnit SI = new(LuminousIntensityUnit.SI, AreaUnit.SI, "lx");
         public static readonly IlluminanceUnit Lux = new(LuminousIntensityUnit.SI, AreaUnit.SquareMeter, "lx");
 
 
@@ -19,19 +19,13 @@ namespace EngineeringUnits.Units
         public static readonly IlluminanceUnit Millilux = new(PreFix.milli, Lux);
 
 
-        public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol = "Empty")
+        public IlluminanceUnit(LuminousIntensityUnit luminousIntensity, AreaUnit area, string NewSymbol)
         {
-            //lm/m2
-            Unit = luminousIntensity / area;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(luminousIntensity / area, NewSymbol);
         }
 
      
-        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit) : base(SI, unit)
-        {
-        }
-
-       
+        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit) : base(SI, unit) {}       
 
     }
 

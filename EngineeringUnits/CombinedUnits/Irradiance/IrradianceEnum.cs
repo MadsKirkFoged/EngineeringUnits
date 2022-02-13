@@ -33,15 +33,13 @@ namespace EngineeringUnits.Units
 
 
 
-        public IrradianceUnit(PowerUnit power, AreaUnit area, string NewSymbol = "Empty")
+        public IrradianceUnit(PowerUnit power, AreaUnit area)
         {
-            Unit = power / area;
-            SetNewSymbol(NewSymbol, $"{power}/{area}");
+            Unit = new UnitSystem(power / area, 
+                               $"{power}/{area}");
         }       
 
-        public IrradianceUnit(PreFix SI, IrradianceUnit unit) : base(SI, unit)
-        {
-        }
+        public IrradianceUnit(PreFix SI, IrradianceUnit unit) : base(SI, unit)  { }
 
      
 
