@@ -44,15 +44,18 @@ namespace EngineeringUnits.Units
        public static readonly SpeedUnit YardPerSecond =         new(LengthUnit.Yard,          DurationUnit.Second);
        public static readonly SpeedUnit KilometerPerhour =      new(LengthUnit.Kilometer,     DurationUnit.Hour);
        public static readonly SpeedUnit SI =                    new(LengthUnit.SI,            DurationUnit.SI);
-        public static readonly SpeedUnit MilePerSecond =         new(LengthUnit.Mile,          DurationUnit.Second);
+       public static readonly SpeedUnit MilePerSecond =         new(LengthUnit.Mile,          DurationUnit.Second);
 
 
 
-        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol = "Empty")
+        public SpeedUnit(LengthUnit length, DurationUnit time)
         {
             Unit = length / time;
-            SetNewSymbol(NewSymbol, $"{length}/{time}");
         }
 
+        public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol)
+        {
+            Unit = new UnitSystem(length / time, NewSymbol);
+        }
     }
 }

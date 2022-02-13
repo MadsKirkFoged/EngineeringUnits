@@ -32,10 +32,11 @@ namespace EngineeringUnits.Units
 
 
 
-        public SpecificWeightUnit(ForceUnit force, VolumeUnit volume, string NewSymbol = "Empty")
+        public SpecificWeightUnit(ForceUnit force, VolumeUnit volume)
         {
-            Unit = force / volume;
-            SetNewSymbol(NewSymbol, $"{force}/{volume}");
+            Unit = new UnitSystem(force / volume, 
+                               $"{force}/{volume}");
+
         }       
 
     }

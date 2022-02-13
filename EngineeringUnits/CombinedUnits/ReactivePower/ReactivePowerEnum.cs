@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ReactivePowerUnit : Enumeration
     {
 
-        public static readonly ReactivePowerUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI);
+        public static readonly ReactivePowerUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, "var");
         public static readonly ReactivePowerUnit VoltampereReactive = new(ElectricPotentialUnit.Volt, ElectricCurrentUnit.Ampere, "var");
         public static readonly ReactivePowerUnit MegavoltampereReactive = new(ElectricPotentialUnit.Megavolt, ElectricCurrentUnit.Ampere, "Mvar");
         public static readonly ReactivePowerUnit KilovoltampereReactive = new(ElectricPotentialUnit.Kilovolt, ElectricCurrentUnit.Ampere, "kvar");
@@ -18,10 +18,9 @@ namespace EngineeringUnits.Units
 
 
 
-        public ReactivePowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
+        public ReactivePowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrent, string NewSymbol)
         {
-            Unit = electricPotential * electricCurrent;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(electricPotential * electricCurrent, NewSymbol);
         }
 
      

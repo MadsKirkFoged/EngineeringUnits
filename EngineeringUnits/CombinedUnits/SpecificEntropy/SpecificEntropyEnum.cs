@@ -28,10 +28,10 @@ namespace EngineeringUnits.Units
         public static readonly SpecificEntropyUnit BtuPerPoundFahrenheit =               new(EnergyUnit.BritishThermalUnit, MassUnit.Pound, TemperatureUnit.DegreeRankine);
 
 
-        public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature, string NewSymbol = "Empty")
+        public SpecificEntropyUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature)
         {
-            Unit = energy / (mass * temperature);
-            SetNewSymbol(NewSymbol, $"{energy}/{mass}*{temperature}");
+            Unit = new UnitSystem(energy /(mass * temperature), 
+                               $"{energy}/{mass}*{temperature}");
         }
     }
 

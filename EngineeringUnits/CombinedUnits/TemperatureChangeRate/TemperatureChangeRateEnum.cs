@@ -25,17 +25,15 @@ namespace EngineeringUnits.Units
 
 
 
-        public TemperatureChangeRateUnit(TemperatureUnit temperature, DurationUnit duration,  string NewSymbol = "Empty")
+        public TemperatureChangeRateUnit(TemperatureUnit temperature, DurationUnit duration)
         {
-            Unit = temperature / duration;
-            SetNewSymbol(NewSymbol, $"{TemperatureUnit.DegreeCelsius}/{duration}");
+            Unit = new UnitSystem(temperature / duration, 
+                            $"{TemperatureUnit.DegreeCelsius}/{duration}");
         }
 
        
 
-        public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit) : base(SI, unit)
-        {
-        }
+        public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit) : base(SI, unit) {}
 
 
     }

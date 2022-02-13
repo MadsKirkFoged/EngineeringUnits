@@ -14,13 +14,15 @@ namespace EngineeringUnits.Units
         public static readonly ThermalConductivityUnit BtuPerHourFootFahrenheit = new(PowerUnit.BritishThermalUnitPerHour, LengthUnit.Foot, TemperatureUnit.DegreeRankine, "BTU/h·ft·°F"); //Not sure this is correct in UnitNets
 
 
-
-
-
-        public ThermalConductivityUnit(PowerUnit power, LengthUnit length, TemperatureUnit temperature, string NewSymbol = "Empty")
+        public ThermalConductivityUnit(PowerUnit power, LengthUnit length, TemperatureUnit temperature)
         {
-            Unit = power / (length * temperature);
-            SetNewSymbol(NewSymbol, $"{power}/{length}·{temperature}");
+            Unit = new UnitSystem(power / (length* temperature), 
+                               $"{power}/{length}·{temperature}");
+        }
+
+        public ThermalConductivityUnit(PowerUnit power, LengthUnit length, TemperatureUnit temperature, string NewSymbol)
+        {
+            Unit = new UnitSystem(power / (length * temperature), NewSymbol);
         }
 
 
