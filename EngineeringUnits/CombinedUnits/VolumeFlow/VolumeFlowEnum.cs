@@ -81,16 +81,14 @@ namespace EngineeringUnits.Units
 
         public VolumeFlowUnit(VolumeUnit volume,DurationUnit duration , string NewSymbol = "Empty", decimal correction = 1)
         {
-            Unit = volume / duration;
-            SetCombined(correction);
+            Unit = (volume / duration)  * correction;
             SetNewSymbol(NewSymbol, $"{volume}/{duration}");
         }
 
       
         public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit)
         {
-            Unit = unit.Unit.Copy();
-            SetCombined(SI);
+            Unit = unit.Unit.Copy() * PrefixSISize(SI);
             SetNewSymbol(SI);
         }
     }

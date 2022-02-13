@@ -20,11 +20,9 @@ namespace EngineeringUnits.Units
         public static readonly WarpingMomentOfInertiaUnit SI = new(LengthUnit.SI);
 
 
-        public WarpingMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public WarpingMomentOfInertiaUnit(LengthUnit Length, string NewSymbol = "Empty")
         {
-            //Unit = Length.Unit * Length.Unit * Length.Unit* Length.Unit * Length.Unit * Length.Unit;
             Unit = Length.Pow(6);
-            SetCombined(correction);
             SetNewSymbol(NewSymbol);
         }       
 
