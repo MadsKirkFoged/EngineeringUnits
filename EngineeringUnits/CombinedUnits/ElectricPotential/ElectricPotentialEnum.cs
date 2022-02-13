@@ -18,20 +18,12 @@ namespace EngineeringUnits.Units
         public static readonly ElectricPotentialUnit Microvolt = new(PreFix.micro, Volt);
         public static readonly ElectricPotentialUnit Millivolt = new(PreFix.milli, Volt);
 
-
-
-
-        public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol = "Empty")
+        public ElectricPotentialUnit(MassUnit mass, LengthUnit Length,DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol)
         {
-            Unit = (mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent);
-            SetNewSymbol(NewSymbol);
-
+            Unit = new UnitSystem((mass * Length.Pow(2)) / (duration.Pow(3) * electricCurrent), NewSymbol);
         }
 
-
-        public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit) : base(SI, unit)
-        {
-        }
+        public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit) : base(SI, unit) {}
 
 
 

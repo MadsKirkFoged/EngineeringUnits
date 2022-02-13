@@ -39,10 +39,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricPotentialChangeRateUnit(ElectricPotentialUnit electricPotential, DurationUnit duration, string NewSymbol = "Empty")
+        public ElectricPotentialChangeRateUnit(ElectricPotentialUnit electricPotential, DurationUnit duration)
         {
-            Unit = electricPotential / duration;
-            SetNewSymbol(NewSymbol, $"{electricPotential}/{duration}");
+            Unit = new UnitSystem(electricPotential / duration, 
+                               $"{electricPotential}/{duration}");
         }
 
 

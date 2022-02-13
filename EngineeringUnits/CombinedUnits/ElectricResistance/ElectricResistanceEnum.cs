@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricResistanceUnit : Enumeration
     {
 
-        public static readonly ElectricResistanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI);
+        public static readonly ElectricResistanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "Ω");
         public static readonly ElectricResistanceUnit Ohm = new(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "Ω");
         public static readonly ElectricResistanceUnit Gigaohm = new(PreFix.giga, Ohm);
         public static readonly ElectricResistanceUnit Kiloohm = new(PreFix.kilo, Ohm);
