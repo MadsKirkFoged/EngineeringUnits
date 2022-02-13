@@ -24,30 +24,36 @@ namespace EngineeringUnits.Units
 
 
 
-        public DynamicViscosityUnit(PressureUnit Pressure, DurationUnit duration, string NewSymbol = "Empty")
+        public DynamicViscosityUnit(PressureUnit Pressure, DurationUnit duration)
         {
-            Unit = Pressure * duration;
-
-            SetNewSymbol(NewSymbol);
-            SetNewSymbol(NewSymbol, $"{Pressure}·{duration}");
+            Unit = new UnitSystem(Pressure * duration, 
+                               $"{Pressure}·{duration}");
         }
 
-        public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area, string NewSymbol = "Empty")
+        public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area)
         {
-            Unit = (force * duration) / area;
-            SetNewSymbol(NewSymbol, $"{force}·{duration}/{area}");
+            Unit = new UnitSystem((force * duration)/ area, 
+                                $"{force}·{duration}/{area}");
         }
 
-        public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol = "Empty")
+        public DynamicViscosityUnit(ForceUnit force, DurationUnit duration, AreaUnit area, string NewSymbol)
         {
-            Unit = mass /(  duration * length);
-            SetNewSymbol(NewSymbol, $"{mass}/{length}·{duration}");
+            Unit = new UnitSystem((force * duration) / area, NewSymbol);
+        }
+
+        public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration)
+        {
+            Unit = new UnitSystem(mass /(length * duration), 
+                               $"{mass}/{length}·{duration}");
+        }
+
+        public DynamicViscosityUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol)
+        {
+            Unit = new UnitSystem(mass / (length * duration), NewSymbol);
         }
 
 
-        public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit) : base(SI, unit)
-        {
-        }
+        public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit) : base(SI, unit) {}
 
        
 

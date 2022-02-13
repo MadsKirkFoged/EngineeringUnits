@@ -10,11 +10,9 @@ namespace EngineeringUnits.Units
     public class BitRateUnit : Enumeration
     {
 
-        public static readonly BitRateUnit SI = new("");
+        public static readonly BitRateUnit SI = new("", 1m);
         public static readonly BitRateUnit BytePerSecond = new("B/s", 8m);
-        public static readonly BitRateUnit BitPerSecond = new("bit/s");
-
-
+        public static readonly BitRateUnit BitPerSecond = new("bit/s", 1m);
 
         public static readonly BitRateUnit KibibitPerSecond = new(BitPerSecond, "Kibit/s", (1024m));
         public static readonly BitRateUnit MebibitPerSecond = new(BitPerSecond, "Mibit/s", (1024m * 1024));
@@ -23,14 +21,12 @@ namespace EngineeringUnits.Units
         public static readonly BitRateUnit PebibitPerSecond = new(BitPerSecond, "Pibit/s", (1024m * 1024 * 1024 * 1024 * 1024));
         public static readonly BitRateUnit ExbibitPerSecond = new(BitPerSecond, "Eibit/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
 
-
         public static readonly BitRateUnit KibibytePerSecond = new(BytePerSecond, "KiB/s", (1024m));
         public static readonly BitRateUnit MebibytePerSecond = new(BytePerSecond, "MiB/s", (1024m * 1024));
         public static readonly BitRateUnit GibibytePerSecond = new(BytePerSecond, "GiB/s", (1024m * 1024 * 1024));
         public static readonly BitRateUnit TebibytePerSecond = new(BytePerSecond, "TiB/s", (1024m * 1024 * 1024 * 1024));
         public static readonly BitRateUnit PebibytePerSecond = new(BytePerSecond, "PiB/s", (1024m * 1024 * 1024 * 1024 * 1024));
         public static readonly BitRateUnit ExbibytePerSecond = new(BytePerSecond, "EiB/s", (1024m * 1024 * 1024 * 1024 * 1024 * 1024));
-
 
         public static readonly BitRateUnit KilobytePerSecond = new(PreFix.kilo, BytePerSecond);
         public static readonly BitRateUnit MegabytePerSecond = new(PreFix.mega, BytePerSecond);
@@ -39,8 +35,6 @@ namespace EngineeringUnits.Units
         public static readonly BitRateUnit PetabytePerSecond = new(PreFix.peta, BytePerSecond);
         public static readonly BitRateUnit ExabytePerSecond = new(PreFix.exa, BytePerSecond);
 
-
-
         public static readonly BitRateUnit KilobitPerSecond = new(PreFix.kilo, BitPerSecond);
         public static readonly BitRateUnit MegabitPerSecond = new(PreFix.mega, BitPerSecond);
         public static readonly BitRateUnit GigabitPerSecond = new(PreFix.giga, BitPerSecond);
@@ -48,24 +42,14 @@ namespace EngineeringUnits.Units
         public static readonly BitRateUnit PetabitPerSecond = new(PreFix.peta, BitPerSecond);
         public static readonly BitRateUnit ExabitPerSecond = new(PreFix.exa, BitPerSecond);
 
-
-
-
-
-        public BitRateUnit(string NewSymbol = "Empty", decimal correction = 1)
+        public BitRateUnit(string NewSymbol, decimal correction)
         {
-            Unit = new UnitSystem() * correction;
-            //SetCombined(correction);
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(correction, NewSymbol);
         }
 
-        public BitRateUnit(PreFix SI, BitRateUnit unit) : base(SI, unit)
-        {
-        }
+        public BitRateUnit(PreFix SI, BitRateUnit unit) : base(SI, unit) {}
 
-        public BitRateUnit(BitRateUnit unit, string NewSymbol = "Empty", decimal correction = 1) :base(unit, NewSymbol, correction)
-        {
-        }
+        public BitRateUnit(BitRateUnit unit, string NewSymbol, decimal correction) :base(unit, NewSymbol, correction) {}
 
     }
 

@@ -16,18 +16,15 @@ namespace EngineeringUnits.Units
         public static readonly BrakeSpecificFuelConsumptionUnit PoundPerMechanicalHorsepowerHour = new(MassUnit.Pound, PowerUnit.MechanicalHorsepower, DurationUnit.Hour, "lb/hph");
 
 
-
-
-        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy, string NewSymbol = "Empty")
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, EnergyUnit energy)
         {
-            Unit = mass / energy;
-            SetNewSymbol(NewSymbol, $"{mass}/{energy}");
+            Unit = new UnitSystem(mass / energy, 
+                               $"{mass}/{energy}");
         }
 
-        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol = "Empty")
+        public BrakeSpecificFuelConsumptionUnit(MassUnit mass, PowerUnit power, DurationUnit duration, string NewSymbol)
         {
-            Unit = mass / (power * duration);
-            SetNewSymbol(NewSymbol, $"{mass}/{power}*{duration}");
+            Unit = new UnitSystem(mass / (power * duration), NewSymbol);
         }
 
       

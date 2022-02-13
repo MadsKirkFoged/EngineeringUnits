@@ -62,13 +62,16 @@ namespace EngineeringUnits.Units
 
 
 
-
-
-
-        public DensityUnit(MassUnit mass, VolumeUnit volume, string NewSymbol = "Empty")
+        public DensityUnit(MassUnit mass, VolumeUnit volume)
         {
-            Unit = mass / volume;
-            SetNewSymbol(NewSymbol, $"{mass}/{volume}");
+            Unit = new UnitSystem(mass / volume, 
+                               $"{mass}/{volume}");
+        }
+
+
+        public DensityUnit(MassUnit mass, VolumeUnit volume, string NewSymbol)
+        {
+            Unit = new UnitSystem(mass / volume, NewSymbol);
         }
 
 

@@ -22,20 +22,14 @@ namespace EngineeringUnits.Units
 
 
 
-        public CapacitanceUnit(DurationUnit duration, ElectricCurrentUnit electricCurrent, LengthUnit Length, MassUnit Mass, string NewSymbol = "Empty")
+        public CapacitanceUnit(DurationUnit duration, ElectricCurrentUnit electricCurrent, LengthUnit Length, MassUnit Mass, string NewSymbol)
         {
-
-            //s4⋅A2⋅m−2⋅kg−1
-
-            Unit = (duration.Pow(4) * electricCurrent.Pow(2)) / (Length.Pow(2) * Mass.Unit);
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem((duration.Pow(4) * electricCurrent.Pow(2)) / (Length.Pow(2) * Mass.Unit), NewSymbol);
         }
 
       
 
-        public CapacitanceUnit(PreFix SI, CapacitanceUnit unit) : base(SI, unit)
-        {
-        }
+        public CapacitanceUnit(PreFix SI, CapacitanceUnit unit) : base(SI, unit) {}
 
        
 
