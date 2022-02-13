@@ -33,10 +33,8 @@ namespace EngineeringUnits.Units
 
       
 
-        public CapacitanceUnit(PreFix SI, CapacitanceUnit unit)
+        public CapacitanceUnit(PreFix SI, CapacitanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
        

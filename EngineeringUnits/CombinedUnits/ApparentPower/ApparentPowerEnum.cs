@@ -26,10 +26,8 @@ namespace EngineeringUnits.Units
 
      
 
-        public ApparentPowerUnit(PreFix SI, ApparentPowerUnit unit)
+        public ApparentPowerUnit(PreFix SI, ApparentPowerUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

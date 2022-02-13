@@ -59,11 +59,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol);
         }
 
-        public BitRateUnit(PreFix SI, BitRateUnit unit)
+        public BitRateUnit(PreFix SI, BitRateUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
         }
 
         public BitRateUnit(BitRateUnit unit, string NewSymbol = "Empty", decimal correction = 1)

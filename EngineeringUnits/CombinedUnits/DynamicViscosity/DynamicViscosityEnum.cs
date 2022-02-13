@@ -45,11 +45,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit)
+        public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
         }
 
        
