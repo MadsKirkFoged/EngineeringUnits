@@ -36,20 +36,12 @@ namespace EngineeringUnits.Units
 
 
 
-
-
-
-
-        public TorqueUnit(ForceUnit force, LengthUnit length, string NewSymbol = "Empty")
+        public TorqueUnit(ForceUnit force, LengthUnit length)
         {
-            Unit = force * length;
-            SetNewSymbol(NewSymbol, $"{force}·{length}");
-        }
+            Unit = new UnitSystem(force * length, 
+                               $"{force}·{length}");
+        }     
 
-     
-
-        public TorqueUnit(PreFix SI, TorqueUnit unit) : base(SI, unit)
-        {
-        }
+        public TorqueUnit(PreFix SI, TorqueUnit unit) : base(SI, unit)  { }
     }
 }

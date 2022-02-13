@@ -79,15 +79,19 @@ namespace EngineeringUnits.Units
 
 
 
-        public VolumeFlowUnit(VolumeUnit volume,DurationUnit duration , string NewSymbol = "Empty", decimal correction = 1)
+        public VolumeFlowUnit(VolumeUnit volume,DurationUnit duration, decimal correction = 1)
         {
-            Unit = (volume / duration)  * correction;
-            SetNewSymbol(NewSymbol, $"{volume}/{duration}");
+            Unit = new UnitSystem((volume / duration)  * correction, 
+                                $"{volume}/{duration}");
         }
 
-      
-        public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit) : base(SI, unit)
+        public VolumeFlowUnit(VolumeUnit volume, DurationUnit duration, string NewSymbol, decimal correction = 1)
         {
+            Unit = new UnitSystem((volume / duration) * correction,
+                                  NewSymbol);
         }
+
+
+        public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit) : base(SI, unit) {}
     }
 }

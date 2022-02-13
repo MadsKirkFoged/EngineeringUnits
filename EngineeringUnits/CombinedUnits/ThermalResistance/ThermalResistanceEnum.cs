@@ -20,16 +20,21 @@ namespace EngineeringUnits.Units
 
 
 
-        public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power, string NewSymbol = "Empty")
+        public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power)
         {
-            Unit = (area * temperature) / power;
-            SetNewSymbol(NewSymbol, $"{area}{temperature}/{power}");
+            Unit = new UnitSystem((area* temperature)/ power, 
+                                $"{area}{temperature}/{power}");
         }
 
-        public ThermalResistanceUnit(AreaUnit area, DurationUnit duration, TemperatureUnit temperature, EnergyUnit energy, string NewSymbol = "Empty")
+        public ThermalResistanceUnit(AreaUnit area, TemperatureUnit temperature, PowerUnit power, string NewSymbol)
         {
-            Unit = (area * duration * temperature) / energy;
-            SetNewSymbol(NewSymbol, $"{area}{duration}{temperature}/{energy}");
+            Unit = new UnitSystem((area * temperature) / power,
+                                    NewSymbol);
+        }
+
+        public ThermalResistanceUnit(AreaUnit area, DurationUnit duration, TemperatureUnit temperature, EnergyUnit energy, string NewSymbol)
+        {
+            Unit = new UnitSystem((area * duration * temperature) / energy , NewSymbol);
         }
 
     }

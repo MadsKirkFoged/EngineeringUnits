@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class TorquePerLengthUnit : Enumeration
     {
 
-        public static readonly TorquePerLengthUnit SI =                                 new(TorqueUnit.SI,             LengthUnit.SI);
+        public static readonly TorquePerLengthUnit SI =                                 new(TorqueUnit.SI,                      LengthUnit.SI);
         public static readonly TorquePerLengthUnit NewtonMeterPerMeter =                new(TorqueUnit.NewtonMeter,             LengthUnit.Meter);
         public static readonly TorquePerLengthUnit KilogramForceCentimeterPerMeter =    new(TorqueUnit.KilogramForceCentimeter, LengthUnit.Meter);
         public static readonly TorquePerLengthUnit KilogramForceMeterPerMeter =         new(TorqueUnit.KilogramForceMeter,      LengthUnit.Meter);
@@ -35,10 +35,11 @@ namespace EngineeringUnits.Units
 
 
 
-        public TorquePerLengthUnit(TorqueUnit torque,LengthUnit Length, string NewSymbol = "Empty")
+        public TorquePerLengthUnit(TorqueUnit torque,LengthUnit Length)
         {
-            Unit = torque / Length;
-            SetNewSymbol(NewSymbol, $"{torque}/{Length}");
+            Unit = new UnitSystem(torque / Length, 
+                               $"{torque}/{Length}");
+
         }
 
         

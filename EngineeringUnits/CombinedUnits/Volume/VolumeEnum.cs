@@ -71,26 +71,27 @@ namespace EngineeringUnits.Units
 
 
 
-        public VolumeUnit(LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public VolumeUnit(LengthUnit Length, string NewSymbol = null, decimal correction = 1)
         {
-            Unit = Length.Pow(3) * correction;
-            SetNewSymbol(NewSymbol);         
-
+            Unit = new UnitSystem(Length.Pow(3) * correction, NewSymbol);     
         }
 
-        public VolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol = "Empty", decimal correction = 1)
+        public VolumeUnit(AreaUnit Area, LengthUnit Length)
         {
-            Unit = Area * Length  * correction;
-            SetNewSymbol(NewSymbol, $"{Area}-{Length}");
+            Unit = new UnitSystem(Area * Length, 
+                               $"{Area}-{Length}");
         }
 
-        public VolumeUnit(PreFix SI, VolumeUnit unit) : base(SI, unit)
+        public VolumeUnit(AreaUnit Area, LengthUnit Length, string NewSymbol)
         {
+            Unit = new UnitSystem(Area * Length,
+                                  NewSymbol);
         }
 
-        public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)
-        {
-        }
+
+        public VolumeUnit(PreFix SI, VolumeUnit unit) : base(SI, unit) { }
+
+        public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  {}
 
     }
 

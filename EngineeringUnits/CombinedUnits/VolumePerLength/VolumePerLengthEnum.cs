@@ -22,10 +22,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public VolumePerLengthUnit(VolumeUnit volume, LengthUnit Length, string NewSymbol = "Empty")
+        public VolumePerLengthUnit(VolumeUnit volume, LengthUnit Length)
         {
-            Unit = volume / Length;
-            SetNewSymbol(NewSymbol, $"{volume}/{Length}");
+            Unit = new UnitSystem(volume / Length,
+                               $"{volume}/{Length}");
         }
 
       
