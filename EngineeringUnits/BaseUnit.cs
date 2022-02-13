@@ -39,6 +39,19 @@ namespace EngineeringUnits
         {
             //Unit = unitSystem.Copy();
             Unit = unitSystem;
+
+            //string test = GetStandardSymbol();
+
+            //if (test is not null)
+            //{
+            //    Unit = new UnitSystem(unitSystem, GetStandardSymbol());
+            //}
+            //else
+            //{
+            //    Unit = unitSystem;
+            //}
+
+
             CheckForStandardUnit();
             SymbolValue = value / 1.000000000000000000000000000000000m;
             NEWValue = value / 1.000000000000000000000000000000000m;
@@ -563,9 +576,27 @@ namespace EngineeringUnits
             }
         }
 
+        public string GetStandardSymbol<T>()
+            where T : Enumeration
+        {
+            if (string.IsNullOrEmpty(Unit.Symbol))
+            {
+                return Enumeration.ListOf<T>()
+                .Find(x => x.Unit.SumConstant() == Unit.SumConstant())?
+                .Unit.Symbol;
+            }
+
+            return null;
+        }
+
         public virtual void CheckForStandardUnit()
         {
 
+        }
+
+        public virtual string GetStandardSymbol()
+        {
+            return null;
         }
 
 

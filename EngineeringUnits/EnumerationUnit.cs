@@ -86,13 +86,21 @@ namespace EngineeringUnits
         }
         protected Enumeration(PreFix SI, Enumeration baseunit)
         {
-            Unit = baseunit.Unit * PrefixSISize(SI);
-            SetNewSymbol(SI);
+            if (baseunit.Unit.Symbol is null)
+                Unit = new UnitSystem(baseunit.Unit * PrefixSISize(SI), PrefixSISymbol(SI) + $"{baseunit.Unit}");
+            else
+                Unit = new UnitSystem(baseunit.Unit * PrefixSISize(SI), PrefixSISymbol(SI) + baseunit.Unit.Symbol);
+            
         }
 
         protected Enumeration(Enumeration unit, string NewSymbol, decimal correction)
         {
             Unit = new UnitSystem(unit * correction, NewSymbol);
+        }
+
+        public Enumeration(Enumeration unit, string NewSymbol)
+        {
+            Unit = new UnitSystem(unit, NewSymbol);
         }
 
 
@@ -192,22 +200,30 @@ namespace EngineeringUnits
 
         
         
-        public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
-        {
-            if (NewSymbol != "Empty")
-                Unit.Symbol = NewSymbol;
-            else if (CustomAutoSymbol != "Empty")            
-                Unit.Symbol = CustomAutoSymbol;            
+        //public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
+        //{
+        //    if (NewSymbol != "Empty")
+        //        Unit.Symbol = NewSymbol;
+        //    else if (CustomAutoSymbol != "Empty")            
+        //        Unit.Symbol = CustomAutoSymbol;            
 
-        }
+        //}
 
-        public void SetNewSymbol(PreFix SI)
+        public string GetNewSymbol(PreFix SI)
         {
             if (Unit.Symbol is null)            
-                Unit.Symbol = PrefixSISymbol(SI) + $"{Unit}";            
+                return PrefixSISymbol(SI) + $"{Unit}";            
             else            
-                Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;       
+                return PrefixSISymbol(SI) + Unit.Symbol;       
         }
+
+        //public void SetNewSymbol(PreFix SI)
+        //{
+        //    if (Unit.Symbol is null)
+        //        Unit.Symbol = PrefixSISymbol(SI) + $"{Unit}";
+        //    else
+        //        Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
+        //}
 
 
         //public static T GetUnitByString<T>(string name)

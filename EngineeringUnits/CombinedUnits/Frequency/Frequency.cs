@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public override void CheckForStandardUnit() => CheckForStandardUnit<FrequencyUnit>();
 
-
+        public override string GetStandardSymbol() => GetStandardSymbol<FrequencyUnit>();
 
     }
 }
