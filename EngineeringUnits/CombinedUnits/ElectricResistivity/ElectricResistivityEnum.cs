@@ -38,10 +38,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit)
+        public ElectricResistivityUnit(PreFix SI, ElectricResistivityUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
     }

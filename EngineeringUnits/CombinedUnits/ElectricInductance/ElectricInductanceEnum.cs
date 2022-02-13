@@ -25,11 +25,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public ElectricInductanceUnit(PreFix SI, ElectricInductanceUnit unit)
+        public ElectricInductanceUnit(PreFix SI, ElectricInductanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
         }
 
   

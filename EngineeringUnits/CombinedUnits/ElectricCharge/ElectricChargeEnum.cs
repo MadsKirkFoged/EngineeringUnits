@@ -25,10 +25,8 @@ namespace EngineeringUnits.Units
         }
              
 
-        public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit)
+        public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
     }

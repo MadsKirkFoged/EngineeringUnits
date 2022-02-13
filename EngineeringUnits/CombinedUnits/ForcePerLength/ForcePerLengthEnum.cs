@@ -57,10 +57,8 @@ namespace EngineeringUnits.Units
             Unit = force / length;
             SetNewSymbol(NewSymbol, $"{force}/{length}");
         }
-        public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit)
+        public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
       

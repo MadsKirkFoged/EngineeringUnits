@@ -29,10 +29,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit)
+        public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

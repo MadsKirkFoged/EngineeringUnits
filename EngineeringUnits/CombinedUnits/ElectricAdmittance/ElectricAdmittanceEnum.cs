@@ -26,11 +26,8 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricAdmittanceUnit(PreFix SI, ElectricAdmittanceUnit unit)
+        public ElectricAdmittanceUnit(PreFix SI, ElectricAdmittanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
         }
 
 

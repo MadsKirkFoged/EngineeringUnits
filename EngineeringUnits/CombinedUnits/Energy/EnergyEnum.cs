@@ -64,12 +64,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol);         
         }
 
-        public EnergyUnit(PreFix SI, EnergyUnit energyunit) 
-        {
-            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
-            //Unit = energyunit.Unit;
-            //SetCombined(SI);
-            SetNewSymbol(SI);          
+        public EnergyUnit(PreFix SI, EnergyUnit unit) : base(SI, unit)
+        {        
         }
 
         public EnergyUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, DurationUnit duration2, string NewSymbol = "Empty", decimal correction = 1)

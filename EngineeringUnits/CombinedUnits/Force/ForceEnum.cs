@@ -41,10 +41,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{mass}f");         
         }
 
-        public ForceUnit(PreFix SI, ForceUnit energyunit)
+        public ForceUnit(PreFix SI, ForceUnit unit) : base(SI, unit)
         {
-            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

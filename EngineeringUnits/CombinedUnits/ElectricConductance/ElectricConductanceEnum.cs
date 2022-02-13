@@ -24,10 +24,8 @@ namespace EngineeringUnits.Units
         }
 
 
-        public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit)
+        public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

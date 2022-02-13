@@ -30,10 +30,8 @@ namespace EngineeringUnits.Units
 
        
 
-        public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit)
+        public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 

@@ -42,10 +42,8 @@ namespace EngineeringUnits.Units
         }
 
        
-        public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit)
+        public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
        
