@@ -17,10 +17,10 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricConductivityUnit(ElectricAdmittanceUnit electricAdmittance, LengthUnit Length, string NewSymbol = "Empty")
+        public ElectricConductivityUnit(ElectricAdmittanceUnit electricAdmittance, LengthUnit Length)
         {
-            Unit = electricAdmittance / Length;
-            SetNewSymbol(NewSymbol, $"{electricAdmittance}/{Length}");
+            Unit = new UnitSystem(electricAdmittance / Length, 
+                               $"{electricAdmittance}/{Length}");
         }
 
 

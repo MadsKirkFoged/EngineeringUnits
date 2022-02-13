@@ -17,16 +17,13 @@ namespace EngineeringUnits.Units
 
 
 
-        public ElectricConductanceUnit(LengthUnit Length, string NewSymbol = "Empty")
+        public ElectricConductanceUnit(LengthUnit Length)
         {
             Unit = Length.Pow(3);
-            SetNewSymbol(NewSymbol);
         }
 
 
-        public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit) : base(SI, unit)
-        {
-        }
+        public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit) : base(SI, unit) {}
 
 
     }

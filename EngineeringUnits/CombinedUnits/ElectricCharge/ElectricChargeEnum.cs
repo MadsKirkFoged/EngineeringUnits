@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public class ElectricChargeUnit : Enumeration
     {
 
-        public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI);
+        public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI, "C");
         public static readonly ElectricChargeUnit Coulomb = new(ElectricCurrentUnit.Ampere, DurationUnit.Second, "C");
         public static readonly ElectricChargeUnit AmpereHour = new(ElectricCurrentUnit.Ampere, DurationUnit.Hour, "A-h");
         public static readonly ElectricChargeUnit KiloampereHour = new(PreFix.kilo, AmpereHour);
@@ -18,16 +18,13 @@ namespace EngineeringUnits.Units
         public static readonly ElectricChargeUnit MilliampereHour = new(PreFix.milli, AmpereHour);
 
 
-        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol = "Empty")
+        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol)
         {
-            Unit = electricCurrent * duration;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(electricCurrent * duration, NewSymbol);
         }
              
 
-        public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit)
-        {
-        }
+        public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit) {}
 
     }
 
