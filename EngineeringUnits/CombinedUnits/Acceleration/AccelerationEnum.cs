@@ -43,12 +43,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol, $"{speed}/{duration}");         
         }
 
-        private AccelerationUnit(PreFix SI, AccelerationUnit energyunit)
+        private AccelerationUnit(PreFix SI, AccelerationUnit energyunit) :base(SI, energyunit)
         {
-            Unit = energyunit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
-
         }
 
 

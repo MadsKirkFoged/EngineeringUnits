@@ -41,11 +41,8 @@ namespace EngineeringUnits.Units
             SetNewSymbol(NewSymbol);
         }       
 
-        public AngleUnit(PreFix SI, AngleUnit unit)
+        public AngleUnit(PreFix SI, AngleUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            //SetCombined(SI);
-            SetNewSymbol(SI);
         }
 
     }

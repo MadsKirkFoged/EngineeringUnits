@@ -84,6 +84,12 @@ namespace EngineeringUnits
             Count = 1;
             TypeOfUnit = GetType().Name;
         }
+        protected Enumeration(PreFix SI, Enumeration baseunit)
+        {
+            Unit = baseunit.Unit.Copy() * PrefixSISize(SI);
+            SetNewSymbol(SI);
+        }
+
 
 
         public override string ToString()

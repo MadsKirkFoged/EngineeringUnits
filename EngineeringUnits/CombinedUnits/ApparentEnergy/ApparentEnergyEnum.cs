@@ -28,10 +28,8 @@ namespace EngineeringUnits.Units
         }
 
     
-        public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit)
+        public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit) : base(SI, unit)
         {
-            Unit = unit.Unit.Copy() * PrefixSISize(SI);
-            SetNewSymbol(SI);
         }
 
 
