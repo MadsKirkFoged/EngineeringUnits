@@ -21,18 +21,11 @@ namespace EngineeringUnits.Units
         public static readonly KinematicViscosityUnit Nanostokes =           new(PreFix.nano, Stokes);
 
 
-
-        public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = "Empty")
+        public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = null)
         {
-            Unit = Length / duration;
-            SetNewSymbol(NewSymbol);
+            Unit = new UnitSystem(Length / duration, NewSymbol);
         }
-
-     
-
-        public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit) : base(SI, unit)
-        {
-        }
+        public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit) : base(SI, unit)   {}
 
     }
 
