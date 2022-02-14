@@ -5,16 +5,6 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public enum MathEnum
-    {
-        Add,
-        Subtract,
-        Multiply,
-        Divide
-
-    }
-
-
     public enum BaseUnits
     {
         time,
@@ -27,7 +17,6 @@ namespace EngineeringUnits
 
 
     }
-
 
     public enum PreFix
     {
@@ -53,10 +42,6 @@ namespace EngineeringUnits
         atto,
         zepto,
         yocto,
-
-
-
-
     }
 
 

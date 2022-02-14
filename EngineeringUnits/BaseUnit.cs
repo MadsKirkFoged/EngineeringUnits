@@ -70,16 +70,18 @@ namespace EngineeringUnits
 
         public double SI => (double)(NEWValue * (decimal)Unit.SumConstant());
 
-        public void UnitCheck(UnknownUnit a)
+        public void UnitCheck(UnknownUnit a) => UnitCheck(a.unitsystem);
+
+        public void UnitCheck(UnitSystem a)
         {
-            if (a.unitsystem != Unit)            
-                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");           
+            if (a != Unit)
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a}]");
         }
 
         public BaseUnit ToUnit(Enumeration selectedUnit)
         {
             //Add Unit check!
-
+            UnitCheck(selectedUnit.Unit);
 
             return new(ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }

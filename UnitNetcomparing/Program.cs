@@ -27,7 +27,7 @@ namespace UnitNetcomparing
 
             SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
 
-            var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(SpecificEnergyUnit.BtuPerPound);
+            var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(TemperatureUnit.DegreeCelsius);
 
             Debug.Print(tst.ToString());
 
