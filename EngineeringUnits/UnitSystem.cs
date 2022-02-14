@@ -13,10 +13,11 @@ namespace EngineeringUnits
 
     public class UnitSystem
     {
-        public string Symbol { get; set; }       
+        public string Symbol { get; init; }
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
+
 
         public UnitSystem() {}
 
@@ -307,26 +308,11 @@ namespace EngineeringUnits
         // epsilon - an accuracy of calculation of the root from our number.
         // The result of the calculations will differ from an actual value
         // of the root on less than epslion.
-        public static decimal Sqrt(decimal x, decimal epsilon = 0.0M)
-        {
-            if (x < 0) throw new OverflowException("Cannot calculate square root from a negative number");
-
-            decimal current = (decimal)Math.Sqrt((double)x), previous;
-            do
-            {
-                previous = current;
-                if (previous == 0.0M) return 0;
-                current = (previous + x / previous) / 2;
-            }
-            while (Math.Abs(previous - current) > epsilon);
-            return current;
-        }
+       
 
 
         public override int GetHashCode()
         {
-
-
             HashCode hashCode = new();
             hashCode.Add(Symbol);
             hashCode.Add(ListOfUnits);         
@@ -336,9 +322,6 @@ namespace EngineeringUnits
 
         public UnitSystem Clone()
         {
-            //List<Enumeration> LocalUnitList = new List<Enumeration>(ListOfUnits);
-            //LocalUnitList.AddRange(ListOfUnits);
-
             return new UnitSystem(new List<Enumeration>(ListOfUnits), Symbol);
         }
 

@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -14,6 +15,17 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+
+
+            var length = UnitsNet.Length.FromCentimeters(3.14159265358979);
+            var length2 = Length.FromCentimeters(3.14159265358979);
+
+            // Typical formats
+            Debug.Print("UnitNets: " + length.ToString("S4")); // 3.14 cm
+            Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
+
+
+
 
             //Made a special case for frequency for now
 
@@ -27,9 +39,9 @@ namespace UnitNetcomparing
 
             SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
 
-            var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(TemperatureUnit.DegreeCelsius);
+            var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(SpecificEnergyUnit.BtuPerPound);
 
-            Debug.Print(tst.ToString());
+            Debug.Print(EngineeringUnits1.ToString("N4"));
 
 
             //EngineeringUnits1.Unit.ReduceUnits();

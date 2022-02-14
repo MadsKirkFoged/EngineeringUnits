@@ -14,7 +14,8 @@ namespace EngineeringUnits
     public class Enumeration :ICloneable
     {
 
-        [JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        //[JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [JsonIgnore]
         public string QuantityName { get; set; }
 
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
@@ -34,13 +35,13 @@ namespace EngineeringUnits
         public int Count { get; set; } 
 
         [JsonIgnore]
-        public UnitSystem Unit { get; protected set; }
+        public UnitSystem Unit { get; init; }
 
         [JsonIgnore]
         public Fraction TotalConstant => Fraction.Pow(NewC, Count);
 
         [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public string TypeOfUnit { get; protected set; }
+        public string TypeOfUnit { get; init; }
 
 
 

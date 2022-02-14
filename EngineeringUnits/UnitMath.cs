@@ -32,7 +32,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(IEnumerable<UnknownUnit> list)
         {
-            UnknownUnit test = new(0, list.First().baseUnit.Unit);
+            UnknownUnit test = new(0, list.First()._baseUnit.Unit);
 
             foreach (var item in list)
                 test += item;

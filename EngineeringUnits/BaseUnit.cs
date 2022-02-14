@@ -6,22 +6,23 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System;
+using System.Linq;
 
 namespace EngineeringUnits
 {
 
 
     [JsonObject(MemberSerialization.Fields)]
-    public class BaseUnit : IComparable
+    public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
-        public bool Inf { get; init; }
+        protected bool Inf { get; init; }
         public UnitSystem Unit { get; init;}
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => SI;
 
-        public decimal NEWValue { get; set; }
+        protected decimal NEWValue { get; init; }
 
 
         public BaseUnit() {}
@@ -51,10 +52,10 @@ namespace EngineeringUnits
             NEWValue = (decimal)value;
         }
 
-        public BaseUnit(UnknownUnit unit)
+        protected BaseUnit(UnknownUnit unit)
         {
             Unit = new UnitSystem(unit.unitsystem, GetStandardSymbol(unit.unitsystem));
-            NEWValue = unit.baseUnit.NEWValue;
+            NEWValue = unit._baseUnit.NEWValue;
         }
 
 
@@ -106,30 +107,23 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
         {
-            return left / right.baseUnit;
+            return left / right._baseUnit;
         }
         public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
         {
-            return left.baseUnit / right;
+            return left._baseUnit / right;
         }
         public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
         {
-            return left * right.baseUnit;
+            return left * right._baseUnit;
         }
         public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
         {
-            return left.baseUnit * right;
+            return left._baseUnit * right;
         }
 
 
-        public override bool Equals(Object obj)
-        {
-            //Check for null and compare run-time types.
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))            
-                return false;            
-            else          
-                return this == (BaseUnit)obj;            
-        }
+
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
@@ -184,22 +178,22 @@ namespace EngineeringUnits
         /// </summary>
         /// <returns>String representation.</returns>
         public override string ToString() => ToString("g4");
-        
+
 
         /// <summary>
         ///     Gets the default string representation of value and unit using the given format provider.
         /// </summary>
         /// <returns>String representation.</returns>
-        /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
-        public string ToString(IFormatProvider provider) => ToString("g", provider);      
+        /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.InvariantCulture" /> if null.</param>
+        public string ToString(IFormatProvider provider) => ToString("g4", provider);
 
         /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
         /// <summary>
-        /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.CurrentUICulture" />.
+        /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.InvariantCulture" />.
         /// </summary>
         /// <param name="format">The format string.</param>
         /// <returns>The string representation.</returns>
-        public string ToString(string format) => ToString(format, CultureInfo.CurrentUICulture);
+        public string ToString(string format) => ToString(format, CultureInfo.InvariantCulture);
         
 
         /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
@@ -211,13 +205,112 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
-            if (Inf)
+
+            if (format is null)
+                format = "g4";
+
+            if (provider is null)
+                provider = CultureInfo.InvariantCulture;
+
+
+
+            if (UnitFormatSpecifiers.Any(x => x == format[0]))
             {
-                return $"{double.PositiveInfinity.ToString(format)} {Unit}";
+                switch (format[0])
+                {
+                    case 'A':
+                    case 'a':
+                        return Unit.ToString();
+                    case 'V':
+                    case 'v':
+                        return As(Unit).ToString(provider);
+                    case 'U':
+                    case 'u':
+                        return Unit.ToString();
+                    case 'Q':
+                    case 'q':
+                        return Unit.ToString();
+                    default:
+                        throw new FormatException($"The {format} format string is not supported.");
+                }
+
+            }
+
+
+
+                if (Inf)
+            {
+                return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
             }
 
             //Are As(Unit) and NewValue not always the same?
-            return $"{As(Unit).ToString(format)} {Unit}";
+            return $"{As(Unit).ToString(format, provider)} {Unit}";
+        }
+
+        private static readonly char[] UnitFormatSpecifiers = { 'A', 'a', 'Q', 'q', 'U', 'u', 'V', 'v' };
+
+        public string ToStringTest(string format)
+        {
+
+            char formatSpecifier = format[0];
+
+            if (UnitFormatSpecifiers.Any(x => x == formatSpecifier))
+            {
+                // UnitsNet custom format string
+
+                int precisionSpecifier = 0;
+
+                switch (formatSpecifier)
+                {
+                    case 'A':
+                    case 'a':
+                    case 'S':
+                    case 's':
+                        if (format.Length > 1 && !int.TryParse(format.Substring(1), out precisionSpecifier))
+                            throw new FormatException($"The {format} format string is not supported.");
+                        break;
+                }
+
+                switch (formatSpecifier)
+                {
+                    case 'G':
+                    case 'g':
+                        //return ToStringWithSignificantDigitsAfterRadix(quantity, formatProvider, 2);
+                    case 'A':
+                    case 'a':
+                        //var abbreviations = UnitAbbreviationsCache.Default.GetUnitAbbreviations(quantity.Unit, formatProvider);
+
+                        //if (precisionSpecifier >= abbreviations.Length)
+                            //throw new FormatException($"The {format} format string is invalid because the abbreviation index does not exist.");
+
+                        //return abbreviations[precisionSpecifier];
+                    case 'V':
+                    case 'v':
+                        //return quantity.Value.ToString(formatProvider);
+                    case 'U':
+                    case 'u':
+                        //return quantity.Unit.ToString();
+                    case 'Q':
+                    case 'q':
+                        //return quantity.QuantityInfo.Name;
+                    case 'S':
+                    case 's':
+                        //return ToStringWithSignificantDigitsAfterRadix(quantity, formatProvider, precisionSpecifier);
+                    default:
+                        throw new FormatException($"The {format} format string is not supported.");
+                }
+            }
+            else
+            {
+                // Anything else is a standard numeric format string with default unit abbreviation postfix.
+
+                //var abbreviations = UnitAbbreviationsCache.Default.GetUnitAbbreviations(quantity.Unit, formatProvider);
+                //return string.Format(formatProvider, $"{{0:{format}}} {{1}}", quantity.Value, abbreviations.First());
+            }
+
+
+            return "test";
+
         }
 
 
@@ -415,16 +508,7 @@ namespace EngineeringUnits
             return Unit.ToString();
         }
 
-        public int CompareTo(object obj)
-        {
-            BaseUnit local = (BaseUnit)obj; 
-
-            if (Unit != local.Unit)            
-                throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
-            
-
-            return (int)((double)NEWValue - local.As(this));
-        }   
+         
        
 
         public override int GetHashCode()
@@ -462,9 +546,40 @@ namespace EngineeringUnits
         {
             return double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value);
         }
-        
+
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+                return false;
+            else
+                return this == (BaseUnit)obj;
+        }
+
+        public bool Equals(BaseUnit other)
+        {
+            return this == other;
+        }
+
+        public int CompareTo(object obj)
+        {
+            BaseUnit local = (BaseUnit)obj;
+
+            if (Unit != local.Unit)
+                throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
 
 
+            return (int)((double)NEWValue - local.As(this));
+        }
+
+        public int CompareTo(BaseUnit other)
+        {
+
+            if (Unit != other.Unit)
+                throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
+
+            return (int)((double)NEWValue - other.As(this));
+        }
     }
 
 

@@ -20,8 +20,8 @@ namespace UnitTests
 
             test.massflow = MassFlow.FromKilogramsPerSecond(10);            
 
-            Debug.WriteLine($"{test.massflow}");
-            Debug.WriteLine($"List count: {test.massflow.Unit.ListOfUnits.Count}");
+            //Debug.WriteLine($"{test.massflow}");
+            //Debug.WriteLine($"List count: {test.massflow.Unit.ListOfUnits.Count}");
 
 
             string jsonString1 = JsonConvert.SerializeObject(test);
