@@ -10,73 +10,34 @@ using System;
 
 namespace EngineeringUnits
 {
-    //[JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
+
     public class UnitSystem
     {
-        //[JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Symbol { get; set; }       
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
-        //public List<Enumeration> ListOfUnits = new List<Enumeration>();
 
-        public UnitSystem()
-        {
-        }
+        public UnitSystem() {}
 
-        public UnitSystem(string symbol)
-        {
-            Symbol = symbol;
-        }
-
-        public UnitSystem(List<Enumeration> LocalUnitList)
-        {
-            ListOfUnits = ReduceUnits(LocalUnitList);
-        }
-
-        public UnitSystem(List<Enumeration> LocalUnitList, string symbol)
+        public UnitSystem(List<Enumeration> LocalUnitList, string symbol = null)
         {
             ListOfUnits = ReduceUnits(LocalUnitList);
             Symbol = symbol;
         }
 
-        public UnitSystem(Enumeration unit)
-        {
-            List<Enumeration> LocalUnitList = new();
 
-            LocalUnitList.Add(unit);
+        public UnitSystem(Enumeration unit, string symbol) : 
+                     this(new List<Enumeration>() { unit }, symbol) {}
+        public UnitSystem(Enumeration unit) : 
+                     this(unit, null) { }
+        public UnitSystem(decimal unit, string symbol) : 
+                     this(new CombinedUnit(unit), symbol) { }
 
-            ListOfUnits = LocalUnitList;
-        }
-
-        public UnitSystem(Enumeration unit, string symbol)
-        {
-            List<Enumeration> LocalUnitList = new();
-
-            LocalUnitList.Add(unit);
-
-            ListOfUnits = LocalUnitList;
-
-            Symbol = symbol;
-        }
-
-        public UnitSystem(decimal unit, string symbol)
-        {
-            List<Enumeration> LocalUnitList = new();
-
-            LocalUnitList.Add(new CombinedUnit("", (Fraction)unit));
-
-            ListOfUnits = LocalUnitList;
-
-            Symbol = symbol;
-        }
 
         public UnitSystem(UnitSystem unit, string symbol)
         {
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
-            LocalUnitList.AddRange(unit.ListOfUnits);
-
-            ListOfUnits = LocalUnitList;
+            ListOfUnits = new List<Enumeration>(unit.ListOfUnits);
             Symbol = symbol;
         }
 
@@ -196,70 +157,31 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
 
 
-        
 
-         public override string ToString()
+
+        public override string ToString()
         {
 
             if (Symbol is not null)
-            {
                 return Symbol;
-            }
 
 
-             string local = "";
+            //Creates all positive symbols
+            string local = ListOfUnits
+                .Where(x => x.Count > 0)
+                .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
 
-            //New Way
-            foreach (var unit in ListOfUnits)
-            {
-
-                if (unit is object && unit.Count > 0)
-                {
-
-                    if (unit is object)
-                        local += unit.Symbol;
-
-                    if (unit.Count > 1)
-                        local += $"{ToSuperScript(unit.Count)}";
-                }
-            }
-
-
-
-            //If any negative values
-            if (ListOfUnits.Any(x => x.Count < 0))            
+            //If any negative values are present create a '/'
+            if (ListOfUnits.Any(x => x.Count < 0))
                 local += "/";
 
+            //Creates all negative symbols
+            local += ListOfUnits
+                .Where(x => x.Count < 0)
+                .Aggregate("", (x, y) => x += $"{y.Symbol}{(y.Count * -1).ToSuperScript()}");
 
 
-            foreach (var unit in ListOfUnits)
-            {
-
-                if (unit is object && unit.Count < 0)
-                {
-                    local += unit.Symbol;
-
-                    if (unit.Count < -1)
-                        local += $"{ToSuperScript(unit.Count * -1)}";
-
-                }
-
-
-            }
-
-                return local;
-        }
-
-        private static string ToSuperScript(int number)
-        {
-            const string SuperscriptDigits =
-                "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079";
-
-            string superscript = new(number.ToString().Select(x => SuperscriptDigits[x - '0'])
-                                    .ToArray());
-
-            return superscript;
-
+            return local;
         }
 
 
@@ -414,10 +336,10 @@ namespace EngineeringUnits
 
         public UnitSystem Clone()
         {
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
-            LocalUnitList.AddRange(ListOfUnits);
+            //List<Enumeration> LocalUnitList = new List<Enumeration>(ListOfUnits);
+            //LocalUnitList.AddRange(ListOfUnits);
 
-            return new UnitSystem(LocalUnitList, Symbol);
+            return new UnitSystem(new List<Enumeration>(ListOfUnits), Symbol);
         }
 
 

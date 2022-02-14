@@ -23,8 +23,13 @@ namespace EngineeringUnits
         public CombinedUnit(string symbol, Fraction Constant) : base(symbol, Constant)
         {
             Unit = new UnitSystem(this);
-        }     
-       
+        }
+        public CombinedUnit(decimal Constant) : base(null, Constant)
+        {
+            Unit = new UnitSystem(this);
+        }
+
+
 
 
     }

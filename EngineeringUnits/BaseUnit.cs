@@ -76,6 +76,14 @@ namespace EngineeringUnits
                 throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.unitsystem}]");           
         }
 
+        public BaseUnit ToUnit(Enumeration selectedUnit)
+        {
+            //Add Unit check!
+
+
+            return new(ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
+        }
+
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {

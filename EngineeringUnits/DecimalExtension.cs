@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EngineeringUnits
@@ -29,6 +30,33 @@ namespace EngineeringUnits
             }
             while (Math.Abs(previous - current) > epsilon);
             return current;
+        }
+
+        public static string ToSuperScript(this int number)
+        {
+            if (number == 0 ||
+                number == 1)
+                return "";
+
+            const string SuperscriptDigits =
+                "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079";
+
+            string Superscript = "";
+
+            if (number < 0)
+            {
+                //Adds superscript minus
+                Superscript = ((char)0x207B).ToString();
+                number *= -1;
+            }
+
+
+            Superscript += new string(number.ToString()
+                                            .Select(x => SuperscriptDigits[x - '0'])
+                                            .ToArray()
+                                      );
+
+            return Superscript;
         }
 
 

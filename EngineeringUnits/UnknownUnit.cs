@@ -16,9 +16,7 @@ namespace EngineeringUnits
         public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
         public UnknownUnit(BaseUnit baseunit) => baseUnit = baseunit;
 
-        
-        //Add .ToUnit()
-
+ 
 
         public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left.baseUnit * right.baseUnit;
         public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right) => left.baseUnit / right.baseUnit;
@@ -46,7 +44,6 @@ namespace EngineeringUnits
             }
 
             return (double)Unit.baseUnit.ToTheOutSide(new UnitSystem());
-            //return (double)Unit.baseUnit.BaseunitValue;
         }
 
         public static implicit operator UnknownUnit(double Unit) => new (Unit);
@@ -62,14 +59,18 @@ namespace EngineeringUnits
             }
 
             return Unit.baseUnit.ToTheOutSide(new UnitSystem());
-            //return (decimal)Unit.baseUnit.BaseunitValue;
         }
 
         //Im not sure about this!
         public static explicit operator BaseUnit(UnknownUnit Unit) => Unit.baseUnit;
 
 
+        //Add .ToUnit()
+
+
         public double As(Enumeration a) => baseUnit.As(a.Unit);
+
+        public UnknownUnit ToUnit(Enumeration selectedUnit) => baseUnit.ToUnit(selectedUnit);
 
         public UnitSystem unitsystem => baseUnit.Unit;
 
