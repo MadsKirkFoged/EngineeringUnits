@@ -13,8 +13,6 @@ namespace EngineeringUnits
         public Length(int value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Length(UnknownUnit value) : base(value) { }
 
-        public Length(UnknownUnit value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Length From(double value, LengthUnit unit) => new(value, unit);
         public double As(LengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Length ToUnit(LengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);

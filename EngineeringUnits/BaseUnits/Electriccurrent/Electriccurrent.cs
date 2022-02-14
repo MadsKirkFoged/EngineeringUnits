@@ -13,7 +13,6 @@ namespace EngineeringUnits
         public ElectricCurrent(int value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ElectricCurrent(UnknownUnit value) : base(value) { }
 
-        public ElectricCurrent(UnknownUnit value, ElectricCurrentUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static ElectricCurrent From(double value, ElectricCurrentUnit unit) => new(value, unit);
         public double As(ElectricCurrentUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);

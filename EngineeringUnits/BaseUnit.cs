@@ -16,120 +16,57 @@ namespace EngineeringUnits
     {
 
         public bool Inf { get; init; }
-
-        //[JsonProperty(PropertyName = "U", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public UnitSystem Unit { get; init;}
-
-        //[JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        protected decimal SymbolValue { get; init; }
-
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => SI;
 
-        //[JsonProperty(PropertyName = "NewVAlue", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public decimal NEWValue { get; set; }
 
 
-        public BaseUnit()
-        {
-        }
+        public BaseUnit() {}
 
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
-            //Unit = unitSystem.Copy();
-            Unit = unitSystem;
-
-            //string test = GetStandardSymbol();
-
-            //if (test is not null)
-            //{
-            //    Unit = new UnitSystem(unitSystem, GetStandardSymbol());
-            //}
-            //else
-            //{
-            //    Unit = unitSystem;
-            //}
-
-
-            CheckForStandardUnit();
-            SymbolValue = value / 1.000000000000000000000000000000000m;
-            NEWValue = value / 1.000000000000000000000000000000000m;
+            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            NEWValue = value.Normalize();
         }
 
         public BaseUnit(double value, UnitSystem unitSystem)
         {
-            
-            //Unit = unitSystem.Copy();
-            Unit = unitSystem;
-            CheckForStandardUnit();
+            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
 
-            if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
-            {
-                Inf = true;
-                SymbolValue = 0;           
-            }
+            if (IsValueOverDecimalMax(value))            
+                Inf = true;        
             else
             {
                 Inf = false;
-                SymbolValue = (decimal)value;
                 NEWValue = (decimal)value;
             }
         }
 
         public BaseUnit(int value, UnitSystem unitSystem)
         {
-            //Unit = unitSystem.Copy();
-            Unit = unitSystem;
-            CheckForStandardUnit();
-            SymbolValue = (decimal)value;
+            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
             NEWValue = (decimal)value;
         }
 
         public BaseUnit(UnknownUnit unit)
         {
-
-            Unit = unit.unitsystem;
-            CheckForStandardUnit();
-
-            SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
-
+            Unit = new UnitSystem(unit.unitsystem, GetStandardSymbol(unit.unitsystem));
             NEWValue = unit.baseUnit.NEWValue;
-
-
-            UnitCheck(unit);
-        }
-
-        public BaseUnit(UnknownUnit unit, UnitSystem unitSystem)
-        {
-            if (unit.baseUnit.Unit.Symbol is null)            
-                Unit = unitSystem;            
-            else            
-                Unit = unit.unitsystem;
-
-            CheckForStandardUnit();
-
-            //SetValue(unit.baseUnit.ToTheOutSide(Unit));
-            SymbolValue = unit.baseUnit.ToTheOutSide(Unit);
-            Inf = unit.baseUnit.Inf;
-
-            NEWValue = unit.baseUnit.NEWValue;
-
-            UnitCheck(unit);
         }
 
 
         public double As(UnitSystem a)
         {
-
-            if (Unit is object)            
-                return (double)ToTheOutSide(a);            
-            else            
-                return 0;           
-
+            return (double)ToTheOutSide(a);                     
         }
 
-        public double As(BaseUnit a) => As(a.Unit);
+        public double As(BaseUnit a)
+        { 
+            return As(a.Unit); 
+        }
 
         public double SI => (double)(NEWValue * (decimal)Unit.SumConstant());
 
@@ -175,8 +112,6 @@ namespace EngineeringUnits
         }
 
 
-
-
         public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
@@ -190,42 +125,42 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue == right.ToTheOutSide(left.Unit);
+            return left.NEWValue == right.ToTheOutSide(left.Unit); 
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] != [{right.Unit}]. Can't compare two different units!");
 
-            return (double)left.SymbolValue != right.As(left);
+            return left.NEWValue != right.ToTheOutSide(left.Unit);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] <= [{right.Unit}]. Can't compare two different units!");
 
-            return (double)left.SymbolValue <= right.As(left);
+            return left.NEWValue <= right.ToTheOutSide(left.Unit);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] >= [{right.Unit}]. Can't compare two different units!");
 
-            return (double)left.SymbolValue >= right.As(left);
+            return left.NEWValue >= right.ToTheOutSide(left.Unit);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] < [{right.Unit}]. Can't compare two different units!");
 
-            return (double)left.SymbolValue < right.As(left);
+            return left.NEWValue < right.ToTheOutSide(left.Unit);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] > [{right.Unit}]. Can't compare two different units!");
 
-            return (double)left.SymbolValue > right.As(left);
+            return left.NEWValue > right.ToTheOutSide(left.Unit);
         }
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
@@ -266,30 +201,12 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format, IFormatProvider provider)
         {
-
-
-            if (Unit is null) //dimensionless            
+            if (Inf)
             {
-                if (Inf)
-                    return $"{double.PositiveInfinity.ToString(format)}";
-
-                return $"{SymbolValue.ToString(format)}";        
-            } 
-
-
-            if (Unit.Symbol is object)
-            {
-                if (Inf)
-                    return $"{double.PositiveInfinity.ToString(format)} {Unit.Symbol}";
-
-                return $"{SymbolValue.ToString(format)} {Unit.Symbol}";            
+                return $"{double.PositiveInfinity.ToString(format)} {Unit}";
             }
 
-
-            if (Inf)
-                return $"{double.PositiveInfinity.ToString(format)} {Unit}";
-
-            //return $"{BaseunitValue.ToString(format)} {Unit}";
+            //Are As(Unit) and NewValue not always the same?
             return $"{As(Unit).ToString(format)} {Unit}";
         }
 
@@ -332,7 +249,7 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue - right.ConvertValueInto(left);
+                var NewTestValue = left.NEWValue - right.ConvertValueInto(left);                
 
                 return new BaseUnit(NewTestValue, left.Unit - right.Unit);
 
@@ -385,7 +302,7 @@ namespace EngineeringUnits
 
         //public UnknownUnit Sqrt()
         //{
-        //    return new BaseUnit(Sqrt(SymbolValue), Unit.Sqrt());
+        //    return new BaseUnit(NewValue.Sqrt(), Unit.Sqrt());
         //}
 
         public UnknownUnit Abs()
@@ -458,42 +375,20 @@ namespace EngineeringUnits
         //Add isAboveZero
 
         //Add isBelowZero
-
-       // public decimal ConvertToBaseUnit() => (decimal)(Unit.GetCombi() / Unit.GetActualC());
         
 
         public decimal ToTheOutSide(UnitSystem To)
         {
 
             Fraction b1 = Unit.SumOfBConstants();
-            Fraction b2 = To.SumOfBConstants();         
-
-
-
+            Fraction b2 = To.SumOfBConstants();     
             Fraction Factor = To.ConvertionFactor(Unit);
 
+
             Fraction b3test2 = Factor * (b1 * -1) + b2;
-            Fraction y2test2 = Factor * (Fraction)NEWValue + b3test2;
+            Fraction y2test2 = Factor * (Fraction)NEWValue + b3test2;    
 
-            var NewTEST = (decimal)y2test2;
-
-            //var NewTEST = NEWValue *  (decimal)Factor;
-
-
-
-
-            //Fraction test = UnitSystem.Convert(Unit, To);
-
-           // Fraction b3test = test * (b1 * -1) + b2;
-           // Fraction y2test = test * (Fraction)SymbolValue + b3test;
-            //return (decimal)y2test;
-
-
-
-
-           // var deleteMe = (decimal)y2test;
-
-            return NewTEST;
+            return (decimal)y2test2;
         }
 
         public double ToTheOutSideDouble(UnitSystem To)
@@ -507,11 +402,7 @@ namespace EngineeringUnits
 
         public string DisplaySymbol()
         {
-            if (Unit.Symbol is object)            
-                return Unit.Symbol;            
-            else
-                return Unit.ToString();
-
+            return Unit.ToString();
         }
 
         public int CompareTo(object obj)
@@ -523,86 +414,48 @@ namespace EngineeringUnits
             
 
             return (int)((double)NEWValue - local.As(this));
-        }
-    
-    
-        public string ResultWithSymbol() => $"{SymbolValue} {Unit.Symbol}";
-        
+        }   
+       
 
         public override int GetHashCode()
         {
-
-
             HashCode hashCode = new HashCode();
-            hashCode.Add(SymbolValue);
+            hashCode.Add(NEWValue);
             hashCode.Add(Unit.GetHashCode());
 
             return hashCode.ToHashCode();
-
-
-
         }
 
-
-        // x - a number, from which we need to calculate the square root
-        // epsilon - an accuracy of calculation of the root from our number.
-        // The result of the calculations will differ from an actual value
-        // of the root on less than epslion.
-        public static decimal Sqrt(decimal x, decimal epsilon = 0.0M)
-        {
-            if (x < 0) throw new OverflowException("Cannot calculate square root from a negative number");
-
-            decimal current = (decimal)Math.Sqrt((double)x), previous;
-            do
-            {
-                previous = current;
-                if (previous == 0.0M) return 0;
-                current = (previous + x / previous) / 2;
-            }
-            while (Math.Abs(previous - current) > epsilon);
-            return current;
-        }
-
-
-
-        public void CheckForStandardUnit<T>()
+        public string GetStandardSymbol<T>(UnitSystem _unit)
             where T : Enumeration
         {
-            if (string.IsNullOrEmpty(Unit.Symbol))
-            {
-                Unit.Symbol = Enumeration.ListOf<T>()
-                .Find(x => x.Unit.SumConstant() == Unit.SumConstant())?
-                .Unit.Symbol;
-            }
+
+            if (_unit.Symbol is not null)
+                return _unit.Symbol;
+
+
+            //This check the list of Predefined unit and if it finds a match it returns that Symbol
+            return Enumeration.ListOf<T>()
+                .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
+                .Unit.Symbol;            
         }
 
-        public string GetStandardSymbol<T>()
-            where T : Enumeration
+        public virtual string GetStandardSymbol(UnitSystem _unit)
         {
-            if (string.IsNullOrEmpty(Unit.Symbol))
-            {
-                return Enumeration.ListOf<T>()
-                .Find(x => x.Unit.SumConstant() == Unit.SumConstant())?
-                .Unit.Symbol;
-            }
+            if (_unit.Symbol is not null)
+                return _unit.Symbol;
 
             return null;
         }
 
-        public virtual void CheckForStandardUnit()
+        private bool IsValueOverDecimalMax(double value)
         {
-
+            return double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value);
         }
-
-        public virtual string GetStandardSymbol()
-        {
-            return null;
-        }
+        
 
 
     }
-
-
 
 
 }

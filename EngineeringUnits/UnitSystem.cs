@@ -82,7 +82,7 @@ namespace EngineeringUnits
 
         public List<Tuple<string,int>> UnitsCount()
         {
-            //This returns <typeOfUnit,UnitCount>
+            //This returns <typeOfUnit,Unit Count of the specifig type>
 
             return ListOfUnits
                     .Where(x => x.TypeOfUnit != "CombinedUnit")
@@ -201,6 +201,12 @@ namespace EngineeringUnits
          public override string ToString()
         {
 
+            if (Symbol is not null)
+            {
+                return Symbol;
+            }
+
+
              string local = "";
 
             //New Way
@@ -217,24 +223,6 @@ namespace EngineeringUnits
                         local += $"{ToSuperScript(unit.Count)}";
                 }
             }
-
-
-
-
-            //foreach (var unit in UnitList())
-            //{
-
-            //    if (unit is object && unit.Count > 0)
-            //    {
-
-            //        if (unit is object)                    
-            //            local += unit.Symbol;                  
-
-            //        if (unit.Count > 1)
-            //            local += $"{ToSuperScript(unit.Count)}";
-            //    }
-            //}
-
 
 
 
@@ -258,26 +246,6 @@ namespace EngineeringUnits
 
 
             }
-
-
-
-            //foreach (var unit in UnitList())
-            //{
-
-            //    if (unit is object && unit.Count < 0)
-            //    {
-            //        local += unit.Symbol;
-
-            //        if (unit.Count < -1)
-            //            local += $"{ToSuperScript(unit.Count * -1)}";
-
-            //    }
-
-
-            //}
-
-            
-
 
                 return local;
         }
@@ -443,6 +411,15 @@ namespace EngineeringUnits
 
             return hashCode.ToHashCode();
         }
+
+        public UnitSystem Clone()
+        {
+            List<Enumeration> LocalUnitList = new List<Enumeration>();
+            LocalUnitList.AddRange(ListOfUnits);
+
+            return new UnitSystem(LocalUnitList, Symbol);
+        }
+
 
     }
 }

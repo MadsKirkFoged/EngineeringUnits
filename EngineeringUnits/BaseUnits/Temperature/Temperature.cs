@@ -16,11 +16,11 @@ namespace EngineeringUnits
         {
 
             Unit = selectedUnit.Unit;
-            SymbolValue = (decimal)value;
+            //SymbolValue = (decimal)value;
             NEWValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
@@ -34,18 +34,18 @@ namespace EngineeringUnits
             if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
             {
                 Inf = true;
-                SymbolValue = 0;
+                //SymbolValue = 0;
             }
             else
             {
                 Inf = false;
-                SymbolValue = (decimal)value;
+                //SymbolValue = (decimal)value;
                 NEWValue = (decimal)value;
             }
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             //Unit = TemperatureUnit.Kelvin.Unit.Copy();
             Unit = TemperatureUnit.Kelvin.Unit;
@@ -57,11 +57,11 @@ namespace EngineeringUnits
 
             //Unit = selectedUnit.Unit.Copy();
             Unit = selectedUnit.Unit;
-            SymbolValue = (decimal)value;
+            //SymbolValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
             //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             //Unit = TemperatureUnit.Kelvin.Unit.Copy();
             Unit = TemperatureUnit.Kelvin.Unit;

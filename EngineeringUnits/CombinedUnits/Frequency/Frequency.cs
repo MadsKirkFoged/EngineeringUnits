@@ -29,9 +29,9 @@ namespace EngineeringUnits
             return Zero;
         }
 
-        public override void CheckForStandardUnit() => CheckForStandardUnit<FrequencyUnit>();
+        //public override void CheckForStandardUnit() => CheckForStandardUnit<FrequencyUnit>();
 
-        public override string GetStandardSymbol() => GetStandardSymbol<FrequencyUnit>();
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
 
     }
 }

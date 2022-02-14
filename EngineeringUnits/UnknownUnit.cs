@@ -80,6 +80,11 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
+            if (baseUnit.Unit.Symbol is not null)
+            {
+                return baseUnit.ToString();
+            }
+
             BaseUnit simple = this.IntelligentCast();
             return simple.ToString();
         }

@@ -30,6 +30,8 @@ namespace EngineeringUnits
             return Zero;
         }
 
-        public override void CheckForStandardUnit() => CheckForStandardUnit<PermittivityUnit>();
+        //public override void CheckForStandardUnit() => CheckForStandardUnit<PermittivityUnit>();
+
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermittivityUnit>(_unit);
     }
 }

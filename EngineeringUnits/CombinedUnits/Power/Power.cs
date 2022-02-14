@@ -13,8 +13,6 @@ namespace EngineeringUnits
         public Power(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Power(UnknownUnit value) : base(value) { }
 
-        public Power(UnknownUnit value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Power From(double value, PowerUnit unit) => new(value, unit);
         public double As(PowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Power ToUnit(PowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -31,7 +29,9 @@ namespace EngineeringUnits
         }
 
 
-        public override void CheckForStandardUnit() => CheckForStandardUnit<PowerUnit>();
+        //public override void CheckForStandardUnit() => CheckForStandardUnit<PowerUnit>();
+
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerUnit>(_unit);
 
     }
 }

@@ -1,6 +1,7 @@
 using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace UnitTests
 {
@@ -27,6 +28,8 @@ namespace UnitTests
             string toString = f1.ToString();
             Frequency f2 = f1.Abs();
             UnknownUnit f3 = f1.Abs();
+
+            Debug.Print($"{f3}");
 
             Assert.AreEqual(Frequency.FromMegahertz(32).As(FrequencyUnit.Megahertz), f1.As(FrequencyUnit.Megahertz));
             Assert.AreEqual(f1.As(FrequencyUnit.Megahertz), f2.As(FrequencyUnit.Megahertz));
