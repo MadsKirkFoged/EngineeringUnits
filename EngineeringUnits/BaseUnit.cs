@@ -13,14 +13,14 @@ namespace EngineeringUnits
 
 
     [JsonObject(MemberSerialization.Fields)]
-    public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
+    public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable, IUnitSystem
     {
 
         protected bool Inf { get; init; }
         public UnitSystem Unit { get; init;}
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => SI;
+        public double Value => (double)SI;
 
         protected decimal NEWValue { get; init; }
 
@@ -59,32 +59,13 @@ namespace EngineeringUnits
         }
 
 
-        public double As(UnitSystem a)
-        {
-            return (double)ToTheOutSide(a);                     
-        }
-
-        public double As(BaseUnit a)
-        { 
-            return As(a.Unit); 
-        }
-
-        public double SI => (double)(NEWValue * (decimal)Unit.SumConstant());
+        public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
 
         public void UnitCheck(UnknownUnit a) => UnitCheck(a.unitsystem);
-
         public void UnitCheck(UnitSystem a)
         {
             if (a != Unit)
                 throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a}]");
-        }
-
-        public BaseUnit ToUnit(Enumeration selectedUnit)
-        {
-            //Add Unit check!
-            UnitCheck(selectedUnit.Unit);
-
-            return new(ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
 
 
@@ -225,7 +206,7 @@ namespace EngineeringUnits
                         return Unit.ToString();
                     case 'V':
                     case 'v':
-                        return As(Unit).ToString(provider);
+                        return this.As(Unit).ToString(provider);
                     case 'U':
                     case 'u':
                         return Unit.ToString();
@@ -246,17 +227,17 @@ namespace EngineeringUnits
             }
 
             //Are As(Unit) and NewValue not always the same?
-            return $"{As(Unit).ToString(format, provider)} {Unit}";
+            return $"{this.As(Unit).ToString(format, provider)} {Unit}";
         }
 
         
 
 
-        public Fraction ConvertionFactor(BaseUnit To)
+        private Fraction ConvertionFactor(BaseUnit To)
         {
             return Unit.SumConstant() / To.Unit.SumConstant();
         }
-        public decimal ConvertValueInto(BaseUnit From)
+        private decimal ConvertValueInto(BaseUnit From)
         {
             return (decimal)ConvertionFactor(From) * NEWValue;
         }
@@ -346,77 +327,8 @@ namespace EngineeringUnits
         //    return new BaseUnit(NewValue.Sqrt(), Unit.Sqrt());
         //}
 
-        public UnknownUnit Abs()
-        {
-            if (NEWValue < 0)
-                return this * -1;
-            else         
-                return this;
-        }
+      
 
-        public UnknownUnit Pow(int toPower)
-        {
-
-            UnknownUnit localtest = this;
-            
-            if (toPower == 0)
-                return 1;
-
-
-            if (toPower > 1)            
-                for (int i = 1; i < toPower; i++)
-                    localtest *= this;
-
-
-            if (toPower < 0)            
-                for (int i = 1; i > toPower; i--)
-                    localtest /= this;            
-
-
-
-            return localtest;
-        }
-
-        public UnknownUnit InRangeOf(UnknownUnit Min, UnknownUnit Max)
-        {
-
-            UnitCheck(Min);
-            UnitCheck(Max);
-
-            if (Max < Min)
-            {
-                //TODO you need max to be larger then min
-                return this;
-            }
-
-
-            if (this < Min)            
-                return Min;
-            
-
-            if (this > Max)            
-                return Max;
-            
-
-            return this;
-
-            
-        }
-
-        public bool IsZero()
-        {
-            return NEWValue == 0;
-        }
-
-        public bool IsNotZero()
-        {
-            return !IsZero();
-        }
-
-        //Add isAboveZero
-
-        //Add isBelowZero
-        
 
         public decimal ToTheOutSide(UnitSystem To)
         {
@@ -446,8 +358,6 @@ namespace EngineeringUnits
             return Unit.ToString();
         }
 
-         
-       
 
         public override int GetHashCode()
         {
@@ -518,6 +428,9 @@ namespace EngineeringUnits
 
             return (int)((double)NEWValue - other.As(this));
         }
+
+
+
     }
 
 

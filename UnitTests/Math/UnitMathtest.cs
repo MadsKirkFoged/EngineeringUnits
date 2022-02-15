@@ -39,6 +39,8 @@ namespace UnitTests
             MassFlow Max = UnitMath.Max(list1);
             MassFlow Min = UnitMath.Min(list1);
 
+            
+
 
             MassFlow Average2 = UnitMath.Average(
                 MassFlow.FromKilogramsPerSecond(1),
@@ -93,6 +95,12 @@ namespace UnitTests
                 );
 
 
+            MassFlow Average3 = list1.Average();
+            MassFlow Sum3 = list1.Sum();
+            MassFlow Max3 = list1.Max();
+            MassFlow Min3 = list1.Min();
+
+
             Assert.AreEqual(Average.KilogramsPerSecond, 5.5, 0);
             Assert.AreEqual(Sum.KilogramsPerSecond, 55, 0);
             Assert.AreEqual(Max.KilogramsPerSecond, 10, 0);
@@ -102,6 +110,11 @@ namespace UnitTests
             Assert.AreEqual(Sum, Sum2);
             Assert.AreEqual(Max, Max2);
             Assert.AreEqual(Min, Min2);
+
+            Assert.AreEqual(Average, Average3);
+            Assert.AreEqual(Sum, Sum3);
+            Assert.AreEqual(Max, Max3);
+            Assert.AreEqual(Min, Min3);
 
 
         }
@@ -121,13 +134,13 @@ namespace UnitTests
             var pow2 = twoMeters.Pow(2);
             var pow3 = twoMeters.Pow(3);
 
-            Assert.AreEqual(Math.Pow(2, -3), powMinus3.SI);
-            Assert.AreEqual(Math.Pow(2, -2), powMinus2.SI);
-            Assert.AreEqual(Math.Pow(2, -1), powMinus1.SI);
-            Assert.AreEqual(Math.Pow(2, 0), pow0.SI);
-            Assert.AreEqual(Math.Pow(2, 1), pow1.SI);
-            Assert.AreEqual(Math.Pow(2, 2), pow2.SI);
-            Assert.AreEqual(Math.Pow(2, 3), pow3.SI);
+            Assert.AreEqual(Math.Pow(2, -3), (double)powMinus3.SI);
+            Assert.AreEqual(Math.Pow(2, -2), (double)powMinus2.SI);
+            Assert.AreEqual(Math.Pow(2, -1), (double)powMinus1.SI);
+            Assert.AreEqual(Math.Pow(2, 0), (double)pow0.SI);
+            Assert.AreEqual(Math.Pow(2, 1), (double)pow1.SI);
+            Assert.AreEqual(Math.Pow(2, 2), (double)pow2.SI);
+            Assert.AreEqual(Math.Pow(2, 3), (double)pow3.SI);
         }
 
 

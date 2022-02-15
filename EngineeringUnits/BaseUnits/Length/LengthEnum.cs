@@ -58,17 +58,11 @@ namespace EngineeringUnits.Units
         public LengthUnit(string NewSymbol, decimal Constant) : base(NewSymbol, Constant)
         {
             Unit = new UnitSystem(this);
-            //Unit.Length = (LengthUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }
 
         public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
         {
             Unit = new UnitSystem(this);
-            //Unit.Length = (LengthUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }             
 
 

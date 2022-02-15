@@ -7,8 +7,7 @@ namespace EngineeringUnits
 
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
-            BaseUnit output = (BaseUnit) toCast;
-            //UnitSystem unit = output.Unit;
+            
 			if (toCast.unitsystem == AmountOfSubstanceUnit.SI.Unit)
 			{
 				return (AmountOfSubstance) toCast;
@@ -338,7 +337,7 @@ namespace EngineeringUnits
 				return (Volume) toCast;
 			}
 
-            return output;
+            return (BaseUnit)toCast;
         }
     }
 }

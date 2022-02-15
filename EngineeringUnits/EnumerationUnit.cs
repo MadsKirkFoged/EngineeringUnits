@@ -11,7 +11,7 @@ using System.Diagnostics;
 namespace EngineeringUnits
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public class Enumeration :ICloneable
+    public class Enumeration :ICloneable, IUnitSystem
     {
 
         //[JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]

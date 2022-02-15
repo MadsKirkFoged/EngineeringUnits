@@ -14,7 +14,7 @@ namespace EngineeringUnits
         public Power(UnknownUnit value) : base(value) { }
 
         public static Power From(double value, PowerUnit unit) => new(value, unit);
-        public double As(PowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
+        //public double As(PowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Power ToUnit(PowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Power Zero => new(0, PowerUnit.SI);
 
