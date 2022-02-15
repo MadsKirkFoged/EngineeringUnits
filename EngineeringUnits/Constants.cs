@@ -20,10 +20,8 @@ namespace EngineeringUnits
         {
             get
             {
-                UnitSystem unit = (ForceUnit.SI * LengthUnit.SI.Pow(2)) / (MassUnit.SI.Pow(2));                          
-                BaseUnit local = new(0.0000000000667408, unit);
-
-                return local;
+                UnitSystem unit = (ForceUnit.SI * LengthUnit.SI.Pow(2)) / (MassUnit.SI.Pow(2));
+                return new(0.0000000000667408, unit);
             }
         }
 
@@ -32,34 +30,16 @@ namespace EngineeringUnits
         /// <br>Value: 299792458</br>
         /// <br>Unit: [m⋅s−1]</br>
         /// </summary>
-        public static Speed SpeedOfLight
-        {
+        public static Speed SpeedOfLight => new(299792458, SpeedUnit.SI);
 
-            get
-            {
-                Speed local = new(299792458, SpeedUnit.SI);
-                return local;
-            }
-
-
-        }
 
         /// <summary>
         /// Nominal gravitational acceleration of an object in a vacuum near the surface of the Earth
         /// <br>Value: 9.80665</br>
         /// <br>Unit: [m⋅s−2]</br>
         /// </summary>
-        public static Acceleration StandardGravity
-        {
+        public static Acceleration StandardGravity => new(1, AccelerationUnit.StandardGravity);
 
-            get
-            {
-                Acceleration local = new(1, AccelerationUnit.StandardGravity);
-                return local;
-            }
-
-
-        }
 
         ///// <summary>
         ///// Planck Constant
@@ -87,15 +67,11 @@ namespace EngineeringUnits
         /// </summary>
         public static BaseUnit VacuumElectricPermittivity
         {
-
             get
             {
                 UnitSystem unit = (CapacitanceUnit.Farad) / (LengthUnit.Meter);
-                BaseUnit local = new(8.8541878128e-12m, unit);
-                return local;
+                return new(8.8541878128e-12m, unit);
             }
-
-
         }
 
         /// <summary>
@@ -109,11 +85,8 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (ElectricInductanceUnit.Henry) / (LengthUnit.Meter);
-                BaseUnit local = new(1.25663706212e-6m, unit);
-                return local;
+                return new(1.25663706212e-6m, unit);
             }
-
-
         }
 
 
@@ -128,8 +101,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (ElectricResistanceUnit.Ohm.Unit);
-                BaseUnit local = new(376.730313668, unit);
-                return local;
+                return new(376.730313668, unit);
             }
 
 
@@ -148,8 +120,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (ElectricChargeUnit.Coulomb.Unit);
-                BaseUnit local = new(1.602176634e-19m, unit);
-                return local;
+                return new(1.602176634e-19m, unit);
             }
 
 
@@ -166,8 +137,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (AmountOfSubstanceUnit.Mole.Pow(-1));
-                BaseUnit local = new(6.02214076e23m, unit);
-                return local;
+                return new(6.02214076e23m, unit);
             }
 
 
@@ -184,8 +154,7 @@ namespace EngineeringUnits
             get
             {
                 UnitSystem unit = (EnergyUnit.Joule / TemperatureUnit.Kelvin);
-                BaseUnit local = new(1.380649e-23m, unit);
-                return local;
+                return new(1.380649e-23m, unit);
             }
 
 

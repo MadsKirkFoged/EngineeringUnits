@@ -14,25 +14,20 @@ namespace EngineeringUnits
     public class Enumeration :ICloneable, IUnitSystem
     {
 
-        //[JsonProperty(PropertyName = "Q", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [JsonIgnore]
         public string QuantityName { get; set; }
 
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        [DefaultValue("")]
+        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue("")]
         public string Symbol { get; init; } 
 
-
         [JsonProperty(PropertyName = "NC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public Fraction NewC { get; set; }
+        public Fraction NewC { get; init; }
 
-        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        [DefaultValue(0d)]
+        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
         public decimal B { get; init; }
 
-        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        [DefaultValue(1)]
-        public int Count { get; set; } 
+        [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(1)]
+        public int Count { get; init; } 
 
         [JsonIgnore]
         public UnitSystem Unit { get; init; }
@@ -99,12 +94,29 @@ namespace EngineeringUnits
             Unit = new UnitSystem(unit * correction, NewSymbol);
         }
 
-        public Enumeration(Enumeration unit, string NewSymbol)
+        private Enumeration(Enumeration unit, bool ReverseCount)
         {
-            Unit = new UnitSystem(unit, NewSymbol);
+            //Used for cloning
+            QuantityName = unit.QuantityName;
+            Symbol = unit.Symbol;
+            NewC = unit.NewC;
+            B = unit.B;
+
+            if (ReverseCount)            
+                Count = unit.Count*-1;            
+            else
+                Count = unit.Count;
+
+            if (unit.Unit is not null)            
+                Unit = new UnitSystem(unit.Unit, unit.Symbol);            
+
+            TypeOfUnit = unit.TypeOfUnit;
         }
 
-
+        public Enumeration(Enumeration unit, int NewCount) : this(unit, false)
+        {
+            Count = NewCount;
+        }
 
         public override string ToString()
         {
@@ -199,18 +211,6 @@ namespace EngineeringUnits
                BaseUnits.luminousIntensity  => "cd",
                _ => "",
            };
-
-        
-        
-        //public void SetNewSymbol(string NewSymbol, string CustomAutoSymbol = "Empty")
-        //{
-        //    if (NewSymbol != "Empty")
-        //        Unit.Symbol = NewSymbol;
-        //    else if (CustomAutoSymbol != "Empty")            
-        //        Unit.Symbol = CustomAutoSymbol;            
-
-        //}
-
         public string GetNewSymbol(PreFix SI)
         {
             if (Unit.Symbol is null)            
@@ -219,26 +219,7 @@ namespace EngineeringUnits
                 return PrefixSISymbol(SI) + Unit.Symbol;       
         }
 
-        //public void SetNewSymbol(PreFix SI)
-        //{
-        //    if (Unit.Symbol is null)
-        //        Unit.Symbol = PrefixSISymbol(SI) + $"{Unit}";
-        //    else
-        //        Unit.Symbol = PrefixSISymbol(SI) + Unit.Symbol;
-        //}
-
-
-        //public static T GetUnitByString<T>(string name)
-        //{
-        //    foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
-        //    {
-        //        if (field.Name == name)
-        //            return (T)field.GetValue(field);
-        //    }
-
-        //    throw new ArgumentException($"Could not find a unit with a name of '{name}'");
-        //}
-
+        
         public static List<T> ListOf<T>() where T: Enumeration
         {
             List<T> local = new();
@@ -251,13 +232,17 @@ namespace EngineeringUnits
                 local.Add(localunit);
             }
 
-
             return local;
         }
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return new Enumeration(this, false);
+        }
+
+        public object CloneAndReverseCount()
+        {
+            return new Enumeration(this, true);
         }
 
 
@@ -271,10 +256,6 @@ namespace EngineeringUnits
         public static UnitSystem operator /(Enumeration left, Enumeration right) => left.Unit / right.Unit;
         public static UnitSystem operator /(Enumeration left, UnitSystem right) => left.Unit / right;
         public static UnitSystem operator /(UnitSystem left, Enumeration right) => left / right.Unit;
-
-        public UnitSystem Pow(int toPower) =>  Unit.Pow(toPower);
-
-
 
 
         public override int GetHashCode()

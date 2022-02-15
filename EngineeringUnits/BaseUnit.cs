@@ -152,7 +152,6 @@ namespace EngineeringUnits
         /// <returns>String representation.</returns>
         public override string ToString() => ToString("g4");
 
-
         /// <summary>
         ///     Gets the default string representation of value and unit using the given format provider.
         /// </summary>
@@ -167,7 +166,6 @@ namespace EngineeringUnits
         /// <param name="format">The format string.</param>
         /// <returns>The string representation.</returns>
         public string ToString(string format) => ToString(format, CultureInfo.InvariantCulture);
-
 
         private static readonly char[] UnitFormatSpecifiers = { 'A', 'a', 'Q', 'q', 'U', 'u', 'V', 'v' };
 
@@ -223,8 +221,6 @@ namespace EngineeringUnits
         }
 
         
-
-
         private Fraction ConvertionFactor(BaseUnit To)
         {
             return Unit.SumConstant() / To.Unit.SumConstant();
@@ -335,7 +331,6 @@ namespace EngineeringUnits
 
             return (decimal)y2test2;
         }
-
         public double ToTheOutSideDouble(UnitSystem To)
         {
             if (Inf)
@@ -343,7 +338,6 @@ namespace EngineeringUnits
 
             return (double)ToTheOutSide(To);
         }
-
 
         public string DisplaySymbol()
         {
@@ -373,7 +367,6 @@ namespace EngineeringUnits
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
                 .Unit.Symbol;            
         }
-
         public virtual string GetStandardSymbol(UnitSystem _unit)
         {
             if (_unit.Symbol is not null)
@@ -420,8 +413,6 @@ namespace EngineeringUnits
 
             return (int)((double)NEWValue - other.As(this));
         }
-
-
 
     }
 

@@ -28,12 +28,9 @@ namespace EngineeringUnits
         }
 
 
-        public UnitSystem(Enumeration unit, string symbol) : 
-                     this(new List<Enumeration>() { unit }, symbol) {}
-        public UnitSystem(Enumeration unit) : 
-                     this(unit, null) { }
-        public UnitSystem(decimal unit, string symbol) : 
-                     this(new CombinedUnit(unit), symbol) { }
+        public UnitSystem(Enumeration unit, string symbol): this(new List<Enumeration>() { unit }, symbol) {}
+        public UnitSystem(Enumeration unit) :               this(unit, null) { }
+        public UnitSystem(decimal unit, string symbol) :    this(new CombinedUnit(unit), symbol) { }
 
 
         public UnitSystem(UnitSystem unit, string symbol)
@@ -70,12 +67,10 @@ namespace EngineeringUnits
         {
             return ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);            
         }
-
         public Fraction SumOfBConstants()
         {
             return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
         }
-
         public Fraction ConvertionFactor(UnitSystem To)
         {
             return To.SumConstant() / SumConstant();
@@ -103,13 +98,10 @@ namespace EngineeringUnits
         }
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
-
-            LocalUnitList.AddRange(a.ListOfUnits);
-            LocalUnitList.AddRange(b.ListOfUnits);
-
-            return new UnitSystem(LocalUnitList);
-
+            return new UnitSystem(
+                        new List<Enumeration>(
+                            a.ListOfUnits.Concat(
+                            b.ListOfUnits)));
         }
         public static UnitSystem Multiply(UnitSystem a, decimal constant)
         {
@@ -121,27 +113,18 @@ namespace EngineeringUnits
             List<Enumeration> LocalUnitList = new List<Enumeration>();
 
             LocalUnitList.AddRange(a.ListOfUnits);
-            LocalUnitList.Add(new CombinedUnit("", (Fraction)constant));
+            LocalUnitList.Add(new CombinedUnit(constant));
 
             return new UnitSystem(LocalUnitList, a.Symbol);
 
         }
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
+            List<Enumeration> LocalUnitList = new(a.ListOfUnits);
 
-            LocalUnitList.AddRange(a.ListOfUnits);
+            foreach (var item in b.ListOfUnits)            
+                LocalUnitList.Add((Enumeration)item.CloneAndReverseCount());        
 
-
-            foreach (var item in b.ListOfUnits)
-            {
-                Enumeration test = (Enumeration)item.Clone();
-                test.Count *= -1;
-
-                LocalUnitList.Add(test);
-            }
-
-           
 
             return new UnitSystem(LocalUnitList);
 
@@ -212,9 +195,8 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        Enumeration NewUnit = (Enumeration)item.First().Clone();
-
-                        NewUnit.Count = item.Sum(x => x.Count);
+                        Enumeration NewUnit = new Enumeration(item.First(), 
+                                                              item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
 

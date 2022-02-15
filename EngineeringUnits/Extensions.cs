@@ -82,13 +82,10 @@ namespace EngineeringUnits
         {
             return (double)a.ToTheOutSide(b);
         }
-
         public static double As(this UnknownUnit a, IUnitSystem b)
         {
             return a._baseUnit.As(b);
         }
-
-
 
         public static BaseUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
         {
@@ -102,7 +99,6 @@ namespace EngineeringUnits
 
             return new(a._baseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
-
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
         {
@@ -129,6 +125,10 @@ namespace EngineeringUnits
         public static UnknownUnit Pow(this UnknownUnit a, int toPower)
         {
            return a._baseUnit.Pow(toPower);
+        }
+        public static UnitSystem Pow(this Enumeration a, int toPower)
+        {
+            return a.Unit.Pow(toPower);
         }
 
         public static UnknownUnit InRangeOf(this BaseUnit a, UnknownUnit Min, UnknownUnit Max)
