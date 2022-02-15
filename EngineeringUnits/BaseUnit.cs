@@ -21,18 +21,14 @@ namespace EngineeringUnits
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)SI;
-
         protected decimal NEWValue { get; init; }
 
-
         public BaseUnit() {}
-
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
             Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
             NEWValue = value.Normalize();
         }
-
         public BaseUnit(double value, UnitSystem unitSystem)
         {
             Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
@@ -45,27 +41,23 @@ namespace EngineeringUnits
                 NEWValue = (decimal)value;
             }
         }
-
         public BaseUnit(int value, UnitSystem unitSystem)
         {
             Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
             NEWValue = (decimal)value;
         }
-
         protected BaseUnit(UnknownUnit unit)
         {
-            Unit = new UnitSystem(unit.unitsystem, GetStandardSymbol(unit.unitsystem));
+            Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
             NEWValue = unit._baseUnit.NEWValue;
         }
 
-
         public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
 
-        public void UnitCheck(UnknownUnit a) => UnitCheck(a.unitsystem);
-        public void UnitCheck(UnitSystem a)
+        public void UnitCheck(IUnitSystem a)
         {
-            if (a != Unit)
-                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a}]");
+            if (a.Unit != Unit)
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.Unit}]");
         }
 
 
@@ -206,7 +198,7 @@ namespace EngineeringUnits
                         return Unit.ToString();
                     case 'V':
                     case 'v':
-                        return this.As(Unit).ToString(provider);
+                        return NEWValue.ToString(provider);
                     case 'U':
                     case 'u':
                         return Unit.ToString();
@@ -227,7 +219,7 @@ namespace EngineeringUnits
             }
 
             //Are As(Unit) and NewValue not always the same?
-            return $"{this.As(Unit).ToString(format, provider)} {Unit}";
+            return $"{NEWValue.ToString(format, provider)} {Unit}";
         }
 
         

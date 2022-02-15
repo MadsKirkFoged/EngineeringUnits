@@ -8,27 +8,27 @@ namespace EngineeringUnits
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
             
-			if (toCast.unitsystem == AmountOfSubstanceUnit.SI.Unit)
+			if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
 			{
 				return (AmountOfSubstance) toCast;
 			}
-			if (toCast.unitsystem == DurationUnit.SI.Unit)
+			if (toCast.Unit == DurationUnit.SI.Unit)
 			{
 				return (Duration) toCast;
 			}
-			if (toCast.unitsystem == ElectricCurrentUnit.SI.Unit)
+			if (toCast.Unit == ElectricCurrentUnit.SI.Unit)
 			{
 				return (ElectricCurrent) toCast;
 			}
-			if (toCast.unitsystem == LengthUnit.SI.Unit)
+			if (toCast.Unit == LengthUnit.SI.Unit)
 			{
 				return (Length) toCast;
 			}
-			if (toCast.unitsystem == LuminousIntensityUnit.SI.Unit)
+			if (toCast.Unit == LuminousIntensityUnit.SI.Unit)
 			{
 				return (LuminousIntensity) toCast;
 			}
-			if (toCast.unitsystem == MassUnit.SI.Unit)
+			if (toCast.Unit == MassUnit.SI.Unit)
 			{
 				return (Mass) toCast;
 			}
@@ -36,303 +36,303 @@ namespace EngineeringUnits
 			//{
 			//	return (TemperatureDelta) toCast;
 			//}
-			if (toCast.unitsystem == TemperatureUnit.SI.Unit)
+			if (toCast.Unit == TemperatureUnit.SI.Unit)
 			{
 				return (Temperature) toCast;
 			}
-			if (toCast.unitsystem == AccelerationUnit.SI.Unit)
+			if (toCast.Unit == AccelerationUnit.SI.Unit)
 			{
 				return (Acceleration) toCast;
 			}
-			if (toCast.unitsystem == AreaUnit.SI.Unit)
+			if (toCast.Unit == AreaUnit.SI.Unit)
 			{
 				return (Area) toCast;
 			}
-			if (toCast.unitsystem == DensityUnit.SI.Unit)
+			if (toCast.Unit == DensityUnit.SI.Unit)
 			{
 				return (Density) toCast;
 			}
-			if (toCast.unitsystem == DynamicViscosityUnit.SI.Unit)
+			if (toCast.Unit == DynamicViscosityUnit.SI.Unit)
 			{
 				return (DynamicViscosity) toCast;
 			}
-			if (toCast.unitsystem == ElectricPotentialUnit.SI.Unit)
+			if (toCast.Unit == ElectricPotentialUnit.SI.Unit)
 			{
 				return (ElectricPotential) toCast;
 			}
-			if (toCast.unitsystem == MolarMassUnit.SI.Unit)
+			if (toCast.Unit == MolarMassUnit.SI.Unit)
 			{
 				return (MolarMass) toCast;
 			}
-			if (toCast.unitsystem == EnergyUnit.SI.Unit)
+			if (toCast.Unit == EnergyUnit.SI.Unit)
 			{
 				return (Energy) toCast;
 			}
-			if (toCast.unitsystem == EntropyUnit.SI.Unit)
+			if (toCast.Unit == EntropyUnit.SI.Unit)
 			{
 				return (Entropy) toCast;
 			}
-			if (toCast.unitsystem == ForcePerLengthUnit.SI.Unit)
+			if (toCast.Unit == ForcePerLengthUnit.SI.Unit)
 			{
 				return (ForcePerLength) toCast;
 			}
-			if (toCast.unitsystem == ForceUnit.SI.Unit)
+			if (toCast.Unit == ForceUnit.SI.Unit)
 			{
 				return (Force) toCast;
 			}
-			if (toCast.unitsystem == FrequencyUnit.SI.Unit)
+			if (toCast.Unit == FrequencyUnit.SI.Unit)
 			{
 				return (Frequency) toCast;
 			}
-			if (toCast.unitsystem == HeatTransferCoefficientUnit.SI.Unit)
+			if (toCast.Unit == HeatTransferCoefficientUnit.SI.Unit)
 			{
 				return (HeatTransferCoefficient) toCast;
 			}
-			if (toCast.unitsystem == KinematicViscosityUnit.SI.Unit)
+			if (toCast.Unit == KinematicViscosityUnit.SI.Unit)
 			{
 				return (KinematicViscosity) toCast;
 			}
-			if (toCast.unitsystem == MassFlowUnit.SI.Unit)
+			if (toCast.Unit == MassFlowUnit.SI.Unit)
 			{
 				return (MassFlow) toCast;
 			}
-			if (toCast.unitsystem == PowerUnit.SI.Unit)
+			if (toCast.Unit == PowerUnit.SI.Unit)
 			{
 				return (Power) toCast;
 			}
-			if (toCast.unitsystem == PressureUnit.SI.Unit)
+			if (toCast.Unit == PressureUnit.SI.Unit)
 			{
 				return (Pressure) toCast;
 			}
-			if (toCast.unitsystem == SpecificEnergyUnit.SI.Unit)
+			if (toCast.Unit == SpecificEnergyUnit.SI.Unit)
 			{
 				return (SpecificEnergy) toCast;
 			}
-			if (toCast.unitsystem == SpecificEntropyUnit.SI.Unit)
+			if (toCast.Unit == SpecificEntropyUnit.SI.Unit)
 			{
 				return (SpecificEntropy) toCast;
 			}
-			if (toCast.unitsystem == SpeedUnit.SI.Unit)
+			if (toCast.Unit == SpeedUnit.SI.Unit)
 			{
 				return (Speed) toCast;
 			}
-			if (toCast.unitsystem == AngleUnit.SI.Unit)
+			if (toCast.Unit == AngleUnit.SI.Unit)
 			{
 				return (Angle) toCast;
 			}
-			if (toCast.unitsystem == ApparentPowerUnit.SI.Unit)
+			if (toCast.Unit == ApparentPowerUnit.SI.Unit)
 			{
 				return (ApparentPower) toCast;
 			}
-			if (toCast.unitsystem == AreaDensityUnit.SI.Unit)
+			if (toCast.Unit == AreaDensityUnit.SI.Unit)
 			{
 				return (AreaDensity) toCast;
 			}
-			if (toCast.unitsystem == AreaMomentOfInertiaUnit.SI.Unit)
+			if (toCast.Unit == AreaMomentOfInertiaUnit.SI.Unit)
 			{
 				return (AreaMomentOfInertia) toCast;
 			}
-			if (toCast.unitsystem == BitRateUnit.SI.Unit)
+			if (toCast.Unit == BitRateUnit.SI.Unit)
 			{
 				return (BitRate) toCast;
 			}
-			if (toCast.unitsystem == BrakeSpecificFuelConsumptionUnit.SI.Unit)
+			if (toCast.Unit == BrakeSpecificFuelConsumptionUnit.SI.Unit)
 			{
 				return (BrakeSpecificFuelConsumption) toCast;
 			}
-			if (toCast.unitsystem == CapacitanceUnit.SI.Unit)
+			if (toCast.Unit == CapacitanceUnit.SI.Unit)
 			{
 				return (Capacitance) toCast;
 			}
-			if (toCast.unitsystem == CoefficientOfThermalExpansionUnit.SI.Unit)
+			if (toCast.Unit == CoefficientOfThermalExpansionUnit.SI.Unit)
 			{
 				return (CoefficientOfThermalExpansion) toCast;
 			}
-			if (toCast.unitsystem == ElectricChargeUnit.SI.Unit)
+			if (toCast.Unit == ElectricChargeUnit.SI.Unit)
 			{
 				return (ElectricCharge) toCast;
 			}
-			if (toCast.unitsystem == ElectricChargeDensityUnit.SI.Unit)
+			if (toCast.Unit == ElectricChargeDensityUnit.SI.Unit)
 			{
 				return (ElectricChargeDensity) toCast;
 			}
-			if (toCast.unitsystem == ElectricConductivityUnit.SI.Unit)
+			if (toCast.Unit == ElectricConductivityUnit.SI.Unit)
 			{
 				return (ElectricConductivity) toCast;
 			}
-			if (toCast.unitsystem == ElectricCurrentDensityUnit.SI.Unit)
+			if (toCast.Unit == ElectricCurrentDensityUnit.SI.Unit)
 			{
 				return (ElectricCurrentDensity) toCast;
 			}
-			if (toCast.unitsystem == ElectricCurrentGradientUnit.SI.Unit)
+			if (toCast.Unit == ElectricCurrentGradientUnit.SI.Unit)
 			{
 				return (ElectricCurrentGradient) toCast;
 			}
-			if (toCast.unitsystem == ElectricFieldUnit.SI.Unit)
+			if (toCast.Unit == ElectricFieldUnit.SI.Unit)
 			{
 				return (ElectricField) toCast;
 			}
-			if (toCast.unitsystem == ElectricInductanceUnit.SI.Unit)
+			if (toCast.Unit == ElectricInductanceUnit.SI.Unit)
 			{
 				return (ElectricInductance) toCast;
 			}
-			if (toCast.unitsystem == ElectricPotentialChangeRateUnit.SI.Unit)
+			if (toCast.Unit == ElectricPotentialChangeRateUnit.SI.Unit)
 			{
 				return (ElectricPotentialChangeRate) toCast;
 			}
-			if (toCast.unitsystem == ElectricResistanceUnit.SI.Unit)
+			if (toCast.Unit == ElectricResistanceUnit.SI.Unit)
 			{
 				return (ElectricResistance) toCast;
 			}
-			if (toCast.unitsystem == ElectricResistivityUnit.SI.Unit)
+			if (toCast.Unit == ElectricResistivityUnit.SI.Unit)
 			{
 				return (ElectricResistivity) toCast;
 			}
-			if (toCast.unitsystem == ElectricSurfaceChargeDensityUnit.SI.Unit)
+			if (toCast.Unit == ElectricSurfaceChargeDensityUnit.SI.Unit)
 			{
 				return (ElectricSurfaceChargeDensity) toCast;
 			}
-			if (toCast.unitsystem == ForceChangeRateUnit.SI.Unit)
+			if (toCast.Unit == ForceChangeRateUnit.SI.Unit)
 			{
 				return (ForceChangeRate) toCast;
 			}
-			if (toCast.unitsystem == FuelEfficiencyUnit.SI.Unit)
+			if (toCast.Unit == FuelEfficiencyUnit.SI.Unit)
 			{
 				return (FuelEfficiency) toCast;
 			}
-			if (toCast.unitsystem == HeatFluxUnit.SI.Unit)
+			if (toCast.Unit == HeatFluxUnit.SI.Unit)
 			{
 				return (HeatFlux) toCast;
 			}
-			if (toCast.unitsystem == IlluminanceUnit.SI.Unit)
+			if (toCast.Unit == IlluminanceUnit.SI.Unit)
 			{
 				return (Illuminance) toCast;
 			}
-			if (toCast.unitsystem == InformationUnit.SI.Unit)
+			if (toCast.Unit == InformationUnit.SI.Unit)
 			{
 				return (Information) toCast;
 			}
-			if (toCast.unitsystem == IrradianceUnit.SI.Unit)
+			if (toCast.Unit == IrradianceUnit.SI.Unit)
 			{
 				return (Irradiance) toCast;
 			}
-			if (toCast.unitsystem == IrradiationUnit.SI.Unit)
+			if (toCast.Unit == IrradiationUnit.SI.Unit)
 			{
 				return (Irradiation) toCast;
 			}
-			if (toCast.unitsystem == LapseRateUnit.SI.Unit)
+			if (toCast.Unit == LapseRateUnit.SI.Unit)
 			{
 				return (LapseRate) toCast;
 			}
-			if (toCast.unitsystem == LinearDensityUnit.SI.Unit)
+			if (toCast.Unit == LinearDensityUnit.SI.Unit)
 			{
 				return (LinearDensity) toCast;
 			}
-			if (toCast.unitsystem == LinearPowerDensityUnit.SI.Unit)
+			if (toCast.Unit == LinearPowerDensityUnit.SI.Unit)
 			{
 				return (LinearPowerDensity) toCast;
 			}
-			if (toCast.unitsystem == LuminousFluxUnit.SI.Unit)
+			if (toCast.Unit == LuminousFluxUnit.SI.Unit)
 			{
 				return (LuminousFlux) toCast;
 			}
-			if (toCast.unitsystem == MagneticFieldUnit.SI.Unit)
+			if (toCast.Unit == MagneticFieldUnit.SI.Unit)
 			{
 				return (MagneticField) toCast;
 			}
-			if (toCast.unitsystem == MagneticFluxUnit.SI.Unit)
+			if (toCast.Unit == MagneticFluxUnit.SI.Unit)
 			{
 				return (MagneticFlux) toCast;
 			}
-			if (toCast.unitsystem == MagnetizationUnit.SI.Unit)
+			if (toCast.Unit == MagnetizationUnit.SI.Unit)
 			{
 				return (Magnetization) toCast;
 			}
-			if (toCast.unitsystem == MassFluxUnit.SI.Unit)
+			if (toCast.Unit == MassFluxUnit.SI.Unit)
 			{
 				return (MassFlux) toCast;
 			}
-			if (toCast.unitsystem == MassMomentOfInertiaUnit.SI.Unit)
+			if (toCast.Unit == MassMomentOfInertiaUnit.SI.Unit)
 			{
 				return (MassMomentOfInertia) toCast;
 			}
-			if (toCast.unitsystem == MolarEnergyUnit.SI.Unit)
+			if (toCast.Unit == MolarEnergyUnit.SI.Unit)
 			{
 				return (MolarEnergy) toCast;
 			}
-			if (toCast.unitsystem == MolarEntropyUnit.SI.Unit)
+			if (toCast.Unit == MolarEntropyUnit.SI.Unit)
 			{
 				return (MolarEntropy) toCast;
 			}
-			if (toCast.unitsystem == MolarityUnit.SI.Unit)
+			if (toCast.Unit == MolarityUnit.SI.Unit)
 			{
 				return (Molarity) toCast;
 			}
-			if (toCast.unitsystem == PermeabilityUnit.SI.Unit)
+			if (toCast.Unit == PermeabilityUnit.SI.Unit)
 			{
 				return (Permeability) toCast;
 			}
-			if (toCast.unitsystem == PermittivityUnit.SI.Unit)
+			if (toCast.Unit == PermittivityUnit.SI.Unit)
 			{
 				return (Permittivity) toCast;
 			}
-			if (toCast.unitsystem == PowerDensityUnit.SI.Unit)
+			if (toCast.Unit == PowerDensityUnit.SI.Unit)
 			{
 				return (PowerDensity) toCast;
 			}
-			if (toCast.unitsystem == PressureChangeRateUnit.SI.Unit)
+			if (toCast.Unit == PressureChangeRateUnit.SI.Unit)
 			{
 				return (PressureChangeRate) toCast;
 			}
-			if (toCast.unitsystem == RatioUnit.SI.Unit)
+			if (toCast.Unit == RatioUnit.SI.Unit)
 			{
 				return (Ratio) toCast;
 			}
-			if (toCast.unitsystem == ReactiveEnergyUnit.SI.Unit)
+			if (toCast.Unit == ReactiveEnergyUnit.SI.Unit)
 			{
 				return (ReactiveEnergy) toCast;
 			}
-			if (toCast.unitsystem == ReactivePowerUnit.SI.Unit)
+			if (toCast.Unit == ReactivePowerUnit.SI.Unit)
 			{
 				return (ReactivePower) toCast;
 			}
-			if (toCast.unitsystem == SpecificWeightUnit.SI.Unit)
+			if (toCast.Unit == SpecificWeightUnit.SI.Unit)
 			{
 				return (SpecificWeight) toCast;
 			}
-			if (toCast.unitsystem == TemperatureChangeRateUnit.SI.Unit)
+			if (toCast.Unit == TemperatureChangeRateUnit.SI.Unit)
 			{
 				return (TemperatureChangeRate) toCast;
 			}
-			if (toCast.unitsystem == WarpingMomentOfInertiaUnit.SI.Unit)
+			if (toCast.Unit == WarpingMomentOfInertiaUnit.SI.Unit)
 			{
 				return (WarpingMomentOfInertia) toCast;
 			}
-			if (toCast.unitsystem == VolumePerLengthUnit.SI.Unit)
+			if (toCast.Unit == VolumePerLengthUnit.SI.Unit)
 			{
 				return (VolumePerLength) toCast;
 			}
-			if (toCast.unitsystem == TorquePerLengthUnit.SI.Unit)
+			if (toCast.Unit == TorquePerLengthUnit.SI.Unit)
 			{
 				return (TorquePerLength) toCast;
 			}
-			if (toCast.unitsystem == ThermalConductivityUnit.SI.Unit)
+			if (toCast.Unit == ThermalConductivityUnit.SI.Unit)
 			{
 				return (ThermalConductivity) toCast;
 			}
-			if (toCast.unitsystem == ThermalResistanceUnit.SI.Unit)
+			if (toCast.Unit == ThermalResistanceUnit.SI.Unit)
 			{
 				return (ThermalResistance) toCast;
 			}
-			if (toCast.unitsystem == TorqueUnit.SI.Unit)
+			if (toCast.Unit == TorqueUnit.SI.Unit)
 			{
 				return (Torque) toCast;
 			}
-			if (toCast.unitsystem == VolumeFlowUnit.SI.Unit)
+			if (toCast.Unit == VolumeFlowUnit.SI.Unit)
 			{
 				return (VolumeFlow) toCast;
 			}
-			if (toCast.unitsystem == VolumeUnit.SI.Unit)
+			if (toCast.Unit == VolumeUnit.SI.Unit)
 			{
 				return (Volume) toCast;
 			}

@@ -34,7 +34,7 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit._baseUnit.Unit)
             {
-                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             }
 
             return (double)Unit._baseUnit.ToTheOutSide(new UnitSystem());
@@ -45,18 +45,25 @@ namespace EngineeringUnits
         {
             if (new UnitSystem() != Unit._baseUnit.Unit)
             {
-                throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.unitsystem}] ");
+                throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
             }
 
             return Unit._baseUnit.ToTheOutSide(new UnitSystem());
         }
         public static explicit operator BaseUnit(UnknownUnit Unit) => Unit._baseUnit;
 
-        public UnitSystem unitsystem => _baseUnit.Unit;
+        //public UnitSystem Unit => _baseUnit.Unit;
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => _baseUnit.Value;
         public decimal SI => _baseUnit.SI;
+
+        public UnitSystem Unit 
+        { 
+            get => _baseUnit.Unit; 
+            init => throw new MemberAccessException("UnknownUnit cant init the Unitsystem!"); 
+        }
+
         public override string ToString()
         {
             if (_baseUnit.Unit.Symbol is not null)

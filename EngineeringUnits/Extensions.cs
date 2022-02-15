@@ -74,7 +74,7 @@ namespace EngineeringUnits
         }
 
 
-        public static double As(this BaseUnit a, BaseUnit b)
+        public static double As(this BaseUnit a, IUnitSystem b)
         {
             return a.As(b.Unit);
         }
@@ -82,42 +82,23 @@ namespace EngineeringUnits
         {
             return (double)a.ToTheOutSide(b);
         }
-        public static double As(this BaseUnit a, UnknownUnit b)
-        {
-            return a.As(b._baseUnit.Unit);
-        }
-        public static double As(this BaseUnit a, Enumeration b)
-        {
-            return a.As(b.Unit);
-        }
 
-
-        public static double As(this UnknownUnit a, BaseUnit b)
-        {
-            return a._baseUnit.As(b);
-        }
-        public static double As(this UnknownUnit a, UnitSystem b)
-        {
-            return a._baseUnit.As(b);
-        }
-        public static double As(this UnknownUnit a, UnknownUnit b)
-        {
-            return a._baseUnit.As(b);
-        }
-        public static double As(this UnknownUnit a, Enumeration b)
+        public static double As(this UnknownUnit a, IUnitSystem b)
         {
             return a._baseUnit.As(b);
         }
 
-        public static BaseUnit ToUnit(this BaseUnit a, Enumeration selectedUnit)
+
+
+        public static BaseUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
         {
-            a.UnitCheck(selectedUnit.Unit);
+            a.UnitCheck(selectedUnit);
 
             return new(a.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
-        public static BaseUnit ToUnit(this UnknownUnit a, Enumeration selectedUnit)
+        public static BaseUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
         {
-            a._baseUnit.UnitCheck(selectedUnit.Unit);
+            a._baseUnit.UnitCheck(selectedUnit);
 
             return new(a._baseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
