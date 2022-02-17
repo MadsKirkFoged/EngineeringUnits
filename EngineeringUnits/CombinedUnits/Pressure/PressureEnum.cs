@@ -21,7 +21,7 @@ namespace EngineeringUnits.Units
         public static readonly PressureUnit Atmosphere =             new(Pascal, "atm", 101325m);
         public static readonly PressureUnit FootOfHead =             new(Pascal, "ft of head", 2989.0669m);
         public static readonly PressureUnit InchOfMercury =          new(Pascal, "inHg", 1/0.000295299830714159m);
-        public static readonly PressureUnit InchOfWaterColumn =      new(Pascal, "wc", 249.08890833333m);
+        public static readonly PressureUnit InchOfWaterColumn =      new(Pascal, "inH2O", 249.08890833333m);
         public static readonly PressureUnit MeterOfHead =            new(Pascal, "m of head", 9804.139432m);
         public static readonly PressureUnit MillimeterOfMercury =    new(Pascal, "mmHg", 1/7.50061561302643e-3m);
         public static readonly PressureUnit TechnicalAtmosphere =    new(Pascal, "at", 9.80680592331m * 1e4m);

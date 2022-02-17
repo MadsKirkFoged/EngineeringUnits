@@ -690,6 +690,8 @@ namespace UnitTests
                     Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
                     Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
                     Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+                    Debug.Print($"UnitsNets:       {A1.ToUnit(UN).ToString("a")}");
+                    Debug.Print($"EngineeringUnit: {A2.ToUnit(EU).DisplaySymbol()}");
 
                     //All units absolute difference
                     Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
