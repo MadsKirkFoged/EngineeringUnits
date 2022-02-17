@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace EngineeringUnits
@@ -218,6 +219,6 @@ namespace EngineeringUnits
             return list.Sum() / list.Count();
         }
 
-        
+
     }
 }

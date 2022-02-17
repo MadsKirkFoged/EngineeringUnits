@@ -219,7 +219,18 @@ namespace EngineeringUnits
                 return PrefixSISymbol(SI) + Unit.Symbol;       
         }
 
-        
+        public static T GetUnitByString<T>(string name)
+            where T:Enumeration
+        {
+            foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
+            {
+                if (field.Name == name)
+                    return (T)field.GetValue(field);
+            }
+
+            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
+        }
+
         public static List<T> ListOf<T>() where T: Enumeration
         {
             List<T> local = new();

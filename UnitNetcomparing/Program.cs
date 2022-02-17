@@ -20,6 +20,12 @@ namespace UnitNetcomparing
             var length = UnitsNet.Length.FromCentimeters(3.14159265358979);
             var length2 = Length.FromCentimeters(3.14159265358979);
 
+
+            var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
+
+ 
+
+
             // Typical formats
             Debug.Print("UnitNets: " + length.ToString("S4")); // 3.14 cm
             Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
