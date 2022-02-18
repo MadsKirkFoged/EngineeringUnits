@@ -14,7 +14,7 @@ namespace CodeGen
         public static void Generate(string projectRootPath)
         {
             StringBuilder builder = new StringBuilder();
-            StringBuilder staticUnits = new StringBuilder();
+            //StringBuilder staticUnits = new StringBuilder();
             StringBuilder conditionals = new StringBuilder();
 
             typeof(BaseUnit).Assembly.GetTypes()
@@ -37,7 +37,7 @@ namespace EngineeringUnits
     public static class UnknownUnitExtensions
     {");
             builder.AppendLine();
-            builder.Append(staticUnits);
+            //builder.Append(staticUnits);
             builder.AppendLine(@"       public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
             BaseUnit output = (BaseUnit) toCast;
@@ -52,4 +52,7 @@ namespace EngineeringUnits
             File.WriteAllText(Path.Combine(projectRootPath, "UnknownUnitExtensions.cs"), builder.ToString());
         }
     }
+
+
+
 }
