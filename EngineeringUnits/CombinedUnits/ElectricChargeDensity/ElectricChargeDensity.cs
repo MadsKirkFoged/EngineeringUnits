@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public ElectricChargeDensity(int value, ElectricChargeDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ElectricChargeDensity(UnknownUnit value) : base(value) { }
 
-        public ElectricChargeDensity(UnknownUnit value, ElectricChargeDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static ElectricChargeDensity From(double value, ElectricChargeDensityUnit unit) => new(value, unit);
         public double As(ElectricChargeDensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricChargeDensity ToUnit(ElectricChargeDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,11 +23,10 @@ namespace EngineeringUnits
         public static implicit operator ElectricChargeDensity(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeDensityUnit>(_unit);
+	}
 }
+

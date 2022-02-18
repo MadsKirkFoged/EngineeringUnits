@@ -1,4 +1,6 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,8 +13,6 @@ namespace EngineeringUnits
         public SpecificWeight(int value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public SpecificWeight(UnknownUnit value) : base(value) { }
 
-        public SpecificWeight(UnknownUnit value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static SpecificWeight From(double value, SpecificWeightUnit unit) => new(value, unit);
         public double As(SpecificWeightUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public SpecificWeight ToUnit(SpecificWeightUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -23,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator SpecificWeight(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);
+	}
 }
+

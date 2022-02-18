@@ -1,17 +1,17 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
 {
     public partial class TemperatureChangeRate : BaseUnit
     {
+
         public TemperatureChangeRate() { }
         public TemperatureChangeRate(decimal value, TemperatureChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public TemperatureChangeRate(double value, TemperatureChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public TemperatureChangeRate(int value, TemperatureChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public TemperatureChangeRate(UnknownUnit value) : base(value) { }
-
-        public TemperatureChangeRate(UnknownUnit value, TemperatureChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static TemperatureChangeRate From(double value, TemperatureChangeRateUnit unit) => new(value, unit);
         public double As(TemperatureChangeRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
@@ -23,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator TemperatureChangeRate(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureChangeRateUnit>(_unit);
+	}
 }
+

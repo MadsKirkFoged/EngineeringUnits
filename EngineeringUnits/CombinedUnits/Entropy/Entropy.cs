@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public Entropy(int value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Entropy(UnknownUnit value) : base(value) { }
 
-        public Entropy(UnknownUnit value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Entropy From(double value, EntropyUnit unit) => new(value, unit);
         public double As(EntropyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Entropy ToUnit(EntropyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,11 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Entropy(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EntropyUnit>(_unit);
+	}
 }
+

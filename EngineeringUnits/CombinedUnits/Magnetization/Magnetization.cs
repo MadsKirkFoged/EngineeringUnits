@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -6,13 +7,11 @@ namespace EngineeringUnits
     public partial class Magnetization : BaseUnit
     {
 
-        public Magnetization() {}
+        public Magnetization() { }
         public Magnetization(decimal value, MagnetizationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Magnetization(double value, MagnetizationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Magnetization(int value, MagnetizationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Magnetization(UnknownUnit value) : base(value) { }
-
-        public Magnetization(UnknownUnit value, MagnetizationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Magnetization From(double value, MagnetizationUnit unit) => new(value, unit);
         public double As(MagnetizationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
@@ -24,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Magnetization(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagnetizationUnit>(_unit);
+	}
 }
+

@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public Pressure(int value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Pressure(UnknownUnit value) : base(value) { }
 
-        public Pressure(UnknownUnit value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Pressure From(double value, PressureUnit unit) => new(value, unit);
         public double As(PressureUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Pressure ToUnit(PressureUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Pressure(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);
+	}
 }
+

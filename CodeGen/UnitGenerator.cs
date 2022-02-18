@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace CodeGen
 {
-    internal  class AccelerationGenerator
+    internal  class UnitGenerator
     {
 
         public static List<string> GetListOfCombinedUnits()

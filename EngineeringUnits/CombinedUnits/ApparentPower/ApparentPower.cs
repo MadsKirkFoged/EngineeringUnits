@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,23 +13,20 @@ namespace EngineeringUnits
         public ApparentPower(int value, ApparentPowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ApparentPower(UnknownUnit value) : base(value) { }
 
-        public ApparentPower(UnknownUnit value, ApparentPowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static ApparentPower From(double value, ApparentPowerUnit unit) => new(value, unit);
         public double As(ApparentPowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
 
-        public static implicit operator ApparentPower(UnknownUnit Unit) => new(Unit, ApparentPowerUnit.SI);
+        public static implicit operator ApparentPower(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator ApparentPower(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ApparentPowerUnit>(_unit);
+	}
 }
+

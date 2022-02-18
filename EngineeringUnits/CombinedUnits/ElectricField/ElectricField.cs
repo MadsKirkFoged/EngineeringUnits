@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public ElectricField(int value, ElectricFieldUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ElectricField(UnknownUnit value) : base(value) { }
 
-        public ElectricField(UnknownUnit value, ElectricFieldUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static ElectricField From(double value, ElectricFieldUnit unit) => new(value, unit);
         public double As(ElectricFieldUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,11 +23,10 @@ namespace EngineeringUnits
         public static implicit operator ElectricField(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricFieldUnit>(_unit);
+	}
 }
+

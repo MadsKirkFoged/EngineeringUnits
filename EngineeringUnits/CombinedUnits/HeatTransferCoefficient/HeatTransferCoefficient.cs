@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public HeatTransferCoefficient(int value, HeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public HeatTransferCoefficient(UnknownUnit value) : base(value) { }
 
-        public HeatTransferCoefficient(UnknownUnit value, HeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static HeatTransferCoefficient From(double value, HeatTransferCoefficientUnit unit) => new(value, unit);
         public double As(HeatTransferCoefficientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public HeatTransferCoefficient ToUnit(HeatTransferCoefficientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator HeatTransferCoefficient(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatTransferCoefficientUnit>(_unit);
+	}
 }
+

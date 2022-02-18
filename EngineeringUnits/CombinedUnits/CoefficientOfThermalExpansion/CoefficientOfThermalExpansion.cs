@@ -1,4 +1,6 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,8 +13,6 @@ namespace EngineeringUnits
         public CoefficientOfThermalExpansion(int value, CoefficientOfThermalExpansionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public CoefficientOfThermalExpansion(UnknownUnit value) : base(value) { }
 
-        public CoefficientOfThermalExpansion(UnknownUnit value, CoefficientOfThermalExpansionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static CoefficientOfThermalExpansion From(double value, CoefficientOfThermalExpansionUnit unit) => new(value, unit);
         public double As(CoefficientOfThermalExpansionUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -23,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator CoefficientOfThermalExpansion(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);
+	}
 }
+

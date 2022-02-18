@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public VolumePerLength(int value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public VolumePerLength(UnknownUnit value) : base(value) { }
 
-        public VolumePerLength(UnknownUnit value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static VolumePerLength From(double value, VolumePerLengthUnit unit) => new(value, unit);
         public double As(VolumePerLengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator VolumePerLength(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);
+	}
 }
+

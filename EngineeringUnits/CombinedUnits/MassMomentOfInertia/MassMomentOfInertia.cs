@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public MassMomentOfInertia(int value, MassMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public MassMomentOfInertia(UnknownUnit value) : base(value) { }
 
-        public MassMomentOfInertia(UnknownUnit value, MassMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static MassMomentOfInertia From(double value, MassMomentOfInertiaUnit unit) => new(value, unit);
         public double As(MassMomentOfInertiaUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MassMomentOfInertia ToUnit(MassMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator MassMomentOfInertia(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);
+	}
 }
+
