@@ -17,9 +17,12 @@ namespace UnitNetcomparing
         {
 
 
-            var length = UnitsNet.Length.FromCentimeters(3.14159265358979);
-            var length2 = Length.FromCentimeters(3.14159265358979);
+            var length = Length.FromYards(1);
+            var length2 = Length.FromMeters(5);
 
+            var area2 = length * length2;
+
+            Area area3 = Area.FromSquareYards(1);
 
             var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 

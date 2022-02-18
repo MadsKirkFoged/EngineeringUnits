@@ -51,9 +51,15 @@ namespace EngineeringUnits.Units
 
 
 
-        public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol = null)
+        public MassFlowUnit(MassUnit mass, DurationUnit duration, string NewSymbol)
         {
             Unit = new UnitSystem(mass / duration, NewSymbol);
+        }
+
+        public MassFlowUnit(MassUnit mass, DurationUnit duration)
+        {
+            Unit = new UnitSystem(mass / duration,
+                               $"{mass}/{duration}");
         }
 
         public MassFlowUnit(PreFix SI, MassFlowUnit unit) : base(SI, unit)  {}

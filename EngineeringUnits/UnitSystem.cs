@@ -208,7 +208,44 @@ namespace EngineeringUnits
             return NewUnitList;
         }
 
-       
+
+        public List<Enumeration> ReduceUnits2(List<Enumeration> ListToBeReduced)
+        {
+            //This reduces units of the same baseunit-type but with different types 
+
+            var test = ListToBeReduced.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+
+                    var groupOfSameConstant = GroupOfTypes
+                        .Select(x => x)
+                        .GroupBy(x => x.NewC);
+
+
+                    
+                }
+
+            }
+
+            return NewUnitList;
+
+
+
+
+        }
+
+
         public UnitSystem Pow(int toPower)
         {
 
