@@ -177,10 +177,12 @@ namespace UnitTests
                                                             A1.As(UN)),
                                                             RelError);
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol()
+                                    .Replace("day", "d"),
                                     A1.ToUnit(UN).ToString("a")
                                     .Replace("btu", "BTU")
                                     .Replace("ST", "t (short)")
+                                    
 
                                     );
 
@@ -304,9 +306,10 @@ namespace UnitTests
                                                             A1.As(UN)),
                                                             RelError);
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol()
+                                    .Replace("day", "d"),
                                     A1.ToUnit(UN).ToString("a")
-                                    .Replace("min", "m")
+                                    //.Replace("min", "m")
                                     );
 
                     WorkingCompares++;
@@ -531,7 +534,8 @@ namespace UnitTests
                                                             A1.As(UN)),
                                                             RelError);
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol()
+                                    .Replace("day", "d"),
                                     A1.ToUnit(UN).ToString("a"));
 
                     WorkingCompares++;
@@ -646,7 +650,7 @@ namespace UnitTests
                     //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                     A1.ToUnit(UN).ToString("a")
-                                    .Replace("/min", "/m")
+                                    //.Replace("/min", "/m")
                                     );
 
                     WorkingCompares++;
@@ -813,7 +817,7 @@ namespace UnitTests
                     //All units symbol compare
                     Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
                                     A1.ToUnit(UN).ToString("a")
-                                    .Replace("min", "m")
+                                    //.Replace("min", "m")
                                     );
 
                     WorkingCompares++;
@@ -1150,10 +1154,11 @@ namespace UnitTests
                                                             A1.As(UN)),
                                                             RelError);
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol()
+                                    .Replace("day", "d"),
                                     A1.ToUnit(UN).ToString("a")
                                     .Replace("day", "d")
-                                    .Replace("min", "m")
+                                    //.Replace("min", "m")
                                     .Replace("L", "l")
                                     .Replace("cy", "yd³")
                                     .Replace("hr", "h")

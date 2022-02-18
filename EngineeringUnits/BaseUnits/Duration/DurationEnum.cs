@@ -19,9 +19,9 @@ namespace EngineeringUnits.Units
         public static readonly DurationUnit Microsecond =   new(PreFix.micro, BaseUnits.time);
         public static readonly DurationUnit Second =        new(PreFix.SI, BaseUnits.time);
 
-        public static readonly DurationUnit Minute =        new("m", 60m);
+        public static readonly DurationUnit Minute =        new("min", 60m);
         public static readonly DurationUnit Hour =          new("h", 3600m);
-        public static readonly DurationUnit Day =           new("d", 24*3600m);
+        public static readonly DurationUnit Day =           new("day", 24*3600m);
         public static readonly DurationUnit Week =          new("wk", 7*24*3600m);
         public static readonly DurationUnit Month30 =       new("mo", 30 * 24 * 3600m);
         public static readonly DurationUnit Year365 =       new("yr", 365*24*3600m);
