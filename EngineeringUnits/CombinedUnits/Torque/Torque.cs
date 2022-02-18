@@ -1,4 +1,6 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,8 +13,6 @@ namespace EngineeringUnits
         public Torque(int value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Torque(UnknownUnit value) : base(value) { }
 
-        public Torque(UnknownUnit value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Torque From(double value, TorqueUnit unit) => new(value, unit);
         public double As(TorqueUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Torque ToUnit(TorqueUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -23,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Torque(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);
+	}
 }
+

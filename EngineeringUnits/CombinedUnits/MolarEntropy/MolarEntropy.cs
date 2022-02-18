@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public MolarEntropy(int value, MolarEntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public MolarEntropy(UnknownUnit value) : base(value) { }
 
-        public MolarEntropy(UnknownUnit value, MolarEntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static MolarEntropy From(double value, MolarEntropyUnit unit) => new(value, unit);
         public double As(MolarEntropyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MolarEntropy ToUnit(MolarEntropyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator MolarEntropy(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEntropyUnit>(_unit);
+	}
 }
+

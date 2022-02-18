@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public Frequency(int value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Frequency(UnknownUnit value) : base(value) { }
 
-        public Frequency(UnknownUnit value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Frequency From(double value, FrequencyUnit unit) => new(value, unit);
         public double As(FrequencyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Frequency ToUnit(FrequencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,14 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Frequency(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-        //public override void CheckForStandardUnit() => CheckForStandardUnit<FrequencyUnit>();
-
-        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
+	}
 }
+

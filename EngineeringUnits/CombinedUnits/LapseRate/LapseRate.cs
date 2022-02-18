@@ -1,4 +1,6 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
@@ -11,8 +13,6 @@ namespace EngineeringUnits
         public LapseRate(int value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public LapseRate(UnknownUnit value) : base(value) { }
 
-        public LapseRate(UnknownUnit value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static LapseRate From(double value, LapseRateUnit unit) => new(value, unit);
         public double As(LapseRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public LapseRate ToUnit(LapseRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -23,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator LapseRate(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);
+	}
 }
+

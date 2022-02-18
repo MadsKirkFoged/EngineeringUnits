@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public ReactiveEnergy(int value, ReactiveEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ReactiveEnergy(UnknownUnit value) : base(value) { }
 
-        public ReactiveEnergy(UnknownUnit value, ReactiveEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new(value, unit);
         public double As(ReactiveEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator ReactiveEnergy(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);
+	}
 }
+

@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public MolarMass(int value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public MolarMass(UnknownUnit value) : base(value) { }
 
-        public MolarMass(UnknownUnit value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static MolarMass From(double value, MolarMassUnit unit) => new(value, unit);
         public double As(MolarMassUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MolarMass ToUnit(MolarMassUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator MolarMass(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);
+	}
 }
+

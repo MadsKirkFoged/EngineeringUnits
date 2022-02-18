@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public ElectricCurrentGradient(int value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ElectricCurrentGradient(UnknownUnit value) : base(value) { }
 
-        public ElectricCurrentGradient(UnknownUnit value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static ElectricCurrentGradient From(double value, ElectricCurrentGradientUnit unit) => new(value, unit);
         public double As(ElectricCurrentGradientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator ElectricCurrentGradient(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentGradientUnit>(_unit);
+	}
 }
+

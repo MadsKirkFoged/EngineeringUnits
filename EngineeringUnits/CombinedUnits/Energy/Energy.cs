@@ -1,9 +1,9 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
 {
-
     public partial class Energy : BaseUnit
     {
 
@@ -12,8 +12,6 @@ namespace EngineeringUnits
         public Energy(double value, EnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Energy(int value, EnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Energy(UnknownUnit value) : base(value) { }
-
-        public Energy(UnknownUnit value, EnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Energy From(double value, EnergyUnit unit) => new(value, unit);
         public double As(EnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
@@ -25,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Energy(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyUnit>(_unit);
+	}
 }
+

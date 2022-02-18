@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public Permeability(int value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public Permeability(UnknownUnit value) : base(value) { }
 
-        public Permeability(UnknownUnit value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static Permeability From(double value, PermeabilityUnit unit) => new(value, unit);
         public double As(PermeabilityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Permeability ToUnit(PermeabilityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,9 +23,10 @@ namespace EngineeringUnits
         public static implicit operator Permeability(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermeabilityUnit>(_unit);
+	}
 }
+

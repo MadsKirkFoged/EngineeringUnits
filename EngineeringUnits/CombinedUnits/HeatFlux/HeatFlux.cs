@@ -1,4 +1,5 @@
-﻿using EngineeringUnits.Units;
+
+using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
@@ -12,8 +13,6 @@ namespace EngineeringUnits
         public HeatFlux(int value, HeatFluxUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public HeatFlux(UnknownUnit value) : base(value) { }
 
-        public HeatFlux(UnknownUnit value, HeatFluxUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-
         public static HeatFlux From(double value, HeatFluxUnit unit) => new(value, unit);
         public double As(HeatFluxUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public HeatFlux ToUnit(HeatFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
@@ -24,10 +23,10 @@ namespace EngineeringUnits
         public static implicit operator HeatFlux(int zero)
         {
             if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-    }
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);
+	}
 }
+

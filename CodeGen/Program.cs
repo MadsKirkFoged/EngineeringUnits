@@ -14,7 +14,8 @@ namespace CodeGen
             string solutionDir = assemblyDir.Substring(0, assemblyDir.IndexOf(GENERATOR_NAME));
             string libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
-            UnknownUnitExtensionsGenerator.Generate(libraryDir);
+            //UnknownUnitExtensionsGenerator.Generate(libraryDir);
+            UnitGenerator.GenerateClasses(libraryDir);
         }
     }
 }
