@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Acceleration(UnknownUnit value) : base(value) { }
 
         public static Acceleration From(double value, AccelerationUnit unit) => new(value, unit);
+
+        public static Acceleration From(double? value, AccelerationUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(AccelerationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Acceleration ToUnit(AccelerationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Acceleration Zero => new(0, AccelerationUnit.SI);

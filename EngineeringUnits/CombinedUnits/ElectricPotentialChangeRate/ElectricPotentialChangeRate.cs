@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ElectricPotentialChangeRate(UnknownUnit value) : base(value) { }
 
         public static ElectricPotentialChangeRate From(double value, ElectricPotentialChangeRateUnit unit) => new(value, unit);
+
+        public static ElectricPotentialChangeRate From(double? value, ElectricPotentialChangeRateUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ElectricPotentialChangeRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricPotentialChangeRate ToUnit(ElectricPotentialChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricPotentialChangeRate Zero => new(0, ElectricPotentialChangeRateUnit.SI);

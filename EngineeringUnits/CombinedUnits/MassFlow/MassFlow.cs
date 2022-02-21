@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public MassFlow(UnknownUnit value) : base(value) { }
 
         public static MassFlow From(double value, MassFlowUnit unit) => new(value, unit);
+
+        public static MassFlow From(double? value, MassFlowUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(MassFlowUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MassFlow ToUnit(MassFlowUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MassFlow Zero => new(0, MassFlowUnit.SI);

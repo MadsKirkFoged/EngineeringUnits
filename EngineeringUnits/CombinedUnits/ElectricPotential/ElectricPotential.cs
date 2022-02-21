@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ElectricPotential(UnknownUnit value) : base(value) { }
 
         public static ElectricPotential From(double value, ElectricPotentialUnit unit) => new(value, unit);
+
+        public static ElectricPotential From(double? value, ElectricPotentialUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ElectricPotentialUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);

@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ElectricCharge(UnknownUnit value) : base(value) { }
 
         public static ElectricCharge From(double value, ElectricChargeUnit unit) => new(value, unit);
+
+        public static ElectricCharge From(double? value, ElectricChargeUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ElectricChargeUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricCharge ToUnit(ElectricChargeUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricCharge Zero => new(0, ElectricChargeUnit.SI);

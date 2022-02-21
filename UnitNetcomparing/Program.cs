@@ -23,7 +23,8 @@ namespace UnitNetcomparing
 
             var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 
- 
+            double? c = null;
+          var test = Power.From(c,null);
 
 
             // Typical formats

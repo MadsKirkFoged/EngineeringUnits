@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Molarity(UnknownUnit value) : base(value) { }
 
         public static Molarity From(double value, MolarityUnit unit) => new(value, unit);
+
+        public static Molarity From(double? value, MolarityUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(MolarityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Molarity ToUnit(MolarityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Molarity Zero => new(0, MolarityUnit.SI);

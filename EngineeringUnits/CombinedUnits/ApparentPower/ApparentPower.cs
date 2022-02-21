@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ApparentPower(UnknownUnit value) : base(value) { }
 
         public static ApparentPower From(double value, ApparentPowerUnit unit) => new(value, unit);
+
+        public static ApparentPower From(double? value, ApparentPowerUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ApparentPowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
