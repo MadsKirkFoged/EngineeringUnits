@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Ratio(UnknownUnit value) : base(value) { }
 
         public static Ratio From(double value, RatioUnit unit) => new(value, unit);
+
+        public static Ratio From(double? value, RatioUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(RatioUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Ratio ToUnit(RatioUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Ratio Zero => new(0, RatioUnit.SI);

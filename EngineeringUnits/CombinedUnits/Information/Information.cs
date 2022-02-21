@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Information(UnknownUnit value) : base(value) { }
 
         public static Information From(double value, InformationUnit unit) => new(value, unit);
+
+        public static Information From(double? value, InformationUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(InformationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Information ToUnit(InformationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Information Zero => new(0, InformationUnit.SI);

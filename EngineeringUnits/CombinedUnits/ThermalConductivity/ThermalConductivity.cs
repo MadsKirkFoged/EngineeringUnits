@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ThermalConductivity(UnknownUnit value) : base(value) { }
 
         public static ThermalConductivity From(double value, ThermalConductivityUnit unit) => new(value, unit);
+
+        public static ThermalConductivity From(double? value, ThermalConductivityUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ThermalConductivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ThermalConductivity ToUnit(ThermalConductivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ThermalConductivity Zero => new(0, ThermalConductivityUnit.SI);

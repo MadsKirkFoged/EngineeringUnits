@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public PressureChangeRate(UnknownUnit value) : base(value) { }
 
         public static PressureChangeRate From(double value, PressureChangeRateUnit unit) => new(value, unit);
+
+        public static PressureChangeRate From(double? value, PressureChangeRateUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(PressureChangeRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public PressureChangeRate ToUnit(PressureChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PressureChangeRate Zero => new(0, PressureChangeRateUnit.SI);

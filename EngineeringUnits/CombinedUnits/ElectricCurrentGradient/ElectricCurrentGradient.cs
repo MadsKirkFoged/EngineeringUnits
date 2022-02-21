@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ElectricCurrentGradient(UnknownUnit value) : base(value) { }
 
         public static ElectricCurrentGradient From(double value, ElectricCurrentGradientUnit unit) => new(value, unit);
+
+        public static ElectricCurrentGradient From(double? value, ElectricCurrentGradientUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ElectricCurrentGradientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrentGradient Zero => new(0, ElectricCurrentGradientUnit.SI);

@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ForceChangeRate(UnknownUnit value) : base(value) { }
 
         public static ForceChangeRate From(double value, ForceChangeRateUnit unit) => new(value, unit);
+
+        public static ForceChangeRate From(double? value, ForceChangeRateUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ForceChangeRateUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ForceChangeRate ToUnit(ForceChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ForceChangeRate Zero => new(0, ForceChangeRateUnit.SI);

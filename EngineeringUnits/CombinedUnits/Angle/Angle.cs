@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Angle(UnknownUnit value) : base(value) { }
 
         public static Angle From(double value, AngleUnit unit) => new(value, unit);
+
+        public static Angle From(double? value, AngleUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(AngleUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Angle ToUnit(AngleUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Angle Zero => new(0, AngleUnit.SI);

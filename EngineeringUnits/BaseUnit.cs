@@ -41,6 +41,8 @@ namespace EngineeringUnits
                 NEWValue = (decimal)value;
             }
         }
+
+       
         public BaseUnit(int value, UnitSystem unitSystem)
         {
             Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));

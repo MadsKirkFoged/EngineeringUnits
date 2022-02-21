@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Duration(UnknownUnit value) : base(value) { }
 
         public static Duration From(double value, DurationUnit unit) => new(value, unit);
+
+        public static Duration From(double? value, DurationUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(DurationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Duration ToUnit(DurationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Duration Zero => new(0, DurationUnit.SI);

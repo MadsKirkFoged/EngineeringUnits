@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Frequency(UnknownUnit value) : base(value) { }
 
         public static Frequency From(double value, FrequencyUnit unit) => new(value, unit);
+
+        public static Frequency From(double? value, FrequencyUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(FrequencyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Frequency ToUnit(FrequencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Frequency Zero => new(0, FrequencyUnit.SI);

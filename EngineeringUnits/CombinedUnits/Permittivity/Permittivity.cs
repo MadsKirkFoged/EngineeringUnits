@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Permittivity(UnknownUnit value) : base(value) { }
 
         public static Permittivity From(double value, PermittivityUnit unit) => new(value, unit);
+
+        public static Permittivity From(double? value, PermittivityUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(PermittivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Permittivity ToUnit(PermittivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Permittivity Zero => new(0, PermittivityUnit.SI);
