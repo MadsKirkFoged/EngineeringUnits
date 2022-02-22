@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ThermalResistance(UnknownUnit value) : base(value) { }
 
         public static ThermalResistance From(double value, ThermalResistanceUnit unit) => new(value, unit);
+
+        public static ThermalResistance From(double? value, ThermalResistanceUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ThermalResistanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ThermalResistance ToUnit(ThermalResistanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ThermalResistance Zero => new(0, ThermalResistanceUnit.SI);

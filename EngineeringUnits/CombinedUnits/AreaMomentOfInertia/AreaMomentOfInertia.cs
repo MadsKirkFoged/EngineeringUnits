@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public AreaMomentOfInertia(UnknownUnit value) : base(value) { }
 
         public static AreaMomentOfInertia From(double value, AreaMomentOfInertiaUnit unit) => new(value, unit);
+
+        public static AreaMomentOfInertia From(double? value, AreaMomentOfInertiaUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(AreaMomentOfInertiaUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public AreaMomentOfInertia ToUnit(AreaMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static AreaMomentOfInertia Zero => new(0, AreaMomentOfInertiaUnit.SI);

@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Force(UnknownUnit value) : base(value) { }
 
         public static Force From(double value, ForceUnit unit) => new(value, unit);
+
+        public static Force From(double? value, ForceUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ForceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Force ToUnit(ForceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Force Zero => new(0, ForceUnit.SI);

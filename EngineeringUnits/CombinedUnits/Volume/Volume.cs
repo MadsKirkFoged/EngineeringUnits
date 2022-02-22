@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Volume(UnknownUnit value) : base(value) { }
 
         public static Volume From(double value, VolumeUnit unit) => new(value, unit);
+
+        public static Volume From(double? value, VolumeUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(VolumeUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Volume ToUnit(VolumeUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Volume Zero => new(0, VolumeUnit.SI);

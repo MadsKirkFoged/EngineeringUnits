@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public MassMomentOfInertia(UnknownUnit value) : base(value) { }
 
         public static MassMomentOfInertia From(double value, MassMomentOfInertiaUnit unit) => new(value, unit);
+
+        public static MassMomentOfInertia From(double? value, MassMomentOfInertiaUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(MassMomentOfInertiaUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MassMomentOfInertia ToUnit(MassMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MassMomentOfInertia Zero => new(0, MassMomentOfInertiaUnit.SI);

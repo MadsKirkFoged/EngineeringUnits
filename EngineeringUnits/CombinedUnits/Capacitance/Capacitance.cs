@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Capacitance(UnknownUnit value) : base(value) { }
 
         public static Capacitance From(double value, CapacitanceUnit unit) => new(value, unit);
+
+        public static Capacitance From(double? value, CapacitanceUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(CapacitanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Capacitance ToUnit(CapacitanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Capacitance Zero => new(0, CapacitanceUnit.SI);

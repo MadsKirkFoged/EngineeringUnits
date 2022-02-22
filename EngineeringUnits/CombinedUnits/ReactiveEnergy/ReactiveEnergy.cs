@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ReactiveEnergy(UnknownUnit value) : base(value) { }
 
         public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new(value, unit);
+
+        public static ReactiveEnergy From(double? value, ReactiveEnergyUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ReactiveEnergyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);

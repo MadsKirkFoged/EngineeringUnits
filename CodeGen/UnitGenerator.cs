@@ -76,6 +76,16 @@ namespace EngineeringUnits
         public Variable(UnknownUnit value) : base(value) { }
 
         public static Variable From(double value, VariableUnit unit) => new(value, unit);
+
+        public static Variable From(double? value, VariableUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(VariableUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Variable ToUnit(VariableUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Variable Zero => new(0, VariableUnit.SI);

@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Magnetization(UnknownUnit value) : base(value) { }
 
         public static Magnetization From(double value, MagnetizationUnit unit) => new(value, unit);
+
+        public static Magnetization From(double? value, MagnetizationUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(MagnetizationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Magnetization ToUnit(MagnetizationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Magnetization Zero => new(0, MagnetizationUnit.SI);

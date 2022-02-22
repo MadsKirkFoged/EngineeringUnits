@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public ElectricResistivity(UnknownUnit value) : base(value) { }
 
         public static ElectricResistivity From(double value, ElectricResistivityUnit unit) => new(value, unit);
+
+        public static ElectricResistivity From(double? value, ElectricResistivityUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(ElectricResistivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public ElectricResistivity ToUnit(ElectricResistivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricResistivity Zero => new(0, ElectricResistivityUnit.SI);

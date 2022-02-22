@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public LuminousFlux(UnknownUnit value) : base(value) { }
 
         public static LuminousFlux From(double value, LuminousFluxUnit unit) => new(value, unit);
+
+        public static LuminousFlux From(double? value, LuminousFluxUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(LuminousFluxUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public LuminousFlux ToUnit(LuminousFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LuminousFlux Zero => new(0, LuminousFluxUnit.SI);

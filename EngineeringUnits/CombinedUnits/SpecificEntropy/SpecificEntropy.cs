@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public SpecificEntropy(UnknownUnit value) : base(value) { }
 
         public static SpecificEntropy From(double value, SpecificEntropyUnit unit) => new(value, unit);
+
+        public static SpecificEntropy From(double? value, SpecificEntropyUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(SpecificEntropyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public SpecificEntropy ToUnit(SpecificEntropyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static SpecificEntropy Zero => new(0, SpecificEntropyUnit.SI);

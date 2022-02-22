@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public MagneticFlux(UnknownUnit value) : base(value) { }
 
         public static MagneticFlux From(double value, MagneticFluxUnit unit) => new(value, unit);
+
+        public static MagneticFlux From(double? value, MagneticFluxUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(MagneticFluxUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public MagneticFlux ToUnit(MagneticFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MagneticFlux Zero => new(0, MagneticFluxUnit.SI);

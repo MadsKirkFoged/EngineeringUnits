@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public Speed(UnknownUnit value) : base(value) { }
 
         public static Speed From(double value, SpeedUnit unit) => new(value, unit);
+
+        public static Speed From(double? value, SpeedUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(SpeedUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public Speed ToUnit(SpeedUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Speed Zero => new(0, SpeedUnit.SI);

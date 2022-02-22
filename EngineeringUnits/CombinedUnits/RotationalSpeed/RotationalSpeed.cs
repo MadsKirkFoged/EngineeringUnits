@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public RotationalSpeed(UnknownUnit value) : base(value) { }
 
         public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new(value, unit);
+
+        public static RotationalSpeed From(double? value, RotationalSpeedUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(RotationalSpeedUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public RotationalSpeed ToUnit(RotationalSpeedUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static RotationalSpeed Zero => new(0, RotationalSpeedUnit.SI);

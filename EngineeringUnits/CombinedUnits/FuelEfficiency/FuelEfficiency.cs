@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public FuelEfficiency(UnknownUnit value) : base(value) { }
 
         public static FuelEfficiency From(double value, FuelEfficiencyUnit unit) => new(value, unit);
+
+        public static FuelEfficiency From(double? value, FuelEfficiencyUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(FuelEfficiencyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public FuelEfficiency ToUnit(FuelEfficiencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static FuelEfficiency Zero => new(0, FuelEfficiencyUnit.SI);

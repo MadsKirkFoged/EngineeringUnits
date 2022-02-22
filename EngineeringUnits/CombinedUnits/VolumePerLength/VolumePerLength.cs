@@ -14,6 +14,16 @@ namespace EngineeringUnits
         public VolumePerLength(UnknownUnit value) : base(value) { }
 
         public static VolumePerLength From(double value, VolumePerLengthUnit unit) => new(value, unit);
+
+        public static VolumePerLength From(double? value, VolumePerLengthUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
+
+            return From((double)value, unit);
+        }
         public double As(VolumePerLengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
         public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static VolumePerLength Zero => new(0, VolumePerLengthUnit.SI);
