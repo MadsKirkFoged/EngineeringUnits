@@ -51,7 +51,6 @@ namespace EngineeringUnits
                     .ToList();
         }
 
-
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
             return a.UnitsCount().All(b.UnitsCount().Contains) && 
@@ -123,7 +122,7 @@ namespace EngineeringUnits
             List<Enumeration> LocalUnitList = new(a.ListOfUnits);
 
             foreach (var item in b.ListOfUnits)            
-                LocalUnitList.Add((Enumeration)item.CloneAndReverseCount());        
+                LocalUnitList.Add(item.CloneAndReverseCount());        
 
 
             return new UnitSystem(LocalUnitList);
@@ -246,31 +245,7 @@ namespace EngineeringUnits
         }
 
 
-        public UnitSystem Pow(int toPower)
-        {
-
-            if (toPower == 1)
-                return this;
-
-            UnitSystem local = new();
-
-            if (toPower == 0)
-                return local;
-
-
-            if (toPower > 1)
-                for (int i = 0; i < toPower; i++)
-                    local *= this;
-
-
-            if (toPower < 0)
-                for (int i = 0; i > toPower; i--)
-                    local /= this;
-
-
-
-            return local;
-        }
+       
 
 
         //public UnitSystem Sqrt()

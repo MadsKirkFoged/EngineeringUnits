@@ -7,8 +7,8 @@ namespace EngineeringUnits
 
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
-            
-			if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
+
+            if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
 			{
 				return (AmountOfSubstance) toCast;
 			}
@@ -32,10 +32,6 @@ namespace EngineeringUnits
 			{
 				return (Mass) toCast;
 			}
-			//if (toCast.unitsystem == TemperatureDeltaUnit.SI.Unit)
-			//{
-			//	return (TemperatureDelta) toCast;
-			//}
 			if (toCast.Unit == TemperatureUnit.SI.Unit)
 			{
 				return (Temperature) toCast;

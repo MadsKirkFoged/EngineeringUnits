@@ -377,7 +377,10 @@ namespace EngineeringUnits
 
         private bool IsValueOverDecimalMax(double value)
         {
-            return double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value);
+            return double.IsInfinity(value) || 
+                    value > (double)decimal.MaxValue || 
+                    value < (double)decimal.MinValue || 
+                    double.IsNaN(value);
         }
 
         public override bool Equals(Object obj)

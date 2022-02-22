@@ -252,7 +252,7 @@ namespace EngineeringUnits
             return new Enumeration(this, false);
         }
 
-        public object CloneAndReverseCount()
+        public Enumeration CloneAndReverseCount()
         {
             return new Enumeration(this, true);
         }

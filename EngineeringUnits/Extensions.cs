@@ -103,26 +103,28 @@ namespace EngineeringUnits
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
         {
+            return toPower switch
+            {
+                0 => 1,
+                1 => a,
+                > 1 => a.Pow(toPower - 1) * a,
+                < 0 => a.Pow(toPower + 1) / a
+            };
 
-            UnknownUnit localtest = a;
-
-            if (toPower == 0)
-                return 1;
-
-
-            if (toPower > 1)
-                for (int i = 1; i < toPower; i++)
-                    localtest *= a;
-
-
-            if (toPower < 0)
-                for (int i = 1; i > toPower; i--)
-                    localtest /= a;
-
-
-
-            return localtest;
         }
+
+        public static UnitSystem Pow(this UnitSystem a, int toPower)
+        {
+            return toPower switch
+            {
+                0 => new UnitSystem(),
+                1 => a,
+                > 1 => a.Pow(toPower - 1) * a,
+                < 0 => a.Pow(toPower + 1) / a
+            };
+
+        }
+
         public static UnknownUnit Pow(this UnknownUnit a, int toPower)
         {
            return a._baseUnit.Pow(toPower);
