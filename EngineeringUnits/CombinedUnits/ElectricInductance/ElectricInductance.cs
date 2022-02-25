@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricInductance ToUnit(ElectricInductanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricInductance Zero => new(0, ElectricInductanceUnit.SI);
 
-        public static implicit operator ElectricInductance(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricInductance(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricInductanceUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricInductance(int zero)
         {

@@ -62,6 +62,24 @@ namespace EngineeringUnits
                 throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.Unit}]");
         }
 
+        public void UnitCheck(UnitSystem a)
+        {
+            if (a != Unit)
+                throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a}]");
+        }
+
+        public static void UnitCheck(UnitSystem a, UnitSystem b)
+        {
+            if (a != b)
+                throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
+        }
+
+        public static void UnitCheck(IUnitSystem a, IUnitSystem b)
+        {
+            if (a.Unit != b.Unit)
+                throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
+        }
+
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
@@ -362,6 +380,12 @@ namespace EngineeringUnits
 
             if (_unit.Symbol is not null)
                 return _unit.Symbol;
+
+
+            //foreach (var item in Enumeration.ListOf<T>())
+            //{
+            //    Debug.Print($"{item.Unit.SumConstant()} = {_unit.SumConstant()}");
+            //}
 
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol

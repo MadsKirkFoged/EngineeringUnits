@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public MassMomentOfInertia ToUnit(MassMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MassMomentOfInertia Zero => new(0, MassMomentOfInertiaUnit.SI);
 
-        public static implicit operator MassMomentOfInertia(UnknownUnit Unit) => new(Unit);
+        public static implicit operator MassMomentOfInertia(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MassMomentOfInertiaUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator MassMomentOfInertia(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public MassFlow ToUnit(MassFlowUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MassFlow Zero => new(0, MassFlowUnit.SI);
 
-        public static implicit operator MassFlow(UnknownUnit Unit) => new(Unit);
+        public static implicit operator MassFlow(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MassFlowUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator MassFlow(int zero)
         {

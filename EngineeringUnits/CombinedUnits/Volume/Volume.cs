@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Volume ToUnit(VolumeUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Volume Zero => new(0, VolumeUnit.SI);
 
-        public static implicit operator Volume(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Volume(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, VolumeUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Volume(int zero)
         {

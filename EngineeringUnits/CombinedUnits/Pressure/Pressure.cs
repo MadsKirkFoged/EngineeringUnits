@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Pressure ToUnit(PressureUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Pressure Zero => new(0, PressureUnit.SI);
 
-        public static implicit operator Pressure(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Pressure(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, PressureUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Pressure(int zero)
         {

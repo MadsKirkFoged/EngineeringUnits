@@ -43,6 +43,20 @@ namespace EngineeringUnits
         {
             //This returns <typeOfUnit,Unit Count of the specifig type>
 
+            //var test = ListOfUnits
+            //        .Where(x => x.TypeOfUnit != "CombinedUnit")
+            //        .GroupBy(x => x.TypeOfUnit)
+            //        .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
+            //        .Where(x => x.Item2 != 0)
+            //        .ToList();
+
+            //foreach (var item in test)
+            //{
+            //    Debug.Print(item.ToString());
+            //}
+
+
+
             return ListOfUnits
                     .Where(x => x.TypeOfUnit != "CombinedUnit")
                     .GroupBy(x => x.TypeOfUnit)
@@ -53,6 +67,7 @@ namespace EngineeringUnits
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
+
             return a.UnitsCount().All(b.UnitsCount().Contains) && 
                    a.UnitsCount().Count == b.UnitsCount().Count;         
         }

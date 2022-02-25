@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Acceleration ToUnit(AccelerationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Acceleration Zero => new(0, AccelerationUnit.SI);
 
-        public static implicit operator Acceleration(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Acceleration(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, AccelerationUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Acceleration(int zero)
         {

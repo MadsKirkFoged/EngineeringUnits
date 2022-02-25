@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public TorquePerLength ToUnit(TorquePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static TorquePerLength Zero => new(0, TorquePerLengthUnit.SI);
 
-        public static implicit operator TorquePerLength(UnknownUnit Unit) => new(Unit);
+        public static implicit operator TorquePerLength(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, TorquePerLengthUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator TorquePerLength(int zero)
         {

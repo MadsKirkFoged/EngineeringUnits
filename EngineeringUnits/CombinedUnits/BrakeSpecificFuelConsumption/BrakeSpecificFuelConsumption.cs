@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public BrakeSpecificFuelConsumption ToUnit(BrakeSpecificFuelConsumptionUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static BrakeSpecificFuelConsumption Zero => new(0, BrakeSpecificFuelConsumptionUnit.SI);
 
-        public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit) => new(Unit);
+        public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, BrakeSpecificFuelConsumptionUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator BrakeSpecificFuelConsumption(int zero)
         {

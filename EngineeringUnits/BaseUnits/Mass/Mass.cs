@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Mass ToUnit(MassUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Mass Zero => new(0, MassUnit.SI);
 
-        public static implicit operator Mass(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Mass(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MassUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Mass(int zero)
         {

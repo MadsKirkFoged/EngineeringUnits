@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public MolarEntropy ToUnit(MolarEntropyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MolarEntropy Zero => new(0, MolarEntropyUnit.SI);
 
-        public static implicit operator MolarEntropy(UnknownUnit Unit) => new(Unit);
+        public static implicit operator MolarEntropy(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MolarEntropyUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator MolarEntropy(int zero)
         {

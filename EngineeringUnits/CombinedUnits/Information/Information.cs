@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Information ToUnit(InformationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Information Zero => new(0, InformationUnit.SI);
 
-        public static implicit operator Information(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Information(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, InformationUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Information(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public MagneticFlux ToUnit(MagneticFluxUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MagneticFlux Zero => new(0, MagneticFluxUnit.SI);
 
-        public static implicit operator MagneticFlux(UnknownUnit Unit) => new(Unit);
+        public static implicit operator MagneticFlux(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MagneticFluxUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator MagneticFlux(int zero)
         {

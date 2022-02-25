@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Magnetization ToUnit(MagnetizationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Magnetization Zero => new(0, MagnetizationUnit.SI);
 
-        public static implicit operator Magnetization(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Magnetization(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MagnetizationUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Magnetization(int zero)
         {

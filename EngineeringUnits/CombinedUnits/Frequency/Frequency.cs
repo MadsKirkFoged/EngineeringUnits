@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Frequency ToUnit(FrequencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Frequency Zero => new(0, FrequencyUnit.SI);
 
-        public static implicit operator Frequency(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Frequency(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, FrequencyUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Frequency(int zero)
         {

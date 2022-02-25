@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public MagneticField ToUnit(MagneticFieldUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static MagneticField Zero => new(0, MagneticFieldUnit.SI);
 
-        public static implicit operator MagneticField(UnknownUnit Unit) => new(Unit);
+        public static implicit operator MagneticField(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MagneticFieldUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator MagneticField(int zero)
         {

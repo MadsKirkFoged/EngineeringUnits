@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public WarpingMomentOfInertia ToUnit(WarpingMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static WarpingMomentOfInertia Zero => new(0, WarpingMomentOfInertiaUnit.SI);
 
-        public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit) => new(Unit);
+        public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, WarpingMomentOfInertiaUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator WarpingMomentOfInertia(int zero)
         {

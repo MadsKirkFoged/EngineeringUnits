@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricPotentialChangeRate ToUnit(ElectricPotentialChangeRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricPotentialChangeRate Zero => new(0, ElectricPotentialChangeRateUnit.SI);
 
-        public static implicit operator ElectricPotentialChangeRate(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricPotentialChangeRate(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricPotentialChangeRateUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricPotentialChangeRate(int zero)
         {

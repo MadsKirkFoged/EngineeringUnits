@@ -17,10 +17,21 @@ namespace UnitNetcomparing
         {
 
 
+
+            SpecificThermalResistance STR = new SpecificThermalResistance(10, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
+            SpecificThermalResistance STR2 = (Length.FromMeters(3.2) * Temperature.FromKelvins(10)) / Power.FromWatts(23);
+
+            ThermalConductivity TC = 1/STR;
+
+
+            Debug.Print($"{STR}");
+            Debug.Print($"{STR2}");
+            Debug.Print($"{TC}");
+
             var length = Length.FromYards(1);
             var length2 = Length.FromMeters(5);
 
-            var area2 = length * length2;
+            Area area2 = length * length2 * length2 ;
 
             Area area3 = Area.FromSquareYards(1);
 

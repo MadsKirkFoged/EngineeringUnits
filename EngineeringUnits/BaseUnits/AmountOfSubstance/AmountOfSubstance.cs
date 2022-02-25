@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static AmountOfSubstance Zero => new(0, AmountOfSubstanceUnit.SI);
 
-        public static implicit operator AmountOfSubstance(UnknownUnit Unit) => new(Unit);
+        public static implicit operator AmountOfSubstance(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, AmountOfSubstanceUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator AmountOfSubstance(int zero)
         {

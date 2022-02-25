@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
 
-        public static implicit operator ApparentPower(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ApparentPower(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ApparentPowerUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ApparentPower(int zero)
         {

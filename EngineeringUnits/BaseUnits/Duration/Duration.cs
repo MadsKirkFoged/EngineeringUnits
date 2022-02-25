@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Duration ToUnit(DurationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Duration Zero => new(0, DurationUnit.SI);
 
-        public static implicit operator Duration(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Duration(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, DurationUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Duration(int zero)
         {

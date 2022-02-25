@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Angle ToUnit(AngleUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Angle Zero => new(0, AngleUnit.SI);
 
-        public static implicit operator Angle(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Angle(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, AngleUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Angle(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Permeability ToUnit(PermeabilityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Permeability Zero => new(0, PermeabilityUnit.SI);
 
-        public static implicit operator Permeability(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Permeability(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, PermeabilityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Permeability(int zero)
         {

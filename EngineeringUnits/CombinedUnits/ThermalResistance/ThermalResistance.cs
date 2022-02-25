@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ThermalResistance ToUnit(ThermalResistanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ThermalResistance Zero => new(0, ThermalResistanceUnit.SI);
 
-        public static implicit operator ThermalResistance(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ThermalResistance(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ThermalResistanceUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ThermalResistance(int zero)
         {

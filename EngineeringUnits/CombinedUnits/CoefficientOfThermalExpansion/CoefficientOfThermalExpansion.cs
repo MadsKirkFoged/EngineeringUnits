@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static CoefficientOfThermalExpansion Zero => new(0, CoefficientOfThermalExpansionUnit.SI);
 
-        public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit) => new(Unit);
+        public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, CoefficientOfThermalExpansionUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator CoefficientOfThermalExpansion(int zero)
         {

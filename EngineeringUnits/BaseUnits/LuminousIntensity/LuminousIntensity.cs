@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static LuminousIntensity Zero => new(0, LuminousIntensityUnit.SI);
 
-        public static implicit operator LuminousIntensity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator LuminousIntensity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, LuminousIntensityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator LuminousIntensity(int zero)
         {

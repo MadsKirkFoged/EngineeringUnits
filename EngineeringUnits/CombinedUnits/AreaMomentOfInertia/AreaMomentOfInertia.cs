@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public AreaMomentOfInertia ToUnit(AreaMomentOfInertiaUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static AreaMomentOfInertia Zero => new(0, AreaMomentOfInertiaUnit.SI);
 
-        public static implicit operator AreaMomentOfInertia(UnknownUnit Unit) => new(Unit);
+        public static implicit operator AreaMomentOfInertia(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, AreaMomentOfInertiaUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator AreaMomentOfInertia(int zero)
         {

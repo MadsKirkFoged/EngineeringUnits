@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public DynamicViscosity ToUnit(DynamicViscosityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static DynamicViscosity Zero => new(0, DynamicViscosityUnit.SI);
 
-        public static implicit operator DynamicViscosity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator DynamicViscosity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, DynamicViscosityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator DynamicViscosity(int zero)
         {

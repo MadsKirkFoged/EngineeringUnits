@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public BitRate ToUnit(BitRateUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static BitRate Zero => new(0, BitRateUnit.SI);
 
-        public static implicit operator BitRate(UnknownUnit Unit) => new(Unit);
+        public static implicit operator BitRate(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, BitRateUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator BitRate(int zero)
         {

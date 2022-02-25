@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricSurfaceChargeDensity ToUnit(ElectricSurfaceChargeDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricSurfaceChargeDensity Zero => new(0, ElectricSurfaceChargeDensityUnit.SI);
 
-        public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricSurfaceChargeDensityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricSurfaceChargeDensity(int zero)
         {

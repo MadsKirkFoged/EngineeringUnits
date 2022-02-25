@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public VolumeFlow ToUnit(VolumeFlowUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static VolumeFlow Zero => new(0, VolumeFlowUnit.SI);
 
-        public static implicit operator VolumeFlow(UnknownUnit Unit) => new(Unit);
+        public static implicit operator VolumeFlow(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, VolumeFlowUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator VolumeFlow(int zero)
         {

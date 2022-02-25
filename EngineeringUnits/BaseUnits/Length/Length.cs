@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Length ToUnit(LengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Length Zero => new(0, LengthUnit.SI);
 
-        public static implicit operator Length(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Length(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, LengthUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Length(int zero)
         {

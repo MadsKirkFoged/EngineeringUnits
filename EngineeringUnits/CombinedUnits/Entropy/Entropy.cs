@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Entropy ToUnit(EntropyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Entropy Zero => new(0, EntropyUnit.SI);
 
-        public static implicit operator Entropy(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Entropy(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, EntropyUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Entropy(int zero)
         {

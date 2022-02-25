@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Force ToUnit(ForceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Force Zero => new(0, ForceUnit.SI);
 
-        public static implicit operator Force(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Force(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ForceUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Force(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public Molarity ToUnit(MolarityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static Molarity Zero => new(0, MolarityUnit.SI);
 
-        public static implicit operator Molarity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator Molarity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, MolarityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator Molarity(int zero)
         {

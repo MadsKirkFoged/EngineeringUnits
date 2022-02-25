@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrentGradient Zero => new(0, ElectricCurrentGradientUnit.SI);
 
-        public static implicit operator ElectricCurrentGradient(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricCurrentGradient(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricCurrentGradientUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricCurrentGradient(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public RotationalSpeed ToUnit(RotationalSpeedUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static RotationalSpeed Zero => new(0, RotationalSpeedUnit.SI);
 
-        public static implicit operator RotationalSpeed(UnknownUnit Unit) => new(Unit);
+        public static implicit operator RotationalSpeed(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, RotationalSpeedUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator RotationalSpeed(int zero)
         {

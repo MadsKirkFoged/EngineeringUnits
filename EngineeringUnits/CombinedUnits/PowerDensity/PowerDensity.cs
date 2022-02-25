@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public PowerDensity ToUnit(PowerDensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static PowerDensity Zero => new(0, PowerDensityUnit.SI);
 
-        public static implicit operator PowerDensity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator PowerDensity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, PowerDensityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator PowerDensity(int zero)
         {

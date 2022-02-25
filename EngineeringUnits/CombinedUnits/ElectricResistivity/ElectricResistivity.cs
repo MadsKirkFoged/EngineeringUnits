@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricResistivity ToUnit(ElectricResistivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricResistivity Zero => new(0, ElectricResistivityUnit.SI);
 
-        public static implicit operator ElectricResistivity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricResistivity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricResistivityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricResistivity(int zero)
         {

@@ -28,7 +28,11 @@ namespace EngineeringUnits
         public ElectricConductivity ToUnit(ElectricConductivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
         public static ElectricConductivity Zero => new(0, ElectricConductivityUnit.SI);
 
-        public static implicit operator ElectricConductivity(UnknownUnit Unit) => new(Unit);
+        public static implicit operator ElectricConductivity(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, ElectricConductivityUnit.SI);
+            return new(Unit);        
+        }
 
         public static implicit operator ElectricConductivity(int zero)
         {
