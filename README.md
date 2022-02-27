@@ -69,6 +69,28 @@ Volume volume = new Volume(0, VolumeUnit.CubicMeter);
 Density D1 = mass / volume; // 2.5 kg/m³
 Density D2 = volume / mass; // WrongUnitException: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
 ```
+
+###### Creating a new Unit
+```C#
+//Two Different ways of creating a new unit
+Length length = Length.FromYards(1);
+Length length2 = new Length(1, LengthUnit.Yard); 
+```
+
+###### Exporting a Unit
+```C#
+Length length = Length.FromYards(1);
+
+//Display the unis as it was created
+Debug.Print($"{length}"); //1 yd
+
+//Returns as an other unit
+Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.9144 m
+
+//Returns as a double
+Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
+```
+
 ###### Absolute value
 ```C#
 MassFlow M1 = new MassFlow(10, MassFlowUnit.HectogramPerSecond); //-10 kg/s
@@ -96,6 +118,18 @@ Mass MaxSum = UnitMath.Sum(M1, M2, M3, M4);     //9.074e+05 kg
 
 ```
 
+```C#
+Length length = Length.FromYards(1);
+Length length2 = Length.FromMeters(5);
+
+var list = new List<Length>();
+
+list.Add(length);
+list.Add(length2);
+
+Length lenghtAvg = list.Average();
+```
+
 ###### Force quantity In Range Of(min,max)
 ```C#
 Power f1 = new(19, PowerUnit.KilojoulePerHour);
@@ -109,3 +143,29 @@ Power f10 = f9.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5)); //4 W
 
 ```
 
+###### Checks
+```C#
+var length = Length.FromYards(1);
+var length2 = Length.FromMeters(5);
+
+if ((length - length2).IsAboveZero())
+if ((length - length2).IsBelowZero())
+if ((length - length2).IsZero())
+if ((length - length2).IsNotZero())
+
+```
+
+###### Combine methods in one line
+```C#
+//Create a list of Lenghts
+var listOfLenghts = new List<Length>() 
+                      {Length.FromYards(1), 
+                      Length.FromYards(2) };
+
+
+Area NewUnit = listOfLenghts //Take the list 
+               .Average()    //--> calculate the average of the list
+               .Pow(2)       //--> Calculate the 2. power of the lenght, making it into a Area
+               .ToUnit(AreaUnit.SquareMeter); //Turn the area into a specific unit-type
+                           
+```
