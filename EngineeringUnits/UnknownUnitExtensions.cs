@@ -332,8 +332,15 @@ namespace EngineeringUnits
 			{
 				return (Volume) toCast;
 			}
+			if (toCast.Unit == SpecificThermalResistanceUnit.SI.Unit)
+			{
+				return (SpecificThermalResistance)toCast;
+			}
 
-            return (BaseUnit)toCast;
+			
+
+
+			return (BaseUnit)toCast;
         }
     }
 }

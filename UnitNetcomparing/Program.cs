@@ -18,6 +18,22 @@ namespace UnitNetcomparing
 
 
 
+            double P = 10.0;
+            double L = 2.0;
+            double T = 4.0;
+
+            SpecificThermalResistance expected = (Length.FromMeters(L) * Temperature.FromKelvins(T)) / Power.FromWatts(P);
+            ThermalConductivity actual = Power.FromWatts(P) / (Length.FromMeters(L) * Temperature.FromKelvins(T));
+
+
+            Debug.Print($"{expected}");
+
+            Debug.Print($"{1/actual}");
+
+
+
+
+
             SpecificThermalResistance STR = new SpecificThermalResistance(10, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
             SpecificThermalResistance STR2 = (Length.FromMeters(3.2) * Temperature.FromKelvins(10)) / Power.FromWatts(23);
 
@@ -28,10 +44,31 @@ namespace UnitNetcomparing
             Debug.Print($"{STR2}");
             Debug.Print($"{TC}");
 
-            var length = Length.FromYards(1);
-            var length2 = Length.FromMeters(5);
+            //Two Different ways of creating a new unit
+            Length length = Length.FromYards(1);
+            Length length2 = Length.FromYards(2);
 
-            Area area2 = length * length2 * length2 ;
+            //Display the unis as it was created
+            Debug.Print($"{length}"); //1 yd
+
+            //Returns as a other unit
+            Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.9144 m
+
+            //Returns as a double
+            Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
+
+
+            var listOfLenghts = new List<Length>() { Length.FromYards(1), Length.FromYards(2) };
+
+
+            Area NewUnit = listOfLenghts
+                           .Average()
+                           .Pow(2)
+                           .ToUnit(AreaUnit.SquareMeter);
+
+            //Length lenghtAvg = list.Average();
+
+            //Area area2 = length * length2 * length2 ;
 
             Area area3 = Area.FromSquareYards(1);
 
@@ -43,7 +80,7 @@ namespace UnitNetcomparing
 
             // Typical formats
             Debug.Print("UnitNets: " + length.ToString("S4")); // 3.14 cm
-            Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
+            //Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
 
 
 

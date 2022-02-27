@@ -14,6 +14,7 @@ namespace EngineeringUnits
         public UnknownUnit() => _baseUnit = new BaseUnit();
         public UnknownUnit(double valueLocalUnit) => _baseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
         public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => _baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
+        public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) => _baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
         public UnknownUnit(BaseUnit baseunit) => _baseUnit = baseunit;
  
 

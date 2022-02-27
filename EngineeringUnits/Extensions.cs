@@ -88,13 +88,13 @@ namespace EngineeringUnits
             return a._baseUnit.As(b);
         }
 
-        public static BaseUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
+        public static UnknownUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
         {
             a.UnitCheck(selectedUnit);
 
             return new(a.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
-        public static BaseUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
+        public static UnknownUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
         {
             a._baseUnit.UnitCheck(selectedUnit);
 
@@ -203,12 +203,12 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
         {
-            return list.Aggregate(new UnknownUnit(0, list.First().Unit),
+            return list.Aggregate(new UnknownUnit(0m, list.First().Unit),
                                  (x, y) => x + y);
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)
         {
-            return list.Aggregate(new UnknownUnit(0, list.First()._baseUnit.Unit),
+            return list.Aggregate(new UnknownUnit(0m, list.First()._baseUnit.Unit),
                                  (x, y) => x + y);
         }
 
