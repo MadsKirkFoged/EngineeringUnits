@@ -3,45 +3,58 @@ using EngineeringUnits.Units;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using static System.Math;
-
 namespace UnitTests
 {
     [TestClass]
     public class SpecificThermalResistanceTest
     {
         [TestMethod]
-        public void FromDefinition()
+        public void From_ValueShouldBeEqual()
         {
-            double P = 10.0;
-            double L = 2.0;
-            double T = 4.0;
+            SpecificThermalResistance expected = SpecificThermalResistance.From(1.0, SpecificThermalResistanceUnit.SI);
 
-            var expected = new SpecificThermalResistance(Length.FromMeters(L) * Temperature.FromKelvins(T) / Power.FromWatts(P));
-            var expected_SI = (double)expected.SI;
+            SpecificThermalResistance actual_1 = SpecificThermalResistance.FromSI(1.0);
+            SpecificThermalResistance actual_2 = SpecificThermalResistance.FromMeterDegreeCelsiusPerWatt(1.0);
+            SpecificThermalResistance actual_3 = SpecificThermalResistance.FromMeterKelvinPerKilowatt(1000.0);
+            SpecificThermalResistance actual_4 = SpecificThermalResistance.FromCentimeterKelvinPerWatt(100.0);
 
-            var actual = new SpecificThermalResistance(Power.FromWatts(P) / Length.FromMeters(L) * Temperature.FromKelvins(T));
-            var actual_SI = (double)actual.SI;
-
-            Assert.AreEqual(expected, actual);
-            Assert.AreEqual(expected_SI, actual_SI, 1e-9);
+            Assert.AreEqual(expected, actual_1);
+            Assert.AreEqual(expected, actual_2);
+            Assert.AreEqual(expected, actual_3);
+            Assert.AreEqual(expected, actual_4);
         }
 
         [TestMethod]
-        public void FromCalculation()
+        public void FromNullValue_ShouldReturnNull()
         {
-            double thermalConductivity = 0.42;
-            double expected_SI = 1 / (2 * PI * thermalConductivity);
+            SpecificThermalResistance actual = SpecificThermalResistance.From(null, SpecificThermalResistanceUnit.SI);
 
-            var expected = SpecificThermalResistance.From(expected_SI, SpecificThermalResistanceUnit.SI);
+            Assert.IsNull(actual);
+        }
 
-            var k = ThermalConductivity.FromWattsPerMeterKelvin(thermalConductivity);
+        [TestMethod]
+        public void As_ValueShouldBeEqual()
+        {
+            SpecificThermalResistance STR = SpecificThermalResistance.FromSI(1.0);
 
-            var actual = new SpecificThermalResistance(1 / (2 * PI * k));
-            var actual_SI = (double)actual.SI;
+            double actual_1 = STR.As(SpecificThermalResistanceUnit.SI);
+            double actual_2 = STR.As(SpecificThermalResistanceUnit.MeterDegreeCelsiusPerWatt);
+            double actual_3 = STR.As(SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
+            double actual_4 = STR.As(SpecificThermalResistanceUnit.CentimeterKelvinPerWatt);
 
-            //Assert.AreEqual(expected, actual);    // Equality check is somehow broken
-            Assert.AreEqual(expected_SI, actual_SI, 1e-9);
+            Assert.AreEqual(1.0, actual_1);
+            Assert.AreEqual(1.0, actual_2);
+            Assert.AreEqual(1000.0, actual_3);
+            Assert.AreEqual(100.0, actual_4);
+        }
+
+        [TestMethod]
+        public void CalculateFromThermalConductivity_ResultShouldBeEqual()
+        {
+            SpecificThermalResistance expected = SpecificThermalResistance.FromSI(10.0);
+            SpecificThermalResistance actual = 1 / ThermalConductivity.FromWattsPerMeterKelvin(0.1);
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
