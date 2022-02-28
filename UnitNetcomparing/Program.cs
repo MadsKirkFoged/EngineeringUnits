@@ -16,6 +16,26 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            var listOfLenghts = new List<Length>() { };
+
+
+            Debug.Print($"{listOfLenghts.Mean()}");
+
+
+
+
+
+
+
+
+
+            var unitasstring = Enumeration.ListOf<AccelerationUnit>();
+
+
+
+
+
+
 
 
             double P = 10.0;
@@ -58,7 +78,8 @@ namespace UnitNetcomparing
             Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
 
 
-            var listOfLenghts = new List<Length>() { Length.FromYards(1), Length.FromYards(2) };
+
+
 
 
             Area NewUnit = listOfLenghts
@@ -72,7 +93,7 @@ namespace UnitNetcomparing
 
             Area area3 = Area.FromSquareYards(1);
 
-            var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
+            //var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 
             double? c = null;
           var test = Power.From(c,null);

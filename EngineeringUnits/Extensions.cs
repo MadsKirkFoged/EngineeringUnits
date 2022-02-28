@@ -222,5 +222,21 @@ namespace EngineeringUnits
         }
 
 
+        public static UnknownUnit Mean(this IEnumerable<UnknownUnit> list)
+        {
+            return list.OrderBy(x => x)
+                       .ToList()
+                        [list.Count() / 2];
+        }
+
+        public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
+        {
+            return list.OrderBy(x => x)
+                       .ToList()
+                        [list.Count() / 2];
+        }
+
+
+
     }
 }
