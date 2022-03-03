@@ -39,30 +39,28 @@ namespace EngineeringUnits
             Symbol = symbol;
         }
 
-        public List<Tuple<string,int>> UnitsCount()
-        {
-            //This returns <typeOfUnit,Unit Count of the specifig type>
 
-            //var test = ListOfUnits
+        private List<(string Key, int Value)> _UnitsCount;
+        public List<(string Key, int Value)> UnitsCount()
+        {
+            if (_UnitsCount is null)
+            {
+                _UnitsCount = ListOfUnits
+                                .Where(x => x.TypeOfUnit != "CombinedUnit")
+                                .GroupBy(x => x.TypeOfUnit)
+                                .Select(x => (x.Key, x.Sum(x => x.Count)))
+                                .Where(x => x.Item2 != 0)
+                                .ToList();
+            }
+
+            return _UnitsCount;
+
+            //return ListOfUnits
             //        .Where(x => x.TypeOfUnit != "CombinedUnit")
             //        .GroupBy(x => x.TypeOfUnit)
-            //        .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
+            //        .Select(x => (x.Key, x.Sum(x => x.Count)))
             //        .Where(x => x.Item2 != 0)
             //        .ToList();
-
-            //foreach (var item in test)
-            //{
-            //    Debug.Print(item.ToString());
-            //}
-
-
-
-            return ListOfUnits
-                    .Where(x => x.TypeOfUnit != "CombinedUnit")
-                    .GroupBy(x => x.TypeOfUnit)
-                    .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
-                    .Where(x=> x.Item2 != 0)
-                    .ToList();
         }
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
