@@ -26,12 +26,14 @@ namespace EngineeringUnits
         public BaseUnit() {}
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
-            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            Unit = unitSystem;//.Clone();
             NEWValue = value.Normalize();
         }
         public BaseUnit(double value, UnitSystem unitSystem)
         {
-            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            Unit = unitSystem;//.Clone();
 
             if (IsValueOverDecimalMax(value))            
                 Inf = true;        
@@ -45,12 +47,15 @@ namespace EngineeringUnits
        
         public BaseUnit(int value, UnitSystem unitSystem)
         {
-            Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
+            Unit = unitSystem;//.Clone();
+
             NEWValue = (decimal)value;
         }
         protected BaseUnit(UnknownUnit unit)
         {
-            Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
+            //Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
+            Unit = unit.Unit;//.Clone();
             NEWValue = unit._baseUnit.NEWValue;
         }
 
@@ -213,16 +218,19 @@ namespace EngineeringUnits
                 {
                     case 'A':
                     case 'a':
-                        return Unit.ToString();
+                        //return Unit.ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     case 'V':
                     case 'v':
                         return NEWValue.ToString(provider);
                     case 'U':
                     case 'u':
-                        return Unit.ToString();
+                        //return Unit.ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     case 'Q':
                     case 'q':
-                        return Unit.ToString();
+                        //return Unit.ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     default:
                         throw new FormatException($"The {format} format string is not supported.");
                 }
@@ -233,11 +241,13 @@ namespace EngineeringUnits
 
                 if (Inf)
             {
-                return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
+                //return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
+                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
             }
 
             //Are As(Unit) and NewValue not always the same?
-            return $"{NEWValue.ToString(format, provider)} {Unit}";
+            //return $"{NEWValue.ToString(format, provider)} {Unit}";
+            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
         }
 
         
@@ -385,20 +395,23 @@ namespace EngineeringUnits
             //foreach (var item in Enumeration.ListOf<T>())
             //{
             //    Debug.Print($"{item.Unit.SumConstant()} = {_unit.SumConstant()}");
+            //    Debug.Print($"{item.Unit}");
             //}
 
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return Enumeration.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
-                .Unit.Symbol;            
+                .Unit.ToString();            
         }
         public virtual string GetStandardSymbol(UnitSystem _unit)
         {
             if (_unit.Symbol is not null)
                 return _unit.Symbol;
 
-            return null;
+            return $"{_unit}";
+
+            //return null;
         }
 
         private bool IsValueOverDecimalMax(double value)
