@@ -141,7 +141,7 @@ namespace EngineeringUnits
 
             if (CacheMultiply.TryGetValue(HashCode, out UnitSystem local))
             {
-                return local;
+                //return local;
             } 
 
             var test2 = new UnitSystem(
@@ -149,7 +149,7 @@ namespace EngineeringUnits
                             a.ListOfUnits.Concat(
                             b.ListOfUnits)));
 
-            CacheMultiply.Add(HashCode, test2);
+            //CacheMultiply.Add(HashCode, test2);
 
             return test2;
 
@@ -184,7 +184,7 @@ namespace EngineeringUnits
 
             if (CacheDivide.TryGetValue(HashCode, out UnitSystem local))
             {
-                return local;
+                //return local;
             }
 
 
@@ -196,7 +196,7 @@ namespace EngineeringUnits
 
             var test2 = new UnitSystem(LocalUnitList);
 
-            CacheDivide.Add(HashCode, test2);
+            //CacheDivide.Add(HashCode, test2);
 
             return test2;
 
@@ -396,10 +396,14 @@ namespace EngineeringUnits
         {
             if (HashCode == 0)
             {
-
                 HashCode hashCode = new();
                 hashCode.Add(Symbol);
-                hashCode.Add(ListOfUnits);
+
+                foreach (var item in ListOfUnits)
+                {
+                    hashCode.Add(item);
+                }
+                
 
                 HashCode = hashCode.ToHashCode();
             }
