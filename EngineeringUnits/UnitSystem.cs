@@ -11,8 +11,17 @@ using System;
 namespace EngineeringUnits
 {
 
+    
+
+
+
     public class UnitSystem
-    {
+    {      
+        public static readonly UnitSystem UnitsystemForDouble = new UnitSystem();
+
+
+        private bool SI { get; init; }
+
         public string Symbol { get; init; }
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
@@ -272,8 +281,6 @@ namespace EngineeringUnits
         }
 
 
-       
-
 
         //public UnitSystem Sqrt()
         //{
@@ -329,7 +336,7 @@ namespace EngineeringUnits
         // epsilon - an accuracy of calculation of the root from our number.
         // The result of the calculations will differ from an actual value
         // of the root on less than epslion.
-       
+
 
 
         public override int GetHashCode()
@@ -347,14 +354,17 @@ namespace EngineeringUnits
         {
             if (HashCodeForUnitCompare == 0)
             {
-                var test = UnitsCount().OrderBy(x => x.Item1).ThenBy(x => x.Item2);
+                var test = UnitsCount().OrderBy(x => x.Item1)
+                                       .ThenBy(x => x.Item2);
 
-                HashCode hashCode = new();
+                HashCode hashCode = new();                
 
-                foreach (var item in test)
+                //Debug.Print(hashCode.ToHashCode().ToString()); 
+
+                foreach (var (Key, Value) in test)
                 {
-                    hashCode.Add(item.Item1);
-                    hashCode.Add(item.Item2);
+                    hashCode.Add(Key);
+                    hashCode.Add(Value);
                 }
 
                 HashCodeForUnitCompare = hashCode.ToHashCode();
@@ -366,6 +376,12 @@ namespace EngineeringUnits
         public UnitSystem Clone()
         {
             return new UnitSystem(new List<Enumeration>(ListOfUnits), Symbol);
+        }
+
+
+        public bool IsSIUnit()
+        {
+          return ListOfUnits.All(x=> x.SI);
         }
 
 

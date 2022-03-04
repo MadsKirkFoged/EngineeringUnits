@@ -8,13 +8,53 @@ namespace EngineeringUnits
 {
     public static class Extensions
     {
+
+
+        public static UnitSystem ReduceUnits(this UnitSystem a)
+        {
+
+            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+
+                    var groupOfSameConstant = GroupOfTypes
+                        .Select(x => x)
+                        .GroupBy(x => x.NewC);
+
+
+                    foreach (var item in groupOfSameConstant)
+                    {
+
+                        Enumeration NewUnit = new Enumeration(item.First(),
+                                                              item.Sum(x => x.Count));
+
+                        NewUnitList.Add(NewUnit);
+
+                    }
+                }
+
+            }
+
+            return new(NewUnitList, a.Symbol);
+        }
+
+
         public static decimal Normalize(this decimal value)
         {
             return value / 1.000000000000000000000000000000000m;
         }
 
-
-        
         public static decimal Sqrt(this decimal x, decimal epsilon = 0.0M)
         {
             // x - a number, from which we need to calculate the square root

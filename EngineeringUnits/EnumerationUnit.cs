@@ -39,6 +39,9 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public string TypeOfUnit { get; init; }
 
+        [JsonIgnore]
+        public bool SI { get; init; }
+
 
 
         public Enumeration()
@@ -57,6 +60,10 @@ namespace EngineeringUnits
         {
             NewC = new Fraction(a1 * a2);
             B = b;
+
+            if (NewC == Fraction.One)
+                SI = true;            
+
         }
 
         protected Enumeration(string symbol, decimal a1, decimal a2) :this(symbol, a1, a2, 0)
@@ -67,6 +74,9 @@ namespace EngineeringUnits
         {
             NewC = Constant;
             B = 0;
+
+            if (NewC == Fraction.One)
+                SI = true;
         }
 
         protected Enumeration(string symbol, decimal Constant) : this(symbol, new Fraction(Constant))
@@ -80,6 +90,10 @@ namespace EngineeringUnits
             B = 0;
             Count = 1;
             TypeOfUnit = GetType().Name;
+
+            if (NewC == Fraction.One)
+                this.SI = true;
+
         }
         protected Enumeration(PreFix SI, Enumeration baseunit)
         {
@@ -112,6 +126,9 @@ namespace EngineeringUnits
                 Unit = new UnitSystem(unit.Unit, unit.Symbol);            
 
             TypeOfUnit = unit.TypeOfUnit;
+
+            if (NewC == Fraction.One)
+                SI = true;
         }
 
         public Enumeration(Enumeration unit, int NewCount) : this(unit, false)

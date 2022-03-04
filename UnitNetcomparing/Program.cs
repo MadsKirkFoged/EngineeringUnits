@@ -16,20 +16,20 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            var test122 = new Density(1, DensityUnit.GramPerCubicCentimeter);
 
-
-            var watch = System.Diagnostics.Stopwatch.StartNew();
 
             Length _L1 = Length.FromSI(1);
             Length _L2 = Length.FromSI(2);
 
-            double Dicided = 0;
+            UnknownUnit Dicided = 0;
+            var watch = System.Diagnostics.Stopwatch.StartNew();
 
             for (int i = 0; i < 10000000; i++)
             {
                 //testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
 
-                Dicided = _L1/_L2;
+                Dicided = _L1*_L2;
 
             }
             watch.Stop();

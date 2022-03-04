@@ -28,7 +28,7 @@ namespace EngineeringUnits
         {
             //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
             Unit = unitSystem;//.Clone();
-            NEWValue = value.Normalize();
+            NEWValue = value;
         }
         public BaseUnit(double value, UnitSystem unitSystem)
         {
@@ -219,18 +219,18 @@ namespace EngineeringUnits
                     case 'A':
                     case 'a':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
+                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
                     case 'V':
                     case 'v':
                         return NEWValue.ToString(provider);
                     case 'U':
                     case 'u':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
+                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
                     case 'Q':
                     case 'q':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
+                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
                     default:
                         throw new FormatException($"The {format} format string is not supported.");
                 }
@@ -242,12 +242,12 @@ namespace EngineeringUnits
                 if (Inf)
             {
                 //return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
-                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
+                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit.ReduceUnits())}";
             }
 
             //Are As(Unit) and NewValue not always the same?
             //return $"{NEWValue.ToString(format, provider)} {Unit}";
-            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
+            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit.ReduceUnits())}";
         }
 
         
@@ -269,9 +269,11 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue + right.ConvertValueInto(left);
 
-                return new BaseUnit(NewTestValue, left.Unit + right.Unit);
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
+                    return new BaseUnit(left.NEWValue + right.NEWValue, left.Unit);                
+
+                return new BaseUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
@@ -289,9 +291,10 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue - right.ConvertValueInto(left);                
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                    return new BaseUnit(left.NEWValue - right.NEWValue, left.Unit);
 
-                return new BaseUnit(NewTestValue, left.Unit - right.Unit);
+                return new BaseUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
@@ -350,14 +353,27 @@ namespace EngineeringUnits
 
         public decimal ToTheOutSide(UnitSystem To)
         {
-
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();     
             Fraction Factor = To.ConvertionFactor(Unit);
 
+            Fraction y2test2;
 
-            Fraction b3test2 = Factor * (b1 * -1) + b2;
-            Fraction y2test2 = Factor * (Fraction)NEWValue + b3test2;    
+            if (b1.IsZero && b2.IsZero)
+            {
+                y2test2 = Factor * (Fraction)NEWValue;
+            }
+            else
+            {
+                Fraction b3test2 = Factor * (b1 * -1) + b2;
+                y2test2 = Factor * (Fraction)NEWValue + b3test2;
+
+            }
+
+
+
+            //Fraction b3test2 = Factor * (b1 * -1) + b2;
+            //y2test2 = Factor * (Fraction)NEWValue + b3test2;    
 
             return (decimal)y2test2;
         }
@@ -371,7 +387,7 @@ namespace EngineeringUnits
 
         public string DisplaySymbol()
         {
-            return Unit.ToString();
+            return Unit.ReduceUnits().ToString();
         }
 
 
