@@ -1,80 +1,71 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class PressureChangeRate
     {
-        /// <summary>
-        ///     Get PressureChangeRate in AtmospheresPerSecond.
-        /// </summary>
-        public double AtmospheresPerSecond => As(PressureChangeRateUnit.AtmospherePerSecond);
 
-        /// <summary>
-        ///     Get PressureChangeRate in KilopascalsPerMinute.
-        /// </summary>
-        public double KilopascalsPerMinute => As(PressureChangeRateUnit.KilopascalPerMinute);
+ 
 
-        /// <summary>
-        ///     Get PressureChangeRate in KilopascalsPerSecond.
-        /// </summary>
-        public double KilopascalsPerSecond => As(PressureChangeRateUnit.KilopascalPerSecond);
-
-        /// <summary>
-        ///     Get PressureChangeRate in KilopoundsForcePerSquareInchPerMinute.
-        /// </summary>
-        public double KilopoundsForcePerSquareInchPerMinute => As(PressureChangeRateUnit.KilopoundForcePerSquareInchPerMinute);
-
-        /// <summary>
-        ///     Get PressureChangeRate in KilopoundsForcePerSquareInchPerSecond.
-        /// </summary>
-        public double KilopoundsForcePerSquareInchPerSecond => As(PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
-
-        /// <summary>
-        ///     Get PressureChangeRate in MegapascalsPerMinute.
-        /// </summary>
-        public double MegapascalsPerMinute => As(PressureChangeRateUnit.MegapascalPerMinute);
-
-        /// <summary>
-        ///     Get PressureChangeRate in MegapascalsPerSecond.
-        /// </summary>
-        public double MegapascalsPerSecond => As(PressureChangeRateUnit.MegapascalPerSecond);
-
-        /// <summary>
-        ///     Get PressureChangeRate in MegapoundsForcePerSquareInchPerMinute.
-        /// </summary>
-        public double MegapoundsForcePerSquareInchPerMinute => As(PressureChangeRateUnit.MegapoundForcePerSquareInchPerMinute);
-
-        /// <summary>
-        ///     Get PressureChangeRate in MegapoundsForcePerSquareInchPerSecond.
-        /// </summary>
-        public double MegapoundsForcePerSquareInchPerSecond => As(PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
-
-        /// <summary>
-        ///     Get PressureChangeRate in PascalsPerMinute.
-        /// </summary>
-        public double PascalsPerMinute => As(PressureChangeRateUnit.PascalPerMinute);
-
-        /// <summary>
-        ///     Get PressureChangeRate in PascalsPerSecond.
-        /// </summary>
-        public double PascalsPerSecond => As(PressureChangeRateUnit.PascalPerSecond);
-
-        /// <summary>
-        ///     Get PressureChangeRate in SI Unit (PascalsPerSecond).
-        /// </summary>
-        public double SI => As(PressureChangeRateUnit.SI);
-
-        /// <summary>
-        ///     Get PressureChangeRate in PoundsForcePerSquareInchPerMinute.
-        /// </summary>
-        public double PoundsForcePerSquareInchPerMinute => As(PressureChangeRateUnit.PoundForcePerSquareInchPerMinute);
-
-        /// <summary>
-        ///     Get PressureChangeRate in PoundsForcePerSquareInchPerSecond.
-        /// </summary>
-        public double PoundsForcePerSquareInchPerSecond => As(PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
-
+            /// <summary>
+            ///     Get PressureChangeRate in SI.
+            /// </summary>
+            public double SI => As(PressureChangeRateUnit.SI);
+            /// <summary>
+            ///     Get PressureChangeRate in PascalPerSecond.
+            /// </summary>
+            public double PascalPerSecond => As(PressureChangeRateUnit.PascalPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in PascalPerMinute.
+            /// </summary>
+            public double PascalPerMinute => As(PressureChangeRateUnit.PascalPerMinute);
+            /// <summary>
+            ///     Get PressureChangeRate in MegapascalPerSecond.
+            /// </summary>
+            public double MegapascalPerSecond => As(PressureChangeRateUnit.MegapascalPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in MegapascalPerMinute.
+            /// </summary>
+            public double MegapascalPerMinute => As(PressureChangeRateUnit.MegapascalPerMinute);
+            /// <summary>
+            ///     Get PressureChangeRate in KilopoundForcePerSquareInchPerSecond.
+            /// </summary>
+            public double KilopoundForcePerSquareInchPerSecond => As(PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in KilopoundForcePerSquareInchPerMinute.
+            /// </summary>
+            public double KilopoundForcePerSquareInchPerMinute => As(PressureChangeRateUnit.KilopoundForcePerSquareInchPerMinute);
+            /// <summary>
+            ///     Get PressureChangeRate in KilopascalPerSecond.
+            /// </summary>
+            public double KilopascalPerSecond => As(PressureChangeRateUnit.KilopascalPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in KilopascalPerMinute.
+            /// </summary>
+            public double KilopascalPerMinute => As(PressureChangeRateUnit.KilopascalPerMinute);
+            /// <summary>
+            ///     Get PressureChangeRate in AtmospherePerSecond.
+            /// </summary>
+            public double AtmospherePerSecond => As(PressureChangeRateUnit.AtmospherePerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in PoundForcePerSquareInchPerMinute.
+            /// </summary>
+            public double PoundForcePerSquareInchPerMinute => As(PressureChangeRateUnit.PoundForcePerSquareInchPerMinute);
+            /// <summary>
+            ///     Get PressureChangeRate in PoundForcePerSquareInchPerSecond.
+            /// </summary>
+            public double PoundForcePerSquareInchPerSecond => As(PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in MegapoundForcePerSquareInchPerSecond.
+            /// </summary>
+            public double MegapoundForcePerSquareInchPerSecond => As(PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
+            /// <summary>
+            ///     Get PressureChangeRate in MegapoundForcePerSquareInchPerMinute.
+            /// </summary>
+            public double MegapoundForcePerSquareInchPerMinute => As(PressureChangeRateUnit.MegapoundForcePerSquareInchPerMinute);
     }
 }
+
+

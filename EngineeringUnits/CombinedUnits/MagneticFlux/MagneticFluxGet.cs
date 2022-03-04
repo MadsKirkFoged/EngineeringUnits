@@ -1,19 +1,23 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MagneticFlux
     {
-        /// <summary>
-        ///     Get MagneticFlux in Webers.
-        /// </summary>
-        public double Webers => As(MagneticFluxUnit.Weber);
 
-        /// <summary>
-        ///     Get MagneticFlux in SI Unit (Webers).
-        /// </summary>
-        public double SI => As(MagneticFluxUnit.SI);
+ 
+
+            /// <summary>
+            ///     Get MagneticFlux in SI.
+            /// </summary>
+            public double SI => As(MagneticFluxUnit.SI);
+            /// <summary>
+            ///     Get MagneticFlux in Weber.
+            /// </summary>
+            public double Weber => As(MagneticFluxUnit.Weber);
     }
 }
+
+

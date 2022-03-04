@@ -1,19 +1,23 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class AreaDensity
     {
-        /// <summary>
-        ///     Get AreaDensity in KilogramsPerSquareMeter.
-        /// </summary>
-        public double KilogramsPerSquareMeter => As(AreaDensityUnit.KilogramPerSquareMeter);
 
-        /// <summary>
-        ///     Get AreaDensity in SI Unit (KilogramsPerSquareMeter).
-        /// </summary>
-        public double SI => As(AreaDensityUnit.SI);
+ 
+
+            /// <summary>
+            ///     Get AreaDensity in SI.
+            /// </summary>
+            public double SI => As(AreaDensityUnit.SI);
+            /// <summary>
+            ///     Get AreaDensity in KilogramPerSquareMeter.
+            /// </summary>
+            public double KilogramPerSquareMeter => As(AreaDensityUnit.KilogramPerSquareMeter);
     }
 }
+
+

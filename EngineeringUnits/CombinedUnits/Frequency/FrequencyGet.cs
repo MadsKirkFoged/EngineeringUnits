@@ -1,70 +1,59 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Frequency
     {
-        /// <summary>
-        ///     Get Frequency in BeatsPerMinute.
-        /// </summary>
-        public double BeatsPerMinute => As(FrequencyUnit.BeatPerMinute);
 
-        /// <summary>
-        ///     Get Frequency in BUnits.
-        /// </summary>
-        //public double BUnits => As(FrequencyUnit.BUnit);
+ 
 
-        /// <summary>
-        ///     Get Frequency in CyclesPerHour.
-        /// </summary>
-        public double CyclesPerHour => As(FrequencyUnit.CyclePerHour);
-
-        /// <summary>
-        ///     Get Frequency in CyclesPerMinute.
-        /// </summary>
-        public double CyclesPerMinute => As(FrequencyUnit.CyclePerMinute);
-
-        /// <summary>
-        ///     Get Frequency in Gigahertz.
-        /// </summary>
-        public double Gigahertz => As(FrequencyUnit.Gigahertz);
-
-        /// <summary>
-        ///     Get Frequency in Hertz.
-        /// </summary>
-        public double Hertz => As(FrequencyUnit.Hertz);
-
-        /// <summary>
-        ///     Get Frequency in SI Unit (Hertz).
-        /// </summary>
-        public double SI => As(FrequencyUnit.SI);
-
-        /// <summary>
-        ///     Get Frequency in Kilohertz.
-        /// </summary>
-        public double Kilohertz => As(FrequencyUnit.Kilohertz);
-
-        /// <summary>
-        ///     Get Frequency in Megahertz.
-        /// </summary>
-        public double Megahertz => As(FrequencyUnit.Megahertz);
-
-        /// <summary>
-        ///     Get Frequency in PerSecond.
-        /// </summary>
-        public double PerSecond => As(FrequencyUnit.PerSecond);
-
-        /// <summary>
-        ///     Get Frequency in RadiansPerSecond.
-        /// </summary>
-        public double RadiansPerSecond => As(FrequencyUnit.RadianPerSecond);
-
-        /// <summary>
-        ///     Get Frequency in Terahertz.
-        /// </summary>
-        public double Terahertz => As(FrequencyUnit.Terahertz);
-
+            /// <summary>
+            ///     Get Frequency in SI.
+            /// </summary>
+            public double SI => As(FrequencyUnit.SI);
+            /// <summary>
+            ///     Get Frequency in Hertz.
+            /// </summary>
+            public double Hertz => As(FrequencyUnit.Hertz);
+            /// <summary>
+            ///     Get Frequency in Kilohertz.
+            /// </summary>
+            public double Kilohertz => As(FrequencyUnit.Kilohertz);
+            /// <summary>
+            ///     Get Frequency in Megahertz.
+            /// </summary>
+            public double Megahertz => As(FrequencyUnit.Megahertz);
+            /// <summary>
+            ///     Get Frequency in Gigahertz.
+            /// </summary>
+            public double Gigahertz => As(FrequencyUnit.Gigahertz);
+            /// <summary>
+            ///     Get Frequency in Terahertz.
+            /// </summary>
+            public double Terahertz => As(FrequencyUnit.Terahertz);
+            /// <summary>
+            ///     Get Frequency in PerSecond.
+            /// </summary>
+            public double PerSecond => As(FrequencyUnit.PerSecond);
+            /// <summary>
+            ///     Get Frequency in BeatPerMinute.
+            /// </summary>
+            public double BeatPerMinute => As(FrequencyUnit.BeatPerMinute);
+            /// <summary>
+            ///     Get Frequency in CyclePerHour.
+            /// </summary>
+            public double CyclePerHour => As(FrequencyUnit.CyclePerHour);
+            /// <summary>
+            ///     Get Frequency in CyclePerMinute.
+            /// </summary>
+            public double CyclePerMinute => As(FrequencyUnit.CyclePerMinute);
+            /// <summary>
+            ///     Get Frequency in RadianPerSecond.
+            /// </summary>
+            public double RadianPerSecond => As(FrequencyUnit.RadianPerSecond);
     }
 }
+
+

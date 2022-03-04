@@ -6,6 +6,8 @@ using System.IO;
 
 using System.Text;
 using System.Linq;
+using EngineeringUnits.Units;
+using System.Collections;
 
 namespace CodeGen
 {
@@ -22,16 +24,17 @@ namespace CodeGen
             return new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass" };
         }
 
-        public static void GenerateClasses(string projectPath)
-        {
+        
 
-            
+        public static void GenerateClasses(string projectPath)
+        {           
 
 
             foreach (var item in GetListOfCombinedUnits())
              {
 
                 string sb = Generate(item);
+               
                 sb = sb.Replace("Variable", $"{item}");
                 string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits",item);
 
@@ -115,11 +118,9 @@ namespace EngineeringUnits
 
 
         }
-        }
 
 
 
+    }
 
-
-    
 }

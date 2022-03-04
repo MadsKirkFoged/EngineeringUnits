@@ -1,35 +1,35 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ApparentPower
     {
-        /// <summary>
-        ///     Get ApparentPower in Gigavoltamperes.
-        /// </summary>
-        public double Gigavoltamperes => As(ApparentPowerUnit.Gigavoltampere);
 
-        /// <summary>
-        ///     Get ApparentPower in Kilovoltamperes.
-        /// </summary>
-        public double Kilovoltamperes => As(ApparentPowerUnit.Kilovoltampere);
+ 
 
-        /// <summary>
-        ///     Get ApparentPower in Megavoltamperes.
-        /// </summary>
-        public double Megavoltamperes => As(ApparentPowerUnit.Megavoltampere);
-
-        /// <summary>
-        ///     Get ApparentPower in Voltamperes.
-        /// </summary>
-        public double Voltamperes => As(ApparentPowerUnit.Voltampere);
-
-        /// <summary>
-        ///     Get ApparentPower in SI Unit (Voltamperes).
-        /// </summary>
-        public double SI => As(ApparentPowerUnit.SI);
-
+            /// <summary>
+            ///     Get ApparentPower in SI.
+            /// </summary>
+            public double SI => As(ApparentPowerUnit.SI);
+            /// <summary>
+            ///     Get ApparentPower in Voltampere.
+            /// </summary>
+            public double Voltampere => As(ApparentPowerUnit.Voltampere);
+            /// <summary>
+            ///     Get ApparentPower in Megavoltampere.
+            /// </summary>
+            public double Megavoltampere => As(ApparentPowerUnit.Megavoltampere);
+            /// <summary>
+            ///     Get ApparentPower in Kilovoltampere.
+            /// </summary>
+            public double Kilovoltampere => As(ApparentPowerUnit.Kilovoltampere);
+            /// <summary>
+            ///     Get ApparentPower in Gigavoltampere.
+            /// </summary>
+            public double Gigavoltampere => As(ApparentPowerUnit.Gigavoltampere);
     }
 }
+
+

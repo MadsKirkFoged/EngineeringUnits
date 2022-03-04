@@ -17,11 +17,44 @@ namespace UnitNetcomparing
         {
 
 
-            Length ProfileTest = Length.FromMeters(1);
-            Length ProfileTest2 = Length.FromMeters(1);
+            Type objType = typeof(AccelerationUnit);
 
-            var testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
-            var testunit2 = ProfileTest.Unit.UnitsCount();
+            // Print the assembly full name.
+            Console.WriteLine($"Assembly full name:\n   {objType.Assembly.FullName}.");
+
+            // Print the assembly qualified name.
+            Console.WriteLine($"Assembly qualified name:\n   {objType.AssemblyQualifiedName}.");
+
+
+
+            List<string> name = new List<string>() { "Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
+           
+           
+
+
+            for (int index =0; index < name.Count; index++) { 
+            var t =Type.GetType("EngineeringUnits.Units."+name[index]+"Unit, EngineeringUnits");
+
+                foreach (var item in t.GetFields())
+            {
+                Debug.Print(item.Name);
+            }}
+
+            
+
+                        
+
+            //foreach (var field in t.GetFields(BindingFlags.Static | BindingFlags.Public))
+            //{
+            //    var localunit = field.GetValue(field);
+            //    localunit.QuantityName = field.Name;
+
+            //}
+
+
+            //Debug.Print($"{listOfLenghts.Mean()}");
+
+
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -66,17 +99,26 @@ namespace UnitNetcomparing
 
 
 
-            double P = 10.0;
-            double L = 2.0;
-            double T = 4.0;
+    //        double P = 10.0;
+    //        double L = 2.0;
+    //        double T = 4.0;
 
-            for (int i = 0; i < 10000; i++)
-            {
-                SpecificThermalResistance expected = (Length.FromMeters(L) * Temperature.FromKelvins(T)) / Power.FromWatts(P);
-                ThermalConductivity actual = Power.FromWatts(P) / (Length.FromMeters(L) * Temperature.FromKelvins(T));
+
+         //SpecificThermalResistance expected = (Length.FromMeters(L) * Temperature.FromKelvins(T)) / Power.FromWatts(P);
+         //   //
+         //   Debug.Print(expected.Value.ToString());
+    //
+    //
+    //
+    //        ThermalConductivity actual = Power.FromWatts(P) / (Length.FromMeters(L) * Temperature.FromKelvins(T));
+
 
             }
 
+
+            //        Debug.Print($"{expected}");
+
+            //        Debug.Print($"{1/actual}");
 
 
                     Debug.Print($"");
@@ -86,11 +128,14 @@ namespace UnitNetcomparing
 
 
 
-
             //        SpecificThermalResistance STR = new SpecificThermalResistance(10, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
             //        SpecificThermalResistance STR2 = (Length.FromMeters(3.2) * Temperature.FromKelvins(10)) / Power.FromWatts(23);
 
             //        ThermalConductivity TC = 1/STR;
+
+
+            //        SpecificThermalResistance STR = new SpecificThermalResistance(10, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
+            //        SpecificThermalResistance STR2 = (Length.FromMeters(3.2) * Temperature.FromKelvins(10)) / Power.FromWatts(23);
 
 
             //        Debug.Print($"{STR}");
@@ -111,6 +156,12 @@ namespace UnitNetcomparing
             //        Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
 
 
+            //        //Returns as a other unit
+            //        Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.9144 m
+
+            //        //Returns as a double
+            //        Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
+
 
 
 
@@ -129,7 +180,10 @@ namespace UnitNetcomparing
             //        //var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 
             //        double? c = null;
-            //      var test = Power.From(c,null);
+            //      //var test = Power.From(c,null);
+
+
+            //        //var unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 
 
             //        // Typical formats
@@ -137,6 +191,10 @@ namespace UnitNetcomparing
             //        //Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
 
 
+
+            //        // Typical formats
+            //        Debug.Print("UnitNets: " + length.ToString("S4")); // 3.14 cm
+            //        //Debug.Print("EngineeringUnits: " + length2.ToString("S4")); // 3.14 cm
 
 
             //        //Made a special case for frequency for now
@@ -149,6 +207,9 @@ namespace UnitNetcomparing
             //        Temperature T112 = new(20, TemperatureUnit.DegreeCelsius);
 
 
+            //        //UnknownUnit Abs() could we create it as some kind af generic so we dont have to cast it to and from UnknownUnit
+
+
             //        SpecificEnergy EngineeringUnits1 = new(1, SpecificEnergyUnit.BtuPerPound);
 
             //        var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(SpecificEnergyUnit.BtuPerPound);
@@ -156,8 +217,14 @@ namespace UnitNetcomparing
             //        Debug.Print(EngineeringUnits1.ToString("N4"));
 
 
+            //        var tst = (EngineeringUnits1 + EngineeringUnits1).ToUnit(SpecificEnergyUnit.BtuPerPound);
+
+
             //        //EngineeringUnits1.Unit.ReduceUnits();
 
+
+
+            //        //EngineeringUnits1.Unit.ReduceUnits();
 
 
             //        Debug.Print($"{EngineeringUnits1.As(SpecificEnergyUnit.JoulePerKilogram)}");
@@ -165,6 +232,9 @@ namespace UnitNetcomparing
             //        SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
             //        SpecificEnergy EngineeringUnits3 = EngineeringUnits1 + EngineeringUnits2;
+
+
+            //        SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
 
             //        var A4 = new EngineeringUnits.Length(10, LengthUnit.Kilometer);
@@ -176,9 +246,16 @@ namespace UnitNetcomparing
             //        Acceleration Result2 = A4 / (A5 * A6);
 
 
+            //        var test56 = (A5 * A6);
+
+            //        Acceleration Result2 = A4 / (A5 * A6);
+
 
             //        var A3 = new Acceleration(1, AccelerationUnit.SI);
 
+
+
+            //        var A3 = new Acceleration(1, AccelerationUnit.SI);
 
 
             //        Debug.Print(A3.As(AccelerationUnit.StandardGravity).ToString());
@@ -193,11 +270,18 @@ namespace UnitNetcomparing
 
 
 
+            //        //var A4 = L2 + L3;
+
+
 
             //        SpecificEnergy EE1 = new SpecificEnergy(84100, SpecificEnergyUnit.JoulePerKilogram);
             //        SpecificEnergy EE2 = new SpecificEnergy(3907000000000000d, SpecificEnergyUnit.JoulePerKilogram);
 
             //        MassFlow MMM1 = new MassFlow(3.47e+13, MassFlowUnit.KilogramPerSecond);
+
+
+            //        SpecificEnergy EE1 = new SpecificEnergy(84100, SpecificEnergyUnit.JoulePerKilogram);
+            //        SpecificEnergy EE2 = new SpecificEnergy(3907000000000000d, SpecificEnergyUnit.JoulePerKilogram);
 
 
             //        Power PP1 = (EE2 - EE1) * MMM1;
@@ -206,6 +290,9 @@ namespace UnitNetcomparing
             //        Mass M2 = new Mass(2, MassUnit.Megapound);
             //        Mass M3 = new Mass(77644, MassUnit.Milligram);
             //        Mass M4 = new Mass(345, MassUnit.Pound);
+
+
+            //        Power PP1 = (EE2 - EE1) * MMM1;
 
 
             //        Debug.Print($"{M1.ToString("g5")}");
@@ -217,6 +304,9 @@ namespace UnitNetcomparing
             //        //Length L21 = A11.Sqrt(); //16.55064 m
 
 
+            //        Area A11 = L11.Pow(2);  //273.9236844096 m²    
+
+
             //        if (M4.IsNotZero())
             //        {
 
@@ -226,6 +316,9 @@ namespace UnitNetcomparing
             //        Mass MaxMass = UnitMath.Max(M1, M2, M3, M4);    //2 Mlb
             //        Mass MaxAvg = UnitMath.Average(M1, M2, M3, M4); //2.268e+05 kg
             //        Mass MaxSum = UnitMath.Sum(M1, M2, M3, M4);     //9.074e+05 kg
+
+
+            //        }
 
 
             //        //Inf
@@ -241,8 +334,15 @@ namespace UnitNetcomparing
             //        Debug.Print(D1.GetHashCode().ToString());
 
 
+            //        Density D1 = mass / volume; // 2.5 kg/m³
+            //        //Density D2 = volume / mass; // WrongUnitException: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
+
+
             //        Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), Pressure.FromBars(10), Pressure.FromBars(20));
 
+
+
+            //        Pressure testtt = UnitMath.LinearInterpolation(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1), Pressure.FromBars(10), Pressure.FromBars(20));
 
 
             //        SpecificEnergy EEE = new SpecificEnergy(10, SpecificEnergyUnit.JoulePerKilogram);
@@ -252,10 +352,13 @@ namespace UnitNetcomparing
 
 
 
+            //        Enthalpy SSS = EEE;
+
 
             //        SpecificEnergy EEE2 = SSS;
 
 
+            //        SpecificEnergy EEE2 = SSS;
 
 
 
@@ -265,10 +368,12 @@ namespace UnitNetcomparing
             //        var watch = System.Diagnostics.Stopwatch.StartNew();
 
 
+
             //        for (int i = 0; i < totalcount; i++)
             //        {
             //            speedtest = Power.Zero > P11;
             //        }
+
 
 
             //        watch.Stop();
@@ -276,19 +381,28 @@ namespace UnitNetcomparing
 
 
 
+            //        RotationalSpeed F1 = new RotationalSpeed(1500, RotationalSpeedUnit.BeatPerMinute);
+
 
 
             //        RotationalSpeed F1 = new RotationalSpeed(1500, RotationalSpeedUnit.BeatPerMinute);
 
 
+
             //        Torque TQ1 = P11 / F1;
+
+            //        MassFlow MM1 = UnitMath.Min(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1) - MassFlow.FromKilogramsPerSecond(2));
 
 
 
             //        MassFlow MM1 = UnitMath.Min(MassFlow.FromKilogramsPerSecond(1), MassFlow.FromKilogramsPerSecond(1) - MassFlow.FromKilogramsPerSecond(2));
 
 
+
             //        MassFlow MM2 = MM1 - MM1;
+
+            //        Power f1 = new Power(-19, PowerUnit.KilojoulePerHour);
+            //        Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5));
 
 
 
@@ -318,12 +432,18 @@ namespace UnitNetcomparing
             //        string jsonString2 = JsonConvert.SerializeObject(locallist);
             //        List<Power> locallist2 = JsonConvert.DeserializeObject<List<Power>>(jsonString2);
 
+
             //        string jsonString3 = JsonConvert.SerializeObject(locallist2);
 
 
+            //        Debug.Print($"{jsonString2 == jsonString3 }");
 
 
             //        Debug.Print($"{jsonString2 == jsonString3 }");
+
+            //        //Debug.Print($"{f2}");
+            //        //Debug.Print($"{f3}");
+            //        //Debug.Print($"{f4}");
 
 
 
@@ -347,9 +467,8 @@ namespace UnitNetcomparing
             //        UnknownUnit local = new UnknownUnit(M11);
 
 
+
             //        Debug.Print($"{local}");
-
-
 
 
 
@@ -359,6 +478,17 @@ namespace UnitNetcomparing
             //        //.Where(t => t.IsSubclassOf(typeof(BaseUnit)))
             //        //.Select(t => (BaseUnit)Activator.CreateInstance(t));
 
+
+            //        //IEnumerable<BaseUnit> exporters = typeof(BaseUnit)
+            //        //.Assembly.GetTypes()
+            //        //.Where(t => t.IsSubclassOf(typeof(BaseUnit)))
+            //        //.Select(t => (BaseUnit)Activator.CreateInstance(t));
+
+            //        //foreach (BaseUnit item in exporters)
+            //        //{
+            //        //    //Print name of unit
+            //        //    Console.WriteLine(item.GetType());
+            //        //}
 
 
             //        //foreach (BaseUnit item in exporters)
@@ -373,6 +503,19 @@ namespace UnitNetcomparing
 
 
 
+
+            //        MassFlow Average2 = UnitMath.Average(
+            //            MassFlow.FromKilogramsPerSecond(1),
+            //            MassFlow.FromKilogramsPerSecond(2),
+            //            MassFlow.FromKilogramsPerSecond(3),
+            //            MassFlow.FromKilogramsPerSecond(4),
+            //            MassFlow.FromKilogramsPerSecond(5),
+            //            MassFlow.FromKilogramsPerSecond(6),
+            //            MassFlow.FromKilogramsPerSecond(7),
+            //MassFlow.FromKilogramsPerSecond(8),
+            //MassFlow.FromKilogramsPerSecond(9),
+            //MassFlow.FromKilogramsPerSecond(10)
+            //);
 
 
 

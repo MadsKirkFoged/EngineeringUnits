@@ -1,45 +1,43 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class AreaMomentOfInertia
     {
-        /// <summary>
-        ///     Get AreaMomentOfInertia in CentimetersToTheFourth.
-        /// </summary>
-        public double CentimetersToTheFourth => As(AreaMomentOfInertiaUnit.CentimeterToTheFourth);
 
-        /// <summary>
-        ///     Get AreaMomentOfInertia in DecimetersToTheFourth.
-        /// </summary>
-        public double DecimetersToTheFourth => As(AreaMomentOfInertiaUnit.DecimeterToTheFourth);
+ 
 
-        /// <summary>
-        ///     Get AreaMomentOfInertia in FeetToTheFourth.
-        /// </summary>
-        public double FeetToTheFourth => As(AreaMomentOfInertiaUnit.FootToTheFourth);
-
-        /// <summary>
-        ///     Get AreaMomentOfInertia in InchesToTheFourth.
-        /// </summary>
-        public double InchesToTheFourth => As(AreaMomentOfInertiaUnit.InchToTheFourth);
-
-        /// <summary>
-        ///     Get AreaMomentOfInertia in MetersToTheFourth.
-        /// </summary>
-        public double MetersToTheFourth => As(AreaMomentOfInertiaUnit.MeterToTheFourth);
-
-        /// <summary>
-        ///     Get AreaMomentOfInertia in SI Unit (MetersToTheFourth).
-        /// </summary>
-        public double SI => As(AreaMomentOfInertiaUnit.SI);
-
-        /// <summary>
-        ///     Get AreaMomentOfInertia in MillimetersToTheFourth.
-        /// </summary>
-        public double MillimetersToTheFourth => As(AreaMomentOfInertiaUnit.MillimeterToTheFourth);
-
+            /// <summary>
+            ///     Get AreaMomentOfInertia in SI.
+            /// </summary>
+            public double SI => As(AreaMomentOfInertiaUnit.SI);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in MeterToTheFourth.
+            /// </summary>
+            public double MeterToTheFourth => As(AreaMomentOfInertiaUnit.MeterToTheFourth);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in CentimeterToTheFourth.
+            /// </summary>
+            public double CentimeterToTheFourth => As(AreaMomentOfInertiaUnit.CentimeterToTheFourth);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in DecimeterToTheFourth.
+            /// </summary>
+            public double DecimeterToTheFourth => As(AreaMomentOfInertiaUnit.DecimeterToTheFourth);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in MillimeterToTheFourth.
+            /// </summary>
+            public double MillimeterToTheFourth => As(AreaMomentOfInertiaUnit.MillimeterToTheFourth);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in InchToTheFourth.
+            /// </summary>
+            public double InchToTheFourth => As(AreaMomentOfInertiaUnit.InchToTheFourth);
+            /// <summary>
+            ///     Get AreaMomentOfInertia in FootToTheFourth.
+            /// </summary>
+            public double FootToTheFourth => As(AreaMomentOfInertiaUnit.FootToTheFourth);
     }
 }
+
+
