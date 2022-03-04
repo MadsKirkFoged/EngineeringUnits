@@ -133,10 +133,31 @@ namespace EngineeringUnits
         }
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
-            return new UnitSystem(
+
+            var test = new HashCode();
+            test.Add(a.GetHashCode());
+            test.Add(b.GetHashCode());
+            var HashCode = test.ToHashCode();
+
+            if (CacheMultiply.TryGetValue(HashCode, out UnitSystem local))
+            {
+                return local;
+            } 
+
+            var test2 = new UnitSystem(
                         new List<Enumeration>(
                             a.ListOfUnits.Concat(
                             b.ListOfUnits)));
+
+            CacheMultiply.Add(HashCode, test2);
+
+            return test2;
+
+
+            //return new UnitSystem(
+            //            new List<Enumeration>(
+            //                a.ListOfUnits.Concat(
+            //                b.ListOfUnits)));
         }
         public static UnitSystem Multiply(UnitSystem a, decimal constant)
         {
@@ -155,17 +176,48 @@ namespace EngineeringUnits
         }
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
+
+            var test = new HashCode();
+            test.Add(a.GetHashCode());
+            test.Add(b.GetHashCode());
+            var HashCode = test.ToHashCode();
+
+            if (CacheDivide.TryGetValue(HashCode, out UnitSystem local))
+            {
+                return local;
+            }
+
+
             List<Enumeration> LocalUnitList = new(a.ListOfUnits);
 
-            foreach (var item in b.ListOfUnits)            
-                LocalUnitList.Add(item.CloneAndReverseCount());        
+            foreach (var item in b.ListOfUnits)
+                LocalUnitList.Add(item.CloneAndReverseCount());
 
 
-            return new UnitSystem(LocalUnitList);
+            var test2 = new UnitSystem(LocalUnitList);
+
+            CacheDivide.Add(HashCode, test2);
+
+            return test2;
+
+
+
+            //List<Enumeration> LocalUnitList = new(a.ListOfUnits);
+
+            //foreach (var item in b.ListOfUnits)            
+            //    LocalUnitList.Add(item.CloneAndReverseCount());        
+
+
+            //return new UnitSystem(LocalUnitList);
 
         }
 
-        
+
+        //Cache unitsystem when multiply
+        private static Dictionary<int, UnitSystem> CacheMultiply = new Dictionary<int, UnitSystem>();
+        private static Dictionary<int, UnitSystem> CacheDivide = new Dictionary<int, UnitSystem>();
+
+
 
         public static UnitSystem operator +(UnitSystem left, UnitSystem right) => Add(left, right);
         public static UnitSystem operator -(UnitSystem left, UnitSystem right) => Subtract(left, right);
@@ -337,15 +389,22 @@ namespace EngineeringUnits
         // The result of the calculations will differ from an actual value
         // of the root on less than epslion.
 
-
+        
+        private int HashCode;
 
         public override int GetHashCode()
         {
-            HashCode hashCode = new();
-            hashCode.Add(Symbol);
-            hashCode.Add(ListOfUnits);         
+            if (HashCode == 0)
+            {
 
-            return hashCode.ToHashCode();
+                HashCode hashCode = new();
+                hashCode.Add(Symbol);
+                hashCode.Add(ListOfUnits);
+
+                HashCode = hashCode.ToHashCode();
+            }
+
+            return HashCode;
         }
 
         private int HashCodeForUnitCompare;

@@ -219,18 +219,18 @@ namespace EngineeringUnits
                     case 'A':
                     case 'a':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     case 'V':
                     case 'v':
                         return NEWValue.ToString(provider);
                     case 'U':
                     case 'u':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     case 'Q':
                     case 'q':
                         //return Unit.ToString();
-                        return GetStandardSymbol(Unit.ReduceUnits()).ToString();
+                        return GetStandardSymbol(Unit).ToString();
                     default:
                         throw new FormatException($"The {format} format string is not supported.");
                 }
@@ -242,12 +242,12 @@ namespace EngineeringUnits
                 if (Inf)
             {
                 //return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
-                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit.ReduceUnits())}";
+                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
             }
 
             //Are As(Unit) and NewValue not always the same?
             //return $"{NEWValue.ToString(format, provider)} {Unit}";
-            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit.ReduceUnits())}";
+            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
         }
 
         
@@ -261,7 +261,7 @@ namespace EngineeringUnits
         }
 
 
-        private static BaseUnit AddUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
@@ -271,18 +271,18 @@ namespace EngineeringUnits
             {
 
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
-                    return new BaseUnit(left.NEWValue + right.NEWValue, left.Unit);                
+                    return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
 
-                return new BaseUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
+                return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit + right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
             }
 
         }
-        private static BaseUnit SubtractUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
         {
 
             if (left.Unit != right.Unit)
@@ -292,38 +292,38 @@ namespace EngineeringUnits
             try
             {
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-                    return new BaseUnit(left.NEWValue - right.NEWValue, left.Unit);
+                    return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
-                return new BaseUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
+                return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit - right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
 
         }
-        private static BaseUnit MultiplyUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit MultiplyUnits(BaseUnit left, BaseUnit right)
         {
 
             try
             {
                 var NewTestValue = left.NEWValue * right.NEWValue;
 
-                return new BaseUnit(NewTestValue, left.Unit * right.Unit);
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit * right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
             }
 
         }
-        private static BaseUnit DivideUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit DivideUnits(BaseUnit left, BaseUnit right)
         {
 
             if (right.NEWValue == 0)            
-                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             
 
 
@@ -331,12 +331,12 @@ namespace EngineeringUnits
             {
                 var NewTestValue = left.NEWValue / right.NEWValue;
 
-                return new BaseUnit(NewTestValue, left.Unit / right.Unit);
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }
 
         }
