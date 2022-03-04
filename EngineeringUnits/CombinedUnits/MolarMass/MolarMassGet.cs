@@ -1,75 +1,67 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MolarMass
     {
-        /// <summary>
-        ///     Get MolarMass in CentigramsPerMole.
-        /// </summary>
-        public double CentigramsPerMole => As(MolarMassUnit.CentigramPerMole);
 
-        /// <summary>
-        ///     Get MolarMass in DecagramsPerMole.
-        /// </summary>
-        public double DecagramsPerMole => As(MolarMassUnit.DecagramPerMole);
+ 
 
-        /// <summary>
-        ///     Get MolarMass in DecigramsPerMole.
-        /// </summary>
-        public double DecigramsPerMole => As(MolarMassUnit.DecigramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in GramsPerMole.
-        /// </summary>
-        public double GramsPerMole => As(MolarMassUnit.GramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in HectogramsPerMole.
-        /// </summary>
-        public double HectogramsPerMole => As(MolarMassUnit.HectogramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in KilogramsPerMole.
-        /// </summary>
-        public double KilogramsPerMole => As(MolarMassUnit.KilogramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in SI Unit (KilogramsPerMole).
-        /// </summary>
-        public double SI => As(MolarMassUnit.SI);
-
-        /// <summary>
-        ///     Get MolarMass in KilopoundsPerMole.
-        /// </summary>
-        public double KilopoundsPerMole => As(MolarMassUnit.KilopoundPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in MegapoundsPerMole.
-        /// </summary>
-        public double MegapoundsPerMole => As(MolarMassUnit.MegapoundPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in MicrogramsPerMole.
-        /// </summary>
-        public double MicrogramsPerMole => As(MolarMassUnit.MicrogramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in MilligramsPerMole.
-        /// </summary>
-        public double MilligramsPerMole => As(MolarMassUnit.MilligramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in NanogramsPerMole.
-        /// </summary>
-        public double NanogramsPerMole => As(MolarMassUnit.NanogramPerMole);
-
-        /// <summary>
-        ///     Get MolarMass in PoundsPerMole.
-        /// </summary>
-        public double PoundsPerMole => As(MolarMassUnit.PoundPerMole);
-
+            /// <summary>
+            ///     Get MolarMass in SI.
+            /// </summary>
+            public double SI => As(MolarMassUnit.SI);
+            /// <summary>
+            ///     Get MolarMass in KilogramPerMole.
+            /// </summary>
+            public double KilogramPerMole => As(MolarMassUnit.KilogramPerMole);
+            /// <summary>
+            ///     Get MolarMass in CentigramPerMole.
+            /// </summary>
+            public double CentigramPerMole => As(MolarMassUnit.CentigramPerMole);
+            /// <summary>
+            ///     Get MolarMass in DecagramPerMole.
+            /// </summary>
+            public double DecagramPerMole => As(MolarMassUnit.DecagramPerMole);
+            /// <summary>
+            ///     Get MolarMass in DecigramPerMole.
+            /// </summary>
+            public double DecigramPerMole => As(MolarMassUnit.DecigramPerMole);
+            /// <summary>
+            ///     Get MolarMass in GramPerMole.
+            /// </summary>
+            public double GramPerMole => As(MolarMassUnit.GramPerMole);
+            /// <summary>
+            ///     Get MolarMass in HectogramPerMole.
+            /// </summary>
+            public double HectogramPerMole => As(MolarMassUnit.HectogramPerMole);
+            /// <summary>
+            ///     Get MolarMass in KilopoundPerMole.
+            /// </summary>
+            public double KilopoundPerMole => As(MolarMassUnit.KilopoundPerMole);
+            /// <summary>
+            ///     Get MolarMass in MegapoundPerMole.
+            /// </summary>
+            public double MegapoundPerMole => As(MolarMassUnit.MegapoundPerMole);
+            /// <summary>
+            ///     Get MolarMass in MicrogramPerMole.
+            /// </summary>
+            public double MicrogramPerMole => As(MolarMassUnit.MicrogramPerMole);
+            /// <summary>
+            ///     Get MolarMass in MilligramPerMole.
+            /// </summary>
+            public double MilligramPerMole => As(MolarMassUnit.MilligramPerMole);
+            /// <summary>
+            ///     Get MolarMass in NanogramPerMole.
+            /// </summary>
+            public double NanogramPerMole => As(MolarMassUnit.NanogramPerMole);
+            /// <summary>
+            ///     Get MolarMass in PoundPerMole.
+            /// </summary>
+            public double PoundPerMole => As(MolarMassUnit.PoundPerMole);
     }
 }
+
+

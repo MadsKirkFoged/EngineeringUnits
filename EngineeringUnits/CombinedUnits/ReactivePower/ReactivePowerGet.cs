@@ -1,35 +1,35 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ReactivePower
     {
-        /// <summary>
-        ///     Get ReactivePower in GigavoltamperesReactive.
-        /// </summary>
-        public double GigavoltamperesReactive => As(ReactivePowerUnit.GigavoltampereReactive);
 
-        /// <summary>
-        ///     Get ReactivePower in KilovoltamperesReactive.
-        /// </summary>
-        public double KilovoltamperesReactive => As(ReactivePowerUnit.KilovoltampereReactive);
+ 
 
-        /// <summary>
-        ///     Get ReactivePower in MegavoltamperesReactive.
-        /// </summary>
-        public double MegavoltamperesReactive => As(ReactivePowerUnit.MegavoltampereReactive);
-
-        /// <summary>
-        ///     Get ReactivePower in VoltamperesReactive.
-        /// </summary>
-        public double VoltamperesReactive => As(ReactivePowerUnit.VoltampereReactive);
-
-        /// <summary>
-        ///     Get ReactivePower in SI unit (VoltamperesReactive).
-        /// </summary>
-        public double SI => As(ReactivePowerUnit.SI);
-
+            /// <summary>
+            ///     Get ReactivePower in SI.
+            /// </summary>
+            public double SI => As(ReactivePowerUnit.SI);
+            /// <summary>
+            ///     Get ReactivePower in VoltampereReactive.
+            /// </summary>
+            public double VoltampereReactive => As(ReactivePowerUnit.VoltampereReactive);
+            /// <summary>
+            ///     Get ReactivePower in MegavoltampereReactive.
+            /// </summary>
+            public double MegavoltampereReactive => As(ReactivePowerUnit.MegavoltampereReactive);
+            /// <summary>
+            ///     Get ReactivePower in KilovoltampereReactive.
+            /// </summary>
+            public double KilovoltampereReactive => As(ReactivePowerUnit.KilovoltampereReactive);
+            /// <summary>
+            ///     Get ReactivePower in GigavoltampereReactive.
+            /// </summary>
+            public double GigavoltampereReactive => As(ReactivePowerUnit.GigavoltampereReactive);
     }
 }
+
+

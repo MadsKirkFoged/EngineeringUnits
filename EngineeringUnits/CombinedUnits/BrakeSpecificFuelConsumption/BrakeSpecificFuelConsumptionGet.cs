@@ -1,30 +1,31 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class BrakeSpecificFuelConsumption
     {
-        /// <summary>
-        ///     Get BrakeSpecificFuelConsumption in GramsPerKiloWattHour.
-        /// </summary>
-        public double GramsPerKiloWattHour => As(BrakeSpecificFuelConsumptionUnit.GramPerKiloWattHour);
 
-        /// <summary>
-        ///     Get BrakeSpecificFuelConsumption in KilogramsPerJoule.
-        /// </summary>
-        public double KilogramsPerJoule => As(BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
+ 
 
-        /// <summary>
-        ///     Get BrakeSpecificFuelConsumption in SI Unit (KilogramsPerJoule).
-        /// </summary>
-        public double SI => As(BrakeSpecificFuelConsumptionUnit.SI);
-
-        /// <summary>
-        ///     Get BrakeSpecificFuelConsumption in PoundsPerMechanicalHorsepowerHour.
-        /// </summary>
-        public double PoundsPerMechanicalHorsepowerHour => As(BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour);
-
+            /// <summary>
+            ///     Get BrakeSpecificFuelConsumption in SI.
+            /// </summary>
+            public double SI => As(BrakeSpecificFuelConsumptionUnit.SI);
+            /// <summary>
+            ///     Get BrakeSpecificFuelConsumption in KilogramPerJoule.
+            /// </summary>
+            public double KilogramPerJoule => As(BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
+            /// <summary>
+            ///     Get BrakeSpecificFuelConsumption in GramPerKiloWattHour.
+            /// </summary>
+            public double GramPerKiloWattHour => As(BrakeSpecificFuelConsumptionUnit.GramPerKiloWattHour);
+            /// <summary>
+            ///     Get BrakeSpecificFuelConsumption in PoundPerMechanicalHorsepowerHour.
+            /// </summary>
+            public double PoundPerMechanicalHorsepowerHour => As(BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour);
     }
 }
+
+

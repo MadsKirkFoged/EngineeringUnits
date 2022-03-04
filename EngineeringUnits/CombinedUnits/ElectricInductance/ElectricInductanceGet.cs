@@ -1,35 +1,35 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricInductance
     {
-        /// <summary>
-        ///     Get ElectricInductance in Henries.
-        /// </summary>
-        public double Henries => As(ElectricInductanceUnit.Henry);
 
-        /// <summary>
-        ///     Get ElectricInductance in SI Unit (Henries).
-        /// </summary>
-        public double SI => As(ElectricInductanceUnit.SI);
+ 
 
-        /// <summary>
-        ///     Get ElectricInductance in Microhenries.
-        /// </summary>
-        public double Microhenries => As(ElectricInductanceUnit.Microhenry);
-
-        /// <summary>
-        ///     Get ElectricInductance in Millihenries.
-        /// </summary>
-        public double Millihenries => As(ElectricInductanceUnit.Millihenry);
-
-        /// <summary>
-        ///     Get ElectricInductance in Nanohenries.
-        /// </summary>
-        public double Nanohenries => As(ElectricInductanceUnit.Nanohenry);
-
+            /// <summary>
+            ///     Get ElectricInductance in SI.
+            /// </summary>
+            public double SI => As(ElectricInductanceUnit.SI);
+            /// <summary>
+            ///     Get ElectricInductance in Henry.
+            /// </summary>
+            public double Henry => As(ElectricInductanceUnit.Henry);
+            /// <summary>
+            ///     Get ElectricInductance in Microhenry.
+            /// </summary>
+            public double Microhenry => As(ElectricInductanceUnit.Microhenry);
+            /// <summary>
+            ///     Get ElectricInductance in Millihenry.
+            /// </summary>
+            public double Millihenry => As(ElectricInductanceUnit.Millihenry);
+            /// <summary>
+            ///     Get ElectricInductance in Nanohenry.
+            /// </summary>
+            public double Nanohenry => As(ElectricInductanceUnit.Nanohenry);
     }
 }
+
+

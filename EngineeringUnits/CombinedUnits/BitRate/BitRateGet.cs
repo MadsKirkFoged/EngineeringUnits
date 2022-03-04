@@ -1,145 +1,123 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class BitRate
     {
-        /// <summary>
-        ///     Get BitRate in BitsPerSecond.
-        /// </summary>
-        public double BitsPerSecond => As(BitRateUnit.BitPerSecond);
 
-        /// <summary>
-        ///     Get BitRate in SI Unit (BitsPerSecond).
-        /// </summary>
-        public double SI => As(BitRateUnit.SI);
+ 
 
-        /// <summary>
-        ///     Get BitRate in BytesPerSecond.
-        /// </summary>
-        public double BytesPerSecond => As(BitRateUnit.BytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in ExabitsPerSecond.
-        /// </summary>
-        public double ExabitsPerSecond => As(BitRateUnit.ExabitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in ExabytesPerSecond.
-        /// </summary>
-        public double ExabytesPerSecond => As(BitRateUnit.ExabytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in ExbibitsPerSecond.
-        /// </summary>
-        public double ExbibitsPerSecond => As(BitRateUnit.ExbibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in ExbibytesPerSecond.
-        /// </summary>
-        public double ExbibytesPerSecond => As(BitRateUnit.ExbibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in GibibitsPerSecond.
-        /// </summary>
-        public double GibibitsPerSecond => As(BitRateUnit.GibibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in GibibytesPerSecond.
-        /// </summary>
-        public double GibibytesPerSecond => As(BitRateUnit.GibibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in GigabitsPerSecond.
-        /// </summary>
-        public double GigabitsPerSecond => As(BitRateUnit.GigabitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in GigabytesPerSecond.
-        /// </summary>
-        public double GigabytesPerSecond => As(BitRateUnit.GigabytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in KibibitsPerSecond.
-        /// </summary>
-        public double KibibitsPerSecond => As(BitRateUnit.KibibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in KibibytesPerSecond.
-        /// </summary>
-        public double KibibytesPerSecond => As(BitRateUnit.KibibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in KilobitsPerSecond.
-        /// </summary>
-        public double KilobitsPerSecond => As(BitRateUnit.KilobitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in KilobytesPerSecond.
-        /// </summary>
-        public double KilobytesPerSecond => As(BitRateUnit.KilobytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in MebibitsPerSecond.
-        /// </summary>
-        public double MebibitsPerSecond => As(BitRateUnit.MebibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in MebibytesPerSecond.
-        /// </summary>
-        public double MebibytesPerSecond => As(BitRateUnit.MebibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in MegabitsPerSecond.
-        /// </summary>
-        public double MegabitsPerSecond => As(BitRateUnit.MegabitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in MegabytesPerSecond.
-        /// </summary>
-        public double MegabytesPerSecond => As(BitRateUnit.MegabytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in PebibitsPerSecond.
-        /// </summary>
-        public double PebibitsPerSecond => As(BitRateUnit.PebibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in PebibytesPerSecond.
-        /// </summary>
-        public double PebibytesPerSecond => As(BitRateUnit.PebibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in PetabitsPerSecond.
-        /// </summary>
-        public double PetabitsPerSecond => As(BitRateUnit.PetabitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in PetabytesPerSecond.
-        /// </summary>
-        public double PetabytesPerSecond => As(BitRateUnit.PetabytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in TebibitsPerSecond.
-        /// </summary>
-        public double TebibitsPerSecond => As(BitRateUnit.TebibitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in TebibytesPerSecond.
-        /// </summary>
-        public double TebibytesPerSecond => As(BitRateUnit.TebibytePerSecond);
-
-        /// <summary>
-        ///     Get BitRate in TerabitsPerSecond.
-        /// </summary>
-        public double TerabitsPerSecond => As(BitRateUnit.TerabitPerSecond);
-
-        /// <summary>
-        ///     Get BitRate in TerabytesPerSecond.
-        /// </summary>
-        public double TerabytesPerSecond => As(BitRateUnit.TerabytePerSecond);
-
+            /// <summary>
+            ///     Get BitRate in SI.
+            /// </summary>
+            public double SI => As(BitRateUnit.SI);
+            /// <summary>
+            ///     Get BitRate in BytePerSecond.
+            /// </summary>
+            public double BytePerSecond => As(BitRateUnit.BytePerSecond);
+            /// <summary>
+            ///     Get BitRate in BitPerSecond.
+            /// </summary>
+            public double BitPerSecond => As(BitRateUnit.BitPerSecond);
+            /// <summary>
+            ///     Get BitRate in KibibitPerSecond.
+            /// </summary>
+            public double KibibitPerSecond => As(BitRateUnit.KibibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in MebibitPerSecond.
+            /// </summary>
+            public double MebibitPerSecond => As(BitRateUnit.MebibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in GibibitPerSecond.
+            /// </summary>
+            public double GibibitPerSecond => As(BitRateUnit.GibibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in TebibitPerSecond.
+            /// </summary>
+            public double TebibitPerSecond => As(BitRateUnit.TebibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in PebibitPerSecond.
+            /// </summary>
+            public double PebibitPerSecond => As(BitRateUnit.PebibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in ExbibitPerSecond.
+            /// </summary>
+            public double ExbibitPerSecond => As(BitRateUnit.ExbibitPerSecond);
+            /// <summary>
+            ///     Get BitRate in KibibytePerSecond.
+            /// </summary>
+            public double KibibytePerSecond => As(BitRateUnit.KibibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in MebibytePerSecond.
+            /// </summary>
+            public double MebibytePerSecond => As(BitRateUnit.MebibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in GibibytePerSecond.
+            /// </summary>
+            public double GibibytePerSecond => As(BitRateUnit.GibibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in TebibytePerSecond.
+            /// </summary>
+            public double TebibytePerSecond => As(BitRateUnit.TebibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in PebibytePerSecond.
+            /// </summary>
+            public double PebibytePerSecond => As(BitRateUnit.PebibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in ExbibytePerSecond.
+            /// </summary>
+            public double ExbibytePerSecond => As(BitRateUnit.ExbibytePerSecond);
+            /// <summary>
+            ///     Get BitRate in KilobytePerSecond.
+            /// </summary>
+            public double KilobytePerSecond => As(BitRateUnit.KilobytePerSecond);
+            /// <summary>
+            ///     Get BitRate in MegabytePerSecond.
+            /// </summary>
+            public double MegabytePerSecond => As(BitRateUnit.MegabytePerSecond);
+            /// <summary>
+            ///     Get BitRate in GigabytePerSecond.
+            /// </summary>
+            public double GigabytePerSecond => As(BitRateUnit.GigabytePerSecond);
+            /// <summary>
+            ///     Get BitRate in TerabytePerSecond.
+            /// </summary>
+            public double TerabytePerSecond => As(BitRateUnit.TerabytePerSecond);
+            /// <summary>
+            ///     Get BitRate in PetabytePerSecond.
+            /// </summary>
+            public double PetabytePerSecond => As(BitRateUnit.PetabytePerSecond);
+            /// <summary>
+            ///     Get BitRate in ExabytePerSecond.
+            /// </summary>
+            public double ExabytePerSecond => As(BitRateUnit.ExabytePerSecond);
+            /// <summary>
+            ///     Get BitRate in KilobitPerSecond.
+            /// </summary>
+            public double KilobitPerSecond => As(BitRateUnit.KilobitPerSecond);
+            /// <summary>
+            ///     Get BitRate in MegabitPerSecond.
+            /// </summary>
+            public double MegabitPerSecond => As(BitRateUnit.MegabitPerSecond);
+            /// <summary>
+            ///     Get BitRate in GigabitPerSecond.
+            /// </summary>
+            public double GigabitPerSecond => As(BitRateUnit.GigabitPerSecond);
+            /// <summary>
+            ///     Get BitRate in TerabitPerSecond.
+            /// </summary>
+            public double TerabitPerSecond => As(BitRateUnit.TerabitPerSecond);
+            /// <summary>
+            ///     Get BitRate in PetabitPerSecond.
+            /// </summary>
+            public double PetabitPerSecond => As(BitRateUnit.PetabitPerSecond);
+            /// <summary>
+            ///     Get BitRate in ExabitPerSecond.
+            /// </summary>
+            public double ExabitPerSecond => As(BitRateUnit.ExabitPerSecond);
     }
 }
+
+

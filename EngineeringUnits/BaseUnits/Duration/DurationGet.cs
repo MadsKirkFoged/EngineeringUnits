@@ -1,68 +1,59 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Duration
     {
 
-        /// <summary>
-        ///     Get Duration in Days.
-        /// </summary>
-        public double Days => As(DurationUnit.Day);
+ 
 
-        /// <summary>
-        ///     Get Duration in Hours.
-        /// </summary>
-        public double Hours => As(DurationUnit.Hour);
-
-        /// <summary>
-        ///     Get Duration in Microseconds.
-        /// </summary>
-        public double Microseconds => As(DurationUnit.Microsecond);
-
-        /// <summary>
-        ///     Get Duration in Milliseconds.
-        /// </summary>
-        public double Milliseconds => As(DurationUnit.Millisecond);
-
-        /// <summary>
-        ///     Get Duration in Minutes.
-        /// </summary>
-        public double Minutes => As(DurationUnit.Minute);
-
-        /// <summary>
-        ///     Get Duration in Months30.
-        /// </summary>
-        public double Months30 => As(DurationUnit.Month30);
-
-        /// <summary>
-        ///     Get Duration in Nanoseconds.
-        /// </summary>
-        public double Nanoseconds => As(DurationUnit.Nanosecond);
-
-        /// <summary>
-        ///     Get Duration in Seconds.
-        /// </summary>
-        public double Seconds => As(DurationUnit.Second);
-
-        /// <summary>
-        ///     Get Duration in SI Unit (Seconds).
-        /// </summary>
-        public double SI => As(DurationUnit.SI);
-
-        /// <summary>
-        ///     Get Duration in Weeks.
-        /// </summary>
-        public double Weeks => As(DurationUnit.Week);
-
-        /// <summary>
-        ///     Get Duration in Years365.
-        /// </summary>
-        public double Years365 => As(DurationUnit.Year365);
-
-
-
+            /// <summary>
+            ///     Get Duration in Nanosecond.
+            /// </summary>
+            public double Nanosecond => As(DurationUnit.Nanosecond);
+            /// <summary>
+            ///     Get Duration in Millisecond.
+            /// </summary>
+            public double Millisecond => As(DurationUnit.Millisecond);
+            /// <summary>
+            ///     Get Duration in Microsecond.
+            /// </summary>
+            public double Microsecond => As(DurationUnit.Microsecond);
+            /// <summary>
+            ///     Get Duration in Second.
+            /// </summary>
+            public double Second => As(DurationUnit.Second);
+            /// <summary>
+            ///     Get Duration in Minute.
+            /// </summary>
+            public double Minute => As(DurationUnit.Minute);
+            /// <summary>
+            ///     Get Duration in Hour.
+            /// </summary>
+            public double Hour => As(DurationUnit.Hour);
+            /// <summary>
+            ///     Get Duration in Day.
+            /// </summary>
+            public double Day => As(DurationUnit.Day);
+            /// <summary>
+            ///     Get Duration in Week.
+            /// </summary>
+            public double Week => As(DurationUnit.Week);
+            /// <summary>
+            ///     Get Duration in Month30.
+            /// </summary>
+            public double Month30 => As(DurationUnit.Month30);
+            /// <summary>
+            ///     Get Duration in Year365.
+            /// </summary>
+            public double Year365 => As(DurationUnit.Year365);
+            /// <summary>
+            ///     Get Duration in SI.
+            /// </summary>
+            public double SI => As(DurationUnit.SI);
     }
 }
+
+

@@ -1,59 +1,51 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricCurrent
     {
 
-        /// <summary>
-        ///     Get ElectricCurrent in Amperes.
-        /// </summary>
-        public double Amperes => As(ElectricCurrentUnit.Ampere);
+ 
 
-        /// <summary>
-        ///     Get ElectricCurrent in SI Unit (Amperes).
-        /// </summary>
-        public double SI => As(ElectricCurrentUnit.SI);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Centiamperes.
-        /// </summary>
-        public double Centiamperes => As(ElectricCurrentUnit.Centiampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Kiloamperes.
-        /// </summary>
-        public double Kiloamperes => As(ElectricCurrentUnit.Kiloampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Megaamperes.
-        /// </summary>
-        public double Megaamperes => As(ElectricCurrentUnit.Megaampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Microamperes.
-        /// </summary>
-        public double Microamperes => As(ElectricCurrentUnit.Microampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Milliamperes.
-        /// </summary>
-        public double Milliamperes => As(ElectricCurrentUnit.Milliampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Nanoamperes.
-        /// </summary>
-        public double Nanoamperes => As(ElectricCurrentUnit.Nanoampere);
-
-        /// <summary>
-        ///     Get ElectricCurrent in Picoamperes.
-        /// </summary>
-        public double Picoamperes => As(ElectricCurrentUnit.Picoampere);
-
-
-
-
+            /// <summary>
+            ///     Get ElectricCurrent in SI.
+            /// </summary>
+            public double SI => As(ElectricCurrentUnit.SI);
+            /// <summary>
+            ///     Get ElectricCurrent in Ampere.
+            /// </summary>
+            public double Ampere => As(ElectricCurrentUnit.Ampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Centiampere.
+            /// </summary>
+            public double Centiampere => As(ElectricCurrentUnit.Centiampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Kiloampere.
+            /// </summary>
+            public double Kiloampere => As(ElectricCurrentUnit.Kiloampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Megaampere.
+            /// </summary>
+            public double Megaampere => As(ElectricCurrentUnit.Megaampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Microampere.
+            /// </summary>
+            public double Microampere => As(ElectricCurrentUnit.Microampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Milliampere.
+            /// </summary>
+            public double Milliampere => As(ElectricCurrentUnit.Milliampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Nanoampere.
+            /// </summary>
+            public double Nanoampere => As(ElectricCurrentUnit.Nanoampere);
+            /// <summary>
+            ///     Get ElectricCurrent in Picoampere.
+            /// </summary>
+            public double Picoampere => As(ElectricCurrentUnit.Picoampere);
     }
 }
+
+

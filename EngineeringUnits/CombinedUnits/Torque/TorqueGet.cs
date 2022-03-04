@@ -1,125 +1,107 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Torque
     {
-        /// <summary>
-        ///     Get Torque in KilogramForceCentimeters.
-        /// </summary>
-        public double KilogramForceCentimeters => As(TorqueUnit.KilogramForceCentimeter);
 
-        /// <summary>
-        ///     Get Torque in KilogramForceMeters.
-        /// </summary>
-        public double KilogramForceMeters => As(TorqueUnit.KilogramForceMeter);
+ 
 
-        /// <summary>
-        ///     Get Torque in KilogramForceMillimeters.
-        /// </summary>
-        public double KilogramForceMillimeters => As(TorqueUnit.KilogramForceMillimeter);
-
-        /// <summary>
-        ///     Get Torque in KilonewtonCentimeters.
-        /// </summary>
-        public double KilonewtonCentimeters => As(TorqueUnit.KilonewtonCentimeter);
-
-        /// <summary>
-        ///     Get Torque in KilonewtonMeters.
-        /// </summary>
-        public double KilonewtonMeters => As(TorqueUnit.KilonewtonMeter);
-
-        /// <summary>
-        ///     Get Torque in KilonewtonMillimeters.
-        /// </summary>
-        public double KilonewtonMillimeters => As(TorqueUnit.KilonewtonMillimeter);
-
-        /// <summary>
-        ///     Get Torque in KilopoundForceFeet.
-        /// </summary>
-        public double KilopoundForceFeet => As(TorqueUnit.KilopoundForceFoot);
-
-        /// <summary>
-        ///     Get Torque in KilopoundForceInches.
-        /// </summary>
-        public double KilopoundForceInches => As(TorqueUnit.KilopoundForceInch);
-
-        /// <summary>
-        ///     Get Torque in MeganewtonCentimeters.
-        /// </summary>
-        public double MeganewtonCentimeters => As(TorqueUnit.MeganewtonCentimeter);
-
-        /// <summary>
-        ///     Get Torque in MeganewtonMeters.
-        /// </summary>
-        public double MeganewtonMeters => As(TorqueUnit.MeganewtonMeter);
-
-        /// <summary>
-        ///     Get Torque in MeganewtonMillimeters.
-        /// </summary>
-        public double MeganewtonMillimeters => As(TorqueUnit.MeganewtonMillimeter);
-
-        /// <summary>
-        ///     Get Torque in MegapoundForceFeet.
-        /// </summary>
-        public double MegapoundForceFeet => As(TorqueUnit.MegapoundForceFoot);
-
-        /// <summary>
-        ///     Get Torque in MegapoundForceInches.
-        /// </summary>
-        public double MegapoundForceInches => As(TorqueUnit.MegapoundForceInch);
-
-        /// <summary>
-        ///     Get Torque in NewtonCentimeters.
-        /// </summary>
-        public double NewtonCentimeters => As(TorqueUnit.NewtonCentimeter);
-
-        /// <summary>
-        ///     Get Torque in NewtonMeters.
-        /// </summary>
-        public double NewtonMeters => As(TorqueUnit.NewtonMeter);
-
-        /// <summary>
-        ///     Get Torque in SI Unit (NewtonMeters).
-        /// </summary>
-        public double SI => As(TorqueUnit.SI);
-
-        /// <summary>
-        ///     Get Torque in NewtonMillimeters.
-        /// </summary>
-        public double NewtonMillimeters => As(TorqueUnit.NewtonMillimeter);
-
-        /// <summary>
-        ///     Get Torque in PoundalFeet.
-        /// </summary>
-        public double PoundalFeet => As(TorqueUnit.PoundalFoot);
-
-        /// <summary>
-        ///     Get Torque in PoundForceFeet.
-        /// </summary>
-        public double PoundForceFeet => As(TorqueUnit.PoundForceFoot);
-
-        /// <summary>
-        ///     Get Torque in PoundForceInches.
-        /// </summary>
-        public double PoundForceInches => As(TorqueUnit.PoundForceInch);
-
-        /// <summary>
-        ///     Get Torque in TonneForceCentimeters.
-        /// </summary>
-        public double TonneForceCentimeters => As(TorqueUnit.TonneForceCentimeter);
-
-        /// <summary>
-        ///     Get Torque in TonneForceMeters.
-        /// </summary>
-        public double TonneForceMeters => As(TorqueUnit.TonneForceMeter);
-
-        /// <summary>
-        ///     Get Torque in TonneForceMillimeters.
-        /// </summary>
-        public double TonneForceMillimeters => As(TorqueUnit.TonneForceMillimeter);
-
+            /// <summary>
+            ///     Get Torque in SI.
+            /// </summary>
+            public double SI => As(TorqueUnit.SI);
+            /// <summary>
+            ///     Get Torque in NewtonMeter.
+            /// </summary>
+            public double NewtonMeter => As(TorqueUnit.NewtonMeter);
+            /// <summary>
+            ///     Get Torque in KilonewtonMeter.
+            /// </summary>
+            public double KilonewtonMeter => As(TorqueUnit.KilonewtonMeter);
+            /// <summary>
+            ///     Get Torque in MeganewtonMeter.
+            /// </summary>
+            public double MeganewtonMeter => As(TorqueUnit.MeganewtonMeter);
+            /// <summary>
+            ///     Get Torque in NewtonMillimeter.
+            /// </summary>
+            public double NewtonMillimeter => As(TorqueUnit.NewtonMillimeter);
+            /// <summary>
+            ///     Get Torque in KilonewtonMillimeter.
+            /// </summary>
+            public double KilonewtonMillimeter => As(TorqueUnit.KilonewtonMillimeter);
+            /// <summary>
+            ///     Get Torque in MeganewtonMillimeter.
+            /// </summary>
+            public double MeganewtonMillimeter => As(TorqueUnit.MeganewtonMillimeter);
+            /// <summary>
+            ///     Get Torque in NewtonCentimeter.
+            /// </summary>
+            public double NewtonCentimeter => As(TorqueUnit.NewtonCentimeter);
+            /// <summary>
+            ///     Get Torque in MeganewtonCentimeter.
+            /// </summary>
+            public double MeganewtonCentimeter => As(TorqueUnit.MeganewtonCentimeter);
+            /// <summary>
+            ///     Get Torque in PoundalFoot.
+            /// </summary>
+            public double PoundalFoot => As(TorqueUnit.PoundalFoot);
+            /// <summary>
+            ///     Get Torque in PoundForceFoot.
+            /// </summary>
+            public double PoundForceFoot => As(TorqueUnit.PoundForceFoot);
+            /// <summary>
+            ///     Get Torque in PoundForceInch.
+            /// </summary>
+            public double PoundForceInch => As(TorqueUnit.PoundForceInch);
+            /// <summary>
+            ///     Get Torque in TonneForceCentimeter.
+            /// </summary>
+            public double TonneForceCentimeter => As(TorqueUnit.TonneForceCentimeter);
+            /// <summary>
+            ///     Get Torque in TonneForceMeter.
+            /// </summary>
+            public double TonneForceMeter => As(TorqueUnit.TonneForceMeter);
+            /// <summary>
+            ///     Get Torque in TonneForceMillimeter.
+            /// </summary>
+            public double TonneForceMillimeter => As(TorqueUnit.TonneForceMillimeter);
+            /// <summary>
+            ///     Get Torque in KilonewtonCentimeter.
+            /// </summary>
+            public double KilonewtonCentimeter => As(TorqueUnit.KilonewtonCentimeter);
+            /// <summary>
+            ///     Get Torque in KilogramForceCentimeter.
+            /// </summary>
+            public double KilogramForceCentimeter => As(TorqueUnit.KilogramForceCentimeter);
+            /// <summary>
+            ///     Get Torque in KilogramForceMeter.
+            /// </summary>
+            public double KilogramForceMeter => As(TorqueUnit.KilogramForceMeter);
+            /// <summary>
+            ///     Get Torque in KilogramForceMillimeter.
+            /// </summary>
+            public double KilogramForceMillimeter => As(TorqueUnit.KilogramForceMillimeter);
+            /// <summary>
+            ///     Get Torque in KilopoundForceFoot.
+            /// </summary>
+            public double KilopoundForceFoot => As(TorqueUnit.KilopoundForceFoot);
+            /// <summary>
+            ///     Get Torque in MegapoundForceFoot.
+            /// </summary>
+            public double MegapoundForceFoot => As(TorqueUnit.MegapoundForceFoot);
+            /// <summary>
+            ///     Get Torque in KilopoundForceInch.
+            /// </summary>
+            public double KilopoundForceInch => As(TorqueUnit.KilopoundForceInch);
+            /// <summary>
+            ///     Get Torque in MegapoundForceInch.
+            /// </summary>
+            public double MegapoundForceInch => As(TorqueUnit.MegapoundForceInch);
     }
 }
+
+

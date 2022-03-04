@@ -1,45 +1,43 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MagneticField
     {
-        /// <summary>
-        ///     Get MagneticField in Gausses.
-        /// </summary>
-        public double Gausses => As(MagneticFieldUnit.Gauss);
 
-        /// <summary>
-        ///     Get MagneticField in Microteslas.
-        /// </summary>
-        public double Microteslas => As(MagneticFieldUnit.Microtesla);
+ 
 
-        /// <summary>
-        ///     Get MagneticField in Milligausses.
-        /// </summary>
-        public double Milligausses => As(MagneticFieldUnit.Milligauss);
-
-        /// <summary>
-        ///     Get MagneticField in Milliteslas.
-        /// </summary>
-        public double Milliteslas => As(MagneticFieldUnit.Millitesla);
-
-        /// <summary>
-        ///     Get MagneticField in Nanoteslas.
-        /// </summary>
-        public double Nanoteslas => As(MagneticFieldUnit.Nanotesla);
-
-        /// <summary>
-        ///     Get MagneticField in Teslas.
-        /// </summary>
-        public double Teslas => As(MagneticFieldUnit.Tesla);
-
-        /// <summary>
-        ///     Get MagneticField in SI Unit (Teslas).
-        /// </summary>
-        public double SI => As(MagneticFieldUnit.SI);
-
+            /// <summary>
+            ///     Get MagneticField in SI.
+            /// </summary>
+            public double SI => As(MagneticFieldUnit.SI);
+            /// <summary>
+            ///     Get MagneticField in Tesla.
+            /// </summary>
+            public double Tesla => As(MagneticFieldUnit.Tesla);
+            /// <summary>
+            ///     Get MagneticField in Gauss.
+            /// </summary>
+            public double Gauss => As(MagneticFieldUnit.Gauss);
+            /// <summary>
+            ///     Get MagneticField in Milligauss.
+            /// </summary>
+            public double Milligauss => As(MagneticFieldUnit.Milligauss);
+            /// <summary>
+            ///     Get MagneticField in Microtesla.
+            /// </summary>
+            public double Microtesla => As(MagneticFieldUnit.Microtesla);
+            /// <summary>
+            ///     Get MagneticField in Millitesla.
+            /// </summary>
+            public double Millitesla => As(MagneticFieldUnit.Millitesla);
+            /// <summary>
+            ///     Get MagneticField in Nanotesla.
+            /// </summary>
+            public double Nanotesla => As(MagneticFieldUnit.Nanotesla);
     }
 }
+
+

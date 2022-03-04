@@ -1,30 +1,31 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ReactiveEnergy
     {
-        /// <summary>
-        ///     Get ReactiveEnergy in KilovoltampereReactiveHours.
-        /// </summary>
-        public double KilovoltampereReactiveHours => As(ReactiveEnergyUnit.KilovoltampereReactiveHour);
 
-        /// <summary>
-        ///     Get ReactiveEnergy in MegavoltampereReactiveHours.
-        /// </summary>
-        public double MegavoltampereReactiveHours => As(ReactiveEnergyUnit.MegavoltampereReactiveHour);
+ 
 
-        /// <summary>
-        ///     Get ReactiveEnergy in VoltampereReactiveHours.
-        /// </summary>
-        public double VoltampereReactiveHours => As(ReactiveEnergyUnit.VoltampereReactiveHour);
-
-        /// <summary>
-        ///     Get ReactiveEnergy in SI unit (VoltampereReactiveHours).
-        /// </summary>
-        public double SI => As(ReactiveEnergyUnit.SI);
-
+            /// <summary>
+            ///     Get ReactiveEnergy in SI.
+            /// </summary>
+            public double SI => As(ReactiveEnergyUnit.SI);
+            /// <summary>
+            ///     Get ReactiveEnergy in VoltampereReactiveHour.
+            /// </summary>
+            public double VoltampereReactiveHour => As(ReactiveEnergyUnit.VoltampereReactiveHour);
+            /// <summary>
+            ///     Get ReactiveEnergy in MegavoltampereReactiveHour.
+            /// </summary>
+            public double MegavoltampereReactiveHour => As(ReactiveEnergyUnit.MegavoltampereReactiveHour);
+            /// <summary>
+            ///     Get ReactiveEnergy in KilovoltampereReactiveHour.
+            /// </summary>
+            public double KilovoltampereReactiveHour => As(ReactiveEnergyUnit.KilovoltampereReactiveHour);
     }
 }
+
+
