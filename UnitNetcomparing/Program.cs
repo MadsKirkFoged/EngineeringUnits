@@ -23,14 +23,18 @@ namespace UnitNetcomparing
             var testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
             var testunit2 = ProfileTest.Unit.UnitsCount();
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();         
+            var watch = System.Diagnostics.Stopwatch.StartNew();
 
+            Length _L1 = Length.FromSI(1);
+            Length _L2 = Length.FromSI(2);
+
+            double Dicided = 0;
 
             for (int i = 0; i < 10000000; i++)
             {
                 //testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
 
-                ProfileTest = ProfileTest + ProfileTest2;
+                Dicided = _L1/_L2;
 
             }
             watch.Stop();
