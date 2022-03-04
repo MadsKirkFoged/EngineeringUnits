@@ -1,50 +1,47 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Entropy
     {
 
-        /// <summary>
-        ///     Get Entropy in CaloriesPerKelvin.
-        /// </summary>
-        public double CaloriesPerKelvin => As(EntropyUnit.CaloriePerKelvin);
+ 
 
-        /// <summary>
-        ///     Get Entropy in JoulesPerDegreeCelsius.
-        /// </summary>
-        public double JoulesPerDegreeCelsius => As(EntropyUnit.JoulePerDegreeCelsius);
-
-        /// <summary>
-        ///     Get Entropy in JoulesPerKelvin.
-        /// </summary>
-        public double JoulesPerKelvin => As(EntropyUnit.JoulePerKelvin);
-
-        /// <summary>
-        ///     Get Entropy in SI Unit (JoulesPerKelvin).
-        /// </summary>
-        public double SI => As(EntropyUnit.SI);
-
-        /// <summary>
-        ///     Get Entropy in KilocaloriesPerKelvin.
-        /// </summary>
-        public double KilocaloriesPerKelvin => As(EntropyUnit.KilocaloriePerKelvin);
-
-        /// <summary>
-        ///     Get Entropy in KilojoulesPerDegreeCelsius.
-        /// </summary>
-        public double KilojoulesPerDegreeCelsius => As(EntropyUnit.KilojoulePerDegreeCelsius);
-
-        /// <summary>
-        ///     Get Entropy in KilojoulesPerKelvin.
-        /// </summary>
-        public double KilojoulesPerKelvin => As(EntropyUnit.KilojoulePerKelvin);
-
-        /// <summary>
-        ///     Get Entropy in MegajoulesPerKelvin.
-        /// </summary>
-        public double MegajoulesPerKelvin => As(EntropyUnit.MegajoulePerKelvin);
+            /// <summary>
+            ///     Get Entropy in SI.
+            /// </summary>
+            public double SI => As(EntropyUnit.SI);
+            /// <summary>
+            ///     Get Entropy in JoulePerKelvin.
+            /// </summary>
+            public double JoulePerKelvin => As(EntropyUnit.JoulePerKelvin);
+            /// <summary>
+            ///     Get Entropy in CaloriePerKelvin.
+            /// </summary>
+            public double CaloriePerKelvin => As(EntropyUnit.CaloriePerKelvin);
+            /// <summary>
+            ///     Get Entropy in JoulePerDegreeCelsius.
+            /// </summary>
+            public double JoulePerDegreeCelsius => As(EntropyUnit.JoulePerDegreeCelsius);
+            /// <summary>
+            ///     Get Entropy in KilocaloriePerKelvin.
+            /// </summary>
+            public double KilocaloriePerKelvin => As(EntropyUnit.KilocaloriePerKelvin);
+            /// <summary>
+            ///     Get Entropy in KilojoulePerDegreeCelsius.
+            /// </summary>
+            public double KilojoulePerDegreeCelsius => As(EntropyUnit.KilojoulePerDegreeCelsius);
+            /// <summary>
+            ///     Get Entropy in KilojoulePerKelvin.
+            /// </summary>
+            public double KilojoulePerKelvin => As(EntropyUnit.KilojoulePerKelvin);
+            /// <summary>
+            ///     Get Entropy in MegajoulePerKelvin.
+            /// </summary>
+            public double MegajoulePerKelvin => As(EntropyUnit.MegajoulePerKelvin);
     }
 }
+
+

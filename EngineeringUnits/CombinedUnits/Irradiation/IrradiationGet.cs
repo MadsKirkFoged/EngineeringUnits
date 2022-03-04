@@ -1,50 +1,47 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Irradiation
     {
-        /// <summary>
-        ///     Get Irradiation in JoulesPerSquareCentimeter.
-        /// </summary>
-        public double JoulesPerSquareCentimeter => As(IrradiationUnit.JoulePerSquareCentimeter);
 
-        /// <summary>
-        ///     Get Irradiation in JoulesPerSquareMeter.
-        /// </summary>
-        public double JoulesPerSquareMeter => As(IrradiationUnit.JoulePerSquareMeter);
+ 
 
-        /// <summary>
-        ///     Get Irradiation in SI Unit (JoulesPerSquareMeter).
-        /// </summary>
-        public double SI => As(IrradiationUnit.SI);
-
-        /// <summary>
-        ///     Get Irradiation in JoulesPerSquareMillimeter.
-        /// </summary>
-        public double JoulesPerSquareMillimeter => As(IrradiationUnit.JoulePerSquareMillimeter);
-
-        /// <summary>
-        ///     Get Irradiation in KilojoulesPerSquareMeter.
-        /// </summary>
-        public double KilojoulesPerSquareMeter => As(IrradiationUnit.KilojoulePerSquareMeter);
-
-        /// <summary>
-        ///     Get Irradiation in KilowattHoursPerSquareMeter.
-        /// </summary>
-        public double KilowattHoursPerSquareMeter => As(IrradiationUnit.KilowattHourPerSquareMeter);
-
-        /// <summary>
-        ///     Get Irradiation in MillijoulesPerSquareCentimeter.
-        /// </summary>
-        public double MillijoulesPerSquareCentimeter => As(IrradiationUnit.MillijoulePerSquareCentimeter);
-
-        /// <summary>
-        ///     Get Irradiation in WattHoursPerSquareMeter.
-        /// </summary>
-        public double WattHoursPerSquareMeter => As(IrradiationUnit.WattHourPerSquareMeter);
-
+            /// <summary>
+            ///     Get Irradiation in SI.
+            /// </summary>
+            public double SI => As(IrradiationUnit.SI);
+            /// <summary>
+            ///     Get Irradiation in JoulePerSquareMeter.
+            /// </summary>
+            public double JoulePerSquareMeter => As(IrradiationUnit.JoulePerSquareMeter);
+            /// <summary>
+            ///     Get Irradiation in JoulePerSquareCentimeter.
+            /// </summary>
+            public double JoulePerSquareCentimeter => As(IrradiationUnit.JoulePerSquareCentimeter);
+            /// <summary>
+            ///     Get Irradiation in JoulePerSquareMillimeter.
+            /// </summary>
+            public double JoulePerSquareMillimeter => As(IrradiationUnit.JoulePerSquareMillimeter);
+            /// <summary>
+            ///     Get Irradiation in KilojoulePerSquareMeter.
+            /// </summary>
+            public double KilojoulePerSquareMeter => As(IrradiationUnit.KilojoulePerSquareMeter);
+            /// <summary>
+            ///     Get Irradiation in KilowattHourPerSquareMeter.
+            /// </summary>
+            public double KilowattHourPerSquareMeter => As(IrradiationUnit.KilowattHourPerSquareMeter);
+            /// <summary>
+            ///     Get Irradiation in MillijoulePerSquareCentimeter.
+            /// </summary>
+            public double MillijoulePerSquareCentimeter => As(IrradiationUnit.MillijoulePerSquareCentimeter);
+            /// <summary>
+            ///     Get Irradiation in WattHourPerSquareMeter.
+            /// </summary>
+            public double WattHourPerSquareMeter => As(IrradiationUnit.WattHourPerSquareMeter);
     }
 }
+
+

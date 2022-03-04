@@ -1,87 +1,79 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Area
     {
 
-        /// <summary>
-        ///     Get Area in Acres.
-        /// </summary>
-        public double Acres => As(AreaUnit.Acre);
+ 
 
-        /// <summary>
-        ///     Get Area in Hectares.
-        /// </summary>
-        public double Hectares => As(AreaUnit.Hectare);
-
-        /// <summary>
-        ///     Get Area in SquareCentimeters.
-        /// </summary>
-        public double SquareCentimeters => As(AreaUnit.SquareCentimeter);
-
-        /// <summary>
-        ///     Get Area in SquareDecimeters.
-        /// </summary>
-        public double SquareDecimeters => As(AreaUnit.SquareDecimeter);
-
-        /// <summary>
-        ///     Get Area in SquareFeet.
-        /// </summary>
-        public double SquareFeet => As(AreaUnit.SquareFoot);
-
-        /// <summary>
-        ///     Get Area in SquareInches.
-        /// </summary>
-        public double SquareInches => As(AreaUnit.SquareInch);
-
-        /// <summary>
-        ///     Get Area in SquareKilometers.
-        /// </summary>
-        public double SquareKilometers => As(AreaUnit.SquareKilometer);
-
-        /// <summary>
-        ///     Get Area in SquareMeters.
-        /// </summary>
-        public double SquareMeters => As(AreaUnit.SquareMeter);
-
-
-        /// <summary>
-        ///     Get Area in SI Unit (SquareMeters).
-        /// </summary>
-        public double SI => As(AreaUnit.SI);
-
-        /// <summary>
-        ///     Get Area in SquareMicrometers.
-        /// </summary>
-        public double SquareMicrometers => As(AreaUnit.SquareMicrometer);
-
-        /// <summary>
-        ///     Get Area in SquareMiles.
-        /// </summary>
-        public double SquareMiles => As(AreaUnit.SquareMile);
-
-        /// <summary>
-        ///     Get Area in SquareMillimeters.
-        /// </summary>
-        public double SquareMillimeters => As(AreaUnit.SquareMillimeter);
-
-        /// <summary>
-        ///     Get Area in SquareNauticalMiles.
-        /// </summary>
-        public double SquareNauticalMiles => As(AreaUnit.SquareNauticalMile);
-
-        /// <summary>
-        ///     Get Area in SquareYards.
-        /// </summary>
-        public double SquareYards => As(AreaUnit.SquareYard);
-
-        /// <summary>
-        ///     Get Area in UsSurveySquareFeet.
-        /// </summary>
-        //public double UsSurveySquareFeet => As(AreaUnit.UsSurveySquareFoot);
-
+            /// <summary>
+            ///     Get Area in Acre.
+            /// </summary>
+            public double Acre => As(AreaUnit.Acre);
+            /// <summary>
+            ///     Get Area in Hectare.
+            /// </summary>
+            public double Hectare => As(AreaUnit.Hectare);
+            /// <summary>
+            ///     Get Area in SquareCentimeter.
+            /// </summary>
+            public double SquareCentimeter => As(AreaUnit.SquareCentimeter);
+            /// <summary>
+            ///     Get Area in SquareDecimeter.
+            /// </summary>
+            public double SquareDecimeter => As(AreaUnit.SquareDecimeter);
+            /// <summary>
+            ///     Get Area in SquareKilometer.
+            /// </summary>
+            public double SquareKilometer => As(AreaUnit.SquareKilometer);
+            /// <summary>
+            ///     Get Area in SquareMeter.
+            /// </summary>
+            public double SquareMeter => As(AreaUnit.SquareMeter);
+            /// <summary>
+            ///     Get Area in SquareMicrometer.
+            /// </summary>
+            public double SquareMicrometer => As(AreaUnit.SquareMicrometer);
+            /// <summary>
+            ///     Get Area in SI.
+            /// </summary>
+            public double SI => As(AreaUnit.SI);
+            /// <summary>
+            ///     Get Area in SquareMillimeter.
+            /// </summary>
+            public double SquareMillimeter => As(AreaUnit.SquareMillimeter);
+            /// <summary>
+            ///     Get Area in SquareNanometer.
+            /// </summary>
+            public double SquareNanometer => As(AreaUnit.SquareNanometer);
+            /// <summary>
+            ///     Get Area in SquareInch.
+            /// </summary>
+            public double SquareInch => As(AreaUnit.SquareInch);
+            /// <summary>
+            ///     Get Area in SquareFoot.
+            /// </summary>
+            public double SquareFoot => As(AreaUnit.SquareFoot);
+            /// <summary>
+            ///     Get Area in SquareYard.
+            /// </summary>
+            public double SquareYard => As(AreaUnit.SquareYard);
+            /// <summary>
+            ///     Get Area in SquareMile.
+            /// </summary>
+            public double SquareMile => As(AreaUnit.SquareMile);
+            /// <summary>
+            ///     Get Area in SquareNauticalMile.
+            /// </summary>
+            public double SquareNauticalMile => As(AreaUnit.SquareNauticalMile);
+            /// <summary>
+            ///     Get Area in SquareChain.
+            /// </summary>
+            public double SquareChain => As(AreaUnit.SquareChain);
     }
 }
+
+

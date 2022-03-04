@@ -1,270 +1,231 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Volume
     {
-        /// <summary>
-        ///     Get Volume in AcreFeet.
-        /// </summary>
-        public double AcreFeet => As(VolumeUnit.AcreFoot);
 
-        /// <summary>
-        ///     Get Volume in AuTablespoons.
-        /// </summary>
-        public double AuTablespoons => As(VolumeUnit.AuTablespoon);
+ 
 
-        /// <summary>
-        ///     Get Volume in BoardFeet.
-        /// </summary>
-        public double BoardFeet => As(VolumeUnit.BoardFoot);
-
-        /// <summary>
-        ///     Get Volume in Centiliters.
-        /// </summary>
-        public double Centiliters => As(VolumeUnit.Centiliter);
-
-        /// <summary>
-        ///     Get Volume in CubicCentimeters.
-        /// </summary>
-        public double CubicCentimeters => As(VolumeUnit.CubicCentimeter);
-
-        /// <summary>
-        ///     Get Volume in CubicDecimeters.
-        /// </summary>
-        public double CubicDecimeters => As(VolumeUnit.CubicDecimeter);
-
-        /// <summary>
-        ///     Get Volume in CubicFeet.
-        /// </summary>
-        public double CubicFeet => As(VolumeUnit.CubicFoot);
-
-        /// <summary>
-        ///     Get Volume in CubicHectometers.
-        /// </summary>
-        public double CubicHectometers => As(VolumeUnit.CubicHectometer);
-
-        /// <summary>
-        ///     Get Volume in CubicInches.
-        /// </summary>
-        public double CubicInches => As(VolumeUnit.CubicInch);
-
-        /// <summary>
-        ///     Get Volume in CubicKilometers.
-        /// </summary>
-        public double CubicKilometers => As(VolumeUnit.CubicKilometer);
-
-        /// <summary>
-        ///     Get Volume in CubicMeters.
-        /// </summary>
-        public double CubicMeters => As(VolumeUnit.CubicMeter);
-
-        /// <summary>
-        ///     Get Volume in SI Unit (CubicMeters).
-        /// </summary>
-        public double SI => As(VolumeUnit.SI);
-
-        /// <summary>
-        ///     Get Volume in CubicMicrometers.
-        /// </summary>
-        public double CubicMicrometers => As(VolumeUnit.CubicMicrometer);
-
-        /// <summary>
-        ///     Get Volume in CubicMiles.
-        /// </summary>
-        public double CubicMiles => As(VolumeUnit.CubicMile);
-
-        /// <summary>
-        ///     Get Volume in CubicMillimeters.
-        /// </summary>
-        public double CubicMillimeters => As(VolumeUnit.CubicMillimeter);
-
-        /// <summary>
-        ///     Get Volume in CubicYards.
-        /// </summary>
-        public double CubicYards => As(VolumeUnit.CubicYard);
-
-        /// <summary>
-        ///     Get Volume in DecausGallons.
-        /// </summary>
-        public double DecausGallons => As(VolumeUnit.DecausGallon);
-
-        /// <summary>
-        ///     Get Volume in Deciliters.
-        /// </summary>
-        public double Deciliters => As(VolumeUnit.Deciliter);
-
-        /// <summary>
-        ///     Get Volume in DeciusGallons.
-        /// </summary>
-        public double DeciusGallons => As(VolumeUnit.DeciusGallon);
-
-        /// <summary>
-        ///     Get Volume in HectocubicFeet.
-        /// </summary>
-        public double HectocubicFeet => As(VolumeUnit.HectocubicFoot);
-
-        /// <summary>
-        ///     Get Volume in HectocubicMeters.
-        /// </summary>
-        public double HectocubicMeters => As(VolumeUnit.HectocubicMeter);
-
-        /// <summary>
-        ///     Get Volume in Hectoliters.
-        /// </summary>
-        public double Hectoliters => As(VolumeUnit.Hectoliter);
-
-        /// <summary>
-        ///     Get Volume in HectousGallons.
-        /// </summary>
-        public double HectousGallons => As(VolumeUnit.HectousGallon);
-
-        /// <summary>
-        ///     Get Volume in ImperialBeerBarrels.
-        /// </summary>
-        public double ImperialBeerBarrels => As(VolumeUnit.ImperialBeerBarrel);
-
-        /// <summary>
-        ///     Get Volume in ImperialGallons.
-        /// </summary>
-        public double ImperialGallons => As(VolumeUnit.ImperialGallon);
-
-        /// <summary>
-        ///     Get Volume in ImperialOunces.
-        /// </summary>
-        public double ImperialOunces => As(VolumeUnit.ImperialOunce);
-
-        /// <summary>
-        ///     Get Volume in ImperialPints.
-        /// </summary>
-        public double ImperialPints => As(VolumeUnit.ImperialPint);
-
-        /// <summary>
-        ///     Get Volume in KilocubicFeet.
-        /// </summary>
-        public double KilocubicFeet => As(VolumeUnit.KilocubicFoot);
-
-        /// <summary>
-        ///     Get Volume in KilocubicMeters.
-        /// </summary>
-        public double KilocubicMeters => As(VolumeUnit.KilocubicMeter);
-
-        /// <summary>
-        ///     Get Volume in KiloimperialGallons.
-        /// </summary>
-        public double KiloimperialGallons => As(VolumeUnit.KiloimperialGallon);
-
-        /// <summary>
-        ///     Get Volume in Kiloliters.
-        /// </summary>
-        public double Kiloliters => As(VolumeUnit.Kiloliter);
-
-        /// <summary>
-        ///     Get Volume in KilousGallons.
-        /// </summary>
-        public double KilousGallons => As(VolumeUnit.KilousGallon);
-
-        /// <summary>
-        ///     Get Volume in Liters.
-        /// </summary>
-        public double Liters => As(VolumeUnit.Liter);
-
-        /// <summary>
-        ///     Get Volume in MegacubicFeet.
-        /// </summary>
-        public double MegacubicFeet => As(VolumeUnit.MegacubicFoot);
-
-        /// <summary>
-        ///     Get Volume in MegaimperialGallons.
-        /// </summary>
-        public double MegaimperialGallons => As(VolumeUnit.MegaimperialGallon);
-
-        /// <summary>
-        ///     Get Volume in Megaliters.
-        /// </summary>
-        public double Megaliters => As(VolumeUnit.Megaliter);
-
-        /// <summary>
-        ///     Get Volume in MegausGallons.
-        /// </summary>
-        public double MegausGallons => As(VolumeUnit.MegausGallon);
-
-        /// <summary>
-        ///     Get Volume in MetricCups.
-        /// </summary>
-        public double MetricCups => As(VolumeUnit.MetricCup);
-
-        /// <summary>
-        ///     Get Volume in MetricTeaspoons.
-        /// </summary>
-        public double MetricTeaspoons => As(VolumeUnit.MetricTeaspoon);
-
-        /// <summary>
-        ///     Get Volume in Microliters.
-        /// </summary>
-        public double Microliters => As(VolumeUnit.Microliter);
-
-        /// <summary>
-        ///     Get Volume in Milliliters.
-        /// </summary>
-        public double Milliliters => As(VolumeUnit.Milliliter);
-
-        /// <summary>
-        ///     Get Volume in OilBarrels.
-        /// </summary>
-        public double OilBarrels => As(VolumeUnit.OilBarrel);
-
-        /// <summary>
-        ///     Get Volume in UkTablespoons.
-        /// </summary>
-        public double UkTablespoons => As(VolumeUnit.UkTablespoon);
-
-        /// <summary>
-        ///     Get Volume in UsBeerBarrels.
-        /// </summary>
-        public double UsBeerBarrels => As(VolumeUnit.UsBeerBarrel);
-
-        /// <summary>
-        ///     Get Volume in UsCustomaryCups.
-        /// </summary>
-        public double UsCustomaryCups => As(VolumeUnit.UsCustomaryCup);
-
-        /// <summary>
-        ///     Get Volume in UsGallons.
-        /// </summary>
-        public double UsGallons => As(VolumeUnit.UsGallon);
-
-        /// <summary>
-        ///     Get Volume in UsLegalCups.
-        /// </summary>
-        public double UsLegalCups => As(VolumeUnit.UsLegalCup);
-
-        /// <summary>
-        ///     Get Volume in UsOunces.
-        /// </summary>
-        public double UsOunces => As(VolumeUnit.UsOunce);
-
-        /// <summary>
-        ///     Get Volume in UsPints.
-        /// </summary>
-        public double UsPints => As(VolumeUnit.UsPint);
-
-        /// <summary>
-        ///     Get Volume in UsQuarts.
-        /// </summary>
-        public double UsQuarts => As(VolumeUnit.UsQuart);
-
-        /// <summary>
-        ///     Get Volume in UsTablespoons.
-        /// </summary>
-        public double UsTablespoons => As(VolumeUnit.UsTablespoon);
-
-        /// <summary>
-        ///     Get Volume in UsTeaspoons.
-        /// </summary>
-        public double UsTeaspoons => As(VolumeUnit.UsTeaspoon);
-
+            /// <summary>
+            ///     Get Volume in SI.
+            /// </summary>
+            public double SI => As(VolumeUnit.SI);
+            /// <summary>
+            ///     Get Volume in CubicMeter.
+            /// </summary>
+            public double CubicMeter => As(VolumeUnit.CubicMeter);
+            /// <summary>
+            ///     Get Volume in HectocubicMeter.
+            /// </summary>
+            public double HectocubicMeter => As(VolumeUnit.HectocubicMeter);
+            /// <summary>
+            ///     Get Volume in KilocubicMeter.
+            /// </summary>
+            public double KilocubicMeter => As(VolumeUnit.KilocubicMeter);
+            /// <summary>
+            ///     Get Volume in CubicKilometer.
+            /// </summary>
+            public double CubicKilometer => As(VolumeUnit.CubicKilometer);
+            /// <summary>
+            ///     Get Volume in CubicMicrometer.
+            /// </summary>
+            public double CubicMicrometer => As(VolumeUnit.CubicMicrometer);
+            /// <summary>
+            ///     Get Volume in CubicMile.
+            /// </summary>
+            public double CubicMile => As(VolumeUnit.CubicMile);
+            /// <summary>
+            ///     Get Volume in CubicMillimeter.
+            /// </summary>
+            public double CubicMillimeter => As(VolumeUnit.CubicMillimeter);
+            /// <summary>
+            ///     Get Volume in CubicYard.
+            /// </summary>
+            public double CubicYard => As(VolumeUnit.CubicYard);
+            /// <summary>
+            ///     Get Volume in CubicInch.
+            /// </summary>
+            public double CubicInch => As(VolumeUnit.CubicInch);
+            /// <summary>
+            ///     Get Volume in CubicHectometer.
+            /// </summary>
+            public double CubicHectometer => As(VolumeUnit.CubicHectometer);
+            /// <summary>
+            ///     Get Volume in CubicFoot.
+            /// </summary>
+            public double CubicFoot => As(VolumeUnit.CubicFoot);
+            /// <summary>
+            ///     Get Volume in HectocubicFoot.
+            /// </summary>
+            public double HectocubicFoot => As(VolumeUnit.HectocubicFoot);
+            /// <summary>
+            ///     Get Volume in KilocubicFoot.
+            /// </summary>
+            public double KilocubicFoot => As(VolumeUnit.KilocubicFoot);
+            /// <summary>
+            ///     Get Volume in MegacubicFoot.
+            /// </summary>
+            public double MegacubicFoot => As(VolumeUnit.MegacubicFoot);
+            /// <summary>
+            ///     Get Volume in CubicDecimeter.
+            /// </summary>
+            public double CubicDecimeter => As(VolumeUnit.CubicDecimeter);
+            /// <summary>
+            ///     Get Volume in CubicCentimeter.
+            /// </summary>
+            public double CubicCentimeter => As(VolumeUnit.CubicCentimeter);
+            /// <summary>
+            ///     Get Volume in Liter.
+            /// </summary>
+            public double Liter => As(VolumeUnit.Liter);
+            /// <summary>
+            ///     Get Volume in Nanoliter.
+            /// </summary>
+            public double Nanoliter => As(VolumeUnit.Nanoliter);
+            /// <summary>
+            ///     Get Volume in Microliter.
+            /// </summary>
+            public double Microliter => As(VolumeUnit.Microliter);
+            /// <summary>
+            ///     Get Volume in Milliliter.
+            /// </summary>
+            public double Milliliter => As(VolumeUnit.Milliliter);
+            /// <summary>
+            ///     Get Volume in Deciliter.
+            /// </summary>
+            public double Deciliter => As(VolumeUnit.Deciliter);
+            /// <summary>
+            ///     Get Volume in Centiliter.
+            /// </summary>
+            public double Centiliter => As(VolumeUnit.Centiliter);
+            /// <summary>
+            ///     Get Volume in Hectoliter.
+            /// </summary>
+            public double Hectoliter => As(VolumeUnit.Hectoliter);
+            /// <summary>
+            ///     Get Volume in Kiloliter.
+            /// </summary>
+            public double Kiloliter => As(VolumeUnit.Kiloliter);
+            /// <summary>
+            ///     Get Volume in Megaliter.
+            /// </summary>
+            public double Megaliter => As(VolumeUnit.Megaliter);
+            /// <summary>
+            ///     Get Volume in Picoliter.
+            /// </summary>
+            public double Picoliter => As(VolumeUnit.Picoliter);
+            /// <summary>
+            ///     Get Volume in AcreFoot.
+            /// </summary>
+            public double AcreFoot => As(VolumeUnit.AcreFoot);
+            /// <summary>
+            ///     Get Volume in BoardFoot.
+            /// </summary>
+            public double BoardFoot => As(VolumeUnit.BoardFoot);
+            /// <summary>
+            ///     Get Volume in AuTablespoon.
+            /// </summary>
+            public double AuTablespoon => As(VolumeUnit.AuTablespoon);
+            /// <summary>
+            ///     Get Volume in ImperialBeerBarrel.
+            /// </summary>
+            public double ImperialBeerBarrel => As(VolumeUnit.ImperialBeerBarrel);
+            /// <summary>
+            ///     Get Volume in MetricTeaspoon.
+            /// </summary>
+            public double MetricTeaspoon => As(VolumeUnit.MetricTeaspoon);
+            /// <summary>
+            ///     Get Volume in MetricCup.
+            /// </summary>
+            public double MetricCup => As(VolumeUnit.MetricCup);
+            /// <summary>
+            ///     Get Volume in ImperialGallon.
+            /// </summary>
+            public double ImperialGallon => As(VolumeUnit.ImperialGallon);
+            /// <summary>
+            ///     Get Volume in KiloimperialGallon.
+            /// </summary>
+            public double KiloimperialGallon => As(VolumeUnit.KiloimperialGallon);
+            /// <summary>
+            ///     Get Volume in MegaimperialGallon.
+            /// </summary>
+            public double MegaimperialGallon => As(VolumeUnit.MegaimperialGallon);
+            /// <summary>
+            ///     Get Volume in ImperialOunce.
+            /// </summary>
+            public double ImperialOunce => As(VolumeUnit.ImperialOunce);
+            /// <summary>
+            ///     Get Volume in ImperialPint.
+            /// </summary>
+            public double ImperialPint => As(VolumeUnit.ImperialPint);
+            /// <summary>
+            ///     Get Volume in UsCustomaryCup.
+            /// </summary>
+            public double UsCustomaryCup => As(VolumeUnit.UsCustomaryCup);
+            /// <summary>
+            ///     Get Volume in UsBeerBarrel.
+            /// </summary>
+            public double UsBeerBarrel => As(VolumeUnit.UsBeerBarrel);
+            /// <summary>
+            ///     Get Volume in UkTablespoon.
+            /// </summary>
+            public double UkTablespoon => As(VolumeUnit.UkTablespoon);
+            /// <summary>
+            ///     Get Volume in UsOunce.
+            /// </summary>
+            public double UsOunce => As(VolumeUnit.UsOunce);
+            /// <summary>
+            ///     Get Volume in UsGallon.
+            /// </summary>
+            public double UsGallon => As(VolumeUnit.UsGallon);
+            /// <summary>
+            ///     Get Volume in KilousGallon.
+            /// </summary>
+            public double KilousGallon => As(VolumeUnit.KilousGallon);
+            /// <summary>
+            ///     Get Volume in MegausGallon.
+            /// </summary>
+            public double MegausGallon => As(VolumeUnit.MegausGallon);
+            /// <summary>
+            ///     Get Volume in DecausGallon.
+            /// </summary>
+            public double DecausGallon => As(VolumeUnit.DecausGallon);
+            /// <summary>
+            ///     Get Volume in DeciusGallon.
+            /// </summary>
+            public double DeciusGallon => As(VolumeUnit.DeciusGallon);
+            /// <summary>
+            ///     Get Volume in HectousGallon.
+            /// </summary>
+            public double HectousGallon => As(VolumeUnit.HectousGallon);
+            /// <summary>
+            ///     Get Volume in OilBarrel.
+            /// </summary>
+            public double OilBarrel => As(VolumeUnit.OilBarrel);
+            /// <summary>
+            ///     Get Volume in UsLegalCup.
+            /// </summary>
+            public double UsLegalCup => As(VolumeUnit.UsLegalCup);
+            /// <summary>
+            ///     Get Volume in UsPint.
+            /// </summary>
+            public double UsPint => As(VolumeUnit.UsPint);
+            /// <summary>
+            ///     Get Volume in UsQuart.
+            /// </summary>
+            public double UsQuart => As(VolumeUnit.UsQuart);
+            /// <summary>
+            ///     Get Volume in UsTablespoon.
+            /// </summary>
+            public double UsTablespoon => As(VolumeUnit.UsTablespoon);
+            /// <summary>
+            ///     Get Volume in UsTeaspoon.
+            /// </summary>
+            public double UsTeaspoon => As(VolumeUnit.UsTeaspoon);
     }
 }
+
+

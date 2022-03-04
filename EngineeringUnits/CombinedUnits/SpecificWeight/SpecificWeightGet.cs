@@ -1,100 +1,87 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class SpecificWeight
     {
-        /// <summary>
-        ///     Get SpecificWeight in KilogramsForcePerCubicCentimeter.
-        /// </summary>
-        public double KilogramsForcePerCubicCentimeter => As(SpecificWeightUnit.KilogramForcePerCubicCentimeter);
 
-        /// <summary>
-        ///     Get SpecificWeight in KilogramsForcePerCubicMeter.
-        /// </summary>
-        public double KilogramsForcePerCubicMeter => As(SpecificWeightUnit.KilogramForcePerCubicMeter);
+ 
 
-        /// <summary>
-        ///     Get SpecificWeight in KilogramsForcePerCubicMillimeter.
-        /// </summary>
-        public double KilogramsForcePerCubicMillimeter => As(SpecificWeightUnit.KilogramForcePerCubicMillimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in KilonewtonsPerCubicCentimeter.
-        /// </summary>
-        public double KilonewtonsPerCubicCentimeter => As(SpecificWeightUnit.KilonewtonPerCubicCentimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in KilonewtonsPerCubicMeter.
-        /// </summary>
-        public double KilonewtonsPerCubicMeter => As(SpecificWeightUnit.KilonewtonPerCubicMeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in KilonewtonsPerCubicMillimeter.
-        /// </summary>
-        public double KilonewtonsPerCubicMillimeter => As(SpecificWeightUnit.KilonewtonPerCubicMillimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in KilopoundsForcePerCubicFoot.
-        /// </summary>
-        public double KilopoundsForcePerCubicFoot => As(SpecificWeightUnit.KilopoundForcePerCubicFoot);
-
-        /// <summary>
-        ///     Get SpecificWeight in KilopoundsForcePerCubicInch.
-        /// </summary>
-        public double KilopoundsForcePerCubicInch => As(SpecificWeightUnit.KilopoundForcePerCubicInch);
-
-        /// <summary>
-        ///     Get SpecificWeight in MeganewtonsPerCubicMeter.
-        /// </summary>
-        public double MeganewtonsPerCubicMeter => As(SpecificWeightUnit.MeganewtonPerCubicMeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in NewtonsPerCubicCentimeter.
-        /// </summary>
-        public double NewtonsPerCubicCentimeter => As(SpecificWeightUnit.NewtonPerCubicCentimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in NewtonsPerCubicMeter.
-        /// </summary>
-        public double NewtonsPerCubicMeter => As(SpecificWeightUnit.NewtonPerCubicMeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in SI unit (NewtonsPerCubicMeter).
-        /// </summary>
-        public double SI => As(SpecificWeightUnit.SI);
-
-        /// <summary>
-        ///     Get SpecificWeight in NewtonsPerCubicMillimeter.
-        /// </summary>
-        public double NewtonsPerCubicMillimeter => As(SpecificWeightUnit.NewtonPerCubicMillimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in PoundsForcePerCubicFoot.
-        /// </summary>
-        public double PoundsForcePerCubicFoot => As(SpecificWeightUnit.PoundForcePerCubicFoot);
-
-        /// <summary>
-        ///     Get SpecificWeight in PoundsForcePerCubicInch.
-        /// </summary>
-        public double PoundsForcePerCubicInch => As(SpecificWeightUnit.PoundForcePerCubicInch);
-
-        /// <summary>
-        ///     Get SpecificWeight in TonnesForcePerCubicCentimeter.
-        /// </summary>
-        public double TonnesForcePerCubicCentimeter => As(SpecificWeightUnit.TonneForcePerCubicCentimeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in TonnesForcePerCubicMeter.
-        /// </summary>
-        public double TonnesForcePerCubicMeter => As(SpecificWeightUnit.TonneForcePerCubicMeter);
-
-        /// <summary>
-        ///     Get SpecificWeight in TonnesForcePerCubicMillimeter.
-        /// </summary>
-        public double TonnesForcePerCubicMillimeter => As(SpecificWeightUnit.TonneForcePerCubicMillimeter);
-
+            /// <summary>
+            ///     Get SpecificWeight in SI.
+            /// </summary>
+            public double SI => As(SpecificWeightUnit.SI);
+            /// <summary>
+            ///     Get SpecificWeight in NewtonPerCubicMeter.
+            /// </summary>
+            public double NewtonPerCubicMeter => As(SpecificWeightUnit.NewtonPerCubicMeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilogramForcePerCubicCentimeter.
+            /// </summary>
+            public double KilogramForcePerCubicCentimeter => As(SpecificWeightUnit.KilogramForcePerCubicCentimeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilogramForcePerCubicMeter.
+            /// </summary>
+            public double KilogramForcePerCubicMeter => As(SpecificWeightUnit.KilogramForcePerCubicMeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilogramForcePerCubicMillimeter.
+            /// </summary>
+            public double KilogramForcePerCubicMillimeter => As(SpecificWeightUnit.KilogramForcePerCubicMillimeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilonewtonPerCubicCentimeter.
+            /// </summary>
+            public double KilonewtonPerCubicCentimeter => As(SpecificWeightUnit.KilonewtonPerCubicCentimeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilonewtonPerCubicMeter.
+            /// </summary>
+            public double KilonewtonPerCubicMeter => As(SpecificWeightUnit.KilonewtonPerCubicMeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilonewtonPerCubicMillimeter.
+            /// </summary>
+            public double KilonewtonPerCubicMillimeter => As(SpecificWeightUnit.KilonewtonPerCubicMillimeter);
+            /// <summary>
+            ///     Get SpecificWeight in KilopoundForcePerCubicFoot.
+            /// </summary>
+            public double KilopoundForcePerCubicFoot => As(SpecificWeightUnit.KilopoundForcePerCubicFoot);
+            /// <summary>
+            ///     Get SpecificWeight in KilopoundForcePerCubicInch.
+            /// </summary>
+            public double KilopoundForcePerCubicInch => As(SpecificWeightUnit.KilopoundForcePerCubicInch);
+            /// <summary>
+            ///     Get SpecificWeight in MeganewtonPerCubicMeter.
+            /// </summary>
+            public double MeganewtonPerCubicMeter => As(SpecificWeightUnit.MeganewtonPerCubicMeter);
+            /// <summary>
+            ///     Get SpecificWeight in NewtonPerCubicCentimeter.
+            /// </summary>
+            public double NewtonPerCubicCentimeter => As(SpecificWeightUnit.NewtonPerCubicCentimeter);
+            /// <summary>
+            ///     Get SpecificWeight in NewtonPerCubicMillimeter.
+            /// </summary>
+            public double NewtonPerCubicMillimeter => As(SpecificWeightUnit.NewtonPerCubicMillimeter);
+            /// <summary>
+            ///     Get SpecificWeight in PoundForcePerCubicFoot.
+            /// </summary>
+            public double PoundForcePerCubicFoot => As(SpecificWeightUnit.PoundForcePerCubicFoot);
+            /// <summary>
+            ///     Get SpecificWeight in PoundForcePerCubicInch.
+            /// </summary>
+            public double PoundForcePerCubicInch => As(SpecificWeightUnit.PoundForcePerCubicInch);
+            /// <summary>
+            ///     Get SpecificWeight in TonneForcePerCubicCentimeter.
+            /// </summary>
+            public double TonneForcePerCubicCentimeter => As(SpecificWeightUnit.TonneForcePerCubicCentimeter);
+            /// <summary>
+            ///     Get SpecificWeight in TonneForcePerCubicMeter.
+            /// </summary>
+            public double TonneForcePerCubicMeter => As(SpecificWeightUnit.TonneForcePerCubicMeter);
+            /// <summary>
+            ///     Get SpecificWeight in TonneForcePerCubicMillimeter.
+            /// </summary>
+            public double TonneForcePerCubicMillimeter => As(SpecificWeightUnit.TonneForcePerCubicMillimeter);
     }
 }
+
+

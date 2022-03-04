@@ -1,215 +1,203 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Density
     {
-        /// <summary>
-        ///     Get Density in CentigramsPerDeciLiter.
-        /// </summary>
-        public double CentigramsPerDeciLiter => As(DensityUnit.CentigramPerDeciliter);
 
-        /// <summary>
-        ///     Get Density in CentigramsPerLiter.
-        /// </summary>
-        public double CentigramsPerLiter => As(DensityUnit.CentigramPerLiter);
+ 
 
-        /// <summary>
-        ///     Get Density in CentigramsPerMilliliter.
-        /// </summary>
-        public double CentigramsPerMilliliter => As(DensityUnit.CentigramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in DecigramsPerDeciLiter.
-        /// </summary>
-        public double DecigramsPerDeciLiter => As(DensityUnit.DecigramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in DecigramsPerLiter.
-        /// </summary>
-        public double DecigramsPerLiter => As(DensityUnit.DecigramPerLiter);
-
-        /// <summary>
-        ///     Get Density in DecigramsPerMilliliter.
-        /// </summary>
-        public double DecigramsPerMilliliter => As(DensityUnit.DecigramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in GramsPerCubicCentimeter.
-        /// </summary>
-        public double GramsPerCubicCentimeter => As(DensityUnit.GramPerCubicCentimeter);
-
-        /// <summary>
-        ///     Get Density in GramsPerCubicMeter.
-        /// </summary>
-        public double GramsPerCubicMeter => As(DensityUnit.GramPerCubicMeter);
-
-        /// <summary>
-        ///     Get Density in GramsPerCubicMillimeter.
-        /// </summary>
-        public double GramsPerCubicMillimeter => As(DensityUnit.GramPerCubicMillimeter);
-
-        /// <summary>
-        ///     Get Density in GramsPerDeciLiter.
-        /// </summary>
-        public double GramsPerDeciLiter => As(DensityUnit.GramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in GramsPerLiter.
-        /// </summary>
-        public double GramsPerLiter => As(DensityUnit.GramPerLiter);
-
-        /// <summary>
-        ///     Get Density in GramsPerMilliliter.
-        /// </summary>
-        public double GramsPerMilliliter => As(DensityUnit.GramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in KilogramsPerCubicCentimeter.
-        /// </summary>
-        public double KilogramsPerCubicCentimeter => As(DensityUnit.KilogramPerCubicCentimeter);
-
-        /// <summary>
-        ///     Get Density in KilogramsPerCubicMeter.
-        /// </summary>
-        public double KilogramsPerCubicMeter => As(DensityUnit.KilogramPerCubicMeter);
-
-        /// <summary>
-        ///     Get Density in SI Unit (KilogramsPerCubicMeter).
-        /// </summary>
-        public double SI => As(DensityUnit.SI);
-
-        /// <summary>
-        ///     Get Density in KilogramsPerCubicMillimeter.
-        /// </summary>
-        public double KilogramsPerCubicMillimeter => As(DensityUnit.KilogramPerCubicMillimeter);
-
-        /// <summary>
-        ///     Get Density in KilogramsPerLiter.
-        /// </summary>
-        public double KilogramsPerLiter => As(DensityUnit.KilogramPerLiter);
-
-        /// <summary>
-        ///     Get Density in KilopoundsPerCubicFoot.
-        /// </summary>
-        public double KilopoundsPerCubicFoot => As(DensityUnit.KilopoundPerCubicFoot);
-
-        /// <summary>
-        ///     Get Density in KilopoundsPerCubicInch.
-        /// </summary>
-        public double KilopoundsPerCubicInch => As(DensityUnit.KilopoundPerCubicInch);
-
-        /// <summary>
-        ///     Get Density in MicrogramsPerCubicMeter.
-        /// </summary>
-        public double MicrogramsPerCubicMeter => As(DensityUnit.MicrogramPerCubicMeter);
-
-        /// <summary>
-        ///     Get Density in MicrogramsPerDeciLiter.
-        /// </summary>
-        public double MicrogramsPerDeciLiter => As(DensityUnit.MicrogramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in MicrogramsPerLiter.
-        /// </summary>
-        public double MicrogramsPerLiter => As(DensityUnit.MicrogramPerLiter);
-
-        /// <summary>
-        ///     Get Density in MicrogramsPerMilliliter.
-        /// </summary>
-        public double MicrogramsPerMilliliter => As(DensityUnit.MicrogramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in MilligramsPerCubicMeter.
-        /// </summary>
-        public double MilligramsPerCubicMeter => As(DensityUnit.MilligramPerCubicMeter);
-
-        /// <summary>
-        ///     Get Density in MilligramsPerDeciLiter.
-        /// </summary>
-        public double MilligramsPerDeciLiter => As(DensityUnit.MilligramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in MilligramsPerLiter.
-        /// </summary>
-        public double MilligramsPerLiter => As(DensityUnit.MilligramPerLiter);
-
-        /// <summary>
-        ///     Get Density in MilligramsPerMilliliter.
-        /// </summary>
-        public double MilligramsPerMilliliter => As(DensityUnit.MilligramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in NanogramsPerDeciLiter.
-        /// </summary>
-        public double NanogramsPerDeciLiter => As(DensityUnit.NanogramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in NanogramsPerLiter.
-        /// </summary>
-        public double NanogramsPerLiter => As(DensityUnit.NanogramPerLiter);
-
-        /// <summary>
-        ///     Get Density in NanogramsPerMilliliter.
-        /// </summary>
-        public double NanogramsPerMilliliter => As(DensityUnit.NanogramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in PicogramsPerDeciLiter.
-        /// </summary>
-        public double PicogramsPerDeciLiter => As(DensityUnit.PicogramPerDeciliter);
-
-        /// <summary>
-        ///     Get Density in PicogramsPerLiter.
-        /// </summary>
-        public double PicogramsPerLiter => As(DensityUnit.PicogramPerLiter);
-
-        /// <summary>
-        ///     Get Density in PicogramsPerMilliliter.
-        /// </summary>
-        public double PicogramsPerMilliliter => As(DensityUnit.PicogramPerMilliliter);
-
-        /// <summary>
-        ///     Get Density in PoundsPerCubicFoot.
-        /// </summary>
-        public double PoundsPerCubicFoot => As(DensityUnit.PoundPerCubicFoot);
-
-        /// <summary>
-        ///     Get Density in PoundsPerCubicInch.
-        /// </summary>
-        public double PoundsPerCubicInch => As(DensityUnit.PoundPerCubicInch);
-
-        /// <summary>
-        ///     Get Density in PoundsPerImperialGallon.
-        /// </summary>
-        public double PoundsPerImperialGallon => As(DensityUnit.PoundPerImperialGallon);
-
-        /// <summary>
-        ///     Get Density in PoundsPerUSGallon.
-        /// </summary>
-        public double PoundsPerUSGallon => As(DensityUnit.PoundPerUSGallon);
-
-        /// <summary>
-        ///     Get Density in SlugsPerCubicFoot.
-        /// </summary>
-        public double SlugsPerCubicFoot => As(DensityUnit.SlugPerCubicFoot);
-
-        /// <summary>
-        ///     Get Density in TonnesPerCubicCentimeter.
-        /// </summary>
-        public double TonnesPerCubicCentimeter => As(DensityUnit.TonnePerCubicCentimeter);
-
-        /// <summary>
-        ///     Get Density in TonnesPerCubicMeter.
-        /// </summary>
-        public double TonnesPerCubicMeter => As(DensityUnit.TonnePerCubicMeter);
-
-        /// <summary>
-        ///     Get Density in TonnesPerCubicMillimeter.
-        /// </summary>
-        public double TonnesPerCubicMillimeter => As(DensityUnit.TonnePerCubicMillimeter);
-
+            /// <summary>
+            ///     Get Density in SI.
+            /// </summary>
+            public double SI => As(DensityUnit.SI);
+            /// <summary>
+            ///     Get Density in CentigramPerDeciliter.
+            /// </summary>
+            public double CentigramPerDeciliter => As(DensityUnit.CentigramPerDeciliter);
+            /// <summary>
+            ///     Get Density in CentigramPerLiter.
+            /// </summary>
+            public double CentigramPerLiter => As(DensityUnit.CentigramPerLiter);
+            /// <summary>
+            ///     Get Density in CentigramPerMilliliter.
+            /// </summary>
+            public double CentigramPerMilliliter => As(DensityUnit.CentigramPerMilliliter);
+            /// <summary>
+            ///     Get Density in DecigramPerDeciliter.
+            /// </summary>
+            public double DecigramPerDeciliter => As(DensityUnit.DecigramPerDeciliter);
+            /// <summary>
+            ///     Get Density in DecigramPerLiter.
+            /// </summary>
+            public double DecigramPerLiter => As(DensityUnit.DecigramPerLiter);
+            /// <summary>
+            ///     Get Density in DecigramPerMilliliter.
+            /// </summary>
+            public double DecigramPerMilliliter => As(DensityUnit.DecigramPerMilliliter);
+            /// <summary>
+            ///     Get Density in DecigramPerMicroliter.
+            /// </summary>
+            public double DecigramPerMicroliter => As(DensityUnit.DecigramPerMicroliter);
+            /// <summary>
+            ///     Get Density in GramPerCubicCentimeter.
+            /// </summary>
+            public double GramPerCubicCentimeter => As(DensityUnit.GramPerCubicCentimeter);
+            /// <summary>
+            ///     Get Density in GramPerCubicMeter.
+            /// </summary>
+            public double GramPerCubicMeter => As(DensityUnit.GramPerCubicMeter);
+            /// <summary>
+            ///     Get Density in GramPerCubicMillimeter.
+            /// </summary>
+            public double GramPerCubicMillimeter => As(DensityUnit.GramPerCubicMillimeter);
+            /// <summary>
+            ///     Get Density in GramPerDeciliter.
+            /// </summary>
+            public double GramPerDeciliter => As(DensityUnit.GramPerDeciliter);
+            /// <summary>
+            ///     Get Density in GramPerLiter.
+            /// </summary>
+            public double GramPerLiter => As(DensityUnit.GramPerLiter);
+            /// <summary>
+            ///     Get Density in GramPerMilliliter.
+            /// </summary>
+            public double GramPerMilliliter => As(DensityUnit.GramPerMilliliter);
+            /// <summary>
+            ///     Get Density in GramPerMicroliter.
+            /// </summary>
+            public double GramPerMicroliter => As(DensityUnit.GramPerMicroliter);
+            /// <summary>
+            ///     Get Density in KilogramPerCubicCentimeter.
+            /// </summary>
+            public double KilogramPerCubicCentimeter => As(DensityUnit.KilogramPerCubicCentimeter);
+            /// <summary>
+            ///     Get Density in KilogramPerCubicMeter.
+            /// </summary>
+            public double KilogramPerCubicMeter => As(DensityUnit.KilogramPerCubicMeter);
+            /// <summary>
+            ///     Get Density in KilogramPerCubicMillimeter.
+            /// </summary>
+            public double KilogramPerCubicMillimeter => As(DensityUnit.KilogramPerCubicMillimeter);
+            /// <summary>
+            ///     Get Density in KilogramPerLiter.
+            /// </summary>
+            public double KilogramPerLiter => As(DensityUnit.KilogramPerLiter);
+            /// <summary>
+            ///     Get Density in KilopoundPerCubicFoot.
+            /// </summary>
+            public double KilopoundPerCubicFoot => As(DensityUnit.KilopoundPerCubicFoot);
+            /// <summary>
+            ///     Get Density in KilopoundPerCubicInch.
+            /// </summary>
+            public double KilopoundPerCubicInch => As(DensityUnit.KilopoundPerCubicInch);
+            /// <summary>
+            ///     Get Density in MicrogramPerCubicMeter.
+            /// </summary>
+            public double MicrogramPerCubicMeter => As(DensityUnit.MicrogramPerCubicMeter);
+            /// <summary>
+            ///     Get Density in MicrogramPerDeciliter.
+            /// </summary>
+            public double MicrogramPerDeciliter => As(DensityUnit.MicrogramPerDeciliter);
+            /// <summary>
+            ///     Get Density in MicrogramPerLiter.
+            /// </summary>
+            public double MicrogramPerLiter => As(DensityUnit.MicrogramPerLiter);
+            /// <summary>
+            ///     Get Density in MicrogramPerMilliliter.
+            /// </summary>
+            public double MicrogramPerMilliliter => As(DensityUnit.MicrogramPerMilliliter);
+            /// <summary>
+            ///     Get Density in MicrogramPerMicroliter.
+            /// </summary>
+            public double MicrogramPerMicroliter => As(DensityUnit.MicrogramPerMicroliter);
+            /// <summary>
+            ///     Get Density in MilligramPerCubicMeter.
+            /// </summary>
+            public double MilligramPerCubicMeter => As(DensityUnit.MilligramPerCubicMeter);
+            /// <summary>
+            ///     Get Density in MilligramPerDeciliter.
+            /// </summary>
+            public double MilligramPerDeciliter => As(DensityUnit.MilligramPerDeciliter);
+            /// <summary>
+            ///     Get Density in MilligramPerLiter.
+            /// </summary>
+            public double MilligramPerLiter => As(DensityUnit.MilligramPerLiter);
+            /// <summary>
+            ///     Get Density in MilligramPerMilliliter.
+            /// </summary>
+            public double MilligramPerMilliliter => As(DensityUnit.MilligramPerMilliliter);
+            /// <summary>
+            ///     Get Density in MilligramPerMicroliter.
+            /// </summary>
+            public double MilligramPerMicroliter => As(DensityUnit.MilligramPerMicroliter);
+            /// <summary>
+            ///     Get Density in NanogramPerDeciliter.
+            /// </summary>
+            public double NanogramPerDeciliter => As(DensityUnit.NanogramPerDeciliter);
+            /// <summary>
+            ///     Get Density in NanogramPerLiter.
+            /// </summary>
+            public double NanogramPerLiter => As(DensityUnit.NanogramPerLiter);
+            /// <summary>
+            ///     Get Density in NanogramPerMilliliter.
+            /// </summary>
+            public double NanogramPerMilliliter => As(DensityUnit.NanogramPerMilliliter);
+            /// <summary>
+            ///     Get Density in NanogramPerMicroliter.
+            /// </summary>
+            public double NanogramPerMicroliter => As(DensityUnit.NanogramPerMicroliter);
+            /// <summary>
+            ///     Get Density in PicogramPerDeciliter.
+            /// </summary>
+            public double PicogramPerDeciliter => As(DensityUnit.PicogramPerDeciliter);
+            /// <summary>
+            ///     Get Density in PicogramPerLiter.
+            /// </summary>
+            public double PicogramPerLiter => As(DensityUnit.PicogramPerLiter);
+            /// <summary>
+            ///     Get Density in PicogramPerMilliliter.
+            /// </summary>
+            public double PicogramPerMilliliter => As(DensityUnit.PicogramPerMilliliter);
+            /// <summary>
+            ///     Get Density in PicogramPerMicroliter.
+            /// </summary>
+            public double PicogramPerMicroliter => As(DensityUnit.PicogramPerMicroliter);
+            /// <summary>
+            ///     Get Density in PoundPerCubicFoot.
+            /// </summary>
+            public double PoundPerCubicFoot => As(DensityUnit.PoundPerCubicFoot);
+            /// <summary>
+            ///     Get Density in PoundPerCubicInch.
+            /// </summary>
+            public double PoundPerCubicInch => As(DensityUnit.PoundPerCubicInch);
+            /// <summary>
+            ///     Get Density in PoundPerImperialGallon.
+            /// </summary>
+            public double PoundPerImperialGallon => As(DensityUnit.PoundPerImperialGallon);
+            /// <summary>
+            ///     Get Density in PoundPerUSGallon.
+            /// </summary>
+            public double PoundPerUSGallon => As(DensityUnit.PoundPerUSGallon);
+            /// <summary>
+            ///     Get Density in SlugPerCubicFoot.
+            /// </summary>
+            public double SlugPerCubicFoot => As(DensityUnit.SlugPerCubicFoot);
+            /// <summary>
+            ///     Get Density in TonnePerCubicCentimeter.
+            /// </summary>
+            public double TonnePerCubicCentimeter => As(DensityUnit.TonnePerCubicCentimeter);
+            /// <summary>
+            ///     Get Density in TonnePerCubicMeter.
+            /// </summary>
+            public double TonnePerCubicMeter => As(DensityUnit.TonnePerCubicMeter);
+            /// <summary>
+            ///     Get Density in TonnePerCubicMillimeter.
+            /// </summary>
+            public double TonnePerCubicMillimeter => As(DensityUnit.TonnePerCubicMillimeter);
     }
 }
+
+

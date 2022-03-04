@@ -16,8 +16,7 @@ namespace CodeGen
 
             //UnknownUnitExtensionsGenerator.Generate(libraryDir);
             // UnitGenerator.GenerateClasses(libraryDir);
-            //GenerateGetter.GenerateGetterClasses(libraryDir);
-            //GenerateGetter.GenerateGetterClassesWithS(libraryDir);
+            GenerateGetter.GenerateGetterClasses(libraryDir);
 
         }
     }

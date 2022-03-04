@@ -1,31 +1,31 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MolarEnergy
     {
-        /// <summary>
-        ///     Get MolarEnergy in JoulesPerMole.
-        /// </summary>
-        public double JoulesPerMole => As(MolarEnergyUnit.JoulePerMole);
 
+ 
 
-        /// <summary>
-        ///     Get MolarEnergy in SI Unit (JoulesPerMole).
-        /// </summary>
-        public double SI => As(MolarEnergyUnit.SI);
-
-        /// <summary>
-        ///     Get MolarEnergy in KilojoulesPerMole.
-        /// </summary>
-        public double KilojoulesPerMole => As(MolarEnergyUnit.KilojoulePerMole);
-
-        /// <summary>
-        ///     Get MolarEnergy in MegajoulesPerMole.
-        /// </summary>
-        public double MegajoulesPerMole => As(MolarEnergyUnit.MegajoulePerMole);
-
+            /// <summary>
+            ///     Get MolarEnergy in SI.
+            /// </summary>
+            public double SI => As(MolarEnergyUnit.SI);
+            /// <summary>
+            ///     Get MolarEnergy in JoulePerMole.
+            /// </summary>
+            public double JoulePerMole => As(MolarEnergyUnit.JoulePerMole);
+            /// <summary>
+            ///     Get MolarEnergy in KilojoulePerMole.
+            /// </summary>
+            public double KilojoulePerMole => As(MolarEnergyUnit.KilojoulePerMole);
+            /// <summary>
+            ///     Get MolarEnergy in MegajoulePerMole.
+            /// </summary>
+            public double MegajoulePerMole => As(MolarEnergyUnit.MegajoulePerMole);
     }
 }
+
+
