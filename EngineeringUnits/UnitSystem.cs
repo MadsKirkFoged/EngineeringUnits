@@ -39,48 +39,60 @@ namespace EngineeringUnits
             Symbol = symbol;
         }
 
-        public List<Tuple<string,int>> UnitsCount()
-        {
-            //This returns <typeOfUnit,Unit Count of the specifig type>
 
-            //var test = ListOfUnits
+        private List<(string Key, int Value)> _UnitsCount;
+        public List<(string Key, int Value)> UnitsCount()
+        {
+            if (_UnitsCount is null)
+            {
+                _UnitsCount = ListOfUnits
+                                .Where(x => x.TypeOfUnit != "CombinedUnit")
+                                .GroupBy(x => x.TypeOfUnit)
+                                .Select(x => (x.Key, x.Sum(x => x.Count)))
+                                .Where(x => x.Item2 != 0)
+                                .ToList();
+            }
+
+            return _UnitsCount;
+
+            //return ListOfUnits
             //        .Where(x => x.TypeOfUnit != "CombinedUnit")
             //        .GroupBy(x => x.TypeOfUnit)
-            //        .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
+            //        .Select(x => (x.Key, x.Sum(x => x.Count)))
             //        .Where(x => x.Item2 != 0)
             //        .ToList();
-
-            //foreach (var item in test)
-            //{
-            //    Debug.Print(item.ToString());
-            //}
-
-
-
-            return ListOfUnits
-                    .Where(x => x.TypeOfUnit != "CombinedUnit")
-                    .GroupBy(x => x.TypeOfUnit)
-                    .Select(x => new Tuple<string, int>(x.Key, x.Sum(x => x.Count)))
-                    .Where(x=> x.Item2 != 0)
-                    .ToList();
         }
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
+            //var aUnitsCount = a.UnitsCount();
+            //var bUnitsCount = b.UnitsCount();
 
-            return a.UnitsCount().All(b.UnitsCount().Contains) && 
-                   a.UnitsCount().Count == b.UnitsCount().Count;         
+
+            //var test = aUnitsCount.All(bUnitsCount.Contains) &&
+            //           aUnitsCount.Count == bUnitsCount.Count;
+
+            //var test2 = a.GetHashCodeForUnitCompare();
+            //var test3 = b.GetHashCodeForUnitCompare();
+
+            return a.GetHashCodeForUnitCompare() == b.GetHashCodeForUnitCompare();
         }
         public static bool operator !=(UnitSystem a, UnitSystem b)
         {
             return !(a == b);
         }
 
-
+        private Fraction _sumConstant;
         public Fraction SumConstant()
         {
-            return ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);            
+            if (_sumConstant == Fraction.Zero)
+            {
+                _sumConstant = ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);
+            }
+
+            return _sumConstant;
         }
+
         public Fraction SumOfBConstants()
         {
             return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
@@ -327,6 +339,28 @@ namespace EngineeringUnits
             hashCode.Add(ListOfUnits);         
 
             return hashCode.ToHashCode();
+        }
+
+        private int HashCodeForUnitCompare;
+
+        public int GetHashCodeForUnitCompare()
+        {
+            if (HashCodeForUnitCompare == 0)
+            {
+                var test = UnitsCount().OrderBy(x => x.Item1).ThenBy(x => x.Item2);
+
+                HashCode hashCode = new();
+
+                foreach (var item in test)
+                {
+                    hashCode.Add(item.Item1);
+                    hashCode.Add(item.Item2);
+                }
+
+                HashCodeForUnitCompare = hashCode.ToHashCode();
+            }
+
+            return HashCodeForUnitCompare;
         }
 
         public UnitSystem Clone()
