@@ -17,6 +17,33 @@ namespace UnitNetcomparing
         {
 
 
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
+            Length _L1 = Length.FromSI(1);
+            Length _L2 = Length.FromSI(2);
+
+            double Dicided = 0;
+
+            for (int i = 0; i < 10000000; i++)
+            {
+                //testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
+
+                Dicided = _L1/_L2;
+
+            }
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+
+
+
+
+
+
+
+
+
+
             Type objType = typeof(AccelerationUnit);
 
             // Print the assembly full name.
@@ -38,7 +65,7 @@ namespace UnitNetcomparing
                 foreach (var item in t.GetFields())
             {
                 Debug.Print(item.Name);
-            }}
+            }
 
             
 
@@ -56,22 +83,7 @@ namespace UnitNetcomparing
 
 
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-
-            Length _L1 = Length.FromSI(1);
-            Length _L2 = Length.FromSI(2);
-
-            double Dicided = 0;
-
-            for (int i = 0; i < 10000000; i++)
-            {
-                //testunit = ProfileTest.Unit.GetHashCodeForUnitCompare();
-
-                Dicided = _L1/_L2;
-
-            }
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
+            
 
 
 
@@ -121,7 +133,7 @@ namespace UnitNetcomparing
             //        Debug.Print($"{1/actual}");
 
 
-                    Debug.Print($"");
+                    //Debug.Print($"");
 
             //        Debug.Print($"{1/actual}");
 
