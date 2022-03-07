@@ -1,31 +1,33 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class AreaDensity
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static AreaDensity FromSI(double si)
-        {
-            double value = (double)si;
-            return new AreaDensity(value, AreaDensityUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get AreaDensity from KilogramsPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static AreaDensity FromKilogramsPerSquareMeter(double kilogramspersquaremeter)
-        {
-            double value = (double)kilogramspersquaremeter;
-            return new AreaDensity(value, AreaDensityUnit.KilogramPerSquareMeter);
-        }
-
+            /// <summary>
+            ///     Get AreaDensity from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static AreaDensity FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new AreaDensity(value, AreaDensityUnit.SI);
+            }
+            /// <summary>
+            ///     Get AreaDensity from KilogramPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static AreaDensity FromKilogramPerSquareMeter(double KilogramPerSquareMeter)
+            {
+                double value= (double)KilogramPerSquareMeter;
+                return new AreaDensity(value, AreaDensityUnit.KilogramPerSquareMeter);
+            }
     }
 }
+
+

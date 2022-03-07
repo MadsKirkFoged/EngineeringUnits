@@ -1,86 +1,87 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Irradiation
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromSI(double si)
-        {
-            double value = (double)si;
-            return new Irradiation(value, IrradiationUnit.SI);
-        }
+ 
 
-
-        /// <summary>
-        ///     Get Irradiation from JoulesPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromJoulesPerSquareCentimeter(double joulespersquarecentimeter)
-        {
-            double value = (double)joulespersquarecentimeter;
-            return new Irradiation(value, IrradiationUnit.JoulePerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from JoulesPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromJoulesPerSquareMeter(double joulespersquaremeter)
-        {
-            double value = (double)joulespersquaremeter;
-            return new Irradiation(value, IrradiationUnit.JoulePerSquareMeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from JoulesPerSquareMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromJoulesPerSquareMillimeter(double joulespersquaremillimeter)
-        {
-            double value = (double)joulespersquaremillimeter;
-            return new Irradiation(value, IrradiationUnit.JoulePerSquareMillimeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from KilojoulesPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromKilojoulesPerSquareMeter(double kilojoulespersquaremeter)
-        {
-            double value = (double)kilojoulespersquaremeter;
-            return new Irradiation(value, IrradiationUnit.KilojoulePerSquareMeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from KilowattHoursPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromKilowattHoursPerSquareMeter(double kilowatthourspersquaremeter)
-        {
-            double value = (double)kilowatthourspersquaremeter;
-            return new Irradiation(value, IrradiationUnit.KilowattHourPerSquareMeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from MillijoulesPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromMillijoulesPerSquareCentimeter(double millijoulespersquarecentimeter)
-        {
-            double value = (double)millijoulespersquarecentimeter;
-            return new Irradiation(value, IrradiationUnit.MillijoulePerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get Irradiation from WattHoursPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Irradiation FromWattHoursPerSquareMeter(double watthourspersquaremeter)
-        {
-            double value = (double)watthourspersquaremeter;
-            return new Irradiation(value, IrradiationUnit.WattHourPerSquareMeter);
-        }
-
+            /// <summary>
+            ///     Get Irradiation from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new Irradiation(value, IrradiationUnit.SI);
+            }
+            /// <summary>
+            ///     Get Irradiation from JoulePerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromJoulePerSquareMeter(double JoulePerSquareMeter)
+            {
+                double value= (double)JoulePerSquareMeter;
+                return new Irradiation(value, IrradiationUnit.JoulePerSquareMeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from JoulePerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromJoulePerSquareCentimeter(double JoulePerSquareCentimeter)
+            {
+                double value= (double)JoulePerSquareCentimeter;
+                return new Irradiation(value, IrradiationUnit.JoulePerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from JoulePerSquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromJoulePerSquareMillimeter(double JoulePerSquareMillimeter)
+            {
+                double value= (double)JoulePerSquareMillimeter;
+                return new Irradiation(value, IrradiationUnit.JoulePerSquareMillimeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from KilojoulePerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromKilojoulePerSquareMeter(double KilojoulePerSquareMeter)
+            {
+                double value= (double)KilojoulePerSquareMeter;
+                return new Irradiation(value, IrradiationUnit.KilojoulePerSquareMeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from KilowattHourPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromKilowattHourPerSquareMeter(double KilowattHourPerSquareMeter)
+            {
+                double value= (double)KilowattHourPerSquareMeter;
+                return new Irradiation(value, IrradiationUnit.KilowattHourPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from MillijoulePerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromMillijoulePerSquareCentimeter(double MillijoulePerSquareCentimeter)
+            {
+                double value= (double)MillijoulePerSquareCentimeter;
+                return new Irradiation(value, IrradiationUnit.MillijoulePerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get Irradiation from WattHourPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Irradiation FromWattHourPerSquareMeter(double WattHourPerSquareMeter)
+            {
+                double value= (double)WattHourPerSquareMeter;
+                return new Irradiation(value, IrradiationUnit.WattHourPerSquareMeter);
+            }
     }
 }
+
+

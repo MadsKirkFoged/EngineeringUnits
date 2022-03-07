@@ -1,49 +1,51 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricSurfaceChargeDensity
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricSurfaceChargeDensity FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get ElectricSurfaceChargeDensity from CoulombsPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricSurfaceChargeDensity FromCoulombsPerSquareCentimeter(double coulombspersquarecentimeter)
-        {
-            double value = (double)coulombspersquarecentimeter;
-            return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get ElectricSurfaceChargeDensity from CoulombsPerSquareInch.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricSurfaceChargeDensity FromCoulombsPerSquareInch(double coulombspersquareinch)
-        {
-            double value = (double)coulombspersquareinch;
-            return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
-        }
-        /// <summary>
-        ///     Get ElectricSurfaceChargeDensity from CoulombsPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricSurfaceChargeDensity FromCoulombsPerSquareMeter(double coulombspersquaremeter)
-        {
-            double value = (double)coulombspersquaremeter;
-            return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareMeter);
-        }
-
+            /// <summary>
+            ///     Get ElectricSurfaceChargeDensity from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricSurfaceChargeDensity FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricSurfaceChargeDensity from CoulombPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricSurfaceChargeDensity FromCoulombPerSquareMeter(double CoulombPerSquareMeter)
+            {
+                double value= (double)CoulombPerSquareMeter;
+                return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get ElectricSurfaceChargeDensity from CoulombPerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricSurfaceChargeDensity FromCoulombPerSquareCentimeter(double CoulombPerSquareCentimeter)
+            {
+                double value= (double)CoulombPerSquareCentimeter;
+                return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get ElectricSurfaceChargeDensity from CoulombPerSquareInch.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricSurfaceChargeDensity FromCoulombPerSquareInch(double CoulombPerSquareInch)
+            {
+                double value= (double)CoulombPerSquareInch;
+                return new ElectricSurfaceChargeDensity(value, ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
+            }
     }
 }
+
+
