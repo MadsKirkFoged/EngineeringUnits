@@ -133,15 +133,17 @@ namespace EngineeringUnits
         }
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
+            var hashCode = 0;
+            unchecked 
+            { 
+                hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;            
+            }
 
-            var test = new HashCode();
-            test.Add(a.GetHashCode());
-            test.Add(b.GetHashCode());
-            var HashCode = test.ToHashCode();
+            
 
-            if (CacheMultiply.TryGetValue(HashCode, out UnitSystem local))
+            if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
             {
-                //return local;
+                return local;
             } 
 
             var test2 = new UnitSystem(
@@ -149,7 +151,7 @@ namespace EngineeringUnits
                             a.ListOfUnits.Concat(
                             b.ListOfUnits)));
 
-            //CacheMultiply.Add(HashCode, test2);
+            CacheMultiply.Add(hashCode, test2);
 
             return test2;
 
@@ -177,14 +179,18 @@ namespace EngineeringUnits
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
 
-            var test = new HashCode();
-            test.Add(a.GetHashCode());
-            test.Add(b.GetHashCode());
-            var HashCode = test.ToHashCode();
-
-            if (CacheDivide.TryGetValue(HashCode, out UnitSystem local))
+            var hashCode = 0;
+            unchecked
             {
-                //return local;
+                hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
+            }
+
+
+
+
+            if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))
+            {
+                return local;
             }
 
 
@@ -196,7 +202,7 @@ namespace EngineeringUnits
 
             var test2 = new UnitSystem(LocalUnitList);
 
-            //CacheDivide.Add(HashCode, test2);
+            CacheDivide.Add(hashCode, test2);
 
             return test2;
 
@@ -394,21 +400,36 @@ namespace EngineeringUnits
 
         public override int GetHashCode()
         {
-            if (HashCode == 0)
+
+
+            int hashcode = 0;
+
+            foreach (var item in ListOfUnits)
             {
-                HashCode hashCode = new();
-                hashCode.Add(Symbol);
-
-                foreach (var item in ListOfUnits)
-                {
-                    hashCode.Add(item);
-                }
-                
-
-                HashCode = hashCode.ToHashCode();
+                hashcode += item.GetHashCode();
             }
 
-            return HashCode;
+            return hashcode;
+
+
+
+
+
+            //if (HashCode == 0)
+            //{
+            //    HashCode hashCode = new();
+            //    hashCode.Add(Symbol);
+
+            //    foreach (var item in ListOfUnits)
+            //    {
+            //        hashCode.Add(item);
+            //    }
+                
+
+            //    HashCode = hashCode.ToHashCode();
+            //}
+
+            //return HashCode;
         }
 
         private int HashCodeForUnitCompare;
@@ -417,8 +438,8 @@ namespace EngineeringUnits
         {
             if (HashCodeForUnitCompare == 0)
             {
-                var test = UnitsCount().OrderBy(x => x.Item1)
-                                       .ThenBy(x => x.Item2);
+                var test = UnitsCount().OrderBy(x => x.Key)
+                                       .ThenBy(x => x.Value);
 
                 HashCode hashCode = new();                
 

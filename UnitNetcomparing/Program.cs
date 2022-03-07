@@ -15,9 +15,14 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+           
+
+
 
             var test122 = new Density(1, DensityUnit.GramPerCubicCentimeter);
 
+
+            Debug.Print(test122.Unit.GetHashCode().ToString());
 
             Length _L1 = Length.FromSI(1);
             Length _L2 = Length.FromSI(2);
