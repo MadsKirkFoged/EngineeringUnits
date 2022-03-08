@@ -1,31 +1,33 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MagneticFlux
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MagneticFlux FromSI(double si)
-        {
-            double value = (double)si;
-            return new MagneticFlux(value, MagneticFluxUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get MagneticFlux from Webers.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MagneticFlux FromWebers(double webers)
-        {
-            double value = (double)webers;
-            return new MagneticFlux(value, MagneticFluxUnit.Weber);
-        }
-
+            /// <summary>
+            ///     Get MagneticFlux from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MagneticFlux FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new MagneticFlux(value, MagneticFluxUnit.SI);
+            }
+            /// <summary>
+            ///     Get MagneticFlux from Weber.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MagneticFlux FromWeber(double Weber)
+            {
+                double value= (double)Weber;
+                return new MagneticFlux(value, MagneticFluxUnit.Weber);
+            }
     }
 }
+
+

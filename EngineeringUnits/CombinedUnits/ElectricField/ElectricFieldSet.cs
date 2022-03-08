@@ -1,30 +1,33 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricField
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricField FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricField(value, ElectricFieldUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get ElectricField from VoltsPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricField FromVoltsPerMeter(double voltspermeter)
-        {
-            double value = (double)voltspermeter;
-            return new ElectricField(value, ElectricFieldUnit.VoltPerMeter);
-        }
+            /// <summary>
+            ///     Get ElectricField from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricField FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricField(value, ElectricFieldUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricField from VoltPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricField FromVoltPerMeter(double VoltPerMeter)
+            {
+                double value= (double)VoltPerMeter;
+                return new ElectricField(value, ElectricFieldUnit.VoltPerMeter);
+            }
     }
 }
+
+

@@ -1,6 +1,6 @@
 ﻿using EngineeringUnits.Units;
 using System.Collections.Generic;
-using System.Text;
+using System;
 
 namespace EngineeringUnits
 {
@@ -10,17 +10,19 @@ namespace EngineeringUnits
         ///     Get from SI Unit.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static AmountOfSubstance FromSI(double si)
-        {
-            double value = (double)si;
-            return new AmountOfSubstance(value, AmountOfSubstanceUnit.SI);
-        }
+        //public static AmountOfSubstance FromSI(double si)
+        //{
+        //    double value = (double)si;
+        //    return new AmountOfSubstance(value, AmountOfSubstanceUnit.SI);
+        //}
 
 
         /// <summary>
         ///     Get AmountOfSubstance from Centimoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+
+        [Obsolete("Use without the 's' - FromCentimoles->FromCentimole")]
         public static AmountOfSubstance FromCentimoles(double centimoles)
         {
             double value = (double)centimoles;
@@ -30,6 +32,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from CentipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromCentipoundMoles->FromCentipoundMole")]
         public static AmountOfSubstance FromCentipoundMoles(double centipoundmoles)
         {
             double value = (double)centipoundmoles;
@@ -40,6 +43,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Decimoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromDecimoles->FromDecimole")]
         public static AmountOfSubstance FromDecimoles(double decimoles)
         {
             double value = (double)decimoles;
@@ -49,6 +53,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from DecipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromDecipoundMoles->FromDecipoundMole")]
         public static AmountOfSubstance FromDecipoundMoles(double decipoundmoles)
         {
             double value = (double)decipoundmoles;
@@ -58,6 +63,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Kilomoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromKilomoles->FromKilomole")]
         public static AmountOfSubstance FromKilomoles(double kilomoles)
         {
             double value = (double)kilomoles;
@@ -67,6 +73,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from KilopoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromKilopoundMoles->FromKilopoundMole")]
         public static AmountOfSubstance FromKilopoundMoles(double kilopoundmoles)
         {
             double value = (double)kilopoundmoles;
@@ -76,6 +83,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Megamoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMegamoles->FromMegamole")]
         public static AmountOfSubstance FromMegamoles(double megamoles)
         {
             double value = (double)megamoles;
@@ -85,6 +93,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Micromoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMicromoles->FromMicromole")]
         public static AmountOfSubstance FromMicromoles(double micromoles)
         {
             double value = (double)micromoles;
@@ -94,6 +103,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from MicropoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMicropoundMoles->FromMicropoundMole")]
         public static AmountOfSubstance FromMicropoundMoles(double micropoundmoles)
         {
             double value = (double)micropoundmoles;
@@ -103,6 +113,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Millimoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMillimoles->FromMillimole")]
         public static AmountOfSubstance FromMillimoles(double millimoles)
         {
             double value = (double)millimoles;
@@ -112,6 +123,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from MillipoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMillipoundMoles->FromMillipoundMole")]
         public static AmountOfSubstance FromMillipoundMoles(double millipoundmoles)
         {
             double value = (double)millipoundmoles;
@@ -121,6 +133,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Moles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromMoles->FromMole")]
         public static AmountOfSubstance FromMoles(double moles)
         {
             double value = (double)moles;
@@ -130,6 +143,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from Nanomoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromNanomoles->FromNanomole")]
         public static AmountOfSubstance FromNanomoles(double nanomoles)
         {
             double value = (double)nanomoles;
@@ -139,6 +153,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from NanopoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromNanopoundMoles->FromNanopoundMole")]
         public static AmountOfSubstance FromNanopoundMoles(double nanopoundmoles)
         {
             double value = (double)nanopoundmoles;
@@ -148,6 +163,7 @@ namespace EngineeringUnits
         ///     Get AmountOfSubstance from PoundMoles.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        [Obsolete("Use without the 's' - FromPoundMoles->FromPoundMole")]
         public static AmountOfSubstance FromPoundMoles(double poundmoles)
         {
             double value = (double)poundmoles;

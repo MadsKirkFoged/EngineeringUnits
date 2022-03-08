@@ -1,31 +1,33 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Magnetization
     {
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Magnetization FromSI(double si)
-        {
-            double value = (double)si;
-            return new Magnetization(value, MagnetizationUnit.SI);
-        }
 
+ 
 
-        /// <summary>
-        ///     Get Magnetization from AmperesPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Magnetization FromAmperesPerMeter(double amperespermeter)
-        {
-            double value = (double)amperespermeter;
-            return new Magnetization(value, MagnetizationUnit.AmperePerMeter);
-        }
-
+            /// <summary>
+            ///     Get Magnetization from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Magnetization FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new Magnetization(value, MagnetizationUnit.SI);
+            }
+            /// <summary>
+            ///     Get Magnetization from AmperePerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Magnetization FromAmperePerMeter(double AmperePerMeter)
+            {
+                double value= (double)AmperePerMeter;
+                return new Magnetization(value, MagnetizationUnit.AmperePerMeter);
+            }
     }
 }
+
+

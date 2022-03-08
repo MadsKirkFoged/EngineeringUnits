@@ -1,121 +1,114 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Frequency
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromSI(double si)
-        {
-            double value = (double)si;
-            return new Frequency(value, FrequencyUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get Frequency from BeatsPerMinute.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromBeatsPerMinute(double beatsperminute)
-        {
-            double value = (double)beatsperminute;
-            return new Frequency(value, FrequencyUnit.BeatPerMinute);
-        }
-        /// <summary>
-        ///     Get Frequency from BUnits.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Frequency FromBUnits(double bunits)
-        //{
-        //    double value = (double)bunits;
-        //    return new Frequency(value, FrequencyUnit.BUnit);
-        //}
-        /// <summary>
-        ///     Get Frequency from CyclesPerHour.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromCyclesPerHour(double cyclesperhour)
-        {
-            double value = (double)cyclesperhour;
-            return new Frequency(value, FrequencyUnit.CyclePerHour);
-        }
-        /// <summary>
-        ///     Get Frequency from CyclesPerMinute.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromCyclesPerMinute(double cyclesperminute)
-        {
-            double value = (double)cyclesperminute;
-            return new Frequency(value, FrequencyUnit.CyclePerMinute);
-        }
-        /// <summary>
-        ///     Get Frequency from Gigahertz.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromGigahertz(double gigahertz)
-        {
-            double value = (double)gigahertz;
-            return new Frequency(value, FrequencyUnit.Gigahertz);
-        }
-        /// <summary>
-        ///     Get Frequency from Hertz.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromHertz(double hertz)
-        {
-            double value = (double)hertz;
-            return new Frequency(value, FrequencyUnit.Hertz);
-        }
-        /// <summary>
-        ///     Get Frequency from Kilohertz.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromKilohertz(double kilohertz)
-        {
-            double value = (double)kilohertz;
-            return new Frequency(value, FrequencyUnit.Kilohertz);
-        }
-        /// <summary>
-        ///     Get Frequency from Megahertz.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromMegahertz(double megahertz)
-        {
-            double value = (double)megahertz;
-            return new Frequency(value, FrequencyUnit.Megahertz);
-        }
-        /// <summary>
-        ///     Get Frequency from PerSecond.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromPerSecond(double persecond)
-        {
-            double value = (double)persecond;
-            return new Frequency(value, FrequencyUnit.PerSecond);
-        }
-        /// <summary>
-        ///     Get Frequency from RadiansPerSecond.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromRadiansPerSecond(double radianspersecond)
-        {
-            double value = (double)radianspersecond;
-            return new Frequency(value, FrequencyUnit.RadianPerSecond);
-        }
-        /// <summary>
-        ///     Get Frequency from Terahertz.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Frequency FromTerahertz(double terahertz)
-        {
-            double value = (double)terahertz;
-            return new Frequency(value, FrequencyUnit.Terahertz);
-        }
-
+            /// <summary>
+            ///     Get Frequency from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new Frequency(value, FrequencyUnit.SI);
+            }
+            /// <summary>
+            ///     Get Frequency from Hertz.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromHertz(double Hertz)
+            {
+                double value= (double)Hertz;
+                return new Frequency(value, FrequencyUnit.Hertz);
+            }
+            /// <summary>
+            ///     Get Frequency from Kilohertz.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromKilohertz(double Kilohertz)
+            {
+                double value= (double)Kilohertz;
+                return new Frequency(value, FrequencyUnit.Kilohertz);
+            }
+            /// <summary>
+            ///     Get Frequency from Megahertz.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromMegahertz(double Megahertz)
+            {
+                double value= (double)Megahertz;
+                return new Frequency(value, FrequencyUnit.Megahertz);
+            }
+            /// <summary>
+            ///     Get Frequency from Gigahertz.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromGigahertz(double Gigahertz)
+            {
+                double value= (double)Gigahertz;
+                return new Frequency(value, FrequencyUnit.Gigahertz);
+            }
+            /// <summary>
+            ///     Get Frequency from Terahertz.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromTerahertz(double Terahertz)
+            {
+                double value= (double)Terahertz;
+                return new Frequency(value, FrequencyUnit.Terahertz);
+            }
+            /// <summary>
+            ///     Get Frequency from PerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromPerSecond(double PerSecond)
+            {
+                double value= (double)PerSecond;
+                return new Frequency(value, FrequencyUnit.PerSecond);
+            }
+            /// <summary>
+            ///     Get Frequency from BeatPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromBeatPerMinute(double BeatPerMinute)
+            {
+                double value= (double)BeatPerMinute;
+                return new Frequency(value, FrequencyUnit.BeatPerMinute);
+            }
+            /// <summary>
+            ///     Get Frequency from CyclePerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromCyclePerHour(double CyclePerHour)
+            {
+                double value= (double)CyclePerHour;
+                return new Frequency(value, FrequencyUnit.CyclePerHour);
+            }
+            /// <summary>
+            ///     Get Frequency from CyclePerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromCyclePerMinute(double CyclePerMinute)
+            {
+                double value= (double)CyclePerMinute;
+                return new Frequency(value, FrequencyUnit.CyclePerMinute);
+            }
+            /// <summary>
+            ///     Get Frequency from RadianPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromRadianPerSecond(double RadianPerSecond)
+            {
+                double value= (double)RadianPerSecond;
+                return new Frequency(value, FrequencyUnit.RadianPerSecond);
+            }
     }
 }
+
+

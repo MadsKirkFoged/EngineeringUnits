@@ -1,346 +1,357 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Energy
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromSI(double si)
-        {
-            double value = (double)si;
-            return new Energy(value, EnergyUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get Energy from BritishThermalUnits.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromBritishThermalUnits(double britishthermalunits)
-        {
-            double value = (double)britishthermalunits;
-            return new Energy(value, EnergyUnit.BritishThermalUnit);
-        }
-        /// <summary>
-        ///     Get Energy from Calories.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromCalories(double calories)
-        {
-            double value = (double)calories;
-            return new Energy(value, EnergyUnit.Calorie);
-        }
-        /// <summary>
-        ///     Get Energy from DecathermsEc.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromDecathermsEc(double decathermsec)
-        {
-            double value = (double)decathermsec;
-            return new Energy(value, EnergyUnit.DecathermEc);
-        }
-        /// <summary>
-        ///     Get Energy from DecathermsImperial.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromDecathermsImperial(double decathermsimperial)
-        {
-            double value = (double)decathermsimperial;
-            return new Energy(value, EnergyUnit.DecathermImperial);
-        }
-        /// <summary>
-        ///     Get Energy from DecathermsUs.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromDecathermsUs(double decathermsus)
-        {
-            double value = (double)decathermsus;
-            return new Energy(value, EnergyUnit.DecathermUs);
-        }
-        /// <summary>
-        ///     Get Energy from ElectronVolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromElectronVolts(double electronvolts)
-        {
-            double value = (double)electronvolts;
-            return new Energy(value, EnergyUnit.ElectronVolt);
-        }
-        /// <summary>
-        ///     Get Energy from Ergs.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromErgs(double ergs)
-        {
-            double value = (double)ergs;
-            return new Energy(value, EnergyUnit.Erg);
-        }
-        /// <summary>
-        ///     Get Energy from FootPounds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromFootPounds(double footpounds)
-        {
-            double value = (double)footpounds;
-            return new Energy(value, EnergyUnit.FootPound);
-        }
-        /// <summary>
-        ///     Get Energy from GigabritishThermalUnits.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromGigabritishThermalUnits(double gigabritishthermalunits)
-        {
-            double value = (double)gigabritishthermalunits;
-            return new Energy(value, EnergyUnit.GigabritishThermalUnit);
-        }
-        /// <summary>
-        ///     Get Energy from GigaelectronVolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromGigaelectronVolts(double gigaelectronvolts)
-        {
-            double value = (double)gigaelectronvolts;
-            return new Energy(value, EnergyUnit.GigaelectronVolt);
-        }
-        /// <summary>
-        ///     Get Energy from Gigajoules.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromGigajoules(double gigajoules)
-        {
-            double value = (double)gigajoules;
-            return new Energy(value, EnergyUnit.Gigajoule);
-        }
-        /// <summary>
-        ///     Get Energy from GigawattDays.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromGigawattDays(double gigawattdays)
-        {
-            double value = (double)gigawattdays;
-            return new Energy(value, EnergyUnit.GigawattDay);
-        }
-        /// <summary>
-        ///     Get Energy from GigawattHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromGigawattHours(double gigawatthours)
-        {
-            double value = (double)gigawatthours;
-            return new Energy(value, EnergyUnit.GigawattHour);
-        }
-        /// <summary>
-        ///     Get Energy from HorsepowerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromHorsepowerHours(double horsepowerhours)
-        {
-            double value = (double)horsepowerhours;
-            return new Energy(value, EnergyUnit.HorsepowerHour);
-        }
-        /// <summary>
-        ///     Get Energy from Joules.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromJoules(double joules)
-        {
-            double value = (double)joules;
-            return new Energy(value, EnergyUnit.Joule);
-        }
-        /// <summary>
-        ///     Get Energy from KilobritishThermalUnits.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKilobritishThermalUnits(double kilobritishthermalunits)
-        {
-            double value = (double)kilobritishthermalunits;
-            return new Energy(value, EnergyUnit.KilobritishThermalUnit);
-        }
-        /// <summary>
-        ///     Get Energy from Kilocalories.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKilocalories(double kilocalories)
-        {
-            double value = (double)kilocalories;
-            return new Energy(value, EnergyUnit.Kilocalorie);
-        }
-        /// <summary>
-        ///     Get Energy from KiloelectronVolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKiloelectronVolts(double kiloelectronvolts)
-        {
-            double value = (double)kiloelectronvolts;
-            return new Energy(value, EnergyUnit.KiloelectronVolt);
-        }
-        /// <summary>
-        ///     Get Energy from Kilojoules.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKilojoules(double kilojoules)
-        {
-            double value = (double)kilojoules;
-            return new Energy(value, EnergyUnit.Kilojoule);
-        }
-        /// <summary>
-        ///     Get Energy from KilowattDays.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKilowattDays(double kilowattdays)
-        {
-            double value = (double)kilowattdays;
-            return new Energy(value, EnergyUnit.KilowattDay);
-        }
-        /// <summary>
-        ///     Get Energy from KilowattHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromKilowattHours(double kilowatthours)
-        {
-            double value = (double)kilowatthours;
-            return new Energy(value, EnergyUnit.KilowattHour);
-        }
-        /// <summary>
-        ///     Get Energy from MegabritishThermalUnits.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegabritishThermalUnits(double megabritishthermalunits)
-        {
-            double value = (double)megabritishthermalunits;
-            return new Energy(value, EnergyUnit.MegabritishThermalUnit);
-        }
-        /// <summary>
-        ///     Get Energy from Megacalories.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegacalories(double megacalories)
-        {
-            double value = (double)megacalories;
-            return new Energy(value, EnergyUnit.Megacalorie);
-        }
-        /// <summary>
-        ///     Get Energy from MegaelectronVolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegaelectronVolts(double megaelectronvolts)
-        {
-            double value = (double)megaelectronvolts;
-            return new Energy(value, EnergyUnit.MegaelectronVolt);
-        }
-        /// <summary>
-        ///     Get Energy from Megajoules.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegajoules(double megajoules)
-        {
-            double value = (double)megajoules;
-            return new Energy(value, EnergyUnit.Megajoule);
-        }
-        /// <summary>
-        ///     Get Energy from MegawattDays.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegawattDays(double megawattdays)
-        {
-            double value = (double)megawattdays;
-            return new Energy(value, EnergyUnit.MegawattDay);
-        }
-        /// <summary>
-        ///     Get Energy from MegawattHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMegawattHours(double megawatthours)
-        {
-            double value = (double)megawatthours;
-            return new Energy(value, EnergyUnit.MegawattHour);
-        }
-        /// <summary>
-        ///     Get Energy from Millijoules.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromMillijoules(double millijoules)
-        {
-            double value = (double)millijoules;
-            return new Energy(value, EnergyUnit.Millijoule);
-        }
-        /// <summary>
-        ///     Get Energy from TeraelectronVolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromTeraelectronVolts(double teraelectronvolts)
-        {
-            double value = (double)teraelectronvolts;
-            return new Energy(value, EnergyUnit.TeraelectronVolt);
-        }
-        /// <summary>
-        ///     Get Energy from TerawattDays.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromTerawattDays(double terawattdays)
-        {
-            double value = (double)terawattdays;
-            return new Energy(value, EnergyUnit.TerawattDay);
-        }
-        /// <summary>
-        ///     Get Energy from TerawattHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromTerawattHours(double terawatthours)
-        {
-            double value = (double)terawatthours;
-            return new Energy(value, EnergyUnit.TerawattHour);
-        }
-        /// <summary>
-        ///     Get Energy from ThermsEc.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromThermsEc(double thermsec)
-        {
-            double value = (double)thermsec;
-            return new Energy(value, EnergyUnit.ThermEc);
-        }
-        /// <summary>
-        ///     Get Energy from ThermsImperial.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromThermsImperial(double thermsimperial)
-        {
-            double value = (double)thermsimperial;
-            return new Energy(value, EnergyUnit.ThermImperial);
-        }
-        /// <summary>
-        ///     Get Energy from ThermsUs.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromThermsUs(double thermsus)
-        {
-            double value = (double)thermsus;
-            return new Energy(value, EnergyUnit.ThermUs);
-        }
-        /// <summary>
-        ///     Get Energy from WattDays.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromWattDays(double wattdays)
-        {
-            double value = (double)wattdays;
-            return new Energy(value, EnergyUnit.WattDay);
-        }
-        /// <summary>
-        ///     Get Energy from WattHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Energy FromWattHours(double watthours)
-        {
-            double value = (double)watthours;
-            return new Energy(value, EnergyUnit.WattHour);
-        }
-
+            /// <summary>
+            ///     Get Energy from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new Energy(value, EnergyUnit.SI);
+            }
+            /// <summary>
+            ///     Get Energy from Millijoule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMillijoule(double Millijoule)
+            {
+                double value= (double)Millijoule;
+                return new Energy(value, EnergyUnit.Millijoule);
+            }
+            /// <summary>
+            ///     Get Energy from Joule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromJoule(double Joule)
+            {
+                double value= (double)Joule;
+                return new Energy(value, EnergyUnit.Joule);
+            }
+            /// <summary>
+            ///     Get Energy from Kilojoule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKilojoule(double Kilojoule)
+            {
+                double value= (double)Kilojoule;
+                return new Energy(value, EnergyUnit.Kilojoule);
+            }
+            /// <summary>
+            ///     Get Energy from Megajoule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegajoule(double Megajoule)
+            {
+                double value= (double)Megajoule;
+                return new Energy(value, EnergyUnit.Megajoule);
+            }
+            /// <summary>
+            ///     Get Energy from Gigajoule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromGigajoule(double Gigajoule)
+            {
+                double value= (double)Gigajoule;
+                return new Energy(value, EnergyUnit.Gigajoule);
+            }
+            /// <summary>
+            ///     Get Energy from Terajoule.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromTerajoule(double Terajoule)
+            {
+                double value= (double)Terajoule;
+                return new Energy(value, EnergyUnit.Terajoule);
+            }
+            /// <summary>
+            ///     Get Energy from BritishThermalUnit.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromBritishThermalUnit(double BritishThermalUnit)
+            {
+                double value= (double)BritishThermalUnit;
+                return new Energy(value, EnergyUnit.BritishThermalUnit);
+            }
+            /// <summary>
+            ///     Get Energy from KilobritishThermalUnit.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKilobritishThermalUnit(double KilobritishThermalUnit)
+            {
+                double value= (double)KilobritishThermalUnit;
+                return new Energy(value, EnergyUnit.KilobritishThermalUnit);
+            }
+            /// <summary>
+            ///     Get Energy from MegabritishThermalUnit.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegabritishThermalUnit(double MegabritishThermalUnit)
+            {
+                double value= (double)MegabritishThermalUnit;
+                return new Energy(value, EnergyUnit.MegabritishThermalUnit);
+            }
+            /// <summary>
+            ///     Get Energy from GigabritishThermalUnit.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromGigabritishThermalUnit(double GigabritishThermalUnit)
+            {
+                double value= (double)GigabritishThermalUnit;
+                return new Energy(value, EnergyUnit.GigabritishThermalUnit);
+            }
+            /// <summary>
+            ///     Get Energy from ElectronVolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromElectronVolt(double ElectronVolt)
+            {
+                double value= (double)ElectronVolt;
+                return new Energy(value, EnergyUnit.ElectronVolt);
+            }
+            /// <summary>
+            ///     Get Energy from KiloelectronVolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKiloelectronVolt(double KiloelectronVolt)
+            {
+                double value= (double)KiloelectronVolt;
+                return new Energy(value, EnergyUnit.KiloelectronVolt);
+            }
+            /// <summary>
+            ///     Get Energy from MegaelectronVolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegaelectronVolt(double MegaelectronVolt)
+            {
+                double value= (double)MegaelectronVolt;
+                return new Energy(value, EnergyUnit.MegaelectronVolt);
+            }
+            /// <summary>
+            ///     Get Energy from GigaelectronVolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromGigaelectronVolt(double GigaelectronVolt)
+            {
+                double value= (double)GigaelectronVolt;
+                return new Energy(value, EnergyUnit.GigaelectronVolt);
+            }
+            /// <summary>
+            ///     Get Energy from TeraelectronVolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromTeraelectronVolt(double TeraelectronVolt)
+            {
+                double value= (double)TeraelectronVolt;
+                return new Energy(value, EnergyUnit.TeraelectronVolt);
+            }
+            /// <summary>
+            ///     Get Energy from Calorie.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromCalorie(double Calorie)
+            {
+                double value= (double)Calorie;
+                return new Energy(value, EnergyUnit.Calorie);
+            }
+            /// <summary>
+            ///     Get Energy from Kilocalorie.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKilocalorie(double Kilocalorie)
+            {
+                double value= (double)Kilocalorie;
+                return new Energy(value, EnergyUnit.Kilocalorie);
+            }
+            /// <summary>
+            ///     Get Energy from Megacalorie.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegacalorie(double Megacalorie)
+            {
+                double value= (double)Megacalorie;
+                return new Energy(value, EnergyUnit.Megacalorie);
+            }
+            /// <summary>
+            ///     Get Energy from WattDay.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromWattDay(double WattDay)
+            {
+                double value= (double)WattDay;
+                return new Energy(value, EnergyUnit.WattDay);
+            }
+            /// <summary>
+            ///     Get Energy from KilowattDay.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKilowattDay(double KilowattDay)
+            {
+                double value= (double)KilowattDay;
+                return new Energy(value, EnergyUnit.KilowattDay);
+            }
+            /// <summary>
+            ///     Get Energy from MegawattDay.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegawattDay(double MegawattDay)
+            {
+                double value= (double)MegawattDay;
+                return new Energy(value, EnergyUnit.MegawattDay);
+            }
+            /// <summary>
+            ///     Get Energy from GigawattDay.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromGigawattDay(double GigawattDay)
+            {
+                double value= (double)GigawattDay;
+                return new Energy(value, EnergyUnit.GigawattDay);
+            }
+            /// <summary>
+            ///     Get Energy from TerawattDay.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromTerawattDay(double TerawattDay)
+            {
+                double value= (double)TerawattDay;
+                return new Energy(value, EnergyUnit.TerawattDay);
+            }
+            /// <summary>
+            ///     Get Energy from WattHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromWattHour(double WattHour)
+            {
+                double value= (double)WattHour;
+                return new Energy(value, EnergyUnit.WattHour);
+            }
+            /// <summary>
+            ///     Get Energy from KilowattHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromKilowattHour(double KilowattHour)
+            {
+                double value= (double)KilowattHour;
+                return new Energy(value, EnergyUnit.KilowattHour);
+            }
+            /// <summary>
+            ///     Get Energy from MegawattHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromMegawattHour(double MegawattHour)
+            {
+                double value= (double)MegawattHour;
+                return new Energy(value, EnergyUnit.MegawattHour);
+            }
+            /// <summary>
+            ///     Get Energy from GigawattHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromGigawattHour(double GigawattHour)
+            {
+                double value= (double)GigawattHour;
+                return new Energy(value, EnergyUnit.GigawattHour);
+            }
+            /// <summary>
+            ///     Get Energy from TerawattHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromTerawattHour(double TerawattHour)
+            {
+                double value= (double)TerawattHour;
+                return new Energy(value, EnergyUnit.TerawattHour);
+            }
+            /// <summary>
+            ///     Get Energy from FootPound.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromFootPound(double FootPound)
+            {
+                double value= (double)FootPound;
+                return new Energy(value, EnergyUnit.FootPound);
+            }
+            /// <summary>
+            ///     Get Energy from DecathermEc.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromDecathermEc(double DecathermEc)
+            {
+                double value= (double)DecathermEc;
+                return new Energy(value, EnergyUnit.DecathermEc);
+            }
+            /// <summary>
+            ///     Get Energy from DecathermImperial.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromDecathermImperial(double DecathermImperial)
+            {
+                double value= (double)DecathermImperial;
+                return new Energy(value, EnergyUnit.DecathermImperial);
+            }
+            /// <summary>
+            ///     Get Energy from DecathermUs.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromDecathermUs(double DecathermUs)
+            {
+                double value= (double)DecathermUs;
+                return new Energy(value, EnergyUnit.DecathermUs);
+            }
+            /// <summary>
+            ///     Get Energy from ThermEc.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromThermEc(double ThermEc)
+            {
+                double value= (double)ThermEc;
+                return new Energy(value, EnergyUnit.ThermEc);
+            }
+            /// <summary>
+            ///     Get Energy from ThermImperial.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromThermImperial(double ThermImperial)
+            {
+                double value= (double)ThermImperial;
+                return new Energy(value, EnergyUnit.ThermImperial);
+            }
+            /// <summary>
+            ///     Get Energy from ThermUs.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromThermUs(double ThermUs)
+            {
+                double value= (double)ThermUs;
+                return new Energy(value, EnergyUnit.ThermUs);
+            }
+            /// <summary>
+            ///     Get Energy from Erg.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromErg(double Erg)
+            {
+                double value= (double)Erg;
+                return new Energy(value, EnergyUnit.Erg);
+            }
+            /// <summary>
+            ///     Get Energy from HorsepowerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Energy FromHorsepowerHour(double HorsepowerHour)
+            {
+                double value= (double)HorsepowerHour;
+                return new Energy(value, EnergyUnit.HorsepowerHour);
+            }
     }
 }
+
+
