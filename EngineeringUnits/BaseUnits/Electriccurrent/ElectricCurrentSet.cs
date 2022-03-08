@@ -1,96 +1,96 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricCurrent
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricCurrent(value, ElectricCurrentUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get ElectricCurrent from Amperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromAmperes(double amperes)
-        {
-            double value = (double)amperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Ampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Centiamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromCentiamperes(double centiamperes)
-        {
-            double value = (double)centiamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Centiampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Kiloamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromKiloamperes(double kiloamperes)
-        {
-            double value = (double)kiloamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Kiloampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Megaamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromMegaamperes(double megaamperes)
-        {
-            double value = (double)megaamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Megaampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Microamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromMicroamperes(double microamperes)
-        {
-            double value = (double)microamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Microampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Milliamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromMilliamperes(double milliamperes)
-        {
-            double value = (double)milliamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Milliampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Nanoamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromNanoamperes(double nanoamperes)
-        {
-            double value = (double)nanoamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Nanoampere);
-        }
-        /// <summary>
-        ///     Get ElectricCurrent from Picoamperes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrent FromPicoamperes(double picoamperes)
-        {
-            double value = (double)picoamperes;
-            return new ElectricCurrent(value, ElectricCurrentUnit.Picoampere);
-        }
-
-
-
+            /// <summary>
+            ///     Get ElectricCurrent from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricCurrent(value, ElectricCurrentUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Ampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromAmpere(double Ampere)
+            {
+                double value= (double)Ampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Ampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Centiampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromCentiampere(double Centiampere)
+            {
+                double value= (double)Centiampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Centiampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Kiloampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromKiloampere(double Kiloampere)
+            {
+                double value= (double)Kiloampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Kiloampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Megaampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromMegaampere(double Megaampere)
+            {
+                double value= (double)Megaampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Megaampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Microampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromMicroampere(double Microampere)
+            {
+                double value= (double)Microampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Microampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Milliampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromMilliampere(double Milliampere)
+            {
+                double value= (double)Milliampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Milliampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Nanoampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromNanoampere(double Nanoampere)
+            {
+                double value= (double)Nanoampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Nanoampere);
+            }
+            /// <summary>
+            ///     Get ElectricCurrent from Picoampere.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrent FromPicoampere(double Picoampere)
+            {
+                double value= (double)Picoampere;
+                return new ElectricCurrent(value, ElectricCurrentUnit.Picoampere);
+            }
     }
 }
+
+

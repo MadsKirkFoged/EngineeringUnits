@@ -1,131 +1,132 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class MassFlux
     {
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromSI(double si)
-        {
-            double value = (double)si;
-            return new MassFlux(value, MassFluxUnit.SI);
-        }
 
+ 
 
-
-        /// <summary>
-        ///     Get MassFlux from GramsPerHourPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerHourPerSquareCentimeter(double gramsperhourpersquarecentimeter)
-        {
-            double value = (double)gramsperhourpersquarecentimeter;
-            return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from GramsPerHourPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerHourPerSquareMeter(double gramsperhourpersquaremeter)
-        {
-            double value = (double)gramsperhourpersquaremeter;
-            return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareMeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from GramsPerHourPerSquareMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerHourPerSquareMillimeter(double gramsperhourpersquaremillimeter)
-        {
-            double value = (double)gramsperhourpersquaremillimeter;
-            return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareMillimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from GramsPerSecondPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerSecondPerSquareCentimeter(double gramspersecondpersquarecentimeter)
-        {
-            double value = (double)gramspersecondpersquarecentimeter;
-            return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from GramsPerSecondPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerSecondPerSquareMeter(double gramspersecondpersquaremeter)
-        {
-            double value = (double)gramspersecondpersquaremeter;
-            return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareMeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from GramsPerSecondPerSquareMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromGramsPerSecondPerSquareMillimeter(double gramspersecondpersquaremillimeter)
-        {
-            double value = (double)gramspersecondpersquaremillimeter;
-            return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareMillimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerHourPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerHourPerSquareCentimeter(double kilogramsperhourpersquarecentimeter)
-        {
-            double value = (double)kilogramsperhourpersquarecentimeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerHourPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerHourPerSquareMeter(double kilogramsperhourpersquaremeter)
-        {
-            double value = (double)kilogramsperhourpersquaremeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareMeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerHourPerSquareMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerHourPerSquareMillimeter(double kilogramsperhourpersquaremillimeter)
-        {
-            double value = (double)kilogramsperhourpersquaremillimeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareMillimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerSecondPerSquareCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerSecondPerSquareCentimeter(double kilogramspersecondpersquarecentimeter)
-        {
-            double value = (double)kilogramspersecondpersquarecentimeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareCentimeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerSecondPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerSecondPerSquareMeter(double kilogramspersecondpersquaremeter)
-        {
-            double value = (double)kilogramspersecondpersquaremeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareMeter);
-        }
-        /// <summary>
-        ///     Get MassFlux from KilogramsPerSecondPerSquareMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static MassFlux FromKilogramsPerSecondPerSquareMillimeter(double kilogramspersecondpersquaremillimeter)
-        {
-            double value = (double)kilogramspersecondpersquaremillimeter;
-            return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
-        }
-
+            /// <summary>
+            ///     Get MassFlux from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new MassFlux(value, MassFluxUnit.SI);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerSecondPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerSecondPerSquareMeter(double KilogramPerSecondPerSquareMeter)
+            {
+                double value= (double)KilogramPerSecondPerSquareMeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerHourPerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerHourPerSquareCentimeter(double GramPerHourPerSquareCentimeter)
+            {
+                double value= (double)GramPerHourPerSquareCentimeter;
+                return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerHourPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerHourPerSquareMeter(double GramPerHourPerSquareMeter)
+            {
+                double value= (double)GramPerHourPerSquareMeter;
+                return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerHourPerSquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerHourPerSquareMillimeter(double GramPerHourPerSquareMillimeter)
+            {
+                double value= (double)GramPerHourPerSquareMillimeter;
+                return new MassFlux(value, MassFluxUnit.GramPerHourPerSquareMillimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerSecondPerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerSecondPerSquareCentimeter(double GramPerSecondPerSquareCentimeter)
+            {
+                double value= (double)GramPerSecondPerSquareCentimeter;
+                return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerSecondPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerSecondPerSquareMeter(double GramPerSecondPerSquareMeter)
+            {
+                double value= (double)GramPerSecondPerSquareMeter;
+                return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from GramPerSecondPerSquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromGramPerSecondPerSquareMillimeter(double GramPerSecondPerSquareMillimeter)
+            {
+                double value= (double)GramPerSecondPerSquareMillimeter;
+                return new MassFlux(value, MassFluxUnit.GramPerSecondPerSquareMillimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerHourPerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerHourPerSquareCentimeter(double KilogramPerHourPerSquareCentimeter)
+            {
+                double value= (double)KilogramPerHourPerSquareCentimeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerHourPerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerHourPerSquareMeter(double KilogramPerHourPerSquareMeter)
+            {
+                double value= (double)KilogramPerHourPerSquareMeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareMeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerHourPerSquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerHourPerSquareMillimeter(double KilogramPerHourPerSquareMillimeter)
+            {
+                double value= (double)KilogramPerHourPerSquareMillimeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerHourPerSquareMillimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerSecondPerSquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerSecondPerSquareCentimeter(double KilogramPerSecondPerSquareCentimeter)
+            {
+                double value= (double)KilogramPerSecondPerSquareCentimeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareCentimeter);
+            }
+            /// <summary>
+            ///     Get MassFlux from KilogramPerSecondPerSquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static MassFlux FromKilogramPerSecondPerSquareMillimeter(double KilogramPerSecondPerSquareMillimeter)
+            {
+                double value= (double)KilogramPerSecondPerSquareMillimeter;
+                return new MassFlux(value, MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
+            }
     }
 }
+
+

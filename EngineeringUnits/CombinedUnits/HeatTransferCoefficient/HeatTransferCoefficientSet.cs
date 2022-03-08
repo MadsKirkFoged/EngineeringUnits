@@ -1,49 +1,51 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class HeatTransferCoefficient
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static HeatTransferCoefficient FromSI(double si)
-        {
-            double value = (double)si;
-            return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get HeatTransferCoefficient from BtusPerSquareFootDegreeFahrenheit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static HeatTransferCoefficient FromBtusPerSquareFootDegreeFahrenheit(double btuspersquarefootdegreefahrenheit)
-        {
-            double value = (double)btuspersquarefootdegreefahrenheit;
-            return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
-        }
-        /// <summary>
-        ///     Get HeatTransferCoefficient from WattsPerSquareMeterCelsius.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static HeatTransferCoefficient FromWattsPerSquareMeterCelsius(double wattspersquaremetercelsius)
-        {
-            double value = (double)wattspersquaremetercelsius;
-            return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
-        }
-        /// <summary>
-        ///     Get HeatTransferCoefficient from WattsPerSquareMeterKelvin.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static HeatTransferCoefficient FromWattsPerSquareMeterKelvin(double wattspersquaremeterkelvin)
-        {
-            double value = (double)wattspersquaremeterkelvin;
-            return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.WattPerSquareMeterKelvin);
-        }
-
+            /// <summary>
+            ///     Get HeatTransferCoefficient from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static HeatTransferCoefficient FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.SI);
+            }
+            /// <summary>
+            ///     Get HeatTransferCoefficient from WattPerSquareMeterKelvin.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static HeatTransferCoefficient FromWattPerSquareMeterKelvin(double WattPerSquareMeterKelvin)
+            {
+                double value= (double)WattPerSquareMeterKelvin;
+                return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.WattPerSquareMeterKelvin);
+            }
+            /// <summary>
+            ///     Get HeatTransferCoefficient from WattPerSquareMeterCelsius.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static HeatTransferCoefficient FromWattPerSquareMeterCelsius(double WattPerSquareMeterCelsius)
+            {
+                double value= (double)WattPerSquareMeterCelsius;
+                return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
+            }
+            /// <summary>
+            ///     Get HeatTransferCoefficient from BtuPerSquareFootDegreeFahrenheit.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static HeatTransferCoefficient FromBtuPerSquareFootDegreeFahrenheit(double BtuPerSquareFootDegreeFahrenheit)
+            {
+                double value= (double)BtuPerSquareFootDegreeFahrenheit;
+                return new HeatTransferCoefficient(value, HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
+            }
     }
 }
+
+

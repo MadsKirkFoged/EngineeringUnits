@@ -1,49 +1,51 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricCurrentDensity
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrentDensity FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get ElectricCurrentDensity from AmperesPerSquareFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrentDensity FromAmperesPerSquareFoot(double amperespersquarefoot)
-        {
-            double value = (double)amperespersquarefoot;
-            return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareFoot);
-        }
-        /// <summary>
-        ///     Get ElectricCurrentDensity from AmperesPerSquareInch.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrentDensity FromAmperesPerSquareInch(double amperespersquareinch)
-        {
-            double value = (double)amperespersquareinch;
-            return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareInch);
-        }
-        /// <summary>
-        ///     Get ElectricCurrentDensity from AmperesPerSquareMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricCurrentDensity FromAmperesPerSquareMeter(double amperespersquaremeter)
-        {
-            double value = (double)amperespersquaremeter;
-            return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareMeter);
-        }
-
+            /// <summary>
+            ///     Get ElectricCurrentDensity from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrentDensity FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricCurrentDensity from AmperePerSquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrentDensity FromAmperePerSquareMeter(double AmperePerSquareMeter)
+            {
+                double value= (double)AmperePerSquareMeter;
+                return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareMeter);
+            }
+            /// <summary>
+            ///     Get ElectricCurrentDensity from AmperePerSquareInch.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrentDensity FromAmperePerSquareInch(double AmperePerSquareInch)
+            {
+                double value= (double)AmperePerSquareInch;
+                return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareInch);
+            }
+            /// <summary>
+            ///     Get ElectricCurrentDensity from AmperePerSquareFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricCurrentDensity FromAmperePerSquareFoot(double AmperePerSquareFoot)
+            {
+                double value= (double)AmperePerSquareFoot;
+                return new ElectricCurrentDensity(value, ElectricCurrentDensityUnit.AmperePerSquareFoot);
+            }
     }
 }
+
+

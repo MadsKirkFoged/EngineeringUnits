@@ -1,149 +1,159 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class Area
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSI(double si)
-        {
-            double value = (double)si;
-            return new Area(value, AreaUnit.SI);
-        }
+ 
 
-
-        /// <summary>
-        ///     Get Area from Acres.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromAcres(double acres)
-        {
-            double value = (double)acres;
-            return new Area(value, AreaUnit.Acre);
-        }
-        /// <summary>
-        ///     Get Area from Hectares.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromHectares(double hectares)
-        {
-            double value = (double)hectares;
-            return new Area(value, AreaUnit.Hectare);
-        }
-        /// <summary>
-        ///     Get Area from SquareCentimeters.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareCentimeters(double squarecentimeters)
-        {
-            double value = (double)squarecentimeters;
-            return new Area(value, AreaUnit.SquareCentimeter);
-        }
-        /// <summary>
-        ///     Get Area from SquareDecimeters.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareDecimeters(double squaredecimeters)
-        {
-            double value = (double)squaredecimeters;
-            return new Area(value, AreaUnit.SquareDecimeter);
-        }
-        /// <summary>
-        ///     Get Area from SquareFeet.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareFeet(double squarefeet)
-        {
-            double value = (double)squarefeet;
-            return new Area(value, AreaUnit.SquareFoot);
-        }
-        /// <summary>
-        ///     Get Area from SquareInches.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareInches(double squareinches)
-        {
-            double value = (double)squareinches;
-            return new Area(value, AreaUnit.SquareInch);
-        }
-        /// <summary>
-        ///     Get Area from SquareKilometers.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareKilometers(double squarekilometers)
-        {
-            double value = (double)squarekilometers;
-            return new Area(value, AreaUnit.SquareKilometer);
-        }
-        /// <summary>
-        ///     Get Area from SquareMeters.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareMeters(double squaremeters)
-        {
-            double value = (double)squaremeters;
-            return new Area(value, AreaUnit.SquareMeter);
-        }
-        /// <summary>
-        ///     Get Area from SquareMicrometers.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareMicrometers(double squaremicrometers)
-        {
-            double value = (double)squaremicrometers;
-            return new Area(value, AreaUnit.SquareMicrometer);
-        }
-        /// <summary>
-        ///     Get Area from SquareMiles.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareMiles(double squaremiles)
-        {
-            double value = (double)squaremiles;
-            return new Area(value, AreaUnit.SquareMile);
-        }
-        /// <summary>
-        ///     Get Area from SquareMillimeters.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareMillimeters(double squaremillimeters)
-        {
-            double value = (double)squaremillimeters;
-            return new Area(value, AreaUnit.SquareMillimeter);
-        }
-        /// <summary>
-        ///     Get Area from SquareNauticalMiles.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareNauticalMiles(double squarenauticalmiles)
-        {
-            double value = (double)squarenauticalmiles;
-            return new Area(value, AreaUnit.SquareNauticalMile);
-        }
-        /// <summary>
-        ///     Get Area from SquareYards.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static Area FromSquareYards(double squareyards)
-        {
-            double value = (double)squareyards;
-            return new Area(value, AreaUnit.SquareYard);
-        }
-        /// <summary>
-        ///     Get Area from UsSurveySquareFeet.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        //public static Area FromUsSurveySquareFeet(double ussurveysquarefeet)
-        //{
-        //    double value = (double)ussurveysquarefeet;
-        //    return new Area(value, AreaUnit.UsSurveySquareFoot);
-        //}
-
+            /// <summary>
+            ///     Get Area from Acre.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromAcre(double Acre)
+            {
+                double value= (double)Acre;
+                return new Area(value, AreaUnit.Acre);
+            }
+            /// <summary>
+            ///     Get Area from Hectare.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromHectare(double Hectare)
+            {
+                double value= (double)Hectare;
+                return new Area(value, AreaUnit.Hectare);
+            }
+            /// <summary>
+            ///     Get Area from SquareCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareCentimeter(double SquareCentimeter)
+            {
+                double value= (double)SquareCentimeter;
+                return new Area(value, AreaUnit.SquareCentimeter);
+            }
+            /// <summary>
+            ///     Get Area from SquareDecimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareDecimeter(double SquareDecimeter)
+            {
+                double value= (double)SquareDecimeter;
+                return new Area(value, AreaUnit.SquareDecimeter);
+            }
+            /// <summary>
+            ///     Get Area from SquareKilometer.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareKilometer(double SquareKilometer)
+            {
+                double value= (double)SquareKilometer;
+                return new Area(value, AreaUnit.SquareKilometer);
+            }
+            /// <summary>
+            ///     Get Area from SquareMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareMeter(double SquareMeter)
+            {
+                double value= (double)SquareMeter;
+                return new Area(value, AreaUnit.SquareMeter);
+            }
+            /// <summary>
+            ///     Get Area from SquareMicrometer.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareMicrometer(double SquareMicrometer)
+            {
+                double value= (double)SquareMicrometer;
+                return new Area(value, AreaUnit.SquareMicrometer);
+            }
+            /// <summary>
+            ///     Get Area from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new Area(value, AreaUnit.SI);
+            }
+            /// <summary>
+            ///     Get Area from SquareMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareMillimeter(double SquareMillimeter)
+            {
+                double value= (double)SquareMillimeter;
+                return new Area(value, AreaUnit.SquareMillimeter);
+            }
+            /// <summary>
+            ///     Get Area from SquareNanometer.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareNanometer(double SquareNanometer)
+            {
+                double value= (double)SquareNanometer;
+                return new Area(value, AreaUnit.SquareNanometer);
+            }
+            /// <summary>
+            ///     Get Area from SquareInch.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareInch(double SquareInch)
+            {
+                double value= (double)SquareInch;
+                return new Area(value, AreaUnit.SquareInch);
+            }
+            /// <summary>
+            ///     Get Area from SquareFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareFoot(double SquareFoot)
+            {
+                double value= (double)SquareFoot;
+                return new Area(value, AreaUnit.SquareFoot);
+            }
+            /// <summary>
+            ///     Get Area from SquareYard.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareYard(double SquareYard)
+            {
+                double value= (double)SquareYard;
+                return new Area(value, AreaUnit.SquareYard);
+            }
+            /// <summary>
+            ///     Get Area from SquareMile.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareMile(double SquareMile)
+            {
+                double value= (double)SquareMile;
+                return new Area(value, AreaUnit.SquareMile);
+            }
+            /// <summary>
+            ///     Get Area from SquareNauticalMile.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareNauticalMile(double SquareNauticalMile)
+            {
+                double value= (double)SquareNauticalMile;
+                return new Area(value, AreaUnit.SquareNauticalMile);
+            }
+            /// <summary>
+            ///     Get Area from SquareChain.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Area FromSquareChain(double SquareChain)
+            {
+                double value= (double)SquareChain;
+                return new Area(value, AreaUnit.SquareChain);
+            }
     }
 }
+
+

@@ -1,67 +1,78 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricPotential
     {
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricPotential(value, ElectricPotentialUnit.SI);
-        }
 
-        /// <summary>
-        ///     Get ElectricPotential from Kilovolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromKilovolts(double kilovolts)
-        {
-            double value = (double)kilovolts;
-            return new ElectricPotential(value, ElectricPotentialUnit.Kilovolt);
-        }
-        /// <summary>
-        ///     Get ElectricPotential from Megavolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromMegavolts(double megavolts)
-        {
-            double value = (double)megavolts;
-            return new ElectricPotential(value, ElectricPotentialUnit.Megavolt);
-        }
-        /// <summary>
-        ///     Get ElectricPotential from Microvolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromMicrovolts(double microvolts)
-        {
-            double value = (double)microvolts;
-            return new ElectricPotential(value, ElectricPotentialUnit.Microvolt);
-        }
-        /// <summary>
-        ///     Get ElectricPotential from Millivolts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromMillivolts(double millivolts)
-        {
-            double value = (double)millivolts;
-            return new ElectricPotential(value, ElectricPotentialUnit.Millivolt);
-        }
-        /// <summary>
-        ///     Get ElectricPotential from Volts.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotential FromVolts(double volts)
-        {
-            double value = (double)volts;
-            return new ElectricPotential(value, ElectricPotentialUnit.Volt);
-        }
+ 
 
-
+            /// <summary>
+            ///     Get ElectricPotential from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricPotential(value, ElectricPotentialUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Volt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromVolt(double Volt)
+            {
+                double value= (double)Volt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Volt);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Kilovolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromKilovolt(double Kilovolt)
+            {
+                double value= (double)Kilovolt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Kilovolt);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Megavolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromMegavolt(double Megavolt)
+            {
+                double value= (double)Megavolt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Megavolt);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Gigavolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromGigavolt(double Gigavolt)
+            {
+                double value= (double)Gigavolt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Gigavolt);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Microvolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromMicrovolt(double Microvolt)
+            {
+                double value= (double)Microvolt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Microvolt);
+            }
+            /// <summary>
+            ///     Get ElectricPotential from Millivolt.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotential FromMillivolt(double Millivolt)
+            {
+                double value= (double)Millivolt;
+                return new ElectricPotential(value, ElectricPotentialUnit.Millivolt);
+            }
     }
 }
+
+

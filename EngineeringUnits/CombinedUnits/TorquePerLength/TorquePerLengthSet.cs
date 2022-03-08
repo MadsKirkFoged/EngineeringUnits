@@ -1,211 +1,213 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class TorquePerLength
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromSI(double si)
-        {
-            double value = (double)si;
-            return new TorquePerLength(value, TorquePerLengthUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get TorquePerLength from KilogramForceCentimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilogramForceCentimetersPerMeter(double kilogramforcecentimeterspermeter)
-        {
-            double value = (double)kilogramforcecentimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceCentimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilogramForceMetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilogramForceMetersPerMeter(double kilogramforcemeterspermeter)
-        {
-            double value = (double)kilogramforcemeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceMeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilogramForceMillimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilogramForceMillimetersPerMeter(double kilogramforcemillimeterspermeter)
-        {
-            double value = (double)kilogramforcemillimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceMillimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilonewtonCentimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilonewtonCentimetersPerMeter(double kilonewtoncentimeterspermeter)
-        {
-            double value = (double)kilonewtoncentimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonCentimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilonewtonMetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilonewtonMetersPerMeter(double kilonewtonmeterspermeter)
-        {
-            double value = (double)kilonewtonmeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonMeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilonewtonMillimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilonewtonMillimetersPerMeter(double kilonewtonmillimeterspermeter)
-        {
-            double value = (double)kilonewtonmillimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonMillimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilopoundForceFeetPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilopoundForceFeetPerFoot(double kilopoundforcefeetperfoot)
-        {
-            double value = (double)kilopoundforcefeetperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilopoundForceFootPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from KilopoundForceInchesPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromKilopoundForceInchesPerFoot(double kilopoundforceinchesperfoot)
-        {
-            double value = (double)kilopoundforceinchesperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.KilopoundForceInchPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from MeganewtonCentimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromMeganewtonCentimetersPerMeter(double meganewtoncentimeterspermeter)
-        {
-            double value = (double)meganewtoncentimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonCentimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from MeganewtonMetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromMeganewtonMetersPerMeter(double meganewtonmeterspermeter)
-        {
-            double value = (double)meganewtonmeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonMeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from MeganewtonMillimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromMeganewtonMillimetersPerMeter(double meganewtonmillimeterspermeter)
-        {
-            double value = (double)meganewtonmillimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonMillimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from MegapoundForceFeetPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromMegapoundForceFeetPerFoot(double megapoundforcefeetperfoot)
-        {
-            double value = (double)megapoundforcefeetperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.MegapoundForceFootPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from MegapoundForceInchesPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromMegapoundForceInchesPerFoot(double megapoundforceinchesperfoot)
-        {
-            double value = (double)megapoundforceinchesperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.MegapoundForceInchPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from NewtonCentimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromNewtonCentimetersPerMeter(double newtoncentimeterspermeter)
-        {
-            double value = (double)newtoncentimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.NewtonCentimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from NewtonMetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromNewtonMetersPerMeter(double newtonmeterspermeter)
-        {
-            double value = (double)newtonmeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.NewtonMeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from NewtonMillimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromNewtonMillimetersPerMeter(double newtonmillimeterspermeter)
-        {
-            double value = (double)newtonmillimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.NewtonMillimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from PoundForceFeetPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromPoundForceFeetPerFoot(double poundforcefeetperfoot)
-        {
-            double value = (double)poundforcefeetperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.PoundForceFootPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from PoundForceInchesPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromPoundForceInchesPerFoot(double poundforceinchesperfoot)
-        {
-            double value = (double)poundforceinchesperfoot;
-            return new TorquePerLength(value, TorquePerLengthUnit.PoundForceInchPerFoot);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from TonneForceCentimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromTonneForceCentimetersPerMeter(double tonneforcecentimeterspermeter)
-        {
-            double value = (double)tonneforcecentimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.TonneForceCentimeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from TonneForceMetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromTonneForceMetersPerMeter(double tonneforcemeterspermeter)
-        {
-            double value = (double)tonneforcemeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.TonneForceMeterPerMeter);
-        }
-        /// <summary>
-        ///     Get TorquePerLength from TonneForceMillimetersPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static TorquePerLength FromTonneForceMillimetersPerMeter(double tonneforcemillimeterspermeter)
-        {
-            double value = (double)tonneforcemillimeterspermeter;
-            return new TorquePerLength(value, TorquePerLengthUnit.TonneForceMillimeterPerMeter);
-        }
-
+            /// <summary>
+            ///     Get TorquePerLength from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new TorquePerLength(value, TorquePerLengthUnit.SI);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from NewtonMeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromNewtonMeterPerMeter(double NewtonMeterPerMeter)
+            {
+                double value= (double)NewtonMeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.NewtonMeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilogramForceCentimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilogramForceCentimeterPerMeter(double KilogramForceCentimeterPerMeter)
+            {
+                double value= (double)KilogramForceCentimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceCentimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilogramForceMeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilogramForceMeterPerMeter(double KilogramForceMeterPerMeter)
+            {
+                double value= (double)KilogramForceMeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceMeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilogramForceMillimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilogramForceMillimeterPerMeter(double KilogramForceMillimeterPerMeter)
+            {
+                double value= (double)KilogramForceMillimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilogramForceMillimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilonewtonCentimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilonewtonCentimeterPerMeter(double KilonewtonCentimeterPerMeter)
+            {
+                double value= (double)KilonewtonCentimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonCentimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilonewtonMeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilonewtonMeterPerMeter(double KilonewtonMeterPerMeter)
+            {
+                double value= (double)KilonewtonMeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonMeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilonewtonMillimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilonewtonMillimeterPerMeter(double KilonewtonMillimeterPerMeter)
+            {
+                double value= (double)KilonewtonMillimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilonewtonMillimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilopoundForceFootPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilopoundForceFootPerFoot(double KilopoundForceFootPerFoot)
+            {
+                double value= (double)KilopoundForceFootPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilopoundForceFootPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from KilopoundForceInchPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromKilopoundForceInchPerFoot(double KilopoundForceInchPerFoot)
+            {
+                double value= (double)KilopoundForceInchPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.KilopoundForceInchPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from MeganewtonCentimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromMeganewtonCentimeterPerMeter(double MeganewtonCentimeterPerMeter)
+            {
+                double value= (double)MeganewtonCentimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonCentimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from MeganewtonMeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromMeganewtonMeterPerMeter(double MeganewtonMeterPerMeter)
+            {
+                double value= (double)MeganewtonMeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonMeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from MeganewtonMillimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromMeganewtonMillimeterPerMeter(double MeganewtonMillimeterPerMeter)
+            {
+                double value= (double)MeganewtonMillimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.MeganewtonMillimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from MegapoundForceFootPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromMegapoundForceFootPerFoot(double MegapoundForceFootPerFoot)
+            {
+                double value= (double)MegapoundForceFootPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.MegapoundForceFootPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from MegapoundForceInchPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromMegapoundForceInchPerFoot(double MegapoundForceInchPerFoot)
+            {
+                double value= (double)MegapoundForceInchPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.MegapoundForceInchPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from NewtonCentimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromNewtonCentimeterPerMeter(double NewtonCentimeterPerMeter)
+            {
+                double value= (double)NewtonCentimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.NewtonCentimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from NewtonMillimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromNewtonMillimeterPerMeter(double NewtonMillimeterPerMeter)
+            {
+                double value= (double)NewtonMillimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.NewtonMillimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from PoundForceFootPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromPoundForceFootPerFoot(double PoundForceFootPerFoot)
+            {
+                double value= (double)PoundForceFootPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.PoundForceFootPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from PoundForceInchPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromPoundForceInchPerFoot(double PoundForceInchPerFoot)
+            {
+                double value= (double)PoundForceInchPerFoot;
+                return new TorquePerLength(value, TorquePerLengthUnit.PoundForceInchPerFoot);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from TonneForceCentimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromTonneForceCentimeterPerMeter(double TonneForceCentimeterPerMeter)
+            {
+                double value= (double)TonneForceCentimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.TonneForceCentimeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from TonneForceMeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromTonneForceMeterPerMeter(double TonneForceMeterPerMeter)
+            {
+                double value= (double)TonneForceMeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.TonneForceMeterPerMeter);
+            }
+            /// <summary>
+            ///     Get TorquePerLength from TonneForceMillimeterPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static TorquePerLength FromTonneForceMillimeterPerMeter(double TonneForceMillimeterPerMeter)
+            {
+                double value= (double)TonneForceMillimeterPerMeter;
+                return new TorquePerLength(value, TorquePerLengthUnit.TonneForceMillimeterPerMeter);
+            }
     }
 }
+
+

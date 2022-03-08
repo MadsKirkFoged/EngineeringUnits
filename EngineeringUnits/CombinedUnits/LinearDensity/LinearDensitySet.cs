@@ -1,149 +1,150 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class LinearDensity
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromSI(double si)
-        {
-            double value = (double)si;
-            return new LinearDensity(value, LinearDensityUnit.SI);
-        }
+ 
 
-
-        /// <summary>
-        ///     Get LinearDensity from GramsPerCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromGramsPerCentimeter(double gramspercentimeter)
-        {
-            double value = (double)gramspercentimeter;
-            return new LinearDensity(value, LinearDensityUnit.GramPerCentimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from GramsPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromGramsPerMeter(double gramspermeter)
-        {
-            double value = (double)gramspermeter;
-            return new LinearDensity(value, LinearDensityUnit.GramPerMeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from GramsPerMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromGramsPerMillimeter(double gramspermillimeter)
-        {
-            double value = (double)gramspermillimeter;
-            return new LinearDensity(value, LinearDensityUnit.GramPerMillimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from KilogramsPerCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromKilogramsPerCentimeter(double kilogramspercentimeter)
-        {
-            double value = (double)kilogramspercentimeter;
-            return new LinearDensity(value, LinearDensityUnit.KilogramPerCentimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from KilogramsPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromKilogramsPerMeter(double kilogramspermeter)
-        {
-            double value = (double)kilogramspermeter;
-            return new LinearDensity(value, LinearDensityUnit.KilogramPerMeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from KilogramsPerMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromKilogramsPerMillimeter(double kilogramspermillimeter)
-        {
-            double value = (double)kilogramspermillimeter;
-            return new LinearDensity(value, LinearDensityUnit.KilogramPerMillimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MicrogramsPerCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMicrogramsPerCentimeter(double microgramspercentimeter)
-        {
-            double value = (double)microgramspercentimeter;
-            return new LinearDensity(value, LinearDensityUnit.MicrogramPerCentimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MicrogramsPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMicrogramsPerMeter(double microgramspermeter)
-        {
-            double value = (double)microgramspermeter;
-            return new LinearDensity(value, LinearDensityUnit.MicrogramPerMeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MicrogramsPerMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMicrogramsPerMillimeter(double microgramspermillimeter)
-        {
-            double value = (double)microgramspermillimeter;
-            return new LinearDensity(value, LinearDensityUnit.MicrogramPerMillimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MilligramsPerCentimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMilligramsPerCentimeter(double milligramspercentimeter)
-        {
-            double value = (double)milligramspercentimeter;
-            return new LinearDensity(value, LinearDensityUnit.MilligramPerCentimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MilligramsPerMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMilligramsPerMeter(double milligramspermeter)
-        {
-            double value = (double)milligramspermeter;
-            return new LinearDensity(value, LinearDensityUnit.MilligramPerMeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from MilligramsPerMillimeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromMilligramsPerMillimeter(double milligramspermillimeter)
-        {
-            double value = (double)milligramspermillimeter;
-            return new LinearDensity(value, LinearDensityUnit.MilligramPerMillimeter);
-        }
-        /// <summary>
-        ///     Get LinearDensity from PoundsPerFoot.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromPoundsPerFoot(double poundsperfoot)
-        {
-            double value = (double)poundsperfoot;
-            return new LinearDensity(value, LinearDensityUnit.PoundPerFoot);
-        }
-        /// <summary>
-        ///     Get LinearDensity from PoundsPerInch.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static LinearDensity FromPoundsPerInch(double poundsperinch)
-        {
-            double value = (double)poundsperinch;
-            return new LinearDensity(value, LinearDensityUnit.PoundPerInch);
-        }
-
+            /// <summary>
+            ///     Get LinearDensity from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new LinearDensity(value, LinearDensityUnit.SI);
+            }
+            /// <summary>
+            ///     Get LinearDensity from KilogramPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromKilogramPerMeter(double KilogramPerMeter)
+            {
+                double value= (double)KilogramPerMeter;
+                return new LinearDensity(value, LinearDensityUnit.KilogramPerMeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from GramPerCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromGramPerCentimeter(double GramPerCentimeter)
+            {
+                double value= (double)GramPerCentimeter;
+                return new LinearDensity(value, LinearDensityUnit.GramPerCentimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from GramPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromGramPerMeter(double GramPerMeter)
+            {
+                double value= (double)GramPerMeter;
+                return new LinearDensity(value, LinearDensityUnit.GramPerMeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from GramPerMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromGramPerMillimeter(double GramPerMillimeter)
+            {
+                double value= (double)GramPerMillimeter;
+                return new LinearDensity(value, LinearDensityUnit.GramPerMillimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from KilogramPerCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromKilogramPerCentimeter(double KilogramPerCentimeter)
+            {
+                double value= (double)KilogramPerCentimeter;
+                return new LinearDensity(value, LinearDensityUnit.KilogramPerCentimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from KilogramPerMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromKilogramPerMillimeter(double KilogramPerMillimeter)
+            {
+                double value= (double)KilogramPerMillimeter;
+                return new LinearDensity(value, LinearDensityUnit.KilogramPerMillimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MicrogramPerCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMicrogramPerCentimeter(double MicrogramPerCentimeter)
+            {
+                double value= (double)MicrogramPerCentimeter;
+                return new LinearDensity(value, LinearDensityUnit.MicrogramPerCentimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MicrogramPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMicrogramPerMeter(double MicrogramPerMeter)
+            {
+                double value= (double)MicrogramPerMeter;
+                return new LinearDensity(value, LinearDensityUnit.MicrogramPerMeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MicrogramPerMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMicrogramPerMillimeter(double MicrogramPerMillimeter)
+            {
+                double value= (double)MicrogramPerMillimeter;
+                return new LinearDensity(value, LinearDensityUnit.MicrogramPerMillimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MilligramPerCentimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMilligramPerCentimeter(double MilligramPerCentimeter)
+            {
+                double value= (double)MilligramPerCentimeter;
+                return new LinearDensity(value, LinearDensityUnit.MilligramPerCentimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MilligramPerMeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMilligramPerMeter(double MilligramPerMeter)
+            {
+                double value= (double)MilligramPerMeter;
+                return new LinearDensity(value, LinearDensityUnit.MilligramPerMeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from MilligramPerMillimeter.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromMilligramPerMillimeter(double MilligramPerMillimeter)
+            {
+                double value= (double)MilligramPerMillimeter;
+                return new LinearDensity(value, LinearDensityUnit.MilligramPerMillimeter);
+            }
+            /// <summary>
+            ///     Get LinearDensity from PoundPerFoot.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromPoundPerFoot(double PoundPerFoot)
+            {
+                double value= (double)PoundPerFoot;
+                return new LinearDensity(value, LinearDensityUnit.PoundPerFoot);
+            }
+            /// <summary>
+            ///     Get LinearDensity from PoundPerInch.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static LinearDensity FromPoundPerInch(double PoundPerInch)
+            {
+                double value= (double)PoundPerInch;
+                return new LinearDensity(value, LinearDensityUnit.PoundPerInch);
+            }
     }
 }
+
+

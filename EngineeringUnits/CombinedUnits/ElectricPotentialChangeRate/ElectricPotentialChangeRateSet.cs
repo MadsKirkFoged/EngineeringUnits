@@ -1,202 +1,204 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
+using EngineeringUnits.Units;
+
 
 namespace EngineeringUnits
 {
     public partial class ElectricPotentialChangeRate
     {
 
-        /// <summary>
-        ///     Get from SI Unit.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromSI(double si)
-        {
-            double value = (double)si;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.SI);
-        }
+ 
 
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from KilovoltsPerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromKilovoltsPerHours(double kilovoltsperhours)
-        {
-            double value = (double)kilovoltsperhours;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerHour);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from KilovoltsPerMicroseconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromKilovoltsPerMicroseconds(double kilovoltspermicroseconds)
-        {
-            double value = (double)kilovoltspermicroseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerMicrosecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from KilovoltsPerMinutes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromKilovoltsPerMinutes(double kilovoltsperminutes)
-        {
-            double value = (double)kilovoltsperminutes;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerMinute);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from KilovoltsPerSeconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromKilovoltsPerSeconds(double kilovoltsperseconds)
-        {
-            double value = (double)kilovoltsperseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerSecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MegavoltsPerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMegavoltsPerHours(double megavoltsperhours)
-        {
-            double value = (double)megavoltsperhours;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerHour);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MegavoltsPerMicroseconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMegavoltsPerMicroseconds(double megavoltspermicroseconds)
-        {
-            double value = (double)megavoltspermicroseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerMicrosecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MegavoltsPerMinutes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMegavoltsPerMinutes(double megavoltsperminutes)
-        {
-            double value = (double)megavoltsperminutes;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerMinute);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MegavoltsPerSeconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMegavoltsPerSeconds(double megavoltsperseconds)
-        {
-            double value = (double)megavoltsperseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerSecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MicrovoltsPerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMicrovoltsPerHours(double microvoltsperhours)
-        {
-            double value = (double)microvoltsperhours;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerHour);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MicrovoltsPerMicroseconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMicrovoltsPerMicroseconds(double microvoltspermicroseconds)
-        {
-            double value = (double)microvoltspermicroseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerMicrosecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MicrovoltsPerMinutes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMicrovoltsPerMinutes(double microvoltsperminutes)
-        {
-            double value = (double)microvoltsperminutes;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerMinute);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MicrovoltsPerSeconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMicrovoltsPerSeconds(double microvoltsperseconds)
-        {
-            double value = (double)microvoltsperseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerSecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MillivoltsPerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMillivoltsPerHours(double millivoltsperhours)
-        {
-            double value = (double)millivoltsperhours;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerHour);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MillivoltsPerMicroseconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMillivoltsPerMicroseconds(double millivoltspermicroseconds)
-        {
-            double value = (double)millivoltspermicroseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerMicrosecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MillivoltsPerMinutes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMillivoltsPerMinutes(double millivoltsperminutes)
-        {
-            double value = (double)millivoltsperminutes;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerMinute);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from MillivoltsPerSeconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromMillivoltsPerSeconds(double millivoltsperseconds)
-        {
-            double value = (double)millivoltsperseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerSecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from VoltsPerHours.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromVoltsPerHours(double voltsperhours)
-        {
-            double value = (double)voltsperhours;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerHour);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from VoltsPerMicroseconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromVoltsPerMicroseconds(double voltspermicroseconds)
-        {
-            double value = (double)voltspermicroseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerMicrosecond);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from VoltsPerMinutes.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromVoltsPerMinutes(double voltsperminutes)
-        {
-            double value = (double)voltsperminutes;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerMinute);
-        }
-        /// <summary>
-        ///     Get ElectricPotentialChangeRate from VoltsPerSeconds.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static ElectricPotentialChangeRate FromVoltsPerSeconds(double voltsperseconds)
-        {
-            double value = (double)voltsperseconds;
-            return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerSecond);
-        }
-
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from SI.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromSI(double SI)
+            {
+                double value= (double)SI;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.SI);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from VoltPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromVoltPerSecond(double VoltPerSecond)
+            {
+                double value= (double)VoltPerSecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerSecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from VoltPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromVoltPerMinute(double VoltPerMinute)
+            {
+                double value= (double)VoltPerMinute;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerMinute);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from VoltPerMicrosecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromVoltPerMicrosecond(double VoltPerMicrosecond)
+            {
+                double value= (double)VoltPerMicrosecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerMicrosecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from VoltPerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromVoltPerHour(double VoltPerHour)
+            {
+                double value= (double)VoltPerHour;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.VoltPerHour);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MillivoltPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMillivoltPerSecond(double MillivoltPerSecond)
+            {
+                double value= (double)MillivoltPerSecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerSecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MillivoltPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMillivoltPerMinute(double MillivoltPerMinute)
+            {
+                double value= (double)MillivoltPerMinute;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerMinute);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MillivoltPerMicrosecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMillivoltPerMicrosecond(double MillivoltPerMicrosecond)
+            {
+                double value= (double)MillivoltPerMicrosecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerMicrosecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MillivoltPerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMillivoltPerHour(double MillivoltPerHour)
+            {
+                double value= (double)MillivoltPerHour;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MillivoltPerHour);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MicrovoltPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMicrovoltPerSecond(double MicrovoltPerSecond)
+            {
+                double value= (double)MicrovoltPerSecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerSecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MicrovoltPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMicrovoltPerMinute(double MicrovoltPerMinute)
+            {
+                double value= (double)MicrovoltPerMinute;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerMinute);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MicrovoltPerMicrosecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMicrovoltPerMicrosecond(double MicrovoltPerMicrosecond)
+            {
+                double value= (double)MicrovoltPerMicrosecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerMicrosecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MicrovoltPerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMicrovoltPerHour(double MicrovoltPerHour)
+            {
+                double value= (double)MicrovoltPerHour;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MicrovoltPerHour);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MegavoltPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMegavoltPerSecond(double MegavoltPerSecond)
+            {
+                double value= (double)MegavoltPerSecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerSecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MegavoltPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMegavoltPerMinute(double MegavoltPerMinute)
+            {
+                double value= (double)MegavoltPerMinute;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerMinute);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MegavoltPerMicrosecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMegavoltPerMicrosecond(double MegavoltPerMicrosecond)
+            {
+                double value= (double)MegavoltPerMicrosecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerMicrosecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from MegavoltPerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromMegavoltPerHour(double MegavoltPerHour)
+            {
+                double value= (double)MegavoltPerHour;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.MegavoltPerHour);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from KilovoltPerSecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromKilovoltPerSecond(double KilovoltPerSecond)
+            {
+                double value= (double)KilovoltPerSecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerSecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from KilovoltPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromKilovoltPerMinute(double KilovoltPerMinute)
+            {
+                double value= (double)KilovoltPerMinute;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerMinute);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from KilovoltPerMicrosecond.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromKilovoltPerMicrosecond(double KilovoltPerMicrosecond)
+            {
+                double value= (double)KilovoltPerMicrosecond;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerMicrosecond);
+            }
+            /// <summary>
+            ///     Get ElectricPotentialChangeRate from KilovoltPerHour.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static ElectricPotentialChangeRate FromKilovoltPerHour(double KilovoltPerHour)
+            {
+                double value= (double)KilovoltPerHour;
+                return new ElectricPotentialChangeRate(value, ElectricPotentialChangeRateUnit.KilovoltPerHour);
+            }
     }
 }
+
+
