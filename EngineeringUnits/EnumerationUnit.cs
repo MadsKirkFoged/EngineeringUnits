@@ -287,49 +287,45 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitSystem left, Enumeration right) => left / right.Unit;
 
 
+        private int HashCode;
+
         public override int GetHashCode()
         {
 
-            unchecked // Overflow is fine, just wrap
+            if (HashCode == 0)
             {
-                int hash = (int)2166136261;
-                // Suitable nullity checks etc, of course :)
-                hash = (hash * 16777619) ^ NewC.GetHashCode();
-                hash = (hash * 16777619) ^ B.GetHashCode();
-                hash = (hash * 16777619) ^ Count.GetHashCode();
 
-
-                int unittype = TypeOfUnit switch
+                unchecked // Overflow is fine, just wrap
                 {
-                    "AmountOfSubstanceUnit" => 1,
-                    "CombinedUnit" => 2,
-                    "DurationUnit" => 3,
-                    "ElectricCurrentUnit" => 4,
-                    "LengthUnit" => 5,
-                    "LuminousIntensityUnit" => 6,
-                    "MassUnit" => 7,
-                    "TemperatureUnit" => 8,
-                    _ => 0,
-                };
+                    int hash = (int)2166136261;
+                    // Suitable nullity checks etc, of course :)
+                    hash = (hash * 16777619) ^ NewC.GetHashCode();
+                    hash = (hash * 16777619) ^ B.GetHashCode();
+                    hash = (hash * 16777619) ^ Count.GetHashCode();
 
-                hash = (hash * 16777619) ^ unittype.GetHashCode();
 
-                return hash;
+                    int unittype = TypeOfUnit switch
+                    {
+                        "AmountOfSubstanceUnit" => 1,
+                        "CombinedUnit" => 2,
+                        "DurationUnit" => 3,
+                        "ElectricCurrentUnit" => 4,
+                        "LengthUnit" => 5,
+                        "LuminousIntensityUnit" => 6,
+                        "MassUnit" => 7,
+                        "TemperatureUnit" => 8,
+                        _ => 0,
+                    };
+
+                    hash = (hash * 16777619) ^ unittype.GetHashCode();
+
+                    HashCode = hash;
+                }
+
+
             }
 
-
-
-            //HashCode hashCode = new();
-            //hashCode.Add(Symbol);
-            //hashCode.Add(NewC);
-            ////hashCode.Add(GlobalC);
-            ////hashCode.Add(ActualC);
-            //hashCode.Add(B);
-            //hashCode.Add(Count);
-            ////hashCode.Add(Count);
-            ////hashCode.Add(Unit.GetHashCode());
-
-            //return hashCode.ToHashCode();
+            return HashCode;
         }
     }
 }

@@ -277,6 +277,47 @@ namespace EngineeringUnits
         }
 
 
+        public static UnknownUnit RoundUpToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderBy(x => x))
+            {
+                if (valueToBeRoundedUp <= item)                
+                    return item;                
+            }
+
+            return valueToBeRoundedUp;
+        }
+        public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderBy(x => x))
+            {
+                if (valueToBeRoundedUp <= item)                
+                    return item;                
+            }
+
+            return valueToBeRoundedUp;
+        }
+
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderByDescending(x => x))
+            {
+                if (valueToBeRoundedUp >= item)
+                    return item;
+            }
+
+            return valueToBeRoundedUp;
+        }
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderByDescending(x => x))
+            {
+                if (valueToBeRoundedUp >= item)
+                    return item;
+            }
+
+            return valueToBeRoundedUp;
+        }
 
     }
 }

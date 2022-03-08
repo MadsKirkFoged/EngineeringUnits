@@ -400,36 +400,19 @@ namespace EngineeringUnits
 
         public override int GetHashCode()
         {
-
-
-            int hashcode = 0;
-
-            foreach (var item in ListOfUnits)
+            if (HashCode == 0)
             {
-                hashcode += item.GetHashCode();
+                //int hashcode = 0;
+
+                foreach (var item in ListOfUnits)
+                {
+                    HashCode += item.GetHashCode();
+                }
+
+                //return hashcode;
             }
 
-            return hashcode;
-
-
-
-
-
-            //if (HashCode == 0)
-            //{
-            //    HashCode hashCode = new();
-            //    hashCode.Add(Symbol);
-
-            //    foreach (var item in ListOfUnits)
-            //    {
-            //        hashCode.Add(item);
-            //    }
-                
-
-            //    HashCode = hashCode.ToHashCode();
-            //}
-
-            //return HashCode;
+            return HashCode;
         }
 
         private int HashCodeForUnitCompare;
