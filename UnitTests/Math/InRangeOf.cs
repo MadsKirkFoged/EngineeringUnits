@@ -27,11 +27,12 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(5, f2.Watts);
-            Assert.AreEqual(17, f4.KilojoulesPerHour);
-            Assert.AreEqual(-17, f6.KilojoulesPerHour);
-            Assert.AreEqual(-5, f8.Watts);
-            Assert.AreEqual(4, f10.Watts);
+            Assert.AreEqual(5, f2.Watt);
+            Assert.AreNotEqual(6, f2.Watt);
+            Assert.AreEqual(17, f4.KilojoulePerHour);
+            Assert.AreEqual(-17, f6.KilojoulePerHour);
+            Assert.AreEqual(-5, f8.Watt);
+            Assert.AreEqual(4, f10.Watt);
         }
 
       
