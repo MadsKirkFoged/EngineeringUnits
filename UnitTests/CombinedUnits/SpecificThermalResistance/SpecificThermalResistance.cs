@@ -52,7 +52,7 @@ namespace UnitTests
         public void CalculateFromThermalConductivity_ResultShouldBeEqual()
         {
             SpecificThermalResistance expected = SpecificThermalResistance.FromSI(10.0);
-            SpecificThermalResistance actual = 1 / ThermalConductivity.FromWattsPerMeterKelvin(0.1);
+            SpecificThermalResistance actual = 1 / ThermalConductivity.FromWattPerMeterKelvin(0.1);
 
             Assert.AreEqual(expected, actual);
         }

@@ -40,7 +40,7 @@ namespace EngineeringUnits
         public string TypeOfUnit { get; init; }
 
         [JsonIgnore]
-        public bool SI { get; init; }
+        public bool IsSI { get; init; }
 
 
 
@@ -62,7 +62,7 @@ namespace EngineeringUnits
             B = b;
 
             if (NewC == Fraction.One)
-                SI = true;            
+                IsSI = true;            
 
         }
 
@@ -76,7 +76,7 @@ namespace EngineeringUnits
             B = 0;
 
             if (NewC == Fraction.One)
-                SI = true;
+                IsSI = true;
         }
 
         protected Enumeration(string symbol, decimal Constant) : this(symbol, new Fraction(Constant))
@@ -92,7 +92,7 @@ namespace EngineeringUnits
             TypeOfUnit = GetType().Name;
 
             if (NewC == Fraction.One)
-                this.SI = true;
+                this.IsSI = true;
 
         }
         protected Enumeration(PreFix SI, Enumeration baseunit)
@@ -128,7 +128,7 @@ namespace EngineeringUnits
             TypeOfUnit = unit.TypeOfUnit;
 
             if (NewC == Fraction.One)
-                SI = true;
+                IsSI = true;
         }
 
         public Enumeration(Enumeration unit, int NewCount) : this(unit, false)

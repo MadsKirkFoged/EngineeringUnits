@@ -18,7 +18,7 @@ namespace UnitTests
 
             ClassWithUnits test = new ClassWithUnits();
 
-            test.massflow = MassFlow.FromKilogramsPerSecond(10);            
+            test.massflow = MassFlow.FromKilogramPerSecond(10);            
 
             //Debug.WriteLine($"{test.massflow}");
             //Debug.WriteLine($"List count: {test.massflow.Unit.ListOfUnits.Count}");

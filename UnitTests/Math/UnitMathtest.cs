@@ -21,16 +21,16 @@ namespace UnitTests
 
             var list1 = new List<MassFlow>
             {
-                MassFlow.FromKilogramsPerSecond(1),
-                MassFlow.FromKilogramsPerSecond(2),
-                MassFlow.FromKilogramsPerSecond(3),
-                MassFlow.FromKilogramsPerSecond(4),
-                MassFlow.FromKilogramsPerSecond(5),
-                MassFlow.FromKilogramsPerSecond(6),
-                MassFlow.FromKilogramsPerSecond(7),
-                MassFlow.FromKilogramsPerSecond(8),
-                MassFlow.FromKilogramsPerSecond(9),
-                MassFlow.FromKilogramsPerSecond(10),
+                MassFlow.FromKilogramPerSecond(1),
+                MassFlow.FromKilogramPerSecond(2),
+                MassFlow.FromKilogramPerSecond(3),
+                MassFlow.FromKilogramPerSecond(4),
+                MassFlow.FromKilogramPerSecond(5),
+                MassFlow.FromKilogramPerSecond(6),
+                MassFlow.FromKilogramPerSecond(7),
+                MassFlow.FromKilogramPerSecond(8),
+                MassFlow.FromKilogramPerSecond(9),
+                MassFlow.FromKilogramPerSecond(10),
             };
 
 
@@ -43,55 +43,55 @@ namespace UnitTests
 
 
             MassFlow Average2 = UnitMath.Average(
-                MassFlow.FromKilogramsPerSecond(1),
-                MassFlow.FromKilogramsPerSecond(2),
-                MassFlow.FromKilogramsPerSecond(3),
-                MassFlow.FromKilogramsPerSecond(4),
-                MassFlow.FromKilogramsPerSecond(5),
-                MassFlow.FromKilogramsPerSecond(6),
-                MassFlow.FromKilogramsPerSecond(7),
-                MassFlow.FromKilogramsPerSecond(8),
-                MassFlow.FromKilogramsPerSecond(9),
-                MassFlow.FromKilogramsPerSecond(10)
+                MassFlow.FromKilogramPerSecond(1),
+                MassFlow.FromKilogramPerSecond(2),
+                MassFlow.FromKilogramPerSecond(3),
+                MassFlow.FromKilogramPerSecond(4),
+                MassFlow.FromKilogramPerSecond(5),
+                MassFlow.FromKilogramPerSecond(6),
+                MassFlow.FromKilogramPerSecond(7),
+                MassFlow.FromKilogramPerSecond(8),
+                MassFlow.FromKilogramPerSecond(9),
+                MassFlow.FromKilogramPerSecond(10)
                 );
 
             MassFlow Sum2 = UnitMath.Sum(
-                MassFlow.FromKilogramsPerSecond(1),
-                MassFlow.FromKilogramsPerSecond(2),
-                MassFlow.FromKilogramsPerSecond(3),
-                MassFlow.FromKilogramsPerSecond(4),
-                MassFlow.FromKilogramsPerSecond(5),
-                MassFlow.FromKilogramsPerSecond(6),
-                MassFlow.FromKilogramsPerSecond(7),
-                MassFlow.FromKilogramsPerSecond(8),
-                MassFlow.FromKilogramsPerSecond(9),
-                MassFlow.FromKilogramsPerSecond(10)
+                MassFlow.FromKilogramPerSecond(1),
+                MassFlow.FromKilogramPerSecond(2),
+                MassFlow.FromKilogramPerSecond(3),
+                MassFlow.FromKilogramPerSecond(4),
+                MassFlow.FromKilogramPerSecond(5),
+                MassFlow.FromKilogramPerSecond(6),
+                MassFlow.FromKilogramPerSecond(7),
+                MassFlow.FromKilogramPerSecond(8),
+                MassFlow.FromKilogramPerSecond(9),
+                MassFlow.FromKilogramPerSecond(10)
                 );
 
             MassFlow Max2 = UnitMath.Max(
-                MassFlow.FromKilogramsPerSecond(1),
-                MassFlow.FromKilogramsPerSecond(2),
-                MassFlow.FromKilogramsPerSecond(3),
-                MassFlow.FromKilogramsPerSecond(4),
-                MassFlow.FromKilogramsPerSecond(5),
-                MassFlow.FromKilogramsPerSecond(6),
-                MassFlow.FromKilogramsPerSecond(7),
-                MassFlow.FromKilogramsPerSecond(8),
-                MassFlow.FromKilogramsPerSecond(9),
-                MassFlow.FromKilogramsPerSecond(10)
+                MassFlow.FromKilogramPerSecond(1),
+                MassFlow.FromKilogramPerSecond(2),
+                MassFlow.FromKilogramPerSecond(3),
+                MassFlow.FromKilogramPerSecond(4),
+                MassFlow.FromKilogramPerSecond(5),
+                MassFlow.FromKilogramPerSecond(6),
+                MassFlow.FromKilogramPerSecond(7),
+                MassFlow.FromKilogramPerSecond(8),
+                MassFlow.FromKilogramPerSecond(9),
+                MassFlow.FromKilogramPerSecond(10)
                 );
 
         MassFlow Min2 = UnitMath.Min(
-                MassFlow.FromKilogramsPerSecond(1),
-                MassFlow.FromKilogramsPerSecond(2),
-                MassFlow.FromKilogramsPerSecond(3),
-                MassFlow.FromKilogramsPerSecond(4),
-                MassFlow.FromKilogramsPerSecond(5),
-                MassFlow.FromKilogramsPerSecond(6),
-                MassFlow.FromKilogramsPerSecond(7),
-                MassFlow.FromKilogramsPerSecond(8),
-                MassFlow.FromKilogramsPerSecond(9),
-                MassFlow.FromKilogramsPerSecond(10)
+                MassFlow.FromKilogramPerSecond(1),
+                MassFlow.FromKilogramPerSecond(2),
+                MassFlow.FromKilogramPerSecond(3),
+                MassFlow.FromKilogramPerSecond(4),
+                MassFlow.FromKilogramPerSecond(5),
+                MassFlow.FromKilogramPerSecond(6),
+                MassFlow.FromKilogramPerSecond(7),
+                MassFlow.FromKilogramPerSecond(8),
+                MassFlow.FromKilogramPerSecond(9),
+                MassFlow.FromKilogramPerSecond(10)
                 );
 
 
@@ -101,10 +101,10 @@ namespace UnitTests
             MassFlow Min3 = list1.Min();
 
 
-            Assert.AreEqual(Average.KilogramsPerSecond, 5.5, 0);
-            Assert.AreEqual(Sum.KilogramsPerSecond, 55, 0);
-            Assert.AreEqual(Max.KilogramsPerSecond, 10, 0);
-            Assert.AreEqual(Min.KilogramsPerSecond, 1, 0);
+            Assert.AreEqual(Average.KilogramPerSecond, 5.5, 0);
+            Assert.AreEqual(Sum.KilogramPerSecond, 55, 0);
+            Assert.AreEqual(Max.KilogramPerSecond, 10, 0);
+            Assert.AreEqual(Min.KilogramPerSecond, 1, 0);
 
             Assert.AreEqual(Average, Average2);
             Assert.AreEqual(Sum, Sum2);

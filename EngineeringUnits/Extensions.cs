@@ -36,7 +36,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        Enumeration NewUnit = new Enumeration(item.First(),
+                        Enumeration NewUnit = new(item.First(),
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -111,7 +111,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit Abs(this UnknownUnit a)
         {
-            return a._baseUnit.Abs();
+            return a.BaseUnit.Abs();
         }
 
 
@@ -125,7 +125,7 @@ namespace EngineeringUnits
         }
         public static double As(this UnknownUnit a, IUnitSystem b)
         {
-            return a._baseUnit.As(b);
+            return a.BaseUnit.As(b);
         }
 
         public static UnknownUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
@@ -136,9 +136,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
         {
-            a._baseUnit.UnitCheck(selectedUnit);
+            a.BaseUnit.UnitCheck(selectedUnit);
 
-            return new(a._baseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.BaseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
@@ -167,7 +167,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Pow(this UnknownUnit a, int toPower)
         {
-           return a._baseUnit.Pow(toPower);
+           return a.BaseUnit.Pow(toPower);
         }
         public static UnitSystem Pow(this Enumeration a, int toPower)
         {
@@ -201,7 +201,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit InRangeOf(this UnknownUnit a, UnknownUnit Min, UnknownUnit Max)
         {
-            return a._baseUnit.InRangeOf(Min, Max);
+            return a.BaseUnit.InRangeOf(Min, Max);
         }
 
         public static bool IsZero(this BaseUnit a)
@@ -210,7 +210,7 @@ namespace EngineeringUnits
         }
         public static bool IsZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsZero();
+            return a.BaseUnit.IsZero();
         }
 
         public static bool IsNotZero(this BaseUnit a)
@@ -219,7 +219,7 @@ namespace EngineeringUnits
         }
         public static bool IsNotZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsNotZero();
+            return a.BaseUnit.IsNotZero();
         }
 
         public static bool IsAboveZero(this BaseUnit a)
@@ -228,7 +228,7 @@ namespace EngineeringUnits
         }
         public static bool IsAboveZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsAboveZero();
+            return a.BaseUnit.IsAboveZero();
         }
 
         public static bool IsBelowZero(this BaseUnit a)
@@ -237,7 +237,7 @@ namespace EngineeringUnits
         }
         public static bool IsBelowZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsBelowZero();
+            return a.BaseUnit.IsBelowZero();
         }
 
 
@@ -248,7 +248,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)
         {
-            return list.Aggregate(new UnknownUnit(0m, list.First()._baseUnit.Unit),
+            return list.Aggregate(new UnknownUnit(0m, list.First().BaseUnit.Unit),
                                  (x, y) => x + y);
         }
 

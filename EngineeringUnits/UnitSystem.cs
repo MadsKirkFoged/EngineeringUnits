@@ -17,10 +17,10 @@ namespace EngineeringUnits
 
     public class UnitSystem
     {      
-        public static readonly UnitSystem UnitsystemForDouble = new UnitSystem();
+        public static readonly UnitSystem UnitsystemForDouble = new();
 
 
-        private bool SI { get; init; }
+        //private bool SI { get; init; }
 
         public string Symbol { get; init; }
 
@@ -133,12 +133,11 @@ namespace EngineeringUnits
         }
         public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
         {
-            var hashCode = 0;
+            int hashCode;
             unchecked 
             { 
                 hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;            
             }
-
             
 
             if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
@@ -154,12 +153,6 @@ namespace EngineeringUnits
             CacheMultiply.Add(hashCode, test2);
 
             return test2;
-
-
-            //return new UnitSystem(
-            //            new List<Enumeration>(
-            //                a.ListOfUnits.Concat(
-            //                b.ListOfUnits)));
         }
         public static UnitSystem Multiply(UnitSystem a, decimal constant)
         {
@@ -168,7 +161,7 @@ namespace EngineeringUnits
             
 
 
-            List<Enumeration> LocalUnitList = new List<Enumeration>();
+            List<Enumeration> LocalUnitList = new();
 
             LocalUnitList.AddRange(a.ListOfUnits);
             LocalUnitList.Add(new CombinedUnit(constant));
@@ -179,7 +172,7 @@ namespace EngineeringUnits
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
 
-            var hashCode = 0;
+            int hashCode;
             unchecked
             {
                 hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
@@ -220,8 +213,8 @@ namespace EngineeringUnits
 
 
         //Cache unitsystem when multiply
-        private static Dictionary<int, UnitSystem> CacheMultiply = new Dictionary<int, UnitSystem>();
-        private static Dictionary<int, UnitSystem> CacheDivide = new Dictionary<int, UnitSystem>();
+        private static readonly Dictionary<int, UnitSystem> CacheMultiply = new();
+        private static readonly Dictionary<int, UnitSystem> CacheDivide = new();
 
 
 
@@ -262,7 +255,7 @@ namespace EngineeringUnits
         }
 
 
-        public List<Enumeration> ReduceUnits(List<Enumeration> ListToBeReduced)
+        public static List<Enumeration> ReduceUnits(List<Enumeration> ListToBeReduced)
         {
 
            var test = ListToBeReduced.GroupBy(x => x.TypeOfUnit);
@@ -288,7 +281,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        Enumeration NewUnit = new Enumeration(item.First(), 
+                        Enumeration NewUnit = new(item.First(), 
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -302,7 +295,7 @@ namespace EngineeringUnits
         }
 
 
-        public List<Enumeration> ReduceUnits2(List<Enumeration> ListToBeReduced)
+        public static List<Enumeration> ReduceUnits2(List<Enumeration> ListToBeReduced)
         {
             //This reduces units of the same baseunit-type but with different types 
 
@@ -402,14 +395,10 @@ namespace EngineeringUnits
         {
             if (HashCode == 0)
             {
-                //int hashcode = 0;
-
                 foreach (var item in ListOfUnits)
                 {
                     HashCode += item.GetHashCode();
                 }
-
-                //return hashcode;
             }
 
             return HashCode;
@@ -448,7 +437,7 @@ namespace EngineeringUnits
 
         public bool IsSIUnit()
         {
-          return ListOfUnits.All(x=> x.SI);
+          return ListOfUnits.All(x=> x.IsSI);
         }
 
 

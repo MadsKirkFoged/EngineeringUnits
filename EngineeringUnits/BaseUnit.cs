@@ -56,7 +56,7 @@ namespace EngineeringUnits
         {
             //Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
             Unit = unit.Unit;//.Clone();
-            NEWValue = unit._baseUnit.NEWValue;
+            NEWValue = unit.BaseUnit.NEWValue;
         }
 
         public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
@@ -105,19 +105,19 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
         {
-            return left / right._baseUnit;
+            return left / right.BaseUnit;
         }
         public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
         {
-            return left._baseUnit / right;
+            return left.BaseUnit / right;
         }
         public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
         {
-            return left * right._baseUnit;
+            return left * right.BaseUnit;
         }
         public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
         {
-            return left._baseUnit * right;
+            return left.BaseUnit * right;
         }
 
 
@@ -214,27 +214,14 @@ namespace EngineeringUnits
 
             if (UnitFormatSpecifiers.Any(x => x == format[0]))
             {
-                switch (format[0])
+                return format[0] switch
                 {
-                    case 'A':
-                    case 'a':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    case 'V':
-                    case 'v':
-                        return NEWValue.ToString(provider);
-                    case 'U':
-                    case 'u':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    case 'Q':
-                    case 'q':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    default:
-                        throw new FormatException($"The {format} format string is not supported.");
-                }
-
+                    'A'or'a' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    'V'or'v' => NEWValue.ToString(provider),
+                    'U'or'u' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    'Q'or'q' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    _ => throw new FormatException($"The {format} format string is not supported."),
+                };
             }
 
 
@@ -393,14 +380,14 @@ namespace EngineeringUnits
 
         public override int GetHashCode()
         {
-            HashCode hashCode = new HashCode();
+            HashCode hashCode = new();
             hashCode.Add(NEWValue);
             hashCode.Add(Unit.GetHashCode());
 
             return hashCode.ToHashCode();
         }
 
-        public string GetStandardSymbol<T>(UnitSystem _unit)
+        public static string GetStandardSymbol<T>(UnitSystem _unit)
             where T : Enumeration
         {
 
@@ -430,7 +417,7 @@ namespace EngineeringUnits
             //return null;
         }
 
-        private bool IsValueOverDecimalMax(double value)
+        private static bool IsValueOverDecimalMax(double value)
         {
             return double.IsInfinity(value) || 
                     value > (double)decimal.MaxValue || 
