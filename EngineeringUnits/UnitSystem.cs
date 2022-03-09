@@ -295,100 +295,31 @@ namespace EngineeringUnits
         }
 
 
-        public static List<Enumeration> ReduceUnits2(List<Enumeration> ListToBeReduced)
+        public UnitSystem Sqrt()
         {
-            //This reduces units of the same baseunit-type but with different types 
-
-            var test = ListToBeReduced.GroupBy(x => x.TypeOfUnit);
 
             var NewUnitList = new List<Enumeration>();
 
-            foreach (var GroupOfTypes in test)
+            foreach (var item in ListOfUnits.Where(x => x.TypeOfUnit != "CombinedUnit"))
             {
+                if (item.Count % 2 != 0)                
+                    throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
 
-                if (GroupOfTypes.Count() <= 1)
-                {
-                    //just add the unit
-                    NewUnitList.Add(GroupOfTypes.First());
-                }
-                else
-                {
-
-                    var groupOfSameConstant = GroupOfTypes
-                        .Select(x => x)
-                        .GroupBy(x => x.NewC);
-
-
-                    
-                }
-
+                NewUnitList.Add(new(item, item.Count/2));
             }
 
-            return NewUnitList;
+            var combinedUnit = ListOfUnits.Where(x => x.TypeOfUnit == "CombinedUnit").FirstOrDefault();
+
+            if (combinedUnit is not null)            
+                 NewUnitList.Add(new CombinedUnit("", combinedUnit.NewC.Sqrt()));
+            
 
 
-
-
+            return new(NewUnitList);       
         }
+       
 
 
-
-        //public UnitSystem Sqrt()
-        //{
-
-        //    UnitSystem local = new();
-
-
-        //    local.Length = (LengthUnit)SqrtBaseUnit(Length);
-        //    local.Mass = (MassUnit)SqrtBaseUnit(Mass);
-        //    local.Duration = (DurationUnit)SqrtBaseUnit(Duration);
-        //    local.Electriccurrent = (ElectricCurrentUnit)SqrtBaseUnit(Electriccurrent);
-        //    local.Temperature = (TemperatureUnit)SqrtBaseUnit(Temperature);
-        //    local.LuminousIntensity = (LuminousIntensityUnit)SqrtBaseUnit(LuminousIntensity);
-        //    local.Amount = (AmountOfSubstanceUnit)SqrtBaseUnit(Amount);
-
-
-        //    if (Combined is object)
-        //    {
-        //        local.Combined = (CombinedUnit)Combined.Clone();
-        //        local.Combined.SetNewGlobalC(Sqrt((decimal)Combined.NewC));
-        //    }
-
-
-
-
-        //    return local;
-
-        //    static Enumeration SqrtBaseUnit(Enumeration me)
-        //    {
-        //        if (me is object)
-        //        {
-        //            Enumeration local = new Enumeration();
-
-        //            if (me.Count % 2 != 0)
-        //            {
-        //                throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
-        //            }
-
-        //            local = (Enumeration)me.Clone();
-        //            local.Count = (int)(local.Count / 2);
-
-        //            return local;
-
-        //        }
-
-        //        return null;
-        //    }
-
-
-        //}
-
-        // x - a number, from which we need to calculate the square root
-        // epsilon - an accuracy of calculation of the root from our number.
-        // The result of the calculations will differ from an actual value
-        // of the root on less than epslion.
-
-        
         private int HashCode;
 
         public override int GetHashCode()

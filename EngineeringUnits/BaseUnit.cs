@@ -330,14 +330,6 @@ namespace EngineeringUnits
 
 
 
-        //public UnknownUnit Sqrt()
-        //{
-        //    return new BaseUnit(NewValue.Sqrt(), Unit.Sqrt());
-        //}
-
-      
-
-
         public decimal ToTheOutSide(UnitSystem To)
         {
             Fraction b1 = Unit.SumOfBConstants();

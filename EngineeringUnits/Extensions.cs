@@ -10,6 +10,24 @@ namespace EngineeringUnits
     {
 
 
+        public static UnknownUnit Sqrt(this UnknownUnit a)
+        {
+            UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
+            decimal value = a.BaseUnit.ToTheOutSide(NewUnitSystem);
+
+            return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
+        }
+
+        public static UnknownUnit Sqrt(this BaseUnit a)
+        {
+
+            UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
+            decimal value = a.ToTheOutSide(NewUnitSystem);
+
+            return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
+        }
+
+
         public static UnitSystem ReduceUnits(this UnitSystem a)
         {
 
@@ -49,6 +67,34 @@ namespace EngineeringUnits
             return new(NewUnitList, a.Symbol);
         }
 
+        public static UnitSystem ReduceUnitsHard(this UnitSystem a)
+        {
+
+            //This reduces units of the same baseunit-type but with different types 
+
+            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+                    int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
+                    NewUnitList.Add( new Enumeration(GroupOfTypes.First(), TotalCount));
+
+                }
+
+            }
+
+            return new(NewUnitList);
+        }
 
         public static decimal Normalize(this decimal value)
         {

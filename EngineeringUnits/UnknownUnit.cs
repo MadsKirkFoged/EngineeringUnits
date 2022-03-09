@@ -6,7 +6,7 @@ using System;
 
 namespace EngineeringUnits
 {
-    public class UnknownUnit: IUnitSystem
+    public class UnknownUnit : IUnitSystem
     {
         public BaseUnit BaseUnit { get; init; }
 

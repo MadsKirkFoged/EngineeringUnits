@@ -16,17 +16,26 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            Area SqrtTest = Area.FromSI(9);
+
+            
 
 
+            Length L2 = Length.FromSI(2);
+            Length L5 = Length.FromFoot(5);
 
 
+            Area Lmix = L2 * L5;
 
 
+            Length SqrtTest2 = Lmix.Sqrt();
 
 
-            //Length L2 = Length.FromSI(2);
-            //Length L5 = Length.FromSI(5);
-            //Length L10 = Length.FromSI(10);
+            var local = Lmix.Unit.ReduceUnits();
+            var local2 = Lmix.Unit.ReduceUnitsHard();
+
+
+            Length L10 = Length.FromSI(10);
 
 
             //List<Length> listOfL = new List<Length>();
@@ -43,21 +52,37 @@ namespace UnitNetcomparing
             //Debug.Print(test122.Unit.GetHashCode().ToString());
 
             Power P2 = Power.FromSI(10);
-            Length L2 = Length.FromSI(2);
+            //Length L2 = Length.FromSI(2);
             Temperature T2 = Temperature.FromSI(4);
 
+            double ThermalConductivityAsSI = 0;
+            double PowerAsSI = P2.SI;
+            double LengthAsSI = L2.SI;
+            double TemperatureAsSI = T2.SI;
 
-            UnknownUnit test = 0;
+            //Solver or function where calculation speed is critical!
+            for (int i = 0; i < 1000000000; i++)
+            {
+                ThermalConductivityAsSI = PowerAsSI / (LengthAsSI * TemperatureAsSI);
+            }
+
+            ThermalConductivity Result = ThermalConductivity.FromSI(ThermalConductivityAsSI);
+
+
+            //ThermalConductivity test = 0;
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             for (int i = 0; i < 10000000; i++)
             {
-                test = P2 / (L2 * T2);
+                ThermalConductivity TC = P2 / (L2 * T2);
             }
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
 
-            test = test + test;
+            Console.WriteLine(elapsedMs.ToString());
+            Console.ReadLine();
+
+  
 
         }
     }
