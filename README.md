@@ -169,3 +169,50 @@ Area NewUnit = listOfLenghts //Take the list
                .ToUnit(AreaUnit.SquareMeter); //Turn the area into a specific unit-type
                            
 ```
+
+###### How fast is EngineeringUnits?
+
+For the average user the calculation speed of EngineeringUnits is not the bottleneck of their system.
+It can calculate 10 mio equations in about ~1sec (Dependent of the size of the equation and the resources of the system..)
+
+What if I want it to be even faster?
+Declaring units as SI, gives a slight speed boost because some check can be skipped when all units are in SI
+```C#
+Power P2 = Power.FromSI(10);
+Length L2 = Length.FromSI(2);
+Temperature T2 = Temperature.FromSI(4);
+
+ThermalConductivity TC = P2 / (L2 * T2);
+```
+
+What if I want maximum speed?
+
+If 10mio in ~1sec is too slow for you then converting to double, do your calculations, and turn in back into Units is the way for you.
+This way you only have a small part of your code where you bypass the safety features.
+
+```C#
+//dummy data
+Power P2 = Power.FromSI(10);
+Length L2 = Length.FromSI(2);
+Temperature T2 = Temperature.FromSI(4);
+
+// Unit --> double
+double PowerAsSI = P2.SI;
+double LengthAsSI = L2.SI;
+double TemperatureAsSI = T2.SI;
+double ThermalConductivityAsSI = 0;
+
+//Solver or function where calculation speed is critical!
+for (int i = 0; i < 1000000000; i++)
+{
+     //Doing very heavy calculation
+     ThermalConductivityAsSI = PowerAsSI / (LengthAsSI * TemperatureAsSI);
+}
+
+// double --> Unit
+ThermalConductivity Result = ThermalConductivity.FromSI(ThermalConductivityAsSI);
+```
+
+
+
+
