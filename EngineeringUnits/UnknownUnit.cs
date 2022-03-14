@@ -3,14 +3,16 @@ using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Text;
 using System;
+using System.Diagnostics;
+using System.Globalization;
 
 namespace EngineeringUnits
 {
-    public class UnknownUnit: IUnitSystem
+    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem
     {
         public BaseUnit _baseUnit { get; init; }
 
-
+        //protected decimal NEWValue { get; init; }
         public UnknownUnit() => _baseUnit = new BaseUnit();
         public UnknownUnit(double valueLocalUnit) => _baseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
         public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => _baseUnit = new BaseUnit(valueLocalUnit, unitsystem);
@@ -78,6 +80,49 @@ namespace EngineeringUnits
 
         public override int GetHashCode() => _baseUnit.GetHashCode();
 
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+                return false;
+            else
+                return this == (UnknownUnit)obj;
+        }
 
+
+        public bool Equals(UnknownUnit other)
+        {
+             return this == other;
+        }
+
+        public int CompareTo(object obj)
+        {
+            UnknownUnit local = (UnknownUnit)obj;
+
+
+            return CompareTo(local);
+
+
+        }
+
+        public int CompareTo(UnknownUnit other)
+        {
+           if(Unit != other.Unit)
+            {
+                throw new WrongUnitException($"Cannot do ComperTo on two different units!");
+            }
+
+
+            var compare = ((double)_baseUnit.NEWValue - (double)other._baseUnit.As(this._baseUnit));
+            return compare switch
+            {
+                0d => 0,
+                <0d => -1,
+                >0d => 1,
+            };
+           
+        }
+
+       
     }
 }

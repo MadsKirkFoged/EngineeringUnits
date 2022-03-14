@@ -254,16 +254,42 @@ namespace UnitTests
         {
             Length L1 = new(5, LengthUnit.Meter);
             Length L2 = new(2, LengthUnit.Inch);
+            Length L4 = new(2, LengthUnit.Inch);
 
             Length L3 = L1;
+           
 
             Assert.IsTrue(L1 == L3);
             Assert.IsTrue(L3 == L1);
 
-            Assert.IsTrue( L1 >  L2);
-            Assert.IsTrue( L1 >= L2);
+            Assert.IsFalse(L1 == L2);
+            Assert.IsTrue(L1 != L2);
+
+            Assert.IsFalse(L1 != L3);
+            Assert.IsFalse(L3 != L1);
+
+            Assert.IsTrue(L1 != L2);
+            Assert.IsTrue(L2 != L1);
+
+            Assert.IsTrue( L1 > L2);
+            Assert.IsFalse(L1 > L3);
+            Assert.IsFalse(L1 < L3);
+
+
+            Assert.IsTrue(L1 >= L2);
+            Assert.IsTrue( L2 >= L4);
+
             Assert.IsFalse(L1 <  L2);
             Assert.IsFalse(L1 <= L2);
+
+            
+            Assert.IsFalse(L2 > L1);
+            Assert.IsFalse(L2 >= L1);
+
+            Assert.IsTrue(L2 < L1);
+            Assert.IsTrue(L2 <= L1);
+            Assert.IsTrue(L2 <= L4);
+
 
 
             Assert.IsTrue(L1 * L1 == L3 * L3);
@@ -274,7 +300,82 @@ namespace UnitTests
             Assert.IsFalse(L1 * L1 < L2 * L2);
             Assert.IsFalse(L1 * L1 <= L2 * L2);
 
+            Assert.IsFalse(L2 * L2 > L1 * L1);
+            Assert.IsFalse(L2 * L2 >= L1 * L1);
+            Assert.IsTrue(L2 * L2 < L1 * L1);
+            Assert.IsTrue(L2 * L2 <= L1 * L1);
+            var add = L1 + L3;
+            Assert.IsTrue(L1 + L1 == add);
+            var subtract = L1 - L3;
+            Assert.IsTrue(subtract == L1 - L1);
+            Assert.IsFalse(add < subtract);
 
+            Assert.IsTrue(L1.Equals(L3));
+            
+
+
+        }
+
+        [TestMethod]
+        public void UnknownOperators()
+        {
+            UnknownUnit L1 = new Length(5, LengthUnit.Meter);
+            UnknownUnit L2 = new Length(2, LengthUnit.Inch);
+            UnknownUnit L4 = new Length(2, LengthUnit.Inch);
+
+            UnknownUnit L3 = L1;
+
+
+            Assert.IsTrue(L1 == L3);
+            Assert.IsTrue(L3 == L1);
+
+            Assert.IsFalse(L1 == L2);
+            Assert.IsTrue(L1 != L2);
+
+            Assert.IsFalse(L1 != L3);
+            Assert.IsFalse(L3 != L1);
+
+            Assert.IsTrue(L1 != L2);
+            Assert.IsTrue(L2 != L1);
+
+            Assert.IsTrue(L1 > L2);
+            Assert.IsFalse(L1 > L3);
+            Assert.IsFalse(L1 < L3);
+
+
+            Assert.IsTrue(L1 >= L2);
+            Assert.IsTrue(L2 >= L4);
+
+            Assert.IsFalse(L1 < L2);
+            Assert.IsFalse(L1 <= L2);
+
+
+            Assert.IsFalse(L2 > L1);
+            Assert.IsFalse(L2 >= L1);
+
+            Assert.IsTrue(L2 < L1);
+            Assert.IsTrue(L2 <= L1);
+            Assert.IsTrue(L2 <= L4);
+
+
+
+            Assert.IsTrue(L1 * L1 == L3 * L3);
+            Assert.IsTrue(L3 * L3 == L1 * L1);
+
+            Assert.IsTrue(L1 * L1 > L2 * L2);
+            Assert.IsTrue(L1 * L1 >= L2 * L2);
+            Assert.IsFalse(L1 * L1 < L2 * L2);
+            Assert.IsFalse(L1 * L1 <= L2 * L2);
+
+            Assert.IsFalse(L2 * L2 > L1 * L1);
+            Assert.IsFalse(L2 * L2 >= L1 * L1);
+            Assert.IsTrue(L2 * L2 < L1 * L1);
+            Assert.IsTrue(L2 * L2 <= L1 * L1);
+            var add = L1 + L3;
+            Assert.IsTrue(L1 + L1 == add);
+            var subtract = L1 - L3;
+            Assert.IsTrue(subtract == L1 - L1);
+            Assert.IsFalse(add < subtract);
 
 
         }

@@ -9,7 +9,7 @@ namespace UnitTests
     public class GetUnitByString
     {
         [TestMethod]
-        public void TestAbsoluteValue01()
+        public void GetUnitByString01()
         {
             LengthUnit unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
 
