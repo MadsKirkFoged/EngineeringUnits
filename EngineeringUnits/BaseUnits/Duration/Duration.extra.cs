@@ -15,22 +15,22 @@ namespace EngineeringUnits
         /// <returns>The TimeSpan with the same time as the duration</returns>
         public TimeSpan ToTimeSpan()
         {
-            if (Seconds > TimeSpan.MaxValue.TotalSeconds ||
-                Seconds < TimeSpan.MinValue.TotalSeconds)
+            if (Second > TimeSpan.MaxValue.TotalSeconds ||
+                Second < TimeSpan.MinValue.TotalSeconds)
                 throw new ArgumentOutOfRangeException(nameof(Duration), "The duration is too large or small to fit in a TimeSpan");
-            return TimeSpan.FromSeconds(Seconds);
+            return TimeSpan.FromSeconds(Second);
         }
 
         /// <summary>Get <see cref="DateTime"/> from <see cref="DateTime"/> plus <see cref="Duration"/>.</summary>
         public static DateTime operator +(DateTime time, Duration duration)
         {
-            return time.AddSeconds(duration.Seconds);
+            return time.AddSeconds(duration.Second);
         }
 
         /// <summary>Get <see cref="DateTime"/> from <see cref="DateTime"/> minus <see cref="Duration"/>.</summary>
         public static DateTime operator -(DateTime time, Duration duration)
         {
-            return time.AddSeconds(-duration.Seconds);
+            return time.AddSeconds(-duration.Second);
         }
 
         /// <summary>Explicitly cast <see cref="Duration"/> to <see cref="TimeSpan"/>.</summary>
@@ -42,55 +42,55 @@ namespace EngineeringUnits
         /// <summary>Explicitly cast <see cref="TimeSpan"/> to <see cref="Duration"/>.</summary>
         public static explicit operator Duration(TimeSpan duration)
         {
-            return FromSeconds(duration.TotalSeconds);
+            return FromSecond(duration.TotalSeconds);
         }
 
         /// <summary>True if <see cref="Duration"/> is less than <see cref="TimeSpan"/>.</summary>
         public static bool operator <(Duration duration, TimeSpan timeSpan)
         {
-            return duration.Seconds < timeSpan.TotalSeconds;
+            return duration.Second < timeSpan.TotalSeconds;
         }
 
         /// <summary>True if <see cref="Duration"/> is greater than <see cref="TimeSpan"/>.</summary>
         public static bool operator >(Duration duration, TimeSpan timeSpan)
         {
-            return duration.Seconds > timeSpan.TotalSeconds;
+            return duration.Second > timeSpan.TotalSeconds;
         }
 
         /// <summary>True if <see cref="Duration"/> is less than or equal to <see cref="TimeSpan"/>.</summary>
         public static bool operator <=(Duration duration, TimeSpan timeSpan)
         {
-            return duration.Seconds <= timeSpan.TotalSeconds;
+            return duration.Second <= timeSpan.TotalSeconds;
         }
 
         /// <summary>True if <see cref="Duration"/> is greater than or equal to <see cref="TimeSpan"/>.</summary>
         public static bool operator >=(Duration duration, TimeSpan timeSpan)
         {
-            return duration.Seconds >= timeSpan.TotalSeconds;
+            return duration.Second >= timeSpan.TotalSeconds;
         }
 
         /// <summary>True if <see cref="TimeSpan"/> is less than <see cref="Duration"/>.</summary>
         public static bool operator <(TimeSpan timeSpan, Duration duration)
         {
-            return timeSpan.TotalSeconds < duration.Seconds;
+            return timeSpan.TotalSeconds < duration.Second;
         }
 
         /// <summary>True if <see cref="TimeSpan"/> is greater than <see cref="Duration"/>.</summary>
         public static bool operator >(TimeSpan timeSpan, Duration duration)
         {
-            return timeSpan.TotalSeconds > duration.Seconds;
+            return timeSpan.TotalSeconds > duration.Second;
         }
 
         /// <summary>True if <see cref="TimeSpan"/> is less than or equal to <see cref="Duration"/>.</summary>
         public static bool operator <=(TimeSpan timeSpan, Duration duration)
         {
-            return timeSpan.TotalSeconds <= duration.Seconds;
+            return timeSpan.TotalSeconds <= duration.Second;
         }
 
         /// <summary>True if <see cref="TimeSpan"/> is greater than or equal to <see cref="Duration"/>.</summary>
         public static bool operator >=(TimeSpan timeSpan, Duration duration)
         {
-            return timeSpan.TotalSeconds >= duration.Seconds;
+            return timeSpan.TotalSeconds >= duration.Second;
         }
 
 

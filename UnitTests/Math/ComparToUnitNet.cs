@@ -43,21 +43,21 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromCentimoles(435).Centimoles - AmountOfSubstance.FromCentimoles(435).Centimoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromCentipoundMoles(435).CentipoundMoles - AmountOfSubstance.FromCentipoundMoles(435).CentipoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromDecimoles(435).Decimoles - AmountOfSubstance.FromDecimoles(435).Decimoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromDecipoundMoles(435).DecipoundMoles - AmountOfSubstance.FromDecipoundMoles(435).DecipoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromKilomoles(435).Kilomoles - AmountOfSubstance.FromKilomoles(435).Kilomoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromKilopoundMoles(435).KilopoundMoles - AmountOfSubstance.FromKilopoundMoles(435).KilopoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMegamoles(435).Megamoles - AmountOfSubstance.FromMegamoles(435).Megamoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMicromoles(435).Micromoles - AmountOfSubstance.FromMicromoles(435).Micromoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMicropoundMoles(435).MicropoundMoles - AmountOfSubstance.FromMicropoundMoles(435).MicropoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMillimoles(435).Millimoles - AmountOfSubstance.FromMillimoles(435).Millimoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMillipoundMoles(435).MillipoundMoles - AmountOfSubstance.FromMillipoundMoles(435).MillipoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMoles(435).Moles - AmountOfSubstance.FromMoles(435).Moles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromNanomoles(435).Nanomoles - AmountOfSubstance.FromNanomoles(435).Nanomoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromNanopoundMoles(435).NanopoundMoles - AmountOfSubstance.FromNanopoundMoles(435).NanopoundMoles, 0);
-            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromPoundMoles(435).PoundMoles - AmountOfSubstance.FromPoundMoles(435).PoundMoles, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromCentimoles(435).Centimoles - AmountOfSubstance.FromCentimole(435).Centimole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromCentipoundMoles(435).CentipoundMoles - AmountOfSubstance.FromCentipoundMole(435).CentipoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromDecimoles(435).Decimoles - AmountOfSubstance.FromDecimole(435).Decimole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromDecipoundMoles(435).DecipoundMoles - AmountOfSubstance.FromDecipoundMole(435).DecipoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromKilomoles(435).Kilomoles - AmountOfSubstance.FromKilomole(435).Kilomole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromKilopoundMoles(435).KilopoundMoles - AmountOfSubstance.FromKilopoundMole(435).KilopoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMegamoles(435).Megamoles - AmountOfSubstance.FromMegamole(435).Megamole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMicromoles(435).Micromoles - AmountOfSubstance.FromMicromole(435).Micromole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMicropoundMoles(435).MicropoundMoles - AmountOfSubstance.FromMicropoundMole(435).MicropoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMillimoles(435).Millimoles - AmountOfSubstance.FromMillimole(435).Millimole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMillipoundMoles(435).MillipoundMoles - AmountOfSubstance.FromMillipoundMole(435).MillipoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromMoles(435).Moles - AmountOfSubstance.FromMole(435).Mole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromNanomoles(435).Nanomoles - AmountOfSubstance.FromNanomole(435).Nanomole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromNanopoundMoles(435).NanopoundMoles - AmountOfSubstance.FromNanopoundMole(435).NanopoundMole, 0);
+            Assert.AreEqual(0, UnitsNet.AmountOfSubstance.FromPoundMoles(435).PoundMoles - AmountOfSubstance.FromPoundMole(435).PoundMole, 0);
 
 
             Assert.AreEqual(0, HelperClass.Percent( A2.As(AmountOfSubstanceUnit.Centimole),
@@ -211,16 +211,16 @@ namespace UnitTests
             Assert.AreEqual(0, JSON.As(DurationUnit.Year365) - A1.As(UnitsNet.Units.DurationUnit.Year365), 0);
 
 
-            Assert.AreEqual(0, UnitsNet.Duration.FromDays(435).Days - EngineeringUnits.Duration.FromDays(435).Days, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromHours(435).Hours - EngineeringUnits.Duration.FromHours(435).Hours, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromMicroseconds(435).Microseconds - EngineeringUnits.Duration.FromMicroseconds(435).Microseconds, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromMilliseconds(435).Milliseconds - EngineeringUnits.Duration.FromMilliseconds(435).Milliseconds, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromMinutes(435).Minutes - EngineeringUnits.Duration.FromMinutes(435).Minutes, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromMonths30(435).Months30 - EngineeringUnits.Duration.FromMonths30(435).Months30, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromNanoseconds(435).Nanoseconds - EngineeringUnits.Duration.FromNanoseconds(435).Nanoseconds, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromSeconds(435).Seconds - EngineeringUnits.Duration.FromSeconds(435).Seconds, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromWeeks(435).Weeks - EngineeringUnits.Duration.FromWeeks(435).Weeks, 0);
-            Assert.AreEqual(0, UnitsNet.Duration.FromYears365(435).Years365 - EngineeringUnits.Duration.FromYears365(435).Years365, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromDays(435).Days - EngineeringUnits.Duration.FromDay(435).Day, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromHours(435).Hours - EngineeringUnits.Duration.FromHour(435).Hour, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromMicroseconds(435).Microseconds - EngineeringUnits.Duration.FromMicrosecond(435).Microsecond, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromMilliseconds(435).Milliseconds - EngineeringUnits.Duration.FromMillisecond(435).Millisecond, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromMinutes(435).Minutes - EngineeringUnits.Duration.FromMinute(435).Minute, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromMonths30(435).Months30 - EngineeringUnits.Duration.FromMonth30(435).Month30, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromNanoseconds(435).Nanoseconds - EngineeringUnits.Duration.FromNanosecond(435).Nanosecond, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromSeconds(435).Seconds - EngineeringUnits.Duration.FromSecond(435).Second, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromWeeks(435).Weeks - EngineeringUnits.Duration.FromWeek(435).Week, 0);
+            Assert.AreEqual(0, UnitsNet.Duration.FromYears365(435).Years365 - EngineeringUnits.Duration.FromYear365(435).Year365, 0);
 
 
 
@@ -354,14 +354,14 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromAmperes(435).Amperes - EngineeringUnits.ElectricCurrent.FromAmperes(435).Amperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromCentiamperes(435).Centiamperes - EngineeringUnits.ElectricCurrent.FromCentiamperes(435).Centiamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromKiloamperes(435).Kiloamperes - EngineeringUnits.ElectricCurrent.FromKiloamperes(435).Kiloamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMegaamperes(435).Megaamperes - EngineeringUnits.ElectricCurrent.FromMegaamperes(435).Megaamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMicroamperes(435).Microamperes - EngineeringUnits.ElectricCurrent.FromMicroamperes(435).Microamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMilliamperes(435).Milliamperes - EngineeringUnits.ElectricCurrent.FromMilliamperes(435).Milliamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromNanoamperes(435).Nanoamperes - EngineeringUnits.ElectricCurrent.FromNanoamperes(435).Nanoamperes, 0);
-            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromPicoamperes(435).Picoamperes - EngineeringUnits.ElectricCurrent.FromPicoamperes(435).Picoamperes, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromAmperes(435).Amperes - EngineeringUnits.ElectricCurrent.FromAmpere(435).Ampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromCentiamperes(435).Centiamperes - EngineeringUnits.ElectricCurrent.FromCentiampere(435).Centiampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromKiloamperes(435).Kiloamperes - EngineeringUnits.ElectricCurrent.FromKiloampere(435).Kiloampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMegaamperes(435).Megaamperes - EngineeringUnits.ElectricCurrent.FromMegaampere(435).Megaampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMicroamperes(435).Microamperes - EngineeringUnits.ElectricCurrent.FromMicroampere(435).Microampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromMilliamperes(435).Milliamperes - EngineeringUnits.ElectricCurrent.FromMilliampere(435).Milliampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromNanoamperes(435).Nanoamperes - EngineeringUnits.ElectricCurrent.FromNanoampere(435).Nanoampere, 0);
+            Assert.AreEqual(0, UnitsNet.ElectricCurrent.FromPicoamperes(435).Picoamperes - EngineeringUnits.ElectricCurrent.FromPicoampere(435).Picoampere, 0);
 
 
             Assert.AreEqual(0, HelperClass.Percent( A2.As(ElectricCurrentUnit.Ampere),
@@ -495,11 +495,11 @@ namespace UnitTests
 
 
 
-            Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
-            Assert.AreEqual(0, UnitsNet.Length.FromFeet(4356).Meters - EngineeringUnits.Length.FromFeet(4356).Meters, 0);
-            Assert.AreEqual(0, UnitsNet.Length.FromYards(95.65).Miles - EngineeringUnits.Length.FromYards(95.65).Miles, 1.4E-07);
-            Assert.AreEqual(0, UnitsNet.Length.FromInches(95.6322325).Feet - EngineeringUnits.Length.FromInches(95.6322325).Feet, 0);
-            Assert.AreEqual(0, UnitsNet.Length.FromMeters(4454678.945678).Feet - EngineeringUnits.Length.FromMeters(4454678.945678).Feet, 0);
+            Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometer(435).Meter, 0);
+            Assert.AreEqual(0, UnitsNet.Length.FromFeet(4356).Meters - EngineeringUnits.Length.FromFoot(4356).Meter, 0);
+            Assert.AreEqual(0, UnitsNet.Length.FromYards(95.65).Miles - EngineeringUnits.Length.FromYard(95.65).Mile, 1.4E-07);
+            Assert.AreEqual(0, UnitsNet.Length.FromInches(95.6322325).Feet - EngineeringUnits.Length.FromInch(95.6322325).Foot, 0);
+            Assert.AreEqual(0, UnitsNet.Length.FromMeters(4454678.945678).Feet - EngineeringUnits.Length.FromMeter(4454678.945678).Foot, 0);
 
 
         }

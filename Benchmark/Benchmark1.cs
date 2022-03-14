@@ -1,11 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using EngineeringUnits;
 using EngineeringUnits.Units;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Benchmark
 {
@@ -28,7 +24,7 @@ namespace Benchmark
         [Benchmark]
         public Length Length_new()
         {
-            return new Length(10,LengthUnit.Inch);
+            return new Length(10, LengthUnit.Inch);
         }
 
         [Benchmark]
@@ -41,9 +37,18 @@ namespace Benchmark
         readonly Length _L2 = Length.FromSI(2);
 
         [Benchmark]
-        public Length LengthPlusLength()
+        public Length LengthPlusLengthSI()
         {
             return _L1+_L2;
+        }
+
+        readonly Length _L3 = Length.FromFeet(1);
+        readonly Length _L4 = Length.FromChains(2);
+
+        [Benchmark]
+        public Length LengthPlusLength()
+        {
+            return _L3+_L4;
         }
 
         [Benchmark]
@@ -54,6 +59,18 @@ namespace Benchmark
 
         [Benchmark]
         public double LengthDividedByLength()
+        {
+            return _L1/_L2;
+        }
+
+        [Benchmark]
+        public Ratio LengthDividedByLengthRatio()
+        {
+            return _L1/_L2;
+        }
+
+        [Benchmark]
+        public UnknownUnit LengthDividedByLengthUnknownUnit()
         {
             return _L1/_L2;
         }

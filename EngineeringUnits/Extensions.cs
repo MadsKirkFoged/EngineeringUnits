@@ -8,13 +8,99 @@ namespace EngineeringUnits
 {
     public static class Extensions
     {
+
+
+        public static UnknownUnit Sqrt(this UnknownUnit a)
+        {
+            UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
+            decimal value = a.BaseUnit.ToTheOutSide(NewUnitSystem);
+
+            return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
+        }
+
+        public static UnknownUnit Sqrt(this BaseUnit a)
+        {
+
+            UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
+            decimal value = a.ToTheOutSide(NewUnitSystem);
+
+            return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
+        }
+
+
+        public static UnitSystem ReduceUnits(this UnitSystem a)
+        {
+
+            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+
+                    var groupOfSameConstant = GroupOfTypes
+                        .Select(x => x)
+                        .GroupBy(x => x.NewC);
+
+
+                    foreach (var item in groupOfSameConstant)
+                    {
+
+                        Enumeration NewUnit = new(item.First(),
+                                                              item.Sum(x => x.Count));
+
+                        NewUnitList.Add(NewUnit);
+
+                    }
+                }
+
+            }
+
+            return new(NewUnitList, a.Symbol);
+        }
+
+        public static UnitSystem ReduceUnitsHard(this UnitSystem a)
+        {
+
+            //This reduces units of the same baseunit-type but with different types 
+
+            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+
+            var NewUnitList = new List<Enumeration>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+                    int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
+                    NewUnitList.Add( new Enumeration(GroupOfTypes.First(), TotalCount));
+
+                }
+
+            }
+
+            return new(NewUnitList);
+        }
+
         public static decimal Normalize(this decimal value)
         {
             return value / 1.000000000000000000000000000000000m;
         }
 
-
-        
         public static decimal Sqrt(this decimal x, decimal epsilon = 0.0M)
         {
             // x - a number, from which we need to calculate the square root
@@ -71,7 +157,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit Abs(this UnknownUnit a)
         {
-            return a._baseUnit.Abs();
+            return a.BaseUnit.Abs();
         }
 
 
@@ -85,7 +171,7 @@ namespace EngineeringUnits
         }
         public static double As(this UnknownUnit a, IUnitSystem b)
         {
-            return a._baseUnit.As(b);
+            return a.BaseUnit.As(b);
         }
 
         public static UnknownUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
@@ -96,9 +182,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
         {
-            a._baseUnit.UnitCheck(selectedUnit);
+            a.BaseUnit.UnitCheck(selectedUnit);
 
-            return new(a._baseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.BaseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
         }
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
@@ -127,7 +213,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Pow(this UnknownUnit a, int toPower)
         {
-           return a._baseUnit.Pow(toPower);
+           return a.BaseUnit.Pow(toPower);
         }
         public static UnitSystem Pow(this Enumeration a, int toPower)
         {
@@ -161,7 +247,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit InRangeOf(this UnknownUnit a, UnknownUnit Min, UnknownUnit Max)
         {
-            return a._baseUnit.InRangeOf(Min, Max);
+            return a.BaseUnit.InRangeOf(Min, Max);
         }
 
         public static bool IsZero(this BaseUnit a)
@@ -170,7 +256,7 @@ namespace EngineeringUnits
         }
         public static bool IsZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsZero();
+            return a.BaseUnit.IsZero();
         }
 
         public static bool IsNotZero(this BaseUnit a)
@@ -179,7 +265,7 @@ namespace EngineeringUnits
         }
         public static bool IsNotZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsNotZero();
+            return a.BaseUnit.IsNotZero();
         }
 
         public static bool IsAboveZero(this BaseUnit a)
@@ -188,7 +274,7 @@ namespace EngineeringUnits
         }
         public static bool IsAboveZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsAboveZero();
+            return a.BaseUnit.IsAboveZero();
         }
 
         public static bool IsBelowZero(this BaseUnit a)
@@ -197,7 +283,7 @@ namespace EngineeringUnits
         }
         public static bool IsBelowZero(this UnknownUnit a)
         {
-            return a._baseUnit.IsBelowZero();
+            return a.BaseUnit.IsBelowZero();
         }
 
 
@@ -208,7 +294,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)
         {
-            return list.Aggregate(new UnknownUnit(0m, list.First()._baseUnit.Unit),
+            return list.Aggregate(new UnknownUnit(0m, list.First().BaseUnit.Unit),
                                  (x, y) => x + y);
         }
 
@@ -237,6 +323,47 @@ namespace EngineeringUnits
         }
 
 
+        public static UnknownUnit RoundUpToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderBy(x => x))
+            {
+                if (valueToBeRoundedUp <= item)                
+                    return item;                
+            }
+
+            return valueToBeRoundedUp;
+        }
+        public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderBy(x => x))
+            {
+                if (valueToBeRoundedUp <= item)                
+                    return item;                
+            }
+
+            return valueToBeRoundedUp;
+        }
+
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderByDescending(x => x))
+            {
+                if (valueToBeRoundedUp >= item)
+                    return item;
+            }
+
+            return valueToBeRoundedUp;
+        }
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
+        {
+            foreach (var item in list.OrderByDescending(x => x))
+            {
+                if (valueToBeRoundedUp >= item)
+                    return item;
+            }
+
+            return valueToBeRoundedUp;
+        }
 
     }
 }

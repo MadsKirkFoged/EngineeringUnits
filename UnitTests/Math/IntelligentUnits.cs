@@ -27,8 +27,8 @@ namespace UnitTests
         [TestMethod]
         public void TestIntelligentUnits02()
         {
-            UnknownUnit repetitions = Length.FromMeters(240) / Length.FromMeters(1); // TODO: Replace this with a Dimensionless scalar when that is supported !
-            Duration minute = Duration.FromSeconds(2);
+            UnknownUnit repetitions = Length.FromMeter(240) / Length.FromMeter(1); // TODO: Replace this with a Dimensionless scalar when that is supported !
+            Duration minute = Duration.FromSecond(2);
 
             Frequency freq1 = repetitions / minute; // 2 Hertz
             var freq2 = repetitions / minute; 
@@ -63,9 +63,9 @@ namespace UnitTests
         [TestMethod]
         public void TestIntelligentUnits04()
         {
-            ElectricCharge charge = ElectricCharge.FromCoulombs(27e-6);
-            ElectricPotential voltage = ElectricPotential.FromVolts(3);
-            Length length = Length.FromMeters(9);
+            ElectricCharge charge = ElectricCharge.FromCoulomb(27e-6);
+            ElectricPotential voltage = ElectricPotential.FromVolt(3);
+            Length length = Length.FromMeter(9);
 
             Permittivity p1 = charge / voltage / length;
             var p2 = charge / voltage / length;

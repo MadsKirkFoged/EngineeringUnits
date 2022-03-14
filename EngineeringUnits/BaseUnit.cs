@@ -28,7 +28,7 @@ namespace EngineeringUnits
         {
             //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
             Unit = unitSystem;//.Clone();
-            NEWValue = value.Normalize();
+            NEWValue = value;
         }
         public BaseUnit(double value, UnitSystem unitSystem)
         {
@@ -56,7 +56,7 @@ namespace EngineeringUnits
         {
             //Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
             Unit = unit.Unit;//.Clone();
-            NEWValue = unit._baseUnit.NEWValue;
+            NEWValue = unit.BaseUnit.NEWValue;
         }
 
         public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
@@ -105,19 +105,19 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
         {
-            return left / right._baseUnit;
+            return left / right.BaseUnit;
         }
         public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
         {
-            return left._baseUnit / right;
+            return left.BaseUnit / right;
         }
         public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
         {
-            return left * right._baseUnit;
+            return left * right.BaseUnit;
         }
         public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
         {
-            return left._baseUnit * right;
+            return left.BaseUnit * right;
         }
 
 
@@ -214,27 +214,14 @@ namespace EngineeringUnits
 
             if (UnitFormatSpecifiers.Any(x => x == format[0]))
             {
-                switch (format[0])
+                return format[0] switch
                 {
-                    case 'A':
-                    case 'a':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    case 'V':
-                    case 'v':
-                        return NEWValue.ToString(provider);
-                    case 'U':
-                    case 'u':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    case 'Q':
-                    case 'q':
-                        //return Unit.ToString();
-                        return GetStandardSymbol(Unit).ToString();
-                    default:
-                        throw new FormatException($"The {format} format string is not supported.");
-                }
-
+                    'A'or'a' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    'V'or'v' => NEWValue.ToString(provider),
+                    'U'or'u' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    'Q'or'q' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
+                    _ => throw new FormatException($"The {format} format string is not supported."),
+                };
             }
 
 
@@ -261,7 +248,7 @@ namespace EngineeringUnits
         }
 
 
-        private static BaseUnit AddUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
         {
             //if (left.Unit != right.Unit)
             //{ 
@@ -271,18 +258,20 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue + right.ConvertValueInto(left);
 
-                return new BaseUnit(NewTestValue, left.Unit + right.Unit);
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
+                    return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
+
+                return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit + right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
             }
 
         }
-        private static BaseUnit SubtractUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
         {
 
             //if (left.Unit != right.Unit)
@@ -291,38 +280,39 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue - right.ConvertValueInto(left);                
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                    return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
-                return new BaseUnit(NewTestValue, left.Unit - right.Unit);
+                return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit - right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
 
         }
-        private static BaseUnit MultiplyUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit MultiplyUnits(BaseUnit left, BaseUnit right)
         {
 
             try
             {
                 var NewTestValue = left.NEWValue * right.NEWValue;
 
-                return new BaseUnit(NewTestValue, left.Unit * right.Unit);
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit * right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
             }
 
         }
-        private static BaseUnit DivideUnits(BaseUnit left, BaseUnit right)
+        private static UnknownUnit DivideUnits(BaseUnit left, BaseUnit right)
         {
 
             if (right.NEWValue == 0)            
-                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             
 
 
@@ -330,36 +320,41 @@ namespace EngineeringUnits
             {
                 var NewTestValue = left.NEWValue / right.NEWValue;
 
-                return new BaseUnit(NewTestValue, left.Unit / right.Unit);
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
 
             }
             catch (OverflowException)
             {
-                return new BaseUnit(double.PositiveInfinity, left.Unit / right.Unit);
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }
 
         }
 
 
 
-        //public UnknownUnit Sqrt()
-        //{
-        //    return new BaseUnit(NewValue.Sqrt(), Unit.Sqrt());
-        //}
-
-      
-
-
         public decimal ToTheOutSide(UnitSystem To)
         {
-
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();     
             Fraction Factor = To.ConvertionFactor(Unit);
 
+            Fraction y2test2;
 
-            Fraction b3test2 = Factor * (b1 * -1) + b2;
-            Fraction y2test2 = Factor * (Fraction)NEWValue + b3test2;    
+            if (b1.IsZero && b2.IsZero)
+            {
+                y2test2 = Factor * (Fraction)NEWValue;
+            }
+            else
+            {
+                Fraction b3test2 = Factor * (b1 * -1) + b2;
+                y2test2 = Factor * (Fraction)NEWValue + b3test2;
+
+            }
+
+
+
+            //Fraction b3test2 = Factor * (b1 * -1) + b2;
+            //y2test2 = Factor * (Fraction)NEWValue + b3test2;    
 
             return (decimal)y2test2;
         }
@@ -373,20 +368,20 @@ namespace EngineeringUnits
 
         public string DisplaySymbol()
         {
-            return Unit.ToString();
+            return Unit.ReduceUnits().ToString();
         }
 
 
         public override int GetHashCode()
         {
-            HashCode hashCode = new HashCode();
+            HashCode hashCode = new();
             hashCode.Add(NEWValue);
             hashCode.Add(Unit.GetHashCode());
 
             return hashCode.ToHashCode();
         }
 
-        public string GetStandardSymbol<T>(UnitSystem _unit)
+        public static string GetStandardSymbol<T>(UnitSystem _unit)
             where T : Enumeration
         {
 
@@ -416,7 +411,7 @@ namespace EngineeringUnits
             //return null;
         }
 
-        private bool IsValueOverDecimalMax(double value)
+        private static bool IsValueOverDecimalMax(double value)
         {
             return double.IsInfinity(value) || 
                     value > (double)decimal.MaxValue || 
