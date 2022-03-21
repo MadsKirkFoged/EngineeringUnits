@@ -160,6 +160,18 @@ namespace EngineeringUnits
             return a.BaseUnit.Abs();
         }
 
+        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<BaseUnit> a)
+        {
+            return a.Select(x=> x.Abs());
+        }
+
+        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<UnknownUnit> a)
+        {
+            return a.Select(x => x.Abs());
+        }
+
+        
+
 
         public static double As(this BaseUnit a, IUnitSystem b)
         {

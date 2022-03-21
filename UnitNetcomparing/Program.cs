@@ -17,12 +17,26 @@ namespace UnitNetcomparing
         {
 
             Area SqrtTest = Area.FromSI(9);
-
-            
-
-
-            Length L2 = Length.FromSI(2);
+            Length L2 = Length.FromSI(-2);
             Length L5 = Length.FromFoot(5);
+            Length L6 = Length.FromFoot(-10);
+            Length L7 = Length.FromFoot(10);
+
+            List<Length> listofl = new List<Length>() { L2, L5 , L6, L7 };
+
+            var test111 = listofl.Abs();
+
+            foreach (var item in test111)
+            {
+                Debug.Print($"{item}");
+            }
+
+
+
+            Debug.Print(L2.Unit.GetHashCode().ToString());
+            Debug.Print(L5.Unit.GetHashCode().ToString());
+            Debug.Print(L6.Unit.GetHashCode().ToString());
+            Debug.Print(L7.Unit.GetHashCode().ToString());
 
 
             Area Lmix = L2 * L5;
