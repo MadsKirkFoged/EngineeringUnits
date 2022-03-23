@@ -15,7 +15,7 @@ namespace EngineeringUnits
 
 
 
-    public class UnitSystem
+    public class UnitSystem 
     {      
         public static readonly UnitSystem UnitsystemForDouble = new();
 
@@ -23,6 +23,7 @@ namespace EngineeringUnits
         //private bool SI { get; init; }
 
         public string Symbol { get; init; }
+     
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
@@ -335,6 +336,57 @@ namespace EngineeringUnits
             return HashCode;
         }
 
+        public static bool  EqualWithoutHash(UnitSystem a, UnitSystem b)
+        {
+            bool aSI=false, bSI=false;
+            string aSymbol=null,bSymbol=null; int aCount, bCount; decimal aB=0, bB=0; Fraction aNewC, bNewC;
+            string aType, bType;UnitSystem  aUnit , bUnit ;
+            
+
+            bool equal = false;
+
+
+            if (a.ListOfUnits.Count != b.ListOfUnits.Count)
+            {
+                equal = false;
+            }
+            else
+            {
+                for (int i = 0; i < a.ListOfUnits.Count(); i++)
+                {
+                    aSI = a.ListOfUnits[i].IsSI;
+                    aSymbol = a.ListOfUnits[i].Symbol;
+                    aCount = a.ListOfUnits[i].Count;
+                    aB = a.ListOfUnits[i].B;
+                    aNewC = a.ListOfUnits[i].NewC;
+                    aUnit = a.ListOfUnits[i].Unit;
+                    aType = a.ListOfUnits[i].TypeOfUnit;
+                    for ( int j=0; j <b.ListOfUnits.Count(); j++)
+                    {
+
+                        if (aSI == b.ListOfUnits[i].IsSI && aSymbol == b.ListOfUnits[i].Symbol &&
+                            aCount == b.ListOfUnits[i].Count && aB == b.ListOfUnits[i].B
+                            && aNewC == b.ListOfUnits[i].NewC && aType == b.ListOfUnits[i].TypeOfUnit && aUnit == b.ListOfUnits[i].Unit)
+                        {
+                            equal = true;
+                           // break;
+                        }
+
+                    }
+              
+                }
+
+            }
+            
+            return equal;
+
+           
+        }
+
+      
+
+
+
         private int HashCodeForUnitCompare;
 
         public int GetHashCodeForUnitCompare()
@@ -371,6 +423,7 @@ namespace EngineeringUnits
           return ListOfUnits.All(x=> x.IsSI);
         }
 
+      
 
     }
 }

@@ -250,10 +250,10 @@ namespace EngineeringUnits
 
         private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
         {
-            //if (left.Unit != right.Unit)
-            //{ 
-            //    throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
-            //}
+            if (left.Unit != right.Unit)
+            {
+                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
+            }
 
 
             try
@@ -274,8 +274,8 @@ namespace EngineeringUnits
         private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
         {
 
-            //if (left.Unit != right.Unit)
-            //    throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
 
 
             try

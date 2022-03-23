@@ -38,7 +38,7 @@ namespace UnitTests.HaveToFail
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare01()
+        public void WrongBaseUnitsEqualOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -49,7 +49,7 @@ namespace UnitTests.HaveToFail
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare02()
+        public void WrongBaseUnitsNotEqualOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -62,7 +62,7 @@ namespace UnitTests.HaveToFail
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare03()
+        public void WrongBaseUnitsGreaterOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -74,7 +74,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare04()
+        public void WrongBaseUnitGreaterOrEqualOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -85,7 +85,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare05()
+        public void WrongBaseUnitSmallerOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -96,7 +96,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare06()
+        public void WrongBaseUnitSmallerOrEqualOperator()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -107,7 +107,7 @@ namespace UnitTests.HaveToFail
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare07()
+        public void WrongUnitToCompare()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -117,7 +117,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitToCompare08()
+        public void WrongUnitEquals()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -125,9 +125,21 @@ namespace UnitTests.HaveToFail
             length.Equals(mass);
 
         }
+
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnknownUnitToCompare01()
+        public void WrongUnitToCompare02()
+        {
+            var length = Length.FromCentimeter(3);
+            var mass = Mass.FromKilogram(3);
+            object test = mass;
+            length.CompareTo(test);
+
+        }
+       
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void WrongUnknownUnitEquals01()
         {
             var speed = Length.FromCentimeter(7)/Duration.FromMinute(32);
             var density =Mass.FromCentigram(15)/Volume.FromCubicFoot(7);
@@ -137,7 +149,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnknownUnitToCompare02()
+        public void WrongUnknownUnitToCompare01()
         {
             var list1 = new List<UnknownUnit>
             {
@@ -158,7 +170,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnknownUnitToCompare03()
+        public void WrongUnknownUnitToCompare02()
         {
             var speed = Length.FromCentimeter(7) / Duration.FromMinute(32);
             var density = Mass.FromCentigram(15) / Volume.FromCubicFoot(7);
@@ -168,7 +180,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnknownUnitToCompare04()
+        public void WrongUnknownUnitToEquals02()
         {
             var speed = Length.FromCentimeter(7) / Duration.FromMinute(32);
             var density = Mass.FromCentigram(15) / Volume.FromCubicFoot(7);

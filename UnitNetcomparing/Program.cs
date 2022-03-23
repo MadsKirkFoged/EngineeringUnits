@@ -92,7 +92,7 @@ namespace UnitNetcomparing
 
 
             //ThermalConductivity test = 0;
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+           // var watch = System.Diagnostics.Stopwatch.StartNew();
 
             for (int i = 0; i < 10000000; i++)
             {

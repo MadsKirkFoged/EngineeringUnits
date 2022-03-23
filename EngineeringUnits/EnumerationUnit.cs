@@ -300,7 +300,7 @@ namespace EngineeringUnits
                     int hash = (int)2166136261;
                     // Suitable nullity checks etc, of course :)
                     hash = (hash * 16777619) ^ NewC.GetHashCode();
-                    hash = (hash * 16777619) ^ B.GetHashCode();
+                    hash = (hash * 45476689) ^ B.GetHashCode();
                     hash = (hash * 16777619) ^ Count.GetHashCode();
 
 
@@ -317,7 +317,7 @@ namespace EngineeringUnits
                         _ => 0,
                     };
 
-                    hash = (hash * 16777619) ^ unittype.GetHashCode();
+                    hash = (hash * 566936767) ^ unittype.GetHashCode();
 
                     HashCode = hash;
                 }

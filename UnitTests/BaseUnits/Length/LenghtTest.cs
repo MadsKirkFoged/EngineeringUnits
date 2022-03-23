@@ -311,7 +311,12 @@ namespace UnitTests
             Assert.IsFalse(add < subtract);
 
             Assert.IsTrue(L1.Equals(L3));
-            
+            object test = L3;
+            Assert.IsTrue(L1.Equals(test));
+
+            object nullObj = null;
+            Assert.IsFalse(L1.Equals(nullObj));
+                      
 
 
         }

@@ -113,7 +113,7 @@ namespace EngineeringUnits
             }
 
 
-            var compare = ((double)_baseUnit.NEWValue - (double)other._baseUnit.As(this._baseUnit));
+            var compare = ((double)BaseUnit.NEWValue - (double)other.BaseUnit.As(this.BaseUnit));
             return compare switch
             {
                 0d => 0,
