@@ -16,6 +16,13 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+
+            var temperature = Temperature.FromDegreesCelsius(20);
+            var pressure = Pressure.FromKilopascal(100);
+            Console.WriteLine("Pressure: {0} \nTemperature: {1}", pressure.ToUnit(PressureUnit.Kilopascal), temperature.ToUnit(TemperatureUnit.DegreeCelsius));
+
+
+
             Area SqrtTest = Area.FromSI(9);
             Length L2 = Length.FromSI(-2);
             Length L5 = Length.FromFoot(5);
