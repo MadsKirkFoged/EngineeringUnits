@@ -21,7 +21,7 @@ namespace EngineeringUnits
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)SI;
-        protected decimal NEWValue { get; init; }
+        public decimal NEWValue { get; init; }
 
         public BaseUnit() {}
         public BaseUnit(decimal value, UnitSystem unitSystem)
@@ -251,7 +251,9 @@ namespace EngineeringUnits
         private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
+            {
                 throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
+            }
 
 
             try
@@ -435,11 +437,13 @@ namespace EngineeringUnits
         {
             BaseUnit local = (BaseUnit)obj;
 
-            if (Unit != local.Unit)
-                throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
+            //if (Unit != local.Unit)
+            //    throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
 
 
-            return (int)((double)NEWValue - local.As(this));
+            //return (int)((double)NEWValue - local.As(this));
+            return CompareTo(local);
+
         }
 
         public int CompareTo(BaseUnit other)
@@ -448,7 +452,18 @@ namespace EngineeringUnits
             if (Unit != other.Unit)
                 throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
 
-            return (int)((double)NEWValue - other.As(this));
+          //  return (int)((double)NEWValue - other.As(this));
+
+            var compare = ((double)NEWValue - (double)other.As(this))
+;
+            var result = compare switch
+            {
+                0 => 0,
+                < 0 => -1,
+                > 0 => 1,
+            };
+            //return (int)((double)_baseUnit.NEWValue - other._baseUnit.As(this._baseUnit));
+            return (int)result;
         }
 
     }

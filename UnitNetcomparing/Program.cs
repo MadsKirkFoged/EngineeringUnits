@@ -17,9 +17,31 @@ namespace UnitNetcomparing
         {
 
 
-            var temperature = Temperature.FromDegreesCelsius(20);
-            var pressure = Pressure.FromKilopascal(100);
-            Console.WriteLine("Pressure: {0} \nTemperature: {1}", pressure.ToUnit(PressureUnit.Kilopascal), temperature.ToUnit(TemperatureUnit.DegreeCelsius));
+
+            List<double> list = new List<double> { 1, 1.2, 0.2, 1.8, 0.5 };
+            Debug.Print(list.Min().ToString());
+            double lenght = 50; //cm
+            double time = 4; //seconds
+            double speed = lenght / time; // m/s
+            double speed2 = time / lenght; // m/s
+
+            
+            
+            
+            Length lenght2 = Length.FromCentimeter(50);
+            Duration time2 = Duration.FromSecond(4);
+
+            Speed speed3 = lenght2 / time2;
+            //Speed speed4 = time2 / lenght2;
+
+
+            Debug.Print($"{speed3}");
+            Debug.Print($"{speed3.As(SpeedUnit.MeterPerSecond)}");
+            Debug.Print($"{speed3.As(SpeedUnit.MeterPerMinute)}");
+
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
 
 
 
@@ -91,7 +113,7 @@ namespace UnitNetcomparing
 
 
             //ThermalConductivity test = 0;
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+           // var watch = System.Diagnostics.Stopwatch.StartNew();
 
             for (int i = 0; i < 10000000; i++)
             {

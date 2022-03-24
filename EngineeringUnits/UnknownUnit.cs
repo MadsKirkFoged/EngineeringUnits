@@ -3,10 +3,12 @@ using EngineeringUnits.Units;
 using System.Collections.Generic;
 using System.Text;
 using System;
+using System.Diagnostics;
+using System.Globalization;
 
 namespace EngineeringUnits
 {
-    public class UnknownUnit : IUnitSystem
+    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem
     {
         public BaseUnit BaseUnit { get; init; }
 
@@ -78,6 +80,49 @@ namespace EngineeringUnits
 
         public override int GetHashCode() => BaseUnit.GetHashCode();
 
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+                return false;
+            else
+                return this == (UnknownUnit)obj;
+        }
 
+
+        public bool Equals(UnknownUnit other)
+        {
+             return this == other;
+        }
+
+        public int CompareTo(object obj)
+        {
+            UnknownUnit local = (UnknownUnit)obj;
+
+
+            return CompareTo(local);
+
+
+        }
+
+        public int CompareTo(UnknownUnit other)
+        {
+           if(Unit != other.Unit)
+            {
+                throw new WrongUnitException($"Cannot do ComperTo on two different units!");
+            }
+
+
+            var compare = ((double)BaseUnit.NEWValue - (double)other.BaseUnit.As(this.BaseUnit));
+            return compare switch
+            {
+                0d => 0,
+                <0d => -1,
+                >0d => 1,
+            };
+           
+        }
+
+       
     }
 }
