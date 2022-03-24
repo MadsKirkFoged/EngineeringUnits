@@ -327,9 +327,14 @@ namespace EngineeringUnits
         {
             if (HashCode == 0)
             {
-                foreach (var item in ListOfUnits)
+
+                HashCode = (int)795945743;                
+
+
+                foreach (var item in ListOfUnits.OrderBy(x => x.TypeOfUnit))
                 {
-                    HashCode += item.GetHashCode();
+                    //HashCode += item.GetHashCode();
+                    HashCode = (HashCode * 512265997) ^ item.GetHashCode();
                 }
             }
 
