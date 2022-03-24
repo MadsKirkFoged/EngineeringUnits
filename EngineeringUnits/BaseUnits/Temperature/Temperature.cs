@@ -20,7 +20,6 @@ namespace EngineeringUnits
             NEWValue = (decimal)value;
 
             //Forcing all temperatures to stay in kelvin
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
@@ -44,27 +43,21 @@ namespace EngineeringUnits
             }
 
             //Forcing all temperatures to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
-        public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
+        public Temperature(decimal value, TemperatureUnit selectedUnit, bool ForceToSI = true) : this()
         {
-
-            //Unit = selectedUnit.Unit.Copy();
             Unit = selectedUnit.Unit;
-            //SymbolValue = (decimal)value;
 
-            //Forcing all temperatures to stay in kelvin
-            //ValueLocalUnit = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
-            Unit = TemperatureUnit.Kelvin.Unit;
+            if (ForceToSI)
+            {
+                //Forcing all temperatures to stay in kelvin
+                NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+                Unit = TemperatureUnit.Kelvin.Unit;
+            }
 
         }
 
@@ -76,7 +69,7 @@ namespace EngineeringUnits
 
         public Temperature ToUnit(TemperatureUnit selectedUnit)
         {
-            return new Temperature(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+            return new Temperature(ToTheOutSide(selectedUnit.Unit), selectedUnit, false);
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
 
