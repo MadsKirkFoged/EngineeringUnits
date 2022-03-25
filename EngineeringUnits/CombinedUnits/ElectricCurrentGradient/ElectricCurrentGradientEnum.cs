@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricCurrentGradientUnit : Enumeration
+    public class ElectricCurrentGradientUnit : UnitEnumbase
     {
 
         public static readonly ElectricCurrentGradientUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI);

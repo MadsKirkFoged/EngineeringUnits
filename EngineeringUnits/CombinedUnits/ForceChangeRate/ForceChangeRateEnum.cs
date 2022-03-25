@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ForceChangeRateUnit : Enumeration
+    public class ForceChangeRateUnit : UnitEnumbase
     {
 
         public static readonly ForceChangeRateUnit SI = new(ForceUnit.SI, DurationUnit.SI);

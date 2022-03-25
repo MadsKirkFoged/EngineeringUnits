@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricPotentialChangeRateUnit : Enumeration
+    public class ElectricPotentialChangeRateUnit : UnitEnumbase
     {
 
         public static readonly ElectricPotentialChangeRateUnit SI = new(ElectricPotentialUnit.SI, DurationUnit.SI);

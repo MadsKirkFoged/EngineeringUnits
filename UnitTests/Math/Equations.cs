@@ -142,7 +142,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ForceUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ForceUnit>())
             {
 
 
@@ -197,7 +197,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<SpecificEntropyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<SpecificEntropyUnit>())
             {
 
 

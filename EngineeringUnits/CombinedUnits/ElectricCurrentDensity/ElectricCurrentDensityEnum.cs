@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricCurrentDensityUnit : Enumeration
+    public class ElectricCurrentDensityUnit : UnitEnumbase
     {
 
         public static readonly ElectricCurrentDensityUnit SI = new(ElectricCurrentUnit.SI, AreaUnit.SI);

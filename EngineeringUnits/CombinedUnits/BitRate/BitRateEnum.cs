@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class BitRateUnit : Enumeration
+    public class BitRateUnit : UnitEnumbase
     {
 
         public static readonly BitRateUnit SI = new("", 1m);

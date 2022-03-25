@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarityUnit : Enumeration
+    public class MolarityUnit : UnitEnumbase
     {
 
         public static readonly MolarityUnit SI = new(AmountOfSubstanceUnit.SI, VolumeUnit.SI);

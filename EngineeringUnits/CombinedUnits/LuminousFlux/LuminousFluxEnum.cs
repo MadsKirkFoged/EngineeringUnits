@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LuminousFluxUnit : Enumeration
+    public class LuminousFluxUnit : UnitEnumbase
     {
 
         public static readonly LuminousFluxUnit SI = new(LuminousIntensityUnit.SI);

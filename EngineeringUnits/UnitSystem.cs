@@ -26,38 +26,38 @@ namespace EngineeringUnits
      
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
-        public readonly IReadOnlyList<Enumeration> ListOfUnits = new List<Enumeration>();
+        public readonly IReadOnlyList<UnitEnumbase> ListOfUnits = new List<UnitEnumbase>();
 
 
         public UnitSystem() {}
 
-        public UnitSystem(List<Enumeration> LocalUnitList, string symbol = null)
+        public UnitSystem(List<UnitEnumbase> LocalUnitList, string symbol = null)
         {
             ListOfUnits = ReduceUnits(LocalUnitList);
             Symbol = symbol;
         }
 
 
-        public UnitSystem(Enumeration unit, string symbol): this(new List<Enumeration>() { unit }, symbol) {}
-        public UnitSystem(Enumeration unit) :               this(unit, null) { }
+        public UnitSystem(UnitEnumbase unit, string symbol): this(new List<UnitEnumbase>() { unit }, symbol) {}
+        public UnitSystem(UnitEnumbase unit) :               this(unit, null) { }
         public UnitSystem(decimal unit, string symbol) :    this(new CombinedUnit(unit), symbol) { }
 
 
         public UnitSystem(UnitSystem unit, string symbol)
         {
-            ListOfUnits = new List<Enumeration>(unit.ListOfUnits);
+            ListOfUnits = new List<UnitEnumbase>(unit.ListOfUnits);
             Symbol = symbol;
         }
 
 
-        private List<(string Key, int Value)> _UnitsCount;
-        public List<(string Key, int Value)> UnitsCount()
+        private List<(BaseunitType Key, int Value)> _UnitsCount;
+        public List<(BaseunitType Key, int Value)> UnitsCount()
         {
             if (_UnitsCount is null)
             {
                 _UnitsCount = ListOfUnits
-                                .Where(x => x.TypeOfUnit != "CombinedUnit")
-                                .GroupBy(x => x.TypeOfUnit)
+                                .Where(x => x.UnitType != BaseunitType.CombinedUnit)
+                                .GroupBy(x => x.UnitType)
                                 .Select(x => (x.Key, x.Sum(x => x.Count)))
                                 .Where(x => x.Item2 != 0)
                                 .ToList();
@@ -147,7 +147,7 @@ namespace EngineeringUnits
             } 
 
             var test2 = new UnitSystem(
-                        new List<Enumeration>(
+                        new List<UnitEnumbase>(
                             a.ListOfUnits.Concat(
                             b.ListOfUnits)));
 
@@ -162,7 +162,7 @@ namespace EngineeringUnits
             
 
 
-            List<Enumeration> LocalUnitList = new();
+            List<UnitEnumbase> LocalUnitList = new();
 
             LocalUnitList.AddRange(a.ListOfUnits);
             LocalUnitList.Add(new CombinedUnit(constant));
@@ -188,7 +188,7 @@ namespace EngineeringUnits
             }
 
 
-            List<Enumeration> LocalUnitList = new(a.ListOfUnits);
+            List<UnitEnumbase> LocalUnitList = new(a.ListOfUnits);
 
             foreach (var item in b.ListOfUnits)
                 LocalUnitList.Add(item.CloneAndReverseCount());
@@ -256,12 +256,12 @@ namespace EngineeringUnits
         }
 
 
-        public static List<Enumeration> ReduceUnits(List<Enumeration> ListToBeReduced)
+        public static List<UnitEnumbase> ReduceUnits(List<UnitEnumbase> ListToBeReduced)
         {
 
-           var test = ListToBeReduced.GroupBy(x => x.TypeOfUnit);
+           var test = ListToBeReduced.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<Enumeration>();
+            var NewUnitList = new List<UnitEnumbase>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -276,13 +276,13 @@ namespace EngineeringUnits
 
                     var groupOfSameConstant = GroupOfTypes
                         .Select(x => x)
-                        .GroupBy(x => x.NewC);
+                        .GroupBy(x => x.A);
 
      
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        Enumeration NewUnit = new(item.First(), 
+                        UnitEnumbase NewUnit = new(item.First(), 
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -299,9 +299,9 @@ namespace EngineeringUnits
         public UnitSystem Sqrt()
         {
 
-            var NewUnitList = new List<Enumeration>();
+            var NewUnitList = new List<UnitEnumbase>();
 
-            foreach (var item in ListOfUnits.Where(x => x.TypeOfUnit != "CombinedUnit"))
+            foreach (var item in ListOfUnits.Where(x => x.UnitType is not BaseunitType.CombinedUnit))
             {
                 if (item.Count % 2 != 0)                
                     throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
@@ -309,10 +309,10 @@ namespace EngineeringUnits
                 NewUnitList.Add(new(item, item.Count/2));
             }
 
-            var combinedUnit = ListOfUnits.Where(x => x.TypeOfUnit == "CombinedUnit").FirstOrDefault();
+            var combinedUnit = ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit).FirstOrDefault();
 
             if (combinedUnit is not null)            
-                 NewUnitList.Add(new CombinedUnit("", combinedUnit.NewC.Sqrt()));
+                 NewUnitList.Add(new CombinedUnit("", combinedUnit.A.Sqrt()));
             
 
 
@@ -331,7 +331,7 @@ namespace EngineeringUnits
                 HashCode = (int)795945743;                
 
 
-                foreach (var item in ListOfUnits.OrderBy(x => x.TypeOfUnit))
+                foreach (var item in ListOfUnits.OrderBy(x => x.UnitType))
                 {
                     //HashCode += item.GetHashCode();
                     HashCode = (HashCode * 512265997) ^ item.GetHashCode();
@@ -346,7 +346,7 @@ namespace EngineeringUnits
             int aCount;
             decimal aB = 0;
             Fraction aNewC;
-            string aType;            
+            BaseunitType aType;            
 
             bool equal = false;
 
@@ -361,15 +361,15 @@ namespace EngineeringUnits
                 {
                     aCount = a.ListOfUnits[i].Count;
                     aB = a.ListOfUnits[i].B;
-                    aNewC = a.ListOfUnits[i].NewC;
-                    aType = a.ListOfUnits[i].TypeOfUnit;
+                    aNewC = a.ListOfUnits[i].A;
+                    aType = a.ListOfUnits[i].UnitType;
                     for ( int j=0; j <b.ListOfUnits.Count(); j++)
                     {
 
                         if (aCount == b.ListOfUnits[i].Count &&
                             aB == b.ListOfUnits[i].B &&
-                            aNewC == b.ListOfUnits[i].NewC &&
-                            aType == b.ListOfUnits[i].TypeOfUnit)
+                            aNewC == b.ListOfUnits[i].A &&
+                            aType == b.ListOfUnits[i].UnitType)
                         {
                             equal = true;
                         }
@@ -416,7 +416,7 @@ namespace EngineeringUnits
 
         public UnitSystem Clone()
         {
-            return new UnitSystem(new List<Enumeration>(ListOfUnits), Symbol);
+            return new UnitSystem(new List<UnitEnumbase>(ListOfUnits), Symbol);
         }
 
 

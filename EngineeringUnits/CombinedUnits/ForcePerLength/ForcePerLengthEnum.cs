@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ForcePerLengthUnit : Enumeration
+    public class ForcePerLengthUnit : UnitEnumbase
     {
         public static readonly ForcePerLengthUnit SI = new(ForceUnit.SI, LengthUnit.SI);
         public static readonly ForcePerLengthUnit NewtonPerMeter = new(ForceUnit.Newton, LengthUnit.Meter);

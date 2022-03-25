@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,14 +11,14 @@ namespace EngineeringUnits.Units
 
 
 
-    public class DurationUnit : Enumeration
+    public class DurationUnit : UnitEnumbase
     {
 
 
-        public static readonly DurationUnit Nanosecond =    new(PreFix.nano, BaseUnits.time);
-        public static readonly DurationUnit Millisecond =   new(PreFix.milli, BaseUnits.time);
-        public static readonly DurationUnit Microsecond =   new(PreFix.micro, BaseUnits.time);
-        public static readonly DurationUnit Second =        new(PreFix.SI, BaseUnits.time);
+        public static readonly DurationUnit Nanosecond =    new(PreFix.nano);
+        public static readonly DurationUnit Millisecond =   new(PreFix.milli);
+        public static readonly DurationUnit Microsecond =   new(PreFix.micro);
+        public static readonly DurationUnit Second =        new(PreFix.SI);
 
         public static readonly DurationUnit Minute =        new("min", 60m);
         public static readonly DurationUnit Hour =          new("h", 3600m);
@@ -25,26 +26,20 @@ namespace EngineeringUnits.Units
         public static readonly DurationUnit Week =          new("wk", 7*24*3600m);
         public static readonly DurationUnit Month30 =       new("mo", 30 * 24 * 3600m);
         public static readonly DurationUnit Year365 =       new("yr", 365*24*3600m);
-        public static readonly DurationUnit SI =            new(PreFix.SI, BaseUnits.time);
+        public static readonly DurationUnit SI =            new(PreFix.SI);
 
         public DurationUnit() { }
 
 
-        public DurationUnit(string symbol, decimal Constant) : base(symbol, Constant)
+        public DurationUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.time)
         {
             Unit = new UnitSystem(this);
-            //Unit.Duration = (DurationUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }
 
 
-        public DurationUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public DurationUnit(PreFix SI) : base(SI, BaseunitType.time)
         {
             Unit = new UnitSystem(this);
-            //Unit.Duration = (DurationUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }      
 
     }

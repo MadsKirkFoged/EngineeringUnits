@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LapseRateUnit : Enumeration
+    public class LapseRateUnit : UnitEnumbase
     {
 
         public static readonly LapseRateUnit SI = new(TemperatureUnit.SI, LengthUnit.SI);

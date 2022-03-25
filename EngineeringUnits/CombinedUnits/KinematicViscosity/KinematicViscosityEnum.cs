@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class KinematicViscosityUnit : Enumeration
+    public class KinematicViscosityUnit : UnitEnumbase
     {
 
         public static readonly KinematicViscosityUnit SI =                   new(AreaUnit.SI, DurationUnit.SI);

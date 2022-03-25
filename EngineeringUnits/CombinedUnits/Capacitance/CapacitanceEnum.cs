@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class CapacitanceUnit : Enumeration
+    public class CapacitanceUnit : UnitEnumbase
     {
 
         public static readonly CapacitanceUnit SI = new(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");

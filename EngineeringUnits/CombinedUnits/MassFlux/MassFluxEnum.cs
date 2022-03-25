@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MassFluxUnit : Enumeration
+    public class MassFluxUnit : UnitEnumbase
     {
 
         public static readonly MassFluxUnit SI = new(MassUnit.SI, DurationUnit.SI, AreaUnit.SI);

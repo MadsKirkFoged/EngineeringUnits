@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ApparentEnergyUnit : Enumeration
+    public class ApparentEnergyUnit : UnitEnumbase
     {
 
 

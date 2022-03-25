@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpecificThermalResistanceUnit : Enumeration
+    public class SpecificThermalResistanceUnit : UnitEnumbase
     {
 
         public static readonly SpecificThermalResistanceUnit SI = new(LengthUnit.SI, TemperatureUnit.SI, PowerUnit.SI);

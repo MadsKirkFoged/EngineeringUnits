@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class TemperatureUnit : Enumeration
+    public class TemperatureUnit : UnitEnumbase
     {
 
         public static readonly TemperatureUnit Kelvin =              new("K",    1,      1,  0);
@@ -23,30 +24,15 @@ namespace EngineeringUnits.Units
         public TemperatureUnit() { }
 
 
-        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, a1, a2,b)
+        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, new Fraction(a1 * a2), BaseunitType.temperature, b )
         {
             Unit = new UnitSystem(this);
-            //Unit.Temperature = (TemperatureUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
-
+            
         }
 
-        //public TemperatureUnit(string symbol, decimal Constant, decimal b) : base(symbol, a1, a2, b)
-        //{
-        //    Unit = new UnitSystem();
-        //    Unit.Temperature = (TemperatureUnit)Clone();
-
-        //}
-
-
-        public TemperatureUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public TemperatureUnit(PreFix SI) : base(SI, BaseunitType.temperature)
         {
             Unit = new UnitSystem(this);
-            //Unit.Temperature = (TemperatureUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
-
         }
 
      

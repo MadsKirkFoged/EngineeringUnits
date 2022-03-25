@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class FuelEfficiencyUnit : Enumeration
+    public class FuelEfficiencyUnit : UnitEnumbase
     {
 
         public static readonly FuelEfficiencyUnit SI = new(LengthUnit.SI, VolumeUnit.SI);

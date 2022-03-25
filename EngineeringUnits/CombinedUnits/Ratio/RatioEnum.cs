@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class RatioUnit : Enumeration
+    public class RatioUnit : UnitEnumbase
     {
 
         public static readonly RatioUnit SI = new("");

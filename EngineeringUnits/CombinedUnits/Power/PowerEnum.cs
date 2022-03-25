@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class PowerUnit : Enumeration
+    public class PowerUnit : UnitEnumbase
     {
 
 

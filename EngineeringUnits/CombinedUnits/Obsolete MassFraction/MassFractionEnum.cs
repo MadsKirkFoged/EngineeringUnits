@@ -8,7 +8,7 @@ namespace EngineeringUnits
 {
 
     [Obsolete("MassFraction is deprecated, please use Ratio instead.", true)]
-    public class MassFractionUnit : Enumeration
+    public class MassFractionUnit : UnitEnumbase
     {
 
       

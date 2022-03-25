@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarMassUnit : Enumeration
+    public class MolarMassUnit : UnitEnumbase
     {
 
         public static readonly MolarMassUnit SI =                new(MassUnit.SI,    AmountOfSubstanceUnit.SI);

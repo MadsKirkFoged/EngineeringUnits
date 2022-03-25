@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ReactivePowerUnit : Enumeration
+    public class ReactivePowerUnit : UnitEnumbase
     {
 
         public static readonly ReactivePowerUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, "var");

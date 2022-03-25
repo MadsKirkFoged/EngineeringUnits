@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class BrakeSpecificFuelConsumptionUnit : Enumeration
+    public class BrakeSpecificFuelConsumptionUnit : UnitEnumbase
     {
 
         public static readonly BrakeSpecificFuelConsumptionUnit SI = new(MassUnit.SI, EnergyUnit.SI);

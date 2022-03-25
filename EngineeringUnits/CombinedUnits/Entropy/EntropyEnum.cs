@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class EntropyUnit : Enumeration
+    public class EntropyUnit : UnitEnumbase
     {
 
         public static readonly EntropyUnit SI =                          new(EnergyUnit.SI, TemperatureUnit.SI);

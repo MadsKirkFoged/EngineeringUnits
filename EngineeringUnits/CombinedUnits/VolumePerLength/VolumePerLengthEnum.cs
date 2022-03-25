@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class VolumePerLengthUnit : Enumeration
+    public class VolumePerLengthUnit : UnitEnumbase
     {
 
         public static readonly VolumePerLengthUnit SI = new(VolumeUnit.SI, LengthUnit.SI);

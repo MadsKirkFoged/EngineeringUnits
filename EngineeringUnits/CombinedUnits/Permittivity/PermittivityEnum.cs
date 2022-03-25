@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PermittivityUnit : Enumeration
+    public class PermittivityUnit : UnitEnumbase
     {
 
         public static readonly PermittivityUnit SI = new(CapacitanceUnit.SI, LengthUnit.SI);

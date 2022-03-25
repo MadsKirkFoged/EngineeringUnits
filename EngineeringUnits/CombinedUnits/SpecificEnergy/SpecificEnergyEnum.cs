@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class SpecificEnergyUnit : Enumeration
+    public class SpecificEnergyUnit : UnitEnumbase
     {
 
         public static readonly SpecificEnergyUnit SI =                       new(EnergyUnit.SI, MassUnit.SI);

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AreaMomentOfInertiaUnit : Enumeration
+    public class AreaMomentOfInertiaUnit : UnitEnumbase
     {
 
         public static readonly AreaMomentOfInertiaUnit SI = new(LengthUnit.SI);

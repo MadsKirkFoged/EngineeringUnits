@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class InformationUnit : Enumeration
+    public class InformationUnit : UnitEnumbase
     {
 
         public static readonly InformationUnit SI = new("");

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class CoefficientOfThermalExpansionUnit : Enumeration
+    public class CoefficientOfThermalExpansionUnit : UnitEnumbase
     {
 
         public static readonly CoefficientOfThermalExpansionUnit SI = new(TemperatureUnit.SI);

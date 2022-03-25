@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class FrequencyUnit : Enumeration
+    public class FrequencyUnit : UnitEnumbase
     {
 
         public static readonly FrequencyUnit SI =        new(DurationUnit.Second, "Hz");

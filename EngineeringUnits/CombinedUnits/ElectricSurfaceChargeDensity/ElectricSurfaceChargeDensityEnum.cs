@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricSurfaceChargeDensityUnit : Enumeration
+    public class ElectricSurfaceChargeDensityUnit : UnitEnumbase
     {
 
         public static readonly ElectricSurfaceChargeDensityUnit SI = new(ElectricChargeUnit.SI, AreaUnit.SI);

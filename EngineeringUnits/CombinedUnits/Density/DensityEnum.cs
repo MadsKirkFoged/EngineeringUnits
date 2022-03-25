@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class DensityUnit : Enumeration
+    public class DensityUnit : UnitEnumbase
     {
 
         public static readonly DensityUnit SI =                          new(MassUnit.SI,        VolumeUnit.SI);

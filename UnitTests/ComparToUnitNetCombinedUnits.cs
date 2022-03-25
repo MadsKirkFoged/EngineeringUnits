@@ -146,7 +146,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<SpecificEnergyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<SpecificEnergyUnit>())
             {
 
 
@@ -273,7 +273,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<MassFlowUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<MassFlowUnit>())
             {
 
 
@@ -386,7 +386,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<PowerUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<PowerUnit>())
             {
 
 
@@ -448,7 +448,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<AreaUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<AreaUnit>())
             {
 
 
@@ -502,7 +502,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<EnergyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<EnergyUnit>())
             {
 
 
@@ -558,7 +558,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<SpecificEntropyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<SpecificEntropyUnit>())
             {
 
 
@@ -617,7 +617,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<SpeedUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<SpeedUnit>())
             {
 
 
@@ -673,7 +673,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<PressureUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<PressureUnit>())
             {
 
 
@@ -730,7 +730,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ForceUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ForceUnit>())
             {
 
 
@@ -784,7 +784,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<AccelerationUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<AccelerationUnit>())
             {
 
 
@@ -840,7 +840,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<VolumeUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<VolumeUnit>())
             {
 
 
@@ -900,7 +900,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<DensityUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<DensityUnit>())
             {
 
 
@@ -957,7 +957,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<DynamicViscosityUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<DynamicViscosityUnit>())
             {
 
 
@@ -1013,7 +1013,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ThermalConductivityUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ThermalConductivityUnit>())
             {
 
 
@@ -1067,7 +1067,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ForcePerLengthUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ForcePerLengthUnit>())
             {
 
 
@@ -1122,7 +1122,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<VolumeFlowUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<VolumeFlowUnit>())
             {
 
 
@@ -1184,7 +1184,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<MolarMassUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<MolarMassUnit>())
             {
 
 
@@ -1241,7 +1241,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<EntropyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<EntropyUnit>())
             {
 
 
@@ -1297,7 +1297,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ThermalResistanceUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ThermalResistanceUnit>())
             {
 
 
@@ -1351,7 +1351,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<HeatTransferCoefficientUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<HeatTransferCoefficientUnit>())
             {
 
 
@@ -1405,7 +1405,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ElectricPotentialUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ElectricPotentialUnit>())
             {
 
 
@@ -1459,7 +1459,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<FrequencyUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<FrequencyUnit>())
             {
 
 
@@ -1515,7 +1515,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<TorqueUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<TorqueUnit>())
             {
 
 
@@ -1570,7 +1570,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<KinematicViscosityUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<KinematicViscosityUnit>())
             {
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AccelerationUnit : Enumeration
+    public class AccelerationUnit : UnitEnumbase
     {
 
         public static readonly AccelerationUnit SI =                            new(LengthUnit.SI,          DurationUnit.SI);

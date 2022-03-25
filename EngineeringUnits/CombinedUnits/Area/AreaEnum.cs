@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AreaUnit : Enumeration
+    public class AreaUnit : UnitEnumbase
     {
 
         public static readonly AreaUnit Acre                 = new(LengthUnit.Chain, "ac", 10);

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PressureUnit : Enumeration
+    public class PressureUnit : UnitEnumbase
     {
         public static readonly PressureUnit SI =             new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Pa");
         public static readonly PressureUnit Pascal =         new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Pa");

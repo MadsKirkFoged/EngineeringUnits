@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<TorquePerLengthUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<TorquePerLengthUnit>())
             {
 
 

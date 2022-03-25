@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class DynamicViscosityUnit : Enumeration
+    public class DynamicViscosityUnit : UnitEnumbase
     {
 
         public static readonly DynamicViscosityUnit SI =                             new(PressureUnit.SI, DurationUnit.SI);

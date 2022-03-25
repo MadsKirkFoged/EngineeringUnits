@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class EnergyUnit : Enumeration
+    public class EnergyUnit : UnitEnumbase
     {
 
 

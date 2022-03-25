@@ -382,7 +382,7 @@ namespace EngineeringUnits
         }
 
         public static string GetStandardSymbol<T>(UnitSystem _unit)
-            where T : Enumeration
+            where T : UnitEnumbase
         {
 
             if (_unit.Symbol is not null)
@@ -397,7 +397,7 @@ namespace EngineeringUnits
 
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
-            return Enumeration.ListOf<T>()
+            return UnitEnumbase.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
                 .Unit.ToString();            
         }

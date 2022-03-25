@@ -22,7 +22,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ApparentPowerUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ApparentPowerUnit>())
             {
 
 

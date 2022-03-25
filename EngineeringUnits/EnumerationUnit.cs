@@ -12,7 +12,7 @@ using System.Linq;
 namespace EngineeringUnits
 {
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public class Enumeration :ICloneable, IUnitSystem
+    public class UnitEnumbase :ICloneable, IUnitSystem
     {
 
         [JsonIgnore]
@@ -21,8 +21,8 @@ namespace EngineeringUnits
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue("")]
         public string Symbol { get; init; } 
 
-        [JsonProperty(PropertyName = "NC", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public Fraction NewC { get; init; }
+        [JsonProperty(PropertyName = "A", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        public Fraction A { get; init; }
 
         [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
         public decimal B { get; init; }
@@ -34,68 +34,45 @@ namespace EngineeringUnits
         public UnitSystem Unit { get; init; }
 
         [JsonIgnore]
-        public Fraction TotalConstant => Fraction.Pow(NewC, Count);
+        public Fraction TotalConstant => Fraction.Pow(A, Count);
 
         [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public string TypeOfUnit { get; init; }
+        public BaseunitType UnitType { get; init; }
 
         [JsonIgnore]
         public bool IsSI { get; init; }
 
 
 
-        public Enumeration()
+        public UnitEnumbase()
         {
         }
 
-        protected Enumeration(string symbol)
+
+        protected UnitEnumbase(string symbol, Fraction Constant, BaseunitType baseunit, decimal b = 0m)
         {
             Symbol = symbol;
-            Count = 1;
-            TypeOfUnit = GetType().Name;
-        }
-
-
-        protected Enumeration(string symbol, decimal a1, decimal a2, decimal b) : this(symbol)
-        {
-            NewC = new Fraction(a1 * a2);
+            A = Constant;
             B = b;
-
-            if (NewC == Fraction.One)
-                IsSI = true;            
-
-        }
-
-        protected Enumeration(string symbol, decimal a1, decimal a2) :this(symbol, a1, a2, 0)
-        {
-        }
-
-        protected Enumeration(string symbol, Fraction Constant) : this(symbol)
-        {
-            NewC = Constant;
-            B = 0;
-
-            if (NewC == Fraction.One)
+            Count = 1;
+            UnitType = baseunit;
+            if (A == Fraction.One)
                 IsSI = true;
         }
 
-        protected Enumeration(string symbol, decimal Constant) : this(symbol, new Fraction(Constant))
-        {
-        }
 
-        protected Enumeration(PreFix SI, BaseUnits baseunit)
+        protected UnitEnumbase(PreFix SI, BaseunitType baseunit)
         {
             Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(baseunit);
-            NewC = new Fraction(PrefixSISize(SI));
+            A = new Fraction(PrefixSISize(SI));
             B = 0;
             Count = 1;
-            TypeOfUnit = GetType().Name;
-
-            if (NewC == Fraction.One)
+            UnitType = baseunit;
+            if (A == Fraction.One)
                 this.IsSI = true;
 
         }
-        protected Enumeration(PreFix SI, Enumeration baseunit)
+        protected UnitEnumbase(PreFix SI, UnitEnumbase baseunit)
         {
             if (baseunit.Unit.Symbol is null)
                 Unit = new UnitSystem(baseunit.Unit * PrefixSISize(SI), PrefixSISymbol(SI) + $"{baseunit.Unit}");
@@ -104,17 +81,17 @@ namespace EngineeringUnits
             
         }
 
-        protected Enumeration(Enumeration unit, string NewSymbol, decimal correction)
+        protected UnitEnumbase(UnitEnumbase unit, string NewSymbol, decimal correction)
         {
             Unit = new UnitSystem(unit * correction, NewSymbol);
         }
 
-        private Enumeration(Enumeration unit, bool ReverseCount)
+        private UnitEnumbase(UnitEnumbase unit, bool ReverseCount)
         {
             //Used for cloning
             QuantityName = unit.QuantityName;
             Symbol = unit.Symbol;
-            NewC = unit.NewC;
+            A = unit.A;
             B = unit.B;
 
             if (ReverseCount)            
@@ -125,13 +102,13 @@ namespace EngineeringUnits
             if (unit.Unit is not null)            
                 Unit = new UnitSystem(unit.Unit, unit.Symbol);            
 
-            TypeOfUnit = unit.TypeOfUnit;
+            UnitType = unit.UnitType;
 
-            if (NewC == Fraction.One)
+            if (A == Fraction.One)
                 IsSI = true;
         }
 
-        public Enumeration(Enumeration unit, int NewCount) : this(unit, false)
+        public UnitEnumbase(UnitEnumbase unit, int NewCount) : this(unit, false)
         {
             Count = NewCount;
         }
@@ -150,7 +127,7 @@ namespace EngineeringUnits
      
         public override bool Equals(object obj)
         {
-            if (obj is not Enumeration)
+            if (obj is not UnitEnumbase)
             {
                 return false;
             }
@@ -217,16 +194,16 @@ namespace EngineeringUnits
 
                _ => ""
            };
-        public static string BaseUnitSISymbol(BaseUnits baseUnits) =>
+        public static string BaseUnitSISymbol(BaseunitType baseUnits) =>
            baseUnits switch
            {
-               BaseUnits.time               => "s",
-               BaseUnits.length             => "m",
-               BaseUnits.mass               => "g",
-               BaseUnits.electricCurrent    => "A",
-               BaseUnits.temperature        => "",
-               BaseUnits.amountOfSubstance  => "mol",
-               BaseUnits.luminousIntensity  => "cd",
+               BaseunitType.time               => "s",
+               BaseunitType.length             => "m",
+               BaseunitType.mass               => "g",
+               BaseunitType.electricCurrent    => "A",
+               BaseunitType.temperature        => "",
+               BaseunitType.amountOfSubstance  => "mol",
+               BaseunitType.luminousIntensity  => "cd",
                _ => "",
            };
         public string GetNewSymbol(PreFix SI)
@@ -238,7 +215,7 @@ namespace EngineeringUnits
         }
 
         public static T GetUnitByString<T>(string name)
-            where T:Enumeration
+            where T:UnitEnumbase
         {
             foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
             {
@@ -249,7 +226,7 @@ namespace EngineeringUnits
             throw new ArgumentException($"Could not find a unit with a name of '{name}'");
         }
 
-        public static List<T> ListOf<T>() where T: Enumeration
+        public static List<T> ListOf<T>() where T: UnitEnumbase
         {
             List<T> local = new();
 
@@ -266,25 +243,25 @@ namespace EngineeringUnits
 
         public object Clone()
         {
-            return new Enumeration(this, false);
+            return new UnitEnumbase(this, false);
         }
 
-        public Enumeration CloneAndReverseCount()
+        public UnitEnumbase CloneAndReverseCount()
         {
-            return new Enumeration(this, true);
+            return new UnitEnumbase(this, true);
         }
 
 
-        public static UnitSystem operator *(Enumeration left, Enumeration right) => left.Unit* right.Unit;
-        public static UnitSystem operator *(UnitSystem left, Enumeration right) => left * right.Unit;
-        public static UnitSystem operator *(Enumeration left, UnitSystem right) => left.Unit * right;
+        public static UnitSystem operator *(UnitEnumbase left, UnitEnumbase right) => left.Unit* right.Unit;
+        public static UnitSystem operator *(UnitSystem left, UnitEnumbase right) => left * right.Unit;
+        public static UnitSystem operator *(UnitEnumbase left, UnitSystem right) => left.Unit * right;
 
-        public static UnitSystem operator *(decimal left, Enumeration right) => left * right.Unit;
-        public static UnitSystem operator *(Enumeration left, decimal right) => left.Unit * right;
+        public static UnitSystem operator *(decimal left, UnitEnumbase right) => left * right.Unit;
+        public static UnitSystem operator *(UnitEnumbase left, decimal right) => left.Unit * right;
 
-        public static UnitSystem operator /(Enumeration left, Enumeration right) => left.Unit / right.Unit;
-        public static UnitSystem operator /(Enumeration left, UnitSystem right) => left.Unit / right;
-        public static UnitSystem operator /(UnitSystem left, Enumeration right) => left / right.Unit;
+        public static UnitSystem operator /(UnitEnumbase left, UnitEnumbase right) => left.Unit / right.Unit;
+        public static UnitSystem operator /(UnitEnumbase left, UnitSystem right) => left.Unit / right;
+        public static UnitSystem operator /(UnitSystem left, UnitEnumbase right) => left / right.Unit;
 
 
         private int HashCode;
@@ -299,25 +276,25 @@ namespace EngineeringUnits
                 {
                     int hash = (int)2166136261;
                     // Suitable nullity checks etc, of course :)
-                    hash = (hash * 16777619) ^ NewC.GetHashCode();
+                    hash = (hash * 16777619) ^ A.GetHashCode();
                     hash = (hash * 45476689) ^ B.GetHashCode();
                     hash = (hash * 16777619) ^ Count.GetHashCode();
+                    hash = (hash * 16777619) ^ UnitType.GetHashCode();
 
+                    //int unittype = TypeOfUnit switch
+                    //{
+                    //    "AmountOfSubstanceUnit" => 1,
+                    //    "CombinedUnit" => 2,
+                    //    "DurationUnit" => 3,
+                    //    "ElectricCurrentUnit" => 4,
+                    //    "LengthUnit" => 5,
+                    //    "LuminousIntensityUnit" => 6,
+                    //    "MassUnit" => 7,
+                    //    "TemperatureUnit" => 8,
+                    //    _ => 0,
+                    //};
 
-                    int unittype = TypeOfUnit switch
-                    {
-                        "AmountOfSubstanceUnit" => 1,
-                        "CombinedUnit" => 2,
-                        "DurationUnit" => 3,
-                        "ElectricCurrentUnit" => 4,
-                        "LengthUnit" => 5,
-                        "LuminousIntensityUnit" => 6,
-                        "MassUnit" => 7,
-                        "TemperatureUnit" => 8,
-                        _ => 0,
-                    };
-
-                    hash = (hash * 566936767) ^ unittype.GetHashCode();
+                    //hash = (hash * 566936767) ^ unittype.GetHashCode();
 
                     HashCode = hash;
                 }

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class TorquePerLengthUnit : Enumeration
+    public class TorquePerLengthUnit : UnitEnumbase
     {
 
         public static readonly TorquePerLengthUnit SI =                                 new(TorqueUnit.SI,                      LengthUnit.SI);

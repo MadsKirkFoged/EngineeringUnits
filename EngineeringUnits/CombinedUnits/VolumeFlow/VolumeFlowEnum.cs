@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class VolumeFlowUnit : Enumeration
+    public class VolumeFlowUnit : UnitEnumbase
     {
 
         public static readonly VolumeFlowUnit AcreFootPerDay =           new(VolumeUnit.AcreFoot, DurationUnit.Day, "af/d");

@@ -10,39 +10,27 @@ namespace EngineeringUnits.Units
 
 
 
-    public class ElectricCurrentUnit : Enumeration
+    public class ElectricCurrentUnit : UnitEnumbase
     {
 
 
-        public static readonly ElectricCurrentUnit SI =          new(PreFix.SI, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Ampere =      new(PreFix.SI, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Centiampere = new(PreFix.centi, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Kiloampere =  new(PreFix.kilo, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Megaampere =  new(PreFix.mega, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Microampere = new(PreFix.micro, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Milliampere = new(PreFix.milli, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Nanoampere =  new(PreFix.nano, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Picoampere =  new(PreFix.pico, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit SI =          new(PreFix.SI);
+        public static readonly ElectricCurrentUnit Ampere =      new(PreFix.SI);
+        public static readonly ElectricCurrentUnit Centiampere = new(PreFix.centi);
+        public static readonly ElectricCurrentUnit Kiloampere =  new(PreFix.kilo);
+        public static readonly ElectricCurrentUnit Megaampere =  new(PreFix.mega);
+        public static readonly ElectricCurrentUnit Microampere = new(PreFix.micro);
+        public static readonly ElectricCurrentUnit Milliampere = new(PreFix.milli);
+        public static readonly ElectricCurrentUnit Nanoampere =  new(PreFix.nano);
+        public static readonly ElectricCurrentUnit Picoampere =  new(PreFix.pico);
 
 
         public ElectricCurrentUnit() { }
 
 
-        public ElectricCurrentUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+          public ElectricCurrentUnit(PreFix SI) : base(SI, BaseunitType.electricCurrent)
         {
             Unit = new UnitSystem(this);
-            //Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
-        }
-
-
-        public ElectricCurrentUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
-        {
-            Unit = new UnitSystem(this);
-           // Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }     
 
        

@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,20 +10,20 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AmountOfSubstanceUnit : Enumeration
+    public class AmountOfSubstanceUnit : UnitEnumbase
     {
 
 
-        public static readonly AmountOfSubstanceUnit SI =        new(PreFix.SI, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Mole =      new(PreFix.SI, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Centimole = new(PreFix.centi, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Decimole =  new(PreFix.deci, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Kilomole =  new(PreFix.kilo, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Megamole =  new(PreFix.mega, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Micromole = new(PreFix.micro, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Millimole = new(PreFix.milli, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Nanomole =  new(PreFix.nano, BaseUnits.amountOfSubstance);
-        public static readonly AmountOfSubstanceUnit Picomole = new(PreFix.pico, BaseUnits.amountOfSubstance);
+        public static readonly AmountOfSubstanceUnit SI =        new(PreFix.SI);
+        public static readonly AmountOfSubstanceUnit Mole =      new(PreFix.SI);
+        public static readonly AmountOfSubstanceUnit Centimole = new(PreFix.centi);
+        public static readonly AmountOfSubstanceUnit Decimole =  new(PreFix.deci);
+        public static readonly AmountOfSubstanceUnit Kilomole =  new(PreFix.kilo);
+        public static readonly AmountOfSubstanceUnit Megamole =  new(PreFix.mega);
+        public static readonly AmountOfSubstanceUnit Micromole = new(PreFix.micro);
+        public static readonly AmountOfSubstanceUnit Millimole = new(PreFix.milli);
+        public static readonly AmountOfSubstanceUnit Nanomole =  new(PreFix.nano);
+        public static readonly AmountOfSubstanceUnit Picomole = new(PreFix.pico);
 
         public static readonly AmountOfSubstanceUnit NanopoundMole =     new("nlbmol",  1e-9m * 453.59237m);
         public static readonly AmountOfSubstanceUnit MicropoundMole =    new("µlbmol",  1e-6m * 453.59237m);
@@ -36,21 +37,15 @@ namespace EngineeringUnits.Units
         public AmountOfSubstanceUnit() { }
 
 
-        public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, Constant)
+        public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.amountOfSubstance)
         {
             Unit = new UnitSystem(this);
-            //Unit.Amount = (AmountOfSubstanceUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }
 
 
-        public AmountOfSubstanceUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public AmountOfSubstanceUnit(PreFix SI) : base(SI, BaseunitType.amountOfSubstance)
         {
             Unit = new UnitSystem(this);
-            //Unit.Amount = (AmountOfSubstanceUnit)Clone();
-
-            //Unit.ListOfUnits.Add(this);
         }     
 
     }

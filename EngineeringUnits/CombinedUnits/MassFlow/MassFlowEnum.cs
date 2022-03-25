@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class MassFlowUnit : Enumeration
+    public class MassFlowUnit : UnitEnumbase
     {
 
         public static readonly MassFlowUnit CentigramPerDay =    new(MassUnit.Centigram, DurationUnit.Day);

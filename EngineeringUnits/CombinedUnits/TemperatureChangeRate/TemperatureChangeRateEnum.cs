@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class TemperatureChangeRateUnit : Enumeration
+    public class TemperatureChangeRateUnit : UnitEnumbase
     {
 
         public static readonly TemperatureChangeRateUnit SI = new(TemperatureUnit.SI, DurationUnit.SI);

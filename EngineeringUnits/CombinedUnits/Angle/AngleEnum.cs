@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AngleUnit : Enumeration
+    public class AngleUnit : UnitEnumbase
     {
 
         public static readonly AngleUnit SI = new("°", 1m);

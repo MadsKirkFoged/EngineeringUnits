@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpeedUnit : Enumeration
+    public class SpeedUnit : UnitEnumbase
     {
 
        public static readonly SpeedUnit CentimeterPerHour =     new(LengthUnit.Centimeter,    DurationUnit.Hour);

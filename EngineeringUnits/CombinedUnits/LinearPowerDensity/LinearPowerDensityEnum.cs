@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LinearPowerDensityUnit : Enumeration
+    public class LinearPowerDensityUnit : UnitEnumbase
     {
 
         public static readonly LinearPowerDensityUnit SI = new(PowerUnit.SI, LengthUnit.SI);

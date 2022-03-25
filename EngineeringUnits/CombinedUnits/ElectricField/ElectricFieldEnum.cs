@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricFieldUnit : Enumeration
+    public class ElectricFieldUnit : UnitEnumbase
     {
 
         public static readonly ElectricFieldUnit SI = new(ElectricPotentialUnit.SI, LengthUnit.SI);

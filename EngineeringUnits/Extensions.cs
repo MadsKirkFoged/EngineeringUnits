@@ -31,9 +31,9 @@ namespace EngineeringUnits
         public static UnitSystem ReduceUnits(this UnitSystem a)
         {
 
-            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+            var test = a.ListOfUnits.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<Enumeration>();
+            var NewUnitList = new List<UnitEnumbase>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -48,13 +48,13 @@ namespace EngineeringUnits
 
                     var groupOfSameConstant = GroupOfTypes
                         .Select(x => x)
-                        .GroupBy(x => x.NewC);
+                        .GroupBy(x => x.A);
 
 
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        Enumeration NewUnit = new(item.First(),
+                        UnitEnumbase NewUnit = new(item.First(),
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -72,9 +72,9 @@ namespace EngineeringUnits
 
             //This reduces units of the same baseunit-type but with different types 
 
-            var test = a.ListOfUnits.GroupBy(x => x.TypeOfUnit);
+            var test = a.ListOfUnits.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<Enumeration>();
+            var NewUnitList = new List<UnitEnumbase>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -87,7 +87,7 @@ namespace EngineeringUnits
                 else
                 {
                     int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
-                    NewUnitList.Add( new Enumeration(GroupOfTypes.First(), TotalCount));
+                    NewUnitList.Add( new UnitEnumbase(GroupOfTypes.First(), TotalCount));
 
                 }
 
@@ -227,7 +227,7 @@ namespace EngineeringUnits
         {
            return a.BaseUnit.Pow(toPower);
         }
-        public static UnitSystem Pow(this Enumeration a, int toPower)
+        public static UnitSystem Pow(this UnitEnumbase a, int toPower)
         {
             return a.Unit.Pow(toPower);
         }

@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
 
 
-    public class CombinedUnit : Enumeration
+    public class CombinedUnit : UnitEnumbase
     {
 
 
@@ -20,11 +20,11 @@ namespace EngineeringUnits
         public CombinedUnit() { }
 
 
-        public CombinedUnit(string symbol, Fraction Constant) : base(symbol, Constant)
+        public CombinedUnit(string symbol, Fraction Constant) : base(symbol, Constant, BaseunitType.CombinedUnit)
         {
             Unit = new UnitSystem(this);
         }
-        public CombinedUnit(decimal Constant) : base(null, Constant)
+        public CombinedUnit(decimal Constant) : base(null, new Fraction(Constant), BaseunitType.CombinedUnit)
         {
             Unit = new UnitSystem(this);
         }

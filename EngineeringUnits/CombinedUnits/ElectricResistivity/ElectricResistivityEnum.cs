@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricResistivityUnit : Enumeration
+    public class ElectricResistivityUnit : UnitEnumbase
     {
 
         public static readonly ElectricResistivityUnit SI = new(ElectricResistanceUnit.SI, LengthUnit.SI);

@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class RotationalSpeedUnit : Enumeration
+    public class RotationalSpeedUnit : UnitEnumbase
     {
 
         public static readonly RotationalSpeedUnit SI = new(DurationUnit.Second, "rad/s");

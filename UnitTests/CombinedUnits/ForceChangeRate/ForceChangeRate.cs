@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ForceChangeRateUnit>())
+            foreach (var EU in UnitEnumbase.ListOf<ForceChangeRateUnit>())
             {
 
 

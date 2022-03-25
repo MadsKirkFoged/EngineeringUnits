@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class IrradianceUnit : Enumeration
+    public class IrradianceUnit : UnitEnumbase
     {
 
         public static readonly IrradianceUnit SI = new(PowerUnit.SI, AreaUnit.SI);

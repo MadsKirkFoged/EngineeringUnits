@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class HeatTransferCoefficientUnit : Enumeration
+    public class HeatTransferCoefficientUnit : UnitEnumbase
     {
 
         public static readonly HeatTransferCoefficientUnit SI = new(PowerUnit.SI, AreaUnit.SI, TemperatureUnit.SI);

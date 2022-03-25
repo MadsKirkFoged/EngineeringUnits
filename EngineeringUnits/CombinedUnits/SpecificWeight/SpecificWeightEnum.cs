@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpecificWeightUnit : Enumeration
+    public class SpecificWeightUnit : UnitEnumbase
     {
 
         public static readonly SpecificWeightUnit SI = new(ForceUnit.SI, VolumeUnit.SI);

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LevelUnit : Enumeration
+    public class LevelUnit : UnitEnumbase
     {
 
         public static readonly LevelUnit SI = new();

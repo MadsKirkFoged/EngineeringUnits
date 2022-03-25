@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MagnetizationUnit : Enumeration
+    public class MagnetizationUnit : UnitEnumbase
     {
 
         public static readonly MagnetizationUnit SI = new(ElectricCurrentUnit.SI, LengthUnit.SI);
