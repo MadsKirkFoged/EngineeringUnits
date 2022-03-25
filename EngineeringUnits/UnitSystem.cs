@@ -342,11 +342,11 @@ namespace EngineeringUnits
         }
 
         public static bool  EqualWithoutHash(UnitSystem a, UnitSystem b)
-        {
-            bool aSI=false, bSI=false;
-            string aSymbol=null,bSymbol=null; int aCount, bCount; decimal aB=0, bB=0; Fraction aNewC, bNewC;
-            string aType, bType;UnitSystem  aUnit , bUnit ;
-            
+        { 
+            int aCount;
+            decimal aB = 0;
+            Fraction aNewC;
+            string aType;            
 
             bool equal = false;
 
@@ -359,22 +359,19 @@ namespace EngineeringUnits
             {
                 for (int i = 0; i < a.ListOfUnits.Count(); i++)
                 {
-                    aSI = a.ListOfUnits[i].IsSI;
-                    aSymbol = a.ListOfUnits[i].Symbol;
                     aCount = a.ListOfUnits[i].Count;
                     aB = a.ListOfUnits[i].B;
                     aNewC = a.ListOfUnits[i].NewC;
-                    aUnit = a.ListOfUnits[i].Unit;
                     aType = a.ListOfUnits[i].TypeOfUnit;
                     for ( int j=0; j <b.ListOfUnits.Count(); j++)
                     {
 
-                        if (aSI == b.ListOfUnits[i].IsSI && aSymbol == b.ListOfUnits[i].Symbol &&
-                            aCount == b.ListOfUnits[i].Count && aB == b.ListOfUnits[i].B
-                            && aNewC == b.ListOfUnits[i].NewC && aType == b.ListOfUnits[i].TypeOfUnit && aUnit == b.ListOfUnits[i].Unit)
+                        if (aCount == b.ListOfUnits[i].Count &&
+                            aB == b.ListOfUnits[i].B &&
+                            aNewC == b.ListOfUnits[i].NewC &&
+                            aType == b.ListOfUnits[i].TypeOfUnit)
                         {
                             equal = true;
-                           // break;
                         }
 
                     }
