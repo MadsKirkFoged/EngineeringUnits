@@ -15,70 +15,46 @@ namespace EngineeringUnits
     public record RawUnit
     {
 
-        [JsonIgnore]
-        public string QuantityName { get; set; }
-
         [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue("")]
         public string Symbol { get; init; } 
 
-        [JsonProperty(PropertyName = "A", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public Fraction A { get; init; }
 
-        [JsonProperty(PropertyName = "B", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
         public decimal B { get; init; }
 
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(1)]
         public int Count { get; init; } 
+        public BaseunitType UnitType { get; init; }
 
         [JsonIgnore]
         public Fraction TotalConstant => Fraction.Pow(A, Count);
 
-        [JsonProperty(PropertyName = "Type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-        public BaseunitType UnitType { get; init; }
-
         [JsonIgnore]
         public bool IsSI { get; init; }
 
-        public RawUnit()
-        {
-        }
+        public RawUnit() {}
 
-        private RawUnit(RawUnit unit, bool ReverseCount)
-        {
-            //Used for cloning
-            QuantityName = unit.QuantityName;
-            Symbol = unit.Symbol;
-            A = unit.A;
-            B = unit.B;
-
-            if (ReverseCount)            
-                Count = unit.Count*-1;            
-            else
-                Count = unit.Count;
-  
-
-            UnitType = unit.UnitType;
-
-            if (A == Fraction.One)
-                IsSI = true;
-        }
-
-        public RawUnit(RawUnit unit, int NewCount) : this(unit, false)
-        {
-            Count = NewCount;
-        }
 
 
         public RawUnit CloneAndReverseCount()
         {
+            return this with
+            {
+                Count = Count * -1,
+                HashCode = 0,
+            };
 
-            //return this with
-            //{
-            //    Count = Count * -1,
-            //};
+        }
 
+        public RawUnit CloneWithNewCount(int newCount)
+        {
+            return this with
+            {
+                Count = newCount,
+                HashCode = 0,
+            };
 
-            return new RawUnit(this, true);
         }
 
 

@@ -20,8 +20,8 @@ namespace EngineeringUnits
         public UnitSystem Unit { get; init;}
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => (double)SI;
-        public decimal NEWValue { get; init; }
+        public double Value => (double)baseValue;
+        protected decimal NEWValue { get; init; }
 
         public BaseUnit() {}
         public BaseUnit(decimal value, UnitSystem unitSystem)
@@ -41,8 +41,6 @@ namespace EngineeringUnits
                 NEWValue = (decimal)value;
             }
         }
-
-       
         public BaseUnit(int value, UnitSystem unitSystem)
         {
             Unit = unitSystem;
@@ -55,7 +53,7 @@ namespace EngineeringUnits
             NEWValue = unit.BaseUnit.NEWValue;
         }
 
-        public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
+        public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
 
         public void UnitCheck(IUnitSystem a)
         {
@@ -445,19 +443,13 @@ namespace EngineeringUnits
 
             if (Unit != other.Unit)
                 throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
-
-          //  return (int)((double)NEWValue - other.As(this));
-
-            var compare = ((double)NEWValue - (double)other.As(this))
 ;
-            var result = compare switch
+            return (this - other).SI switch
             {
-                0 => 0,
-                < 0 => -1,
-                > 0 => 1,
+                0m => 0,
+                <0m => -1,
+                >0m => 1,
             };
-            //return (int)((double)_baseUnit.NEWValue - other._baseUnit.As(this._baseUnit));
-            return (int)result;
         }
 
     }

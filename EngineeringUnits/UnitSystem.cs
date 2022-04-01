@@ -6,24 +6,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System;
-//using System.Text.Json.Serialization;
+
 
 namespace EngineeringUnits
 {
-
-    
-
-
 
     public class UnitSystem 
     {      
         public static readonly UnitSystem UnitsystemForDouble = new();
 
 
-        //private bool SI { get; init; }
-
-        public string Symbol { get; init; }
-     
+        public string Symbol { get; init; }     
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public readonly IReadOnlyList<RawUnit> ListOfUnits = new List<RawUnit>();
@@ -37,9 +30,7 @@ namespace EngineeringUnits
             Symbol = symbol;
         }
 
-
-        public UnitSystem(RawUnit unit, string symbol): this(new List<RawUnit>() { unit }, symbol) {}
-        public UnitSystem(RawUnit unit) :               this(unit, null) { }
+        public UnitSystem(RawUnit unit) : this(new List<RawUnit>() {unit}) { }
         public UnitSystem(decimal unit, string symbol)
         {
             //Adding just a dimensionless unit
@@ -50,13 +41,10 @@ namespace EngineeringUnits
                 UnitType = BaseunitType.CombinedUnit,
                 B = 0,
                 Count = 1,
-
             };
-
 
             ListOfUnits = new List<RawUnit>() {dimensionless};
         }
-
 
         public UnitSystem(UnitSystem unit, string symbol)
         {
@@ -64,8 +52,6 @@ namespace EngineeringUnits
             Symbol = symbol;
         }
 
-
-        private List<(BaseunitType Key, int Value)> _UnitsCount;
         public List<(BaseunitType Key, int Value)> UnitsCount()
         {
             if (_UnitsCount is null)
@@ -79,27 +65,10 @@ namespace EngineeringUnits
             }
 
             return _UnitsCount;
-
-            //return ListOfUnits
-            //        .Where(x => x.TypeOfUnit != "CombinedUnit")
-            //        .GroupBy(x => x.TypeOfUnit)
-            //        .Select(x => (x.Key, x.Sum(x => x.Count)))
-            //        .Where(x => x.Item2 != 0)
-            //        .ToList();
         }
 
         public static bool operator ==(UnitSystem a, UnitSystem b)
         {
-            //var aUnitsCount = a.UnitsCount();
-            //var bUnitsCount = b.UnitsCount();
-
-
-            //var test = aUnitsCount.All(bUnitsCount.Contains) &&
-            //           aUnitsCount.Count == bUnitsCount.Count;
-
-            //var test2 = a.GetHashCodeForUnitCompare();
-            //var test3 = b.GetHashCodeForUnitCompare();
-
             return a.GetHashCodeForUnitCompare() == b.GetHashCodeForUnitCompare();
         }
         public static bool operator !=(UnitSystem a, UnitSystem b)
@@ -107,17 +76,14 @@ namespace EngineeringUnits
             return !(a == b);
         }
 
-        private Fraction _sumConstant;
+        
         public Fraction SumConstant()
         {
-            if (_sumConstant == Fraction.Zero)
-            {
-                _sumConstant = ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);
-            }
+            if (_sumConstant == Fraction.Zero)            
+                _sumConstant = ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);            
 
             return _sumConstant;
         }
-
         public Fraction SumOfBConstants()
         {
             return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
@@ -127,65 +93,70 @@ namespace EngineeringUnits
             return To.SumConstant() / SumConstant();
         }
 
-
-        public static UnitSystem Add(UnitSystem a, UnitSystem b)
+        public static UnitSystem operator +(UnitSystem left, UnitSystem right)
         {
-            if (a != b)            
-                throw new WrongUnitException($"Failed to do: {a} + {b}. Expected both units to be the same!");
-            
+            if (left != right)
+                throw new WrongUnitException($"Failed to do: {left} + {right}. Expected both units to be the same!");
 
-            //Using 'a's unitsystem as the final system
-            return a;
+            //Using left unitsystem as the final system
+            return left;
         }
-        public static UnitSystem Subtract(UnitSystem a, UnitSystem b)
+        public static UnitSystem operator -(UnitSystem left, UnitSystem right)
         {
-            if (a != b)            
-                throw new WrongUnitException($"Failed to do: {a} - {b}. Expected both units to be the same!");
-            
+            if (left != right)
+                throw new WrongUnitException($"Failed to do: {left} - {right}. Expected both units to be the same!");
 
-            //Using a unitsystem as the final system
-            return a;
+            //Using left unitsystem as the final system
+            return left;
+
+
 
         }
-        public static UnitSystem Multiply(UnitSystem a, UnitSystem b)
+        public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
             int hashCode;
-            unchecked 
-            { 
-                hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;            
+            unchecked
+            {
+                hashCode = left.GetHashCode() * 11270411 + right.GetHashCode() * 18403087;
             }
-            
+
 
             if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
             {
                 return local;
-            } 
+            }
 
             var test2 = new UnitSystem(
                         new List<RawUnit>(
-                            a.ListOfUnits.Concat(
-                            b.ListOfUnits)));
+                            left.ListOfUnits.Concat(
+                            right.ListOfUnits)));
 
             CacheMultiply.Add(hashCode, test2);
 
             return test2;
+
+
         }
-        public static UnitSystem Multiply(UnitSystem a, decimal constant)
+        public static UnitSystem operator *(decimal left, UnitSystem right)
         {
-            if (constant == 1)            
-                return a;
-            
+            return right * left;
+        }
+        public static UnitSystem operator *(UnitSystem left, decimal right)
+        {
+            if (right == 1)
+                return left;
+
 
 
             List<RawUnit> LocalUnitList = new();
 
-            LocalUnitList.AddRange(a.ListOfUnits);
+            LocalUnitList.AddRange(left.ListOfUnits);
             //LocalUnitList.Add(new CombinedUnit(constant));
 
             var dimensionless = new RawUnit()
             {
                 Symbol=null,
-                A = new(constant),
+                A = new(right),
                 UnitType = BaseunitType.CombinedUnit,
                 B = 0,
                 Count = 1,
@@ -194,19 +165,18 @@ namespace EngineeringUnits
             LocalUnitList.Add(dimensionless);
 
 
-            return new UnitSystem(LocalUnitList, a.Symbol);
+            return new UnitSystem(LocalUnitList, left.Symbol);
+
+
 
         }
-        public static UnitSystem Divide(UnitSystem a, UnitSystem b)
+        public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
-
             int hashCode = 512265997;
             unchecked
             {
-                //hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
-                //hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
-                hashCode = (hashCode * 18403087) ^ a.GetHashCode();
-                hashCode = (hashCode * 11270411) ^ b.GetHashCode();
+                hashCode = (hashCode * 18403087) ^ left.GetHashCode();
+                hashCode = (hashCode * 11270411) ^ right.GetHashCode();
             }
 
 
@@ -218,9 +188,9 @@ namespace EngineeringUnits
             }
 
 
-            List<RawUnit> LocalUnitList = new(a.ListOfUnits);
+            List<RawUnit> LocalUnitList = new(left.ListOfUnits);
 
-            foreach (var item in b.ListOfUnits)
+            foreach (var item in right.ListOfUnits)
                 LocalUnitList.Add(item.CloneAndReverseCount());
 
 
@@ -230,34 +200,7 @@ namespace EngineeringUnits
 
             return test2;
 
-
-
-            //List<Enumeration> LocalUnitList = new(a.ListOfUnits);
-
-            //foreach (var item in b.ListOfUnits)            
-            //    LocalUnitList.Add(item.CloneAndReverseCount());        
-
-
-            //return new UnitSystem(LocalUnitList);
-
         }
-
-
-        //Cache unitsystem when multiply
-        private static readonly Dictionary<int, UnitSystem> CacheMultiply = new();
-        private static readonly Dictionary<int, UnitSystem> CacheDivide = new();
-
-
-
-        public static UnitSystem operator +(UnitSystem left, UnitSystem right) => Add(left, right);
-        public static UnitSystem operator -(UnitSystem left, UnitSystem right) => Subtract(left, right);
-
-        public static UnitSystem operator *(UnitSystem left, UnitSystem right) => Multiply(left, right);
-        public static UnitSystem operator *(decimal left, UnitSystem right) => Multiply(right, left);
-        public static UnitSystem operator *(UnitSystem left, decimal right) => Multiply(left, right);
-        public static UnitSystem operator /(UnitSystem left, UnitSystem right) => Divide(left, right);
-
-
 
 
         public override string ToString()
@@ -285,7 +228,6 @@ namespace EngineeringUnits
             return local;
         }
 
-
         public static List<RawUnit> ReduceUnits(List<RawUnit> ListToBeReduced)
         {
 
@@ -312,8 +254,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        RawUnit NewUnit = new(item.First(), 
-                                                              item.Sum(x => x.Count));
+                        RawUnit NewUnit = item.First().CloneWithNewCount(item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
 
@@ -324,8 +265,6 @@ namespace EngineeringUnits
 
             return NewUnitList;
         }
-
-
         public UnitSystem Sqrt()
         {
 
@@ -336,15 +275,13 @@ namespace EngineeringUnits
                 if (item.Count % 2 != 0)                
                     throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
 
-                NewUnitList.Add(new(item, item.Count/2));
+                NewUnitList.Add(item.CloneWithNewCount(item.Count/2));
             }
 
             var combinedUnit = ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit).FirstOrDefault();
 
             if (combinedUnit is not null)
             {
-                 //NewUnitList.Add(new CombinedUnit("", combinedUnit.A.Sqrt()));
-
 
                 var dimensionless = new RawUnit()
                 {
@@ -369,29 +306,21 @@ namespace EngineeringUnits
             return new(NewUnitList);       
         }
        
-
-
-        private int HashCode;
-
         public override int GetHashCode()
         {
             if (HashCode == 0)
             {
-
-                HashCode = (int)795945743;                
-
+                HashCode = (int)795945743;              
 
                 foreach (var item in ListOfUnits.OrderBy(x => x.UnitType))
                 {
-                    //HashCode += item.GetHashCode();
                     HashCode = (HashCode * 512265997) ^ item.GetHashCode();
                 }
             }
 
             return HashCode;
         }
-
-        public static bool  EqualWithoutHash(UnitSystem a, UnitSystem b)
+        public static bool EqualWithoutHash(UnitSystem a, UnitSystem b)
         { 
             int aCount;
             decimal aB = 0;
@@ -434,13 +363,6 @@ namespace EngineeringUnits
 
            
         }
-
-      
-
-
-
-        private int HashCodeForUnitCompare;
-
         public int GetHashCodeForUnitCompare()
         {
             if (HashCodeForUnitCompare == 0)
@@ -464,18 +386,20 @@ namespace EngineeringUnits
             return HashCodeForUnitCompare;
         }
 
-        public UnitSystem Clone()
-        {
-            return new UnitSystem(new List<RawUnit>(ListOfUnits), Symbol);
-        }
-
 
         public bool IsSIUnit()
         {
           return ListOfUnits.All(x=> x.IsSI);
         }
 
-      
 
+
+        //Cache
+        private static readonly Dictionary<int, UnitSystem> CacheMultiply = new();
+        private static readonly Dictionary<int, UnitSystem> CacheDivide = new();
+        private List<(BaseunitType Key, int Value)> _UnitsCount;
+        private int HashCode;
+        private Fraction _sumConstant;
+        private int HashCodeForUnitCompare;
     }
 }

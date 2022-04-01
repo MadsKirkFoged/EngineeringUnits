@@ -54,8 +54,9 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        RawUnit NewUnit = new(item.First(),
-                                                              item.Sum(x => x.Count));
+                        int NewCount = item.Sum(x => x.Count);
+
+                        RawUnit NewUnit = item.First().CloneWithNewCount(NewCount);
 
                         NewUnitList.Add(NewUnit);
 
@@ -87,7 +88,7 @@ namespace EngineeringUnits
                 else
                 {
                     int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
-                    NewUnitList.Add( new RawUnit(GroupOfTypes.First(), TotalCount));
+                    NewUnitList.Add(GroupOfTypes.First().CloneWithNewCount(TotalCount));
 
                 }
 
@@ -150,7 +151,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Abs(this BaseUnit a)
         {
-            if (a.SI < 0)
+            if (a.baseValue < 0)
                 return a * -1;
             else
                 return a;
@@ -264,7 +265,7 @@ namespace EngineeringUnits
 
         public static bool IsZero(this BaseUnit a)
         {
-            return a.SI == 0;
+            return a.baseValue == 0;
         }
         public static bool IsZero(this UnknownUnit a)
         {
@@ -282,7 +283,7 @@ namespace EngineeringUnits
 
         public static bool IsAboveZero(this BaseUnit a)
         {
-            return a.SI > 0;
+            return a.baseValue > 0;
         }
         public static bool IsAboveZero(this UnknownUnit a)
         {
@@ -291,7 +292,7 @@ namespace EngineeringUnits
 
         public static bool IsBelowZero(this BaseUnit a)
         {
-            return a.SI < 0;
+            return a.baseValue < 0;
         }
         public static bool IsBelowZero(this UnknownUnit a)
         {

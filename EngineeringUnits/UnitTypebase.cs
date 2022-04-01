@@ -18,22 +18,11 @@ namespace EngineeringUnits
         [JsonIgnore]
         public string QuantityName { get; set; }
 
-        [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue("")]
-        public string Symbol { get; init; } 
-
-
         [JsonIgnore]
         public UnitSystem Unit { get; init; }
 
- 
-        [JsonIgnore]
-        public bool IsSI { get; init; }
 
-
-
-        public UnitTypebase()
-        {
-        }
+        public UnitTypebase() {}
 
 
        
