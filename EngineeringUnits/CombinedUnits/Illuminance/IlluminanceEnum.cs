@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class IlluminanceUnit : UnitEnumbase
+    public record IlluminanceUnit : UnitTypebase
     {
 
         public static readonly IlluminanceUnit SI = new(LuminousIntensityUnit.SI, AreaUnit.SI, "lx");
@@ -25,8 +25,15 @@ namespace EngineeringUnits.Units
         }
 
      
-        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit) : base(SI, unit) {}       
+        public IlluminanceUnit(PreFix SI, IlluminanceUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

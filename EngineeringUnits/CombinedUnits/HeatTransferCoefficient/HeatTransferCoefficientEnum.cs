@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class HeatTransferCoefficientUnit : UnitEnumbase
+    public record HeatTransferCoefficientUnit : UnitTypebase
     {
 
         public static readonly HeatTransferCoefficientUnit SI = new(PowerUnit.SI, AreaUnit.SI, TemperatureUnit.SI);
@@ -27,7 +27,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(power / (area * temperature), NewSymbol);
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
     }
 

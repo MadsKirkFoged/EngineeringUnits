@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class CoefficientOfThermalExpansionUnit : UnitEnumbase
+    public record CoefficientOfThermalExpansionUnit : UnitTypebase
     {
 
         public static readonly CoefficientOfThermalExpansionUnit SI = new(TemperatureUnit.SI);
@@ -20,8 +20,14 @@ namespace EngineeringUnits.Units
         public CoefficientOfThermalExpansionUnit(TemperatureUnit temperature, string NewSymbol = null)
         {
             Unit = new UnitSystem(temperature.Pow(-1), NewSymbol);
-        }      
+        }
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

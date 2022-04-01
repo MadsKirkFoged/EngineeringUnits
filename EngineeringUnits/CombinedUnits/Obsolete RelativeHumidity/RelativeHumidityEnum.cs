@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
     [Obsolete("RelativeHumidity is deprecated, please use Ratio instead.", true)]
-    public class RelativeHumidityUnit : UnitEnumbase
+    public record RelativeHumidityUnit : UnitTypebase
     {
 
        

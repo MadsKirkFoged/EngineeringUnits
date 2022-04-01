@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class LengthUnit : UnitEnumbase
+    public record LengthUnit : UnitTypebase
     {
 
 
@@ -55,17 +55,45 @@ namespace EngineeringUnits.Units
 
         public LengthUnit() { }
 
-        public LengthUnit(string NewSymbol, decimal Constant) : base(NewSymbol, new Fraction(Constant), BaseunitType.length)
+        public LengthUnit(string NewSymbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=NewSymbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.length,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
-        public LengthUnit(PreFix SI) : base(SI, BaseunitType.length)
+        public LengthUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }             
 
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.length),
+                A = new Fraction(PrefixSISize(SI)),
+                UnitType = BaseunitType.length,
+                B = 0,
+                Count = 1,
 
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

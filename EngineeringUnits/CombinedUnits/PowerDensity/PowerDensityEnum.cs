@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PowerDensityUnit : UnitEnumbase
+    public record PowerDensityUnit : UnitTypebase
     {
 
         public static readonly PowerDensityUnit SI = new(PowerUnit.SI, VolumeUnit.SI);
@@ -64,7 +64,14 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(power / volume, 
                                $"{power}/{volume}");
         }
-       
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

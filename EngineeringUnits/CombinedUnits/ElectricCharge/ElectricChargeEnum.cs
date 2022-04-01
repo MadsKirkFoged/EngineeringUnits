@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricChargeUnit : UnitEnumbase
+    public record ElectricChargeUnit : UnitTypebase
     {
 
         public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI, "C");
@@ -25,6 +25,14 @@ namespace EngineeringUnits.Units
              
 
         public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit) {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

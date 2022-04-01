@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricAdmittanceUnit : UnitEnumbase
+    public record ElectricAdmittanceUnit : UnitTypebase
     {
 
         public static readonly ElectricAdmittanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "S");
@@ -26,7 +26,13 @@ namespace EngineeringUnits.Units
 
         public ElectricAdmittanceUnit(PreFix SI, ElectricAdmittanceUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
     }
 

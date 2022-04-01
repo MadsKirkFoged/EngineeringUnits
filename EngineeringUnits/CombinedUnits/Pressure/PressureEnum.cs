@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PressureUnit : UnitEnumbase
+    public record PressureUnit : UnitTypebase
     {
         public static readonly PressureUnit SI =             new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Pa");
         public static readonly PressureUnit Pascal =         new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, "Pa");
@@ -72,6 +72,14 @@ namespace EngineeringUnits.Units
         }
         public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit) {}
         public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

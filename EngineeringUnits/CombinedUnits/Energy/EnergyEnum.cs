@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class EnergyUnit : UnitEnumbase
+    public record EnergyUnit : UnitTypebase
     {
 
 
@@ -71,6 +71,14 @@ namespace EngineeringUnits.Units
 
 
         public EnergyUnit(PreFix SI, EnergyUnit unit) : base(SI, unit) {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

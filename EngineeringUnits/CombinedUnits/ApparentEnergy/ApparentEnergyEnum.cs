@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ApparentEnergyUnit : UnitEnumbase
+    public record ApparentEnergyUnit : UnitTypebase
     {
 
 
@@ -28,7 +28,13 @@ namespace EngineeringUnits.Units
     
         public ApparentEnergyUnit(PreFix SI, ApparentEnergyUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

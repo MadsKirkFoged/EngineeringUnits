@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MagneticFieldUnit : UnitEnumbase
+    public record MagneticFieldUnit : UnitTypebase
     {
 
         public static readonly MagneticFieldUnit SI = new(MassUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "T");
@@ -30,6 +30,13 @@ namespace EngineeringUnits.Units
         public MagneticFieldUnit(PreFix SI, MagneticFieldUnit unit) : base(SI, unit) {}
         public MagneticFieldUnit(MagneticFieldUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

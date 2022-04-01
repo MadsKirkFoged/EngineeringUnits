@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AmountOfSubstanceUnit : UnitEnumbase
+    public record AmountOfSubstanceUnit : UnitTypebase
     {
 
 
@@ -37,16 +37,45 @@ namespace EngineeringUnits.Units
         public AmountOfSubstanceUnit() { }
 
 
-        public AmountOfSubstanceUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.amountOfSubstance)
+        public AmountOfSubstanceUnit(string symbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var amountOfSubstance = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.amountOfSubstance,
+                B = 0,
+                Count = 1,
+            };
+
+
+            Unit = new UnitSystem(amountOfSubstance);
+
         }
 
 
-        public AmountOfSubstanceUnit(PreFix SI) : base(SI, BaseunitType.amountOfSubstance)
+        public AmountOfSubstanceUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }     
+            var amountOfSubstance = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.amountOfSubstance),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.amountOfSubstance,
+
+            };
+
+            Unit = new UnitSystem(amountOfSubstance);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)            
+                return $"{Unit.Symbol}";          
+
+            return $"{Unit}";
+        }
 
     }
 

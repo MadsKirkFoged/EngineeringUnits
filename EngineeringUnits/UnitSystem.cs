@@ -26,26 +26,41 @@ namespace EngineeringUnits
      
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
-        public readonly IReadOnlyList<UnitEnumbase> ListOfUnits = new List<UnitEnumbase>();
+        public readonly IReadOnlyList<RawUnit> ListOfUnits = new List<RawUnit>();
 
 
         public UnitSystem() {}
 
-        public UnitSystem(List<UnitEnumbase> LocalUnitList, string symbol = null)
+        public UnitSystem(List<RawUnit> LocalUnitList, string symbol = null)
         {
             ListOfUnits = ReduceUnits(LocalUnitList);
             Symbol = symbol;
         }
 
 
-        public UnitSystem(UnitEnumbase unit, string symbol): this(new List<UnitEnumbase>() { unit }, symbol) {}
-        public UnitSystem(UnitEnumbase unit) :               this(unit, null) { }
-        public UnitSystem(decimal unit, string symbol) :    this(new CombinedUnit(unit), symbol) { }
+        public UnitSystem(RawUnit unit, string symbol): this(new List<RawUnit>() { unit }, symbol) {}
+        public UnitSystem(RawUnit unit) :               this(unit, null) { }
+        public UnitSystem(decimal unit, string symbol)
+        {
+            //Adding just a dimensionless unit
+            var dimensionless = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new(unit),
+                UnitType = BaseunitType.CombinedUnit,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            ListOfUnits = new List<RawUnit>() {dimensionless};
+        }
 
 
         public UnitSystem(UnitSystem unit, string symbol)
         {
-            ListOfUnits = new List<UnitEnumbase>(unit.ListOfUnits);
+            ListOfUnits = new List<RawUnit>(unit.ListOfUnits);
             Symbol = symbol;
         }
 
@@ -147,7 +162,7 @@ namespace EngineeringUnits
             } 
 
             var test2 = new UnitSystem(
-                        new List<UnitEnumbase>(
+                        new List<RawUnit>(
                             a.ListOfUnits.Concat(
                             b.ListOfUnits)));
 
@@ -162,10 +177,22 @@ namespace EngineeringUnits
             
 
 
-            List<UnitEnumbase> LocalUnitList = new();
+            List<RawUnit> LocalUnitList = new();
 
             LocalUnitList.AddRange(a.ListOfUnits);
-            LocalUnitList.Add(new CombinedUnit(constant));
+            //LocalUnitList.Add(new CombinedUnit(constant));
+
+            var dimensionless = new RawUnit()
+            {
+                Symbol=null,
+                A = new(constant),
+                UnitType = BaseunitType.CombinedUnit,
+                B = 0,
+                Count = 1,
+
+            };
+            LocalUnitList.Add(dimensionless);
+
 
             return new UnitSystem(LocalUnitList, a.Symbol);
 
@@ -173,10 +200,13 @@ namespace EngineeringUnits
         public static UnitSystem Divide(UnitSystem a, UnitSystem b)
         {
 
-            int hashCode;
+            int hashCode = 512265997;
             unchecked
             {
-                hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
+                //hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
+                //hashCode = a.GetHashCode() * 11270411 + b.GetHashCode() * 18403087;
+                hashCode = (hashCode * 18403087) ^ a.GetHashCode();
+                hashCode = (hashCode * 11270411) ^ b.GetHashCode();
             }
 
 
@@ -188,7 +218,7 @@ namespace EngineeringUnits
             }
 
 
-            List<UnitEnumbase> LocalUnitList = new(a.ListOfUnits);
+            List<RawUnit> LocalUnitList = new(a.ListOfUnits);
 
             foreach (var item in b.ListOfUnits)
                 LocalUnitList.Add(item.CloneAndReverseCount());
@@ -256,12 +286,12 @@ namespace EngineeringUnits
         }
 
 
-        public static List<UnitEnumbase> ReduceUnits(List<UnitEnumbase> ListToBeReduced)
+        public static List<RawUnit> ReduceUnits(List<RawUnit> ListToBeReduced)
         {
 
            var test = ListToBeReduced.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<UnitEnumbase>();
+            var NewUnitList = new List<RawUnit>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -282,7 +312,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        UnitEnumbase NewUnit = new(item.First(), 
+                        RawUnit NewUnit = new(item.First(), 
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -299,7 +329,7 @@ namespace EngineeringUnits
         public UnitSystem Sqrt()
         {
 
-            var NewUnitList = new List<UnitEnumbase>();
+            var NewUnitList = new List<RawUnit>();
 
             foreach (var item in ListOfUnits.Where(x => x.UnitType is not BaseunitType.CombinedUnit))
             {
@@ -311,9 +341,29 @@ namespace EngineeringUnits
 
             var combinedUnit = ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit).FirstOrDefault();
 
-            if (combinedUnit is not null)            
-                 NewUnitList.Add(new CombinedUnit("", combinedUnit.A.Sqrt()));
+            if (combinedUnit is not null)
+            {
+                 //NewUnitList.Add(new CombinedUnit("", combinedUnit.A.Sqrt()));
+
+
+                var dimensionless = new RawUnit()
+                {
+                    Symbol=null,
+                    A = combinedUnit.A.Sqrt(),
+                    UnitType = BaseunitType.CombinedUnit,
+                    B = 0,
+                    Count = 1,
+                };
+
+                NewUnitList.Add(dimensionless);
+
+
+            }
             
+
+
+
+
 
 
             return new(NewUnitList);       
@@ -416,7 +466,7 @@ namespace EngineeringUnits
 
         public UnitSystem Clone()
         {
-            return new UnitSystem(new List<UnitEnumbase>(ListOfUnits), Symbol);
+            return new UnitSystem(new List<RawUnit>(ListOfUnits), Symbol);
         }
 
 

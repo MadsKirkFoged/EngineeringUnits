@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class VolumeFlowUnit : UnitEnumbase
+    public record VolumeFlowUnit : UnitTypebase
     {
 
         public static readonly VolumeFlowUnit AcreFootPerDay =           new(VolumeUnit.AcreFoot, DurationUnit.Day, "af/d");
@@ -93,5 +93,13 @@ namespace EngineeringUnits.Units
 
 
         public VolumeFlowUnit(PreFix SI, VolumeFlowUnit unit) : base(SI, unit) {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 }

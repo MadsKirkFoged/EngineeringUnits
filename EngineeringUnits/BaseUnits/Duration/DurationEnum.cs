@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class DurationUnit : UnitEnumbase
+    public record DurationUnit : UnitTypebase
     {
 
 
@@ -31,16 +31,48 @@ namespace EngineeringUnits.Units
         public DurationUnit() { }
 
 
-        public DurationUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.time)
+        public DurationUnit(string symbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.time,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
 
-        public DurationUnit(PreFix SI) : base(SI, BaseunitType.time)
+        public DurationUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }      
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.time),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.time,
+
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+            {
+                return $"{Unit.Symbol}";
+            }
+
+
+            return $"{Unit}";
+        }
 
     }
 

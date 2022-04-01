@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class ElectricCurrentUnit : UnitEnumbase
+    public record ElectricCurrentUnit : UnitTypebase
     {
 
 
@@ -28,12 +29,28 @@ namespace EngineeringUnits.Units
         public ElectricCurrentUnit() { }
 
 
-          public ElectricCurrentUnit(PreFix SI) : base(SI, BaseunitType.electricCurrent)
+        public ElectricCurrentUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }     
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.electricCurrent),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.electricCurrent,
 
-       
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)            
+                return $"{Unit.Symbol}";          
+
+            return $"{Unit}";
+        }
 
     }
 

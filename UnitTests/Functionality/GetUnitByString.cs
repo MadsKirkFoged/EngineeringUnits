@@ -18,9 +18,9 @@ namespace UnitTests
         [TestMethod]
         public void GetUnitByString01()
         {
-            LengthUnit unitasstring = UnitEnumbase.GetUnitByString<LengthUnit>("Kilometer");
+            LengthUnit unitasstring = UnitTypebase.GetUnitByString<LengthUnit>("Kilometer");
 
-            Assert.AreEqual(unitasstring.Symbol, "km");
+            Assert.AreEqual(unitasstring.ToString(), "km");
         }
 
        
@@ -43,8 +43,8 @@ namespace UnitTests
                 {
 
                     (UnitSystem, int) test;
-                    test.Item1 = ((UnitEnumbase)i.GetValue(i)).Unit;
-                    test.Item2 = ((UnitEnumbase)i.GetValue(i)).Unit.GetHashCode();
+                    test.Item1 = ((UnitTypebase)i.GetValue(i)).Unit;
+                    test.Item2 = ((UnitTypebase)i.GetValue(i)).Unit.GetHashCode();
 
                     List.Add(test);
 

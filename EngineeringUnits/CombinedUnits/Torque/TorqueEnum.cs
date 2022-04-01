@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class TorqueUnit : UnitEnumbase
+    public record TorqueUnit : UnitTypebase
     {
 
         public static readonly TorqueUnit SI =                       new(ForceUnit.SI, LengthUnit.SI);
@@ -43,5 +43,13 @@ namespace EngineeringUnits.Units
         }     
 
         public TorqueUnit(PreFix SI, TorqueUnit unit) : base(SI, unit)  { }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 }

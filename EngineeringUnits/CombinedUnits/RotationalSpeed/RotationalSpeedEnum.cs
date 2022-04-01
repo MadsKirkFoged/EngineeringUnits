@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class RotationalSpeedUnit : UnitEnumbase
+    public record RotationalSpeedUnit : UnitTypebase
     {
 
         public static readonly RotationalSpeedUnit SI = new(DurationUnit.Second, "rad/s");
@@ -38,7 +38,13 @@ namespace EngineeringUnits.Units
 
         public RotationalSpeedUnit(PreFix SI, RotationalSpeedUnit unit) : base(SI, unit)  {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class KinematicViscosityUnit : UnitEnumbase
+    public record KinematicViscosityUnit : UnitTypebase
     {
 
         public static readonly KinematicViscosityUnit SI =                   new(AreaUnit.SI, DurationUnit.SI);
@@ -27,6 +27,13 @@ namespace EngineeringUnits.Units
         }
         public KinematicViscosityUnit(PreFix SI, KinematicViscosityUnit unit) : base(SI, unit)   {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

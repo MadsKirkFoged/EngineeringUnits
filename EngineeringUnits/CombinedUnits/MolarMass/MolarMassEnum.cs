@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarMassUnit : UnitEnumbase
+    public record MolarMassUnit : UnitTypebase
     {
 
         public static readonly MolarMassUnit SI =                new(MassUnit.SI,    AmountOfSubstanceUnit.SI);
@@ -30,8 +30,14 @@ namespace EngineeringUnits.Units
             Unit = mass / amount;
         }
 
-        
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

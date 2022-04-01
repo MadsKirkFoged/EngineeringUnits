@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ForceChangeRateUnit : UnitEnumbase
+    public record ForceChangeRateUnit : UnitTypebase
     {
 
         public static readonly ForceChangeRateUnit SI = new(ForceUnit.SI, DurationUnit.SI);
@@ -44,7 +44,13 @@ namespace EngineeringUnits.Units
        
         public ForceChangeRateUnit(PreFix SI, ForceChangeRateUnit unit) : base(SI, unit) {}
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class IrradiationUnit : UnitEnumbase
+    public record IrradiationUnit : UnitTypebase
     {
 
         public static readonly IrradiationUnit SI = new(EnergyUnit.SI, AreaUnit.SI);
@@ -26,8 +26,15 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem(energy / area, 
                                $"{energy}/{area}");
-        }       
+        }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

@@ -28,7 +28,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<AccelerationUnit>())
+            foreach (var EU in UnitTypebase.ListOf<AccelerationUnit>())
             {
 
 
@@ -90,7 +90,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<AccelerationUnit>())
+            foreach (var EU in UnitTypebase.ListOf<AccelerationUnit>())
             {
 
 

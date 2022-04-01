@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PressureChangeRateUnit : UnitEnumbase
+    public record PressureChangeRateUnit : UnitTypebase
     {
 
         public static readonly PressureChangeRateUnit SI = new(PressureUnit.SI, DurationUnit.SI);
@@ -39,6 +39,14 @@ namespace EngineeringUnits.Units
         }    
 
         public PressureChangeRateUnit(PreFix SI, PressureChangeRateUnit unit) : base(SI, unit)  { }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

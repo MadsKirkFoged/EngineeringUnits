@@ -11,7 +11,7 @@ namespace EngineeringUnits
 
 
 
-    public class CombinedUnit : UnitEnumbase
+    public record CombinedUnit : UnitTypebase
     {
 
 
@@ -20,16 +20,46 @@ namespace EngineeringUnits
         public CombinedUnit() { }
 
 
-        public CombinedUnit(string symbol, Fraction Constant) : base(symbol, Constant, BaseunitType.CombinedUnit)
+        public CombinedUnit(string symbol, Fraction Constant)
         {
-            Unit = new UnitSystem(this);
-        }
-        public CombinedUnit(decimal Constant) : base(null, new Fraction(Constant), BaseunitType.CombinedUnit)
-        {
-            Unit = new UnitSystem(this);
-        }
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = Constant,
+                UnitType = BaseunitType.CombinedUnit,
+                B = 0,
+                Count = 1,
+
+            };
 
 
+            Unit = new UnitSystem(unit);
+        }
+        public CombinedUnit(decimal Constant)
+        {
+            var unit = new RawUnit()
+            {
+                Symbol=null,
+                A = new(Constant),
+                UnitType = BaseunitType.CombinedUnit,
+                B = 0,
+                Count = 1,
+
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+            {
+                return $"{Unit.Symbol}";
+            }
+
+
+            return $"{Unit}";
+        }
 
 
     }

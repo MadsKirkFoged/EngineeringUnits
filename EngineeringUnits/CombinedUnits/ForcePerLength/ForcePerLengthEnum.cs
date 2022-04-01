@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ForcePerLengthUnit : UnitEnumbase
+    public record ForcePerLengthUnit : UnitTypebase
     {
         public static readonly ForcePerLengthUnit SI = new(ForceUnit.SI, LengthUnit.SI);
         public static readonly ForcePerLengthUnit NewtonPerMeter = new(ForceUnit.Newton, LengthUnit.Meter);
@@ -59,7 +59,13 @@ namespace EngineeringUnits.Units
         }
         public ForcePerLengthUnit(PreFix SI, ForcePerLengthUnit unit) : base(SI, unit) {}
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

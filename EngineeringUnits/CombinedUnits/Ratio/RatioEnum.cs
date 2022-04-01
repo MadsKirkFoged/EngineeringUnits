@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class RatioUnit : UnitEnumbase
+    public record RatioUnit : UnitTypebase
     {
 
         public static readonly RatioUnit SI = new("");
@@ -74,8 +74,14 @@ namespace EngineeringUnits.Units
                                 $"{vol1}/{vol2}");
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
-        
+            return $"{Unit}";
+        }
+
     }
 
 

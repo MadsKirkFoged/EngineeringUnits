@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
     [Obsolete("VolumeConcentration is deprecated, please use Ratio instead.", true)]
-    public class VolumeConcentrationUnit : UnitEnumbase
+    public record VolumeConcentrationUnit : UnitTypebase
     {
 
        

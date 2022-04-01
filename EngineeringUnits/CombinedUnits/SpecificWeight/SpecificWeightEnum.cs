@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpecificWeightUnit : UnitEnumbase
+    public record SpecificWeightUnit : UnitTypebase
     {
 
         public static readonly SpecificWeightUnit SI = new(ForceUnit.SI, VolumeUnit.SI);
@@ -37,7 +37,15 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(force / volume, 
                                $"{force}/{volume}");
 
-        }       
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

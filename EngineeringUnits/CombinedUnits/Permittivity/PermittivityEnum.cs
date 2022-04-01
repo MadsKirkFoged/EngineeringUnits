@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PermittivityUnit : UnitEnumbase
+    public record PermittivityUnit : UnitTypebase
     {
 
         public static readonly PermittivityUnit SI = new(CapacitanceUnit.SI, LengthUnit.SI);
@@ -20,6 +20,14 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem(capacitance / Length, 
                                $"{capacitance}/{Length}");
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
         }
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricSurfaceChargeDensityUnit : UnitEnumbase
+    public record ElectricSurfaceChargeDensityUnit : UnitTypebase
     {
 
         public static readonly ElectricSurfaceChargeDensityUnit SI = new(ElectricChargeUnit.SI, AreaUnit.SI);
@@ -22,7 +22,13 @@ namespace EngineeringUnits.Units
                                $"{electricCharge}/{area}");
         }
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

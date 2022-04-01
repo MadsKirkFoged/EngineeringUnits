@@ -33,7 +33,7 @@ namespace EngineeringUnits
 
             var test = a.ListOfUnits.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<UnitEnumbase>();
+            var NewUnitList = new List<RawUnit>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -54,7 +54,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        UnitEnumbase NewUnit = new(item.First(),
+                        RawUnit NewUnit = new(item.First(),
                                                               item.Sum(x => x.Count));
 
                         NewUnitList.Add(NewUnit);
@@ -74,7 +74,7 @@ namespace EngineeringUnits
 
             var test = a.ListOfUnits.GroupBy(x => x.UnitType);
 
-            var NewUnitList = new List<UnitEnumbase>();
+            var NewUnitList = new List<RawUnit>();
 
             foreach (var GroupOfTypes in test)
             {
@@ -87,7 +87,7 @@ namespace EngineeringUnits
                 else
                 {
                     int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
-                    NewUnitList.Add( new UnitEnumbase(GroupOfTypes.First(), TotalCount));
+                    NewUnitList.Add( new RawUnit(GroupOfTypes.First(), TotalCount));
 
                 }
 
@@ -227,7 +227,7 @@ namespace EngineeringUnits
         {
            return a.BaseUnit.Pow(toPower);
         }
-        public static UnitSystem Pow(this UnitEnumbase a, int toPower)
+        public static UnitSystem Pow(this UnitTypebase a, int toPower)
         {
             return a.Unit.Pow(toPower);
         }

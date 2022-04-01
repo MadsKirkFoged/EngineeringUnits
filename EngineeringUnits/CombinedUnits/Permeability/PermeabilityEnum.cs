@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class PermeabilityUnit : UnitEnumbase
+    public record PermeabilityUnit : UnitTypebase
     {
 
         public static readonly PermeabilityUnit SI = new(ElectricInductanceUnit.SI, LengthUnit.SI);
@@ -22,7 +22,13 @@ namespace EngineeringUnits.Units
                                $"{electricInductance}/{Length}");
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

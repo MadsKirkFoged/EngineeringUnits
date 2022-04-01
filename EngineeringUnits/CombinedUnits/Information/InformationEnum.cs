@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class InformationUnit : UnitEnumbase
+    public record InformationUnit : UnitTypebase
     {
 
         public static readonly InformationUnit SI = new("");
@@ -62,6 +62,13 @@ namespace EngineeringUnits.Units
 
         public InformationUnit(InformationUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

@@ -140,7 +140,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<AmountOfSubstanceUnit>())
+            foreach (var EU in UnitTypebase.ListOf<AmountOfSubstanceUnit>())
             {
 
 
@@ -280,7 +280,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<DurationUnit>())
+            foreach (var EU in UnitTypebase.ListOf<DurationUnit>())
             {
 
 
@@ -412,7 +412,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<ElectricCurrentUnit>())
+            foreach (var EU in UnitTypebase.ListOf<ElectricCurrentUnit>())
             {
 
 
@@ -514,7 +514,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<LengthUnit>())
+            foreach (var EU in UnitTypebase.ListOf<LengthUnit>())
             {
 
 
@@ -600,7 +600,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<MassUnit>())
+            foreach (var EU in UnitTypebase.ListOf<MassUnit>())
             {
 
 
@@ -732,7 +732,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<TemperatureUnit>())
+            foreach (var EU in UnitTypebase.ListOf<TemperatureUnit>())
             {
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LapseRateUnit : UnitEnumbase
+    public record LapseRateUnit : UnitTypebase
     {
 
         public static readonly LapseRateUnit SI = new(TemperatureUnit.SI, LengthUnit.SI);
@@ -21,7 +21,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(temperature / length, NewSymbol);
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

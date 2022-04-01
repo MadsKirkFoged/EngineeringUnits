@@ -13,7 +13,7 @@ namespace EngineeringUnits.Units
 
 
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public class MassUnit : UnitEnumbase
+    public record MassUnit : UnitTypebase
     {
 
 
@@ -52,18 +52,50 @@ namespace EngineeringUnits.Units
         public MassUnit() { }
 
 
-        public MassUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.mass)
+        public MassUnit(string symbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.mass,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
 
-        public MassUnit(PreFix SI) : base(SI, BaseunitType.mass)
+        public MassUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.mass),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.mass,
+
+            };
+
+            Unit = new UnitSystem(unit);
         }
-     
-       
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+            {
+                return $"{Unit.Symbol}";
+            }
+
+
+            return $"{Unit}";
+        }
+
+
     }
 
 }

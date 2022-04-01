@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpeedUnit : UnitEnumbase
+    public record SpeedUnit : UnitTypebase
     {
 
        public static readonly SpeedUnit CentimeterPerHour =     new(LengthUnit.Centimeter,    DurationUnit.Hour);
@@ -56,6 +56,14 @@ namespace EngineeringUnits.Units
         public SpeedUnit(LengthUnit length, DurationUnit time, string NewSymbol)
         {
             Unit = new UnitSystem(length / time, NewSymbol);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
         }
     }
 }

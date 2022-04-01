@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class TemperatureUnit : UnitEnumbase
+    public record TemperatureUnit : UnitTypebase
     {
 
         public static readonly TemperatureUnit Kelvin =              new("K",    1,      1,  0);
@@ -24,19 +24,46 @@ namespace EngineeringUnits.Units
         public TemperatureUnit() { }
 
 
-        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, new Fraction(a1 * a2), BaseunitType.temperature, b )
+        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b)
         {
-            Unit = new UnitSystem(this);
-            
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(a1 * a2),
+                UnitType = BaseunitType.temperature,
+                B = b,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
+
         }
 
-        public TemperatureUnit(PreFix SI) : base(SI, BaseunitType.temperature)
+        public TemperatureUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.temperature),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.temperature,
+
+            };
+
+            Unit = new UnitSystem(unit);
         }
 
-     
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
+
     }
 
 

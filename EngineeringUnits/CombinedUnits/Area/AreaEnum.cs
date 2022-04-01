@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AreaUnit : UnitEnumbase
+    public record AreaUnit : UnitTypebase
     {
 
         public static readonly AreaUnit Acre                 = new(LengthUnit.Chain, "ac", 10);
@@ -36,7 +36,14 @@ namespace EngineeringUnits.Units
         public AreaUnit(LengthUnit Length, string NewSymbol = null, decimal correction = 1)
         {
             Unit = new UnitSystem(Length.Pow(2) * correction, NewSymbol);
-        }     
+        }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 }

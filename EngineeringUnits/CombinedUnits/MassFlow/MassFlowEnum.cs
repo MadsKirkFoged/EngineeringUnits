@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class MassFlowUnit : UnitEnumbase
+    public record MassFlowUnit : UnitTypebase
     {
 
         public static readonly MassFlowUnit CentigramPerDay =    new(MassUnit.Centigram, DurationUnit.Day);
@@ -64,7 +64,13 @@ namespace EngineeringUnits.Units
 
         public MassFlowUnit(PreFix SI, MassFlowUnit unit) : base(SI, unit)  {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class SpecificThermalResistanceUnit : UnitEnumbase
+    public record SpecificThermalResistanceUnit : UnitTypebase
     {
 
         public static readonly SpecificThermalResistanceUnit SI = new(LengthUnit.SI, TemperatureUnit.SI, PowerUnit.SI);
@@ -27,6 +27,14 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem((length * temperature) / power,
                                     NewSymbol);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
         }
 
     }

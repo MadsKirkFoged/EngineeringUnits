@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class FuelEfficiencyUnit : UnitEnumbase
+    public record FuelEfficiencyUnit : UnitTypebase
     {
 
         public static readonly FuelEfficiencyUnit SI = new(LengthUnit.SI, VolumeUnit.SI);
@@ -28,7 +28,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(Length / volume, NewSymbol);
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
     }
 

@@ -9,24 +9,50 @@ using System.Text;
 namespace EngineeringUnits.Units
 {
 
-    public class LuminousIntensityUnit : UnitEnumbase
+    public record LuminousIntensityUnit : UnitTypebase
     {
 
         public static readonly LuminousIntensityUnit SI = new(PreFix.SI);
         public static readonly LuminousIntensityUnit Candela = new("cd", 1);
 
 
-        public LuminousIntensityUnit(string symbol, decimal Constant) : base(symbol, new Fraction(Constant), BaseunitType.luminousIntensity)
+        public LuminousIntensityUnit(string symbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.luminousIntensity,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
 
-        public LuminousIntensityUnit(PreFix SI) : base(SI, BaseunitType.luminousIntensity)
+        public LuminousIntensityUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }     
-       
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.luminousIntensity),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.luminousIntensity,
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

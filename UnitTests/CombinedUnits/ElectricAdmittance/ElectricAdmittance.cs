@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in UnitEnumbase.ListOf<ElectricAdmittanceUnit>())
+            foreach (var EU in UnitTypebase.ListOf<ElectricAdmittanceUnit>())
             {
 
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class HeatFluxUnit : UnitEnumbase
+    public record HeatFluxUnit : UnitTypebase
     {
 
         public static readonly HeatFluxUnit SI = new(PowerUnit.SI, AreaUnit.SI);
@@ -63,7 +63,13 @@ namespace EngineeringUnits.Units
         
         public HeatFluxUnit(PreFix SI, HeatFluxUnit unit) : base(SI, unit)  {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

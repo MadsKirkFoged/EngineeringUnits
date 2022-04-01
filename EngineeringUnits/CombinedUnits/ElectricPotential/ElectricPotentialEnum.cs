@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricPotentialUnit : UnitEnumbase
+    public record ElectricPotentialUnit : UnitTypebase
     {
 
         public static readonly ElectricPotentialUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "V");
@@ -25,7 +25,13 @@ namespace EngineeringUnits.Units
 
         public ElectricPotentialUnit(PreFix SI, ElectricPotentialUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
     }
 

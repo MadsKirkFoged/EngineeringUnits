@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LevelUnit : UnitEnumbase
+    public record LevelUnit : UnitTypebase
     {
 
         public static readonly LevelUnit SI = new();
@@ -21,7 +21,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(correction, NewSymbol);
         }
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

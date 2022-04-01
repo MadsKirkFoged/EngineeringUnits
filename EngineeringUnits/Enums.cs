@@ -15,8 +15,6 @@ namespace EngineeringUnits
         amountOfSubstance,
         luminousIntensity,
         CombinedUnit
-
-
     }
 
     public enum PreFix

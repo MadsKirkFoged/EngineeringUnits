@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class SpecificEnergyUnit : UnitEnumbase
+    public record SpecificEnergyUnit : UnitTypebase
     {
 
         public static readonly SpecificEnergyUnit SI =                       new(EnergyUnit.SI, MassUnit.SI);
@@ -47,6 +47,13 @@ namespace EngineeringUnits.Units
                                 $"{energy}/{mass}");
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

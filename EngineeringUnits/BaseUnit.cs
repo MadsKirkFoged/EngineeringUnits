@@ -26,14 +26,12 @@ namespace EngineeringUnits
         public BaseUnit() {}
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
             NEWValue = value;
         }
         public BaseUnit(double value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
 
             if (IsValueOverDecimalMax(value))            
                 Inf = true;        
@@ -47,15 +45,13 @@ namespace EngineeringUnits
        
         public BaseUnit(int value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
 
             NEWValue = (decimal)value;
         }
         protected BaseUnit(UnknownUnit unit)
         {
-            //Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
-            Unit = unit.Unit;//.Clone();
+            Unit = unit.Unit;
             NEWValue = unit.BaseUnit.NEWValue;
         }
 
@@ -226,14 +222,12 @@ namespace EngineeringUnits
 
 
 
-                if (Inf)
+            if (Inf)
             {
-                //return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
                 return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
             }
 
-            //Are As(Unit) and NewValue not always the same?
-            //return $"{NEWValue.ToString(format, provider)} {Unit}";
+
             return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
         }
 
@@ -382,7 +376,7 @@ namespace EngineeringUnits
         }
 
         public static string GetStandardSymbol<T>(UnitSystem _unit)
-            where T : UnitEnumbase
+            where T : UnitTypebase
         {
 
             if (_unit.Symbol is not null)
@@ -397,7 +391,7 @@ namespace EngineeringUnits
 
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
-            return UnitEnumbase.ListOf<T>()
+            return UnitTypebase.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
                 .Unit.ToString();            
         }

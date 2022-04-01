@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MagneticFluxUnit : UnitEnumbase
+    public record MagneticFluxUnit : UnitTypebase
     {
 
         public static readonly MagneticFluxUnit SI = new(EnergyUnit.SI, ElectricCurrentUnit.SI, "Wb");
@@ -17,7 +17,14 @@ namespace EngineeringUnits.Units
         public MagneticFluxUnit(EnergyUnit energy, ElectricCurrentUnit electricCurrent, string NewSymbol)
         {
             Unit = new UnitSystem(energy / electricCurrent, NewSymbol);
-        }    
+        }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 }

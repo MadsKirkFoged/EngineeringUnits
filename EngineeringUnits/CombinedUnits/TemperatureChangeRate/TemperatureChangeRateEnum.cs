@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class TemperatureChangeRateUnit : UnitEnumbase
+    public record TemperatureChangeRateUnit : UnitTypebase
     {
 
         public static readonly TemperatureChangeRateUnit SI = new(TemperatureUnit.SI, DurationUnit.SI);
@@ -35,7 +35,13 @@ namespace EngineeringUnits.Units
 
         public TemperatureChangeRateUnit(PreFix SI, TemperatureChangeRateUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

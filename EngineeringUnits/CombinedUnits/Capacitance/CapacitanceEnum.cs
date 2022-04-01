@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class CapacitanceUnit : UnitEnumbase
+    public record CapacitanceUnit : UnitTypebase
     {
 
         public static readonly CapacitanceUnit SI = new(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");
@@ -31,7 +31,13 @@ namespace EngineeringUnits.Units
 
         public CapacitanceUnit(PreFix SI, CapacitanceUnit unit) : base(SI, unit) {}
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 
