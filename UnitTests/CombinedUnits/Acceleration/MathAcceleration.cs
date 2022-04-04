@@ -130,10 +130,18 @@ namespace UnitTests
 
             //Number of comparables units
             Assert.AreEqual(14, WorkingCompares);
-           
-
-           
+                    
 
         }
+
+        [TestMethod]
+        public void AccelerationTest()
+        {
+            double? value = null;
+            EngineeringUnits.Acceleration a = EngineeringUnits.Acceleration.From(value,AccelerationUnit.KnotPerMinute);
+            Assert.IsNull(a);
+
+        }
+
     }
 }

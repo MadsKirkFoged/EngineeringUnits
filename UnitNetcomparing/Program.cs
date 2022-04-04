@@ -17,6 +17,14 @@ namespace UnitNetcomparing
         {
 
 
+            double test = 10;
+
+            int test2 = (int)10.4545;
+
+            Speed test3 = Length.FromMeter(10) / Duration.FromSecond(1);
+
+
+
 
             List<double> list = new List<double> { 1, 1.2, 0.2, 1.8, 0.5 };
             Debug.Print(list.Min().ToString());

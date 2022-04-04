@@ -343,9 +343,9 @@ namespace EngineeringUnits
 
         public static bool  EqualWithoutHash(UnitSystem a, UnitSystem b)
         {
-            bool aSI=false, bSI=false;
-            string aSymbol=null,bSymbol=null; int aCount, bCount; decimal aB=0, bB=0; Fraction aNewC, bNewC;
-            string aType, bType;UnitSystem  aUnit , bUnit ;
+            bool aSI;
+            string aSymbol; int aCount; decimal aB; Fraction aNewC;
+            string aType;UnitSystem  aUnit ;
             
 
             bool equal = false;

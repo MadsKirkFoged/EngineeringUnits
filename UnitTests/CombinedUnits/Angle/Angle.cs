@@ -66,5 +66,53 @@ namespace UnitTests
             Assert.AreEqual(14, WorkingCompares);
 
         }
+
+        [TestMethod]
+        public void AngleCanBeZero()
+        {
+            EngineeringUnits.Angle angle = 0;
+            Assert.AreEqual(0, angle);
+        }
+
+        [TestMethod]
+        public void FromAngle1()
+        {
+            EngineeringUnits.Angle a1 = EngineeringUnits.Angle.From(1, AngleUnit.Gradian);
+            Assert.AreEqual(0.9, a1.Degree);
+
+            EngineeringUnits.Angle a2 = EngineeringUnits.Angle.From(0.9, AngleUnit.Degree);
+            Assert.AreEqual(a1, a2);
+        }
+        [TestMethod]
+        public void FromAngle2()
+        {
+            double? value = null;
+
+            EngineeringUnits.Angle a = EngineeringUnits.Angle.From(value, null);
+            Assert.IsNull(a);
+
+
+        }
+        [TestMethod]
+        public void FromAngle3()
+        {
+            double? value = 100;
+            EngineeringUnits.Angle a = EngineeringUnits.Angle.From(value, AngleUnit.Degree);
+            EngineeringUnits.Angle a2 = EngineeringUnits.Angle.From(value, null);
+            Assert.IsNotNull(a);
+            Assert.IsNull(a2);
+
+        }
+
+        [TestMethod]
+        public void AsLength()
+        {
+            EngineeringUnits.Angle a = EngineeringUnits.Angle.FromDegree(0.9);
+            var m = a.As(AngleUnit.Gradian);
+            Assert.AreEqual(1, m);
+
+        }
+
+
     }
 }

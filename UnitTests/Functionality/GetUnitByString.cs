@@ -23,7 +23,10 @@ namespace UnitTests
             Assert.AreEqual(unitasstring.Symbol, "km");
         }
 
+
        
+
+
 
         [TestMethod]
         public void EqualUnitEquaHash()
@@ -82,6 +85,35 @@ namespace UnitTests
             Assert.IsTrue(counter == 0);
 
 
+        }
+
+
+        [TestMethod]
+        public void SubtractUnitTest()
+        {
+            var length1 = Length.FromFoot(1);
+            var length2 =  Length.FromInch(30);
+            Assert.AreEqual(length2.Unit,  UnitSystem.Subtract(length2.Unit, length1.Unit));
+
+        }
+        [TestMethod]
+        public void AddUnitTest()
+        {
+            var temp1 = Temperature.FromDegreesCelsius(65);
+            var temp2 = Temperature.FromDegreesFahrenheit(295);
+            Assert.AreEqual(temp2.Unit, UnitSystem.Add(temp2.Unit, temp1.Unit));
+
+        }
+
+
+
+        [TestMethod]
+        public void MultiplyUnits()
+        {
+            var length1 = Length.FromFoot(2.5).Unit;
+            var length2 = Length.FromInch(6).Unit;
+            var res = length1 * length2;
+            Assert.AreEqual(res, LengthUnit.Foot * LengthUnit.Inch);
         }
 
     }
