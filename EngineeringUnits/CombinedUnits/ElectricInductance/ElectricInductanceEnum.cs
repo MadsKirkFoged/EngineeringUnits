@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricInductanceUnit : Enumeration
+    public record ElectricInductanceUnit : UnitTypebase
     {
 
         public static readonly ElectricInductanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "H");
@@ -25,7 +25,13 @@ namespace EngineeringUnits.Units
 
         public ElectricInductanceUnit(PreFix SI, ElectricInductanceUnit unit) : base(SI, unit) {}
 
-  
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

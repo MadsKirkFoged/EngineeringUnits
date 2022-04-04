@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<PressureChangeRateUnit>())
+            foreach (var EU in UnitTypebase.ListOf<PressureChangeRateUnit>())
             {
 
 

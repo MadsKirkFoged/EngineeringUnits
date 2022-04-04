@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ReactiveEnergyUnit : Enumeration
+    public record ReactiveEnergyUnit : UnitTypebase
     {
 
         public static readonly ReactiveEnergyUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, DurationUnit.SI, "vars");
@@ -21,8 +21,14 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(electricPotential * electricCurrent * duration, NewSymbol);
         }
 
-       
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

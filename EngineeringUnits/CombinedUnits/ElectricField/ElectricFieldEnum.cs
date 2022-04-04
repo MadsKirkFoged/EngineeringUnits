@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricFieldUnit : Enumeration
+    public record ElectricFieldUnit : UnitTypebase
     {
 
         public static readonly ElectricFieldUnit SI = new(ElectricPotentialUnit.SI, LengthUnit.SI);
@@ -23,7 +23,13 @@ namespace EngineeringUnits.Units
         }
 
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

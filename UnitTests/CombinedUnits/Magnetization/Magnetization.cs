@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<MagnetizationUnit>())
+            foreach (var EU in UnitTypebase.ListOf<MagnetizationUnit>())
             {
 
 

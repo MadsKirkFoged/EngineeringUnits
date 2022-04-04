@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricChargeDensityUnit : Enumeration
+    public record ElectricChargeDensityUnit : UnitTypebase
     {
 
         public static readonly ElectricChargeDensityUnit SI = new(ElectricChargeUnit.SI, VolumeUnit.SI);
@@ -22,7 +22,13 @@ namespace EngineeringUnits.Units
                                $"{electricCharge}/{volume}");
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

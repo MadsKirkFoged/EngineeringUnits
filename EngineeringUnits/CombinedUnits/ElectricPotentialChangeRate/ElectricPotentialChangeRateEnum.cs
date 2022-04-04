@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricPotentialChangeRateUnit : Enumeration
+    public record ElectricPotentialChangeRateUnit : UnitTypebase
     {
 
         public static readonly ElectricPotentialChangeRateUnit SI = new(ElectricPotentialUnit.SI, DurationUnit.SI);
@@ -45,6 +45,13 @@ namespace EngineeringUnits.Units
                                $"{electricPotential}/{duration}");
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class VolumePerLengthUnit : Enumeration
+    public record VolumePerLengthUnit : UnitTypebase
     {
 
         public static readonly VolumePerLengthUnit SI = new(VolumeUnit.SI, LengthUnit.SI);
@@ -28,7 +28,13 @@ namespace EngineeringUnits.Units
                                $"{volume}/{Length}");
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

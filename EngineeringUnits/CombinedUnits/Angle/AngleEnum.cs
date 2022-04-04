@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AngleUnit : Enumeration
+    public record AngleUnit : UnitTypebase
     {
 
         public static readonly AngleUnit SI = new("°", 1m);
@@ -40,6 +40,13 @@ namespace EngineeringUnits.Units
 
         public AngleUnit(PreFix SI, AngleUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

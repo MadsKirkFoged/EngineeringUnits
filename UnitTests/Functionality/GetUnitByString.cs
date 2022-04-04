@@ -18,9 +18,9 @@ namespace UnitTests
         [TestMethod]
         public void GetUnitByString01()
         {
-            LengthUnit unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilometer");
+            LengthUnit unitasstring = UnitTypebase.GetUnitByString<LengthUnit>("Kilometer");
 
-            Assert.AreEqual(unitasstring.Symbol, "km");
+            Assert.AreEqual(unitasstring.ToString(), "km");
         }
 
 
@@ -33,7 +33,6 @@ namespace UnitTests
 
         {  
             var unitList = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
-            bool isUnique = true;
             int counter = 0;
             List<(UnitSystem, int)> List = new();
 
@@ -46,8 +45,8 @@ namespace UnitTests
                 {
 
                     (UnitSystem, int) test;
-                    test.Item1 = ((Enumeration)i.GetValue(i)).Unit;
-                    test.Item2 = ((Enumeration)i.GetValue(i)).Unit.GetHashCode();
+                    test.Item1 = ((UnitTypebase)i.GetValue(i)).Unit;
+                    test.Item2 = ((UnitTypebase)i.GetValue(i)).Unit.GetHashCode();
 
                     List.Add(test);
 

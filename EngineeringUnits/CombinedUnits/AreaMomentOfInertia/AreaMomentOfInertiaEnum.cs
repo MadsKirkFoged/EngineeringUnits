@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AreaMomentOfInertiaUnit : Enumeration
+    public record AreaMomentOfInertiaUnit : UnitTypebase
     {
 
         public static readonly AreaMomentOfInertiaUnit SI = new(LengthUnit.SI);
@@ -25,9 +25,15 @@ namespace EngineeringUnits.Units
         public AreaMomentOfInertiaUnit(LengthUnit Length)
         {
             Unit = Length.Pow(4);
-        }     
+        }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

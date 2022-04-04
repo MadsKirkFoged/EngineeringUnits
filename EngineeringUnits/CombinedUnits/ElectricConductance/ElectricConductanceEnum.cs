@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricConductanceUnit : Enumeration
+    public record ElectricConductanceUnit : UnitTypebase
     {
 
         public static readonly ElectricConductanceUnit SI = new(LengthUnit.SI);
@@ -25,6 +25,13 @@ namespace EngineeringUnits.Units
 
         public ElectricConductanceUnit(PreFix SI, ElectricConductanceUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

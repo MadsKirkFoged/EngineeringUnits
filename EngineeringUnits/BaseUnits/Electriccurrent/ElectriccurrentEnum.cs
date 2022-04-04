@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,42 +11,46 @@ namespace EngineeringUnits.Units
 
 
 
-    public class ElectricCurrentUnit : Enumeration
+    public record ElectricCurrentUnit : UnitTypebase
     {
 
 
-        public static readonly ElectricCurrentUnit SI =          new(PreFix.SI, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Ampere =      new(PreFix.SI, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Centiampere = new(PreFix.centi, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Kiloampere =  new(PreFix.kilo, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Megaampere =  new(PreFix.mega, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Microampere = new(PreFix.micro, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Milliampere = new(PreFix.milli, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Nanoampere =  new(PreFix.nano, BaseUnits.electricCurrent);
-        public static readonly ElectricCurrentUnit Picoampere =  new(PreFix.pico, BaseUnits.electricCurrent);
+        public static readonly ElectricCurrentUnit SI =          new(PreFix.SI);
+        public static readonly ElectricCurrentUnit Ampere =      new(PreFix.SI);
+        public static readonly ElectricCurrentUnit Centiampere = new(PreFix.centi);
+        public static readonly ElectricCurrentUnit Kiloampere =  new(PreFix.kilo);
+        public static readonly ElectricCurrentUnit Megaampere =  new(PreFix.mega);
+        public static readonly ElectricCurrentUnit Microampere = new(PreFix.micro);
+        public static readonly ElectricCurrentUnit Milliampere = new(PreFix.milli);
+        public static readonly ElectricCurrentUnit Nanoampere =  new(PreFix.nano);
+        public static readonly ElectricCurrentUnit Picoampere =  new(PreFix.pico);
 
 
         public ElectricCurrentUnit() { }
 
 
-        public ElectricCurrentUnit(string symbol, decimal a1, decimal a2) : base(symbol, a1, a2)
+        public ElectricCurrentUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-            //Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.electricCurrent),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.electricCurrent,
 
-            //Unit.ListOfUnits.Add(this);
+            };
+
+            Unit = new UnitSystem(unit);
         }
 
-
-        public ElectricCurrentUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public override string ToString()
         {
-            Unit = new UnitSystem(this);
-           // Unit.Electriccurrent = (ElectricCurrentUnit)Clone();
+            if (Unit.Symbol is not null)            
+                return $"{Unit.Symbol}";          
 
-            //Unit.ListOfUnits.Add(this);
-        }     
-
-       
+            return $"{Unit}";
+        }
 
     }
 

@@ -22,7 +22,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<AngleUnit>())
+            foreach (var EU in UnitTypebase.ListOf<AngleUnit>())
             {
 
 

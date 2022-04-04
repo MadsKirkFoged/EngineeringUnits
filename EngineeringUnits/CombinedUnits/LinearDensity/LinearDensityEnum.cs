@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LinearDensityUnit : Enumeration
+    public record LinearDensityUnit : UnitTypebase
     {
 
         public static readonly LinearDensityUnit SI = new(MassUnit.SI, LengthUnit.SI);
@@ -33,7 +33,13 @@ namespace EngineeringUnits.Units
             Unit = mass / Length;
         }
 
-        
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

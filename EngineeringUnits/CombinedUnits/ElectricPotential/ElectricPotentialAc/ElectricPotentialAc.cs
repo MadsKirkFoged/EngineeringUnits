@@ -8,7 +8,7 @@ namespace EngineeringUnits
 
         public ElectricPotentialAc()
         {
-            Unit = new UnitSystem(ElectricPotentialUnit.SI);
+            //Unit = new UnitSystem(ElectricPotentialUnit.SI);
         }
 
         public ElectricPotentialAc(decimal value, ElectricPotentialUnit selectedUnit) : base(value, selectedUnit.Unit) { }

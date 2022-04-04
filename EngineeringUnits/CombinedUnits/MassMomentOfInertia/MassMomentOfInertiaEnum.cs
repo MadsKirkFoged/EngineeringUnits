@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MassMomentOfInertiaUnit : Enumeration
+    public record MassMomentOfInertiaUnit : UnitTypebase
     {
 
         public static readonly MassMomentOfInertiaUnit SI = new(MassUnit.SI, AreaUnit.SI);
@@ -55,7 +55,14 @@ namespace EngineeringUnits.Units
         {
             Unit = mass * area;
         }
-     
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

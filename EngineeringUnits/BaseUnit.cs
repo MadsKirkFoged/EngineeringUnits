@@ -20,20 +20,18 @@ namespace EngineeringUnits
         public UnitSystem Unit { get; init;}
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => (double)SI;
-        public decimal NEWValue { get; init; }
+        public double Value => (double)baseValue;
+        protected decimal NEWValue { get; init; }
 
         public BaseUnit() {}
         public BaseUnit(decimal value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
             NEWValue = value;
         }
         public BaseUnit(double value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
 
             if (IsValueOverDecimalMax(value))            
                 Inf = true;        
@@ -43,23 +41,19 @@ namespace EngineeringUnits
                 NEWValue = (decimal)value;
             }
         }
-
-       
         public BaseUnit(int value, UnitSystem unitSystem)
         {
-            //Unit = new UnitSystem(unitSystem, GetStandardSymbol(unitSystem));
-            Unit = unitSystem;//.Clone();
+            Unit = unitSystem;
 
             NEWValue = (decimal)value;
         }
         protected BaseUnit(UnknownUnit unit)
         {
-            //Unit = new UnitSystem(unit.Unit, GetStandardSymbol(unit.Unit));
-            Unit = unit.Unit;//.Clone();
+            Unit = unit.Unit;
             NEWValue = unit.BaseUnit.NEWValue;
         }
 
-        public decimal SI => (NEWValue * (decimal)Unit.SumConstant());
+        public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
 
         public void UnitCheck(IUnitSystem a)
         {
@@ -226,14 +220,12 @@ namespace EngineeringUnits
 
 
 
-                if (Inf)
+            if (Inf)
             {
-                //return $"{double.PositiveInfinity.ToString(format, provider)} {Unit}";
                 return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
             }
 
-            //Are As(Unit) and NewValue not always the same?
-            //return $"{NEWValue.ToString(format, provider)} {Unit}";
+
             return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
         }
 
@@ -382,7 +374,7 @@ namespace EngineeringUnits
         }
 
         public static string GetStandardSymbol<T>(UnitSystem _unit)
-            where T : Enumeration
+            where T : UnitTypebase
         {
 
             if (_unit.Symbol is not null)
@@ -397,7 +389,7 @@ namespace EngineeringUnits
 
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
-            return Enumeration.ListOf<T>()
+            return UnitTypebase.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
                 .Unit.ToString();            
         }
@@ -451,19 +443,13 @@ namespace EngineeringUnits
 
             if (Unit != other.Unit)
                 throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
-
-          //  return (int)((double)NEWValue - other.As(this));
-
-            var compare = ((double)NEWValue - (double)other.As(this))
 ;
-            var result = compare switch
+            return (this - other).SI switch
             {
-                0 => 0,
-                < 0 => -1,
-                > 0 => 1,
+                0m => 0,
+                <0m => -1,
+                >0m => 1,
             };
-            //return (int)((double)_baseUnit.NEWValue - other._baseUnit.As(this._baseUnit));
-            return (int)result;
         }
 
     }

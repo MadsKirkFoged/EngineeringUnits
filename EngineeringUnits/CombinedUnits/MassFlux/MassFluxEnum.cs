@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MassFluxUnit : Enumeration
+    public record MassFluxUnit : UnitTypebase
     {
 
         public static readonly MassFluxUnit SI = new(MassUnit.SI, DurationUnit.SI, AreaUnit.SI);
@@ -34,7 +34,13 @@ namespace EngineeringUnits.Units
             Unit = mass / (duration * area);
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

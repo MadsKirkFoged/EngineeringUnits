@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class IrradianceUnit : Enumeration
+    public record IrradianceUnit : UnitTypebase
     {
 
         public static readonly IrradianceUnit SI = new(PowerUnit.SI, AreaUnit.SI);
@@ -41,7 +41,13 @@ namespace EngineeringUnits.Units
 
         public IrradianceUnit(PreFix SI, IrradianceUnit unit) : base(SI, unit)  { }
 
-     
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

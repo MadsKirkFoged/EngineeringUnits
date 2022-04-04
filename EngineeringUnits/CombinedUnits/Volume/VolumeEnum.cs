@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class VolumeUnit : Enumeration
+    public record VolumeUnit : UnitTypebase
     {
 
         public static readonly VolumeUnit SI =                   new(LengthUnit.SI);
@@ -92,6 +92,18 @@ namespace EngineeringUnits.Units
         public VolumeUnit(PreFix SI, VolumeUnit unit) : base(SI, unit) { }
 
         public VolumeUnit(VolumeUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+            {
+                return $"{Unit.Symbol}";
+            }
+
+
+            return $"{Unit}";
+        }
+
 
     }
 

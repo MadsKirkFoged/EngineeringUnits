@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
     [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
-    public class TemperatureDeltaUnit : Enumeration
+    public record TemperatureDeltaUnit : UnitTypebase
     {
 
 

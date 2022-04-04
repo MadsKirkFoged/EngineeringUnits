@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class DensityUnit : Enumeration
+    public record DensityUnit : UnitTypebase
     {
 
         public static readonly DensityUnit SI =                          new(MassUnit.SI,        VolumeUnit.SI);
@@ -74,8 +74,14 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(mass / volume, NewSymbol);
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
-      
+            return $"{Unit}";
+        }
+
 
     }
 

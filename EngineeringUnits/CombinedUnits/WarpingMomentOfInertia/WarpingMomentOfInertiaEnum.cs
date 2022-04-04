@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class WarpingMomentOfInertiaUnit : Enumeration
+    public record WarpingMomentOfInertiaUnit : UnitTypebase
     {
 
         public static readonly WarpingMomentOfInertiaUnit MeterToTheSixth = new(LengthUnit.Meter);
@@ -23,7 +23,15 @@ namespace EngineeringUnits.Units
         public WarpingMomentOfInertiaUnit(LengthUnit Length)
         {
             Unit = Length.Pow(6);
-        }       
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

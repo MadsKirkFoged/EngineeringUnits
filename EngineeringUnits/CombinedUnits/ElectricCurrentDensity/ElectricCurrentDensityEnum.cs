@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricCurrentDensityUnit : Enumeration
+    public record ElectricCurrentDensityUnit : UnitTypebase
     {
 
         public static readonly ElectricCurrentDensityUnit SI = new(ElectricCurrentUnit.SI, AreaUnit.SI);
@@ -21,9 +21,15 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem(electricCurrent / Area, 
                                $"{electricCurrent}/{Area}");
-        }      
+        }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

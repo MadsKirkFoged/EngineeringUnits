@@ -42,8 +42,8 @@ namespace Benchmark
             return _L1+_L2;
         }
 
-        readonly Length _L3 = Length.FromFeet(1);
-        readonly Length _L4 = Length.FromChains(2);
+        readonly Length _L3 = Length.FromFoot(1);
+        readonly Length _L4 = Length.FromChain(2);
 
         [Benchmark]
         public Length LengthPlusLength()
@@ -116,8 +116,8 @@ namespace Benchmark
         }
 
 
-        readonly Power P1 = Power.FromKilowatts(10);
-        readonly Length L1 = Length.FromChains(2);
+        readonly Power P1 = Power.FromKilowatt(10);
+        readonly Length L1 = Length.FromChain(2);
         readonly Temperature T1 = Temperature.FromDegreesCelsius(4);
 
 

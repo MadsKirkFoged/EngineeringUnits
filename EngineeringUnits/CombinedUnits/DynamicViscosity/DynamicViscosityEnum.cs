@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class DynamicViscosityUnit : Enumeration
+    public record DynamicViscosityUnit : UnitTypebase
     {
 
         public static readonly DynamicViscosityUnit SI =                             new(PressureUnit.SI, DurationUnit.SI);
@@ -55,7 +55,13 @@ namespace EngineeringUnits.Units
 
         public DynamicViscosityUnit(PreFix SI, DynamicViscosityUnit unit) : base(SI, unit) {}
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
 
     }

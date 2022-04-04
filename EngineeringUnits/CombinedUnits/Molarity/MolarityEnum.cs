@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarityUnit : Enumeration
+    public record MolarityUnit : UnitTypebase
     {
 
         public static readonly MolarityUnit SI = new(AmountOfSubstanceUnit.SI, VolumeUnit.SI);
@@ -27,7 +27,15 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(amountOfSubstance / volume, 
                                $"{amountOfSubstance}/{volume}");
 
-        }       
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

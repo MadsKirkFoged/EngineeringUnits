@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarEntropyUnit : Enumeration
+    public record MolarEntropyUnit : UnitTypebase
     {
 
         public static readonly MolarEntropyUnit SI = new(EnergyUnit.SI, AmountOfSubstanceUnit.SI, TemperatureUnit.SI);
@@ -22,7 +22,13 @@ namespace EngineeringUnits.Units
                                 $"{energy}/({amountOfSubstance}*{temperature})");
         }
 
-    
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

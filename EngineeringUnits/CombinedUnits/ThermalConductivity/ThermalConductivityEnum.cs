@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ThermalConductivityUnit : Enumeration
+    public record ThermalConductivityUnit : UnitTypebase
     {
         public static readonly ThermalConductivityUnit SI = new(PowerUnit.SI, LengthUnit.SI, TemperatureUnit.SI);
         public static readonly ThermalConductivityUnit WattPerMeterKelvin = new(PowerUnit.Watt, LengthUnit.Meter, TemperatureUnit.Kelvin);
@@ -25,7 +25,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(power / (length * temperature), NewSymbol);
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 

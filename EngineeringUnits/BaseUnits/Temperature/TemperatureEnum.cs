@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class TemperatureUnit : Enumeration
+    public record TemperatureUnit : UnitTypebase
     {
 
         public static readonly TemperatureUnit Kelvin =              new("K",    1,      1,  0);
@@ -23,34 +24,46 @@ namespace EngineeringUnits.Units
         public TemperatureUnit() { }
 
 
-        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b) : base(symbol, a1, a2,b)
+        public TemperatureUnit(string symbol, decimal a1, decimal a2, decimal b)
         {
-            Unit = new UnitSystem(this);
-            //Unit.Temperature = (TemperatureUnit)Clone();
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(a1 * a2),
+                UnitType = BaseunitType.temperature,
+                B = b,
+                Count = 1,
 
-            //Unit.ListOfUnits.Add(this);
+            };
+
+
+            Unit = new UnitSystem(unit);
 
         }
 
-        //public TemperatureUnit(string symbol, decimal Constant, decimal b) : base(symbol, a1, a2, b)
-        //{
-        //    Unit = new UnitSystem();
-        //    Unit.Temperature = (TemperatureUnit)Clone();
-
-        //}
-
-
-        public TemperatureUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public TemperatureUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-            //Unit.Temperature = (TemperatureUnit)Clone();
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.temperature),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.temperature,
 
-            //Unit.ListOfUnits.Add(this);
+            };
 
+            Unit = new UnitSystem(unit);
         }
 
-     
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
+
     }
 
 

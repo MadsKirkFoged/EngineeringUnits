@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class BrakeSpecificFuelConsumptionUnit : Enumeration
+    public record BrakeSpecificFuelConsumptionUnit : UnitTypebase
     {
 
         public static readonly BrakeSpecificFuelConsumptionUnit SI = new(MassUnit.SI, EnergyUnit.SI);
@@ -27,7 +27,13 @@ namespace EngineeringUnits.Units
             Unit = new UnitSystem(mass / (power * duration), NewSymbol);
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

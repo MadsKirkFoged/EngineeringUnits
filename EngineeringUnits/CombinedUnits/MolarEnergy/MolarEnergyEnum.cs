@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MolarEnergyUnit : Enumeration
+    public record MolarEnergyUnit : UnitTypebase
     {
 
         public static readonly MolarEnergyUnit SI = new(EnergyUnit.SI, AmountOfSubstanceUnit.SI);
@@ -25,7 +25,13 @@ namespace EngineeringUnits.Units
 
         }
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

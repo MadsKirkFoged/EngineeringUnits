@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,21 +13,21 @@ namespace EngineeringUnits.Units
 
 
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public class MassUnit : Enumeration
+    public record MassUnit : UnitTypebase
     {
 
 
-        public static readonly MassUnit SI =         new(PreFix.kilo,   BaseUnits.mass);
-        public static readonly MassUnit Kilogram =   new(PreFix.kilo,   BaseUnits.mass);
-        public static readonly MassUnit Picogram =   new(PreFix.pico,   BaseUnits.mass);
-        public static readonly MassUnit Centigram =  new(PreFix.centi,  BaseUnits.mass);
-        public static readonly MassUnit Decagram =   new(PreFix.deka,   BaseUnits.mass);
-        public static readonly MassUnit Decigram =   new(PreFix.deci,   BaseUnits.mass);
-        public static readonly MassUnit Gram =       new(PreFix.SI,     BaseUnits.mass);
-        public static readonly MassUnit Hectogram =  new(PreFix.hecto,  BaseUnits.mass);
-        public static readonly MassUnit Microgram =  new(PreFix.micro,  BaseUnits.mass);
-        public static readonly MassUnit Milligram =  new(PreFix.milli,  BaseUnits.mass);
-        public static readonly MassUnit Nanogram =   new(PreFix.nano,   BaseUnits.mass);
+        public static readonly MassUnit SI =         new(PreFix.kilo);
+        public static readonly MassUnit Kilogram =   new(PreFix.kilo);
+        public static readonly MassUnit Picogram =   new(PreFix.pico);
+        public static readonly MassUnit Centigram =  new(PreFix.centi);
+        public static readonly MassUnit Decagram =   new(PreFix.deka);
+        public static readonly MassUnit Decigram =   new(PreFix.deci);
+        public static readonly MassUnit Gram =       new(PreFix.SI);
+        public static readonly MassUnit Hectogram =  new(PreFix.hecto);
+        public static readonly MassUnit Microgram =  new(PreFix.micro);
+        public static readonly MassUnit Milligram =  new(PreFix.milli);
+        public static readonly MassUnit Nanogram =   new(PreFix.nano);
         public static readonly MassUnit Tonne =      new("t",  1e+6m);
         public static readonly MassUnit Kilotonne =  new("kt", 1e+9m);
         public static readonly MassUnit Megatonne =  new("Mt", 1e+12m);
@@ -51,18 +52,50 @@ namespace EngineeringUnits.Units
         public MassUnit() { }
 
 
-        public MassUnit(string symbol, decimal Constant) : base(symbol, Constant)
+        public MassUnit(string symbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=symbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.mass,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
 
-        public MassUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public MassUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.mass),
+                A = new Fraction(PrefixSISize(SI)),
+                B = 0,
+                Count = 1,
+                UnitType = BaseunitType.mass,
+
+            };
+
+            Unit = new UnitSystem(unit);
         }
-     
-       
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+            {
+                return $"{Unit.Symbol}";
+            }
+
+
+            return $"{Unit}";
+        }
+
+
     }
 
 }

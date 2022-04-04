@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricResistanceUnit : Enumeration
+    public record ElectricResistanceUnit : UnitTypebase
     {
 
         public static readonly ElectricResistanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "Ω");
@@ -26,7 +26,13 @@ namespace EngineeringUnits.Units
 
         public ElectricResistanceUnit(PreFix SI, ElectricResistanceUnit unit) : base(SI, unit) { }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
     }
 

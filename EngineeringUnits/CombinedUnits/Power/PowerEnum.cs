@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class PowerUnit : Enumeration
+    public record PowerUnit : UnitTypebase
     {
 
 
@@ -64,5 +64,12 @@ namespace EngineeringUnits.Units
 
         public PowerUnit(PreFix SI, PowerUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 }

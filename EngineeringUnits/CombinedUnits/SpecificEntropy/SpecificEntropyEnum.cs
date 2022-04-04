@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public class SpecificEntropyUnit : Enumeration
+    public record SpecificEntropyUnit : UnitTypebase
     {
 
         public static readonly SpecificEntropyUnit SI =                                  new(EnergyUnit.SI, MassUnit.SI, TemperatureUnit.SI);
@@ -32,6 +32,14 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem(energy /(mass * temperature), 
                                $"{energy}/{mass}*{temperature}");
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
         }
     }
 

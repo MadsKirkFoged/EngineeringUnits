@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class AccelerationUnit : Enumeration
+    public record AccelerationUnit : UnitTypebase
     {
 
         public static readonly AccelerationUnit SI =                            new(LengthUnit.SI,          DurationUnit.SI);
@@ -44,7 +44,13 @@ namespace EngineeringUnits.Units
 
 
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
 
 
 

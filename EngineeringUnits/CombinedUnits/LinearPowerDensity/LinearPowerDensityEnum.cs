@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class LinearPowerDensityUnit : Enumeration
+    public record LinearPowerDensityUnit : UnitTypebase
     {
 
         public static readonly LinearPowerDensityUnit SI = new(PowerUnit.SI, LengthUnit.SI);
@@ -48,8 +48,15 @@ namespace EngineeringUnits.Units
         {
             Unit = new UnitSystem(power / Length, 
                                $"{power}/{Length}");
-        }       
+        }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

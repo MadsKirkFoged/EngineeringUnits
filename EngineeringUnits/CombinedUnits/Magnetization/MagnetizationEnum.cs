@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class MagnetizationUnit : Enumeration
+    public record MagnetizationUnit : UnitTypebase
     {
 
         public static readonly MagnetizationUnit SI = new(ElectricCurrentUnit.SI, LengthUnit.SI);
@@ -19,7 +19,13 @@ namespace EngineeringUnits.Units
             Unit = electricCurrent / Length;
         }
 
-       
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

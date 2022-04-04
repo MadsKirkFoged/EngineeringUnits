@@ -24,7 +24,7 @@ namespace UnitTests
             int WorkingCompares = 0;
 
 
-            foreach (var EU in Enumeration.ListOf<ElectricSurfaceChargeDensityUnit>())
+            foreach (var EU in UnitTypebase.ListOf<ElectricSurfaceChargeDensityUnit>())
             {
 
 

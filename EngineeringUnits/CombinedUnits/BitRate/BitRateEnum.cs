@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class BitRateUnit : Enumeration
+    public record BitRateUnit : UnitTypebase
     {
 
         public static readonly BitRateUnit SI = new("", 1m);
@@ -50,6 +50,15 @@ namespace EngineeringUnits.Units
         public BitRateUnit(PreFix SI, BitRateUnit unit) : base(SI, unit) {}
 
         public BitRateUnit(BitRateUnit unit, string NewSymbol, decimal correction) :base(unit, NewSymbol, correction) {}
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
+
 
     }
 

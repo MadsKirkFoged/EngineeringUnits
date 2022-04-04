@@ -11,20 +11,20 @@ namespace EngineeringUnits.Units
 
 
 
-    public class LengthUnit : Enumeration
+    public record LengthUnit : UnitTypebase
     {
 
 
 
-        public static readonly LengthUnit Kilometer =           new(PreFix.kilo,    BaseUnits.length);
-        public static readonly LengthUnit Hectometer =          new(PreFix.hecto,   BaseUnits.length);
-        public static readonly LengthUnit Meter =               new(PreFix.SI,      BaseUnits.length);
-        public static readonly LengthUnit SI =                  new(PreFix.SI,      BaseUnits.length);
-        public static readonly LengthUnit Decimeter =           new(PreFix.deci,    BaseUnits.length);
-        public static readonly LengthUnit Centimeter =          new(PreFix.centi,   BaseUnits.length);
-        public static readonly LengthUnit Millimeter =          new(PreFix.milli,   BaseUnits.length);
-        public static readonly LengthUnit Micrometer =          new(PreFix.micro,   BaseUnits.length);
-        public static readonly LengthUnit Nanometer =           new(PreFix.nano,    BaseUnits.length);
+        public static readonly LengthUnit Kilometer =           new(PreFix.kilo);
+        public static readonly LengthUnit Hectometer =          new(PreFix.hecto);
+        public static readonly LengthUnit Meter =               new(PreFix.SI);
+        public static readonly LengthUnit SI =                  new(PreFix.SI);
+        public static readonly LengthUnit Decimeter =           new(PreFix.deci);
+        public static readonly LengthUnit Centimeter =          new(PreFix.centi);
+        public static readonly LengthUnit Millimeter =          new(PreFix.milli);
+        public static readonly LengthUnit Micrometer =          new(PreFix.micro);
+        public static readonly LengthUnit Nanometer =           new(PreFix.nano);
         public static readonly LengthUnit Microinch =           new("µin",          1e-6m *         0.0254m);
         public static readonly LengthUnit Twip =                new("twip",         1/1440m *       0.0254m);
         public static readonly LengthUnit Mil =                 new("mil",          1/1000m *       0.0254m);
@@ -55,17 +55,45 @@ namespace EngineeringUnits.Units
 
         public LengthUnit() { }
 
-        public LengthUnit(string NewSymbol, decimal Constant) : base(NewSymbol, Constant)
+        public LengthUnit(string NewSymbol, decimal Constant)
         {
-            Unit = new UnitSystem(this);
+            var unit = new RawUnit()
+            {
+                Symbol=NewSymbol,
+                A = new Fraction(Constant),
+                UnitType = BaseunitType.length,
+                B = 0,
+                Count = 1,
+
+            };
+
+
+            Unit = new UnitSystem(unit);
         }
 
-        public LengthUnit(PreFix SI, BaseUnits baseunit) : base(SI, baseunit)
+        public LengthUnit(PreFix SI)
         {
-            Unit = new UnitSystem(this);
-        }             
 
+            var unit = new RawUnit()
+            {
+                Symbol = PrefixSISymbol(SI) + BaseUnitSISymbol(BaseunitType.length),
+                A = new Fraction(PrefixSISize(SI)),
+                UnitType = BaseunitType.length,
+                B = 0,
+                Count = 1,
 
+            };
+
+            Unit = new UnitSystem(unit);
+        }
+
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
     }
 
 

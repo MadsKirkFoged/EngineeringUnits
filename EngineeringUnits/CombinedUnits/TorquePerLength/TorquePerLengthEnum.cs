@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class TorquePerLengthUnit : Enumeration
+    public record TorquePerLengthUnit : UnitTypebase
     {
 
         public static readonly TorquePerLengthUnit SI =                                 new(TorqueUnit.SI,                      LengthUnit.SI);
@@ -42,7 +42,13 @@ namespace EngineeringUnits.Units
 
         }
 
-        
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

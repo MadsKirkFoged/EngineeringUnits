@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricConductivityUnit : Enumeration
+    public record ElectricConductivityUnit : UnitTypebase
     {
 
         public static readonly ElectricConductivityUnit SI = new(ElectricAdmittanceUnit.SI, LengthUnit.SI);
@@ -23,6 +23,13 @@ namespace EngineeringUnits.Units
                                $"{electricAdmittance}/{Length}");
         }
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

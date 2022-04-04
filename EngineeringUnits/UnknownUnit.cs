@@ -55,11 +55,10 @@ namespace EngineeringUnits
         }
         public static explicit operator BaseUnit(UnknownUnit Unit) => Unit.BaseUnit;
 
-        //public UnitSystem Unit => _baseUnit.Unit;
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => BaseUnit.Value;
-        public decimal SI => BaseUnit.SI;
+        public decimal SI => BaseUnit.baseValue;
 
         public UnitSystem Unit 
         { 
@@ -69,10 +68,9 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            if (BaseUnit.Unit.Symbol is not null)
-            {
+            if (BaseUnit.Unit.Symbol is not null)            
                 return BaseUnit.ToString();
-            }
+            
 
             BaseUnit simple = this.IntelligentCast();
             return simple.ToString();
@@ -98,27 +96,19 @@ namespace EngineeringUnits
         public int CompareTo(object obj)
         {
             UnknownUnit local = (UnknownUnit)obj;
-
-
             return CompareTo(local);
-
-
         }
 
         public int CompareTo(UnknownUnit other)
         {
-           if(Unit != other.Unit)
-            {
+           if(Unit != other.Unit)            
                 throw new WrongUnitException($"Cannot do ComperTo on two different units!");
-            }
 
-
-            var compare = ((double)BaseUnit.NEWValue - (double)other.BaseUnit.As(this.BaseUnit));
-            return compare switch
+            return (this - other).SI switch
             {
-                0d => 0,
-                <0d => -1,
-                >0d => 1,
+                0m => 0,
+                <0m => -1,
+                >0m => 1,
             };
            
         }

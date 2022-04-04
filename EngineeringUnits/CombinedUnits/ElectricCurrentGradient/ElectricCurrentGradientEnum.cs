@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class ElectricCurrentGradientUnit : Enumeration
+    public record ElectricCurrentGradientUnit : UnitTypebase
     {
 
         public static readonly ElectricCurrentGradientUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI);
@@ -23,7 +23,13 @@ namespace EngineeringUnits.Units
  
         }
 
-      
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
+
+            return $"{Unit}";
+        }
 
     }
 

@@ -5,7 +5,7 @@ using System.Text;
 namespace EngineeringUnits
 {
 
-    public enum BaseUnits
+    public enum BaseunitType
     {
         time,
         length,
@@ -13,9 +13,8 @@ namespace EngineeringUnits
         electricCurrent,
         temperature,
         amountOfSubstance,
-        luminousIntensity
-
-
+        luminousIntensity,
+        CombinedUnit
     }
 
     public enum PreFix

@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public class FrequencyUnit : Enumeration
+    public record FrequencyUnit : UnitTypebase
     {
 
         public static readonly FrequencyUnit SI =        new(DurationUnit.Second, "Hz");
@@ -34,7 +34,13 @@ namespace EngineeringUnits.Units
 
         public FrequencyUnit(PreFix SI, FrequencyUnit unit) : base(SI, unit) {}
 
+        public override string ToString()
+        {
+            if (Unit.Symbol is not null)
+                return $"{Unit.Symbol}";
 
+            return $"{Unit}";
+        }
     }
 
 
