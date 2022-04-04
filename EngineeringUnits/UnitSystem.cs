@@ -392,7 +392,10 @@ namespace EngineeringUnits
           return ListOfUnits.All(x=> x.IsSI);
         }
 
-
+        public bool DoesIncludeTemperature()
+        {
+            return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
+        }
 
         //Cache
         private static readonly Dictionary<int, UnitSystem> CacheMultiply = new();

@@ -16,6 +16,13 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            double inputVal = 300.6;
+            var temperature = new Temperature(inputVal, TemperatureUnit.Kelvin);
+            var temperatureConvert = temperature.ToUnit(TemperatureUnit.DegreeCelsius).ToString();
+            var temperatureCelsius = temperature.DegreesCelsius;
+            Console.WriteLine($"{inputVal} K is {temperatureConvert} or {temperatureCelsius:0.##} °C");
+
+
 
 
             List<double> list = new List<double> { 1, 1.2, 0.2, 1.8, 0.5 };

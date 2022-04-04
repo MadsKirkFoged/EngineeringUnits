@@ -242,15 +242,11 @@ namespace EngineeringUnits
 
         private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
         {
-            if (left.Unit != right.Unit)
-            {
+            if (left.Unit != right.Unit)            
                 throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
-            }
-
-
+            
             try
             {
-
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
                     return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
 
@@ -321,7 +317,6 @@ namespace EngineeringUnits
             }
 
         }
-
 
 
         public decimal ToTheOutSide(UnitSystem To)

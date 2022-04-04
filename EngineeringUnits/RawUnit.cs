@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public Fraction TotalConstant => Fraction.Pow(A, Count);
 
         [JsonIgnore]
-        public bool IsSI { get; init; }
+        public bool IsSI => A == Fraction.One && B == 0;
 
         public RawUnit() {}
 
