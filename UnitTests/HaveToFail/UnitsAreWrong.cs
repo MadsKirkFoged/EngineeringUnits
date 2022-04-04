@@ -244,15 +244,15 @@ namespace UnitTests.HaveToFail
             var subtract = length - mass;
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitsToSubtract02()
-        {
-            var length = Length.FromCentimeter(3);
-            var mass = Mass.FromKilogram(3);
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void WrongUnitsToSubtract02()
+        //{
+        //    var length = Length.FromCentimeter(3);
+        //    var mass = Mass.FromKilogram(3);
 
-            UnitSystem.Subtract(length.Unit, mass.Unit);
-        }
+        //    UnitSystem.Subtract(length.Unit, mass.Unit);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
@@ -301,20 +301,20 @@ namespace UnitTests.HaveToFail
 
 
         }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitAddUits02()
-        {
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void WrongUnitAddUits02()
+        //{
 
-            var A1 = new Duration(1, DurationUnit.Minute);
-            var A2 = new Length(1, LengthUnit.Chain);
+        //    var A1 = new Duration(1, DurationUnit.Minute);
+        //    var A2 = new Length(1, LengthUnit.Chain);
 
-            UnitSystem Result = UnitSystem.Add(A1.Unit, A2.Unit);
-
-
+        //    UnitSystem Result = UnitSystem.Add(A1.Unit, A2.Unit);
 
 
-        }
+
+
+        //}
 
 
         [TestMethod]
@@ -356,13 +356,13 @@ namespace UnitTests.HaveToFail
 
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GetUnitByWrongString()
-        {
-            LengthUnit unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilobeter");
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void GetUnitByWrongString()
+        //{
+        //    LengthUnit unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilobeter");
 
-        }
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
