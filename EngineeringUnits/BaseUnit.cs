@@ -195,7 +195,7 @@ namespace EngineeringUnits
         /// <param name="format">The format string.</param>
         /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
         /// <returns>The string representation.</returns>
-        public string ToString(string format, IFormatProvider provider)
+        public virtual string ToString(string format, IFormatProvider provider)
         {
 
             if (format is null)
@@ -203,8 +203,6 @@ namespace EngineeringUnits
 
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
-
-
 
             if (UnitFormatSpecifiers.Any(x => x == format[0]))
             {
@@ -218,13 +216,8 @@ namespace EngineeringUnits
                 };
             }
 
-
-
-            if (Inf)
-            {
-                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";
-            }
-
+            if (Inf)            
+                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";           
 
             return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
         }

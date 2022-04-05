@@ -243,5 +243,58 @@ namespace UnitTests
             Assert.AreEqual(0.9215178448800204, T10);
 
         }
+
+        [TestMethod]
+        public void TemperatureDisplay()
+        {
+            double value = 10.75458;
+
+
+            Temperature T1 = new(value, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(value, TemperatureUnit.Kelvin);
+            Temperature T3 = new(value, TemperatureUnit.DegreeFahrenheit);
+
+
+            Assert.AreEqual("10.75 °C", T1.ToString());
+            Assert.AreEqual("10.75 K", T2.ToString());
+            Assert.AreEqual("10.75 °F", T3.ToString());
+
+            Assert.AreEqual("°C", $"{T1:UnitOnly}");
+            Assert.AreEqual("K", $"{T2:UnitOnly}");
+            Assert.AreEqual("°F", $"{T3:UnitOnly}");
+
+            Assert.AreEqual("10.75458", $"{T1:ValueOnly}");
+            Assert.AreEqual("10.75458", $"{T2:ValueOnly}");
+            Assert.AreEqual("10.75458", $"{T3:ValueOnly}");
+
+            Assert.AreEqual("11 °C", $"{T1:0.}");
+            Assert.AreEqual("11 K", $"{T2:0.}");
+            Assert.AreEqual("11 °F", $"{T3:0.}");
+
+            Assert.AreEqual("10.8 °C", $"{T1:0.#}");
+            Assert.AreEqual("10.8 K", $"{T2:0.#}");
+            Assert.AreEqual("10.8 °F", $"{T3:0.#}");
+
+            Assert.AreEqual("10.75 °C", $"{T1:0.##}");
+            Assert.AreEqual("10.75 K", $"{T2:0.##}");
+            Assert.AreEqual("10.75 °F", $"{T3:0.##}");
+
+            Assert.AreEqual("10.755 °C", $"{T1:0.###}");
+            Assert.AreEqual("10.755 K", $"{T2:0.###}");
+            Assert.AreEqual("10.755 °F", $"{T3:0.###}");
+
+            Assert.AreEqual("10.7546 °C", $"{T1:0.####}");
+            Assert.AreEqual("10.7546 K", $"{T2:0.####}");
+            Assert.AreEqual("10.7546 °F", $"{T3:0.####}");
+
+            Assert.AreEqual("10.75458 °C", $"{T1:0.#####}");
+            Assert.AreEqual("10.75458 K", $"{T2:0.#####}");
+            Assert.AreEqual("10.75458 °F", $"{T3:0.#####}");
+
+            Assert.AreEqual("10.75458 °C", $"{T1:0.######}");
+            Assert.AreEqual("10.75458 K", $"{T2:0.######}");
+            Assert.AreEqual("10.75458 °F", $"{T3:0.######}");
+
+        }
     }
 }

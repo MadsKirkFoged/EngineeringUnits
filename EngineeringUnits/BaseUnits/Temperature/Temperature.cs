@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using System;
 using System.Diagnostics;
 
 namespace EngineeringUnits
@@ -126,6 +127,19 @@ namespace EngineeringUnits
             return base.ToString();             
         }
 
+        public override string ToString(string format, IFormatProvider provider)
+        {
+            if (!NoRunback && PublicUnit is not null)
+            {
+                return new Temperature(PublicValue, PublicUnit, true).ToString(format, provider);
+
+            }
+
+            return base.ToString(format, provider);
+
+
+
+        }
 
 
     }
