@@ -58,9 +58,9 @@ namespace UnitNetcomparing
 
 
 
-            double test = 10;
+            //double test = 10;
 
-            int test2 = (int)10.4545;
+            //int test2 = (int)10.4545;
 
             Speed test3 = Length.FromMeter(10) / Duration.FromSecond(1);
 
