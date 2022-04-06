@@ -31,7 +31,7 @@ namespace EngineeringUnits
         public static implicit operator Speed(UnknownUnit Unit)
         {
             UnitCheck(Unit, SpeedUnit.SI);
-            return new(Unit);        
+            return new(Unit);
         }
 
         public static implicit operator Speed(int zero)

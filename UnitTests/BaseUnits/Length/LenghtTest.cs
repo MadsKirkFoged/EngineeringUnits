@@ -402,7 +402,54 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void FromLength1()
+        {
+            Length l1 = Length.From(100, LengthUnit.Centimeter);
+            Assert.AreEqual(1, l1.Meter);
 
+            Length l2 = Length.From(1, LengthUnit.Meter);
+            Assert.AreEqual(l1,l2);
+        }
+        [TestMethod]
+        public void FromLength2()
+        {
+            double? value = null;
+            Length l = Length.From(value, null);
+            Assert.IsNull( l);
+           
+
+        }
+        [TestMethod]
+        public void FromLength3()
+        {
+            double? value = 100;
+            Length l = Length.From(value, LengthUnit.Centimeter);
+            Length l2 = Length.From(value, null);
+            Assert.IsNotNull(l);
+            Assert.IsNull(l2);
+
+        }
+
+        [TestMethod]
+        public void AsLength()
+        {
+            Length l = Length.FromFoot(6);
+           var m= l.As(LengthUnit.Meter);
+            Assert.AreEqual(1.8288, m);
+
+        }
+
+        [TestMethod]
+        public void ConvertLengthTest()
+        {
+            Length meter = Length.FromMeter(100);
+            Assert.AreEqual(meter, Length.FromHectometer(1));
+            Assert.AreEqual(meter, Length.FromDecimeter(1000));
+            Assert.AreEqual(meter, Length.FromMillimeter(100000));
+
+
+        }
 
     }
 }

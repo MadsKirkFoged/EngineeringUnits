@@ -48,6 +48,19 @@ namespace UnitTests
             Assert.AreEqual(0.1, (double)S1.As(SpeedUnit.InchPerSecond));
         }
 
+      [TestMethod]
+      public void SpeedCanBeZero()
+        {
+            Speed speed = 0;
+            Assert.AreEqual(0, speed);
+        }
 
+
+        [TestMethod]
+        public void SpeedOperatorTest()
+        {
+            Speed speed = Length.FromCentimeter(255)/Duration.FromMinute(30);
+            Assert.AreEqual("cm/min", speed.Unit.ToString());
+        }
     }
 }
