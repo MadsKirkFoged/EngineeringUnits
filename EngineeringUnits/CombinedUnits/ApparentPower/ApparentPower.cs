@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ApparentPowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ApparentPowerUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
 
         public static implicit operator ApparentPower(UnknownUnit Unit)

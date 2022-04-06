@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(RatioUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Ratio ToUnit(RatioUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(RatioUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Ratio ToUnit(RatioUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Ratio Zero => new(0, RatioUnit.SI);
 
         public static implicit operator Ratio(UnknownUnit Unit)

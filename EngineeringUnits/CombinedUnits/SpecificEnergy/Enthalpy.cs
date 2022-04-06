@@ -18,8 +18,8 @@ namespace EngineeringUnits
         public Enthalpy(UnknownUnit value, Enthalpy selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Enthalpy From(double value, SpecificEnergyUnit unit) => new(value, unit);
-        public double As(SpecificEnergyUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-        public Enthalpy ToUnit(SpecificEnergyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(SpecificEnergyUnit ReturnInThisUnit) => (double)GetValueAs(ReturnInThisUnit.Unit);
+        public Enthalpy ToUnit(SpecificEnergyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Enthalpy Zero => new(0, SpecificEnergyUnit.SI);
 
         public static implicit operator Enthalpy(UnknownUnit Unit) => new(Unit);

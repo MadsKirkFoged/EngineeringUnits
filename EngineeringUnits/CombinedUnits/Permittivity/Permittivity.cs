@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(PermittivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Permittivity ToUnit(PermittivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(PermittivityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Permittivity ToUnit(PermittivityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Permittivity Zero => new(0, PermittivityUnit.SI);
 
         public static implicit operator Permittivity(UnknownUnit Unit)

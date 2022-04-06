@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(LengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Length ToUnit(LengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(LengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Length ToUnit(LengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Length Zero => new(0, LengthUnit.SI);
 
         public static implicit operator Length(UnknownUnit Unit)

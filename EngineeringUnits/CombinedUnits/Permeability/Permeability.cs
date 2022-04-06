@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(PermeabilityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Permeability ToUnit(PermeabilityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(PermeabilityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Permeability ToUnit(PermeabilityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Permeability Zero => new(0, PermeabilityUnit.SI);
 
         public static implicit operator Permeability(UnknownUnit Unit)

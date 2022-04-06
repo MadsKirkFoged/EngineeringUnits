@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricPotentialUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricPotentialUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);
 
         public static implicit operator ElectricPotential(UnknownUnit Unit)

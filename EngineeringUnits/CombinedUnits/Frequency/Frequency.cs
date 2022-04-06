@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(FrequencyUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Frequency ToUnit(FrequencyUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(FrequencyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Frequency ToUnit(FrequencyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Frequency Zero => new(0, FrequencyUnit.SI);
 
         public static implicit operator Frequency(UnknownUnit Unit)

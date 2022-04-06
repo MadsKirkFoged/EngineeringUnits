@@ -18,19 +18,25 @@ namespace UnitTests
             var unit1 = LengthUnit.Meter;
             var unit2 = DurationUnit.Millisecond;
 
-            Func<UnitSystem> dividedUnit = () =>
-            {
-                var unit3 = unit1.Unit / unit2.Unit;
-                return unit3;
-            };
+            
 
-            List<Task> tasks = new List<Task>();
+            List<Task> tasks = new();
             for (int i = 1; i < 400; ++i)
             {
                 tasks.Add(Task.Run(dividedUnit));
             }
 
             Task.WaitAll(tasks.ToArray());
+
+
+
+
+            //Local function
+            UnitSystem dividedUnit()
+            {
+                var unit3 = unit1.Unit / unit2.Unit;
+                return unit3;
+            }
         }
 
 

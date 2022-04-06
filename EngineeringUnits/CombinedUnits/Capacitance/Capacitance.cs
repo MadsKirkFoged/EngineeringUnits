@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(CapacitanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Capacitance ToUnit(CapacitanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(CapacitanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Capacitance ToUnit(CapacitanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Capacitance Zero => new(0, CapacitanceUnit.SI);
 
         public static implicit operator Capacitance(UnknownUnit Unit)

@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AccelerationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Acceleration ToUnit(AccelerationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(AccelerationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Acceleration ToUnit(AccelerationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Acceleration Zero => new(0, AccelerationUnit.SI);
 
         public static implicit operator Acceleration(UnknownUnit Unit)

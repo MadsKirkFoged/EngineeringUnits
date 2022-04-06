@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(IrradianceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Irradiance ToUnit(IrradianceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(IrradianceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Irradiance ToUnit(IrradianceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Irradiance Zero => new(0, IrradianceUnit.SI);
 
         public static implicit operator Irradiance(UnknownUnit Unit)

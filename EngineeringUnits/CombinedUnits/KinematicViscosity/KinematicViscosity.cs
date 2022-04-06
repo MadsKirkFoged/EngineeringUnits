@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(KinematicViscosityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public KinematicViscosity ToUnit(KinematicViscosityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(KinematicViscosityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public KinematicViscosity ToUnit(KinematicViscosityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static KinematicViscosity Zero => new(0, KinematicViscosityUnit.SI);
 
         public static implicit operator KinematicViscosity(UnknownUnit Unit)

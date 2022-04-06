@@ -10,6 +10,9 @@ using System.Linq;
 
 namespace EngineeringUnits
 {
+    //The baseunit is the inherited be all other unit.
+    //It stores the value and the unitsystem
+
 
 
     [JsonObject(MemberSerialization.Fields)]
@@ -175,42 +178,42 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue == right.ToTheOutSide(left.Unit); 
+            return left.NEWValue == right.GetValueAs(left.Unit); 
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] != [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue != right.ToTheOutSide(left.Unit);
+            return left.NEWValue != right.GetValueAs(left.Unit);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] <= [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue <= right.ToTheOutSide(left.Unit);
+            return left.NEWValue <= right.GetValueAs(left.Unit);
         }
         public static bool operator >=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] >= [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue >= right.ToTheOutSide(left.Unit);
+            return left.NEWValue >= right.GetValueAs(left.Unit);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] < [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue < right.ToTheOutSide(left.Unit);
+            return left.NEWValue < right.GetValueAs(left.Unit);
         }
         public static bool operator >(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] > [{right.Unit}]. Can't compare two different units!");
 
-            return left.NEWValue > right.ToTheOutSide(left.Unit);
+            return left.NEWValue > right.GetValueAs(left.Unit);
         }
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
@@ -299,86 +302,7 @@ namespace EngineeringUnits
         }
 
 
-        //private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
-        //{
-        //    if (left.Unit != right.Unit)            
-        //        throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
-            
-        //    try
-        //    {
-        //        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
-        //            return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
-
-        //        return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
-
-        //    }
-        //    catch (OverflowException)
-        //    {
-        //        return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
-        //    }
-
-        //}
-        //private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
-        //{
-
-        //    if (left.Unit != right.Unit)
-        //        throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
-
-
-        //    try
-        //    {
-        //        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-        //            return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
-
-        //        return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
-
-        //    }
-        //    catch (OverflowException)
-        //    {
-        //        return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
-        //    }
-
-        //}
-        //private static UnknownUnit MultiplyUnits(BaseUnit left, BaseUnit right)
-        //{
-
-        //    try
-        //    {
-        //        var NewTestValue = left.NEWValue * right.NEWValue;
-
-        //        return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
-
-        //    }
-        //    catch (OverflowException)
-        //    {
-        //        return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
-        //    }
-
-        //}
-        //private static UnknownUnit DivideUnits(BaseUnit left, BaseUnit right)
-        //{
-
-        //    if (right.NEWValue == 0)            
-        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
-            
-
-
-        //    try
-        //    {
-        //        var NewTestValue = left.NEWValue / right.NEWValue;
-
-        //        return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
-
-        //    }
-        //    catch (OverflowException)
-        //    {
-        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
-        //    }
-
-        //}
-
-
-        public decimal ToTheOutSide(UnitSystem To)
+        public decimal GetValueAs(UnitSystem To)
         {
             Fraction b1 = Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();     
@@ -404,12 +328,12 @@ namespace EngineeringUnits
 
             return (decimal)y2test2;
         }
-        public double ToTheOutSideDouble(UnitSystem To)
+        public double GetValueAsDouble(UnitSystem To)
         {
             if (Inf)
                 return double.PositiveInfinity;
 
-            return (double)ToTheOutSide(To);
+            return (double)GetValueAs(To);
         }
 
         public string DisplaySymbol()

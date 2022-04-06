@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MolarMassUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public MolarMass ToUnit(MolarMassUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(MolarMassUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public MolarMass ToUnit(MolarMassUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MolarMass Zero => new(0, MolarMassUnit.SI);
 
         public static implicit operator MolarMass(UnknownUnit Unit)

@@ -14,7 +14,7 @@ namespace EngineeringUnits
         public static UnknownUnit Sqrt(this UnknownUnit a)
         {
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            decimal value = a.BaseUnit.ToTheOutSide(NewUnitSystem);
+            decimal value = a.BaseUnit.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
@@ -23,7 +23,7 @@ namespace EngineeringUnits
         {
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            decimal value = a.ToTheOutSide(NewUnitSystem);
+            decimal value = a.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
@@ -235,7 +235,7 @@ namespace EngineeringUnits
         }
         public static double As(this BaseUnit a, UnitSystem b)
         {
-            return (double)a.ToTheOutSide(b);
+            return (double)a.GetValueAs(b);
         }
         public static double As(this UnknownUnit a, IUnitSystem b)
         {
@@ -246,13 +246,13 @@ namespace EngineeringUnits
         {
             a.UnitCheck(selectedUnit);
 
-            return new(a.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.GetValueAs(selectedUnit.Unit), selectedUnit.Unit);
         }
         public static UnknownUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
         {
             a.BaseUnit.UnitCheck(selectedUnit);
 
-            return new(a.BaseUnit.ToTheOutSide(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.BaseUnit.GetValueAs(selectedUnit.Unit), selectedUnit.Unit);
         }
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)

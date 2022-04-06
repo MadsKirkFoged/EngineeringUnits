@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(VolumePerLengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(VolumePerLengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public VolumePerLength ToUnit(VolumePerLengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static VolumePerLength Zero => new(0, VolumePerLengthUnit.SI);
 
         public static implicit operator VolumePerLength(UnknownUnit Unit)

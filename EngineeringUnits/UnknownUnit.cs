@@ -8,6 +8,15 @@ using System.Globalization;
 
 namespace EngineeringUnits
 {
+
+    // UnknownUnit is just a copy of a BaseUnit
+    // At first we tried not having the class but we got errors from the implicit operators
+    // All calculations between two units gets converted into an UnknownUnit
+    // --> ex lenght / duration turns into a UnknownUnit
+    // --> because at this time the unit is Unknown
+    // --> If you try to convert it into a Power then you get a WrongUnitException
+    // --> You can only convert it into the correct unit (in this case 'Speed')
+
     public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem, IFormattable
     {
         public BaseUnit BaseUnit { get; init; }
@@ -40,7 +49,7 @@ namespace EngineeringUnits
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             }
 
-            return (double)Unit.BaseUnit.ToTheOutSide(UnitSystem.UnitsystemForDouble);
+            return (double)Unit.BaseUnit.GetValueAs(UnitSystem.UnitsystemForDouble);
         }
         public static implicit operator UnknownUnit(double Unit) => new (Unit);
         public static implicit operator UnknownUnit(int Unit) => new (Unit);
@@ -51,7 +60,7 @@ namespace EngineeringUnits
                 throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
             }
 
-            return Unit.BaseUnit.ToTheOutSide(new UnitSystem());
+            return Unit.BaseUnit.GetValueAs(new UnitSystem());
         }
         public static explicit operator BaseUnit(UnknownUnit Unit) => Unit.BaseUnit;
 

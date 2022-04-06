@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MagnetizationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Magnetization ToUnit(MagnetizationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(MagnetizationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Magnetization ToUnit(MagnetizationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Magnetization Zero => new(0, MagnetizationUnit.SI);
 
         public static implicit operator Magnetization(UnknownUnit Unit)

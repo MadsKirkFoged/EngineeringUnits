@@ -11,6 +11,13 @@ using System.Linq;
 
 namespace EngineeringUnits
 {
+
+    // This is inherited by all UnitTypes
+    // It is just a UnitSystem with a few extra methods
+    // --> ex LengthUnit inherits this
+    // --> LengthUnit is used to store: Kilometer, Meter, Inch, Yard...
+
+
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
     public record UnitTypebase : IUnitSystem
     {
@@ -23,8 +30,6 @@ namespace EngineeringUnits
 
 
         public UnitTypebase() {}
-
-
        
         protected UnitTypebase(PreFix SI, UnitTypebase baseunit)
         {
@@ -38,9 +43,7 @@ namespace EngineeringUnits
         protected UnitTypebase(UnitTypebase unit, string NewSymbol, decimal correction)
         {
             Unit = new UnitSystem(unit * correction, NewSymbol);
-        }
-
-       
+        }       
 
         public override string ToString()
         {
@@ -48,11 +51,8 @@ namespace EngineeringUnits
                 return $"{Unit.Symbol}";          
 
             return $"{Unit}";            
-        }
-        
+        }      
      
-       
-
         public static decimal PrefixSISize(PreFix preFix) =>
            preFix switch
            {
@@ -119,7 +119,6 @@ namespace EngineeringUnits
                _ => "",
            };
        
-
         public static T GetUnitByString<T>(string name)
             where T:UnitTypebase
         {
@@ -146,8 +145,6 @@ namespace EngineeringUnits
 
             return local;
         }
-
-        
 
 
         public static UnitSystem operator *(UnitTypebase left, UnitTypebase right) => left.Unit* right.Unit;

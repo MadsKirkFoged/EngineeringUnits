@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MassFlowUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public MassFlow ToUnit(MassFlowUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(MassFlowUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public MassFlow ToUnit(MassFlowUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MassFlow Zero => new(0, MassFlowUnit.SI);
 
         public static implicit operator MassFlow(UnknownUnit Unit)

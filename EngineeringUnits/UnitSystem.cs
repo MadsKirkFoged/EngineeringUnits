@@ -11,10 +11,15 @@ using System.Collections.Concurrent;
 namespace EngineeringUnits
 {
 
+    // A unitsystem is list of RawUnits
+    // It represent how a unit of measure is defined
+    // --> It does not know the value of the unit!
+    // --> Combined with a value you get the BaseUnit class..
+    // ex if you have a list of {length+1, duration-1} that could represent a speed [m/s] 
+
     public class UnitSystem 
     {      
         public static readonly UnitSystem UnitsystemForDouble = new();
-
 
         public string Symbol { get; init; }     
 
@@ -323,7 +328,6 @@ namespace EngineeringUnits
         public static bool EqualWithoutHash(UnitSystem a, UnitSystem b)
         { 
             int aCount;
-            decimal aB = 0;
             Fraction aNewC;
             BaseunitType aType;            
 
@@ -336,13 +340,13 @@ namespace EngineeringUnits
             }
             else
             {
-                for (int i = 0; i < a.ListOfUnits.Count(); i++)
+                for (int i = 0; i < a.ListOfUnits.Count; i++)
                 {
                     aCount = a.ListOfUnits[i].Count;
-                    aB = a.ListOfUnits[i].B;
+                    decimal aB = a.ListOfUnits[i].B;
                     aNewC = a.ListOfUnits[i].A;
                     aType = a.ListOfUnits[i].UnitType;
-                    for ( int j=0; j <b.ListOfUnits.Count(); j++)
+                    for ( int j=0; j <b.ListOfUnits.Count; j++)
                     {
 
                         if (aCount == b.ListOfUnits[i].Count &&

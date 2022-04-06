@@ -11,6 +11,14 @@ using System.Linq;
 
 namespace EngineeringUnits
 {
+    //This is the object that is used in the list of the unitsystem
+
+    //When converting between units we use y=ax+b
+    //The a and the b are found below
+    //The count tell how many of the same type we have: 
+    //ex. 1meter has a count of 1 lenght
+    //ex. 1meter^2 (area) has a count of 2 lenght
+
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
     public record RawUnit
     {
@@ -35,8 +43,6 @@ namespace EngineeringUnits
 
         public RawUnit() {}
 
-
-
         public RawUnit CloneAndReverseCount()
         {
             return this with
@@ -46,7 +52,6 @@ namespace EngineeringUnits
             };
 
         }
-
         public RawUnit CloneWithNewCount(int newCount)
         {
             return this with
@@ -56,7 +61,6 @@ namespace EngineeringUnits
             };
 
         }
-
 
         private int HashCode;
 

@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(SpeedUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Speed ToUnit(SpeedUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(SpeedUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Speed ToUnit(SpeedUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Speed Zero => new(0, SpeedUnit.SI);
 
         public static implicit operator Speed(UnknownUnit Unit)

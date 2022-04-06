@@ -18,8 +18,8 @@ namespace EngineeringUnits
 
 
         public static Luminosity From(double value, PowerUnit unit) => new(value, unit);
-        public double As(PowerUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Luminosity ToUnit(PowerUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(PowerUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Luminosity ToUnit(PowerUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Luminosity Zero => new(0, PowerUnit.SI);
 
         public static implicit operator Luminosity(UnknownUnit Unit) => new(Unit);

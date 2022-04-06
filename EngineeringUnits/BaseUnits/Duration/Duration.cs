@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(DurationUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Duration ToUnit(DurationUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(DurationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Duration ToUnit(DurationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Duration Zero => new(0, DurationUnit.SI);
 
         public static implicit operator Duration(UnknownUnit Unit)

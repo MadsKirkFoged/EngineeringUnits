@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricCurrentGradientUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricCurrentGradientUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ElectricCurrentGradient ToUnit(ElectricCurrentGradientUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrentGradient Zero => new(0, ElectricCurrentGradientUnit.SI);
 
         public static implicit operator ElectricCurrentGradient(UnknownUnit Unit)

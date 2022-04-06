@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ForcePerLengthUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ForcePerLength ToUnit(ForcePerLengthUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ForcePerLengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ForcePerLength ToUnit(ForcePerLengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ForcePerLength Zero => new(0, ForcePerLengthUnit.SI);
 
         public static implicit operator ForcePerLength(UnknownUnit Unit)

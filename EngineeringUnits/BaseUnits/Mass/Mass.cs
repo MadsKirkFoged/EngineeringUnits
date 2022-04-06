@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MassUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Mass ToUnit(MassUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(MassUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Mass ToUnit(MassUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Mass Zero => new(0, MassUnit.SI);
 
         public static implicit operator Mass(UnknownUnit Unit)

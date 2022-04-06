@@ -12,7 +12,10 @@ namespace EngineeringUnits
     public static class UnitMath
     {
 
-      
+        //This is mostly for complying with UnitNets interfaces
+        //--> must of the function can be found as Extensions
+
+
         public static UnknownUnit Sum(IEnumerable<BaseUnit> list)
         {
             UnknownUnit test = new(0m, list.First().Unit);

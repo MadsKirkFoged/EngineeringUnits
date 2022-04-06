@@ -17,8 +17,8 @@ namespace EngineeringUnits
         public MassConcentration(UnknownUnit value) : base(value) { }
 
         public static MassConcentration From(double value, DensityUnit unit) => new(value, unit);
-        public double As(DensityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public MassConcentration ToUnit(DensityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(DensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public MassConcentration ToUnit(DensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MassConcentration Zero => new(0, DensityUnit.SI);
 
         public static implicit operator MassConcentration(UnknownUnit Unit) => new(Unit);

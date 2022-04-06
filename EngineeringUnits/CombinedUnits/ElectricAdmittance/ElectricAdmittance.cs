@@ -15,8 +15,8 @@ namespace EngineeringUnits
         public ElectricAdmittance(UnknownUnit value, ElectricAdmittanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static ElectricAdmittance From(double value, ElectricAdmittanceUnit unit) => new(value, unit);
-        public double As(ElectricAdmittanceUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ElectricAdmittance ToUnit(ElectricAdmittanceUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricAdmittanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ElectricAdmittance ToUnit(ElectricAdmittanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricAdmittance Zero => new(0, ElectricAdmittanceUnit.SI);
 
         public static implicit operator ElectricAdmittance(UnknownUnit Unit) => new(Unit);

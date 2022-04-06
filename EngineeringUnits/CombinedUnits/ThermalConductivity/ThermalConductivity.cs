@@ -24,8 +24,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ThermalConductivityUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public ThermalConductivity ToUnit(ThermalConductivityUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(ThermalConductivityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ThermalConductivity ToUnit(ThermalConductivityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ThermalConductivity Zero => new(0, ThermalConductivityUnit.SI);
 
         public static implicit operator ThermalConductivity(UnknownUnit Unit)
