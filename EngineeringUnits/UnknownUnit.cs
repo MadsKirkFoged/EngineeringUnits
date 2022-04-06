@@ -8,7 +8,7 @@ using System.Globalization;
 
 namespace EngineeringUnits
 {
-    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem
+    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem, IFormattable
     {
         public BaseUnit BaseUnit { get; init; }
 
@@ -69,11 +69,32 @@ namespace EngineeringUnits
         public override string ToString()
         {
             if (BaseUnit.Unit.Symbol is not null)            
-                return BaseUnit.ToString();
-            
+                return BaseUnit.ToString();            
 
             BaseUnit simple = this.IntelligentCast();
             return simple.ToString();
+        }
+
+        public string ToString(string format, IFormatProvider provider)
+        {
+            if (BaseUnit.Unit.Symbol is not null)
+                return BaseUnit.ToString(format, provider);
+
+            BaseUnit simple = this.IntelligentCast();
+            return simple.ToString(format, provider);
+
+
+        }
+
+        public string ToString(string format)
+        {
+            if (BaseUnit.Unit.Symbol is not null)
+                return BaseUnit.ToString(format);
+
+            BaseUnit simple = this.IntelligentCast();
+            return simple.ToString(format);
+
+
         }
 
         public override int GetHashCode() => BaseUnit.GetHashCode();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -148,6 +149,60 @@ namespace EngineeringUnits
 
             return Superscript;
         }
+
+        public static string DisplaySignificantDigits(this decimal local, int count)
+        {
+
+            //Im not sure this is as good of a idea as I first thought..
+            //Almost the same as ToString("G" + inset number)
+
+            var test = local.ToString(CultureInfo.InvariantCulture);
+
+
+            //Is there no dot?
+            if (test.Any(x => x == '.') is false)
+                return test;
+
+            //Trim trailing zeros
+            test = test.TrimEnd('0');
+
+            //Trim ending dot
+            test = test.TrimEnd('.');
+
+            //Is there still no dot?
+            if (test.Any(x => x == '.') is false)
+                return test;
+
+            //Count current decimals
+            int CurrentCount = test.Count(x => x != '.' && x != '-');
+
+            //If we want more precision than we have
+            if (CurrentCount <= count)
+                return test;
+
+            //Count before dot
+            int dotIndex = test.IndexOf('.');
+
+            //If it is negative value we apply a offset
+            if (test.Any(x => x == '-'))            
+                dotIndex--;
+            
+
+            //How much precision after the dot are we looking for?
+            var PrecisionAfterDot = count - dotIndex;
+
+            if (PrecisionAfterDot < 0)            
+                PrecisionAfterDot = 0;            
+
+            //Round
+            var test2 = Decimal.Round(local, PrecisionAfterDot, MidpointRounding.AwayFromZero);
+
+            //Calling this method again incase it needs some Trim
+            var test3 = test2.DisplaySignificantDigits(count);
+
+            return test3.ToString(CultureInfo.InvariantCulture);
+        }
+
 
         public static UnknownUnit Abs(this BaseUnit a)
         {

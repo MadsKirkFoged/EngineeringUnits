@@ -4,6 +4,7 @@ using Fractions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -15,6 +16,21 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+
+            int Decimals = 2;
+            decimal value = (-0.001111546987m);
+
+            var test = value.DisplaySignificantDigits(Decimals);
+            var test2 = value.ToString("G"+Decimals.ToString());
+
+
+
+            double inputVal = 300.6544;
+            var temperature = new Temperature(inputVal, TemperatureUnit.Kelvin);
+            var temperatureConvert = temperature.ToUnit(TemperatureUnit.DegreeCelsius);
+
+            Console.WriteLine($"{inputVal} K is {temperature:##.} or {temperatureConvert:0.#####}");
+
 
 
             double test = 10;
@@ -136,5 +152,9 @@ namespace UnitNetcomparing
   
 
         }
+
+       
+
+
     }
 }

@@ -1,25 +1,35 @@
 ﻿using EngineeringUnits.Units;
-
+using System;
+using System.Diagnostics;
 
 namespace EngineeringUnits
 {
 
     public partial class Temperature : BaseUnit
     {
+        private TemperatureUnit PublicUnit { get; init; }
+        private decimal PublicValue { get; init; }
 
-        public Temperature()
-        {
-            //Unit = TemperatureUnit.SI.Unit.Copy();
-        }
+        private bool NoRunback { get; init; }
+
+
+
+        public Temperature() {}
 
         public Temperature(int value, TemperatureUnit selectedUnit) : this()
         {
-
             Unit = selectedUnit.Unit;
-            //SymbolValue = (decimal)value;
-            NEWValue = (decimal)value;
+            NEWValue = value;
 
-            //Forcing all temperatures to stay in kelvin
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
+            {
+                PublicUnit = selectedUnit;
+                PublicValue = value;
+            }            
+
+            //Forcing all temperatures to stay in kelvin for calculations
+
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
@@ -28,38 +38,61 @@ namespace EngineeringUnits
         public Temperature(double value, TemperatureUnit selectedUnit) :this()
         {
 
-            Unit = selectedUnit.Unit;
+
+
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
+            {
+                PublicUnit = selectedUnit;                
+            }
+
 
             if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
             {
                 Inf = true;
-                //SymbolValue = 0;
             }
             else
             {
                 Inf = false;
                 //SymbolValue = (decimal)value;
                 NEWValue = (decimal)value;
+                PublicValue = (decimal)value;
             }
 
             //Forcing all temperatures to stay in kelvin
+            Unit = selectedUnit.Unit;
             NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
-        public Temperature(decimal value, TemperatureUnit selectedUnit, bool ForceToSI = true) : this()
+        public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
         {
             Unit = selectedUnit.Unit;
+            NEWValue = value;
 
-            if (ForceToSI)
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
             {
-                //Forcing all temperatures to stay in kelvin
-                NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-                Unit = TemperatureUnit.Kelvin.Unit;
+                PublicUnit = selectedUnit;
+                PublicValue = value;
             }
 
+            //Forcing all temperatures to stay in kelvin for calculations
+            NEWValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+            Unit = TemperatureUnit.Kelvin.Unit;
+
         }
+
+        private Temperature(decimal value, TemperatureUnit selectedUnit, bool noRunback = true) : this()
+        {
+            NoRunback = noRunback;
+            NEWValue = value;
+            Unit = selectedUnit.Unit;
+        }
+
+
+        
 
         public Temperature(UnknownUnit value) : base(value) { }
 
@@ -73,14 +106,6 @@ namespace EngineeringUnits
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
 
-        //public static implicit operator Temperature(UnknownUnit Unit)
-        //{
-        //    Temperature local = new(0, TemperatureUnit.SI);
-
-        //    local.Transform(Unit);
-        //    return local;
-        //}
-
         public static implicit operator Temperature(UnknownUnit Unit) => new(Unit);
 
         public static implicit operator Temperature(int zero)
@@ -91,6 +116,30 @@ namespace EngineeringUnits
             return Zero;
         }
 
+        public override string ToString()
+        {
+            if (!NoRunback && PublicUnit is not null)
+            {
+                return new Temperature(PublicValue, PublicUnit, true).ToString();               
+            
+            }
+
+            return base.ToString();             
+        }
+
+        public override string ToString(string format, IFormatProvider provider)
+        {
+            if (!NoRunback && PublicUnit is not null)
+            {
+                return new Temperature(PublicValue, PublicUnit, true).ToString(format, provider);
+
+            }
+
+            return base.ToString(format, provider);
+
+
+
+        }
 
 
     }
