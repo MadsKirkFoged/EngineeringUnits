@@ -235,6 +235,8 @@ namespace UnitTests
 
             };
 
+            
+
             UnknownUnit Average = UnitMath.Average(list1);
             UnknownUnit Sum = UnitMath.Sum(list1);
             UnknownUnit Max = UnitMath.Max(list1);
@@ -293,6 +295,45 @@ namespace UnitTests
             Max.Equals(Max3);
 
            
+
+
+        }
+
+
+
+        [TestMethod]
+        public void UnknownUnitMathTest02()
+        {
+            var speed = new List<UnknownUnit> 
+            {
+                Length.FromMeter(12)/Duration.FromMinute(5),
+                Length.FromMeter(5)/Duration.FromMinute(3),
+                Length.FromMeter(22)/Duration.FromMinute(13),
+                Length.FromMeter(2)/Duration.FromMinute(3),
+                Length.FromMeter(100)/Duration.FromMinute(3)
+
+            };
+            var speed2 = new List<UnknownUnit>
+            {
+                Length.FromMeter(2)/Duration.FromMinute(3),
+                Length.FromMeter(1)/Duration.FromMinute(3),
+                Length.FromMeter(22)/Duration.FromMinute(13),
+                Length.FromMeter(2)/Duration.FromMinute(3),
+                Length.FromMeter(100)/Duration.FromMinute(3)
+
+            };
+            var minlist = new List<UnknownUnit>();
+            minlist.Add(UnitMath.Min(speed));
+            minlist.Add(UnitMath.Min(speed2));
+
+
+            var res = UnitMath.Min(minlist);
+            var max = UnitMath.Max(minlist);
+            Assert.AreEqual(res, minlist.ElementAt(1));
+            Assert.AreEqual(max, UnitMath.Min(speed));
+
+
+
 
 
         }

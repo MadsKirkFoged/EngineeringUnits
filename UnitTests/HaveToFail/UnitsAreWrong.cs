@@ -236,7 +236,7 @@ namespace UnitTests.HaveToFail
         }
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitsToSubtract()
+        public void WrongUnitsToSubtract01()
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
@@ -244,6 +244,15 @@ namespace UnitTests.HaveToFail
             var subtract = length - mass;
         }
 
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void WrongUnitsToSubtract02()
+        //{
+        //    var length = Length.FromCentimeter(3);
+        //    var mass = Mass.FromKilogram(3);
+
+        //    UnitSystem.Subtract(length.Unit, mass.Unit);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
@@ -281,7 +290,7 @@ namespace UnitTests.HaveToFail
 
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
-        public void WrongUnitAddUits()
+        public void WrongUnitAddUits01()
         {
 
             var A1 = new Duration(1, DurationUnit.Minute);
@@ -292,6 +301,21 @@ namespace UnitTests.HaveToFail
 
 
         }
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void WrongUnitAddUits02()
+        //{
+
+        //    var A1 = new Duration(1, DurationUnit.Minute);
+        //    var A2 = new Length(1, LengthUnit.Chain);
+
+        //    UnitSystem Result = UnitSystem.Add(A1.Unit, A2.Unit);
+
+
+
+
+        //}
+
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -332,6 +356,74 @@ namespace UnitTests.HaveToFail
 
         }
 
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void GetUnitByWrongString()
+        //{
+        //    LengthUnit unitasstring = Enumeration.GetUnitByString<LengthUnit>("Kilobeter");
+
+        //}
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void SpeedShouldBeZero()
+        {
+            Speed speed = 5;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void DurationShouldBeZero()
+        {
+            Duration duration = 5;
+        }
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void LengthShouldBeZero()
+        {
+            Length length = 5;
+        }
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void AmountShouldBeZero()
+        {
+            AmountOfSubstance amount = 3;
+        }
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void LuminousIntensityShouldBeZero()
+        {
+            LuminousIntensity luminousIntensity = 3;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void AccelerationShouldBeZero()
+        {
+            Acceleration a = 5;
+        }
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void AngleShouldBeZero()
+        {
+          
+            EngineeringUnits.Angle angle = 5;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void MassShouldBeZero()
+        {
+
+            Mass mass = 5;
+        }
+        [TestMethod]
+        [ExpectedException(typeof(WrongUnitException))]
+        public void VolumeShouldBeZero()
+        {
+
+            Volume volume = 5;
+        }
 
 
     }
