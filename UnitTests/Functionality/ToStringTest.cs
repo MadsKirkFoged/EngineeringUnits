@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,43 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void ToStringS()
+        {
 
+            decimal value = 10.572455m;
+
+            Temperature T1 = new Temperature(value, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new Temperature(value, TemperatureUnit.Kelvin);
+            Temperature T3 = new Temperature(value, TemperatureUnit.DegreeFahrenheit);
+
+
+            Assert.AreEqual("11 °C", $"{T1:S0}");
+            Assert.AreEqual("11 K", $"{T2:S0}");
+            Assert.AreEqual("11 °F", $"{T3:S0}");
+
+            Assert.AreEqual("10.6 °C", $"{T1:S3}");
+            Assert.AreEqual("10.6 K", $"{T2:S3}");
+            Assert.AreEqual("10.6 °F", $"{T3:S3}");
+
+            Assert.AreEqual("10.57 °C", $"{T1:S4}");
+            Assert.AreEqual("10.57 K", $"{T2:S4}");
+            Assert.AreEqual("10.57 °F", $"{T3:S4}");
+
+            Assert.AreEqual("10.572455 °C", $"{T1:S20}");
+            Assert.AreEqual("10.572455 K", $"{T2:S20}");
+            Assert.AreEqual("10.572455 °F", $"{T3:S20}");
+
+            Assert.AreEqual("°C", $"{T1:UnitOnly}");
+            Assert.AreEqual("K", $"{T2:UnitOnly}");
+            Assert.AreEqual("°F", $"{T3:UnitOnly}");
+
+            Assert.AreEqual("11", $"{T1:V0}");
+            Assert.AreEqual("10.572", $"{T2:V5}");
+            Assert.AreEqual("10.572455", $"{T3:V10}");
+
+
+        }
 
     }
 }

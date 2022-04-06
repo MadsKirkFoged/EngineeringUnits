@@ -17,11 +17,36 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
+
+            //This will as standard use 4 significant digits
+            string Output1 = T1.ToString(); // 10.57 °C
+
+            //This will as use 5 significant digits
+            string Output2 = T1.ToString("S5"); // 10.572 °C
+
+            //Same as ToString but looks better
+            string Output3 = $"{T1:S5}"; // 10.572 °C
+
+            //Same as "S4" but without the unit
+            string Output4 = $"{T1:V4}"; // 10.57
+
+            //Display the unit without value
+            string Output5 = $"{T1:UnitOnly}"; // °C
+
+            //All the normal options can still be used
+            //https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
+
+            //The build-in "General"
+            string Output6 = $"{T1:G1}"; // 1E+01 °C
+            string Output7 = $"{T1:G4}"; // 10.57 °C
+
+
             int Decimals = 2;
             decimal value = (-0.001111546987m);
 
             var test = value.DisplaySignificantDigits(Decimals);
-            var test2 = value.ToString("G"+Decimals.ToString());
+            var test2 = value.ToString("S"+Decimals.ToString());
 
 
 

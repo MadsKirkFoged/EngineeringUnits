@@ -269,11 +269,12 @@ namespace UnitTests
             Assert.AreEqual("°C", $"{T4:UnitOnly}");
             Assert.AreEqual("K", $"{T5:UnitOnly}");
 
-            Assert.AreEqual("10.75458", $"{T1:ValueOnly}");
-            Assert.AreEqual("10.75458", $"{T2:ValueOnly}");
-            Assert.AreEqual("10.75458", $"{T3:ValueOnly}");
-            Assert.AreEqual("-262.39542", $"{T4:ValueOnly}");
-            Assert.AreEqual("283.90458", $"{T5:ValueOnly}");
+            Assert.AreEqual("11", $"{T1:V2}");
+            Assert.AreEqual("10.75", $"{T2:V4}");
+            Assert.AreEqual("10.75458", $"{T3:V10}");
+            Assert.AreEqual("-262.4", $"{T4:V4}");
+            Assert.AreEqual("283.9", $"{T5:V4}");
+            Assert.AreEqual("283.9", $"{T5:V5}");
 
             Assert.AreEqual("11 °C", $"{T1:0.}");
             Assert.AreEqual("11 K", $"{T2:0.}");

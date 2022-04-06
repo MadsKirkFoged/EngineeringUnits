@@ -35,10 +35,10 @@ namespace UnitTests
             Assert.AreEqual("W", $"{T3:UnitOnly}");
             Assert.AreEqual("BTU/h", $"{T4:UnitOnly}");
 
-            Assert.AreEqual("10.75458", $"{T1:ValueOnly}");
-            Assert.AreEqual("10.75458", $"{T2:ValueOnly}");
-            Assert.AreEqual("10.75458", $"{T3:ValueOnly}");
-            Assert.AreEqual("10.75458", $"{T4:ValueOnly}");
+            Assert.AreEqual("11", $"{T1:V2}");
+            Assert.AreEqual("10.75", $"{T2:V4}");
+            Assert.AreEqual("10.7546", $"{T3:V6}");
+            Assert.AreEqual("10.75458", $"{T4:V12}");
 
             Assert.AreEqual("11 W", $"{T1:0.}");
             Assert.AreEqual("11 kJ/h", $"{T2:0.}");

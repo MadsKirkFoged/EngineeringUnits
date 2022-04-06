@@ -82,19 +82,73 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
-            return AddUnits(left, right);
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
+
+            try
+            {
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                    return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+
+                return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
+            }
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
-            return SubtractUnits(left, right);
+            if (left.Unit != right.Unit)
+                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
+
+
+            try
+            {
+                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                    return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+
+                return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
+            }
         }
         public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
         {
-            return MultiplyUnits(left, right);
+            try
+            {
+                var NewTestValue = left.NEWValue * right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            }
         }
         public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
         {
-            return DivideUnits(left, right);
+            if (right.NEWValue == 0)
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+
+
+
+            try
+            {
+                var NewTestValue = left.NEWValue / right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
         }
 
         public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
@@ -178,7 +232,6 @@ namespace EngineeringUnits
         /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.InvariantCulture" /> if null.</param>
         public string ToString(IFormatProvider provider) => ToString("g4", provider);
 
-        /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
         /// <summary>
         /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.InvariantCulture" />.
         /// </summary>
@@ -186,9 +239,7 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public string ToString(string format) => ToString(format, CultureInfo.InvariantCulture);
 
-        private static readonly char[] UnitFormatSpecifiers = { 'A', 'a', 'Q', 'q', 'U', 'u', 'V', 'v' };
 
-        /// <inheritdoc cref="QuantityFormatter.Format{TUnitType}(IQuantity{TUnitType}, string, IFormatProvider)"/>
         /// <summary>
         /// Gets the string representation of this instance in the specified format string using the specified format provider, or <see cref="CultureInfo.CurrentUICulture" /> if null.
         /// </summary>
@@ -197,29 +248,44 @@ namespace EngineeringUnits
         /// <returns>The string representation.</returns>
         public virtual string ToString(string format, IFormatProvider provider)
         {
-
             if (format is null)
-                format = "g4";
+                format = "S4";
 
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
+            
 
-            if (UnitFormatSpecifiers.Any(x => x == format[0]))
+            //Set value
+            string value = format[0] switch
             {
-                return format[0] switch
-                {
-                    'A'or'a' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
-                    'V'or'v' => NEWValue.ToString(provider),
-                    'U'or'u' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
-                    'Q'or'q' => GetStandardSymbol(Unit).ToString(),//return Unit.ToString();
-                    _ => throw new FormatException($"The {format} format string is not supported."),
-                };
-            }
+                'A'or'a' => "",
+                'U'or'u' => "",
+                'Q'or'q' => "",
+                'V'or'v' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                'S'or's' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                       _ => NEWValue.ToString(format, provider),
+            };
 
-            if (Inf)            
-                return $"{double.PositiveInfinity.ToString(format, provider)} {GetStandardSymbol(Unit)}";           
+            if (Inf && value != "")            
+                value = double.PositiveInfinity.ToString();
 
-            return $"{NEWValue.ToString(format, provider)} {GetStandardSymbol(Unit)}";
+
+
+            //Set unit
+            string GetUnit = GetStandardSymbol(Unit);
+
+            string unit = format[0] switch
+            {
+                'A'or'a' => GetUnit,
+                'U'or'u' => GetUnit,
+                'Q'or'q' => GetUnit,
+                'V'or'v' => "",
+                _ => $" {GetUnit}",
+            };
+            
+
+            //Merged and return       
+            return $"{value}{unit}";
         }
 
         
@@ -233,83 +299,83 @@ namespace EngineeringUnits
         }
 
 
-        private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
-        {
-            if (left.Unit != right.Unit)            
-                throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
+        //private static UnknownUnit AddUnits(BaseUnit left, BaseUnit right)
+        //{
+        //    if (left.Unit != right.Unit)            
+        //        throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
             
-            try
-            {
-                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
-                    return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
+        //    try
+        //    {
+        //        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())                
+        //            return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);                
 
-                return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
+        //        return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
-            }
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
+        //    }
 
-        }
-        private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
-        {
+        //}
+        //private static UnknownUnit SubtractUnits(BaseUnit left, BaseUnit right)
+        //{
 
-            if (left.Unit != right.Unit)
-                throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
+        //    if (left.Unit != right.Unit)
+        //        throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
 
 
-            try
-            {
-                if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-                    return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+        //    try
+        //    {
+        //        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+        //            return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
-                return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
+        //        return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
-            }
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
+        //    }
 
-        }
-        private static UnknownUnit MultiplyUnits(BaseUnit left, BaseUnit right)
-        {
+        //}
+        //private static UnknownUnit MultiplyUnits(BaseUnit left, BaseUnit right)
+        //{
 
-            try
-            {
-                var NewTestValue = left.NEWValue * right.NEWValue;
+        //    try
+        //    {
+        //        var NewTestValue = left.NEWValue * right.NEWValue;
 
-                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+        //        return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
-            }
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+        //    }
 
-        }
-        private static UnknownUnit DivideUnits(BaseUnit left, BaseUnit right)
-        {
+        //}
+        //private static UnknownUnit DivideUnits(BaseUnit left, BaseUnit right)
+        //{
 
-            if (right.NEWValue == 0)            
-                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+        //    if (right.NEWValue == 0)            
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             
 
 
-            try
-            {
-                var NewTestValue = left.NEWValue / right.NEWValue;
+        //    try
+        //    {
+        //        var NewTestValue = left.NEWValue / right.NEWValue;
 
-                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+        //        return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
-            }
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+        //    }
 
-        }
+        //}
 
 
         public decimal ToTheOutSide(UnitSystem To)
