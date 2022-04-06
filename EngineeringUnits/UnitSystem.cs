@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System;
-
+using System.Collections.Concurrent;
 
 namespace EngineeringUnits
 {
@@ -131,7 +131,7 @@ namespace EngineeringUnits
                             left.ListOfUnits.Concat(
                             right.ListOfUnits)));
 
-            CacheMultiply.Add(hashCode, test2);
+            CacheMultiply.TryAdd(hashCode, test2);
 
             return test2;
 
@@ -196,7 +196,7 @@ namespace EngineeringUnits
 
             var test2 = new UnitSystem(LocalUnitList);
 
-            CacheDivide.Add(hashCode, test2);
+            CacheDivide.TryAdd(hashCode, test2);
 
             return test2;
 
@@ -398,8 +398,8 @@ namespace EngineeringUnits
         }
 
         //Cache
-        private static readonly Dictionary<int, UnitSystem> CacheMultiply = new();
-        private static readonly Dictionary<int, UnitSystem> CacheDivide = new();
+        private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
+        private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
         private List<(BaseunitType Key, int Value)> _UnitsCount;
         private int HashCode;
         private Fraction _sumConstant;
