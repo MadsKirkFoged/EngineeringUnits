@@ -56,7 +56,8 @@ namespace EngineeringUnits
             NEWValue = unit.BaseUnit.NEWValue;
         }
 
-        public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
+        //public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
+        public decimal baseValue => (decimal)(Unit.SumConstant() * (Fraction)NEWValue);
 
         public void UnitCheck(IUnitSystem a)
         {
@@ -298,7 +299,8 @@ namespace EngineeringUnits
         }
         private decimal ConvertValueInto(BaseUnit From)
         {
-            return (decimal)ConvertionFactor(From) * NEWValue;
+            //return (decimal)ConvertionFactor(From) * NEWValue;
+            return (decimal)(ConvertionFactor(From) * (Fraction)NEWValue);
         }
 
 
