@@ -10,7 +10,14 @@ namespace EngineeringUnits
     public static class Extensions
     {
 
-
+        /// <summary>
+        /// Returns the square root your unit.<br></br>
+        /// <example>
+        /// Exemple: The square root of an <see cref="Area"/> gives a <see cref="Length"/><br></br>
+        /// </example>
+        /// </summary>
+        /// <param name="a">Source value</param>
+        /// <exception cref="WrongUnitException">gg</exception>
         public static UnknownUnit Sqrt(this UnknownUnit a)
         {
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
@@ -19,6 +26,14 @@ namespace EngineeringUnits
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
 
+        /// <summary>
+        /// Returns the square root your unit.<br></br>
+        /// <example>
+        /// Exemple: The square root of an <see cref="Area"/> gives a <see cref="Length"/><br></br>
+        /// </example>
+        /// </summary>
+        /// <param name="a">Source value</param>
+        /// <exception cref="WrongUnitException">gg</exception>
         public static UnknownUnit Sqrt(this BaseUnit a)
         {
 
@@ -28,7 +43,15 @@ namespace EngineeringUnits
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
 
-
+        /// <summary>
+        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
+        /// <example>
+        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
+        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> of 'Meter'. This will merge it into one and increase the Count to 2.
+        /// </example>
+        /// </summary>
+        /// <returns>A <see cref="UnitSystem"/> that is cleaned up without any lose of information</returns>
+        /// <param name="a">Source value</param>
         public static UnitSystem ReduceUnits(this UnitSystem a)
         {
 
@@ -69,6 +92,16 @@ namespace EngineeringUnits
             return new(NewUnitList, a.Symbol);
         }
 
+        /// <summary>
+        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
+        /// For now this is only used when taking the square root!
+        /// <example>
+        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
+        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> One of 'Meter' and One of 'Foot'. This will merge it into one and increase the Count to 2.
+        /// </example>
+        /// </summary>
+        /// <returns>A <see cref="UnitSystem"/> that is cleaned up. Beware this can lose information</returns>
+        /// <param name="a">Source value</param>
         public static UnitSystem ReduceUnitsHard(this UnitSystem a)
         {
 
@@ -103,6 +136,10 @@ namespace EngineeringUnits
             return value / 1.000000000000000000000000000000000m;
         }
 
+
+        /// <returns>Square root of <see langword="decimal"/>!</returns>
+        /// <param name="x">Source value</param>
+        /// <param name="epsilon">Precision of calculation</param>
         public static decimal Sqrt(this decimal x, decimal epsilon = 0.0M)
         {
             // x - a number, from which we need to calculate the square root
@@ -123,6 +160,8 @@ namespace EngineeringUnits
             return current;
         }
 
+
+        /// <returns>A SuperScript of an <see langword="int"/>!</returns>
         public static string ToSuperScript(this int number)
         {
             if (number == 0 ||
@@ -150,6 +189,10 @@ namespace EngineeringUnits
             return Superscript;
         }
 
+
+        /// <returns>A <see langword="string"/> of a <see langword="decimal"/> with the Significant Digits of <paramref name="count"/> !</returns>
+        /// <param name="local">Source value</param>
+        /// <param name="count">Precision of calculation</param>
         public static string DisplaySignificantDigits(this decimal local, int count)
         {
 
@@ -204,6 +247,9 @@ namespace EngineeringUnits
         }
 
 
+
+        /// <returns>Absolute value of your unit</returns>
+        /// <param name="a">Source value</param>
         public static UnknownUnit Abs(this BaseUnit a)
         {
             if (a.baseValue < 0)
@@ -211,23 +257,27 @@ namespace EngineeringUnits
             else
                 return a;
         }
+
+        /// <returns>Absolute value of your unit</returns>
+        /// <param name="a">Source value</param>
         public static UnknownUnit Abs(this UnknownUnit a)
         {
             return a.BaseUnit.Abs();
         }
 
+        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
+        /// <param name="a">Source value</param>
         public static IEnumerable<UnknownUnit> Abs(this IEnumerable<BaseUnit> a)
         {
             return a.Select(x=> x.Abs());
         }
 
+        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
+        /// <param name="a">Source value</param>
         public static IEnumerable<UnknownUnit> Abs(this IEnumerable<UnknownUnit> a)
         {
             return a.Select(x => x.Abs());
         }
-
-        
-
 
         public static double As(this BaseUnit a, IUnitSystem b)
         {

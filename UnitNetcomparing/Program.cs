@@ -17,6 +17,11 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            var area = new Area(10, AreaUnit.SquareMeter).Sqrt();
+
+
+
+
             Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
 
             //This will as standard use 4 significant digits
