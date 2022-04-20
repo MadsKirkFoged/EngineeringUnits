@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 
@@ -7,9 +8,13 @@ namespace EngineeringUnits
 
     public partial class Temperature : BaseUnit
     {
+        [JsonProperty]
         private TemperatureUnit PublicUnit { get; init; }
+
+        [JsonProperty]
         private decimal PublicValue { get; init; }
 
+        [JsonProperty]
         private bool NoRunback { get; init; }
 
 

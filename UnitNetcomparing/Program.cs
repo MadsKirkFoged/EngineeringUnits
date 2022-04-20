@@ -17,8 +17,41 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            Temperature ResultEvapTemperature = new Temperature(10,TemperatureUnit.DegreeCelsius);
+
+            string jsonString1 = JsonConvert.SerializeObject(ResultEvapTemperature);
+            Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonString1);
+
+
+
+            var teststring = $"{JSON}";
+
+
+
+
+
             var area = new Area(10, AreaUnit.SquareMeter).Sqrt();
 
+
+
+
+
+            Pressure Check = new Pressure(0, PressureUnit.Pascal);
+            Pressure Check2 = Pressure.Zero;
+            Pressure Check3 = 0;
+            Pressure Check4 = new Pressure();
+
+            Debug.Print((Check == Pressure.Zero).ToString());
+            Debug.Print((Check != Pressure.Zero).ToString());
+
+            Debug.Print((Check2 == Pressure.Zero).ToString());
+            Debug.Print((Check2 != Pressure.Zero).ToString());
+
+            Debug.Print((Check3 == Pressure.Zero).ToString());
+            Debug.Print((Check3 != Pressure.Zero).ToString());
+
+            Debug.Print((Check4 == Pressure.Zero).ToString());
+            Debug.Print((Check4 != Pressure.Zero).ToString());
 
 
 

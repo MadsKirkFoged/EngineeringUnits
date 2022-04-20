@@ -25,7 +25,7 @@ namespace EngineeringUnits
         [JsonIgnore]
         public string QuantityName { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public UnitSystem Unit { get; init; }
 
 

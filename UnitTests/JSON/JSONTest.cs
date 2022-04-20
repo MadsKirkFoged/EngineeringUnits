@@ -118,9 +118,20 @@ namespace UnitTests
         }
 
 
+        [TestMethod]
+        public void ToStringTemperaureAfterJson()
+        {
+            Temperature ResultEvapTemperature = new Temperature(10, TemperatureUnit.DegreeCelsius);
+
+            string jsonString1 = JsonConvert.SerializeObject(ResultEvapTemperature);
+            Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonString1);
 
 
-       
+
+            Assert.AreEqual($"{ResultEvapTemperature}", $"{JSON}");
+        }
+
+
 
 
 
