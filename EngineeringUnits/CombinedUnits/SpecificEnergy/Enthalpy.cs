@@ -33,8 +33,8 @@ namespace EngineeringUnits
         }
 
         //Alias
-        public static implicit operator Enthalpy(SpecificEnergy Unit) => new(Unit);
-        public static implicit operator SpecificEnergy(Enthalpy Unit) => new(Unit);
+        //public static implicit operator Enthalpy(SpecificEnergy Unit) => new(Unit);
+        //public static implicit operator SpecificEnergy(Enthalpy Unit) => new(Unit);
 
     }
 }

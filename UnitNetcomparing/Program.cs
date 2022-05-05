@@ -17,6 +17,16 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+
+            SpecificEntropy S1 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+
+            SpecificHeat S2 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+
+            SpecificHeat S3 = new SpecificHeat(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+
+            SpecificHeat S4 = S1;
+
+
             Temperature ResultEvapTemperature = new Temperature(10,TemperatureUnit.DegreeCelsius);
 
             string jsonString1 = JsonConvert.SerializeObject(ResultEvapTemperature);
