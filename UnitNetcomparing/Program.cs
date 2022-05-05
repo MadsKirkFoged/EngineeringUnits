@@ -17,13 +17,25 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            Acceleration test121 = new Acceleration(0, AccelerationUnit.SI);
+
+            string PrintOut = $"Acceleration: ";
+
+            foreach (var item in AccelerationUnit.ListOf<AccelerationUnit>())
+            {
+
+                PrintOut += $"[{item}], ";
+            }
+
+            
+
+            //string PrintOut = $"Acceleration: [{AccelerationUnit.SI}]";
+
+
 
             SpecificEntropy S1 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-
             SpecificHeat S2 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-
             SpecificHeat S3 = new SpecificHeat(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-
             SpecificHeat S4 = S1;
 
 

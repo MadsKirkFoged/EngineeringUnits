@@ -120,6 +120,15 @@ namespace EngineeringUnits
         }
 
 
+        public static string PrintOut()
+        {
+
+            Acceleration test = new Acceleration();
+
+
+            return "";
+        }
+
 
     }
 
