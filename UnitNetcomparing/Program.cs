@@ -17,6 +17,14 @@ namespace UnitNetcomparing
         static void Main(string[] args)
         {
 
+            var Ptest = new Pressure(10m, PressureUnit.Bar);
+            var Ptest2 = Ptest.ToUnit(PressureReference.Gauge);
+            var Ptest3 = Ptest.ToUnit(PressureReference.Absolute);
+
+            var teststring2 = Ptest2.ToString();
+            var teststring4 = Ptest3.ToString();
+
+
             Acceleration test121 = new Acceleration(0, AccelerationUnit.SI);
 
             string PrintOut = $"Acceleration: ";
