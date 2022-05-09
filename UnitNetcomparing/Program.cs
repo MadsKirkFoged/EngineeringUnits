@@ -16,6 +16,21 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+            //Creating a unit that is not yet cast to a specific unit
+            UnknownUnit unknown = Energy.FromSI(10) / Duration.FromSI(10);
+            // {1 W}
+
+            //You could cast it to BaseUnit but you lose the nice looking symbols
+            BaseUnit baseunit = (BaseUnit)unknown;
+            // {1 kgm²/s³}
+
+            //Casting it to a specifig unit. It runs the check and will throw an error if the user set it to a wrong unit
+            Power power = unknown;
+            //{1 W}
+
+            //Trying to cast to a wrong unit
+            Energy energy = unknown;
+            //WrongUnitException
 
             var Ptest = new Pressure(10m, PressureUnit.Bar);
             var Ptest2 = Ptest.ToUnit(PressureReference.Gauge);
@@ -42,9 +57,9 @@ namespace UnitNetcomparing
 
 
             SpecificEntropy S1 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            SpecificHeat S2 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            SpecificHeat S3 = new SpecificHeat(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            SpecificHeat S4 = S1;
+            SpecificHeatCapacity S2 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            SpecificHeatCapacity S3 = new SpecificHeatCapacity(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+            SpecificHeatCapacity S4 = S1;
 
 
             Temperature ResultEvapTemperature = new Temperature(10,TemperatureUnit.DegreeCelsius);
