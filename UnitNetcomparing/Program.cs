@@ -42,15 +42,30 @@ namespace UnitNetcomparing
 
             Acceleration test121 = new Acceleration(0, AccelerationUnit.SI);
 
-            string PrintOut = $"Acceleration: ";
+            string PrintOut = $"";
 
-            foreach (var item in AccelerationUnit.ListOf<AccelerationUnit>())
+            //foreach (var item in AngleUnit.ListOf<AngleUnit>())
+            //{
+
+            //    PrintOut += $"[{item}], ";
+            //}
+
+            List<string> lllist = new List<string>();
+
+            List<string> assembly = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass","Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
+          
+            foreach (string assemblyName in assembly)
             {
-
-                PrintOut += $"[{item}], ";
+                var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
+                PrintOut += "\n"+assemblyName+":";
+                foreach (var item in t.GetFields()) { 
+              
+                PrintOut+=$"[{item.GetValue(item)}], ";}
             }
+            
 
             
+
 
             //string PrintOut = $"Acceleration: [{AccelerationUnit.SI}]";
 
