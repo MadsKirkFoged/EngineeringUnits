@@ -3,7 +3,7 @@ using EngineeringUnits.Units;
 
 
 namespace EngineeringUnits
-{
+{   //This class is auto-generated, changes to the file will be overwritten!
     public partial class Volume
     {
 
@@ -12,7 +12,7 @@ namespace EngineeringUnits
             /// <summary>
             ///     Get Volume in SI.
             /// </summary>
-            //public double SI => As(VolumeUnit.SI);
+            public double SI => As(VolumeUnit.SI);
             /// <summary>
             ///     Get Volume in CubicMeter.
             /// </summary>

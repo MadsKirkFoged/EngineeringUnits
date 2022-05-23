@@ -80,8 +80,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(VariableUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Variable ToUnit(VariableUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(VariableUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Variable ToUnit(VariableUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Variable Zero => new(0, VariableUnit.SI);
 
         public static implicit operator Variable(UnknownUnit Unit)
