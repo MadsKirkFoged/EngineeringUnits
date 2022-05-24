@@ -31,7 +31,7 @@ namespace EngineeringUnits.Units
         public SpecificHeatCapacityUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature)
         {
             Unit = new UnitSystem(energy /(mass * temperature), 
-                               $"{energy}/{mass}*{temperature}");
+                               $"{energy}/{mass}·{temperature}");
         }
 
         public override string ToString()

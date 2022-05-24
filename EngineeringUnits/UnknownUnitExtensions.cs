@@ -2,6 +2,7 @@ using EngineeringUnits.Units;
 
 namespace EngineeringUnits
 {
+    //This class is auto-generated, changes to the file will be overwritten!
     public static class UnknownUnitExtensions
     {
 
@@ -9,38 +10,6 @@ namespace EngineeringUnits
         {
             BaseUnit output = (BaseUnit) toCast;
             UnitSystem unit = output.Unit;
-			if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
-			{
-				return (AmountOfSubstance) toCast;
-			}
-			if (toCast.Unit == DurationUnit.SI.Unit)
-			{
-				return (Duration) toCast;
-			}
-			if (toCast.Unit == ElectricCurrentUnit.SI.Unit)
-			{
-				return (ElectricCurrent) toCast;
-			}
-			if (toCast.Unit == LengthUnit.SI.Unit)
-			{
-				return (Length) toCast;
-			}
-			if (toCast.Unit == LuminousIntensityUnit.SI.Unit)
-			{
-				return (LuminousIntensity) toCast;
-			}
-			if (toCast.Unit == MassUnit.SI.Unit)
-			{
-				return (Mass) toCast;
-			}
-			if (toCast.Unit == TemperatureDeltaUnit.SI.Unit)
-			{
-				return (TemperatureDelta) toCast;
-			}
-			if (toCast.Unit == TemperatureUnit.SI.Unit)
-			{
-				return (Temperature) toCast;
-			}
 			if (toCast.Unit == AccelerationUnit.SI.Unit)
 			{
 				return (Acceleration) toCast;
@@ -48,10 +17,6 @@ namespace EngineeringUnits
 			if (toCast.Unit == AngleUnit.SI.Unit)
 			{
 				return (Angle) toCast;
-			}
-			if (toCast.Unit == ApparentPowerUnit.SI.Unit)
-			{
-				return (ApparentPower) toCast;
 			}
 			if (toCast.Unit == AreaDensityUnit.SI.Unit)
 			{
@@ -145,11 +110,7 @@ namespace EngineeringUnits
 			{
 				return (Energy) toCast;
 			}
-            if (toCast.Unit == EnthalpyUnit.SI.Unit)
-            {
-                return (Enthalpy)toCast;
-            }
-            if (toCast.Unit == EntropyUnit.SI.Unit)
+			if (toCast.Unit == EntropyUnit.SI.Unit)
 			{
 				return (Entropy) toCast;
 			}
@@ -301,14 +262,6 @@ namespace EngineeringUnits
 			{
 				return (SpecificEntropy) toCast;
 			}
-            if (toCast.Unit == SpecificHeatCapacityUnit.SI.Unit)
-            {
-                return (SpecificHeatCapacity)toCast;
-            }
-            if (toCast.Unit == SpecificThermalResistanceUnit.SI.Unit)
-			{
-				return (SpecificThermalResistance) toCast;
-			}
 			if (toCast.Unit == SpecificWeightUnit.SI.Unit)
 			{
 				return (SpecificWeight) toCast;
@@ -353,8 +306,53 @@ namespace EngineeringUnits
 			{
 				return (WarpingMomentOfInertia) toCast;
 			}
+			if (toCast.Unit == SpecificThermalResistanceUnit.SI.Unit)
+			{
+				return (SpecificThermalResistance) toCast;
+			}
+			if (toCast.Unit == ApparentPowerUnit.SI.Unit)
+			{
+				return (ApparentPower) toCast;
+			}
+			if (toCast.Unit == EnthalpyUnit.SI.Unit)
+			{
+				return (Enthalpy) toCast;
+			}
+			if (toCast.Unit == SpecificHeatCapacityUnit.SI.Unit)
+			{
+				return (SpecificHeatCapacity) toCast;
+			}
+			if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
+			{
+				return (AmountOfSubstance) toCast;
+			}
+			if (toCast.Unit == DurationUnit.SI.Unit)
+			{
+				return (Duration) toCast;
+			}
+			if (toCast.Unit == ElectricCurrentUnit.SI.Unit)
+			{
+				return (ElectricCurrent) toCast;
+			}
+			if (toCast.Unit == LengthUnit.SI.Unit)
+			{
+				return (Length) toCast;
+			}
+			if (toCast.Unit == LuminousIntensityUnit.SI.Unit)
+			{
+				return (LuminousIntensity) toCast;
+			}
+			if (toCast.Unit == MassUnit.SI.Unit)
+			{
+				return (Mass) toCast;
+			}
+			if (toCast.Unit == TemperatureUnit.SI.Unit)
+			{
+				return (Temperature) toCast;
+			}
 
             return output;
+            
         }
     }
 }
