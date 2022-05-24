@@ -19,7 +19,7 @@ namespace CodeGen
         public static void GenerateGetterClasses(string projectPath)
         {
             List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-            list.AddRange(ListOfUnitsForDifferentGenerators.Alias());
+            list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
             foreach (var item in list)
             {
