@@ -96,7 +96,7 @@ namespace UnitTests
             //Enthalpy is an alias for SpecificEnergy
 
             UnitsNet.SpecificEnergy L1 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
-            EngineeringUnits.Enthalpy L2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
+            EngineeringUnits.Enthalpy L2 = new(10, EnthalpyUnit.JoulePerKilogram);
 
 
 
@@ -594,7 +594,7 @@ namespace UnitTests
                                     .Replace(".", "*")
                                     .Replace("C", "K")
                                     .Replace("°F", "°R")
-                                    .Replace("·", "*")
+                                    .Replace("*","·" )
                                     );
 
                     WorkingCompares++;

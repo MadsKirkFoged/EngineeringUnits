@@ -14,105 +14,53 @@ namespace EngineeringUnits
             /// </summary>
             public double SI => As(SpecificHeatCapacityUnit.SI);
             /// <summary>
-            ///     Get SpecificHeatCapacity in JoulePerKilogram.
+            ///     Get SpecificHeatCapacity in JoulePerKilogramKelvin.
             /// </summary>
-            public double JoulePerKilogram => As(SpecificHeatCapacityUnit.JoulePerKilogram);
+            public double JoulePerKilogramKelvin => As(SpecificHeatCapacityUnit.JoulePerKilogramKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in KilojoulePerKilogram.
+            ///     Get SpecificHeatCapacity in JoulePerKilogramDegreeCelsius.
             /// </summary>
-            public double KilojoulePerKilogram => As(SpecificHeatCapacityUnit.KilojoulePerKilogram);
+            public double JoulePerKilogramDegreeCelsius => As(SpecificHeatCapacityUnit.JoulePerKilogramDegreeCelsius);
             /// <summary>
-            ///     Get SpecificHeatCapacity in MegajoulePerKilogram.
+            ///     Get SpecificHeatCapacity in KilojoulePerKilogramDegreeCelsius.
             /// </summary>
-            public double MegajoulePerKilogram => As(SpecificHeatCapacityUnit.MegajoulePerKilogram);
+            public double KilojoulePerKilogramDegreeCelsius => As(SpecificHeatCapacityUnit.KilojoulePerKilogramDegreeCelsius);
             /// <summary>
-            ///     Get SpecificHeatCapacity in BtuPerPound.
+            ///     Get SpecificHeatCapacity in KilojoulePerKilogramKelvin.
             /// </summary>
-            public double BtuPerPound => As(SpecificHeatCapacityUnit.BtuPerPound);
+            public double KilojoulePerKilogramKelvin => As(SpecificHeatCapacityUnit.KilojoulePerKilogramKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in CaloriePerGram.
+            ///     Get SpecificHeatCapacity in MegajoulePerKilogramDegreeCelsius.
             /// </summary>
-            public double CaloriePerGram => As(SpecificHeatCapacityUnit.CaloriePerGram);
+            public double MegajoulePerKilogramDegreeCelsius => As(SpecificHeatCapacityUnit.MegajoulePerKilogramDegreeCelsius);
             /// <summary>
-            ///     Get SpecificHeatCapacity in KilocaloriePerGram.
+            ///     Get SpecificHeatCapacity in MegajoulePerKilogramKelvin.
             /// </summary>
-            public double KilocaloriePerGram => As(SpecificHeatCapacityUnit.KilocaloriePerGram);
+            public double MegajoulePerKilogramKelvin => As(SpecificHeatCapacityUnit.MegajoulePerKilogramKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in WattDayPerKilogram.
+            ///     Get SpecificHeatCapacity in JoulePerKilogramRankine.
             /// </summary>
-            public double WattDayPerKilogram => As(SpecificHeatCapacityUnit.WattDayPerKilogram);
+            public double JoulePerKilogramRankine => As(SpecificHeatCapacityUnit.JoulePerKilogramRankine);
             /// <summary>
-            ///     Get SpecificHeatCapacity in KilowattDayPerKilogram.
+            ///     Get SpecificHeatCapacity in CaloriePerGramKelvin.
             /// </summary>
-            public double KilowattDayPerKilogram => As(SpecificHeatCapacityUnit.KilowattDayPerKilogram);
+            public double CaloriePerGramKelvin => As(SpecificHeatCapacityUnit.CaloriePerGramKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in MegawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity in KilocaloriePerGramKelvin.
             /// </summary>
-            public double MegawattDayPerKilogram => As(SpecificHeatCapacityUnit.MegawattDayPerKilogram);
+            public double KilocaloriePerGramKelvin => As(SpecificHeatCapacityUnit.KilocaloriePerGramKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in GigawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity in BtuPerPoundKelvin.
             /// </summary>
-            public double GigawattDayPerKilogram => As(SpecificHeatCapacityUnit.GigawattDayPerKilogram);
+            public double BtuPerPoundKelvin => As(SpecificHeatCapacityUnit.BtuPerPoundKelvin);
             /// <summary>
-            ///     Get SpecificHeatCapacity in TerawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity in BtuPerPoundRankine.
             /// </summary>
-            public double TerawattDayPerKilogram => As(SpecificHeatCapacityUnit.TerawattDayPerKilogram);
+            public double BtuPerPoundRankine => As(SpecificHeatCapacityUnit.BtuPerPoundRankine);
             /// <summary>
-            ///     Get SpecificHeatCapacity in WattHourPerKilogram.
+            ///     Get SpecificHeatCapacity in BtuPerPoundFahrenheit.
             /// </summary>
-            public double WattHourPerKilogram => As(SpecificHeatCapacityUnit.WattHourPerKilogram);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in KilowattHourPerKilogram.
-            /// </summary>
-            public double KilowattHourPerKilogram => As(SpecificHeatCapacityUnit.KilowattHourPerKilogram);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in MegawattHourPerKilogram.
-            /// </summary>
-            public double MegawattHourPerKilogram => As(SpecificHeatCapacityUnit.MegawattHourPerKilogram);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in GigawattHourPerKilogram.
-            /// </summary>
-            public double GigawattHourPerKilogram => As(SpecificHeatCapacityUnit.GigawattHourPerKilogram);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in WattDayPerTonne.
-            /// </summary>
-            public double WattDayPerTonne => As(SpecificHeatCapacityUnit.WattDayPerTonne);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in KilowattDayPerTonne.
-            /// </summary>
-            public double KilowattDayPerTonne => As(SpecificHeatCapacityUnit.KilowattDayPerTonne);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in MegawattDayPerTonne.
-            /// </summary>
-            public double MegawattDayPerTonne => As(SpecificHeatCapacityUnit.MegawattDayPerTonne);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in GigawattDayPerTonne.
-            /// </summary>
-            public double GigawattDayPerTonne => As(SpecificHeatCapacityUnit.GigawattDayPerTonne);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in TerawattDayPerTonne.
-            /// </summary>
-            public double TerawattDayPerTonne => As(SpecificHeatCapacityUnit.TerawattDayPerTonne);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in WattDayPerShortTon.
-            /// </summary>
-            public double WattDayPerShortTon => As(SpecificHeatCapacityUnit.WattDayPerShortTon);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in KilowattDayPerShortTon.
-            /// </summary>
-            public double KilowattDayPerShortTon => As(SpecificHeatCapacityUnit.KilowattDayPerShortTon);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in MegawattDayPerShortTon.
-            /// </summary>
-            public double MegawattDayPerShortTon => As(SpecificHeatCapacityUnit.MegawattDayPerShortTon);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in GigawattDayPerShortTon.
-            /// </summary>
-            public double GigawattDayPerShortTon => As(SpecificHeatCapacityUnit.GigawattDayPerShortTon);
-            /// <summary>
-            ///     Get SpecificHeatCapacity in TerawattDayPerShortTon.
-            /// </summary>
-            public double TerawattDayPerShortTon => As(SpecificHeatCapacityUnit.TerawattDayPerShortTon);
+            public double BtuPerPoundFahrenheit => As(SpecificHeatCapacityUnit.BtuPerPoundFahrenheit);
     }
 }
 

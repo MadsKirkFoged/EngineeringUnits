@@ -19,7 +19,7 @@ namespace EngineeringUnits.Units
         public MolarEntropyUnit(EnergyUnit energy, AmountOfSubstanceUnit amountOfSubstance, TemperatureUnit temperature)
         {
             Unit = new UnitSystem( energy / (amountOfSubstance * temperature), 
-                                $"{energy}/({amountOfSubstance}.{temperature})");
+                                $"{energy}/({amountOfSubstance}·{temperature})");
         }
 
         public override string ToString()

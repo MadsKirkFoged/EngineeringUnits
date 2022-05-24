@@ -20,229 +20,112 @@ namespace EngineeringUnits
                 return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.SI);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from JoulePerKilogram.
+            ///     Get SpecificHeatCapacity from JoulePerKilogramKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromJoulePerKilogram(double JoulePerKilogram)
+            public static SpecificHeatCapacity FromJoulePerKilogramKelvin(double JoulePerKilogramKelvin)
             {
-                double value= (double)JoulePerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.JoulePerKilogram);
+                double value= (double)JoulePerKilogramKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.JoulePerKilogramKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from KilojoulePerKilogram.
+            ///     Get SpecificHeatCapacity from JoulePerKilogramDegreeCelsius.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilojoulePerKilogram(double KilojoulePerKilogram)
+            public static SpecificHeatCapacity FromJoulePerKilogramDegreeCelsius(double JoulePerKilogramDegreeCelsius)
             {
-                double value= (double)KilojoulePerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilojoulePerKilogram);
+                double value= (double)JoulePerKilogramDegreeCelsius;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.JoulePerKilogramDegreeCelsius);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from MegajoulePerKilogram.
+            ///     Get SpecificHeatCapacity from KilojoulePerKilogramDegreeCelsius.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromMegajoulePerKilogram(double MegajoulePerKilogram)
+            public static SpecificHeatCapacity FromKilojoulePerKilogramDegreeCelsius(double KilojoulePerKilogramDegreeCelsius)
             {
-                double value= (double)MegajoulePerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegajoulePerKilogram);
+                double value= (double)KilojoulePerKilogramDegreeCelsius;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilojoulePerKilogramDegreeCelsius);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from BtuPerPound.
+            ///     Get SpecificHeatCapacity from KilojoulePerKilogramKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromBtuPerPound(double BtuPerPound)
+            public static SpecificHeatCapacity FromKilojoulePerKilogramKelvin(double KilojoulePerKilogramKelvin)
             {
-                double value= (double)BtuPerPound;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.BtuPerPound);
+                double value= (double)KilojoulePerKilogramKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilojoulePerKilogramKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from CaloriePerGram.
+            ///     Get SpecificHeatCapacity from MegajoulePerKilogramDegreeCelsius.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromCaloriePerGram(double CaloriePerGram)
+            public static SpecificHeatCapacity FromMegajoulePerKilogramDegreeCelsius(double MegajoulePerKilogramDegreeCelsius)
             {
-                double value= (double)CaloriePerGram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.CaloriePerGram);
+                double value= (double)MegajoulePerKilogramDegreeCelsius;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegajoulePerKilogramDegreeCelsius);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from KilocaloriePerGram.
+            ///     Get SpecificHeatCapacity from MegajoulePerKilogramKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilocaloriePerGram(double KilocaloriePerGram)
+            public static SpecificHeatCapacity FromMegajoulePerKilogramKelvin(double MegajoulePerKilogramKelvin)
             {
-                double value= (double)KilocaloriePerGram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilocaloriePerGram);
+                double value= (double)MegajoulePerKilogramKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegajoulePerKilogramKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from WattDayPerKilogram.
+            ///     Get SpecificHeatCapacity from JoulePerKilogramRankine.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromWattDayPerKilogram(double WattDayPerKilogram)
+            public static SpecificHeatCapacity FromJoulePerKilogramRankine(double JoulePerKilogramRankine)
             {
-                double value= (double)WattDayPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.WattDayPerKilogram);
+                double value= (double)JoulePerKilogramRankine;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.JoulePerKilogramRankine);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from KilowattDayPerKilogram.
+            ///     Get SpecificHeatCapacity from CaloriePerGramKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilowattDayPerKilogram(double KilowattDayPerKilogram)
+            public static SpecificHeatCapacity FromCaloriePerGramKelvin(double CaloriePerGramKelvin)
             {
-                double value= (double)KilowattDayPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilowattDayPerKilogram);
+                double value= (double)CaloriePerGramKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.CaloriePerGramKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from MegawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity from KilocaloriePerGramKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromMegawattDayPerKilogram(double MegawattDayPerKilogram)
+            public static SpecificHeatCapacity FromKilocaloriePerGramKelvin(double KilocaloriePerGramKelvin)
             {
-                double value= (double)MegawattDayPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegawattDayPerKilogram);
+                double value= (double)KilocaloriePerGramKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilocaloriePerGramKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from GigawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity from BtuPerPoundKelvin.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromGigawattDayPerKilogram(double GigawattDayPerKilogram)
+            public static SpecificHeatCapacity FromBtuPerPoundKelvin(double BtuPerPoundKelvin)
             {
-                double value= (double)GigawattDayPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.GigawattDayPerKilogram);
+                double value= (double)BtuPerPoundKelvin;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.BtuPerPoundKelvin);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from TerawattDayPerKilogram.
+            ///     Get SpecificHeatCapacity from BtuPerPoundRankine.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromTerawattDayPerKilogram(double TerawattDayPerKilogram)
+            public static SpecificHeatCapacity FromBtuPerPoundRankine(double BtuPerPoundRankine)
             {
-                double value= (double)TerawattDayPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.TerawattDayPerKilogram);
+                double value= (double)BtuPerPoundRankine;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.BtuPerPoundRankine);
             }
             /// <summary>
-            ///     Get SpecificHeatCapacity from WattHourPerKilogram.
+            ///     Get SpecificHeatCapacity from BtuPerPoundFahrenheit.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromWattHourPerKilogram(double WattHourPerKilogram)
+            public static SpecificHeatCapacity FromBtuPerPoundFahrenheit(double BtuPerPoundFahrenheit)
             {
-                double value= (double)WattHourPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.WattHourPerKilogram);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from KilowattHourPerKilogram.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilowattHourPerKilogram(double KilowattHourPerKilogram)
-            {
-                double value= (double)KilowattHourPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilowattHourPerKilogram);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from MegawattHourPerKilogram.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromMegawattHourPerKilogram(double MegawattHourPerKilogram)
-            {
-                double value= (double)MegawattHourPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegawattHourPerKilogram);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from GigawattHourPerKilogram.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromGigawattHourPerKilogram(double GigawattHourPerKilogram)
-            {
-                double value= (double)GigawattHourPerKilogram;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.GigawattHourPerKilogram);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from WattDayPerTonne.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromWattDayPerTonne(double WattDayPerTonne)
-            {
-                double value= (double)WattDayPerTonne;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.WattDayPerTonne);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from KilowattDayPerTonne.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilowattDayPerTonne(double KilowattDayPerTonne)
-            {
-                double value= (double)KilowattDayPerTonne;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilowattDayPerTonne);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from MegawattDayPerTonne.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromMegawattDayPerTonne(double MegawattDayPerTonne)
-            {
-                double value= (double)MegawattDayPerTonne;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegawattDayPerTonne);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from GigawattDayPerTonne.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromGigawattDayPerTonne(double GigawattDayPerTonne)
-            {
-                double value= (double)GigawattDayPerTonne;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.GigawattDayPerTonne);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from TerawattDayPerTonne.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromTerawattDayPerTonne(double TerawattDayPerTonne)
-            {
-                double value= (double)TerawattDayPerTonne;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.TerawattDayPerTonne);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from WattDayPerShortTon.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromWattDayPerShortTon(double WattDayPerShortTon)
-            {
-                double value= (double)WattDayPerShortTon;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.WattDayPerShortTon);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from KilowattDayPerShortTon.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromKilowattDayPerShortTon(double KilowattDayPerShortTon)
-            {
-                double value= (double)KilowattDayPerShortTon;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.KilowattDayPerShortTon);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from MegawattDayPerShortTon.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromMegawattDayPerShortTon(double MegawattDayPerShortTon)
-            {
-                double value= (double)MegawattDayPerShortTon;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.MegawattDayPerShortTon);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from GigawattDayPerShortTon.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromGigawattDayPerShortTon(double GigawattDayPerShortTon)
-            {
-                double value= (double)GigawattDayPerShortTon;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.GigawattDayPerShortTon);
-            }
-            /// <summary>
-            ///     Get SpecificHeatCapacity from TerawattDayPerShortTon.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static SpecificHeatCapacity FromTerawattDayPerShortTon(double TerawattDayPerShortTon)
-            {
-                double value= (double)TerawattDayPerShortTon;
-                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.TerawattDayPerShortTon);
+                double value= (double)BtuPerPoundFahrenheit;
+                return new SpecificHeatCapacity(value, SpecificHeatCapacityUnit.BtuPerPoundFahrenheit);
             }
     }
 }

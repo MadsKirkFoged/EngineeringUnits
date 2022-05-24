@@ -13,38 +13,25 @@ namespace EngineeringUnits.Units
     public record SpecificHeatCapacityUnit : UnitTypebase
     {
 
-        public static readonly SpecificHeatCapacityUnit SI =                       new(EnergyUnit.SI, MassUnit.SI);
-        public static readonly SpecificHeatCapacityUnit JoulePerKilogram =         new(EnergyUnit.Joule, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit KilojoulePerKilogram =     new(EnergyUnit.Kilojoule, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit MegajoulePerKilogram =     new(EnergyUnit.Megajoule, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit BtuPerPound =              new(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
-        public static readonly SpecificHeatCapacityUnit CaloriePerGram =           new(EnergyUnit.Calorie, MassUnit.Gram);
-        public static readonly SpecificHeatCapacityUnit KilocaloriePerGram =       new(EnergyUnit.Kilocalorie, MassUnit.Gram);
-        public static readonly SpecificHeatCapacityUnit WattDayPerKilogram =       new(EnergyUnit.WattDay, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit KilowattDayPerKilogram =   new(EnergyUnit.KilowattDay, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit MegawattDayPerKilogram =   new(EnergyUnit.MegawattDay, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit GigawattDayPerKilogram =   new(EnergyUnit.GigawattDay, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit TerawattDayPerKilogram =   new(EnergyUnit.TerawattDay, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit WattHourPerKilogram =      new(EnergyUnit.WattHour, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit KilowattHourPerKilogram =  new(EnergyUnit.KilowattHour, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit MegawattHourPerKilogram =  new(EnergyUnit.MegawattHour, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit GigawattHourPerKilogram =  new(EnergyUnit.GigawattHour, MassUnit.Kilogram);
-        public static readonly SpecificHeatCapacityUnit WattDayPerTonne =          new(EnergyUnit.WattDay, MassUnit.Tonne);
-        public static readonly SpecificHeatCapacityUnit KilowattDayPerTonne =      new(EnergyUnit.KilowattDay, MassUnit.Tonne);
-        public static readonly SpecificHeatCapacityUnit MegawattDayPerTonne =      new(EnergyUnit.MegawattDay, MassUnit.Tonne);
-        public static readonly SpecificHeatCapacityUnit GigawattDayPerTonne =      new(EnergyUnit.GigawattDay, MassUnit.Tonne);
-        public static readonly SpecificHeatCapacityUnit TerawattDayPerTonne =      new(EnergyUnit.TerawattDay, MassUnit.Tonne);
-        public static readonly SpecificHeatCapacityUnit WattDayPerShortTon =       new(EnergyUnit.WattDay, MassUnit.ShortTon);
-        public static readonly SpecificHeatCapacityUnit KilowattDayPerShortTon =   new(EnergyUnit.KilowattDay, MassUnit.ShortTon);
-        public static readonly SpecificHeatCapacityUnit MegawattDayPerShortTon =   new(EnergyUnit.MegawattDay, MassUnit.ShortTon);
-        public static readonly SpecificHeatCapacityUnit GigawattDayPerShortTon =   new(EnergyUnit.GigawattDay, MassUnit.ShortTon);
-        public static readonly SpecificHeatCapacityUnit TerawattDayPerShortTon =   new(EnergyUnit.TerawattDay, MassUnit.ShortTon);
+        public static readonly SpecificHeatCapacityUnit SI =                                  new(EnergyUnit.SI, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit JoulePerKilogramKelvin =              new(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit JoulePerKilogramDegreeCelsius =       new(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit KilojoulePerKilogramDegreeCelsius =   new(EnergyUnit.Kilojoule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit KilojoulePerKilogramKelvin =          new(EnergyUnit.Kilojoule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit MegajoulePerKilogramDegreeCelsius =   new(EnergyUnit.Megajoule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit MegajoulePerKilogramKelvin =          new(EnergyUnit.Megajoule, MassUnit.SI, TemperatureUnit.SI);
+        public static readonly SpecificHeatCapacityUnit JoulePerKilogramRankine =             new(EnergyUnit.Joule, MassUnit.SI, TemperatureUnit.DegreeRankine);
+        public static readonly SpecificHeatCapacityUnit CaloriePerGramKelvin =                new(EnergyUnit.Calorie, MassUnit.Gram, TemperatureUnit.Kelvin);
+        public static readonly SpecificHeatCapacityUnit KilocaloriePerGramKelvin =            new(EnergyUnit.Kilocalorie, MassUnit.Gram, TemperatureUnit.Kelvin);
+        public static readonly SpecificHeatCapacityUnit BtuPerPoundKelvin =                   new(EnergyUnit.BritishThermalUnit, MassUnit.Pound, TemperatureUnit.Kelvin);
+        public static readonly SpecificHeatCapacityUnit BtuPerPoundRankine =                  new(EnergyUnit.BritishThermalUnit, MassUnit.Pound, TemperatureUnit.DegreeRankine);
+        public static readonly SpecificHeatCapacityUnit BtuPerPoundFahrenheit =               new(EnergyUnit.BritishThermalUnit, MassUnit.Pound, TemperatureUnit.DegreeRankine);
 
 
-        public SpecificHeatCapacityUnit(EnergyUnit energy, MassUnit mass)
+        public SpecificHeatCapacityUnit(EnergyUnit energy, MassUnit mass, TemperatureUnit temperature)
         {
-            Unit = new UnitSystem( energy / mass, 
-                                $"{energy}/{mass}");
+            Unit = new UnitSystem(energy /(mass * temperature), 
+                               $"{energy}/{mass}*{temperature}");
         }
 
         public override string ToString()
@@ -54,7 +41,6 @@ namespace EngineeringUnits.Units
 
             return $"{Unit}";
         }
-
     }
 
 

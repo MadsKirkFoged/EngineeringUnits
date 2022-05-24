@@ -15,34 +15,63 @@ namespace CodeGen
         {
            
             string str;
-           
-                foreach (var i in ListOfUnitsForDifferentGenerators.Alias())
-                 {   
-                    string path = Path.Combine(projectPath, "CombinedUnits", i);
-                    
-                  
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
 
-                    foreach (var item in ListOfUnitsForDifferentGenerators.SpecificList())
-                    {
-
-                        string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item, $"{item}Enum.cs");
-
-                        str = File.ReadAllText(Path.Combine(projectPathWithUnit));
-
-                        str = str.Replace($"{item}", $"{i}");
+            //foreach (var i in ListOfUnitsForDifferentGenerators.Alias())
+            //{
+            //    string path = Path.Combine(projectPath, "CombinedUnits", i);
 
 
+            //    if (!Directory.Exists(path))
+            //    {
+            //        Directory.CreateDirectory(path);
+            //    }
 
-                    File.WriteAllText(Path.Combine(path, $"{i}Enum.cs"), str.ToString()); 
+            //    foreach (var item in ListOfUnitsForDifferentGenerators.SpecificList())
+            //    {
+
+            //        string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item, $"{item}Enum.cs");
+
+            //        str = File.ReadAllText(Path.Combine(projectPathWithUnit));
+
+            //        str = str.Replace($"{item}", $"{i}");
+
+
+
+            //        File.WriteAllText(Path.Combine(path, $"{i}Enum.cs"), str.ToString());
+            //    }
+            //}
+
+            foreach (KeyValuePair<string, string> i in ListOfUnitsForDifferentGenerators.AliasList())
+            {
+                string path = Path.Combine(projectPath, "CombinedUnits", i.Value);
+
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
                 }
+
+                
+
+                    string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits",i.Key, $"{i.Key}Enum.cs");
+
+                    str = File.ReadAllText(Path.Combine(projectPathWithUnit));
+
+                    str = str.Replace($"{i.Key}", $"{i.Value}");
+
+
+
+                    File.WriteAllText(Path.Combine(path, $"{i.Value}Enum.cs"), str.ToString());
+                
             }
 
 
+
+
         }
+
+
+        
 
 
 
@@ -50,22 +79,41 @@ namespace CodeGen
 
         public static void AliasClass(string projectPath)
         {
-            foreach (var item in ListOfUnitsForDifferentGenerators.Alias())
+            //foreach (var item in ListOfUnitsForDifferentGenerators.Alias())
+            //{
+
+            //    string sb = CreateAlias(item);
+
+            //    foreach (var i in ListOfUnitsForDifferentGenerators.SpecificList())
+            //    {
+
+
+            //        sb = sb.Replace("Variable", $"{item}");
+            //        sb = sb.Replace("Original", $"{i}");
+
+            //    }
+            //    string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
+
+            //    File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Alias.cs"), sb.ToString());
+
+
+            //}
+
+            foreach (var item in ListOfUnitsForDifferentGenerators.AliasList())
             {
 
-                string sb = CreateAlias(item);
+                string sb = CreateAlias(item.Value);
 
-                foreach (var i in ListOfUnitsForDifferentGenerators.SpecificList())
-                {
-                  
+               
 
-                    sb = sb.Replace("Variable", $"{item}");
-                    sb = sb.Replace("Original", $"{i}");
 
-                }
-                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
+                    sb = sb.Replace("Variable", $"{item.Value}");
+                    sb = sb.Replace("Original", $"{item.Key}");
 
-                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Alias.cs"), sb.ToString());
+                
+                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item.Value);
+
+                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item.Value}Alias.cs"), sb.ToString());
 
 
             }

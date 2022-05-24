@@ -24,7 +24,7 @@ namespace CodeGen
                 {
                     //staticUnits.AppendLine($"\t\tstatic UnitSystem {type.Name.ToLower()} = {type.Name}.FromSI(1).Unit;");
 
-                    conditionals.AppendLine($"\t\t\tif (toCast.unitsystem == {type.Name}Unit.SI.Unit)");
+                    conditionals.AppendLine($"\t\t\tif (toCast.Unit == {type.Name}Unit.SI.Unit)");
                     conditionals.AppendLine($"\t\t\t{{");
                     conditionals.AppendLine($"\t\t\t\treturn ({type.Name}) toCast;");
                     conditionals.AppendLine($"\t\t\t}}");

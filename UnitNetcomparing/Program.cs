@@ -73,7 +73,7 @@ namespace UnitNetcomparing
 
             SpecificEntropy S1 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
             SpecificHeatCapacity S2 = new SpecificEntropy(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
-            SpecificHeatCapacity S3 = new SpecificHeatCapacity(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
+           // SpecificHeatCapacity S3 = new SpecificHeatCapacity(10, SpecificEntropyUnit.JoulePerKilogramKelvin);
             SpecificHeatCapacity S4 = S1;
 
 
