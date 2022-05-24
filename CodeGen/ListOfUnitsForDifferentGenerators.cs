@@ -27,14 +27,7 @@ namespace CodeGen
             return list;
         }
 
-        public static List<string> SpecificList()
-        {
-            return new List<string>() { "SpecificEntropy", "SpecificEnergy" };
-        }
-        public static List<string> Alias()
-        {
-            return new List<string>() { "SpecificHeatCapacity", "Enthalpy" };
-        }
+        
 
 
         public static List<KeyValuePair<string, string>> AliasList()
