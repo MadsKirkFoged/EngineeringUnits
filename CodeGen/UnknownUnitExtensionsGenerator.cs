@@ -17,23 +17,26 @@ namespace CodeGen
             //StringBuilder staticUnits = new StringBuilder();
             StringBuilder conditionals = new StringBuilder();
 
-            typeof(BaseUnit).Assembly.GetTypes()
-                .Where(t => t.IsSubclassOf(typeof(BaseUnit)))
-                .Where(t => null != t.GetMethod("FromSI")).ToList()
-                .ForEach(type =>
-                {
-                    //staticUnits.AppendLine($"\t\tstatic UnitSystem {type.Name.ToLower()} = {type.Name}.FromSI(1).Unit;");
+            foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
+            {
+                conditionals.AppendLine($"\t\t\tif (toCast.Unit == {item}Unit.SI.Unit)");
+                conditionals.AppendLine($"\t\t\t{{");
+                conditionals.AppendLine($"\t\t\t\treturn ({item}) toCast;");
+                conditionals.AppendLine($"\t\t\t}}");
 
-                    conditionals.AppendLine($"\t\t\tif (toCast.unitsystem == {type.Name}Unit.SI.Unit)");
-                    conditionals.AppendLine($"\t\t\t{{");
-                    conditionals.AppendLine($"\t\t\t\treturn ({type.Name}) toCast;");
-                    conditionals.AppendLine($"\t\t\t}}");
-                });
+            }
+
+
+
+
+
+
 
             builder.AppendLine(@"using EngineeringUnits.Units;
 
 namespace EngineeringUnits
 {
+    //This class is auto-generated, changes to the file will be overwritten!
     public static class UnknownUnitExtensions
     {");
             builder.AppendLine();
@@ -45,6 +48,7 @@ namespace EngineeringUnits
             builder.Append(conditionals);
             builder.AppendLine(@"
             return output;
+            
         }
     }
 }");

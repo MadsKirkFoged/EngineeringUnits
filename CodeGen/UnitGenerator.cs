@@ -13,24 +13,14 @@ namespace CodeGen
 {
     internal  class UnitGenerator
     {
-
-        public static List<string> GetListOfCombinedUnits()
-        {
-            return new List<string>() { "Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
-        }
-
-        public static List<string> GetListOfBaseUnits()
-        {
-            return new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass" };
-        }
-
-        
+                    
 
         public static void GenerateClasses(string projectPath)
-        {           
+        {
 
-
-            foreach (var item in GetListOfCombinedUnits())
+            List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
+            list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
+            foreach (var item in list)
              {
 
                 string sb = Generate(item);
@@ -42,7 +32,7 @@ namespace CodeGen
 
              }
 
-            foreach (var item in GetListOfBaseUnits())
+            foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
             {
 
                 string sb = Generate(item);
@@ -69,6 +59,7 @@ using EngineeringUnits.Units;
 
 namespace EngineeringUnits
 {
+    //This class is auto-generated, changes to the file will be overwritten!
     public partial class Variable : BaseUnit
     {
 
@@ -89,8 +80,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(VariableUnit ReturnInThisUnit) => ToTheOutSideDouble(ReturnInThisUnit.Unit);
-        public Variable ToUnit(VariableUnit selectedUnit) => new(ToTheOutSide(selectedUnit.Unit), selectedUnit);
+        public double As(VariableUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Variable ToUnit(VariableUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Variable Zero => new(0, VariableUnit.SI);
 
         public static implicit operator Variable(UnknownUnit Unit)
@@ -118,17 +109,7 @@ namespace EngineeringUnits
 
 
         }
-
-
-        public static string PrintOut()
-        {
-
-            Acceleration test = new Acceleration();
-
-
-            return "";
-        }
-
+       
 
     }
 
