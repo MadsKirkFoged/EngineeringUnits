@@ -143,6 +143,11 @@ namespace EngineeringUnits
            
         }
 
-       
+        public void UnitCheck(IUnitSystem a)
+        {
+            BaseUnit.UnitCheck(a);
+        }
+
+
     }
 }
