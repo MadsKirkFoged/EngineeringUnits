@@ -19,6 +19,7 @@ namespace EngineeringUnits.Units
         public static readonly FrequencyUnit Terahertz = new(PreFix.tera, Hertz);
         public static readonly FrequencyUnit PerSecond =         new(DurationUnit.Second, "s⁻¹");
         public static readonly FrequencyUnit BeatPerMinute =     new(DurationUnit.Minute, "bpm");
+        public static readonly FrequencyUnit RevolutionsPerMinute = new(DurationUnit.Minute, "RPM");
         public static readonly FrequencyUnit CyclePerHour =      new(DurationUnit.Hour, "cph");
         public static readonly FrequencyUnit CyclePerMinute =    new(DurationUnit.Minute, "cpm");
         public static readonly FrequencyUnit RadianPerSecond = new(DurationUnit.Second, "rad/s", 1/(2*(decimal)Math.PI));
