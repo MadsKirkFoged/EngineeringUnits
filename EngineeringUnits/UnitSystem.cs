@@ -401,8 +401,21 @@ namespace EngineeringUnits
             return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
         }
 
+        public UnitSystem GetSIUnitsystem()
+        {
 
-        
+            List<RawUnit> SIUnitList = new List<RawUnit>();
+
+            var test  = ListOfUnits.Select(x => x.CloneAsSI());
+
+            foreach (var item in ListOfUnits)
+            {
+                SIUnitList.Add(item.CloneAsSI());
+            }
+
+            return new UnitSystem(SIUnitList);
+        }
+
         //Cache
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();

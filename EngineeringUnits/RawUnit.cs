@@ -62,6 +62,16 @@ namespace EngineeringUnits
 
         }
 
+        public RawUnit CloneAsSI()
+        {
+            return this with
+            {
+                A = Fraction.One,
+                B = 0,
+            };
+
+        }
+
         private int HashCode;
 
         public override int GetHashCode()

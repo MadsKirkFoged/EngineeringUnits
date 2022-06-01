@@ -57,6 +57,22 @@ namespace UnitNetcomparing
 
 
 
+
+            Power p1 = new Power(5,PowerUnit.SI);
+            Power p2 = new Power(10, PowerUnit.SI);
+            Power p3 = new Power(15, PowerUnit.SI);
+
+  
+            UVector v1 = new UVector(p1, p2);
+            UVector v2 = v1 + v1;
+            Power PDot = UVector.DotProduct(v1, v1);
+
+
+            UVector v3 = new UVector(p1, p2, p3);
+            UVector v4 = new UVector(p2, p2, p2);
+            UVector PCross = UVector.CrossProduct(v3, v4);
+
+
             //Creating a unit that is not yet cast to a specific unit
             UnknownUnit unknown = Energy.FromSI(10) / Duration.FromSI(10);
             // {1 W}
