@@ -16,6 +16,47 @@ namespace UnitNetcomparing
     {
         static void Main(string[] args)
         {
+            //finding similar units with different naming
+            List<string> mylist = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Temperature", "Acceleration", "Angle", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance", "ApparentPower", "Enthalpy", "SpecificHeatCapacity" };
+            List<string> list2 = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Temperature", "Acceleration", "Angle", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance", "ApparentPower", "Enthalpy", "SpecificHeatCapacity" };
+
+          
+            List<string> re = new List<string>();
+            UnitSystem alias1;
+            UnitSystem alias2;
+            foreach (var item in mylist)
+            {
+                var t = Type.GetType("EngineeringUnits.Units." + item + "Unit, EngineeringUnits");
+                var u = t.GetFields().FirstOrDefault();
+                string s="";
+
+                alias1 = ((UnitTypebase)u.GetValue(u)).Unit;
+                foreach (var i in list2)
+                {
+                    var t1 = Type.GetType("EngineeringUnits.Units." + i + "Unit, EngineeringUnits");
+                    var u1 = t1.GetFields().FirstOrDefault();
+
+                    alias2 = ((UnitTypebase)u1.GetValue(u1)).Unit;
+                    if ((alias2 == alias1) && (item != i))
+                    {
+                        if (!re.Exists(e => e.EndsWith($"={i},")))
+                         
+                            re.Add($"{i}={item},"); 
+                      
+                        
+                    }
+                }
+            }
+            // 22 units in the output
+           foreach(var i in re)
+            {
+                Console.WriteLine(i);
+            }
+
+
+
+
+
             //Creating a unit that is not yet cast to a specific unit
             UnknownUnit unknown = Energy.FromSI(10) / Duration.FromSI(10);
             // {1 W}
@@ -166,7 +207,7 @@ namespace UnitNetcomparing
 
 
             List<double> list = new List<double> { 1, 1.2, 0.2, 1.8, 0.5 };
-            Debug.Print(list.Min().ToString());
+            Debug.Print(mylist.Min().ToString());
             double lenght = 50; //cm
             double time = 4; //seconds
             double speed = lenght / time; // m/s

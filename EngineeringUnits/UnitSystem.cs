@@ -401,6 +401,8 @@ namespace EngineeringUnits
             return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
         }
 
+
+        
         //Cache
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
@@ -408,5 +410,8 @@ namespace EngineeringUnits
         private int HashCode;
         private Fraction _sumConstant;
         private int HashCodeForUnitCompare;
+
+
+      
     }
 }
