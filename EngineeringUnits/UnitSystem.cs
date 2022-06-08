@@ -59,6 +59,12 @@ namespace EngineeringUnits
 
         public List<(BaseunitType Key, int Value)> UnitsCount()
         {
+            //Exemple of output:
+            //Mass - 2
+            //Length - 1
+            //Duration - 3
+
+
             if (_UnitsCount is null)
             {
                 _UnitsCount = ListOfUnits
