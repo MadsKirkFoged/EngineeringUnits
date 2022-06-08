@@ -12,10 +12,25 @@ using System.Reflection;
 
 namespace UnitNetcomparing
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
+            Power P1 = Power.FromKilowatt(10);
+            Length L1 = Length.FromChain(2);
+            Temperature T1 = Temperature.FromDegreesCelsius(4);
+
+            ThermalConductivity Th = ThermalConductivity.FromBtuPerHourFootFahrenheit(10);
+
+
+            for (int i = 0; i < 100000000; i++)
+            {
+                var test22 = (P1 / (L1 * T1)) + Th;
+            }
+
+
+
 
             Power p1 = new Power(5,PowerUnit.SI);
             Power p2 = new Power(10, PowerUnit.SI);
@@ -131,7 +146,7 @@ namespace UnitNetcomparing
 
 
 
-            Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
+            //Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
 
             //This will as standard use 4 significant digits
             string Output1 = T1.ToString(); // 10.57 °C

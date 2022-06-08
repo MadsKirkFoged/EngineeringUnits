@@ -7,10 +7,11 @@ using System.Globalization;
 using System.Text;
 using System;
 using System.Linq;
+using System.Collections.Concurrent;
 
 namespace EngineeringUnits
 {
-    //The baseunit is the inherited be all other unit.
+    //The baseunit is inherited by all other unit.
     //It stores the value and the unitsystem
 
 
@@ -137,7 +138,7 @@ namespace EngineeringUnits
         }
         public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
         {
-            if (right.NEWValue == 0)
+            if (right.NEWValue == 0m)
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
 
 
@@ -292,15 +293,12 @@ namespace EngineeringUnits
             return $"{value}{unit}";
         }
 
-        
-        private Fraction ConvertionFactor(BaseUnit To)
-        {
-            return Unit.SumConstant() / To.Unit.SumConstant();
-        }
+
         private decimal ConvertValueInto(BaseUnit From)
         {
-            //return (decimal)ConvertionFactor(From) * NEWValue;
-            return (decimal)(ConvertionFactor(From) * (Fraction)NEWValue);
+            var Factor = From.Unit.ConvertionFactor(Unit);
+
+            return (decimal)(Factor * (Fraction)NEWValue);
         }
 
 

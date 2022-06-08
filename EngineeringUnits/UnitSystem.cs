@@ -95,7 +95,22 @@ namespace EngineeringUnits
         }
         public Fraction ConvertionFactor(UnitSystem To)
         {
-            return To.SumConstant() / SumConstant();
+            int hashCode = 512265997;
+            unchecked
+            {
+                hashCode = (hashCode * 18403087) ^ GetHashCode();
+                hashCode = (hashCode * 11270411) ^ To.GetHashCode();
+            }
+
+            if (CacheFactor.TryGetValue(hashCode, out Fraction local))            
+                return local;
+            
+
+            var test = To.SumConstant() / SumConstant();
+
+            CacheFactor.TryAdd(hashCode, test);
+
+            return test;
         }
 
         public static UnitSystem operator +(UnitSystem left, UnitSystem right)
@@ -393,13 +408,18 @@ namespace EngineeringUnits
 
         public bool IsSIUnit()
         {
-          return ListOfUnits.All(x=> x.IsSI);
+            if (isSIUnit is null)            
+                isSIUnit = ListOfUnits.All(x => x.IsSI);
+            
+
+            //return ListOfUnits.All(x=> x.IsSI);
+            return (bool)isSIUnit;
         }
 
-        public bool DoesIncludeTemperature()
-        {
-            return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
-        }
+        //public bool DoesIncludeTemperature()
+        //{
+        //    return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
+        //}
 
         public UnitSystem GetSIUnitsystem()
         {
@@ -419,9 +439,11 @@ namespace EngineeringUnits
         //Cache
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
+        private static readonly ConcurrentDictionary<int, Fraction> CacheFactor = new();
         private List<(BaseunitType Key, int Value)> _UnitsCount;
         private int HashCode;
         private Fraction _sumConstant;
         private int HashCodeForUnitCompare;
+        private bool? isSIUnit = null;
     }
 }
