@@ -14,10 +14,6 @@ namespace EngineeringUnits
 			{
 				return (Acceleration) toCast;
 			}
-			if (toCast.Unit == AngleUnit.SI.Unit)
-			{
-				return (Angle) toCast;
-			}
 			if (toCast.Unit == AreaDensityUnit.SI.Unit)
 			{
 				return (AreaDensity) toCast;
@@ -321,6 +317,10 @@ namespace EngineeringUnits
 			if (toCast.Unit == SpecificHeatCapacityUnit.SI.Unit)
 			{
 				return (SpecificHeatCapacity) toCast;
+			}
+			if (toCast.Unit == AngleUnit.SI.Unit)
+			{
+				return (Angle) toCast;
 			}
 			if (toCast.Unit == AmountOfSubstanceUnit.SI.Unit)
 			{

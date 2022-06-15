@@ -83,6 +83,15 @@ namespace EngineeringUnits
                 return new Frequency(value, FrequencyUnit.BeatPerMinute);
             }
             /// <summary>
+            ///     Get Frequency from RevolutionsPerMinute.
+            /// </summary>
+            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+            public static Frequency FromRevolutionsPerMinute(double RevolutionsPerMinute)
+            {
+                double value= (double)RevolutionsPerMinute;
+                return new Frequency(value, FrequencyUnit.RevolutionsPerMinute);
+            }
+            /// <summary>
             ///     Get Frequency from CyclePerHour.
             /// </summary>
             /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
