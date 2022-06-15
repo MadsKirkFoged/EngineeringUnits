@@ -451,5 +451,6 @@ namespace EngineeringUnits
         private Fraction _sumConstant;
         private int HashCodeForUnitCompare;
         private bool? isSIUnit = null;
+
     }
 }

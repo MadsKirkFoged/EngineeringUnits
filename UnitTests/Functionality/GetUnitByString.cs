@@ -106,14 +106,6 @@ namespace UnitTests
 
 
 
-        [TestMethod]
-        public void MultiplyUnits()
-        {
-            var length1 = Length.FromFoot(2.5).Unit;
-            var length2 = Length.FromInch(6).Unit;
-            var res = length1 * length2;
-            Assert.AreEqual(res, LengthUnit.Foot * LengthUnit.Inch);
-        }
 
     }
 }
