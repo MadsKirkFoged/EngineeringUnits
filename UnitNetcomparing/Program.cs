@@ -18,6 +18,10 @@ namespace UnitNetcomparing
         public static void Main(string[] args)
         {
 
+            Pressure Text = new Pressure(10, PressureUnit.Bar, PressureReference.Absolute);
+
+
+
             //finding similar units with different naming
             List<string> mylist = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Temperature", "Acceleration", "Angle", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance", "ApparentPower", "Enthalpy", "SpecificHeatCapacity" };
             List<string> list2 = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Temperature", "Acceleration", "Angle", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance", "ApparentPower", "Enthalpy", "SpecificHeatCapacity" };
@@ -61,7 +65,7 @@ namespace UnitNetcomparing
             ThermalConductivity Th = ThermalConductivity.FromBtuPerHourFootFahrenheit(10);
 
 
-            for (int i = 0; i < 100000000; i++)
+            for (int k = 0; k < 100000000; k++)
             {
                 var test22 = (P1 / (L1 * T1)) + Th;
 
@@ -320,7 +324,7 @@ namespace UnitNetcomparing
             double TemperatureAsSI = T2.SI;
 
             //Solver or function where calculation speed is critical!
-            for (int i = 0; i < 1000000000; i++)
+            for (int n = 0; n < 1000000000; n++)
             {
                 ThermalConductivityAsSI = PowerAsSI / (LengthAsSI * TemperatureAsSI);
             }
@@ -331,17 +335,18 @@ namespace UnitNetcomparing
             //ThermalConductivity test = 0;
            // var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            for (int i = 0; i < 10000000; i++)
+            for (int j = 0; j < 10000000; j++)
             {
                 ThermalConductivity TC = P2 / (L2 * T2);
             }
+
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
 
             Console.WriteLine(elapsedMs.ToString());
             Console.ReadLine();
 
-  
+            }
 
         }
 

@@ -102,8 +102,8 @@ namespace EngineeringUnits
 
         private string GetSymbol(PressureReference reference) => reference switch
         {
-            PressureReference.Absolute => "a",
-            PressureReference.Gauge => "g",
+            PressureReference.Absolute => "ₐ",
+            PressureReference.Gauge => "ᶢ",
             //PressureReference.Vacuum => "TODO",
             _ => throw new System.NotImplementedException(),
         };
