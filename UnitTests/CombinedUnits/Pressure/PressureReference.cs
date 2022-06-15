@@ -22,36 +22,36 @@ namespace UnitTests
             Assert.AreEqual($"{P1}", "10 bar");
 
             Pressure P2 = P1.ToUnit(PressureUnit.Bar, PressureReference.Absolute);
-            Assert.AreEqual(P2.ToString(), "10 bara");
-            Assert.AreEqual($"{P2}", "10 bara");
+            Assert.AreEqual(P2.ToString(), "10 barₐ");
+            Assert.AreEqual($"{P2}", "10 barₐ");
 
             Pressure P3 = P1.ToUnit( PressureReference.Gauge);
-            Assert.AreEqual(P3.ToString(), "8.987 barg");
-            Assert.AreEqual($"{P3}", "8.987 barg");
+            Assert.AreEqual(P3.ToString(), "8.987 barᶢ");
+            Assert.AreEqual($"{P3}", "8.987 barᶢ");
 
             Pressure P4 = new Pressure(10m, PressureUnit.Bar, PressureReference.Gauge);
-            Assert.AreEqual(P4.ToString(), "10 barg");
-            Assert.AreEqual($"{P4}", "10 barg");
+            Assert.AreEqual(P4.ToString(), "10 barᶢ");
+            Assert.AreEqual($"{P4}", "10 barᶢ");
 
             Pressure P5 = new Pressure(10m, PressureUnit.Bar, PressureReference.Absolute);
-            Assert.AreEqual(P5.ToString(), "10 bara");
-            Assert.AreEqual($"{P5}", "10 bara");
+            Assert.AreEqual(P5.ToString(), "10 barₐ");
+            Assert.AreEqual($"{P5}", "10 barₐ");
 
             Pressure P6 = P4.ToUnit(PressureReference.Gauge);
-            Assert.AreEqual(P6.ToString(), "10 barg");
-            Assert.AreEqual($"{P6}", "10 barg");
+            Assert.AreEqual(P6.ToString(), "10 barᶢ");
+            Assert.AreEqual($"{P6}", "10 barᶢ");
 
             Pressure P7 = P5.ToUnit(PressureReference.Gauge);
-            Assert.AreEqual(P7.ToString(), "8.987 barg");
-            Assert.AreEqual($"{P7}", "8.987 barg");
+            Assert.AreEqual(P7.ToString(), "8.987 barᶢ");
+            Assert.AreEqual($"{P7}", "8.987 barᶢ");
 
             Pressure P8 = P4.ToUnit(PressureReference.Absolute);
-            Assert.AreEqual(P8.ToString(), "11.01 bara");
-            Assert.AreEqual($"{P8}", "11.01 bara");
+            Assert.AreEqual(P8.ToString(), "11.01 barₐ");
+            Assert.AreEqual($"{P8}", "11.01 barₐ");
 
             Pressure P9 = P5.ToUnit(PressureReference.Absolute);
-            Assert.AreEqual(P9.ToString(), "10 bara");
-            Assert.AreEqual($"{P9}", "10 bara");
+            Assert.AreEqual(P9.ToString(), "10 barₐ");
+            Assert.AreEqual($"{P9}", "10 barₐ");
 
 
         }
