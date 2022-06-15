@@ -370,7 +370,7 @@ namespace EngineeringUnits
 
         public static bool IsZero(this BaseUnit a)
         {
-            return a.baseValue == 0;
+            return a.baseValue == 0m;
         }
         public static bool IsZero(this UnknownUnit a)
         {
