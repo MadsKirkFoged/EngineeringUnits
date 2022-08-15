@@ -161,7 +161,19 @@ namespace EngineeringUnits
         }
 
 
-
+        /// <summary>
+        /// Ideal gas constant
+        /// <br>Value: 8.31446261815324</br>
+        /// <br>Unit: [J⋅K−1⋅mol−1]</br>
+        /// </summary>
+        public static BaseUnit IdealGasConstant
+        {
+            get
+            {
+                UnitSystem unit = MolarEntropyUnit.JoulePerMoleKelvin.Unit;
+                return new BaseUnit(8.31446261815324, unit);
+            }
+        }
 
 
 

@@ -18,7 +18,7 @@ namespace UnitNetcomparing
         public static void Main(string[] args)
         {
 
-            Pressure Text = new Pressure(10, PressureUnit.Bar, PressureReference.Absolute);
+            string Text = PressureUnit.DynePerSquareCentimeter.ToString();
 
 
 
