@@ -28,6 +28,13 @@ namespace CodeGen
                 sb = sb.Replace("Variable", $"{item}");
                 string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits",item);
 
+
+                if (!Directory.Exists(projectPathWithUnit))
+                {
+                    Directory.CreateDirectory(projectPathWithUnit);
+                }
+
+
                 File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
 
              }
@@ -38,7 +45,10 @@ namespace CodeGen
                 string sb = Generate(item);
                 sb = sb.Replace("Variable", $"{item}");
                 string projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
-
+                if (!Directory.Exists(projectPathWithUnit))
+                {
+                    Directory.CreateDirectory(projectPathWithUnit);
+                }
                 File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
 
             }
