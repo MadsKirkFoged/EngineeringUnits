@@ -17,6 +17,13 @@ namespace UnitNetcomparing
 
         public static void Main(string[] args)
         {
+            AmountOfSubstance Mole = new AmountOfSubstance(10, AmountOfSubstanceUnit.Mole);
+            Duration Time = new Duration(5, DurationUnit.Second);
+
+            MolarFlow MF = Mole / Time;
+
+
+
 
             string Text = PressureUnit.DynePerSquareCentimeter.ToString();
 
