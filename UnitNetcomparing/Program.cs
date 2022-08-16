@@ -17,10 +17,10 @@ namespace UnitNetcomparing
 
         public static void Main(string[] args)
         {
-            AmountOfSubstance Mole = new AmountOfSubstance(10, AmountOfSubstanceUnit.Mole);
-            Duration Time = new Duration(5, DurationUnit.Second);
+            Volume Mole = new Volume(10, VolumeUnit.SI);
+            Mass Time = new Mass(5, MassUnit.SI);
 
-            MolarFlow MF = Mole / Time;
+            SpecificVolume MF = Mole / Time;
 
 
 

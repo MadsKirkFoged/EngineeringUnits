@@ -1,38 +1,47 @@
-﻿using Fractions;
+
 using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace EngineeringUnits
 {
-    //public partial class test : BaseUnit
-    //{
+    //This class is auto-generated, changes to the file will be overwritten!
+    public partial class SpecificVolume : BaseUnit
+    {
 
-    //    public test()
-    //    {
-    //        Unit = testUnit.SI.Unit.Copy();
-    //    }
+        public SpecificVolume() { }
+        public SpecificVolume(decimal value, SpecificVolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificVolume(double value, SpecificVolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificVolume(int value, SpecificVolumeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public SpecificVolume(UnknownUnit value) : base(value) { }
 
-    //    public test(decimal value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(double value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-    //    public test(int value, testUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public static SpecificVolume From(double value, SpecificVolumeUnit unit) => new(value, unit);
 
+        public static SpecificVolume From(double? value, SpecificVolumeUnit unit)
+        {
+            if (value is null || unit is null)
+            {
+                return null;
+            }
 
-    //    public static test From(double value, testUnit unit) => new test(value, unit);
-    //    public double As(testUnit ReturnInThisUnit) => (double)ToTheOutSide(ReturnInThisUnit.Unit);
-    //    public test ToUnit(testUnit selectedUnit) => new test(ToTheOutSide(selectedUnit.Unit), selectedUnit);
-    //    public static test Zero => new test(0, testUnit.SI);
+            return From((double)value, unit);
+        }
+        public double As(SpecificVolumeUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public SpecificVolume ToUnit(SpecificVolumeUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public static SpecificVolume Zero => new(0, SpecificVolumeUnit.SI);
 
-    //    public static implicit operator test(UnknownUnit Unit)
-    //    {
-    //        test local = new test(0, testUnit.SI);
+        public static implicit operator SpecificVolume(UnknownUnit Unit)
+        {
+            UnitCheck(Unit, SpecificVolumeUnit.SI);
+            return new(Unit);        
+        }
 
-    //        local.Transform(Unit);
-    //        return local;
-    //    }
-
-
-
-
-    //}
+        public static implicit operator SpecificVolume(int zero)
+        {
+            if (zero != 0)
+                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
+			return Zero;
+		}
+	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificVolumeUnit>(_unit);
+	}
 }
+
