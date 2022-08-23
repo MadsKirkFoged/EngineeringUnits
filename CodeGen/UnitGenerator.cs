@@ -96,7 +96,7 @@ namespace EngineeringUnits
 
         public static implicit operator Variable(UnknownUnit Unit)
         {
-            UnitCheck(Unit, VariableUnit.SI);
+            Unit.UnitCheck(VariableUnit.SI);
             return new(Unit);        
         }
 

@@ -22,7 +22,7 @@ namespace UnitNetcomparing
 
             SpecificVolume MF = Mole / Time;
 
-
+            MassFlow testmf = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
 
 
             string Text = PressureUnit.DynePerSquareCentimeter.ToString();

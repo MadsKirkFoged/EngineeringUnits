@@ -483,5 +483,12 @@ namespace EngineeringUnits
             return valueToBeRoundedUp;
         }
 
+
+        public static void UnitCheck(this IUnitSystem a, IUnitSystem b)
+        {
+            if (a.Unit != b.Unit)
+                throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
+        }
+
     }
 }

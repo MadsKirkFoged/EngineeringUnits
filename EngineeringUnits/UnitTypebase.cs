@@ -77,7 +77,6 @@ namespace EngineeringUnits
                PreFix.atto  => 1e-18m,
                PreFix.zepto => 1e-21m,
                PreFix.yocto => 1e-24m,
-
                _ => 0
            };
         public static string PrefixSISymbol(PreFix preFix) =>
@@ -103,7 +102,6 @@ namespace EngineeringUnits
                PreFix.atto  => "a",
                PreFix.zepto => "z",
                PreFix.yocto => "y",
-
                _ => ""
            };
         public static string BaseUnitSISymbol(BaseunitType baseUnits) =>
