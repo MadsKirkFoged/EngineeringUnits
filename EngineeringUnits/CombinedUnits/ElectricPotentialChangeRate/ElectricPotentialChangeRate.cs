@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricPotentialChangeRate(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricPotentialChangeRateUnit.SI);
+            Unit.UnitCheck(ElectricPotentialChangeRateUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ForceChangeRate(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ForceChangeRateUnit.SI);
+            Unit.UnitCheck(ForceChangeRateUnit.SI);
             return new(Unit);        
         }
 

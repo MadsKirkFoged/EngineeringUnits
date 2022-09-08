@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Torque(UnknownUnit Unit)
         {
-            UnitCheck(Unit, TorqueUnit.SI);
+            Unit.UnitCheck(TorqueUnit.SI);
             return new(Unit);        
         }
 

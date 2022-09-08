@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator HeatFlux(UnknownUnit Unit)
         {
-            UnitCheck(Unit, HeatFluxUnit.SI);
+            Unit.UnitCheck(HeatFluxUnit.SI);
             return new(Unit);        
         }
 

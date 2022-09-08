@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
         {
-            UnitCheck(Unit, BrakeSpecificFuelConsumptionUnit.SI);
+            Unit.UnitCheck(BrakeSpecificFuelConsumptionUnit.SI);
             return new(Unit);        
         }
 

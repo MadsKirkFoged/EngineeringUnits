@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator SpecificEnergy(UnknownUnit Unit)
         {
-            UnitCheck(Unit, SpecificEnergyUnit.SI);
+            Unit.UnitCheck(SpecificEnergyUnit.SI);
             return new(Unit);        
         }
 

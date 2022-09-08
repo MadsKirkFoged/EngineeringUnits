@@ -59,18 +59,6 @@ namespace EngineeringUnits
         //public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
         public decimal baseValue => (decimal)(Unit.SumConstant() * (Fraction)NEWValue);
 
-        //public void UnitCheck(IUnitSystem a)
-        //{
-        //    if (a.Unit != Unit)
-        //        throw new WrongUnitException($"This is NOT a [{Unit}] as expected! Your Unit is a [{a.Unit}]");
-        //}
-
-        public static void UnitCheck(IUnitSystem a, IUnitSystem b)
-        {
-            if (a.Unit != b.Unit)
-                throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
-        }
-
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {

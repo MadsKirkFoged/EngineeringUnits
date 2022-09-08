@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Illuminance(UnknownUnit Unit)
         {
-            UnitCheck(Unit, IlluminanceUnit.SI);
+            Unit.UnitCheck(IlluminanceUnit.SI);
             return new(Unit);        
         }
 

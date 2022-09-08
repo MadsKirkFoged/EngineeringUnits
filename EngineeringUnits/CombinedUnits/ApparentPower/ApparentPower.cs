@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ApparentPower(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ApparentPowerUnit.SI);
+            Unit.UnitCheck(ApparentPowerUnit.SI);
             return new(Unit);        
         }
 

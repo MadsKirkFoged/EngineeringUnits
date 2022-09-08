@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {
-            UnitCheck(Unit, AmountOfSubstanceUnit.SI);
+            Unit.UnitCheck(AmountOfSubstanceUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator FuelEfficiency(UnknownUnit Unit)
         {
-            UnitCheck(Unit, FuelEfficiencyUnit.SI);
+            Unit.UnitCheck(FuelEfficiencyUnit.SI);
             return new(Unit);        
         }
 

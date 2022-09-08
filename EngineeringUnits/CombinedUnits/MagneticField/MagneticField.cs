@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MagneticField(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MagneticFieldUnit.SI);
+            Unit.UnitCheck(MagneticFieldUnit.SI);
             return new(Unit);        
         }
 

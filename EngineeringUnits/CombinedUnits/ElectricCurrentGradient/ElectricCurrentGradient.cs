@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricCurrentGradient(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricCurrentGradientUnit.SI);
+            Unit.UnitCheck(ElectricCurrentGradientUnit.SI);
             return new(Unit);        
         }
 

@@ -122,7 +122,7 @@ namespace EngineeringUnits
         {
             foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
             {
-                if (field.Name == name)
+                if (field.Name.ToLower() == name.ToLower())
                     return (T)field.GetValue(field);
             }
 

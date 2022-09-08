@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MolarEntropy(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MolarEntropyUnit.SI);
+            Unit.UnitCheck(MolarEntropyUnit.SI);
             return new(Unit);        
         }
 

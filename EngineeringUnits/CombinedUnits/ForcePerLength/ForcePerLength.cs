@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ForcePerLength(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ForcePerLengthUnit.SI);
+            Unit.UnitCheck(ForcePerLengthUnit.SI);
             return new(Unit);        
         }
 

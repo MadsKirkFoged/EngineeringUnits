@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit)
         {
-            UnitCheck(Unit, WarpingMomentOfInertiaUnit.SI);
+            Unit.UnitCheck(WarpingMomentOfInertiaUnit.SI);
             return new(Unit);        
         }
 

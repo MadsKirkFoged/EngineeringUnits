@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator AreaDensity(UnknownUnit Unit)
         {
-            UnitCheck(Unit, AreaDensityUnit.SI);
+            Unit.UnitCheck(AreaDensityUnit.SI);
             return new(Unit);        
         }
 

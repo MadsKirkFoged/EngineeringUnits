@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator TemperatureChangeRate(UnknownUnit Unit)
         {
-            UnitCheck(Unit, TemperatureChangeRateUnit.SI);
+            Unit.UnitCheck(TemperatureChangeRateUnit.SI);
             return new(Unit);        
         }
 

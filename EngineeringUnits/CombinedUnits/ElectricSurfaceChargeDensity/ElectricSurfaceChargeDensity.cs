@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricSurfaceChargeDensityUnit.SI);
+            Unit.UnitCheck(ElectricSurfaceChargeDensityUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Area(UnknownUnit Unit)
         {
-            UnitCheck(Unit, AreaUnit.SI);
+            Unit.UnitCheck(AreaUnit.SI);
             return new(Unit);        
         }
 

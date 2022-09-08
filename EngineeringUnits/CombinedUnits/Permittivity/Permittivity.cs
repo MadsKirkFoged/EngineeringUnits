@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Permittivity(UnknownUnit Unit)
         {
-            UnitCheck(Unit, PermittivityUnit.SI);
+            Unit.UnitCheck(PermittivityUnit.SI);
             return new(Unit);        
         }
 

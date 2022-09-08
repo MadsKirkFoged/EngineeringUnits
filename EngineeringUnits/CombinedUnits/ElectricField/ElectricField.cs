@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricField(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricFieldUnit.SI);
+            Unit.UnitCheck(ElectricFieldUnit.SI);
             return new(Unit);        
         }
 

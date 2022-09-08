@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MassMomentOfInertia(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MassMomentOfInertiaUnit.SI);
+            Unit.UnitCheck(MassMomentOfInertiaUnit.SI);
             return new(Unit);        
         }
 

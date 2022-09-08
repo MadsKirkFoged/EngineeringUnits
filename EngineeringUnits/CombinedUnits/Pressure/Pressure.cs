@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Pressure(UnknownUnit Unit)
         {
-            UnitCheck(Unit, PressureUnit.SI);
+            Unit.UnitCheck(PressureUnit.SI);
             return new(Unit);        
         }
 

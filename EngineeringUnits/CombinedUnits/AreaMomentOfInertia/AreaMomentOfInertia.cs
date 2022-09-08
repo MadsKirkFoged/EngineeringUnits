@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator AreaMomentOfInertia(UnknownUnit Unit)
         {
-            UnitCheck(Unit, AreaMomentOfInertiaUnit.SI);
+            Unit.UnitCheck(AreaMomentOfInertiaUnit.SI);
             return new(Unit);        
         }
 

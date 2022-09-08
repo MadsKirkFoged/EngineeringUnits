@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Length(UnknownUnit Unit)
         {
-            UnitCheck(Unit, LengthUnit.SI);
+            Unit.UnitCheck(LengthUnit.SI);
             return new(Unit);        
         }
 

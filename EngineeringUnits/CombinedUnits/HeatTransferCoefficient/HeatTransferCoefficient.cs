@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator HeatTransferCoefficient(UnknownUnit Unit)
         {
-            UnitCheck(Unit, HeatTransferCoefficientUnit.SI);
+            Unit.UnitCheck(HeatTransferCoefficientUnit.SI);
             return new(Unit);        
         }
 

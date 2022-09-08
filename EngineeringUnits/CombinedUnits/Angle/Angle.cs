@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Angle(UnknownUnit Unit)
         {
-            UnitCheck(Unit, AngleUnit.SI);
+            Unit.UnitCheck(AngleUnit.SI);
             return new(Unit);        
         }
 

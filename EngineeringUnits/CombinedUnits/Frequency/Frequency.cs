@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Frequency(UnknownUnit Unit)
         {
-            UnitCheck(Unit, FrequencyUnit.SI);
+            Unit.UnitCheck(FrequencyUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Ratio(UnknownUnit Unit)
         {
-            UnitCheck(Unit, RatioUnit.SI);
+            Unit.UnitCheck(RatioUnit.SI);
             return new(Unit);        
         }
 

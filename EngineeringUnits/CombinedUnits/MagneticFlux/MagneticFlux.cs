@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MagneticFlux(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MagneticFluxUnit.SI);
+            Unit.UnitCheck(MagneticFluxUnit.SI);
             return new(Unit);        
         }
 

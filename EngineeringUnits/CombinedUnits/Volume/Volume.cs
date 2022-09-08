@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Volume(UnknownUnit Unit)
         {
-            UnitCheck(Unit, VolumeUnit.SI);
+            Unit.UnitCheck(VolumeUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,6 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricCurrent(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricCurrentUnit.SI);
             Unit.UnitCheck(ElectricCurrentUnit.SI);
             return new(Unit);        
         }

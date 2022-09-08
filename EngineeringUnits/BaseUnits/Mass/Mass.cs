@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator Mass(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MassUnit.SI);
+            Unit.UnitCheck(MassUnit.SI);
             return new(Unit);        
         }
 

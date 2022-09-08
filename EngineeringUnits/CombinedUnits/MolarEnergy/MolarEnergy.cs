@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MolarEnergy(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MolarEnergyUnit.SI);
+            Unit.UnitCheck(MolarEnergyUnit.SI);
             return new(Unit);        
         }
 

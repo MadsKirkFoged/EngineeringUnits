@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricResistance(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricResistanceUnit.SI);
+            Unit.UnitCheck(ElectricResistanceUnit.SI);
             return new(Unit);        
         }
 

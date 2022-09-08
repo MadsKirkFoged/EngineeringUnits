@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator MolarFlow(UnknownUnit Unit)
         {
-            UnitCheck(Unit, MolarFlowUnit.SI);
+            Unit.UnitCheck(MolarFlowUnit.SI);
             return new(Unit);        
         }
 

@@ -31,7 +31,7 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricCurrentDensity(UnknownUnit Unit)
         {
-            UnitCheck(Unit, ElectricCurrentDensityUnit.SI);
+            Unit.UnitCheck(ElectricCurrentDensityUnit.SI);
             return new(Unit);        
         }
 
