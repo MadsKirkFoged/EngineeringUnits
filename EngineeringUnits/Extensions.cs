@@ -407,7 +407,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
         {
-            return list.Aggregate(new UnknownUnit(0m, list.First().Unit),
+             return list.Aggregate(new UnknownUnit(0m, list.First().Unit),
                                  (x, y) => x + y);
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)

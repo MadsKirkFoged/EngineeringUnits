@@ -17,6 +17,31 @@ namespace UnitNetcomparing
 
         public static void Main(string[] args)
         {
+
+
+
+            Temperature temperature2 = null;
+
+
+
+            if (temperature2 == null)
+            {
+                
+            }
+
+
+
+
+
+            List<Power> Mylist = new List<Power>();
+
+
+            var nullcheck = Mylist.Max();
+            var nullcheck2 = nullcheck?.ToUnit(PowerUnit.Watt);
+
+            string nullcheck3 = $"{nullcheck2}";
+
+
             Volume Mole = new Volume(10, VolumeUnit.SI);
             Mass Time = new Mass(5, MassUnit.SI);
 

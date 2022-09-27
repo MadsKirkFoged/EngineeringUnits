@@ -152,6 +152,12 @@ namespace EngineeringUnits
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
+
+
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
@@ -159,6 +165,12 @@ namespace EngineeringUnits
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
         {
+            if (left is null && right is null)
+                return false;
+            if (left is null || right is null)
+                return true;
+
+
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] != [{right.Unit}]. Can't compare two different units!");
 
