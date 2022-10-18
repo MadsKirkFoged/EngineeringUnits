@@ -140,6 +140,18 @@ namespace EngineeringUnits
         }
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
+
+            if (!left.ListOfUnits.Any())            
+                if (right.ListOfUnits.Any())                
+                    return right;
+
+            if (!right.ListOfUnits.Any())
+                if (left.ListOfUnits.Any())
+                    return left;
+
+
+
+
             int hashCode;
             unchecked
             {

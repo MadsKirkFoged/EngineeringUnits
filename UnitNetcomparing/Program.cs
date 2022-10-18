@@ -18,6 +18,13 @@ namespace UnitNetcomparing
         public static void Main(string[] args)
         {
 
+            MassFlow massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
+
+
+
+            MassFlow massFlow1 = massFlow * 0.1;
+
+            massFlow1 = massFlow * 0.1;
 
 
             Temperature temperature2 = null;
@@ -29,7 +36,15 @@ namespace UnitNetcomparing
                 
             }
 
+            if (temperature2 is null)
+            {
 
+            }
+
+            if (temperature2 is not null)
+            {
+
+            }
 
 
 
