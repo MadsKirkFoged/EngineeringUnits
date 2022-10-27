@@ -101,23 +101,23 @@ namespace EngineeringUnits
         }
         public Fraction ConvertionFactor(UnitSystem To)
         {
-            int hashCode = 512265997;
-            unchecked
-            {
-                hashCode = (hashCode * 18403087) ^ GetHashCode();
-                hashCode = (hashCode * 11270411) ^ To.GetHashCode();
-            }
+            //int hashCode = 512265997;
+            //unchecked
+            //{
+            //    hashCode = (hashCode * 18403087) ^ GetHashCode();
+            //    hashCode = (hashCode * 11270411) ^ To.GetHashCode();
+            //}
 
-            if (CacheFactor.TryGetValue(hashCode, out Fraction local))            
-                return local;
+            //if (CacheFactor.TryGetValue(hashCode, out Fraction local))            
+            //    return local;
             
 
             var test = To.SumConstant() / SumConstant();
 
-            var check = CacheFactor.TryAdd(hashCode, test);
+            //var check = CacheFactor.TryAdd(hashCode, test);
 
-            if (check is false)            
-                throw new Exception("Trying to add to CacheFactor failed!");
+            //if (check is false)            
+            //    throw new Exception("Trying to add to CacheFactor failed!");
             
 
             return test;
@@ -247,7 +247,7 @@ namespace EngineeringUnits
 
             if (check is false)            
                 throw new Exception("Trying to add to CacheDivide failed!");
-            
+
 
             return test2;
 
