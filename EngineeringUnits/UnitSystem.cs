@@ -114,7 +114,11 @@ namespace EngineeringUnits
 
             var test = To.SumConstant() / SumConstant();
 
-            CacheFactor.TryAdd(hashCode, test);
+            var check = CacheFactor.TryAdd(hashCode, test);
+
+            if (check is false)            
+                throw new Exception("Trying to add to CacheFactor failed!");
+            
 
             return test;
         }
@@ -169,7 +173,14 @@ namespace EngineeringUnits
                             left.ListOfUnits.Concat(
                             right.ListOfUnits)));
 
-            CacheMultiply.TryAdd(hashCode, test2);
+            var check = CacheMultiply.TryAdd(hashCode, test2);
+
+
+            if (check is false)            
+                throw new Exception("Trying to add to CacheMultiply failed!");
+            
+
+
 
             return test2;
 
@@ -218,8 +229,6 @@ namespace EngineeringUnits
             }
 
 
-
-
             if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))
             {
                 return local;
@@ -234,7 +243,11 @@ namespace EngineeringUnits
 
             var test2 = new UnitSystem(LocalUnitList);
 
-            CacheDivide.TryAdd(hashCode, test2);
+            bool check = CacheDivide.TryAdd(hashCode, test2);
+
+            if (check is false)            
+                throw new Exception("Trying to add to CacheDivide failed!");
+            
 
             return test2;
 

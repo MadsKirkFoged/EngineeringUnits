@@ -9,14 +9,52 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace UnitNetcomparing
 {
     public class Program
     {
 
-        public static void Main(string[] args)
+        private static async Task<MassFlow> TestFucntion()
         {
+            MassFlow massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
+            MassFlow massFlow1 = massFlow * 0.1 + massFlow;
+
+            Mass m1 = new Mass(1, MassUnit.Kilogram);
+            Duration d1 = new Duration(12, DurationUnit.Second);
+
+
+            MassFlow m3 = m1 / d1;
+
+            massFlow1 += m3;
+
+            await Task.Delay(0);
+
+            return massFlow1;
+        }
+
+
+        public static async Task Main(string[] args)
+        {
+
+
+            //var DataTasks = new List<Task<MassFlow>>();
+            //for (int i = 0; i < 1000000000; i++)
+            //{
+ 
+            //    DataTasks.Add(TestFucntion());
+            //}
+
+
+            //var returntest = await Task.WhenAll(DataTasks);
+
+
+
+
+
+
+
 
             MassFlow massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
 
@@ -112,11 +150,11 @@ namespace UnitNetcomparing
             ThermalConductivity Th = ThermalConductivity.FromBtuPerHourFootFahrenheit(10);
 
 
-            for (int k = 0; k < 100000000; k++)
-            {
-                var test22 = (P1 / (L1 * T1)) + Th;
+            //for (int k = 0; k < 100000000; k++)
+            //{
+            //    var test22 = (P1 / (L1 * T1)) + Th;
 
-            }
+            //}
 
 
 
@@ -149,7 +187,7 @@ namespace UnitNetcomparing
             //{1 W}
 
             //Trying to cast to a wrong unit
-            Energy energy = unknown;
+            //Energy energy = unknown;
             //WrongUnitException
 
             var Ptest = new Pressure(10m, PressureUnit.Bar);
