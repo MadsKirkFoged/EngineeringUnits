@@ -449,7 +449,8 @@ namespace EngineeringUnits
                     return item;                
             }
 
-            return valueToBeRoundedUp;
+            return list.Max();
+            //return valueToBeRoundedUp;
         }
         public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
         {
@@ -459,28 +460,31 @@ namespace EngineeringUnits
                     return item;                
             }
 
-            return valueToBeRoundedUp;
+            return list.Max();
+            //return valueToBeRoundedUp;
         }
 
-        public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedDown)
         {
             foreach (var item in list.OrderByDescending(x => x))
             {
-                if (valueToBeRoundedUp >= item)
+                if (valueToBeRoundedDown >= item)
                     return item;
             }
 
-            return valueToBeRoundedUp;
+            return list.Min();
+            //return valueToBeRoundedUp;
         }
-        public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
+        public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
         {
             foreach (var item in list.OrderByDescending(x => x))
             {
-                if (valueToBeRoundedUp >= item)
+                if (valueToBeRoundedDown >= item)
                     return item;
             }
 
-            return valueToBeRoundedUp;
+            return list.Min();
+            //return valueToBeRoundedUp;
         }
 
 
