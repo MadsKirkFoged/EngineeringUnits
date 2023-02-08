@@ -57,6 +57,9 @@ namespace UnitNetcomparing
 
 
             MassFlow massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
+            MassFlow massFlow2 = new MassFlow(19, MassFlowUnit.KilogramPerSecond);
+
+            var booltest = massFlow == massFlow2;
 
 
 

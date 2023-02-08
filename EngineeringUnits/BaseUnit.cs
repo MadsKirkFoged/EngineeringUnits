@@ -161,6 +161,11 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] == [{right.Unit}]. Can't compare two different units!");
 
+
+            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())            
+                return left.NEWValue == right.NEWValue;
+            
+
             return left.NEWValue == right.GetValueAs(left.Unit); 
         }
         public static bool operator !=(BaseUnit left, BaseUnit right)
@@ -174,12 +179,19 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] != [{right.Unit}]. Can't compare two different units!");
 
+            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                return left.NEWValue != right.NEWValue;
+
             return left.NEWValue != right.GetValueAs(left.Unit);
         }
         public static bool operator <=(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] <= [{right.Unit}]. Can't compare two different units!");
+
+
+            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                return left.NEWValue <= right.NEWValue;
 
             return left.NEWValue <= right.GetValueAs(left.Unit);
         }
@@ -188,12 +200,20 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] >= [{right.Unit}]. Can't compare two different units!");
 
+
+            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                return left.NEWValue >= right.NEWValue;
+
+
             return left.NEWValue >= right.GetValueAs(left.Unit);
         }
         public static bool operator <(BaseUnit left, BaseUnit right)
         {
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] < [{right.Unit}]. Can't compare two different units!");
+
+            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+                return left.NEWValue < right.NEWValue;
 
             return left.NEWValue < right.GetValueAs(left.Unit);
         }
