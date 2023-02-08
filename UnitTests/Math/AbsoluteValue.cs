@@ -58,5 +58,67 @@ namespace UnitTests
             Assert.AreEqual(toString, f2.ToString());
             Assert.AreEqual(toString, f3.ToString());
         }
+
+
+        [TestMethod]
+        public void SIPositiveAbs()
+        {
+            Frequency f1 = Frequency.FromSI(32);
+            Frequency f2 = f1.Abs();
+
+            Assert.AreEqual(f1, f2);
+            Assert.AreEqual(f2, Frequency.FromSI(32));
+        }
+
+        [TestMethod]
+        public void SINegativeAbs()
+        {
+            Frequency f1 = Frequency.FromSI(-32);
+            Frequency f2 = f1.Abs();
+
+            Assert.AreNotEqual(f1, f2);
+            Assert.AreEqual(f2, Frequency.FromSI(32));
+        }
+
+        [TestMethod]
+        public void PositiveAbs()
+        {
+            Power f1 = Power.FromBritishThermalUnitPerMinute(58);
+            Power f2 = f1.Abs();
+
+            Assert.AreEqual(f1, f2);
+            Assert.AreEqual(f2, Power.FromBritishThermalUnitPerMinute(58));
+        }
+
+        [TestMethod]
+        public void NegativeAbs()
+        {
+            Power f1 = Power.FromBritishThermalUnitPerMinute(-58);
+            Power f2 = f1.Abs();
+
+            Assert.AreNotEqual(f1, f2);
+            Assert.AreEqual(f2, Power.FromBritishThermalUnitPerMinute(58));
+        }
+
+        [TestMethod]
+        public void UnknownPositiveAbs()
+        {
+            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(58);
+            UnknownUnit f2 = f1.Abs();
+
+            Assert.AreEqual(f1, f2);
+            Assert.IsTrue(f2 == Power.FromBritishThermalUnitPerMinute(58));
+        }
+
+        [TestMethod]
+        public void UnknownNegativeAbs()
+        {
+            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(-58);
+            UnknownUnit f2 = f1.Abs();
+
+            Assert.AreNotEqual(f1, f2);
+            Assert.IsTrue(f2 == Power.FromBritishThermalUnitPerMinute(58));
+        }
+
     }
 }
