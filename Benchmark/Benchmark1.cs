@@ -10,23 +10,81 @@ namespace Benchmark
     public class Benchy
     {
 
-        readonly MassFlow _M1 = MassFlow.FromKilogramPerSecond(2);
-        readonly MassFlow _M2 = MassFlow.FromKilogramPerSecond(2);
 
-        readonly MassFlow _M3 = MassFlow.FromDecagramPerDay(2);
-        readonly MassFlow _M4 = MassFlow.FromDecagramPerDay(2);
+
+        static readonly MassFlow _M1 = MassFlow.FromKilogramPerSecond(2);
+        static readonly MassFlow _M2 = MassFlow.FromKilogramPerSecond(2);
+
+        static readonly MassFlow _M3 = MassFlow.FromDecagramPerDay(2);
+        static readonly MassFlow _M4 = MassFlow.FromDecagramPerDay(2);
+
+        static readonly MassFlow _M5 = MassFlow.FromKilogramPerSecond(-2);
+        static readonly MassFlow _M6 = MassFlow.FromDecagramPerDay(-2);
+
+        static readonly UnknownUnit _M7 = MassFlow.FromKilogramPerSecond(2);
+        static readonly UnknownUnit _M8 = MassFlow.FromKilogramPerSecond(-2);
+
 
         [Benchmark]
-        public bool CompareNonSI()
+        public MassFlow AbsNonSIPosetive()
         {
-            return _M3==_M4;
+            return _M3.Abs();
         }
 
         [Benchmark]
-        public bool CompareSI()
+        public MassFlow AbsSIPosetive()
         {
-            return _M1==_M2;
+            return _M1.Abs();
         }
+
+        [Benchmark]
+        public MassFlow AbsNonSINegative()
+        {
+            return _M6.Abs();
+        }
+
+        [Benchmark]
+        public MassFlow AbsSINegative()
+        {
+            return _M5.Abs();
+        }
+
+        [Benchmark]
+        public MassFlow DoNothing()
+        {
+            return _M1;
+        }
+
+        [Benchmark]
+        public UnknownUnit Convert()
+        {
+            return _M1;
+        }
+
+        [Benchmark]
+        public UnknownUnit AbsUnknown()
+        {
+            return _M7.Abs();
+        }
+
+        [Benchmark]
+        public UnknownUnit AbsUnknownNegative()
+        {
+            return _M8.Abs();
+        }
+
+
+        //[Benchmark]
+        //public bool CompareNonSI()
+        //{
+        //    return _M3==_M4;
+        //}
+
+        //[Benchmark]
+        //public bool CompareSI()
+        //{
+        //    return _M1==_M2;
+        //}
 
 
         //[Benchmark]

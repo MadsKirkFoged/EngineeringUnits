@@ -57,7 +57,7 @@ namespace EngineeringUnits
         }
 
         //public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
-        public decimal baseValue => (decimal)(Unit.SumConstant() * (Fraction)NEWValue);
+        public decimal baseValue => (decimal)(Unit.SumConstant() * (Fraction)NEWValue); //This is very expensive to use!!
 
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
@@ -436,6 +436,24 @@ namespace EngineeringUnits
                 >0m => 1,
             };
         }
+
+        public UnknownUnit Abs()
+        {
+            if (Unit.IsSIUnit())
+            {
+                if (NEWValue > 0)                
+                    return this;                
+                else                
+                    return this * -1;              
+            }
+
+
+            if (baseValue < 0)
+                return this * -1;
+            else
+                return this;
+        }
+
 
     }
 

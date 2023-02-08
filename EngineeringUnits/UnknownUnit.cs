@@ -148,6 +148,5 @@ namespace EngineeringUnits
             BaseUnit.UnitCheck(a);
         }
 
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -247,16 +248,18 @@ namespace EngineeringUnits
         }
 
 
-
         /// <returns>Absolute value of your unit</returns>
         /// <param name="a">Source value</param>
-        public static UnknownUnit Abs(this BaseUnit a)
-        {
-            if (a.baseValue < 0)
-                return a * -1;
-            else
-                return a;
-        }
+        //public static UnknownUnit Abs(this BaseUnit a)
+        //{
+
+        //    return a.AbsIntern();
+
+        //    if (a.baseValue < 0)            
+        //        return a * -1;            
+        //    else
+        //        return a;
+        //}
 
         /// <returns>Absolute value of your unit</returns>
         /// <param name="a">Source value</param>
