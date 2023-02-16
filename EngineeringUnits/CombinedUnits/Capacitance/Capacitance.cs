@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Capacitance(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(CapacitanceUnit.SI);
             return new(Unit);        
         }

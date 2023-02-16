@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Enthalpy(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(EnthalpyUnit.SI);
             return new(Unit);        
         }

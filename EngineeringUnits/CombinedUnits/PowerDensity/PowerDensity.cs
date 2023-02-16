@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator PowerDensity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(PowerDensityUnit.SI);
             return new(Unit);        
         }

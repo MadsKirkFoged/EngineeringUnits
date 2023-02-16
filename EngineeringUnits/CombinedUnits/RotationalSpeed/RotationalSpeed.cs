@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator RotationalSpeed(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(RotationalSpeedUnit.SI);
             return new(Unit);        
         }

@@ -227,6 +227,10 @@ namespace EngineeringUnits
 
         public static implicit operator UnknownUnit(BaseUnit baseUnit)
         {
+            if (baseUnit is null)            
+                return null;
+            
+
             return new(baseUnit);
         }
 

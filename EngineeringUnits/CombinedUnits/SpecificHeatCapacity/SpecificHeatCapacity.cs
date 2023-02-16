@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator SpecificHeatCapacity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(SpecificHeatCapacityUnit.SI);
             return new(Unit);        
         }

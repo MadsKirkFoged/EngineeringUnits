@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator LuminousIntensity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(LuminousIntensityUnit.SI);
             return new(Unit);        
         }

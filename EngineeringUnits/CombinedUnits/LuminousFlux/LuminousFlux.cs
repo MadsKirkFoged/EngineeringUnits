@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator LuminousFlux(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(LuminousFluxUnit.SI);
             return new(Unit);        
         }

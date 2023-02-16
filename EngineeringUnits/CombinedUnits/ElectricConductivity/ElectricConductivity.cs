@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricConductivity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(ElectricConductivityUnit.SI);
             return new(Unit);        
         }

@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator SpecificWeight(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(SpecificWeightUnit.SI);
             return new(Unit);        
         }

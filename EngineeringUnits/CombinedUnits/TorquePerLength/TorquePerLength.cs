@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator TorquePerLength(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(TorquePerLengthUnit.SI);
             return new(Unit);        
         }

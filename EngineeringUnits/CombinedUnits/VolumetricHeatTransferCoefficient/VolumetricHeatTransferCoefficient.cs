@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator VolumetricHeatTransferCoefficient(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(VolumetricHeatTransferCoefficientUnit.SI);
             return new(Unit);        
         }

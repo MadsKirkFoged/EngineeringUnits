@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Pressure(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(PressureUnit.SI);
             return new(Unit);        
         }

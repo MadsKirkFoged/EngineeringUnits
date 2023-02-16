@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Magnetization(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(MagnetizationUnit.SI);
             return new(Unit);        
         }

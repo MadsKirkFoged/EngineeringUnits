@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator MolarMass(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(MolarMassUnit.SI);
             return new(Unit);        
         }

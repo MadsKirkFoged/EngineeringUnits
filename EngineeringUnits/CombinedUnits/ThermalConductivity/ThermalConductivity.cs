@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator ThermalConductivity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(ThermalConductivityUnit.SI);
             return new(Unit);        
         }

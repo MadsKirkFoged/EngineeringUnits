@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator ApparentPower(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(ApparentPowerUnit.SI);
             return new(Unit);        
         }

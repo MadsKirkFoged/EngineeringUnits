@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator MassFlow(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(MassFlowUnit.SI);
             return new(Unit);        
         }

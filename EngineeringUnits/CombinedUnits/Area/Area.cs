@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Area(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(AreaUnit.SI);
             return new(Unit);        
         }

@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Density(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(DensityUnit.SI);
             return new(Unit);        
         }

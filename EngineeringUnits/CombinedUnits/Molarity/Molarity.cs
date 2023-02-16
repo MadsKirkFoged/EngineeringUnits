@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Molarity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(MolarityUnit.SI);
             return new(Unit);        
         }

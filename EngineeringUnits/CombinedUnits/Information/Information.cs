@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Information(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(InformationUnit.SI);
             return new(Unit);        
         }

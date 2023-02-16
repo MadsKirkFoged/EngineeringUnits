@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator KinematicViscosity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(KinematicViscosityUnit.SI);
             return new(Unit);        
         }

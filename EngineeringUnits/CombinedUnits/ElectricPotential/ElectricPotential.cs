@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricPotential(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(ElectricPotentialUnit.SI);
             return new(Unit);        
         }

@@ -52,13 +52,17 @@ namespace UnitNetcomparing
 
 
 
+            MassFlow massFlow3 = null;
+
+            UnknownUnit nulltest = massFlow3;
+
+
 
 
 
 
             MassFlow massFlow = new MassFlow(-10, MassFlowUnit.KilogramPerSecond).Abs();
             MassFlow massFlow2 = new MassFlow(19, MassFlowUnit.KilogramPerSecond);
-
             var booltest = massFlow == massFlow2;
 
 

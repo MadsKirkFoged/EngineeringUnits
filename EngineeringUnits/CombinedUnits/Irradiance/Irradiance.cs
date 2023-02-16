@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Irradiance(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(IrradianceUnit.SI);
             return new(Unit);        
         }

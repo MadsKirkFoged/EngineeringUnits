@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Speed(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(SpeedUnit.SI);
             return new(Unit);        
         }

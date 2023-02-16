@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator ElectricChargeDensity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(ElectricChargeDensityUnit.SI);
             return new(Unit);        
         }

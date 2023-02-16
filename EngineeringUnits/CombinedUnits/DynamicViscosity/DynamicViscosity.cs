@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator DynamicViscosity(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(DynamicViscosityUnit.SI);
             return new(Unit);        
         }

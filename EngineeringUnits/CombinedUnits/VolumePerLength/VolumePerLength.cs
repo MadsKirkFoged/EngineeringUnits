@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator VolumePerLength(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(VolumePerLengthUnit.SI);
             return new(Unit);        
         }

@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Permeability(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(PermeabilityUnit.SI);
             return new(Unit);        
         }

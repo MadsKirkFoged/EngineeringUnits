@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Duration(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(DurationUnit.SI);
             return new(Unit);        
         }

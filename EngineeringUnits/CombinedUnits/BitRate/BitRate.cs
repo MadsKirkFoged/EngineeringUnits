@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator BitRate(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(BitRateUnit.SI);
             return new(Unit);        
         }

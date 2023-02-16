@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator LapseRate(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(LapseRateUnit.SI);
             return new(Unit);        
         }

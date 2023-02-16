@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator SpecificThermalResistance(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(SpecificThermalResistanceUnit.SI);
             return new(Unit);        
         }

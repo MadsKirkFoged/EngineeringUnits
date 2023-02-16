@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Energy(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(EnergyUnit.SI);
             return new(Unit);        
         }

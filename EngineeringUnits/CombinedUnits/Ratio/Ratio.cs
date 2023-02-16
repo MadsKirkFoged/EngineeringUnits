@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Ratio(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(RatioUnit.SI);
             return new(Unit);        
         }

@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator Entropy(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(EntropyUnit.SI);
             return new(Unit);        
         }

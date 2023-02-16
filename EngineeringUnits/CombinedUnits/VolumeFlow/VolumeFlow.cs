@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator VolumeFlow(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(VolumeFlowUnit.SI);
             return new(Unit);        
         }

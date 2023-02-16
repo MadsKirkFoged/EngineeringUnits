@@ -31,6 +31,9 @@ namespace EngineeringUnits
 
         public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit)
         {
+            if (Unit is null)
+                return null; 
+
             Unit.UnitCheck(CoefficientOfThermalExpansionUnit.SI);
             return new(Unit);        
         }
