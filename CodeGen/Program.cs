@@ -6,6 +6,7 @@ namespace CodeGen
 {
     class Program
     {
+
         static readonly string LIBRARY_NAME = "EngineeringUnits";
         static readonly string GENERATOR_NAME = "CodeGen";
         static void Main(string[] args)
