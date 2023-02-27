@@ -18,6 +18,9 @@ namespace UnitNetcomparing
 
         private static async Task<MassFlow> TestFucntion()
         {
+
+            
+
             MassFlow massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
             MassFlow massFlow1 = massFlow * 0.1 + massFlow;
 
@@ -38,23 +41,30 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
+            var mass = Mass.FromPounds(1).Ounces;
+
+
+
+
 
             //var DataTasks = new List<Task<MassFlow>>();
             //for (int i = 0; i < 1000000000; i++)
             //{
- 
+
             //    DataTasks.Add(TestFucntion());
             //}
 
 
             //var returntest = await Task.WhenAll(DataTasks);
 
+            double? nulltest = null;
 
+            UnknownUnit UnknownUnittest = nulltest;
 
 
             MassFlow massFlow3 = null;
 
-            UnknownUnit nulltest = massFlow3;
+            //UnknownUnit nulltest = massFlow3;
 
 
 
