@@ -229,6 +229,9 @@ namespace EngineeringUnits
 
 
         }
+
+        private static readonly Object DivideLock = new Object();
+
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
             int hashCode = 512265997;
@@ -241,24 +244,25 @@ namespace EngineeringUnits
 
             if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))            
                 return local;
-            
+
+            lock (DivideLock)
+            {
+                List<RawUnit> LocalUnitList = new(left.ListOfUnits);
+
+                foreach (var item in right.ListOfUnits)
+                    LocalUnitList.Add(item.CloneAndReverseCount());
+
+                var test2 = new UnitSystem(LocalUnitList);
+
+                var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
+
+                //if (AlreadyAdded is false)            
+                //    if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))                
+                //        return local2;
 
 
-            List<RawUnit> LocalUnitList = new(left.ListOfUnits);
-
-            foreach (var item in right.ListOfUnits)
-                LocalUnitList.Add(item.CloneAndReverseCount());
-
-            var test2 = new UnitSystem(LocalUnitList);
-
-            var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
-
-            //if (AlreadyAdded is false)            
-            //    if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))                
-            //        return local2;
-                
-
-            return test2;
+                return test2;
+            }
 
         }
 
