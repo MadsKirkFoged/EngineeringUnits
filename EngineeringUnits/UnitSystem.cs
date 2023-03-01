@@ -234,16 +234,21 @@ namespace EngineeringUnits
 
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
-            int hashCode = 512265997;
-            unchecked
-            {
-                hashCode = (hashCode * 18403087) ^ left.GetHashCode();
-                hashCode = (hashCode * 11270411) ^ right.GetHashCode();
-            }
+            //int hashCode = 512265997;
+            //unchecked
+            //{
+            //    hashCode = (hashCode * 18403087) ^ left.GetHashCode();
+            //    hashCode = (hashCode * 11270411) ^ right.GetHashCode();
+            //}
 
+            var Hashs = (left.GetHashCode(), right.GetHashCode());
 
-            if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))            
+            if (CacheDivideTest.TryGetValue(Hashs, out UnitSystem local))
                 return local;
+
+
+            //if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))            
+            //    return local;
 
             lock (DivideLock)
             {
@@ -254,7 +259,8 @@ namespace EngineeringUnits
 
                 var test2 = new UnitSystem(LocalUnitList);
 
-                var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
+                //var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
+                var AlreadyAdded = CacheDivideTest.TryAdd(Hashs, test2);
 
                 //if (AlreadyAdded is false)            
                 //    if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))                
@@ -485,6 +491,8 @@ namespace EngineeringUnits
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
         private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
         private static readonly ConcurrentDictionary<int, Fraction> CacheFactor = new();
+
+        private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivideTest = new();
         private List<(BaseunitType Key, int Value)> _UnitsCount;
         private int HashCode;
         private Fraction _sumConstant;
