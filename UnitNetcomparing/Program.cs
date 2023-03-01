@@ -41,9 +41,9 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
-            var mass = Mass.FromPounds(1).Ounces;
+            var massflow = MassFlow.FromKilogramPerDay(1);
 
-
+            var massflow2 = MassFlow.FromKilogramPerSecond(1) / 2;
 
 
 

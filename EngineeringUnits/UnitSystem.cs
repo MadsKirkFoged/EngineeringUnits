@@ -239,10 +239,9 @@ namespace EngineeringUnits
             }
 
 
-            if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))
-            {
+            if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))            
                 return local;
-            }
+            
 
 
             List<RawUnit> LocalUnitList = new(left.ListOfUnits);
@@ -250,21 +249,14 @@ namespace EngineeringUnits
             foreach (var item in right.ListOfUnits)
                 LocalUnitList.Add(item.CloneAndReverseCount());
 
-
             var test2 = new UnitSystem(LocalUnitList);
 
             var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
 
-            if (AlreadyAdded is false)
-            {
-                if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))
-                {
-                    return local2;
-                }
-
-            }
-
-
+            //if (AlreadyAdded is false)            
+            //    if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))                
+            //        return local2;
+                
 
             return test2;
 
