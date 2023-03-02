@@ -109,14 +109,14 @@ namespace EngineeringUnits
             //    hashCode = (hashCode * 18403087) ^ GetHashCode();
             //    hashCode = (hashCode * 11270411) ^ To.GetHashCode();
             //}
+            lock (FactorLock)
+            {
 
             var Hashes = (GetHashCode(), To.GetHashCode());
 
             if (CacheFactorTest.TryGetValue(Hashes, out Fraction local))
                 return local;
 
-            lock (FactorLock)
-            {
                 var test = To.SumConstant() / SumConstant();
                 var AlreadyAdded = CacheFactorTest.TryAdd(Hashes, test);
                 return test;
@@ -147,6 +147,8 @@ namespace EngineeringUnits
         private static readonly Object MultiplyLock = new Object();
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
+            lock (MultiplyLock)
+            {
 
             if (!left.ListOfUnits.Any())            
                 if (right.ListOfUnits.Any())                
@@ -177,8 +179,6 @@ namespace EngineeringUnits
             //{
             //    return local;
             //}
-            lock (MultiplyLock)
-            {
                 var test2 = new UnitSystem(
                         new List<RawUnit>(
                             left.ListOfUnits.Concat(
@@ -231,6 +231,8 @@ namespace EngineeringUnits
 
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
+            lock (DivideLock)
+            {
 
             var Hashes = (left.GetHashCode(), right.GetHashCode());
 
@@ -238,8 +240,6 @@ namespace EngineeringUnits
                 return local;
 
 
-            lock (DivideLock)
-            {
                 List<RawUnit> LocalUnitList = new(left.ListOfUnits);
 
                 foreach (var item in right.ListOfUnits)
