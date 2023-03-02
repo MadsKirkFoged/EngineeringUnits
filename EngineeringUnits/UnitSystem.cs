@@ -99,36 +99,28 @@ namespace EngineeringUnits
         {
             return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
         }
+
+        private static readonly Object FactorLock = new Object();
         public Fraction ConvertionFactor(UnitSystem To)
         {
-            int hashCode = 512265997;
-            unchecked
-            {
-                hashCode = (hashCode * 18403087) ^ GetHashCode();
-                hashCode = (hashCode * 11270411) ^ To.GetHashCode();
-            }
+            //int hashCode = 512265997;
+            //unchecked
+            //{
+            //    hashCode = (hashCode * 18403087) ^ GetHashCode();
+            //    hashCode = (hashCode * 11270411) ^ To.GetHashCode();
+            //}
 
-            if (CacheFactor.TryGetValue(hashCode, out Fraction local))
+            var Hashes = (GetHashCode(), To.GetHashCode());
+
+            if (CacheFactorTest.TryGetValue(Hashes, out Fraction local))
                 return local;
 
-
-            var test = To.SumConstant() / SumConstant();
-
-            var AlreadyAdded = CacheFactor.TryAdd(hashCode, test);
-
-            if (AlreadyAdded is false)
+            lock (FactorLock)
             {
-                if (CacheFactor.TryGetValue(hashCode, out Fraction local2))
-                {
-                    return local2;
-                }
-
-
+                var test = To.SumConstant() / SumConstant();
+                var AlreadyAdded = CacheFactorTest.TryAdd(Hashes, test);
+                return test;
             }
-
-
-
-            return test;
         }
 
         public static UnitSystem operator +(UnitSystem left, UnitSystem right)
@@ -150,6 +142,9 @@ namespace EngineeringUnits
 
 
         }
+
+
+        private static readonly Object MultiplyLock = new Object();
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
 
@@ -164,35 +159,37 @@ namespace EngineeringUnits
 
 
 
-            int hashCode;
-            unchecked
-            {
-                hashCode = left.GetHashCode() * 11270411 + right.GetHashCode() * 18403087;
-            }
+            //int hashCode;
+            //unchecked
+            //{
+            //    hashCode = left.GetHashCode() * 11270411 + right.GetHashCode() * 18403087;
+            //}
 
+            var Hashes = (left.GetHashCode(), right.GetHashCode());
 
-            if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
-            {
+            if (CacheMultiplyTest.TryGetValue(Hashes, out UnitSystem local))
                 return local;
-            }
+            else if (CacheMultiplyTest.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
+                return local2;
 
-            var test2 = new UnitSystem(
+
+            //if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
+            //{
+            //    return local;
+            //}
+            lock (MultiplyLock)
+            {
+                var test2 = new UnitSystem(
                         new List<RawUnit>(
                             left.ListOfUnits.Concat(
                             right.ListOfUnits)));
 
-            var AlreadyAdded = CacheMultiply.TryAdd(hashCode, test2);
+                var AlreadyAdded = CacheMultiplyTest.TryAdd(Hashes, test2);
 
-            if (AlreadyAdded is false)
-            {
-                if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local2))
-                {
-                    return local2;
-                }
+                return test2;
 
             }
 
-            return test2;
 
 
         }
@@ -234,21 +231,12 @@ namespace EngineeringUnits
 
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
-            //int hashCode = 512265997;
-            //unchecked
-            //{
-            //    hashCode = (hashCode * 18403087) ^ left.GetHashCode();
-            //    hashCode = (hashCode * 11270411) ^ right.GetHashCode();
-            //}
 
-            var Hashs = (left.GetHashCode(), right.GetHashCode());
+            var Hashes = (left.GetHashCode(), right.GetHashCode());
 
-            if (CacheDivideTest.TryGetValue(Hashs, out UnitSystem local))
+            if (CacheDivideTest.TryGetValue(Hashes, out UnitSystem local))
                 return local;
 
-
-            //if (CacheDivide.TryGetValue(hashCode, out UnitSystem local))            
-            //    return local;
 
             lock (DivideLock)
             {
@@ -257,17 +245,11 @@ namespace EngineeringUnits
                 foreach (var item in right.ListOfUnits)
                     LocalUnitList.Add(item.CloneAndReverseCount());
 
-                var test2 = new UnitSystem(LocalUnitList);
+                var DividedUnit = new UnitSystem(LocalUnitList);
 
-                //var AlreadyAdded = CacheDivide.TryAdd(hashCode, test2);
-                var AlreadyAdded = CacheDivideTest.TryAdd(Hashs, test2);
+                var AlreadyAdded = CacheDivideTest.TryAdd(Hashes, DividedUnit);
 
-                //if (AlreadyAdded is false)            
-                //    if (CacheDivide.TryGetValue(hashCode, out UnitSystem local2))                
-                //        return local2;
-
-
-                return test2;
+                return DividedUnit;
             }
 
         }
@@ -493,6 +475,9 @@ namespace EngineeringUnits
         private static readonly ConcurrentDictionary<int, Fraction> CacheFactor = new();
 
         private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivideTest = new();
+        private static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheMultiplyTest = new();
+        private static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactorTest = new();
+
         private List<(BaseunitType Key, int Value)> _UnitsCount;
         private int HashCode;
         private Fraction _sumConstant;
