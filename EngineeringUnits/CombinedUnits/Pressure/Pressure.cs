@@ -26,7 +26,7 @@ namespace EngineeringUnits
             return From((double)value, unit);
         }
         public double As(PressureUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
-        public Pressure ToUnit(PressureUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public Pressure ToUnit(PressureUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit, Reference);
         public static Pressure Zero => new(0, PressureUnit.SI);
 
         public static implicit operator Pressure(UnknownUnit Unit)

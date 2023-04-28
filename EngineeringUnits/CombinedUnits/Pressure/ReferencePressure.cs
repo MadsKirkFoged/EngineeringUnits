@@ -87,6 +87,7 @@ namespace EngineeringUnits
         {
             PressureReference.Absolute => this + FromAtmosphere(0),
             PressureReference.Gauge => this + FromAtmosphere(1),
+            PressureReference.Undefined => this,
             //PressureReference.Vacuum => this,
             _ => throw new System.NotImplementedException(),
         };

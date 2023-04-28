@@ -41,6 +41,12 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
+            var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
+
+
+            var PressureTest2 = PressureTest.ToUnit(PressureUnit.Pascal);
+
+
             var massflow = MassFlow.FromKilogramPerDay(1);
 
             var massflow2 = MassFlow.FromKilogramPerSecond(1) / 2;
