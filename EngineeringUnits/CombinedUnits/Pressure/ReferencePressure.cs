@@ -16,7 +16,7 @@ namespace EngineeringUnits
     public partial class Pressure : BaseUnit
     {
 
-        PressureReference Reference { get; set; }
+        public PressureReference Reference { get; private set; }
 
 
         public Pressure(decimal value, PressureUnit selectedUnit, PressureReference reference) : this(value, selectedUnit) 
