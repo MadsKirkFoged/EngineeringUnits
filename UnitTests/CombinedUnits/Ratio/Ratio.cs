@@ -58,8 +58,8 @@ namespace UnitTests
 
 
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol().Replace("-",""),
+                                    A1.ToUnit(UN).ToString("a")
 
                                 );
 

@@ -58,7 +58,7 @@ namespace UnitTests
 
 
                     //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol().Replace("-", ""),
                                 A1.ToUnit(UN).ToString("a")
 
                                 //.Replace("L/L", "l/l")
