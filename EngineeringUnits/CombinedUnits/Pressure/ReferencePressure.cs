@@ -1,5 +1,6 @@
 ﻿
 using EngineeringUnits.Units;
+using Newtonsoft.Json.Linq;
 using System;
 
 namespace EngineeringUnits
@@ -24,8 +25,8 @@ namespace EngineeringUnits
             //Turn into Absolute
             Reference = reference;
 
-            NEWValue = ConvertComingIn(reference)
-                      .GetValueAs(Unit);
+            //NEWValue = ConvertComingIn(reference)
+            //          .GetValueAs(Unit);
         }
         public Pressure(double value, PressureUnit selectedUnit, PressureReference reference) : this(value, selectedUnit) 
         {
@@ -48,39 +49,61 @@ namespace EngineeringUnits
 
         }
 
-        public Pressure ToUnit(PressureUnit selectedUnit, PressureReference reference)
+        //public Pressure ToUnit(PressureUnit selectedUnit, PressureReference reference)
+        //{
+
+
+
+
+        //    throw new System.NotImplementedException();
+        //}
+
+        public Pressure ToUnit(PressureReference ConvertingTo)
         {
-            Pressure test = new(GetValueAs(selectedUnit.Unit), selectedUnit);
-
-            test.Reference = reference;
-
-            return test;
-
-
-        }
-
-        public Pressure ToUnit(PressureReference reference)
-        {
-
-            //What if it is changing type?
-
-            return new Pressure(this)
+     
+            if (ConvertingTo == Reference)
             {
-                Reference = reference
-            };
+                return this;
+            }
+            else if (Reference is PressureReference.Undefined)
+            {
+                Reference = ConvertingTo;
+                return this;
+            }
+            else if (Reference is PressureReference.Absolute && ConvertingTo is PressureReference.Gauge)
+            {
+                Pressure local = this - FromAtmosphere(1);
+                local.Reference = ConvertingTo;
+
+                return local;
+            }
+            else if (Reference is PressureReference.Gauge && ConvertingTo is PressureReference.Absolute)
+            {
+                Pressure local = this + FromAtmosphere(1);
+                local.Reference = ConvertingTo;
+
+                return local;
+            }
+
+            return this;
+        }
+
+        public override string GetStandardSymbol(UnitSystem _unit)
+        {
+            return GetStandardSymbol<PressureUnit>(_unit) + GetSymbol(Reference);
         }
 
 
-        public override string ToString(string format, IFormatProvider provider)
-        {
+        //public override string ToString(string format, IFormatProvider provider)
+        //{
 
-            if (Reference is not PressureReference.Undefined)            
-                return ConvertGoingOut(Reference).ToString(format, provider) + GetSymbol(Reference);
+        //    if (Reference is not PressureReference.Undefined)            
+        //        return ConvertGoingOut(Reference).ToString(format, provider) + GetSymbol(Reference);
             
 
-            return base.ToString(format, provider);
+        //    return base.ToString(format, provider);
 
-        }
+        //}
 
 
         private Pressure ConvertComingIn(PressureReference reference) => reference switch
@@ -105,6 +128,7 @@ namespace EngineeringUnits
         {
             PressureReference.Absolute => "ₐ",
             PressureReference.Gauge => "ᶢ",
+            PressureReference.Undefined => "",
             //PressureReference.Vacuum => "TODO",
             _ => throw new System.NotImplementedException(),
         };

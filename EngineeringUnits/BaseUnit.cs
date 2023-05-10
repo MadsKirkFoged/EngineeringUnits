@@ -370,13 +370,6 @@ namespace EngineeringUnits
                 return _unit.Symbol;
 
 
-            //foreach (var item in Enumeration.ListOf<T>())
-            //{
-            //    Debug.Print($"{item.Unit.SumConstant()} = {_unit.SumConstant()}");
-            //    Debug.Print($"{item.Unit}");
-            //}
-
-
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return UnitTypebase.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?

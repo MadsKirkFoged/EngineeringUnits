@@ -44,7 +44,7 @@ namespace EngineeringUnits
                 throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
 			return Zero;
 		}
-	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);
+	//public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);
 	}
 }
 

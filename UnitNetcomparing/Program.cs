@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+//using UnitsNet;
 
 namespace UnitNetcomparing
 {
@@ -43,6 +44,11 @@ namespace UnitNetcomparing
 
             var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
 
+            PressureTest = PressureTest.ToUnit(PressureReference.Gauge);
+
+            string Bara1 = $"{PressureTest:V4}";
+
+            string Bara2 = $"{PressureTest:UnitOnly}";
 
             var PressureTest2 = PressureTest.ToUnit(PressureUnit.Pascal);
 
