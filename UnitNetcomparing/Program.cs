@@ -43,6 +43,9 @@ namespace UnitNetcomparing
         {
 
             var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
+            var PressureTest2 = new Pressure(3, PressureUnit.Bar, PressureReference.Absolute);
+
+            Pressure PressureTest3 = PressureTest2 - PressureTest;
 
             PressureTest = PressureTest.ToUnit(PressureReference.Gauge);
 
@@ -50,7 +53,7 @@ namespace UnitNetcomparing
 
             string Bara2 = $"{PressureTest:UnitOnly}";
 
-            var PressureTest2 = PressureTest.ToUnit(PressureUnit.Pascal);
+            //var PressureTest2 = PressureTest.ToUnit(PressureUnit.Pascal);
 
 
             var massflow = MassFlow.FromKilogramPerDay(1);
