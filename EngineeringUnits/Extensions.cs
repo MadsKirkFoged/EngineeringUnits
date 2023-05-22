@@ -530,6 +530,22 @@ namespace EngineeringUnits
             return minimum;
         }
 
+        public static UnknownUnit Maximum(this UnknownUnit unit, UnknownUnit maximum)
+        {
+            if (unit < maximum)
+                return unit;
+
+            return maximum;
+        }
+
+        public static UnknownUnit Maximum(this BaseUnit unit, UnknownUnit maximum)
+        {
+            if (unit < maximum)
+                return unit;
+
+            return maximum;
+        }
+
 
     }
 }
