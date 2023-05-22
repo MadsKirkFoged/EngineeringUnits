@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using EngineeringUnits.Units;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -496,6 +497,24 @@ namespace EngineeringUnits
             if (a.Unit != b.Unit)
                 throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
         }
+
+
+        public static UnknownUnit AddUnit<T>(this double value, string UnitOfMeasure) where T : UnitTypebase
+        {
+            var unit = UnitTypebase.GetUnitByString<T>(UnitOfMeasure).Unit;
+
+            return new UnknownUnit(value, unit);
+        }
+
+        public static UnknownUnit AddUnit<T>(this double? value, string UnitOfMeasure) where T : UnitTypebase
+        {
+            if (value is null)            
+                return null;            
+
+            return ((double)value).AddUnit<T>(UnitOfMeasure);
+        }
+
+
 
     }
 }

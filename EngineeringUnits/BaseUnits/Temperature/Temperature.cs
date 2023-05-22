@@ -111,7 +111,17 @@ namespace EngineeringUnits
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
 
-        public static implicit operator Temperature(UnknownUnit Unit) => new(Unit);
+        //public static implicit operator Temperature(UnknownUnit Unit) => new(Unit);
+
+        public static implicit operator Temperature(UnknownUnit Unit)
+        {
+            if (Unit is null)
+                return null;
+
+            Unit.UnitCheck(TemperatureUnit.SI);
+            return new(Unit);
+        }
+
 
         public static implicit operator Temperature(int zero)
         {

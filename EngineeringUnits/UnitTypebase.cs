@@ -120,13 +120,15 @@ namespace EngineeringUnits
         public static T GetUnitByString<T>(string name)
             where T:UnitTypebase
         {
+            var ListToUser = new List<string>();
             foreach (var field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
             {
+                ListToUser.Add(field.Name);
                 if (field.Name.ToLower() == name.ToLower())
                     return (T)field.GetValue(field);
             }
 
-            throw new ArgumentException($"Could not find a unit with a name of '{name}'");
+            throw new ArgumentException($"Could not find a unit with a name of '{name}'\n The available options are: {string.Join(", ",ListToUser)}");
         }
 
         public static List<T> ListOf<T>() where T: UnitTypebase

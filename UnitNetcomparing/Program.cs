@@ -42,6 +42,14 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
+
+            double? valueOfT = null;
+            string unit = "Meter";
+
+
+            Length temp = valueOfT.AddUnit<LengthUnit>(unit);
+
+
             var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
             var PressureTest2 = new Pressure(3, PressureUnit.Bar, PressureReference.Absolute);
 
