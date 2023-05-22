@@ -514,6 +514,21 @@ namespace EngineeringUnits
             return ((double)value).AddUnit<T>(UnitOfMeasure);
         }
 
+        public static UnknownUnit Minimum(this UnknownUnit unit, UnknownUnit minimum)
+        {
+            if (unit > minimum)            
+                return unit;
+
+            return minimum;
+        }
+
+        public static UnknownUnit Minimum(this BaseUnit unit, UnknownUnit minimum)
+        {
+            if (unit > minimum)
+                return unit;
+
+            return minimum;
+        }
 
 
     }

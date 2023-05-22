@@ -43,11 +43,15 @@ namespace UnitNetcomparing
         {
 
 
-            double? valueOfT = null;
+            double? valueOfT = 10;
             string unit = "Meter";
 
 
             Length temp = valueOfT.AddUnit<LengthUnit>(unit);
+
+
+            Length temp2 = temp.Minimum(Length.FromMeter(20));
+
 
 
             var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
