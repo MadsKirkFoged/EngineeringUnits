@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeGen
 {
-    class ListOfUnitsForDifferentGenerators
+    public class ListOfUnitsForDifferentGenerators
     {
 
         public static List<string> GetListOfCombinedUnits()

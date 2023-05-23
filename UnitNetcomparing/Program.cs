@@ -1,4 +1,5 @@
-﻿using EngineeringUnits;
+﻿using CodeGen;
+using EngineeringUnits;
 using EngineeringUnits.Units;
 using Fractions;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 //using UnitsNet;
 
 namespace UnitNetcomparing
@@ -42,6 +44,51 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
+            var MyList = new List<Length>
+            {
+                Length.FromMeter(1),
+                Length.FromMeter(5),
+                Length.FromMeter(20),
+                Length.FromMeter(44)
+            };
+
+            var Nearest =  MyList.RoundToNearest(Length.FromMeter(19));
+
+            //Create new unit
+            Length L11 = new(1d, LengthUnit.Meter);
+
+            //Serialize it into JSON 
+            string L1AsJSON = JsonConvert.SerializeObject(L11);
+
+            //Deserialize from JSON
+            Length BackFromJSON = JsonConvert.DeserializeObject<Length>(L1AsJSON);
+
+
+
+
+            string PrintOut = $"";
+
+            List<string> lllist = new List<string>();
+
+            List<string> assembly = ListOfUnitsForDifferentGenerators.GetListOFAllUnits();
+
+            //List<string> assembly = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
+
+            assembly.Sort();
+
+            foreach (string assemblyName in assembly)
+            {
+                var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
+                PrintOut += "\n"+assemblyName+":";
+                foreach (var item in t.GetFields(BindingFlags.Static | BindingFlags.Public))
+                {
+
+                    PrintOut+=$"[{item.Name}], ";
+                }
+            }
+
+
+
 
             double? valueOfT = 10;
             string unit = "Meter";
@@ -50,8 +97,12 @@ namespace UnitNetcomparing
             Length temp = valueOfT.AddUnit<LengthUnit>(unit);
 
 
-            Length temp2 = temp.Minimum(Length.FromMeter(20));
+            Length L111 = Length.FromMeter(10); //10m
 
+            Length L22 = L111.Minimum(Length.FromMeter(5)); //10m
+            Length L33 = L111.Minimum(Length.FromMeter(15)); //15m
+            Length L44 = L111.Maximum(Length.FromMeter(5)); //5m
+            Length L55 = L111.Maximum(Length.FromMeter(15)); //10m
 
 
             var PressureTest = new Pressure(1, PressureUnit.Bar, PressureReference.Absolute);
@@ -244,7 +295,7 @@ namespace UnitNetcomparing
 
             Acceleration test121 = new Acceleration(0, AccelerationUnit.SI);
 
-            string PrintOut = $"";
+            
 
             //foreach (var item in AngleUnit.ListOf<AngleUnit>())
             //{

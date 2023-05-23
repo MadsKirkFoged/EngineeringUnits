@@ -491,6 +491,11 @@ namespace EngineeringUnits
             //return valueToBeRoundedUp;
         }
 
+        public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
+        {  
+            return list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault();
+        }
+
 
         public static void UnitCheck(this IUnitSystem a, IUnitSystem b)
         {
