@@ -140,6 +140,21 @@ list.Add(length2);
 Length lenghtAvg = list.Average();
 ```
 
+Find the closed in a list
+```C#
+var MyList = new List<Length>
+{
+   Length.FromMeter(1),
+   Length.FromMeter(5),
+   Length.FromMeter(20),
+   Length.FromMeter(44)
+};
+
+Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+Length L2 = MyList.RoundDownToNearest(Length.FromMeter(30)); //20m
+Length L3 = MyList.RoundToNearest(Length.FromMeter(4)); //5m
+```
+
 ###### Force quantity In Range Of(min,max)
 ```C#
 Power f1 = new(19, PowerUnit.KilojoulePerHour);
