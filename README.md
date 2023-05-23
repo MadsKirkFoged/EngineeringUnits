@@ -97,6 +97,16 @@ MassFlow M1 = new MassFlow(10, MassFlowUnit.HectogramPerSecond); //-10 kg/s
 MassFlow M2 = M1.Abs(); //10 kg/s                   
 ```
 
+###### min/max value
+```C#
+Length L1 = Length.FromMeter(10); //10m
+
+Length L2 = L1.Minimum(Length.FromMeter(5)); //10m
+Length L3 = L1.Minimum(Length.FromMeter(15)); //15m
+Length L4 = L1.Maximum(Length.FromMeter(5)); //5m
+Length L5 = L1.Maximum(Length.FromMeter(15)); //10m                  
+```
+
 ###### Powers and Square Roots
 ```C#
 Length L1 = new Length(54.3, LengthUnit.Foot); //16.55064 m
@@ -104,7 +114,7 @@ Area A1 = L1.Pow(2);  //273.9236844096 m²
 Length L2 = A1.Sqrt(); //16.55064 m               
 ```
 
-###### Get the min/max/Average/Sum
+###### Get the min/max/Average/Sum from a list of units
 ```C#
 Mass M1 = new Mass(43, MassUnit.Kilogram);
 Mass M2 = new Mass(2, MassUnit.Megapound);
@@ -241,6 +251,33 @@ string Output6 = $"{T1:G1}"; // 1E+01 °C
 string Output7 = $"{T1:G4}"; // 10.57 °C
             
 ```
+
+###### Transfer Units in APIs or store in database
+
+Recommended way to Transfer Units between systems is to serialize/Deserialize the units
+```C#
+//Create new unit
+Length L11 = new(1d, LengthUnit.Meter);
+
+//Serialize it into JSON 
+string L1AsJSON = JsonConvert.SerializeObject(L11);
+
+//Deserialize from JSON
+Length BackFromJSON = JsonConvert.DeserializeObject<Length>(L1AsJSON);
+```
+
+Recommended way to store single units in database
+[See all the names further down the page]
+
+```C#
+//Got from database (Stored in two different cells)
+double? value = 10;
+string unit = "Meter";
+
+//Put it back together
+Length temp = value.AddUnit<LengthUnit>(unit);
+```
+
 ###### What units are included?
 ```C#
 Acceleration:[m/s²], [km/s²], [m/s²], [dm/s²], [cm/s²], [µm/s²], [mm/s²], [nm/s²], [in/s²], [ft/s²], [kn/s], [kn/min], [kn/h], [g], [mg],
@@ -328,5 +365,100 @@ Length:[km], [hm], [m], [m], [dm], [cm], [mm], [µm], [nm], [µin], [twip], [mil
 LuminousIntensity:[cd], [cd],
 Mass:[kg], [kg], [pg], [cg], [dag], [dg], [g], [hg], [µg], [mg], [ng], [t], [kt], [Mt], [em], [oz], [lb], [st], [slug], [cwt], [cwt], [kip], [t (short)], [long tn], [Mlb], [gr],
 Temperature:[K], [K], [°C], [°F], [°R],
+
+```
+
+###### What are the names of the units?
+```C#
+
+Acceleration:[SI], [KilometerPerSecondSquared], [MeterPerSecondSquared], [DecimeterPerSecondSquared], [CentimeterPerSecondSquared], [MicrometerPerSecondSquared], [MillimeterPerSecondSquared], [NanometerPerSecondSquared], [InchPerSecondSquared], [FootPerSecondSquared], [KnotPerSecond], [KnotPerMinute], [KnotPerHour], [StandardGravity], [MillistandardGravity], 
+AmountOfSubstance:[SI], [Mole], [Centimole], [Decimole], [Kilomole], [Megamole], [Micromole], [Millimole], [Nanomole], [Picomole], [NanopoundMole], [MicropoundMole], [MillipoundMole], [PoundMole], [KilopoundMole], [DecipoundMole], [CentipoundMole], 
+Angle:[SI], [Arcminute], [Arcsecond], [Gradian], [Radian], [Centiradian], [Deciradian], [Microradian], [Milliradian], [Nanoradian], [Degree], [Microdegree], [Millidegree], [Nanodegree], [Revolution], 
+ApparentPower:[SI], [Voltampere], [Megavoltampere], [Kilovoltampere], [Gigavoltampere], 
+Area:[Acre], [Hectare], [SquareCentimeter], [SquareDecimeter], [SquareKilometer], [SquareMeter], [SquareMicrometer], [SI], [SquareMillimeter], [SquareNanometer], [SquareInch], [SquareFoot], [SquareYard], [SquareMile], [SquareNauticalMile], [SquareChain], 
+AreaDensity:[SI], [KilogramPerSquareMeter], 
+AreaMomentOfInertia:[SI], [MeterToTheFourth], [CentimeterToTheFourth], [DecimeterToTheFourth], [MillimeterToTheFourth], [InchToTheFourth], [FootToTheFourth], 
+BitRate:[SI], [BytePerSecond], [BitPerSecond], [KibibitPerSecond], [MebibitPerSecond], [GibibitPerSecond], [TebibitPerSecond], [PebibitPerSecond], [ExbibitPerSecond], [KibibytePerSecond], [MebibytePerSecond], [GibibytePerSecond], [TebibytePerSecond], [PebibytePerSecond], [ExbibytePerSecond], [KilobytePerSecond], [MegabytePerSecond], [GigabytePerSecond], [TerabytePerSecond], [PetabytePerSecond], [ExabytePerSecond], [KilobitPerSecond], [MegabitPerSecond], [GigabitPerSecond], [TerabitPerSecond], [PetabitPerSecond], [ExabitPerSecond], 
+BrakeSpecificFuelConsumption:[SI], [KilogramPerJoule], [GramPerKiloWattHour], [PoundPerMechanicalHorsepowerHour], 
+Capacitance:[SI], [Farad], [Kilofarad], [Megafarad], [Microfarad], [Millifarad], [Nanofarad], [Picofarad], 
+CoefficientOfThermalExpansion:[SI], [InverseKelvin], [InverseDegreeFahrenheit], [InverseDegreeCelsius], 
+Density:[SI], [CentigramPerDeciliter], [CentigramPerLiter], [CentigramPerMilliliter], [DecigramPerDeciliter], [DecigramPerLiter], [DecigramPerMilliliter], [DecigramPerMicroliter], [GramPerCubicCentimeter], [GramPerCubicMeter], [GramPerCubicMillimeter], [GramPerDeciliter], [GramPerLiter], [GramPerMilliliter], [GramPerMicroliter], [KilogramPerCubicCentimeter], [KilogramPerCubicMeter], [KilogramPerCubicMillimeter], [KilogramPerLiter], [KilopoundPerCubicFoot], [KilopoundPerCubicInch], [MicrogramPerCubicMeter], [MicrogramPerDeciliter], [MicrogramPerLiter], [MicrogramPerMilliliter], [MicrogramPerMicroliter], [MilligramPerCubicMeter], [MilligramPerDeciliter], [MilligramPerLiter], [MilligramPerMilliliter], [MilligramPerMicroliter], [NanogramPerDeciliter], [NanogramPerLiter], [NanogramPerMilliliter], [NanogramPerMicroliter], [PicogramPerDeciliter], [PicogramPerLiter], [PicogramPerMilliliter], [PicogramPerMicroliter], [PoundPerCubicFoot], [PoundPerCubicInch], [PoundPerImperialGallon], [PoundPerUSGallon], [SlugPerCubicFoot], [TonnePerCubicCentimeter], [TonnePerCubicMeter], [TonnePerCubicMillimeter], 
+Duration:[Nanosecond], [Millisecond], [Microsecond], [Second], [Minute], [Hour], [Day], [Week], [Month30], [Year365], [SI], 
+DynamicViscosity:[SI], [PascalSecond], [MicropascalSecond], [MillipascalSecond], [PoundPerFootSecond], [Poise], [Centipoise], [NewtonSecondPerMeterSquared], [PoundForceSecondPerSquareFoot], [PoundForceSecondPerSquareInch], [Reyn], 
+ElectricCharge:[SI], [Coulomb], [AmpereHour], [KiloampereHour], [MegaampereHour], [MilliampereHour], 
+ElectricChargeDensity:[SI], [CoulombPerCubicMeter], 
+ElectricConductivity:[SI], [SiemensPerMeter], [SiemensPerInch], [SiemensPerFoot], 
+ElectricCurrent:[SI], [Ampere], [Centiampere], [Kiloampere], [Megaampere], [Microampere], [Milliampere], [Nanoampere], [Picoampere], 
+ElectricCurrentDensity:[SI], [AmperePerSquareMeter], [AmperePerSquareInch], [AmperePerSquareFoot], 
+ElectricCurrentGradient:[SI], [AmperePerSecond], [AmperePerMicrosecond], [AmperePerMillisecond], [AmperePerNanosecond], 
+ElectricField:[SI], [VoltPerMeter], 
+ElectricInductance:[SI], [Henry], [Microhenry], [Millihenry], [Nanohenry], 
+ElectricPotential:[SI], [Volt], [Kilovolt], [Megavolt], [Gigavolt], [Microvolt], [Millivolt], 
+ElectricPotentialChangeRate:[SI], [VoltPerSecond], [VoltPerMinute], [VoltPerMicrosecond], [VoltPerHour], [MillivoltPerSecond], [MillivoltPerMinute], [MillivoltPerMicrosecond], [MillivoltPerHour], [MicrovoltPerSecond], [MicrovoltPerMinute], [MicrovoltPerMicrosecond], [MicrovoltPerHour], [MegavoltPerSecond], [MegavoltPerMinute], [MegavoltPerMicrosecond], [MegavoltPerHour], [KilovoltPerSecond], [KilovoltPerMinute], [KilovoltPerMicrosecond], [KilovoltPerHour], 
+ElectricResistance:[SI], [Ohm], [Gigaohm], [Kiloohm], [Megaohm], [Microohm], [Milliohm], 
+ElectricResistivity:[SI], [OhmMeter], [OhmCentimeter], [KiloohmCentimeter], [MegaohmCentimeter], [MicroohmCentimeter], [MilliohmCentimeter], [NanoohmCentimeter], [PicoohmCentimeter], [KiloohmMeter], [MegaohmMeter], [MicroohmMeter], [MilliohmMeter], [NanoohmMeter], [PicoohmMeter], 
+ElectricSurfaceChargeDensity:[SI], [CoulombPerSquareMeter], [CoulombPerSquareCentimeter], [CoulombPerSquareInch], 
+Energy:[SI], [Millijoule], [Joule], [Kilojoule], [Megajoule], [Gigajoule], [Terajoule], [BritishThermalUnit], [KilobritishThermalUnit], [MegabritishThermalUnit], [GigabritishThermalUnit], [ElectronVolt], [KiloelectronVolt], [MegaelectronVolt], [GigaelectronVolt], [TeraelectronVolt], [Calorie], [Kilocalorie], [Megacalorie], [WattDay], [KilowattDay], [MegawattDay], [GigawattDay], [TerawattDay], [WattHour], [KilowattHour], [MegawattHour], [GigawattHour], [TerawattHour], [FootPound], [DecathermEc], [DecathermImperial], [DecathermUs], [ThermEc], [ThermImperial], [ThermUs], [Erg], [HorsepowerHour], 
+Enthalpy:[SI], [JoulePerKilogram], [KilojoulePerKilogram], [MegajoulePerKilogram], [BtuPerPound], [CaloriePerGram], [KilocaloriePerGram], [WattDayPerKilogram], [KilowattDayPerKilogram], [MegawattDayPerKilogram], [GigawattDayPerKilogram], [TerawattDayPerKilogram], [WattHourPerKilogram], [KilowattHourPerKilogram], [MegawattHourPerKilogram], [GigawattHourPerKilogram], [WattDayPerTonne], [KilowattDayPerTonne], [MegawattDayPerTonne], [GigawattDayPerTonne], [TerawattDayPerTonne], [WattDayPerShortTon], [KilowattDayPerShortTon], [MegawattDayPerShortTon], [GigawattDayPerShortTon], [TerawattDayPerShortTon], 
+Entropy:[SI], [JoulePerKelvin], [CaloriePerKelvin], [JoulePerDegreeCelsius], [KilocaloriePerKelvin], [KilojoulePerDegreeCelsius], [KilojoulePerKelvin], [MegajoulePerKelvin], 
+Force:[SI], [Newton], [Micronewton], [Millinewton], [Decanewton], [Kilonewton], [Meganewton], [Dyn], [TonneForce], [ShortTonForce], [PoundForce], [KilogramForce], [OunceForce], [KiloPond], [KilopoundForce], [MegapoundForce], [Poundal], 
+ForceChangeRate:[SI], [NewtonPerSecond], [NewtonPerMinute], [PoundForcePerSecond], [PoundForcePerMinute], [KilopoundForcePerSecond], [KilopoundForcePerMinute], [NanonewtonPerSecond], [MillinewtonPerSecond], [MicronewtonPerSecond], [CentinewtonPerSecond], [DecanewtonPerSecond], [DecinewtonPerSecond], [KilonewtonPerSecond], [DecanewtonPerMinute], [KilonewtonPerMinute], 
+ForcePerLength:[SI], [NewtonPerMeter], [NewtonPerCentimeter], [NewtonPerMillimeter], [KilogramForcePerCentimeter], [KilogramForcePerMeter], [KilogramForcePerMillimeter], [KilonewtonPerCentimeter], [KilonewtonPerMeter], [KilonewtonPerMillimeter], [KilopoundForcePerFoot], [KilopoundForcePerInch], [MeganewtonPerCentimeter], [MeganewtonPerMeter], [MeganewtonPerMillimeter], [MicronewtonPerCentimeter], [MicronewtonPerMeter], [MicronewtonPerMillimeter], [MillinewtonPerCentimeter], [MillinewtonPerMeter], [MillinewtonPerMillimeter], [PoundForcePerFoot], [PoundForcePerInch], [PoundForcePerYard], [TonneForcePerCentimeter], [TonneForcePerMeter], [TonneForcePerMillimeter], [NanonewtonPerCentimeter], [NanonewtonPerMeter], [NanonewtonPerMillimeter], [CentinewtonPerCentimeter], [CentinewtonPerMeter], [CentinewtonPerMillimeter], [DecanewtonPerCentimeter], [DecanewtonPerMeter], [DecanewtonPerMillimeter], [DecinewtonPerCentimeter], [DecinewtonPerMeter], [DecinewtonPerMillimeter], 
+Frequency:[SI], [Hertz], [Kilohertz], [Megahertz], [Gigahertz], [Terahertz], [PerSecond], [BeatPerMinute], [RevolutionsPerMinute], [CyclePerHour], [CyclePerMinute], [RadianPerSecond], 
+FuelEfficiency:[SI], [KilometerPerLiter], [MilePerUkGallon], [MilePerUsGallon], 
+HeatFlux:[SI], [WattPerSquareMeter], [WattPerSquareInch], [WattPerSquareFoot], [BtuPerHourSquareFoot], [BtuPerMinuteSquareFoot], [BtuPerSecondSquareFoot], [BtuPerSecondSquareInch], [CaloriePerSecondSquareCentimeter], [KilocaloriePerHourSquareMeter], [KilocaloriePerSecondSquareCentimeter], [KilowattPerSquareMeter], [MicrowattPerSquareMeter], [MilliwattPerSquareMeter], [NanowattPerSquareMeter], [CentiwattPerSquareMeter], [DeciwattPerSquareMeter], [PoundForcePerFootSecond], [PoundPerSecondCubed], 
+HeatTransferCoefficient:[SI], [WattPerSquareMeterKelvin], [WattPerSquareMeterCelsius], [BtuPerSquareFootDegreeFahrenheit], 
+Illuminance:[SI], [Lux], [Kilolux], [Megalux], [Millilux], 
+Information:[SI], [Byte], [Bit], [Kibibit], [Mebibit], [Gibibit], [Tebibit], [Pebibit], [Exbibit], [Kibibyte], [Mebibyte], [Gibibyte], [Tebibyte], [Pebibyte], [Exbibyte], [Kilobyte], [Megabyte], [Gigabyte], [Terabyte], [Petabyte], [Exabyte], [Kilobit], [Megabit], [Gigabit], [Terabit], [Petabit], [Exabit], 
+Irradiance:[SI], [WattPerSquareMeter], [WattPerSquareCentimeter], [KilowattPerSquareCentimeter], [MegawattPerSquareCentimeter], [MicrowattPerSquareCentimeter], [MilliwattPerSquareCentimeter], [NanowattPerSquareCentimeter], [PicowattPerSquareCentimeter], [KilowattPerSquareMeter], [MegawattPerSquareMeter], [MicrowattPerSquareMeter], [MilliwattPerSquareMeter], [NanowattPerSquareMeter], [PicowattPerSquareMeter], 
+Irradiation:[SI], [JoulePerSquareMeter], [JoulePerSquareCentimeter], [JoulePerSquareMillimeter], [KilojoulePerSquareMeter], [KilowattHourPerSquareMeter], [MillijoulePerSquareCentimeter], [WattHourPerSquareMeter], 
+KinematicViscosity:[SI], [SquareMeterPerSecond], [Stokes], [Centistokes], [Decistokes], [Kilostokes], [Microstokes], [Millistokes], [Nanostokes], 
+LapseRate:[SI], [DegreeCelsiusPerKilometer], 
+Length:[Kilometer], [Hectometer], [Meter], [SI], [Decimeter], [Centimeter], [Millimeter], [Micrometer], [Nanometer], [Microinch], [Twip], [Mil], [DtpPoint], [DtpPica], [Inch], [Hand], [Foot], [Yard], [Fathom], [Chain], [Shackle], [Mile], [NauticalMile], [UsSurveyFoot], [LightYear], [KilolightYear], [MegalightYear], [SolarRadius], [AstronomicalUnit], [Parsec], [Kiloparsec], [Megaparsec], 
+LinearDensity:[SI], [KilogramPerMeter], [GramPerCentimeter], [GramPerMeter], [GramPerMillimeter], [KilogramPerCentimeter], [KilogramPerMillimeter], [MicrogramPerCentimeter], [MicrogramPerMeter], [MicrogramPerMillimeter], [MilligramPerCentimeter], [MilligramPerMeter], [MilligramPerMillimeter], [PoundPerFoot], [PoundPerInch], 
+LinearPowerDensity:[SI], [WattPerMeter], [WattPerMillimeter], [WattPerInch], [WattPerFoot], [WattPerCentimeter], [MilliwattPerMillimeter], [MilliwattPerMeter], [MilliwattPerInch], [MilliwattPerFoot], [MilliwattPerCentimeter], [MegawattPerMillimeter], [MegawattPerMeter], [MegawattPerInch], [MegawattPerFoot], [MegawattPerCentimeter], [KilowattPerMillimeter], [KilowattPerMeter], [KilowattPerInch], [KilowattPerFoot], [KilowattPerCentimeter], [GigawattPerMillimeter], [GigawattPerMeter], [GigawattPerInch], [GigawattPerFoot], [GigawattPerCentimeter], 
+LuminousFlux:[SI], [Lumen], 
+LuminousIntensity:[SI], [Candela], 
+MagneticField:[SI], [Tesla], [Gauss], [Milligauss], [Microtesla], [Millitesla], [Nanotesla], 
+MagneticFlux:[SI], [Weber], 
+Magnetization:[SI], [AmperePerMeter], 
+Mass:[SI], [Kilogram], [Picogram], [Centigram], [Decagram], [Decigram], [Gram], [Hectogram], [Microgram], [Milligram], [Nanogram], [Tonne], [Kilotonne], [Megatonne], [EarthMass], [Ounce], [Pound], [Stone], [Slug], [ShortHundredweight], [LongHundredweight], [Kilopound], [ShortTon], [LongTon], [Megapound], [Grain], 
+MassFlow:[CentigramPerDay], [CentigramPerSecond], [DecagramPerDay], [DecagramPerSecond], [DecigramPerDay], [DecigramPerSecond], [GramPerDay], [GramPerHour], [GramPerSecond], [MegagramPerDay], [MicrogramPerSecond], [MicrogramPerDay], [MilligramPerSecond], [MilligramPerDay], [NanogramPerSecond], [NanogramPerDay], [HectogramPerDay], [HectogramPerSecond], [SI], [KilogramPerSecond], [KilogramPerMinute], [KilogramPerHour], [KilogramPerDay], [PoundPerSecond], [PoundPerMinute], [PoundPerHour], [PoundPerDay], [MegapoundPerDay], [MegapoundPerHour], [MegapoundPerMinute], [MegapoundPerSecond], [ShortTonPerHour], [TonnePerDay], [TonnePerHour], 
+MassFlux:[SI], [KilogramPerSecondPerSquareMeter], [GramPerHourPerSquareCentimeter], [GramPerHourPerSquareMeter], [GramPerHourPerSquareMillimeter], [GramPerSecondPerSquareCentimeter], [GramPerSecondPerSquareMeter], [GramPerSecondPerSquareMillimeter], [KilogramPerHourPerSquareCentimeter], [KilogramPerHourPerSquareMeter], [KilogramPerHourPerSquareMillimeter], [KilogramPerSecondPerSquareCentimeter], [KilogramPerSecondPerSquareMillimeter], 
+MassMomentOfInertia:[SI], [KilogramSquareMeter], [GramSquareCentimeter], [GramSquareDecimeter], [GramSquareMeter], [GramSquareMillimeter], [KilogramSquareCentimeter], [KilogramSquareDecimeter], [KilogramSquareMillimeter], [KilotonneSquareCentimeter], [KilotonneSquareDecimeter], [KilotonneSquareMeter], [KilotonneSquareMilimeter], [MegatonneSquareCentimeter], [MegatonneSquareDecimeter], [MegatonneSquareMeter], [MegatonneSquareMilimeter], [MilligramSquareCentimeter], [MilligramSquareDecimeter], [MilligramSquareMeter], [MilligramSquareMillimeter], [PoundSquareFoot], [PoundSquareInch], [SlugSquareFoot], [SlugSquareInch], [TonneSquareCentimeter], [TonneSquareDecimeter], [TonneSquareMeter], [TonneSquareMilimeter], 
+MolarEnergy:[SI], [JoulePerMole], [KilojoulePerMole], [MegajoulePerMole], 
+MolarEntropy:[SI], [JoulePerMoleKelvin], [KilojoulePerMoleKelvin], [MegajoulePerMoleKelvin], 
+MolarFlow:[SI], [MolePerSecond], 
+Molarity:[SI], [MolesPerCubicMeter], [MolesPerLiter], [NanomolesPerLiter], [PicomolesPerLiter], [CentimolesPerLiter], [DecimolesPerLiter], [MicromolesPerLiter], [MillimolesPerLiter], 
+MolarMass:[SI], [KilogramPerMole], [CentigramPerMole], [DecagramPerMole], [DecigramPerMole], [GramPerMole], [HectogramPerMole], [KilopoundPerMole], [MegapoundPerMole], [MicrogramPerMole], [MilligramPerMole], [NanogramPerMole], [PoundPerMole], 
+Permeability:[SI], [HenryPerMeter], 
+Permittivity:[SI], [FaradPerMeter], 
+Power:[SI], [Femtowatt], [Picowatt], [Nanowatt], [Microwatt], [Milliwatt], [Deciwatt], [Watt], [Decawatt], [Kilowatt], [Megawatt], [Gigawatt], [Terawatt], [Petawatt], [MillijoulePerHour], [JoulePerHour], [KilojoulePerHour], [MegajoulePerHour], [GigajoulePerHour], [BritishThermalUnitPerHour], [BritishThermalUnitPerMinute], [BritishThermalUnitPerSecond], [KilobritishThermalUnitPerHour], [BoilerHorsepower], [ElectricalHorsepower], [HydraulicHorsepower], [MechanicalHorsepower], [MetricHorsepower], [CaloriePerSecond], [KilocaloriePerHour], [KilocaloriePerSecond], [SolarLuminosity], 
+PowerDensity:[SI], [WattPerCubicMeter], [WattPerLiter], [WattPerCubicInch], [WattPerCubicFoot], [TerawattPerLiter], [TerawattPerCubicMeter], [TerawattPerCubicInch], [TerawattPerCubicFoot], [PicowattPerLiter], [PicowattPerCubicMeter], [PicowattPerCubicInch], [PicowattPerCubicFoot], [NanowattPerLiter], [NanowattPerCubicMeter], [NanowattPerCubicInch], [NanowattPerCubicFoot], [MilliwattPerLiter], [MilliwattPerCubicMeter], [MilliwattPerCubicInch], [MilliwattPerCubicFoot], [MicrowattPerLiter], [MicrowattPerCubicMeter], [MicrowattPerCubicInch], [MicrowattPerCubicFoot], [MegawattPerLiter], [MegawattPerCubicMeter], [MegawattPerCubicInch], [MegawattPerCubicFoot], [KilowattPerLiter], [KilowattPerCubicMeter], [KilowattPerCubicInch], [KilowattPerCubicFoot], [GigawattPerLiter], [GigawattPerCubicMeter], [GigawattPerCubicInch], [GigawattPerCubicFoot], [DeciwattPerLiter], [DeciwattPerCubicMeter], [DeciwattPerCubicInch], [DeciwattPerCubicFoot], [DecawattPerLiter], [DecawattPerCubicMeter], [DecawattPerCubicInch], [DecawattPerCubicFoot], 
+Pressure:[SI], [Pascal], [Micropascal], [Millipascal], [Decapascal], [Hectopascal], [Kilopascal], [Megapascal], [Gigapascal], [Atmosphere], [FootOfHead], [InchOfMercury], [InchOfWaterColumn], [MeterOfHead], [MillimeterOfMercury], [TechnicalAtmosphere], [Torr], [Bar], [Microbar], [Millibar], [Centibar], [Decibar], [Kilobar], [Megabar], [DynePerSquareCentimeter], [KilogramForcePerSquareCentimeter], [KilogramForcePerSquareMeter], [KilogramForcePerSquareMillimeter], [KilonewtonPerSquareCentimeter], [KilonewtonPerSquareMeter], [KilonewtonPerSquareMillimeter], [MeganewtonPerSquareMeter], [TonneForcePerSquareCentimeter], [TonneForcePerSquareMeter], [TonneForcePerSquareMillimeter], [NewtonPerSquareMillimeter], [NewtonPerSquareCentimeter], [NewtonPerSquareMeter], [KilopoundForcePerSquareFoot], [KilopoundForcePerSquareInch], [PoundForcePerSquareFoot], [PoundForcePerSquareInch], [PoundPerInchSecondSquared], 
+PressureChangeRate:[SI], [PascalPerSecond], [PascalPerMinute], [MegapascalPerSecond], [MegapascalPerMinute], [KilopoundForcePerSquareInchPerSecond], [KilopoundForcePerSquareInchPerMinute], [KilopascalPerSecond], [KilopascalPerMinute], [AtmospherePerSecond], [PoundForcePerSquareInchPerMinute], [PoundForcePerSquareInchPerSecond], [MegapoundForcePerSquareInchPerSecond], [MegapoundForcePerSquareInchPerMinute], 
+Ratio:[SI], [DecimalFraction], [PartPerBillion], [PartPerMillion], [PartPerThousand], [PartPerTrillion], [Percent], [CentigramPerGram], [CentigramPerKilogram], [DecagramPerGram], [DecagramPerKilogram], [DecigramPerGram], [DecigramPerKilogram], [GramPerGram], [GramPerKilogram], [HectogramPerGram], [HectogramPerKilogram], [KilogramPerGram], [KilogramPerKilogram], [MicrogramPerGram], [MicrogramPerKilogram], [MilligramPerGram], [MilligramPerKilogram], [NanogramPerGram], [NanogramPerKilogram], [CentilitersPerLiter], [CentilitersPerMililiter], [DecilitersPerLiter], [DecilitersPerMililiter], [LitersPerLiter], [LitersPerMililiter], [MicrolitersPerLiter], [MicrolitersPerMililiter], [MillilitersPerLiter], [MillilitersPerMililiter], [NanolitersPerLiter], [NanolitersPerMililiter], [PicolitersPerLiter], [PicolitersPerMililiter], 
+ReactiveEnergy:[SI], [VoltampereReactiveHour], [MegavoltampereReactiveHour], [KilovoltampereReactiveHour], 
+ReactivePower:[SI], [VoltampereReactive], [MegavoltampereReactive], [KilovoltampereReactive], [GigavoltampereReactive], 
+RotationalSpeed:[SI], [RadianPerSecond], [Hertz], [Kilohertz], [Megahertz], [Gigahertz], [Terahertz], [PerSecond], [BeatPerMinute], [CyclePerHour], [CyclePerMinute], 
+SpecificEnergy:[SI], [JoulePerKilogram], [KilojoulePerKilogram], [MegajoulePerKilogram], [BtuPerPound], [CaloriePerGram], [KilocaloriePerGram], [WattDayPerKilogram], [KilowattDayPerKilogram], [MegawattDayPerKilogram], [GigawattDayPerKilogram], [TerawattDayPerKilogram], [WattHourPerKilogram], [KilowattHourPerKilogram], [MegawattHourPerKilogram], [GigawattHourPerKilogram], [WattDayPerTonne], [KilowattDayPerTonne], [MegawattDayPerTonne], [GigawattDayPerTonne], [TerawattDayPerTonne], [WattDayPerShortTon], [KilowattDayPerShortTon], [MegawattDayPerShortTon], [GigawattDayPerShortTon], [TerawattDayPerShortTon], 
+SpecificEntropy:[SI], [JoulePerKilogramKelvin], [JoulePerKilogramDegreeCelsius], [KilojoulePerKilogramDegreeCelsius], [KilojoulePerKilogramKelvin], [MegajoulePerKilogramDegreeCelsius], [MegajoulePerKilogramKelvin], [JoulePerKilogramRankine], [CaloriePerGramKelvin], [KilocaloriePerGramKelvin], [BtuPerPoundKelvin], [BtuPerPoundRankine], [BtuPerPoundFahrenheit], 
+SpecificHeatCapacity:[SI], [JoulePerKilogramKelvin], [JoulePerKilogramDegreeCelsius], [KilojoulePerKilogramDegreeCelsius], [KilojoulePerKilogramKelvin], [MegajoulePerKilogramDegreeCelsius], [MegajoulePerKilogramKelvin], [JoulePerKilogramRankine], [CaloriePerGramKelvin], [KilocaloriePerGramKelvin], [BtuPerPoundKelvin], [BtuPerPoundRankine], [BtuPerPoundFahrenheit], 
+SpecificThermalResistance:[SI], [MeterDegreeCelsiusPerWatt], [MeterKelvinPerKilowatt], [CentimeterKelvinPerWatt], 
+SpecificVolume:[SI], [CubicMeterPerKilogram], 
+SpecificWeight:[SI], [NewtonPerCubicMeter], [KilogramForcePerCubicCentimeter], [KilogramForcePerCubicMeter], [KilogramForcePerCubicMillimeter], [KilonewtonPerCubicCentimeter], [KilonewtonPerCubicMeter], [KilonewtonPerCubicMillimeter], [KilopoundForcePerCubicFoot], [KilopoundForcePerCubicInch], [MeganewtonPerCubicMeter], [NewtonPerCubicCentimeter], [NewtonPerCubicMillimeter], [PoundForcePerCubicFoot], [PoundForcePerCubicInch], [TonneForcePerCubicCentimeter], [TonneForcePerCubicMeter], [TonneForcePerCubicMillimeter], 
+Speed:[CentimeterPerHour], [CentimeterPerMinute], [CentimeterPerSecond], [DecimeterPerMinute], [DecimeterPerSecond], [FootPerHour], [FootPerMinute], [FootPerSecond], [InchPerHour], [InchPerMinute], [InchPerSecond], [KilometerPerHour], [KilometerPerMinute], [KilometerPerSecond], [Knot], [MeterPerHour], [MeterPerMinute], [MeterPerSecond], [MicrometerPerMinute], [MicrometerPerSecond], [MilePerHour], [MillimeterPerHour], [MillimeterPerMinute], [MillimeterPerSecond], [NanometerPerMinute], [NanometerPerSecond], [UsSurveyFootPerHour], [UsSurveyFootPerMinute], [UsSurveyFootPerSecond], [YardPerHour], [YardPerMinute], [YardPerSecond], [KilometerPerhour], [SI], [MilePerSecond], 
+Temperature:[Kelvin], [SI], [DegreeCelsius], [DegreeFahrenheit], [DegreeRankine], 
+TemperatureChangeRate:[SI], [DegreeCelsiusPerSecond], [DegreeCelsiusPerMinute], [CentidegreeCelsiusPerSecond], [DecadegreeCelsiusPerSecond], [DecidegreeCelsiusPerSecond], [HectodegreeCelsiusPerSecond], [KilodegreeCelsiusPerSecond], [MicrodegreeCelsiusPerSecond], [MillidegreeCelsiusPerSecond], [NanodegreeCelsiusPerSecond], 
+ThermalConductivity:[SI], [WattPerMeterKelvin], [BtuPerHourFootFahrenheit], 
+ThermalResistance:[SI], [SquareMeterDegreeCelsiusPerWatt], [SquareMeterKelvinPerKilowatt], [SquareCentimeterKelvinPerWatt], [SquareCentimeterHourDegreeCelsiusPerKilocalorie], [HourSquareFeetDegreeFahrenheitPerBtu], 
+Torque:[SI], [NewtonMeter], [KilonewtonMeter], [MeganewtonMeter], [NewtonMillimeter], [KilonewtonMillimeter], [MeganewtonMillimeter], [NewtonCentimeter], [MeganewtonCentimeter], [PoundalFoot], [PoundForceFoot], [PoundForceInch], [TonneForceCentimeter], [TonneForceMeter], [TonneForceMillimeter], [KilonewtonCentimeter], [KilogramForceCentimeter], [KilogramForceMeter], [KilogramForceMillimeter], [KilopoundForceFoot], [MegapoundForceFoot], [KilopoundForceInch], [MegapoundForceInch], 
+TorquePerLength:[SI], [NewtonMeterPerMeter], [KilogramForceCentimeterPerMeter], [KilogramForceMeterPerMeter], [KilogramForceMillimeterPerMeter], [KilonewtonCentimeterPerMeter], [KilonewtonMeterPerMeter], [KilonewtonMillimeterPerMeter], [KilopoundForceFootPerFoot], [KilopoundForceInchPerFoot], [MeganewtonCentimeterPerMeter], [MeganewtonMeterPerMeter], [MeganewtonMillimeterPerMeter], [MegapoundForceFootPerFoot], [MegapoundForceInchPerFoot], [NewtonCentimeterPerMeter], [NewtonMillimeterPerMeter], [PoundForceFootPerFoot], [PoundForceInchPerFoot], [TonneForceCentimeterPerMeter], [TonneForceMeterPerMeter], [TonneForceMillimeterPerMeter], 
+Volume:[SI], [CubicMeter], [HectocubicMeter], [KilocubicMeter], [CubicKilometer], [CubicMicrometer], [CubicMile], [CubicMillimeter], [CubicYard], [CubicInch], [CubicHectometer], [CubicFoot], [HectocubicFoot], [KilocubicFoot], [MegacubicFoot], [CubicDecimeter], [CubicCentimeter], [Liter], [Nanoliter], [Microliter], [Milliliter], [Deciliter], [Centiliter], [Hectoliter], [Kiloliter], [Megaliter], [Picoliter], [AcreFoot], [BoardFoot], [AuTablespoon], [ImperialBeerBarrel], [MetricTeaspoon], [MetricCup], [ImperialGallon], [KiloimperialGallon], [MegaimperialGallon], [ImperialOunce], [ImperialPint], [UsCustomaryCup], [UsBeerBarrel], [UkTablespoon], [UsOunce], [UsGallon], [KilousGallon], [MegausGallon], [DecausGallon], [DeciusGallon], [HectousGallon], [OilBarrel], [UsLegalCup], [UsPint], [UsQuart], [UsTablespoon], [UsTeaspoon], 
+VolumeFlow:[AcreFootPerDay], [AcreFootPerHour], [AcreFootPerMinute], [AcreFootPerSecond], [CentiliterPerDay], [CentiliterPerMinute], [CentiliterPerSecond], [CubicCentimeterPerMinute], [CubicDecimeterPerMinute], [CubicFootPerHour], [CubicFootPerMinute], [CubicFootPerSecond], [CubicMeterPerDay], [CubicMeterPerHour], [CubicMeterPerMinute], [CubicMeterPerSecond], [SI], [CubicMillimeterPerSecond], [CubicYardPerDay], [CubicYardPerHour], [CubicYardPerMinute], [CubicYardPerSecond], [DeciliterPerDay], [DeciliterPerMinute], [DeciliterPerSecond], [KiloliterPerDay], [KiloliterPerMinute], [KiloliterPerSecond], [KilousGallonPerMinute], [LiterPerDay], [LiterPerHour], [LiterPerMinute], [LiterPerSecond], [MegaliterPerDay], [MicroliterPerDay], [MicroliterPerMinute], [MicroliterPerSecond], [MilliliterPerDay], [MilliliterPerMinute], [MilliliterPerSecond], [MillionUsGallonsPerDay], [NanoliterPerDay], [NanoliterPerMinute], [NanoliterPerSecond], [OilBarrelPerDay], [OilBarrelPerHour], [OilBarrelPerMinute], [OilBarrelPerSecond], [UkGallonPerDay], [UkGallonPerHour], [UkGallonPerMinute], [UkGallonPerSecond], [UsGallonPerDay], [UsGallonPerHour], [UsGallonPerMinute], [UsGallonPerSecond], [MegaukGallonPerSecond], 
+VolumePerLength:[SI], [CubicMeterPerMeter], [CubicYardPerFoot], [CubicYardPerUsSurveyFoot], [LiterPerKilometer], [LiterPerMeter], [LiterPerMillimeter], [OilBarrelPerFoot], 
+VolumetricHeatTransferCoefficient:[SI], [WattPerCubicMeterKelvin], 
+WarpingMomentOfInertia:[MeterToTheSixth], [MillimeterToTheSixth], [InchToTheSixth], [FootToTheSixth], [DecimeterToTheSixth], [CentimeterToTheSixth], [SI], 
+
 
 ```
