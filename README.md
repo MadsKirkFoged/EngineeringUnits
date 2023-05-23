@@ -116,15 +116,19 @@ Length L2 = A1.Sqrt(); //16.55064 m
 
 ###### Get the min/max/Average/Sum from a list of units
 ```C#
-Mass M1 = new Mass(43, MassUnit.Kilogram);
-Mass M2 = new Mass(2, MassUnit.Megapound);
-Mass M3 = new Mass(77644, MassUnit.Milligram);
-Mass M4 = new Mass(345, MassUnit.Pound);
+ var MyList = new List<Mass>
+ {
+     Mass.FromKilogram(43),
+     Mass.FromMegapound(2),
+     Mass.FromMilligram(77644),
+     Mass.FromPound(345)
+ };
 
-Mass MinMass = UnitMath.Min(M1, M2, M3, M4);    //7.764e+04 mg
-Mass MaxMass = UnitMath.Max(M1, M2, M3, M4);    //2 Mlb
-Mass MaxAvg = UnitMath.Average(M1, M2, M3, M4); //2.268e+05 kg
-Mass MaxSum = UnitMath.Sum(M1, M2, M3, M4);     //9.074e+05 kg
+ Mass Min = MyList.Min();    //7.764e+04 mg
+ Mass Max = MyList.Max();    //2 Mlb
+ Mass Avg = MyList.Average(); //2.268e+05 kg
+ Mass Sum = MyList.Sum();     //9.074e+05 kg
+ Mass Mean = MyList.Mean();     //345 lb
 
 ```
 
