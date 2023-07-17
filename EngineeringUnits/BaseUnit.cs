@@ -145,19 +145,19 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
         {
-            return left / right.BaseUnit;
+            return left / right?.BaseUnit;
         }
         public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
         {
-            return left.BaseUnit / right;
+            return left?.BaseUnit / right;
         }
         public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
         {
-            return left * right.BaseUnit;
+            return left * right?.BaseUnit;
         }
         public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
         {
-            return left.BaseUnit * right;
+            return left?.BaseUnit * right;
         }
 
 
