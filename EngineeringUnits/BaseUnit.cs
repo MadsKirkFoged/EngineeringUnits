@@ -62,6 +62,9 @@ namespace EngineeringUnits
 
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
+            if (left is null || right is null)
+                return null;
+
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
 
@@ -80,6 +83,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
+            if (left is null || right is null)
+                return null;
+
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
 
@@ -99,6 +105,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
         {
+            if (left is null || right is null)
+                return null;
+
             try
             {
                 var NewTestValue = left.NEWValue * right.NEWValue;
@@ -113,6 +122,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
         {
+            if (left is null || right is null)
+                return null;
+
             if (right.NEWValue == 0m)
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
 

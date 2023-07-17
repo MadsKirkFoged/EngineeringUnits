@@ -29,10 +29,10 @@ namespace EngineeringUnits
         public UnknownUnit(BaseUnit baseunit) => BaseUnit = baseunit;
  
 
-        public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left.BaseUnit * right.BaseUnit;
-        public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right) => left.BaseUnit / right.BaseUnit;
-        public static UnknownUnit operator +(UnknownUnit left, UnknownUnit right) => left.BaseUnit + right.BaseUnit;
-        public static UnknownUnit operator -(UnknownUnit left, UnknownUnit right) => left.BaseUnit - right.BaseUnit;
+        public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left?.BaseUnit * right?.BaseUnit;
+        public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right) => left?.BaseUnit / right?.BaseUnit;
+        public static UnknownUnit operator +(UnknownUnit left, UnknownUnit right) => left?.BaseUnit + right?.BaseUnit;
+        public static UnknownUnit operator -(UnknownUnit left, UnknownUnit right) => left?.BaseUnit - right?.BaseUnit;
 
         public static bool operator ==(UnknownUnit left, UnknownUnit right) => left.BaseUnit == right.BaseUnit;
         public static bool operator !=(UnknownUnit left, UnknownUnit right) => left.BaseUnit != right.BaseUnit;

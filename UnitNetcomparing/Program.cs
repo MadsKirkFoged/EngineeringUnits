@@ -44,15 +44,25 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
-            var MyList = new List<Length>
+    
+
+
+            var MyList = new List<Mass>
             {
-                Length.FromMeter(1),
-                Length.FromMeter(5),
-                Length.FromMeter(20),
-                Length.FromMeter(44)
+                Mass.FromKilogram(43),
+                Mass.FromMegapound(2),
+                Mass.FromMilligram(77644),
+                Mass.FromPound(345)
             };
 
-            var Nearest =  MyList.RoundToNearest(Length.FromMeter(19));
+            Mass Min = MyList.Min();    //7.764e+04 mg
+            Mass Max = MyList.Max();    //2 Mlb
+            Mass Avg = MyList.Average(); //2.268e+05 kg
+            Mass Sum = MyList.Sum();     //9.074e+05 kg
+            Mass Mean = MyList.Mean();     //345 lb
+
+
+            
 
             //Create new unit
             Length L11 = new(1d, LengthUnit.Meter);
