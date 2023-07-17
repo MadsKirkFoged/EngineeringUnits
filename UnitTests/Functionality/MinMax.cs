@@ -83,5 +83,43 @@ namespace UnitTests.Functionality
             Length L2 = L1.Maximum(Frequency.FromSI(15));
 
         }
+
+        [TestMethod]
+        public void MaximumWithNull()
+        {
+            Length L1 = null;
+            Length L2 = L1.Maximum(Length.FromMeter(5));
+
+            Assert.IsNull(L1);
+            Assert.IsNull(L2);
+        }
+
+        [TestMethod]
+        public void MaximumWithNull2()
+        {
+            Length L1 = new(10d, LengthUnit.Meter);
+            Length L2 = L1.Maximum(null);
+
+            Assert.IsNull(L2);
+        }
+
+        [TestMethod]
+        public void MinimumWithNull()
+        {
+            Length L1 = null;
+            Length L2 = L1.Minimum(Length.FromMeter(5));
+
+            Assert.IsNull(L1);
+            Assert.IsNull(L2);
+        }
+
+        [TestMethod]
+        public void MinimumWithNull2()
+        {
+            Length L1 = new(10d, LengthUnit.Meter);
+            Length L2 = L1.Minimum(null);
+
+            Assert.IsNull(L2);
+        }
     }
 }

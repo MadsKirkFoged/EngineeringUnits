@@ -120,5 +120,15 @@ namespace UnitTests
             Assert.IsTrue(f2 == Power.FromBritishThermalUnitPerMinute(58));
         }
 
+        [TestMethod]
+        public void NullAbs()
+        {
+            Power f1 = null;
+            Power f2 = f1.Abs();
+
+            Assert.IsNull(f1);
+            Assert.IsNull(f2);
+        }
+
     }
 }

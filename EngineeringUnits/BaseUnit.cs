@@ -446,8 +446,9 @@ namespace EngineeringUnits
             };
         }
 
-        public UnknownUnit Abs()
+        public UnknownUnit AbsIntern()
         {
+
             if (Unit.IsSIUnit())
             {
                 if (NEWValue > 0)                
@@ -463,6 +464,14 @@ namespace EngineeringUnits
                 return this;
         }
 
+        public bool IsPositive()
+        {
+            if (Unit.IsSIUnit())
+                return NEWValue >= 0;
+
+            return baseValue >= 0;
+
+        }
 
     }
 
