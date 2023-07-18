@@ -46,9 +46,6 @@ namespace UnitNetcomparing
         public static async Task Main(string[] args)
         {
 
-    
-
-
             var MyList = new List<Mass>
             {
                 Mass.FromKilogram(43),

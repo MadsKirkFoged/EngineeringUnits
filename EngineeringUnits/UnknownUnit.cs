@@ -44,10 +44,9 @@ namespace EngineeringUnits
 
         public static implicit operator double(UnknownUnit Unit)
         {
-            if (UnitSystem.UnitsystemForDouble != Unit.BaseUnit.Unit)
-            {
+            if (UnitSystem.UnitsystemForDouble != Unit.BaseUnit.Unit)            
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
-            }
+            
 
             return (double)Unit.BaseUnit.GetValueAs(UnitSystem.UnitsystemForDouble);
         }
@@ -55,14 +54,20 @@ namespace EngineeringUnits
         public static implicit operator UnknownUnit(int Unit) => new (Unit);
         public static explicit operator decimal(UnknownUnit Unit)
         {
-            if (new UnitSystem() != Unit.BaseUnit.Unit)
-            {
+            if (new UnitSystem() != Unit.BaseUnit.Unit)            
                 throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
-            }
+            
 
             return Unit.BaseUnit.GetValueAs(new UnitSystem());
         }
-        public static explicit operator BaseUnit(UnknownUnit Unit) => Unit.BaseUnit;
+        public static explicit operator BaseUnit(UnknownUnit Unit)
+        {
+            if (Unit is null)
+                return null;
+            
+
+            return Unit.BaseUnit;
+        }
 
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
