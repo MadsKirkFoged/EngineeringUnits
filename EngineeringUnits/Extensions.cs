@@ -261,9 +261,8 @@ namespace EngineeringUnits
             if (a is null)
                 return null;
 
-            if (a.IsPositive())
+            if (a.GetBaseValue() > 0)
                 return a;
-
 
             return a * -1;
 
@@ -395,7 +394,7 @@ namespace EngineeringUnits
             if (a is null)
                 return false;
 
-            return a.baseValue == 0m;
+            return a.GetBaseValue() == 0m;
         }
         public static bool IsZero(this UnknownUnit a)
         {
@@ -425,7 +424,7 @@ namespace EngineeringUnits
             if (a is null)
                 return false;
 
-            return a.baseValue > 0;
+            return a.GetBaseValue() > 0;
         }
         public static bool IsAboveZero(this UnknownUnit a)
         {
@@ -440,7 +439,7 @@ namespace EngineeringUnits
             if (a is null)
                 return false;
 
-            return a.baseValue < 0;
+            return a.GetBaseValue() < 0;
         }
         public static bool IsBelowZero(this UnknownUnit a)
         {

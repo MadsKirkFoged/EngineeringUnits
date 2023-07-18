@@ -72,7 +72,7 @@ namespace EngineeringUnits
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => BaseUnit.Value;
-        public decimal SI => BaseUnit.baseValue;
+        public decimal SI => BaseUnit.GetBaseValue();
 
         public UnitSystem Unit 
         { 
@@ -137,7 +137,7 @@ namespace EngineeringUnits
         public int CompareTo(UnknownUnit other)
         {
            if(Unit != other.Unit)            
-                throw new WrongUnitException($"Cannot do ComperTo on two different units!");
+                throw new WrongUnitException($"Cannot do Compare two different units!");
 
             return (this - other).SI switch
             {

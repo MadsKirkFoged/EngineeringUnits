@@ -12,78 +12,167 @@ namespace Benchmark
 
 
 
-        static readonly MassFlow _M1 = MassFlow.FromKilogramPerSecond(2);
-        static readonly MassFlow _M2 = MassFlow.FromKilogramPerSecond(2);
+        static readonly MassFlow MassFlowPositiveSI1 = MassFlow.FromKilogramPerSecond(2);
+        static readonly MassFlow MassFlowPositiveSI2 = MassFlow.FromKilogramPerSecond(2);
 
-        static readonly MassFlow _M3 = MassFlow.FromDecagramPerDay(2);
-        static readonly MassFlow _M4 = MassFlow.FromDecagramPerDay(2);
+        static readonly MassFlow MassFlowPositiveNon1 = MassFlow.FromDecagramPerDay(2);
+        static readonly MassFlow MassFlowPositiveNon2 = MassFlow.FromDecagramPerDay(2);
 
-        static readonly MassFlow _M5 = MassFlow.FromKilogramPerSecond(-2);
-        static readonly MassFlow _M6 = MassFlow.FromDecagramPerDay(-2);
+        static readonly MassFlow MassFlowNegativeSI = MassFlow.FromKilogramPerSecond(-2);
+        static readonly MassFlow MassFlowNegativeNon = MassFlow.FromDecagramPerDay(-2);
 
-        static readonly UnknownUnit _M7 = MassFlow.FromKilogramPerSecond(2);
-        static readonly UnknownUnit _M8 = MassFlow.FromKilogramPerSecond(-2);
+        static readonly UnknownUnit UnknownMassFlowPositiveSI = MassFlow.FromKilogramPerSecond(2);
+        static readonly UnknownUnit UnknownMassFlowNegativeSI = MassFlow.FromKilogramPerSecond(-2);
+        static readonly UnknownUnit UnknownMassFlowPositiveNon = MassFlow.FromDecagramPerDay(2);
 
+        static readonly MassFlow MassFlowNull = null;
+        static readonly UnknownUnit UnknownMassMassFlowNull = null;
 
         [Benchmark]
-        public MassFlow AbsNonSIPosetive()
+        public bool IsZeroNull1()
         {
-            return _M3.Abs();
+            return UnknownMassMassFlowNull.IsZero();
         }
 
         [Benchmark]
-        public MassFlow AbsSIPosetive()
+        public bool IsZeroNull2()
         {
-            return _M1.Abs();
+            return MassFlowNull.IsZero();
         }
 
         [Benchmark]
-        public MassFlow AbsNonSINegative()
+        public bool IsZeroSI()
         {
-            return _M6.Abs();
+            return MassFlowPositiveSI2.IsZero();
         }
 
         [Benchmark]
-        public MassFlow AbsSINegative()
+        public bool IsZeroNonSI()
         {
-            return _M5.Abs();
+            return MassFlowPositiveNon1.IsZero();
         }
 
         [Benchmark]
-        public MassFlow DoNothing()
+        public bool IsZeroUnknownSI()
         {
-            return _M1;
+            return UnknownMassFlowPositiveSI.IsZero();
         }
 
         [Benchmark]
-        public UnknownUnit Convert()
+        public bool IsZeroUnknownNon()
         {
-            return _M1;
+            return UnknownMassFlowPositiveNon.IsZero();
         }
 
         [Benchmark]
-        public UnknownUnit AbsUnknown()
+        public bool IsNotZeroSI()
         {
-            return _M7.Abs();
+            return MassFlowPositiveSI2.IsZero();
         }
 
         [Benchmark]
-        public UnknownUnit AbsUnknownNegative()
+        public bool IsNotZeroNonSI()
         {
-            return _M8.Abs();
+            return MassFlowPositiveNon1.IsZero();
         }
+
+        [Benchmark]
+        public bool IsAboveZeroSI()
+        {
+            return MassFlowPositiveSI2.IsAboveZero();
+        }
+
+        [Benchmark]
+        public bool IsAboveZeroUnknownSI()
+        {
+            return UnknownMassFlowPositiveSI.IsAboveZero();
+        }
+
+
+        [Benchmark]
+        public bool IsAboveZeroUnknownNon()
+        {
+            return UnknownMassFlowPositiveNon.IsAboveZero();
+        }
+
+        [Benchmark]
+        public bool IsAboveZeroNon()
+        {
+            return MassFlowPositiveNon1.IsAboveZero();
+        }
+
+        [Benchmark]
+        public bool IsBelowZeroSI()
+        {
+            return MassFlowPositiveSI2.IsBelowZero();
+        }
+
+        [Benchmark]
+        public bool IsBelowZeroNon()
+        {
+            return MassFlowPositiveNon1.IsBelowZero();
+        }
+
+
+        //[Benchmark]
+        //public MassFlow AbsNonSIPosetive()
+        //{
+        //    return MassFlowPositiveNon1.Abs();
+        //}
+
+        //[Benchmark]
+        //public MassFlow AbsSIPosetive()
+        //{
+        //    return MassFlowPositiveSI1.Abs();
+        //}
+
+        //[Benchmark]
+        //public MassFlow AbsNonSINegative()
+        //{
+        //    return MassFlowNegativeNon.Abs();
+        //}
+
+        //[Benchmark]
+        //public MassFlow AbsSINegative()
+        //{
+        //    return MassFlowNegativeSI.Abs();
+        //}
+
+        //[Benchmark]
+        //public MassFlow DoNothing()
+        //{
+        //    return MassFlowPositiveSI1;
+        //}
+
+        //[Benchmark]
+        //public UnknownUnit Convert()
+        //{
+        //    return MassFlowPositiveSI1;
+        //}
+
+        //[Benchmark]
+        //public UnknownUnit AbsUnknown()
+        //{
+        //    return UnknownMassFlowPositiveSI.Abs();
+        //}
+
+        //[Benchmark]
+        //public UnknownUnit AbsUnknownNegative()
+        //{
+        //    return UnknownMassFlowNegativeSI.Abs();
+        //}
 
 
         //[Benchmark]
         //public bool CompareNonSI()
         //{
-        //    return _M3==_M4;
+        //    return MassFlowPositiveNon1==MassFlowPositiveNon2;
         //}
 
         //[Benchmark]
         //public bool CompareSI()
         //{
-        //    return _M1==_M2;
+        //    return MassFlowPositiveSI1==MassFlowPositiveSI2;
         //}
 
 
