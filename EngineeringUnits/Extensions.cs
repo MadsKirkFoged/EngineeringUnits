@@ -399,24 +399,39 @@ namespace EngineeringUnits
         }
         public static bool IsZero(this UnknownUnit a)
         {
+            if (a is null)
+                return false;
+
             return a.BaseUnit.IsZero();
         }
 
         public static bool IsNotZero(this BaseUnit a)
         {
+            if (a is null)
+                return true;
+
             return !a.IsZero();
         }
         public static bool IsNotZero(this UnknownUnit a)
         {
+            if (a is null)
+                return true;
+
             return a.BaseUnit.IsNotZero();
         }
 
         public static bool IsAboveZero(this BaseUnit a)
         {
+            if (a is null)
+                return false;
+
             return a.baseValue > 0;
         }
         public static bool IsAboveZero(this UnknownUnit a)
         {
+            if (a is null)
+                return false;
+
             return a.BaseUnit.IsAboveZero();
         }
 
@@ -429,6 +444,9 @@ namespace EngineeringUnits
         }
         public static bool IsBelowZero(this UnknownUnit a)
         {
+            if (a is null)
+                return false;
+
             return a.BaseUnit.IsBelowZero();
         }
 
