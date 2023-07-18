@@ -407,14 +407,14 @@ namespace EngineeringUnits
         public static bool IsNotZero(this BaseUnit a)
         {
             if (a is null)
-                return true;
+                return false;
 
             return !a.IsZero();
         }
         public static bool IsNotZero(this UnknownUnit a)
         {
             if (a is null)
-                return true;
+                return false;
 
             return a.BaseUnit.IsNotZero();
         }

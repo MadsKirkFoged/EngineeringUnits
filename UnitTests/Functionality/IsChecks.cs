@@ -34,7 +34,7 @@ namespace UnitTests.Functionality
             Assert.IsFalse(L1.IsBelowZero());
 
             Assert.IsFalse(L2.IsZero());
-            Assert.IsTrue(L2.IsNotZero());
+            Assert.IsFalse(L2.IsNotZero());
             Assert.IsFalse(L2.IsAboveZero());
             Assert.IsFalse(L2.IsBelowZero());
 
@@ -44,7 +44,7 @@ namespace UnitTests.Functionality
             Assert.IsFalse(L3.IsBelowZero());
 
             Assert.IsFalse(L4.IsZero());
-            Assert.IsTrue(L4.IsNotZero());
+            Assert.IsFalse(L4.IsNotZero());
             Assert.IsFalse(L4.IsAboveZero());
             Assert.IsFalse(L4.IsBelowZero());
 
