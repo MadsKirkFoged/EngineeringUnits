@@ -28,90 +28,90 @@ namespace Benchmark
         static readonly MassFlow MassFlowNull = null;
         static readonly UnknownUnit UnknownMassMassFlowNull = null;
 
-        [Benchmark]
-        public bool IsZeroNull1()
-        {
-            return UnknownMassMassFlowNull.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroNull1()
+        //{
+        //    return UnknownMassMassFlowNull.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsZeroNull2()
-        {
-            return MassFlowNull.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroNull2()
+        //{
+        //    return MassFlowNull.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsZeroSI()
-        {
-            return MassFlowPositiveSI2.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroSI()
+        //{
+        //    return MassFlowPositiveSI2.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsZeroNonSI()
-        {
-            return MassFlowPositiveNon1.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroNonSI()
+        //{
+        //    return MassFlowPositiveNon1.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsZeroUnknownSI()
-        {
-            return UnknownMassFlowPositiveSI.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroUnknownSI()
+        //{
+        //    return UnknownMassFlowPositiveSI.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsZeroUnknownNon()
-        {
-            return UnknownMassFlowPositiveNon.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsZeroUnknownNon()
+        //{
+        //    return UnknownMassFlowPositiveNon.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsNotZeroSI()
-        {
-            return MassFlowPositiveSI2.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsNotZeroSI()
+        //{
+        //    return MassFlowPositiveSI2.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsNotZeroNonSI()
-        {
-            return MassFlowPositiveNon1.IsZero();
-        }
+        //[Benchmark]
+        //public bool IsNotZeroNonSI()
+        //{
+        //    return MassFlowPositiveNon1.IsZero();
+        //}
 
-        [Benchmark]
-        public bool IsAboveZeroSI()
-        {
-            return MassFlowPositiveSI2.IsAboveZero();
-        }
+        //[Benchmark]
+        //public bool IsAboveZeroSI()
+        //{
+        //    return MassFlowPositiveSI2.IsAboveZero();
+        //}
 
-        [Benchmark]
-        public bool IsAboveZeroUnknownSI()
-        {
-            return UnknownMassFlowPositiveSI.IsAboveZero();
-        }
+        //[Benchmark]
+        //public bool IsAboveZeroUnknownSI()
+        //{
+        //    return UnknownMassFlowPositiveSI.IsAboveZero();
+        //}
 
 
-        [Benchmark]
-        public bool IsAboveZeroUnknownNon()
-        {
-            return UnknownMassFlowPositiveNon.IsAboveZero();
-        }
+        //[Benchmark]
+        //public bool IsAboveZeroUnknownNon()
+        //{
+        //    return UnknownMassFlowPositiveNon.IsAboveZero();
+        //}
 
-        [Benchmark]
-        public bool IsAboveZeroNon()
-        {
-            return MassFlowPositiveNon1.IsAboveZero();
-        }
+        //[Benchmark]
+        //public bool IsAboveZeroNon()
+        //{
+        //    return MassFlowPositiveNon1.IsAboveZero();
+        //}
 
-        [Benchmark]
-        public bool IsBelowZeroSI()
-        {
-            return MassFlowPositiveSI2.IsBelowZero();
-        }
+        //[Benchmark]
+        //public bool IsBelowZeroSI()
+        //{
+        //    return MassFlowPositiveSI2.IsBelowZero();
+        //}
 
-        [Benchmark]
-        public bool IsBelowZeroNon()
-        {
-            return MassFlowPositiveNon1.IsBelowZero();
-        }
+        //[Benchmark]
+        //public bool IsBelowZeroNon()
+        //{
+        //    return MassFlowPositiveNon1.IsBelowZero();
+        //}
 
 
         //[Benchmark]
@@ -283,27 +283,27 @@ namespace Benchmark
         //}
 
 
-        //readonly Power P1 = Power.FromKilowatt(10);
-        //readonly Length L1 = Length.FromChain(2);
-        //readonly Temperature T1 = Temperature.FromDegreesCelsius(4);
+        readonly Power P1 = Power.FromKilowatt(10);
+        readonly Length L1 = Length.FromChain(2);
+        readonly Temperature T1 = Temperature.FromDegreesCelsius(4);
 
 
-        //[Benchmark]
-        //public ThermalConductivity CalculationIntoThermalConductivity()
-        //{
-        //    return P1 / (L1 * T1);
-        //}
+        [Benchmark]
+        public ThermalConductivity CalculationIntoThermalConductivity()
+        {
+            return P1 / (L1 * T1);
+        }
 
-        //readonly Power P2 = Power.FromSI(10);
-        //readonly Length L2 = Length.FromSI(2);
-        //readonly Temperature T2 = Temperature.FromSI(4);
+        readonly Power P2 = Power.FromSI(10);
+        readonly Length L2 = Length.FromSI(2);
+        readonly Temperature T2 = Temperature.FromSI(4);
 
 
-        //[Benchmark]
-        //public ThermalConductivity CalculationIntoThermalConductivitySI()
-        //{
-        //    return P2 / (L2 * T2);
-        //}
+        [Benchmark]
+        public ThermalConductivity CalculationIntoThermalConductivitySI()
+        {
+            return P2 / (L2 * T2);
+        }
 
     }
 }

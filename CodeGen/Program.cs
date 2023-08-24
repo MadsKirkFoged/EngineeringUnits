@@ -17,12 +17,12 @@ namespace CodeGen
 
             // UnknownUnitExtensionsGenerator.Generate(libraryDir);
            
-            UnitGenerator.GenerateClasses(libraryDir);
+            //UnitGenerator.GenerateClasses(libraryDir);
             //GenerateSetter.GenerateSetterClasses(libraryDir);
             //GenerateGetter.GenerateGetterClasses(libraryDir);
             //UnitListGenerator.UnitsInclude();
             //GenerateAlias.GenerateEnums(libraryDir);
-            //GenerateAlias.AliasClass(libraryDir);
+            GenerateAlias.AliasClass(libraryDir);
 
         }
     }

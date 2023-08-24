@@ -159,14 +159,6 @@ namespace EngineeringUnits
                     return left;
 
 
-
-
-            //int hashCode;
-            //unchecked
-            //{
-            //    hashCode = left.GetHashCode() * 11270411 + right.GetHashCode() * 18403087;
-            //}
-
             var Hashes = (left.GetHashCode(), right.GetHashCode());
 
             if (CacheMultiplyTest.TryGetValue(Hashes, out UnitSystem local))
@@ -175,10 +167,7 @@ namespace EngineeringUnits
                 return local2;
 
 
-            //if (CacheMultiply.TryGetValue(hashCode, out UnitSystem local))
-            //{
-            //    return local;
-            //}
+
                 var test2 = new UnitSystem(
                         new List<RawUnit>(
                             left.ListOfUnits.Concat(

@@ -18,6 +18,9 @@ namespace UnitNetcomparing
 {
     public class Program
     {
+        public static readonly Power P1 = Power.FromSI(10);
+        public static readonly Length L1 = Length.FromSI(2);
+        public static readonly Temperature T1 = Temperature.FromSI(4);
 
         private static async Task<MassFlow> TestFucntion()
         {
@@ -45,6 +48,20 @@ namespace UnitNetcomparing
 
         public static async Task Main(string[] args)
         {
+
+            SpecificEnergy converterror = new SpecificEnergy(10, SpecificEnergyUnit.SI);
+
+            converterror = null;
+
+            Enthalpy enthalpy = converterror;
+
+
+
+            for (int i = 0; i < 10000000; i++)
+            {
+                var speedtest = P1 / (L1 * T1);
+            }
+
 
             var MyList = new List<Mass>
             {
