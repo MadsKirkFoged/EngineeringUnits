@@ -448,7 +448,7 @@ namespace EngineeringUnits
 
             List<RawUnit> SIUnitList = new List<RawUnit>();
 
-            var test  = ListOfUnits.Select(x => x.CloneAsSI());
+            //var test  = ListOfUnits.Select(x => x.CloneAsSI());
 
             foreach (var item in ListOfUnits)
             {

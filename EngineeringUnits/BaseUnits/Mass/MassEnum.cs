@@ -17,17 +17,17 @@ namespace EngineeringUnits.Units
     {
 
 
-        public static readonly MassUnit SI =         new(PreFix.kilo);
-        public static readonly MassUnit Kilogram =   new(PreFix.kilo);
-        public static readonly MassUnit Picogram =   new(PreFix.pico);
-        public static readonly MassUnit Centigram =  new(PreFix.centi);
-        public static readonly MassUnit Decagram =   new(PreFix.deka);
-        public static readonly MassUnit Decigram =   new(PreFix.deci);
-        public static readonly MassUnit Gram =       new(PreFix.SI); //This is not the SI, just to get the name right
-        public static readonly MassUnit Hectogram =  new(PreFix.hecto);
-        public static readonly MassUnit Microgram =  new(PreFix.micro);
-        public static readonly MassUnit Milligram =  new(PreFix.milli);
-        public static readonly MassUnit Nanogram =   new(PreFix.nano);
+        public static readonly MassUnit SI =         new($"{PrefixSISymbol(PreFix.kilo)}g", PrefixSISize(PreFix.kilo)/1000m);
+        public static readonly MassUnit Kilogram =   new($"{PrefixSISymbol(PreFix.kilo)}g", PrefixSISize(PreFix.kilo)/1000m);
+        public static readonly MassUnit Picogram =   new($"{PrefixSISymbol(PreFix.pico)}g", PrefixSISize(PreFix.pico)/1000m);
+        public static readonly MassUnit Centigram =  new($"{PrefixSISymbol(PreFix.centi)}g", PrefixSISize(PreFix.centi)/1000m);
+        public static readonly MassUnit Decagram =   new($"{PrefixSISymbol(PreFix.deka)}g", PrefixSISize(PreFix.deka)/1000m);
+        public static readonly MassUnit Decigram =   new($"{PrefixSISymbol(PreFix.deci)}g", PrefixSISize(PreFix.deci)/1000m);
+        public static readonly MassUnit Gram =       new($"g", PrefixSISize(PreFix.SI)/1000m);
+        public static readonly MassUnit Hectogram =  new($"{PrefixSISymbol(PreFix.hecto)}g", PrefixSISize(PreFix.hecto)/1000m);
+        public static readonly MassUnit Microgram =  new($"{PrefixSISymbol(PreFix.micro)}g", PrefixSISize(PreFix.micro)/1000m);
+        public static readonly MassUnit Milligram =  new($"{PrefixSISymbol(PreFix.milli)}g", PrefixSISize(PreFix.milli)/1000m);
+        public static readonly MassUnit Nanogram =   new($"{PrefixSISymbol(PreFix.nano)}g", PrefixSISize(PreFix.nano)/1000m);
         public static readonly MassUnit Tonne =      new("t",  1e+3m);
         public static readonly MassUnit Kilotonne =  new("kt", 1e+6m);
         public static readonly MassUnit Megatonne =  new("Mt", 1e+9m);

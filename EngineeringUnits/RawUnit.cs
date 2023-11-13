@@ -68,6 +68,8 @@ namespace EngineeringUnits
             {
                 A = Fraction.One,
                 B = 0,
+                HashCode = 0,
+                Symbol = null,
             };
 
         }
