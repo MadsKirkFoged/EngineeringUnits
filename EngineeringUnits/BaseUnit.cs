@@ -274,22 +274,35 @@ namespace EngineeringUnits
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
 
+            //Set unit
+            var GetUnit = GetStandardSymbol(Unit);
+            var ValueToDisplay = NEWValue;
+
+            //It could not find a unit to display
+            if (GetUnit is null)
+            {
+                var SIUnit = Unit.GetSIUnitsystem();
+                var sadfas = SIUnit.ToString();
+                var CorrectionToSI = SIUnit.ConvertionFactor(Unit);
+
+                ValueToDisplay = (decimal)(CorrectionToSI * (Fraction)ValueToDisplay);
+                GetUnit = GetStandardSymbol(SIUnit);
+            }
+
             //Set value
             var value = format[0] switch
             {
                 'A'or'a' => "",
                 'U'or'u' => "",
                 'Q'or'q' => "",
-                'V'or'v' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                'S'or's' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                _ => NEWValue.ToString(format, provider),
+                'V'or'v' => ValueToDisplay.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                'S'or's' => ValueToDisplay.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                _ => ValueToDisplay.ToString(format, provider),
             };
 
             if (Inf && value != "")
                 value = double.PositiveInfinity.ToString();
 
-            //Set unit
-            var GetUnit = GetStandardSymbol(Unit);
 
             var unit = format[0] switch
             {

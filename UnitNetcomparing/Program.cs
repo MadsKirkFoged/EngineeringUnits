@@ -39,6 +39,18 @@ public class Program
 
     public static void Main(string[] args)
     {
+
+
+
+        SpecificEnergy specificEnergy1 = SpecificEnergy.FromJoulePerKilogram(1000);
+        SpecificEnergy specificEnergy2 = SpecificEnergy.FromJoulePerKilogram(2000);
+
+
+        MassFlow massflow0 = Power.FromKilowatt(100) / (specificEnergy2- specificEnergy1);
+
+        string teste = massflow0.ToString();
+
+
         MassFlow massflow1 = new MassFlow(1, MassFlowUnit.SI);
 
         MassFlow massflow2 = MassFlow.FromKilogramPerSecond(1);
