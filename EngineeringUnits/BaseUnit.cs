@@ -282,7 +282,6 @@ namespace EngineeringUnits
             if (GetUnit is null)
             {
                 var SIUnit = Unit.GetSIUnitsystem();
-                var sadfas = SIUnit.ToString();
                 var CorrectionToSI = SIUnit.ConvertionFactor(Unit);
 
                 ValueToDisplay = (decimal)(CorrectionToSI * (Fraction)ValueToDisplay);
