@@ -13,6 +13,7 @@ namespace EngineeringUnits
     {
 
         protected bool Inf { get; init; }
+        protected bool IsNaN { get; init; }
         public UnitSystem Unit { get; init; }
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
@@ -29,13 +30,21 @@ namespace EngineeringUnits
         {
             Unit = unitSystem;
 
-            if (IsValueOverDecimalMax(value))
-                Inf = true;
-            else
+            if (double.IsNaN(value))
             {
-                Inf = false;
-                NEWValue = (decimal)value;
+                IsNaN = true;
+                return;
             }
+
+            if (IsValueOverDecimalMax(value))
+            {
+                Inf = true;
+                return;
+            }
+
+            Inf = false;
+            NEWValue = (decimal)value;
+
         }
         public BaseUnit(int value, UnitSystem unitSystem)
         {
@@ -302,6 +311,10 @@ namespace EngineeringUnits
             if (Inf && value != "")
                 value = double.PositiveInfinity.ToString();
 
+            if (IsNaN && value != "")
+                value = double.NaN.ToString();
+
+
 
             var unit = format[0] switch
             {
@@ -349,6 +362,9 @@ namespace EngineeringUnits
         }
         public double GetValueAsDouble(UnitSystem To)
         {
+            if (IsNaN)
+                return double.NaN;
+
             if (Inf)
                 return double.PositiveInfinity;
 

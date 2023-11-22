@@ -51,8 +51,11 @@ namespace EngineeringUnits
                 PublicUnit = selectedUnit;                
             }
 
-
-            if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue || double.IsNaN(value))
+            if (double.IsNaN(value))
+            {
+                IsNaN = true;
+            }
+            else if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue)
             {
                 Inf = true;
             }

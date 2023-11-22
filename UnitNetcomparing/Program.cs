@@ -40,6 +40,17 @@ public class Program
     public static void Main(string[] args)
     {
 
+        double nantest = new Mass(double.NaN, MassUnit.SI).SI;
+
+        double nantest2 =  Mass.FromCentigram(double.NaN).Grain;
+
+
+        Jerk jerk1 = new Jerk(10, JerkUnit.MeterPerSecondCubed);
+        Jerk jerk2 = Jerk.FromCentimeterPerSecondCubed(10);
+        Jerk jerk3 = Length.FromMeter(2) / Duration.FromSecond(10).Pow(3);
+
+        Jerk jerk4 = jerk1 + jerk2 +jerk3;
+
 
 
         SpecificEnergy specificEnergy1 = SpecificEnergy.FromJoulePerKilogram(1000);
