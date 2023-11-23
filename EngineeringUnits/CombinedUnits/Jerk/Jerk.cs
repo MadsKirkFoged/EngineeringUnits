@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(JerkUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Jerk ToUnit(JerkUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Jerk Zero => new(0, JerkUnit.SI);
+        public static Jerk NaN => new(double.NaN, JerkUnit.SI);
 
         public static implicit operator Jerk(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(CoefficientOfThermalExpansionUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static CoefficientOfThermalExpansion Zero => new(0, CoefficientOfThermalExpansionUnit.SI);
+        public static CoefficientOfThermalExpansion NaN => new(double.NaN, CoefficientOfThermalExpansionUnit.SI);
 
         public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit)
         {

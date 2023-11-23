@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricFieldUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricField ToUnit(ElectricFieldUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricField Zero => new(0, ElectricFieldUnit.SI);
+        public static ElectricField NaN => new(double.NaN, ElectricFieldUnit.SI);
 
         public static implicit operator ElectricField(UnknownUnit Unit)
         {

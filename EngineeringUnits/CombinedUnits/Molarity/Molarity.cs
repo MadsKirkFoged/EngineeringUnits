@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(MolarityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Molarity ToUnit(MolarityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Molarity Zero => new(0, MolarityUnit.SI);
+        public static Molarity NaN => new(double.NaN, MolarityUnit.SI);
 
         public static implicit operator Molarity(UnknownUnit Unit)
         {

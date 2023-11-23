@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(LinearDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public LinearDensity ToUnit(LinearDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static LinearDensity Zero => new(0, LinearDensityUnit.SI);
+        public static LinearDensity NaN => new(double.NaN, LinearDensityUnit.SI);
 
         public static implicit operator LinearDensity(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(SpecificThermalResistanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public SpecificThermalResistance ToUnit(SpecificThermalResistanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static SpecificThermalResistance Zero => new(0, SpecificThermalResistanceUnit.SI);
+        public static SpecificThermalResistance NaN => new(double.NaN, SpecificThermalResistanceUnit.SI);
 
         public static implicit operator SpecificThermalResistance(UnknownUnit Unit)
         {

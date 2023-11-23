@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(FuelEfficiencyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public FuelEfficiency ToUnit(FuelEfficiencyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static FuelEfficiency Zero => new(0, FuelEfficiencyUnit.SI);
+        public static FuelEfficiency NaN => new(double.NaN, FuelEfficiencyUnit.SI);
 
         public static implicit operator FuelEfficiency(UnknownUnit Unit)
         {

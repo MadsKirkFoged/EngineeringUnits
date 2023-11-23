@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ReactiveEnergyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ReactiveEnergy ToUnit(ReactiveEnergyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
+        public static ReactiveEnergy NaN => new(double.NaN, ReactiveEnergyUnit.SI);
 
         public static implicit operator ReactiveEnergy(UnknownUnit Unit)
         {

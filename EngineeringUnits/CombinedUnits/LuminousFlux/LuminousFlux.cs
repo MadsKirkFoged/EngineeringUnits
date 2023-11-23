@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(LuminousFluxUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public LuminousFlux ToUnit(LuminousFluxUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static LuminousFlux Zero => new(0, LuminousFluxUnit.SI);
+        public static LuminousFlux NaN => new(double.NaN, LuminousFluxUnit.SI);
 
         public static implicit operator LuminousFlux(UnknownUnit Unit)
         {

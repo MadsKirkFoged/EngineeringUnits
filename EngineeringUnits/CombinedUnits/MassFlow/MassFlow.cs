@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(MassFlowUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public MassFlow ToUnit(MassFlowUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MassFlow Zero => new(0, MassFlowUnit.SI);
+        public static MassFlow NaN => new(double.NaN, MassFlowUnit.SI);
 
         public static implicit operator MassFlow(UnknownUnit Unit)
         {

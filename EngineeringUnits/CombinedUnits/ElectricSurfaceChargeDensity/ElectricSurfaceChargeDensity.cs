@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricSurfaceChargeDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricSurfaceChargeDensity ToUnit(ElectricSurfaceChargeDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricSurfaceChargeDensity Zero => new(0, ElectricSurfaceChargeDensityUnit.SI);
+        public static ElectricSurfaceChargeDensity NaN => new(double.NaN, ElectricSurfaceChargeDensityUnit.SI);
 
         public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit)
         {

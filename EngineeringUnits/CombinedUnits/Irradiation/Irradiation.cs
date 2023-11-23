@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(IrradiationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Irradiation ToUnit(IrradiationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Irradiation Zero => new(0, IrradiationUnit.SI);
+        public static Irradiation NaN => new(double.NaN, IrradiationUnit.SI);
 
         public static implicit operator Irradiation(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(TorquePerLengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public TorquePerLength ToUnit(TorquePerLengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static TorquePerLength Zero => new(0, TorquePerLengthUnit.SI);
+        public static TorquePerLength NaN => new(double.NaN, TorquePerLengthUnit.SI);
 
         public static implicit operator TorquePerLength(UnknownUnit Unit)
         {

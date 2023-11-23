@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(MassFluxUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public MassFlux ToUnit(MassFluxUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MassFlux Zero => new(0, MassFluxUnit.SI);
+        public static MassFlux NaN => new(double.NaN, MassFluxUnit.SI);
 
         public static implicit operator MassFlux(UnknownUnit Unit)
         {

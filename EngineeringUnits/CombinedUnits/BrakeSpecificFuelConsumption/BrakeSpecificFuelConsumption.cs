@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(BrakeSpecificFuelConsumptionUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public BrakeSpecificFuelConsumption ToUnit(BrakeSpecificFuelConsumptionUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static BrakeSpecificFuelConsumption Zero => new(0, BrakeSpecificFuelConsumptionUnit.SI);
+        public static BrakeSpecificFuelConsumption NaN => new(double.NaN, BrakeSpecificFuelConsumptionUnit.SI);
 
         public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
         {

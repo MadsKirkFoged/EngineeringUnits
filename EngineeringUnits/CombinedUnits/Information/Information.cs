@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(InformationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Information ToUnit(InformationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Information Zero => new(0, InformationUnit.SI);
+        public static Information NaN => new(double.NaN, InformationUnit.SI);
 
         public static implicit operator Information(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(AmountOfSubstanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static AmountOfSubstance Zero => new(0, AmountOfSubstanceUnit.SI);
+        public static AmountOfSubstance NaN => new(double.NaN, AmountOfSubstanceUnit.SI);
 
         public static implicit operator AmountOfSubstance(UnknownUnit Unit)
         {
