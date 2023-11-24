@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricResistanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricResistance ToUnit(ElectricResistanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricResistance Zero => new(0, ElectricResistanceUnit.SI);
+        public static ElectricResistance NaN => new(double.NaN, ElectricResistanceUnit.SI);
 
         public static implicit operator ElectricResistance(UnknownUnit Unit)
         {

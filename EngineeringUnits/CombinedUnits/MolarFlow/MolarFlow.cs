@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(MolarFlowUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public MolarFlow ToUnit(MolarFlowUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MolarFlow Zero => new(0, MolarFlowUnit.SI);
+        public static MolarFlow NaN => new(double.NaN, MolarFlowUnit.SI);
 
         public static implicit operator MolarFlow(UnknownUnit Unit)
         {

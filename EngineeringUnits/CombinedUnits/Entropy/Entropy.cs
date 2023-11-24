@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(EntropyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Entropy ToUnit(EntropyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Entropy Zero => new(0, EntropyUnit.SI);
+        public static Entropy NaN => new(double.NaN, EntropyUnit.SI);
 
         public static implicit operator Entropy(UnknownUnit Unit)
         {

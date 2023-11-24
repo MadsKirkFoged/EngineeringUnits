@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricChargeUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricCharge ToUnit(ElectricChargeUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricCharge Zero => new(0, ElectricChargeUnit.SI);
+        public static ElectricCharge NaN => new(double.NaN, ElectricChargeUnit.SI);
 
         public static implicit operator ElectricCharge(UnknownUnit Unit)
         {

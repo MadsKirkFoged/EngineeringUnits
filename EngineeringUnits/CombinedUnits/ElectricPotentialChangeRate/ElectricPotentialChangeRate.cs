@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricPotentialChangeRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricPotentialChangeRate ToUnit(ElectricPotentialChangeRateUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricPotentialChangeRate Zero => new(0, ElectricPotentialChangeRateUnit.SI);
+        public static ElectricPotentialChangeRate NaN => new(double.NaN, ElectricPotentialChangeRateUnit.SI);
 
         public static implicit operator ElectricPotentialChangeRate(UnknownUnit Unit)
         {

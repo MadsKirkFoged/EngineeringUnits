@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(MagneticFieldUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public MagneticField ToUnit(MagneticFieldUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MagneticField Zero => new(0, MagneticFieldUnit.SI);
+        public static MagneticField NaN => new(double.NaN, MagneticFieldUnit.SI);
 
         public static implicit operator MagneticField(UnknownUnit Unit)
         {

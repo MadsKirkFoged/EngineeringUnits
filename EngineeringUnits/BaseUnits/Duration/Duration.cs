@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(DurationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Duration ToUnit(DurationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Duration Zero => new(0, DurationUnit.SI);
+        public static Duration NaN => new(double.NaN, DurationUnit.SI);
 
         public static implicit operator Duration(UnknownUnit Unit)
         {

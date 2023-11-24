@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ForcePerLengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ForcePerLength ToUnit(ForcePerLengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ForcePerLength Zero => new(0, ForcePerLengthUnit.SI);
+        public static ForcePerLength NaN => new(double.NaN, ForcePerLengthUnit.SI);
 
         public static implicit operator ForcePerLength(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(LuminousIntensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public LuminousIntensity ToUnit(LuminousIntensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static LuminousIntensity Zero => new(0, LuminousIntensityUnit.SI);
+        public static LuminousIntensity NaN => new(double.NaN, LuminousIntensityUnit.SI);
 
         public static implicit operator LuminousIntensity(UnknownUnit Unit)
         {

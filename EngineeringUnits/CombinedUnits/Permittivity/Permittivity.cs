@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(PermittivityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Permittivity ToUnit(PermittivityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Permittivity Zero => new(0, PermittivityUnit.SI);
+        public static Permittivity NaN => new(double.NaN, PermittivityUnit.SI);
 
         public static implicit operator Permittivity(UnknownUnit Unit)
         {

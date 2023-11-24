@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(SpecificWeightUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public SpecificWeight ToUnit(SpecificWeightUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static SpecificWeight Zero => new(0, SpecificWeightUnit.SI);
+        public static SpecificWeight NaN => new(double.NaN, SpecificWeightUnit.SI);
 
         public static implicit operator SpecificWeight(UnknownUnit Unit)
         {

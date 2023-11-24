@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(EnthalpyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public Enthalpy ToUnit(EnthalpyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Enthalpy Zero => new(0, EnthalpyUnit.SI);
+        public static Enthalpy NaN => new(double.NaN, EnthalpyUnit.SI);
 
         public static implicit operator Enthalpy(UnknownUnit Unit)
         {

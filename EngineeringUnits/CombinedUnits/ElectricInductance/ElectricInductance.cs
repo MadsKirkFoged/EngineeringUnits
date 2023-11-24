@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricInductanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricInductance ToUnit(ElectricInductanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricInductance Zero => new(0, ElectricInductanceUnit.SI);
+        public static ElectricInductance NaN => new(double.NaN, ElectricInductanceUnit.SI);
 
         public static implicit operator ElectricInductance(UnknownUnit Unit)
         {

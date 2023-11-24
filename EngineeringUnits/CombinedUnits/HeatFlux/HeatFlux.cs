@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(HeatFluxUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public HeatFlux ToUnit(HeatFluxUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static HeatFlux Zero => new(0, HeatFluxUnit.SI);
+        public static HeatFlux NaN => new(double.NaN, HeatFluxUnit.SI);
 
         public static implicit operator HeatFlux(UnknownUnit Unit)
         {

@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(ElectricCurrentDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public ElectricCurrentDensity ToUnit(ElectricCurrentDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrentDensity Zero => new(0, ElectricCurrentDensityUnit.SI);
+        public static ElectricCurrentDensity NaN => new(double.NaN, ElectricCurrentDensityUnit.SI);
 
         public static implicit operator ElectricCurrentDensity(UnknownUnit Unit)
         {

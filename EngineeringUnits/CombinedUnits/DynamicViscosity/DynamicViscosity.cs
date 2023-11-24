@@ -28,6 +28,7 @@ namespace EngineeringUnits
         public double As(DynamicViscosityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
         public DynamicViscosity ToUnit(DynamicViscosityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static DynamicViscosity Zero => new(0, DynamicViscosityUnit.SI);
+        public static DynamicViscosity NaN => new(double.NaN, DynamicViscosityUnit.SI);
 
         public static implicit operator DynamicViscosity(UnknownUnit Unit)
         {
