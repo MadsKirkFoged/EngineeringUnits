@@ -42,6 +42,21 @@ public class Program
     public static void Main(string[] args)
     {
 
+        //Temperature L1 = Temperature.FromDegreesCelsius(0);
+        //Temperature L2 = Temperature.FromDegreesFahrenheit(32);
+
+        Console.WriteLine($"{Length.FromMeter(0) == Length.FromKilometer(0)}"); //True
+        Console.WriteLine($"{Length.FromMeter(1000) == Length.FromKilometer(1)}"); //True
+        Console.WriteLine($"{Temperature.FromDegreesCelsius(0) == Temperature.FromKelvins(0)}"); //false
+        Console.WriteLine($"{Temperature.FromDegreesCelsius(0) == Temperature.FromDegreesFahrenheit(32)}"); //True
+        Console.WriteLine($"{Length.FromFeet(3) == Length.FromYard(1)}"); //True
+
+        UnitSystem unitt = TemperatureUnit.DegreeFahrenheit;
+
+
+        var TT = Temperature.FromDegreesFahrenheit(32);
+
+
         double nantest = new Mass(double.NaN, MassUnit.SI).SI;
 
         double nantest2 =  Mass.FromCentigram(double.NaN).Grain;
@@ -254,7 +269,7 @@ public class Program
             Console.WriteLine(i);
 
             var P1 = Power.FromKilowatt(10);
-            var L1 = Length.FromChain(2);
+            //var L1 = Length.FromChain(2);
             var T1 = Temperature.FromDegreesCelsius(4);
 
             var Th = ThermalConductivity.FromBtuPerHourFootFahrenheit(10);

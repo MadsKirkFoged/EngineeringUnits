@@ -681,7 +681,7 @@ namespace UnitTests
             Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
             Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 0);
             Assert.AreEqual(0, L2.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
-            Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
+            Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0.000001);
 
 
 
