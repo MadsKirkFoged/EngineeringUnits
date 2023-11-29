@@ -138,10 +138,10 @@ namespace EngineeringUnits
             return new(NewUnitList);
         }
 
-        public static decimal Normalize(this decimal value)
-        {
-            return value / 1.000000000000000000000000000000000m;
-        }
+        //public static decimal Normalize(this decimal value)
+        //{
+        //    return value / 1.000000000000000000000000000000000m;
+        //}
 
 
         /// <returns>Square root of <see langword="decimal"/>!</returns>
@@ -171,8 +171,7 @@ namespace EngineeringUnits
         /// <returns>A SuperScript of an <see langword="int"/>!</returns>
         public static string ToSuperScript(this int number)
         {
-            if (number == 0 ||
-                number == 1)
+            if (number is 0 or 1)
                 return "";
 
             const string SuperscriptDigits =
@@ -224,7 +223,7 @@ namespace EngineeringUnits
                 return test;
 
             //Count current decimals
-            int CurrentCount = test.Count(x => x != '.' && x != '-');
+            int CurrentCount = test.Count(x => x is not '.' and not '-');
 
             //If we want more precision than we have
             if (CurrentCount <= count)
@@ -440,34 +439,51 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
              return list.Aggregate(new UnknownUnit(0m, list.First().Unit),
                                  (x, y) => x + y);
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
             return list.Aggregate(new UnknownUnit(0m, list.First().BaseUnit.Unit),
                                  (x, y) => x + y);
         }
 
         public static UnknownUnit Average(this IEnumerable<BaseUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
             return list.Sum() / list.Count();
         }
         public static UnknownUnit Average(this IEnumerable<UnknownUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
             return list.Sum() / list.Count();
         }
 
 
         public static UnknownUnit Mean(this IEnumerable<UnknownUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
             return list.OrderBy(x => x)
-                       .ToList()
-                        [list.Count() / 2];
+                       .ToList()[list.Count() / 2];
         }
 
         public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
         {
+            if (list is null || !list.Any())
+                return null;
+
             return list.OrderBy(x => x)
                        .ToList()
                         [list.Count() / 2];
@@ -476,6 +492,9 @@ namespace EngineeringUnits
 
         public static UnknownUnit RoundUpToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
         {
+            if (list is null || !list.Any())
+                return null;
+
             foreach (var item in list.OrderBy(x => x))
             {
                 if (valueToBeRoundedUp <= item)                
@@ -487,6 +506,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
         {
+            if (list is null || !list.Any())
+                return null;
+
             foreach (var item in list.OrderBy(x => x))
             {
                 if (valueToBeRoundedUp <= item)                
@@ -499,6 +521,9 @@ namespace EngineeringUnits
 
         public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedDown)
         {
+            if (list is null || !list.Any())
+                return null;
+
             foreach (var item in list.OrderByDescending(x => x))
             {
                 if (valueToBeRoundedDown >= item)
@@ -510,6 +535,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
         {
+            if (list is null || !list.Any())
+                return null;
+
             foreach (var item in list.OrderByDescending(x => x))
             {
                 if (valueToBeRoundedDown >= item)
@@ -521,7 +549,10 @@ namespace EngineeringUnits
         }
 
         public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
-        {  
+        {
+            if (list is null || !list.Any())
+                return null;
+
             return list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault();
         }
 
@@ -559,7 +590,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit AddUnit<T>(this double value, string UnitOfMeasure) where T : UnitTypebase
         {
-            var unit = UnitTypebase.GetUnitByString<T>(UnitOfMeasure).Unit;
+            var unit = UnitTypebase.GetUnitByString<T>(UnitOfMeasure);
 
             return new UnknownUnit(value, unit);
         }

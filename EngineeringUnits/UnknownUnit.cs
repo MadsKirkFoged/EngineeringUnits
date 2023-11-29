@@ -17,7 +17,7 @@ namespace EngineeringUnits
     // --> If you try to convert it into a Power then you get a WrongUnitException
     // --> You can only convert it into the correct unit (in this case 'Speed')
 
-    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IUnitSystem, IFormattable
+    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IFormattable
     {
         public BaseUnit BaseUnit { get; init; }
 

@@ -451,22 +451,22 @@ namespace EngineeringUnits
             };
         }
 
-        public UnknownUnit AbsIntern()
-        {
+        //public UnknownUnit AbsIntern()
+        //{
 
-            if (Unit.IsSIUnit())
-            {
-                if (NEWValue > 0)
-                    return this;
-                else
-                    return this * -1;
-            }
+        //    if (Unit.IsSIUnit())
+        //    {
+        //        if (NEWValue > 0)
+        //            return this;
+        //        else
+        //            return this * -1;
+        //    }
 
-            if (baseValue < 0)
-                return this * -1;
-            else
-                return this;
-        }
+        //    if (baseValue < 0)
+        //        return this * -1;
+        //    else
+        //        return this;
+        //}
 
         public decimal GetBaseValue()
         {

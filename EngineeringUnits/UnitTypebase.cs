@@ -19,7 +19,7 @@ namespace EngineeringUnits
 
 
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public record UnitTypebase : IUnitSystem
+    public record UnitTypebase
     {
 
         [JsonIgnore]
