@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(AngleUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, AngleUnit.SI);
             return new(Unit);        
         }
 

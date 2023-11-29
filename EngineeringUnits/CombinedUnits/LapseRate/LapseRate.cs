@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(LapseRateUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, LapseRateUnit.SI);
             return new(Unit);        
         }
 

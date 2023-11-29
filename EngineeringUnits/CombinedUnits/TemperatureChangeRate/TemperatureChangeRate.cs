@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(TemperatureChangeRateUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, TemperatureChangeRateUnit.SI);
             return new(Unit);        
         }
 

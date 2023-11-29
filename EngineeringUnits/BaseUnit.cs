@@ -9,7 +9,7 @@ namespace EngineeringUnits
     //It stores the value and the unitsystem
 
     [JsonObject(MemberSerialization.Fields)]
-    public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable, IUnitSystem
+    public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
         protected bool Inf { get; init; }
@@ -248,6 +248,8 @@ namespace EngineeringUnits
 
             return new(baseUnit);
         }
+
+        public static implicit operator UnitSystem(BaseUnit unit) => unit.Unit;
 
         /// <summary>
         ///     Gets the default string representation of value and unit.

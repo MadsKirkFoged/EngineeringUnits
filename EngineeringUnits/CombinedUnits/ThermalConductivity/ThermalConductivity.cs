@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ThermalConductivityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ThermalConductivityUnit.SI);
             return new(Unit);        
         }
 

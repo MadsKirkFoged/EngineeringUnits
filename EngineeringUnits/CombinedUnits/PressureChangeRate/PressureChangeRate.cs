@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(PressureChangeRateUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, PressureChangeRateUnit.SI);
             return new(Unit);        
         }
 

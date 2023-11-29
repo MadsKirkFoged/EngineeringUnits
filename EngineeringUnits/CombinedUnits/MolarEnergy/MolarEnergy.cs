@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(MolarEnergyUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, MolarEnergyUnit.SI);
             return new(Unit);        
         }
 

@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(SpecificWeightUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, SpecificWeightUnit.SI);
             return new(Unit);        
         }
 

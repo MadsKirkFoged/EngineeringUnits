@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(TorqueUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, TorqueUnit.SI);
             return new(Unit);        
         }
 

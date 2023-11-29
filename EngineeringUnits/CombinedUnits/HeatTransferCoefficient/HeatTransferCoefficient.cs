@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(HeatTransferCoefficientUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, HeatTransferCoefficientUnit.SI);
             return new(Unit);        
         }
 

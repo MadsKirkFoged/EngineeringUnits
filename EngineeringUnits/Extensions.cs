@@ -293,17 +293,17 @@ namespace EngineeringUnits
         }
 
 
-        public static UnknownUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
+        public static UnknownUnit ToUnit(this BaseUnit a, UnitSystem selectedUnit)
         {
-            a.UnitCheck(selectedUnit);
+            GuardAgainst.DifferentUnits(a, selectedUnit);
 
-            return new(a.GetValueAs(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.GetValueAs(selectedUnit), selectedUnit);
         }
-        public static UnknownUnit ToUnit(this UnknownUnit a, IUnitSystem selectedUnit)
+        public static UnknownUnit ToUnit(this UnknownUnit a, UnitSystem selectedUnit)
         {
-            a.BaseUnit.UnitCheck(selectedUnit);
+            GuardAgainst.DifferentUnits(a, selectedUnit);
 
-            return new(a.BaseUnit.GetValueAs(selectedUnit.Unit), selectedUnit.Unit);
+            return new(a.BaseUnit.GetValueAs(selectedUnit), selectedUnit);
         }
 
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
@@ -350,8 +350,8 @@ namespace EngineeringUnits
             if (a is null || Min is null || Max is null)
                 return null;
 
-            a.UnitCheck(Min);
-            a.UnitCheck(Max);
+            GuardAgainst.DifferentUnits(a, Min, Max);
+
 
             if (Max < Min)
             {
@@ -525,12 +525,36 @@ namespace EngineeringUnits
             return list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault();
         }
 
+        //public static void ShouldHaveSameUnits(UnitSystem a, UnitSystem b)
+        //{
+        //    if (a != b)
+        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
+        //}
 
-        public static void UnitCheck(this IUnitSystem a, IUnitSystem b)
-        {
-            if (a.Unit != b.Unit)
-                throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
-        }
+        //public static void ShouldHaveSameUnits(UnitSystem a, UnitSystem b, UnitSystem c)
+        //{
+        //    ShouldHaveSameUnits(a, b);
+        //    ShouldHaveSameUnits(a, c);
+        //}
+
+
+        //public static void UnitCheck(this IUnitSystem a, IUnitSystem b)
+        //{
+        //    if (a.Unit != b.Unit)
+        //        throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
+        //}
+
+        //public static void UnitCheck(this UnitSystem a, UnitSystem b)
+        //{
+        //    if (a != b)
+        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
+        //}
+
+        //public static void UnitCheck(this BaseUnit a, UnitSystem b)
+        //{
+        //    if (a.Unit != b)
+        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a.Unit}]");
+        //}
 
 
         public static UnknownUnit AddUnit<T>(this double value, string UnitOfMeasure) where T : UnitTypebase

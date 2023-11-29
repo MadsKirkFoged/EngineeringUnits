@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(AreaDensityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, AreaDensityUnit.SI);
             return new(Unit);        
         }
 

@@ -69,6 +69,7 @@ namespace EngineeringUnits
             return Unit.BaseUnit;
         }
 
+        public static implicit operator UnitSystem(UnknownUnit unit) => unit.Unit;
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => BaseUnit.Value;
@@ -148,10 +149,10 @@ namespace EngineeringUnits
            
         }
 
-        public void UnitCheck(IUnitSystem a)
-        {
-            BaseUnit.UnitCheck(a);
-        }
+        //public void UnitCheck(UnitSystem a)
+        //{
+        //    BaseUnit.UnitCheck(a);
+        //}
 
         public double As(UnitSystem b) => BaseUnit.GetValueAsDouble(b);
 

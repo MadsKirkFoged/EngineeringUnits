@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricResistivityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricResistivityUnit.SI);
             return new(Unit);        
         }
 

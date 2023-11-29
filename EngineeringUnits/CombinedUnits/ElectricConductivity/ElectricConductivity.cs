@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricConductivityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricConductivityUnit.SI);
             return new(Unit);        
         }
 

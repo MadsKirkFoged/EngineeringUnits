@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EngineeringUnits
@@ -23,14 +24,14 @@ namespace EngineeringUnits
         {
             for (int i = 0; i < x.Length; i++)
             {
-                x[0].UnitCheck(x[i]);
+                GuardAgainst.DifferentUnits(x[0], x[i]);
             }
         }
 
         public void SameTypeAs(UVector v1)
         {
             //Same units
-            v1._vector[0].UnitCheck(_vector[0]);
+            GuardAgainst.DifferentUnits(v1._vector[0], _vector[0]);
 
             //Same size
             if (v1.GetVectorSize != GetVectorSize)            

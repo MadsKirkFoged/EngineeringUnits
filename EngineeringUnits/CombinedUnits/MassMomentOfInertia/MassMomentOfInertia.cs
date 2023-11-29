@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(MassMomentOfInertiaUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, MassMomentOfInertiaUnit.SI);
             return new(Unit);        
         }
 

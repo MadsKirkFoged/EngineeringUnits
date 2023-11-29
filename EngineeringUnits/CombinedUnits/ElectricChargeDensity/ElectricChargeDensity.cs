@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricChargeDensityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricChargeDensityUnit.SI);
             return new(Unit);        
         }
 

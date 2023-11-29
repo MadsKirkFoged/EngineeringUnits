@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(FrequencyUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, FrequencyUnit.SI);
             return new(Unit);        
         }
 

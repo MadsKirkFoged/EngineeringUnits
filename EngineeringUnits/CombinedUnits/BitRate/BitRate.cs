@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(BitRateUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, BitRateUnit.SI);
             return new(Unit);        
         }
 

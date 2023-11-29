@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(PermeabilityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, PermeabilityUnit.SI);
             return new(Unit);        
         }
 

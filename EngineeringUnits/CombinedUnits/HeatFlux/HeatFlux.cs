@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(HeatFluxUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, HeatFluxUnit.SI);
             return new(Unit);        
         }
 

@@ -198,7 +198,8 @@ namespace UnitTests.HaveToFail
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
 
-            length.UnitCheck(mass);
+            //length.UnitCheck(mass);
+            GuardAgainst.DifferentUnits(length, mass);
 
         }
 
@@ -210,7 +211,7 @@ namespace UnitTests.HaveToFail
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
 
-            length.UnitCheck(mass);
+            GuardAgainst.DifferentUnits(length, mass);
 
         }
         [TestMethod]
@@ -219,7 +220,8 @@ namespace UnitTests.HaveToFail
         {
             var length = Length.FromCentimeter(3);
             var mass = Mass.FromKilogram(3);
-            length.UnitCheck(mass);
+
+            GuardAgainst.DifferentUnits(length, mass);
 
 
         }

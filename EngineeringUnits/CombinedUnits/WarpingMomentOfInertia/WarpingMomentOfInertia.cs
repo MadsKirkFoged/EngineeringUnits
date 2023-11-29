@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(WarpingMomentOfInertiaUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, WarpingMomentOfInertiaUnit.SI);
             return new(Unit);        
         }
 

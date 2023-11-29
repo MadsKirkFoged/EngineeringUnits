@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(PowerUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, PowerUnit.SI);
             return new(Unit);        
         }
 

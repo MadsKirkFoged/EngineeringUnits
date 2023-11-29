@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(MagneticFluxUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, MagneticFluxUnit.SI);
             return new(Unit);        
         }
 

@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(BrakeSpecificFuelConsumptionUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, BrakeSpecificFuelConsumptionUnit.SI);
             return new(Unit);        
         }
 

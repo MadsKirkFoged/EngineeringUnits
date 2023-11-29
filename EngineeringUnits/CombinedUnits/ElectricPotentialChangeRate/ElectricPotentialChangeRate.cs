@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricPotentialChangeRateUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricPotentialChangeRateUnit.SI);
             return new(Unit);        
         }
 

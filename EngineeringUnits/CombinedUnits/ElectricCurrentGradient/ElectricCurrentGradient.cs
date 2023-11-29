@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricCurrentGradientUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricCurrentGradientUnit.SI);
             return new(Unit);        
         }
 

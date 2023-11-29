@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(SpecificHeatCapacityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, SpecificHeatCapacityUnit.SI);
             return new(Unit);        
         }
 

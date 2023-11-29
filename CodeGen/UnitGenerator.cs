@@ -100,7 +100,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(VariableUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, VariableUnit.SI);
             return new(Unit);        
         }
 

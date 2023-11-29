@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(DynamicViscosityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, DynamicViscosityUnit.SI);
             return new(Unit);        
         }
 

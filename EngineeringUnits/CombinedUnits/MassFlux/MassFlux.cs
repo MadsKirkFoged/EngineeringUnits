@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(MassFluxUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, MassFluxUnit.SI);
             return new(Unit);        
         }
 

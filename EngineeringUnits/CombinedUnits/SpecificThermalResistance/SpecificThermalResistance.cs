@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(SpecificThermalResistanceUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, SpecificThermalResistanceUnit.SI);
             return new(Unit);        
         }
 

@@ -12,7 +12,7 @@ namespace UnitTests.Functionality
         public void Inf_Test()
         {
             // Arrange
-            var unit = new BaseUnit(double.PositiveInfinity, MassFlowUnit.SI.Unit);
+            var unit = new BaseUnit(double.PositiveInfinity, MassFlowUnit.SI);
 
             // Act
             var value = unit.As(MassFlowUnit.SI);

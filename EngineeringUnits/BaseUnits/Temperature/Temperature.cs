@@ -121,7 +121,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null;
 
-            Unit.UnitCheck(TemperatureUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, TemperatureUnit.SI);
             return new(Unit);
         }
 

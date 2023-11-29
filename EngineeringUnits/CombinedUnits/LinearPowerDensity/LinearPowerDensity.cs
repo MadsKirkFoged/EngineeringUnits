@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(LinearPowerDensityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, LinearPowerDensityUnit.SI);
             return new(Unit);        
         }
 

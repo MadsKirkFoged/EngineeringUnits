@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(LuminousFluxUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, LuminousFluxUnit.SI);
             return new(Unit);        
         }
 

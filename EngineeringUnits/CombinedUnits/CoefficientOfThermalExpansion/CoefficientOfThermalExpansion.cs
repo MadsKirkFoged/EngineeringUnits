@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(CoefficientOfThermalExpansionUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, CoefficientOfThermalExpansionUnit.SI);
             return new(Unit);        
         }
 

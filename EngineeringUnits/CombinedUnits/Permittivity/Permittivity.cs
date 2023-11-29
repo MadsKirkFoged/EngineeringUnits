@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(PermittivityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, PermittivityUnit.SI);
             return new(Unit);        
         }
 

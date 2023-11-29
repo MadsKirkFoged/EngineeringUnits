@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(CapacitanceUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, CapacitanceUnit.SI);
             return new(Unit);        
         }
 

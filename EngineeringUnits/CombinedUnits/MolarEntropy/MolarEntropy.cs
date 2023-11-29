@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(MolarEntropyUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, MolarEntropyUnit.SI);
             return new(Unit);        
         }
 

@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(ElectricCurrentDensityUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, ElectricCurrentDensityUnit.SI);
             return new(Unit);        
         }
 

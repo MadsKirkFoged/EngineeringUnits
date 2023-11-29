@@ -35,7 +35,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null; 
 
-            Unit.UnitCheck(FuelEfficiencyUnit.SI);
+            GuardAgainst.DifferentUnits(Unit, FuelEfficiencyUnit.SI);
             return new(Unit);        
         }
 
