@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MagnetizationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(MagnetizationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public Magnetization ToUnit(MagnetizationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Magnetization Zero => new(0, MagnetizationUnit.SI);
         public static Magnetization NaN => new(double.NaN, MagnetizationUnit.SI);

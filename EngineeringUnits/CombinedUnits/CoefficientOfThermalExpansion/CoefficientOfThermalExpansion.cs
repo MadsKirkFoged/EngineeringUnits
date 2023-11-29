@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(CoefficientOfThermalExpansionUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(CoefficientOfThermalExpansionUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public CoefficientOfThermalExpansion ToUnit(CoefficientOfThermalExpansionUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static CoefficientOfThermalExpansion Zero => new(0, CoefficientOfThermalExpansionUnit.SI);
         public static CoefficientOfThermalExpansion NaN => new(double.NaN, CoefficientOfThermalExpansionUnit.SI);

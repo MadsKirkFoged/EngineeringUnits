@@ -100,7 +100,7 @@ namespace EngineeringUnits
             return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
         }
 
-        private static readonly Object FactorLock = new Object();
+        private static readonly object FactorLock = new object();
         public Fraction ConvertionFactor(UnitSystem To)
         {
             //int hashCode = 512265997;
@@ -144,7 +144,7 @@ namespace EngineeringUnits
         }
 
 
-        private static readonly Object MultiplyLock = new Object();
+        private static readonly object MultiplyLock = new object();
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
             lock (MultiplyLock)
@@ -216,7 +216,7 @@ namespace EngineeringUnits
 
         }
 
-        private static readonly Object DivideLock = new Object();
+        private static readonly object DivideLock = new object();
 
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
@@ -459,10 +459,6 @@ namespace EngineeringUnits
         }
 
         //Cache
-        private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
-        private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
-        private static readonly ConcurrentDictionary<int, Fraction> CacheFactor = new();
-
         private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivideTest = new();
         private static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheMultiplyTest = new();
         private static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactorTest = new();

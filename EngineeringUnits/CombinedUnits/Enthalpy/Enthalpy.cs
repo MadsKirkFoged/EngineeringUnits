@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(EnthalpyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(EnthalpyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public Enthalpy ToUnit(EnthalpyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Enthalpy Zero => new(0, EnthalpyUnit.SI);
         public static Enthalpy NaN => new(double.NaN, EnthalpyUnit.SI);

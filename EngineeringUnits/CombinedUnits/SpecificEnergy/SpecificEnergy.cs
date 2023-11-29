@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(SpecificEnergyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(SpecificEnergyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public SpecificEnergy ToUnit(SpecificEnergyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static SpecificEnergy Zero => new(0, SpecificEnergyUnit.SI);
         public static SpecificEnergy NaN => new(double.NaN, SpecificEnergyUnit.SI);

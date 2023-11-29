@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AreaDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(AreaDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public AreaDensity ToUnit(AreaDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static AreaDensity Zero => new(0, AreaDensityUnit.SI);
         public static AreaDensity NaN => new(double.NaN, AreaDensityUnit.SI);

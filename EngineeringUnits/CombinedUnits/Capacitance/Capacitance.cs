@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(CapacitanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(CapacitanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public Capacitance ToUnit(CapacitanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Capacitance Zero => new(0, CapacitanceUnit.SI);
         public static Capacitance NaN => new(double.NaN, CapacitanceUnit.SI);

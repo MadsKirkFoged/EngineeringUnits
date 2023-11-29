@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ForceChangeRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(ForceChangeRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public ForceChangeRate ToUnit(ForceChangeRateUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ForceChangeRate Zero => new(0, ForceChangeRateUnit.SI);
         public static ForceChangeRate NaN => new(double.NaN, ForceChangeRateUnit.SI);

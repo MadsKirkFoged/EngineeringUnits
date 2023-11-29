@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MolarEntropyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(MolarEntropyUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public MolarEntropy ToUnit(MolarEntropyUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static MolarEntropy Zero => new(0, MolarEntropyUnit.SI);
         public static MolarEntropy NaN => new(double.NaN, MolarEntropyUnit.SI);

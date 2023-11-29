@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(KinematicViscosityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(KinematicViscosityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public KinematicViscosity ToUnit(KinematicViscosityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static KinematicViscosity Zero => new(0, KinematicViscosityUnit.SI);
         public static KinematicViscosity NaN => new(double.NaN, KinematicViscosityUnit.SI);

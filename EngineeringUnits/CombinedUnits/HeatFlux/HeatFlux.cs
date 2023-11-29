@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(HeatFluxUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(HeatFluxUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public HeatFlux ToUnit(HeatFluxUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static HeatFlux Zero => new(0, HeatFluxUnit.SI);
         public static HeatFlux NaN => new(double.NaN, HeatFluxUnit.SI);

@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Fractions" Version="7.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="UnitsNet" Version="4.121.0" />
   </ItemGroup>
 

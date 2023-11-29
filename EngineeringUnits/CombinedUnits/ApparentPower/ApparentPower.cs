@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ApparentPowerUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(ApparentPowerUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public ApparentPower ToUnit(ApparentPowerUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
         public static ApparentPower NaN => new(double.NaN, ApparentPowerUnit.SI);

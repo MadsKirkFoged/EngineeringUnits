@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ThermalResistanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(ThermalResistanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public ThermalResistance ToUnit(ThermalResistanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ThermalResistance Zero => new(0, ThermalResistanceUnit.SI);
         public static ThermalResistance NaN => new(double.NaN, ThermalResistanceUnit.SI);

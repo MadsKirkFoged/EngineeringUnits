@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(LapseRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(LapseRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public LapseRate ToUnit(LapseRateUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static LapseRate Zero => new(0, LapseRateUnit.SI);
         public static LapseRate NaN => new(double.NaN, LapseRateUnit.SI);

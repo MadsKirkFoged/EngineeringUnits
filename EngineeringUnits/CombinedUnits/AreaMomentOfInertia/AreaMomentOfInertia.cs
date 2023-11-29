@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AreaMomentOfInertiaUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(AreaMomentOfInertiaUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public AreaMomentOfInertia ToUnit(AreaMomentOfInertiaUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static AreaMomentOfInertia Zero => new(0, AreaMomentOfInertiaUnit.SI);
         public static AreaMomentOfInertia NaN => new(double.NaN, AreaMomentOfInertiaUnit.SI);

@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricChargeDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(ElectricChargeDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public ElectricChargeDensity ToUnit(ElectricChargeDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricChargeDensity Zero => new(0, ElectricChargeDensityUnit.SI);
         public static ElectricChargeDensity NaN => new(double.NaN, ElectricChargeDensityUnit.SI);

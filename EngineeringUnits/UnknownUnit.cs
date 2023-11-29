@@ -153,5 +153,7 @@ namespace EngineeringUnits
             BaseUnit.UnitCheck(a);
         }
 
+        public double As(UnitSystem b) => BaseUnit.GetValueAsDouble(b);
+
     }
 }

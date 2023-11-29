@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(SpecificVolumeUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(SpecificVolumeUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public SpecificVolume ToUnit(SpecificVolumeUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static SpecificVolume Zero => new(0, SpecificVolumeUnit.SI);
         public static SpecificVolume NaN => new(double.NaN, SpecificVolumeUnit.SI);

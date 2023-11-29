@@ -292,18 +292,6 @@ namespace EngineeringUnits
             return a.Select(x => x.Abs());
         }
 
-        public static double As(this BaseUnit a, IUnitSystem b)
-        {
-            return a.As(b.Unit);
-        }
-        public static double As(this BaseUnit a, UnitSystem b)
-        {
-            return (double)a.GetValueAs(b);
-        }
-        public static double As(this UnknownUnit a, IUnitSystem b)
-        {
-            return a.BaseUnit.As(b);
-        }
 
         public static UnknownUnit ToUnit(this BaseUnit a, IUnitSystem selectedUnit)
         {

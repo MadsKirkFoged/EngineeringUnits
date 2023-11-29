@@ -158,7 +158,7 @@ namespace EngineeringUnits
         public static UnitSystem operator /(UnitTypebase left, UnitSystem right) => left.Unit / right;
         public static UnitSystem operator /(UnitSystem left, UnitTypebase right) => left / right.Unit;
 
+        public static implicit operator UnitSystem(UnitTypebase unit) => unit.Unit;
 
-        
     }
 }

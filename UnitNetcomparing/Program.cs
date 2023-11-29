@@ -25,6 +25,8 @@ public class Program
         var massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
         MassFlow massFlow1 = (massFlow * 0.1) + massFlow;
 
+        var test = massFlow1.As(massFlow.Unit);
+
         var m1 = new Mass(1, MassUnit.Kilogram);
         var d1 = new Duration(12, DurationUnit.Second);
 

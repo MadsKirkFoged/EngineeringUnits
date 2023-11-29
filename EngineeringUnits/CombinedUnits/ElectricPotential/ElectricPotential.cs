@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricPotentialUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(ElectricPotentialUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public ElectricPotential ToUnit(ElectricPotentialUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);
         public static ElectricPotential NaN => new(double.NaN, ElectricPotentialUnit.SI);

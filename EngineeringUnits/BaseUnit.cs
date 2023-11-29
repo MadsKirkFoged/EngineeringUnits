@@ -466,7 +466,6 @@ namespace EngineeringUnits
                 return this;
         }
 
-
         public decimal GetBaseValue()
         {
             if (Unit.IsSIUnit())
@@ -475,5 +474,9 @@ namespace EngineeringUnits
             return baseValue;
 
         }
+
+        public double As(UnitSystem b) => GetValueAsDouble(b);
+
+    
     }
 }

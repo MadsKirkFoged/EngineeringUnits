@@ -25,7 +25,7 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(LinearPowerDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(LinearPowerDensityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
         public LinearPowerDensity ToUnit(LinearPowerDensityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
         public static LinearPowerDensity Zero => new(0, LinearPowerDensityUnit.SI);
         public static LinearPowerDensity NaN => new(double.NaN, LinearPowerDensityUnit.SI);
