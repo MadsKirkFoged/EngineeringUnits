@@ -42,6 +42,12 @@ public class Program
     public static void Main(string[] args)
     {
 
+        var ppp = 1/0.000295299830714159m;
+
+        var ppp2 = new Fraction(1000000000000000000, 295299830714159);
+
+        var ppp3 = ppp2.ToDecimal();
+
         //Temperature L1 = Temperature.FromDegreesCelsius(0);
         //Temperature L2 = Temperature.FromDegreesFahrenheit(32);
 
