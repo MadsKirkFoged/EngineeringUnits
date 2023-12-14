@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(TorquePerLengthUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public TorquePerLength ToUnit(TorquePerLengthUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(TorquePerLengthUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public TorquePerLength ToUnit(TorquePerLengthUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static TorquePerLength Zero => new(0, TorquePerLengthUnit.SI);
         public static TorquePerLength NaN => new(double.NaN, TorquePerLengthUnit.SI);
 

@@ -17,8 +17,8 @@ namespace EngineeringUnits
         public ElectricPotentialAc(UnknownUnit value) : base(value) { }
 
         public static ElectricPotentialAc From(double value, ElectricPotentialUnit unit) => new(value, unit);
-        public double As(ElectricPotentialUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
-        public ElectricPotentialAc ToUnit(ElectricPotentialUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricPotentialUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ElectricPotentialAc ToUnit(ElectricPotentialUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricPotentialAc Zero => new(0, ElectricPotentialUnit.SI);
 
         public static implicit operator ElectricPotentialAc(UnknownUnit Unit) => new(Unit);

@@ -21,7 +21,7 @@ namespace EngineeringUnits
     {      
         public static readonly UnitSystem UnitsystemForDouble = new();
 
-        public string Symbol { get; init; }     
+        internal string Symbol { get; init; }     
 
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public readonly IReadOnlyList<RawUnit> ListOfUnits = new List<RawUnit>();
@@ -68,7 +68,7 @@ namespace EngineeringUnits
             if (_UnitsCount is null)
             {
                 _UnitsCount = ListOfUnits
-                                .Where(x => x.UnitType != BaseunitType.CombinedUnit)
+                                .Where(x => x.UnitType is not BaseunitType.CombinedUnit)
                                 .GroupBy(x => x.UnitType)
                                 .Select(x => (x.Key, x.Sum(x => x.Count)))
                                 .Where(x => x.Item2 != 0)
@@ -95,30 +95,19 @@ namespace EngineeringUnits
 
             return _sumConstant;
         }
-        public Fraction SumOfBConstants()
-        {
-            return ListOfUnits.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
-        }
 
         private static readonly object FactorLock = new object();
         public Fraction ConvertionFactor(UnitSystem To)
         {
-            //int hashCode = 512265997;
-            //unchecked
-            //{
-            //    hashCode = (hashCode * 18403087) ^ GetHashCode();
-            //    hashCode = (hashCode * 11270411) ^ To.GetHashCode();
-            //}
             lock (FactorLock)
             {
+                var Hashes = (GetHashCode(), To.GetHashCode());
 
-            var Hashes = (GetHashCode(), To.GetHashCode());
-
-            if (CacheFactorTest.TryGetValue(Hashes, out Fraction local))
-                return local;
+                if (CacheFactor.TryGetValue(Hashes, out Fraction local))
+                    return local;
 
                 var test = To.SumConstant() / SumConstant();
-                var AlreadyAdded = CacheFactorTest.TryAdd(Hashes, test);
+                var AlreadyAdded = CacheFactor.TryAdd(Hashes, test);
                 return test;
             }
         }
@@ -161,9 +150,9 @@ namespace EngineeringUnits
 
             var Hashes = (left.GetHashCode(), right.GetHashCode());
 
-            if (CacheMultiplyTest.TryGetValue(Hashes, out UnitSystem local))
+            if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
                 return local;
-            else if (CacheMultiplyTest.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
+            else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
                 return local2;
 
 
@@ -173,7 +162,7 @@ namespace EngineeringUnits
                             left.ListOfUnits.Concat(
                             right.ListOfUnits)));
 
-                var AlreadyAdded = CacheMultiplyTest.TryAdd(Hashes, test2);
+                var AlreadyAdded = CacheMultiply.TryAdd(Hashes, test2);
 
                 return test2;
 
@@ -225,7 +214,7 @@ namespace EngineeringUnits
 
             var Hashes = (left.GetHashCode(), right.GetHashCode());
 
-            if (CacheDivideTest.TryGetValue(Hashes, out UnitSystem local))
+            if (CacheDivide.TryGetValue(Hashes, out UnitSystem local))
                 return local;
 
 
@@ -236,7 +225,7 @@ namespace EngineeringUnits
 
                 var DividedUnit = new UnitSystem(LocalUnitList);
 
-                var AlreadyAdded = CacheDivideTest.TryAdd(Hashes, DividedUnit);
+                var AlreadyAdded = CacheDivide.TryAdd(Hashes, DividedUnit);
 
                 return DividedUnit;
             }
@@ -306,46 +295,7 @@ namespace EngineeringUnits
 
             return NewUnitList;
         }
-        public UnitSystem Sqrt()
-        {
-
-            var NewUnitList = new List<RawUnit>();
-
-            foreach (var item in ListOfUnits.Where(x => x.UnitType is not BaseunitType.CombinedUnit))
-            {
-                if (item.Count % 2 != 0)                
-                    throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
-
-                NewUnitList.Add(item.CloneWithNewCount(item.Count/2));
-            }
-
-            var combinedUnit = ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit).FirstOrDefault();
-
-            if (combinedUnit is not null)
-            {
-
-                var dimensionless = new RawUnit()
-                {
-                    Symbol=null,
-                    A = combinedUnit.A.Sqrt(),
-                    UnitType = BaseunitType.CombinedUnit,
-                    B = 0,
-                    Count = 1,
-                };
-
-                NewUnitList.Add(dimensionless);
-
-
-            }
-            
-
-
-
-
-
-
-            return new(NewUnitList);       
-        }
+        
        
         public override int GetHashCode()
         {
@@ -431,43 +381,22 @@ namespace EngineeringUnits
         public bool IsSIUnit()
         {
             if (isSIUnit is null)            
-                isSIUnit = ListOfUnits.All(x => x.IsSI);
-            
+                isSIUnit = ListOfUnits.All(x => x.IsSI);            
 
-            //return ListOfUnits.All(x=> x.IsSI);
+
             return (bool)isSIUnit;
         }
 
-        //public bool DoesIncludeTemperature()
-        //{
-        //    return ListOfUnits.Any(x => x.UnitType is BaseunitType.temperature);
-        //}
-
-        public UnitSystem GetSIUnitsystem()
-        {
-
-            var SIUnitList = new List<RawUnit>();
-
-            //var test  = ListOfUnits.Select(x => x.CloneAsSI());
-
-            foreach (var item in ListOfUnits)
-            {
-                SIUnitList.Add(item.CloneAsSI());
-            }
-
-            return new UnitSystem(SIUnitList);
-        }
-
         //Cache
-        private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivideTest = new();
-        private static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheMultiplyTest = new();
-        private static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactorTest = new();
+        internal static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivide = new();
+        internal static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheMultiply = new();
+        internal static readonly ConcurrentDictionary<(int,int), Fraction> CacheFactor = new();
 
-        private List<(BaseunitType Key, int Value)> _UnitsCount;
-        private int HashCode;
-        private Fraction _sumConstant;
-        private int HashCodeForUnitCompare;
-        private bool? isSIUnit = null;
+        internal List<(BaseunitType Key, int Value)> _UnitsCount;
+        internal int HashCode;
+        internal Fraction _sumConstant;
+        internal int HashCodeForUnitCompare;
+        internal bool? isSIUnit = null;
 
     }
 }

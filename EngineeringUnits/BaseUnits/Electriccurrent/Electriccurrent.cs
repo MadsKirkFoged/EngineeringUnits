@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricCurrentUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricCurrentUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public ElectricCurrent ToUnit(ElectricCurrentUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricCurrent Zero => new(0, ElectricCurrentUnit.SI);
         public static ElectricCurrent NaN => new(double.NaN, ElectricCurrentUnit.SI);
 

@@ -90,8 +90,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(VariableUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Variable ToUnit(VariableUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(VariableUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Variable ToUnit(VariableUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Variable Zero => new(0, VariableUnit.SI);
         public static Variable NaN => new(double.NaN, VariableUnit.SI);
 

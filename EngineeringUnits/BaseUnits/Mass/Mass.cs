@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(MassUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Mass ToUnit(MassUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(MassUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Mass ToUnit(MassUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Mass Zero => new(0, MassUnit.SI);
         public static Mass NaN => new(double.NaN, MassUnit.SI);
 

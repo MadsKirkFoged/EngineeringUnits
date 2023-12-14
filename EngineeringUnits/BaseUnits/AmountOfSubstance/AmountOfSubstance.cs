@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AmountOfSubstanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(AmountOfSubstanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public AmountOfSubstance ToUnit(AmountOfSubstanceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static AmountOfSubstance Zero => new(0, AmountOfSubstanceUnit.SI);
         public static AmountOfSubstance NaN => new(double.NaN, AmountOfSubstanceUnit.SI);
 

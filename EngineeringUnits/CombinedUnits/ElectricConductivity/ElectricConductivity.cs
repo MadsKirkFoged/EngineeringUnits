@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricConductivityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public ElectricConductivity ToUnit(ElectricConductivityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricConductivityUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public ElectricConductivity ToUnit(ElectricConductivityUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricConductivity Zero => new(0, ElectricConductivityUnit.SI);
         public static ElectricConductivity NaN => new(double.NaN, ElectricConductivityUnit.SI);
 

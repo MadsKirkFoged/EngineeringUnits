@@ -15,8 +15,8 @@ namespace EngineeringUnits
         public ElectricConductance(UnknownUnit value, ElectricConductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static ElectricConductance From(double value, ElectricConductanceUnit unit) => new(value, unit);
-        public double As(ElectricConductanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
-        public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricConductanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
+        public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricConductance Zero => new(0, ElectricConductanceUnit.SI);
 
         public static implicit operator ElectricConductance(UnknownUnit Unit) => new(Unit);

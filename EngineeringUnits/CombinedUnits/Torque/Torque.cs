@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(TorqueUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Torque ToUnit(TorqueUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(TorqueUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Torque ToUnit(TorqueUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Torque Zero => new(0, TorqueUnit.SI);
         public static Torque NaN => new(double.NaN, TorqueUnit.SI);
 

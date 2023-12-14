@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(SpecificHeatCapacityUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public SpecificHeatCapacity ToUnit(SpecificHeatCapacityUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(SpecificHeatCapacityUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public SpecificHeatCapacity ToUnit(SpecificHeatCapacityUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static SpecificHeatCapacity Zero => new(0, SpecificHeatCapacityUnit.SI);
         public static SpecificHeatCapacity NaN => new(double.NaN, SpecificHeatCapacityUnit.SI);
 

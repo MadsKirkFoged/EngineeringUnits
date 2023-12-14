@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ReactivePowerUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public ReactivePower ToUnit(ReactivePowerUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ReactivePowerUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public ReactivePower ToUnit(ReactivePowerUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ReactivePower Zero => new(0, ReactivePowerUnit.SI);
         public static ReactivePower NaN => new(double.NaN, ReactivePowerUnit.SI);
 

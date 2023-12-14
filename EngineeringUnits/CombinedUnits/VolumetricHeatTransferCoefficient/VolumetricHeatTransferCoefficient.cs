@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(VolumetricHeatTransferCoefficientUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public VolumetricHeatTransferCoefficient ToUnit(VolumetricHeatTransferCoefficientUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(VolumetricHeatTransferCoefficientUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public VolumetricHeatTransferCoefficient ToUnit(VolumetricHeatTransferCoefficientUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static VolumetricHeatTransferCoefficient Zero => new(0, VolumetricHeatTransferCoefficientUnit.SI);
         public static VolumetricHeatTransferCoefficient NaN => new(double.NaN, VolumetricHeatTransferCoefficientUnit.SI);
 

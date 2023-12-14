@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(RatioUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Ratio ToUnit(RatioUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(RatioUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Ratio ToUnit(RatioUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Ratio Zero => new(0, RatioUnit.SI);
         public static Ratio NaN => new(double.NaN, RatioUnit.SI);
 

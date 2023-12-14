@@ -35,7 +35,7 @@ namespace EngineeringUnits
 
             //Forcing all temperatures to stay in kelvin for calculations
 
-            NEWValue = GetValueAs(TemperatureUnit.Kelvin.Unit);
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
@@ -69,7 +69,7 @@ namespace EngineeringUnits
 
             //Forcing all temperatures to stay in kelvin
             Unit = selectedUnit.Unit;
-            NEWValue = GetValueAs(TemperatureUnit.Kelvin.Unit);
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
@@ -87,7 +87,7 @@ namespace EngineeringUnits
             }
 
             //Forcing all temperatures to stay in kelvin for calculations
-            NEWValue = GetValueAs(TemperatureUnit.Kelvin.Unit);
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
             Unit = TemperatureUnit.Kelvin.Unit;
 
         }
@@ -106,11 +106,11 @@ namespace EngineeringUnits
 
         public static Temperature From(double value, TemperatureUnit unit) => new(value, unit);
 
-        public double As(TemperatureUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
+        public double As(TemperatureUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
 
         public Temperature ToUnit(TemperatureUnit selectedUnit)
         {
-            return new Temperature(GetValueAs(selectedUnit.Unit), selectedUnit, false);
+            return new Temperature(this.GetValueAs(selectedUnit.Unit), selectedUnit, false);
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
 

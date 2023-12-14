@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AreaUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Area ToUnit(AreaUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(AreaUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Area ToUnit(AreaUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Area Zero => new(0, AreaUnit.SI);
         public static Area NaN => new(double.NaN, AreaUnit.SI);
 

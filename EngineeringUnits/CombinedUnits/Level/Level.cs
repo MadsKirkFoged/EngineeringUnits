@@ -15,8 +15,8 @@ namespace EngineeringUnits
         public Level(UnknownUnit value, LevelUnit selectedUnit) : base(value, selectedUnit.Unit) { }
 
         public static Level From(double value, LevelUnit unit) => new(value, unit);
-        public double As(LevelUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
-        public Level ToUnit(LevelUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(LevelUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Level ToUnit(LevelUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Level Zero => new(0, LevelUnit.SI);
 
         public static implicit operator Level(UnknownUnit Unit) => new(Unit);

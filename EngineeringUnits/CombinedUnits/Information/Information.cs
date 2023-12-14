@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(InformationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Information ToUnit(InformationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(InformationUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Information ToUnit(InformationUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Information Zero => new(0, InformationUnit.SI);
         public static Information NaN => new(double.NaN, InformationUnit.SI);
 

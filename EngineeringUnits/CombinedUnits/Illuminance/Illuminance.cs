@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(IlluminanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Illuminance ToUnit(IlluminanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(IlluminanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Illuminance ToUnit(IlluminanceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Illuminance Zero => new(0, IlluminanceUnit.SI);
         public static Illuminance NaN => new(double.NaN, IlluminanceUnit.SI);
 

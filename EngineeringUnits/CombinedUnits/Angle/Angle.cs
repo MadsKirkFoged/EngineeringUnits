@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(AngleUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Angle ToUnit(AngleUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(AngleUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Angle ToUnit(AngleUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Angle Zero => new(0, AngleUnit.SI);
         public static Angle NaN => new(double.NaN, AngleUnit.SI);
 

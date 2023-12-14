@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(DurationUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Duration ToUnit(DurationUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(DurationUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Duration ToUnit(DurationUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Duration Zero => new(0, DurationUnit.SI);
         public static Duration NaN => new(double.NaN, DurationUnit.SI);
 

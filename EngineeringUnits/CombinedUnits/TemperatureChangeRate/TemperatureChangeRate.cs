@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(TemperatureChangeRateUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public TemperatureChangeRate ToUnit(TemperatureChangeRateUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(TemperatureChangeRateUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public TemperatureChangeRate ToUnit(TemperatureChangeRateUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static TemperatureChangeRate Zero => new(0, TemperatureChangeRateUnit.SI);
         public static TemperatureChangeRate NaN => new(double.NaN, TemperatureChangeRateUnit.SI);
 

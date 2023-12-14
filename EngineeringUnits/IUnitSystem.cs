@@ -4,9 +4,9 @@ using System.Text;
 
 namespace EngineeringUnits
 {
-    public interface IUnitSystem
-    {
-        public UnitSystem Unit { get; init; }
+    //public interface IUnitSystem
+    //{
+    //    public UnitSystem Unit { get; init; }
 
-    }
+    //}
 }

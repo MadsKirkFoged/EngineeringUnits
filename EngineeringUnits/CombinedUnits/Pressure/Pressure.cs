@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(PressureUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit.Unit);
-        public Pressure ToUnit(PressureUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit, Reference);
+        public double As(PressureUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
+        public Pressure ToUnit(PressureUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit, Reference);
         public static Pressure Zero => new(0, PressureUnit.SI);
         public static Pressure NaN => new(double.NaN, PressureUnit.SI);
 

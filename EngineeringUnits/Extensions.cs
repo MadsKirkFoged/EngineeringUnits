@@ -12,6 +12,15 @@ namespace EngineeringUnits
     public static class Extensions
     {
 
+        public static bool IsValueOverDecimalMax(this double value)
+        {
+            return double.IsInfinity(value) ||
+                    value > (double)decimal.MaxValue ||
+                    value < (double)decimal.MinValue ||
+                    double.IsNaN(value);
+        }
+
+
         /// <summary>
         /// Returns the square root your unit.<br></br>
         /// <example>

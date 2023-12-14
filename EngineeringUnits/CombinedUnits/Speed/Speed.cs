@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(SpeedUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Speed ToUnit(SpeedUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(SpeedUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Speed ToUnit(SpeedUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Speed Zero => new(0, SpeedUnit.SI);
         public static Speed NaN => new(double.NaN, SpeedUnit.SI);
 

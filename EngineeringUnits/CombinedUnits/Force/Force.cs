@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ForceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public Force ToUnit(ForceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ForceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public Force ToUnit(ForceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static Force Zero => new(0, ForceUnit.SI);
         public static Force NaN => new(double.NaN, ForceUnit.SI);
 

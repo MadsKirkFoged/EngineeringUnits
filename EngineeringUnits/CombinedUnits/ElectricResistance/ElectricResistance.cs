@@ -25,8 +25,8 @@ namespace EngineeringUnits
 
             return From((double)value, unit);
         }
-        public double As(ElectricResistanceUnit ReturnInThisUnit) => GetValueAsDouble(ReturnInThisUnit);
-        public ElectricResistance ToUnit(ElectricResistanceUnit selectedUnit) => new(GetValueAs(selectedUnit.Unit), selectedUnit);
+        public double As(ElectricResistanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+        public ElectricResistance ToUnit(ElectricResistanceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         public static ElectricResistance Zero => new(0, ElectricResistanceUnit.SI);
         public static ElectricResistance NaN => new(double.NaN, ElectricResistanceUnit.SI);
 

@@ -59,11 +59,11 @@ namespace EngineeringUnits
 
         public static TemperatureDelta From(double value, TemperatureUnit unit) => new(value, unit);
 
-        public double As(TemperatureUnit ReturnInThisUnit) => (double)GetValueAs(ReturnInThisUnit.Unit);
+        public double As(TemperatureUnit ReturnInThisUnit) => (double)this.GetValueAs(ReturnInThisUnit.Unit);
 
         public TemperatureDelta ToUnit(TemperatureUnit selectedUnit)
         {
-            return new TemperatureDelta(GetValueAs(selectedUnit.Unit), selectedUnit);
+            return new TemperatureDelta(this.GetValueAs(selectedUnit.Unit), selectedUnit);
         }
         public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);
 

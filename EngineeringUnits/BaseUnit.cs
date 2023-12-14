@@ -17,7 +17,7 @@ namespace EngineeringUnits
         internal UnitSystem Unit { get; init; }
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => (double)GetBaseValue();
+        public double Value => (double)this.GetBaseValue();
         internal decimal NEWValue { get; init; }
 
         public BaseUnit() { }
@@ -36,7 +36,7 @@ namespace EngineeringUnits
                 return;
             }
 
-            if (IsValueOverDecimalMax(value))
+            if (value.IsValueOverDecimalMax())
             {
                 Inf = true;
                 return;
@@ -328,50 +328,6 @@ namespace EngineeringUnits
             return $"{value}{unit}";
         }
 
-        private decimal ConvertValueInto(BaseUnit From)
-        {
-            Fraction Factor = From.Unit.ConvertionFactor(Unit);
-
-            return (decimal)(Factor * (Fraction)NEWValue);
-        }
-
-        public decimal GetValueAs(UnitSystem To)
-        {
-            Fraction b1 = Unit.SumOfBConstants();
-            Fraction b2 = To.SumOfBConstants();
-            Fraction Factor = To.ConvertionFactor(Unit);
-
-            Fraction y2test2;
-
-            if (b1.IsZero && b2.IsZero)
-            {
-                y2test2 = Factor * (Fraction)NEWValue;
-            }
-            else
-            {
-                Fraction b3test2 = (Factor * (b1 * -1)) + b2;
-                y2test2 = (Factor * (Fraction)NEWValue) + b3test2;
-
-            }
-
-            //Fraction b3test2 = Factor * (b1 * -1) + b2;
-            //y2test2 = Factor * (Fraction)NEWValue + b3test2;    
-
-            return (decimal)y2test2;
-        }
-        public double GetValueAsDouble(UnitSystem To)
-        {
-            if (IsNaN)
-                return double.NaN;
-
-            if (Inf)
-                return double.PositiveInfinity;
-
-            return (double)GetValueAs(To);
-        }
-
-        public string DisplaySymbol() => Unit.ReduceUnits().ToString();
-
         public override int GetHashCode()
         {
             HashCode hashCode = new();
@@ -401,14 +357,6 @@ namespace EngineeringUnits
             return $"{_unit}";
 
             //return null;
-        }
-
-        private static bool IsValueOverDecimalMax(double value)
-        {
-            return double.IsInfinity(value) ||
-                    value > (double)decimal.MaxValue ||
-                    value < (double)decimal.MinValue ||
-                    double.IsNaN(value);
         }
 
         public override bool Equals(object obj)
@@ -447,18 +395,6 @@ namespace EngineeringUnits
                 >0m => 1,
             };
         }
-
-        public decimal GetBaseValue()
-        {
-            if (Unit.IsSIUnit())
-                return NEWValue;
-
-            return (decimal)(Unit.SumConstant() * (Fraction)NEWValue);
-
-        }
-
-        public double As(UnitSystem b) => GetValueAsDouble(b);
-
     
     }
 }
