@@ -22,8 +22,10 @@ public class Extensiontest
 
         Area area = SI * NonSI;
 
-        Assert.AreEqual("mh", area.Unit.ToString());
-        Assert.AreEqual("m²", area.Unit.ReduceUnitsHard().ToString());
+        UnitSystem unitSystem = area;
+
+        Assert.AreEqual("mh", unitSystem.ToString());
+        Assert.AreEqual("m²", unitSystem.ReduceUnitsHard().ToString());
     }
 
 
@@ -35,9 +37,11 @@ public class Extensiontest
 
         Area area = SI * SI2;
 
-        Assert.AreEqual(2, area.Unit.ListOfUnits.Count());
-        Assert.AreEqual(2, area.Unit.ReduceUnits().ListOfUnits.Count());
-        Assert.AreEqual(1, area.Unit.ReduceUnitsHard().ListOfUnits.Count());
+        UnitSystem unitSystem = area;
+
+        Assert.AreEqual(2, unitSystem.ListOfUnits.Count());
+        Assert.AreEqual(2, unitSystem.ReduceUnits().ListOfUnits.Count());
+        Assert.AreEqual(1, unitSystem.ReduceUnitsHard().ListOfUnits.Count());
     }
 
     //Create test for ToUnit

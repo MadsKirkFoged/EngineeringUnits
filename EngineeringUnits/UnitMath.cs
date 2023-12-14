@@ -18,7 +18,7 @@ namespace EngineeringUnits
 
         public static UnknownUnit Sum(IEnumerable<BaseUnit> list)
         {
-            UnknownUnit test = new(0m, list.First().Unit);
+            UnknownUnit test = new(0m, list.First());
 
             foreach (var item in list)        
                 test += item;

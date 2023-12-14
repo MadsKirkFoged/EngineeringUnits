@@ -19,30 +19,37 @@ public class Program
     public static readonly Length L1 = Length.FromSI(2);
     public static readonly Temperature T1 = Temperature.FromSI(4);
 
-    private static async Task<MassFlow> TestFucntion()
+    //private static async Task<MassFlow> TestFucntion()
+    //{
+
+    //    var massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
+    //    MassFlow massFlow1 = (massFlow * 0.1) + massFlow;
+
+    //    var test = massFlow1.As(massFlow);
+
+    //    var m1 = new Mass(1, MassUnit.Kilogram);
+    //    var d1 = new Duration(12, DurationUnit.Second);
+
+    //    MassFlow m3 = m1 / d1;
+
+    //    massFlow1 += m3;
+
+    //    await Task.Delay(0);
+
+    //    return massFlow1;
+    //}
+
+    public static void Main()
     {
 
-        var massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
-        MassFlow massFlow1 = (massFlow * 0.1) + massFlow;
 
-        var test = massFlow1.As(massFlow.Unit);
+        Power PZero = Power.Zero;
 
-        var m1 = new Mass(1, MassUnit.Kilogram);
-        var d1 = new Duration(12, DurationUnit.Second);
 
-        MassFlow m3 = m1 / d1;
+        var PZero2 = PZero.Kilowatt;
 
-        massFlow1 += m3;
 
-        await Task.Delay(0);
-
-        return massFlow1;
-    }
-
-    public static void Main(string[] args)
-    {
-
-        var ppp = 1/0.000295299830714159m;
+        //var ppp = 1/0.000295299830714159m;
 
         var ppp2 = new Fraction(1000000000000000000, 295299830714159);
 
@@ -55,7 +62,7 @@ public class Program
         Console.WriteLine($"{Length.FromMeter(1000) == Length.FromKilometer(1)}"); //True
         Console.WriteLine($"{Temperature.FromDegreesCelsius(0) == Temperature.FromKelvins(0)}"); //false
         Console.WriteLine($"{Temperature.FromDegreesCelsius(0) == Temperature.FromDegreesFahrenheit(32)}"); //True
-        Console.WriteLine($"{Length.FromFeet(3) == Length.FromYard(1)}"); //True
+        Console.WriteLine($"{Length.FromFoot(3) == Length.FromYard(1)}"); //True
 
         UnitSystem unitt = TemperatureUnit.DegreeFahrenheit;
 
@@ -63,34 +70,34 @@ public class Program
         var TT = Temperature.FromDegreesFahrenheit(32);
 
 
-        double nantest = new Mass(double.NaN, MassUnit.SI).SI;
+        var nantest = new Mass(double.NaN, MassUnit.SI).SI;
 
-        double nantest2 =  Mass.FromCentigram(double.NaN).Grain;
-
-
-        Jerk jerk1 = new Jerk(10, JerkUnit.MeterPerSecondCubed);
-        Jerk jerk2 = Jerk.FromCentimeterPerSecondCubed(10);
-        Jerk jerk3 = Length.FromMeter(2) / Duration.FromSecond(10).Pow(3);
-
-        Jerk jerk4 = jerk1 + jerk2 +jerk3;
+        var nantest2 =  Mass.FromCentigram(double.NaN).Grain;
 
 
+        var jerk1 = new Jerk(10, JerkUnit.MeterPerSecondCubed);
+        var jerk2 = Jerk.FromCentimeterPerSecondCubed(10);
+        var jerk3 = Length.FromMeter(2) / Duration.FromSecond(10).Pow(3);
 
-        SpecificEnergy specificEnergy1 = SpecificEnergy.FromJoulePerKilogram(1000);
-        SpecificEnergy specificEnergy2 = SpecificEnergy.FromJoulePerKilogram(2000);
+        var jerk4 = jerk1 + jerk2 +jerk3;
+
+
+
+        var specificEnergy1 = SpecificEnergy.FromJoulePerKilogram(1000);
+        var specificEnergy2 = SpecificEnergy.FromJoulePerKilogram(2000);
 
 
         MassFlow massflow0 = Power.FromKilowatt(100) / (specificEnergy2- specificEnergy1);
 
-        string teste = massflow0.ToString();
+        var teste = massflow0.ToString();
 
 
-        MassFlow massflow1 = new MassFlow(1, MassFlowUnit.SI);
+        var massflow1 = new MassFlow(1, MassFlowUnit.SI);
 
-        MassFlow massflow2 = MassFlow.FromKilogramPerSecond(1);
+        var massflow2 = MassFlow.FromKilogramPerSecond(1);
 
-        Mass mass1 = new Mass(1, MassUnit.Kilogram);
-        Duration duration1 = new Duration(1, DurationUnit.SI);
+        var mass1 = new Mass(1, MassUnit.Kilogram);
+        var duration1 = new Duration(1, DurationUnit.SI);
 
         MassFlow massflow3 = mass1/duration1;
 
@@ -449,17 +456,17 @@ public class Program
             foreach (UnknownUnit item in test111)
                 Debug.Print($"{item}");
 
-            Debug.Print(L2.Unit.GetHashCode().ToString());
-            Debug.Print(L5.Unit.GetHashCode().ToString());
-            Debug.Print(L6.Unit.GetHashCode().ToString());
-            Debug.Print(L7.Unit.GetHashCode().ToString());
+            //Debug.Print(L2.Unit.GetHashCode().ToString());
+            //Debug.Print(L5.Unit.GetHashCode().ToString());
+            //Debug.Print(L6.Unit.GetHashCode().ToString());
+            //Debug.Print(L7.Unit.GetHashCode().ToString());
 
             Area Lmix = L2 * L5;
 
             Length SqrtTest2 = Lmix.Sqrt();
 
-            UnitSystem local = Lmix.Unit.ReduceUnits();
-            UnitSystem local2 = Lmix.Unit.ReduceUnitsHard();
+            //UnitSystem local = Lmix.Unit.ReduceUnits();
+            //UnitSystem local2 = Lmix.Unit.ReduceUnitsHard();
 
             var L10 = Length.FromSI(10);
 

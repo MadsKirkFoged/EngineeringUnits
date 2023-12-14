@@ -252,7 +252,7 @@ namespace EngineeringUnits
 
 
             //Creates all positive symbols
-            string local = ListOfUnits
+            var local = ListOfUnits
                 .Where(x => x.Count > 0)
                 .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
 
@@ -367,7 +367,7 @@ namespace EngineeringUnits
             Fraction aNewC;
             BaseunitType aType;            
 
-            bool equal = false;
+            var equal = false;
 
 
             if (a.ListOfUnits.Count != b.ListOfUnits.Count)
@@ -376,13 +376,13 @@ namespace EngineeringUnits
             }
             else
             {
-                for (int i = 0; i < a.ListOfUnits.Count; i++)
+                for (var i = 0; i < a.ListOfUnits.Count; i++)
                 {
                     aCount = a.ListOfUnits[i].Count;
-                    decimal aB = a.ListOfUnits[i].B;
+                    var aB = a.ListOfUnits[i].B;
                     aNewC = a.ListOfUnits[i].A;
                     aType = a.ListOfUnits[i].UnitType;
-                    for ( int j=0; j <b.ListOfUnits.Count; j++)
+                    for (var j = 0; j <b.ListOfUnits.Count; j++)
                     {
 
                         if (aCount == b.ListOfUnits[i].Count &&
@@ -446,7 +446,7 @@ namespace EngineeringUnits
         public UnitSystem GetSIUnitsystem()
         {
 
-            List<RawUnit> SIUnitList = new List<RawUnit>();
+            var SIUnitList = new List<RawUnit>();
 
             //var test  = ListOfUnits.Select(x => x.CloneAsSI());
 

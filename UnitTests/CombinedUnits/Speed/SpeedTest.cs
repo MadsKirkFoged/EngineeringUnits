@@ -15,15 +15,15 @@ namespace UnitTests
             Length L1 = new(100, LengthUnit.Meter);
             Duration D1 = new(10, DurationUnit.Second);
 
-            string jsonString = JsonConvert.SerializeObject(L1);
+            var jsonString = JsonConvert.SerializeObject(L1);
             Length L1JSON = JsonConvert.DeserializeObject<Length>(jsonString);
 
-            string jsonString2 = JsonConvert.SerializeObject(D1);
+            var jsonString2 = JsonConvert.SerializeObject(D1);
             Length D1JSON = JsonConvert.DeserializeObject<Length>(jsonString2);
 
             Speed S1 = L1JSON / D1JSON;
 
-            string jsonString3 = JsonConvert.SerializeObject(S1);
+            var jsonString3 = JsonConvert.SerializeObject(S1);
             Speed S1JSON = JsonConvert.DeserializeObject<Speed>(jsonString3);
 
 
@@ -60,7 +60,7 @@ namespace UnitTests
         public void SpeedOperatorTest()
         {
             Speed speed = Length.FromCentimeter(255)/Duration.FromMinute(30);
-            Assert.AreEqual("cm/min", speed.Unit.ToString());
+            Assert.AreEqual("cm/min", speed.ToString("UnitOnly"));
         }
     }
 }

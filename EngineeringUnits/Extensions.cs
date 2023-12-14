@@ -26,7 +26,7 @@ namespace EngineeringUnits
                 return null;
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            decimal value = a.BaseUnit.GetValueAs(NewUnitSystem);
+            var value = a.BaseUnit.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
@@ -45,7 +45,7 @@ namespace EngineeringUnits
                 return null;
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            decimal value = a.GetValueAs(NewUnitSystem);
+            var value = a.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
@@ -85,7 +85,7 @@ namespace EngineeringUnits
                     foreach (var item in groupOfSameConstant)
                     {
 
-                        int NewCount = item.Sum(x => x.Count);
+                        var NewCount = item.Sum(x => x.Count);
 
                         RawUnit NewUnit = item.First().CloneWithNewCount(NewCount);
 
@@ -128,7 +128,7 @@ namespace EngineeringUnits
                 }
                 else
                 {
-                    int TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
+                    var TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
                     NewUnitList.Add(GroupOfTypes.First().CloneWithNewCount(TotalCount));
 
                 }
@@ -154,13 +154,16 @@ namespace EngineeringUnits
             // The result of the calculations will differ from an actual value
             // of the root on less than epslion.
 
-            if (x < 0) throw new OverflowException("Cannot calculate square root from a negative number");
+            if (x < 0)
+                throw new OverflowException("Cannot calculate square root from a negative number");
 
             decimal current = (decimal)Math.Sqrt((double)x), previous;
             do
             {
                 previous = current;
-                if (previous == 0.0M) return 0;
+                if (previous == 0.0M)
+                    return 0;
+
                 current = (previous + x / previous) / 2;
             }
             while (Math.Abs(previous - current) > epsilon);
@@ -177,7 +180,7 @@ namespace EngineeringUnits
             const string SuperscriptDigits =
                 "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079";
 
-            string Superscript = "";
+            var Superscript = "";
 
             if (number < 0)
             {
@@ -223,14 +226,14 @@ namespace EngineeringUnits
                 return test;
 
             //Count current decimals
-            int CurrentCount = test.Count(x => x is not '.' and not '-');
+            var CurrentCount = test.Count(x => x is not '.' and not '-');
 
             //If we want more precision than we have
             if (CurrentCount <= count)
                 return test;
 
             //Count before dot
-            int dotIndex = test.IndexOf('.');
+            var dotIndex = test.IndexOf('.');
 
             //If it is negative value we apply a offset
             if (test.Any(x => x == '-'))            
@@ -244,7 +247,7 @@ namespace EngineeringUnits
                 PrecisionAfterDot = 0;            
 
             //Round
-            var test2 = Decimal.Round(local, PrecisionAfterDot, MidpointRounding.AwayFromZero);
+            var test2 = decimal.Round(local, PrecisionAfterDot, MidpointRounding.AwayFromZero);
 
             //Calling this method again incase it needs some Trim
             var test3 = test2.DisplaySignificantDigits(count);
@@ -442,7 +445,7 @@ namespace EngineeringUnits
             if (list is null || !list.Any())
                 return null;
 
-             return list.Aggregate(new UnknownUnit(0m, list.First().Unit),
+             return list.Aggregate(new UnknownUnit(0m, list.First()),
                                  (x, y) => x + y);
         }
         public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)

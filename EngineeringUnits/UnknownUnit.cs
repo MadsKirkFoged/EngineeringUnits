@@ -44,7 +44,7 @@ namespace EngineeringUnits
 
         public static implicit operator double(UnknownUnit Unit)
         {
-            if (UnitSystem.UnitsystemForDouble != Unit.BaseUnit.Unit)            
+            if (UnitSystem.UnitsystemForDouble != Unit.BaseUnit)            
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
@@ -114,10 +114,10 @@ namespace EngineeringUnits
 
         public override int GetHashCode() => BaseUnit.GetHashCode();
 
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
             //Check for null and compare run-time types.
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            if ((obj == null) || !GetType().Equals(obj.GetType()))
                 return false;
             else
                 return this == (UnknownUnit)obj;
@@ -131,7 +131,7 @@ namespace EngineeringUnits
 
         public int CompareTo(object obj)
         {
-            UnknownUnit local = (UnknownUnit)obj;
+            var local = (UnknownUnit)obj;
             return CompareTo(local);
         }
 

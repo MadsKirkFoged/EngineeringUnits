@@ -16,46 +16,38 @@ namespace UnitTests
         {
 
 
-            ClassWithUnits test = new ClassWithUnits();
-
-            test.massflow = MassFlow.FromKilogramPerSecond(10);            
+            var test = new ClassWithUnits
+            {
+                massflow = MassFlow.FromKilogramPerSecond(10)
+            };
 
             //Debug.WriteLine($"{test.massflow}");
             //Debug.WriteLine($"List count: {test.massflow.Unit.ListOfUnits.Count}");
 
 
-            string jsonString1 = JsonConvert.SerializeObject(test);
+            var jsonString1 = JsonConvert.SerializeObject(test);
             ClassWithUnits JSON = JsonConvert.DeserializeObject<ClassWithUnits>(jsonString1);
-            string jsonString2 = JsonConvert.SerializeObject(JSON);
+            //var jsonString2 = JsonConvert.SerializeObject(JSON);
+
+            UnitSystem unitSystem1 = test.massflow;
+            UnitSystem unitSystem = JSON.massflow;
 
 
-            foreach (var item in test.massflow.Unit.ListOfUnits)
+            foreach (var item in unitSystem.ListOfUnits)
             {
                 Debug.Print($"{item.GetType()}");
             }
 
-            foreach (var item in JSON.massflow.Unit.ListOfUnits)
+            foreach (var item in unitSystem.ListOfUnits)
             {
                 Debug.Print($"{item.GetType()}");
             }
 
             Debug.WriteLine($"{JSON.massflow}");
-            Debug.WriteLine($"List count: {JSON.massflow.Unit.ListOfUnits.Count}");
+            Debug.WriteLine($"List count: {unitSystem.ListOfUnits.Count}");
 
 
-            Assert.AreEqual(JSON.massflow.Unit.ListOfUnits.Count, test.massflow.Unit.ListOfUnits.Count);
-            //Assert.AreEqual(10000, A1.As(AreaUnit.SquareCentimeter));
-            //Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.SquareYard));
-
-            ////JSON
-            //Assert.AreEqual(1, JSON.As(AreaUnit.SquareMeter));
-            //Assert.AreEqual(10000, JSON.As(AreaUnit.SquareCentimeter));
-            //Assert.AreEqual(1.195990046301080256481500558, JSON.As(AreaUnit.SquareYard));
-
-
-            //Assert.AreEqual(jsonString1, jsonString2);
-
-
+            Assert.AreEqual(unitSystem.ListOfUnits.Count, unitSystem1.ListOfUnits.Count);
 
         }   
 

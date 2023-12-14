@@ -8,9 +8,9 @@ namespace EngineeringUnits
 
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
-            BaseUnit output = (BaseUnit) toCast;
-            UnitSystem unit = output.Unit;
-			if (toCast.Unit == AccelerationUnit.SI.Unit)
+            var output = (BaseUnit) toCast;
+            //_ = output.Unit;
+            if (toCast.Unit == AccelerationUnit.SI.Unit)
 			{
 				return (Acceleration) toCast;
 			}

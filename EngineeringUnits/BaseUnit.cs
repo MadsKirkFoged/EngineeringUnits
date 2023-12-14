@@ -12,13 +12,13 @@ namespace EngineeringUnits
     public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
-        protected bool Inf { get; init; }
-        protected bool IsNaN { get; init; }
-        public UnitSystem Unit { get; init; }
+        internal bool Inf { get; init; }
+        internal bool IsNaN { get; init; }
+        internal UnitSystem Unit { get; init; }
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)GetBaseValue();
-        protected decimal NEWValue { get; init; }
+        internal decimal NEWValue { get; init; }
 
         public BaseUnit() { }
         public BaseUnit(decimal value, UnitSystem unitSystem)
@@ -57,9 +57,7 @@ namespace EngineeringUnits
             NEWValue = unit.BaseUnit.NEWValue;
         }
 
-        //public decimal baseValue => (NEWValue * (decimal)Unit.SumConstant());
-        private decimal baseValue => (decimal)(Unit.SumConstant() * (Fraction)NEWValue); //This is very expensive to use!!
-
+       
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)
@@ -74,7 +72,6 @@ namespace EngineeringUnits
                     return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
 
                 return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
-
             }
             catch (OverflowException)
             {
@@ -451,29 +448,12 @@ namespace EngineeringUnits
             };
         }
 
-        //public UnknownUnit AbsIntern()
-        //{
-
-        //    if (Unit.IsSIUnit())
-        //    {
-        //        if (NEWValue > 0)
-        //            return this;
-        //        else
-        //            return this * -1;
-        //    }
-
-        //    if (baseValue < 0)
-        //        return this * -1;
-        //    else
-        //        return this;
-        //}
-
         public decimal GetBaseValue()
         {
             if (Unit.IsSIUnit())
                 return NEWValue;
 
-            return baseValue;
+            return (decimal)(Unit.SumConstant() * (Fraction)NEWValue);
 
         }
 
