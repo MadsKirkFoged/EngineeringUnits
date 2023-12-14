@@ -10,24 +10,28 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get MolarFlow from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarFlow FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new MolarFlow(value, MolarFlowUnit.SI);
-            }
-            /// <summary>
-            ///     Get MolarFlow from MolePerSecond.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarFlow FromMolePerSecond(double MolePerSecond)
-            {
-                double value= (double)MolePerSecond;
-                return new MolarFlow(value, MolarFlowUnit.MolePerSecond);
-            }
+        /// <summary>
+        ///     Get MolarFlow from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarFlow FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new MolarFlow((double)SI, MolarFlowUnit.SI);
+        }
+        /// <summary>
+        ///     Get MolarFlow from MolePerSecond.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarFlow FromMolePerSecond(double? MolePerSecond)
+        {
+            if (MolePerSecond is null)
+                return null;
+
+            return new MolarFlow((double)MolePerSecond, MolarFlowUnit.MolePerSecond);
+        }
     }
 }
 

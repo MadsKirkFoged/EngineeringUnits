@@ -42,6 +42,11 @@ public class Program
     public static void Main()
     {
 
+        double d = 0.00000000000;
+
+
+        double? aa = d;
+
 
         Power PZero = Power.Zero;
 

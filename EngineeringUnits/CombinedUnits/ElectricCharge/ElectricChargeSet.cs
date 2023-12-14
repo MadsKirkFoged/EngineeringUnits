@@ -10,60 +10,72 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get ElectricCharge from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new ElectricCharge(value, ElectricChargeUnit.SI);
-            }
-            /// <summary>
-            ///     Get ElectricCharge from Coulomb.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromCoulomb(double Coulomb)
-            {
-                double value= (double)Coulomb;
-                return new ElectricCharge(value, ElectricChargeUnit.Coulomb);
-            }
-            /// <summary>
-            ///     Get ElectricCharge from AmpereHour.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromAmpereHour(double AmpereHour)
-            {
-                double value= (double)AmpereHour;
-                return new ElectricCharge(value, ElectricChargeUnit.AmpereHour);
-            }
-            /// <summary>
-            ///     Get ElectricCharge from KiloampereHour.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromKiloampereHour(double KiloampereHour)
-            {
-                double value= (double)KiloampereHour;
-                return new ElectricCharge(value, ElectricChargeUnit.KiloampereHour);
-            }
-            /// <summary>
-            ///     Get ElectricCharge from MegaampereHour.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromMegaampereHour(double MegaampereHour)
-            {
-                double value= (double)MegaampereHour;
-                return new ElectricCharge(value, ElectricChargeUnit.MegaampereHour);
-            }
-            /// <summary>
-            ///     Get ElectricCharge from MilliampereHour.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ElectricCharge FromMilliampereHour(double MilliampereHour)
-            {
-                double value= (double)MilliampereHour;
-                return new ElectricCharge(value, ElectricChargeUnit.MilliampereHour);
-            }
+        /// <summary>
+        ///     Get ElectricCharge from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new ElectricCharge((double)SI, ElectricChargeUnit.SI);
+        }
+        /// <summary>
+        ///     Get ElectricCharge from Coulomb.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromCoulomb(double? Coulomb)
+        {
+            if (Coulomb is null)
+                return null;
+
+            return new ElectricCharge((double)Coulomb, ElectricChargeUnit.Coulomb);
+        }
+        /// <summary>
+        ///     Get ElectricCharge from AmpereHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromAmpereHour(double? AmpereHour)
+        {
+            if (AmpereHour is null)
+                return null;
+
+            return new ElectricCharge((double)AmpereHour, ElectricChargeUnit.AmpereHour);
+        }
+        /// <summary>
+        ///     Get ElectricCharge from KiloampereHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromKiloampereHour(double? KiloampereHour)
+        {
+            if (KiloampereHour is null)
+                return null;
+
+            return new ElectricCharge((double)KiloampereHour, ElectricChargeUnit.KiloampereHour);
+        }
+        /// <summary>
+        ///     Get ElectricCharge from MegaampereHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromMegaampereHour(double? MegaampereHour)
+        {
+            if (MegaampereHour is null)
+                return null;
+
+            return new ElectricCharge((double)MegaampereHour, ElectricChargeUnit.MegaampereHour);
+        }
+        /// <summary>
+        ///     Get ElectricCharge from MilliampereHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ElectricCharge FromMilliampereHour(double? MilliampereHour)
+        {
+            if (MilliampereHour is null)
+                return null;
+
+            return new ElectricCharge((double)MilliampereHour, ElectricChargeUnit.MilliampereHour);
+        }
     }
 }
 

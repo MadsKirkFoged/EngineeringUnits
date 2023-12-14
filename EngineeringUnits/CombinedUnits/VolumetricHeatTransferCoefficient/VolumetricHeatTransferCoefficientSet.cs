@@ -10,24 +10,28 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get VolumetricHeatTransferCoefficient from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static VolumetricHeatTransferCoefficient FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new VolumetricHeatTransferCoefficient(value, VolumetricHeatTransferCoefficientUnit.SI);
-            }
-            /// <summary>
-            ///     Get VolumetricHeatTransferCoefficient from WattPerCubicMeterKelvin.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static VolumetricHeatTransferCoefficient FromWattPerCubicMeterKelvin(double WattPerCubicMeterKelvin)
-            {
-                double value= (double)WattPerCubicMeterKelvin;
-                return new VolumetricHeatTransferCoefficient(value, VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
-            }
+        /// <summary>
+        ///     Get VolumetricHeatTransferCoefficient from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static VolumetricHeatTransferCoefficient FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new VolumetricHeatTransferCoefficient((double)SI, VolumetricHeatTransferCoefficientUnit.SI);
+        }
+        /// <summary>
+        ///     Get VolumetricHeatTransferCoefficient from WattPerCubicMeterKelvin.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static VolumetricHeatTransferCoefficient FromWattPerCubicMeterKelvin(double? WattPerCubicMeterKelvin)
+        {
+            if (WattPerCubicMeterKelvin is null)
+                return null;
+
+            return new VolumetricHeatTransferCoefficient((double)WattPerCubicMeterKelvin, VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
+        }
     }
 }
 

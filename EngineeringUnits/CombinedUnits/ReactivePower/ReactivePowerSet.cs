@@ -10,51 +10,61 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get ReactivePower from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ReactivePower FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new ReactivePower(value, ReactivePowerUnit.SI);
-            }
-            /// <summary>
-            ///     Get ReactivePower from VoltampereReactive.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ReactivePower FromVoltampereReactive(double VoltampereReactive)
-            {
-                double value= (double)VoltampereReactive;
-                return new ReactivePower(value, ReactivePowerUnit.VoltampereReactive);
-            }
-            /// <summary>
-            ///     Get ReactivePower from MegavoltampereReactive.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ReactivePower FromMegavoltampereReactive(double MegavoltampereReactive)
-            {
-                double value= (double)MegavoltampereReactive;
-                return new ReactivePower(value, ReactivePowerUnit.MegavoltampereReactive);
-            }
-            /// <summary>
-            ///     Get ReactivePower from KilovoltampereReactive.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ReactivePower FromKilovoltampereReactive(double KilovoltampereReactive)
-            {
-                double value= (double)KilovoltampereReactive;
-                return new ReactivePower(value, ReactivePowerUnit.KilovoltampereReactive);
-            }
-            /// <summary>
-            ///     Get ReactivePower from GigavoltampereReactive.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ReactivePower FromGigavoltampereReactive(double GigavoltampereReactive)
-            {
-                double value= (double)GigavoltampereReactive;
-                return new ReactivePower(value, ReactivePowerUnit.GigavoltampereReactive);
-            }
+        /// <summary>
+        ///     Get ReactivePower from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new ReactivePower((double)SI, ReactivePowerUnit.SI);
+        }
+        /// <summary>
+        ///     Get ReactivePower from VoltampereReactive.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromVoltampereReactive(double? VoltampereReactive)
+        {
+            if (VoltampereReactive is null)
+                return null;
+
+            return new ReactivePower((double)VoltampereReactive, ReactivePowerUnit.VoltampereReactive);
+        }
+        /// <summary>
+        ///     Get ReactivePower from MegavoltampereReactive.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromMegavoltampereReactive(double? MegavoltampereReactive)
+        {
+            if (MegavoltampereReactive is null)
+                return null;
+
+            return new ReactivePower((double)MegavoltampereReactive, ReactivePowerUnit.MegavoltampereReactive);
+        }
+        /// <summary>
+        ///     Get ReactivePower from KilovoltampereReactive.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromKilovoltampereReactive(double? KilovoltampereReactive)
+        {
+            if (KilovoltampereReactive is null)
+                return null;
+
+            return new ReactivePower((double)KilovoltampereReactive, ReactivePowerUnit.KilovoltampereReactive);
+        }
+        /// <summary>
+        ///     Get ReactivePower from GigavoltampereReactive.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ReactivePower FromGigavoltampereReactive(double? GigavoltampereReactive)
+        {
+            if (GigavoltampereReactive is null)
+                return null;
+
+            return new ReactivePower((double)GigavoltampereReactive, ReactivePowerUnit.GigavoltampereReactive);
+        }
     }
 }
 

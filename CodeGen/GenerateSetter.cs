@@ -73,28 +73,30 @@ namespace EngineeringUnits
 
  ");
 
-            var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
+        var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
 
 
-            foreach (var i in t.GetFields())
-            {
+        foreach (var i in t.GetFields())
+        {
 
-                sb.Append(@"
-            /// <summary>
-            ///     Get Variable from UnitEnum.
-            /// </summary>
-            /// <exception cref=""ArgumentException"">If value is NaN or Infinity.</exception>
-            public static Variable FromUnitEnum(double UnitEnum)
-            {
-                double value= (double)UnitEnum;
-                return new Variable(value, VariableUnit.UnitEnum);
-            }");
+            sb.Append(@"
+        /// <summary>
+        ///     Get Variable from UnitEnum.
+        /// </summary>
+        /// <exception cref=""ArgumentException"">If value is NaN or Infinity.</exception>
+        public static Variable FromUnitEnum(double? UnitEnum)
+        {
+            if (UnitEnum is null)
+                return null;
 
-                sb = sb.Replace("UnitEnum", $"{i.Name}");
-            }
+            return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
+        }");
+
+            sb = sb.Replace("UnitEnum", $"{i.Name}");
+        }
 
 
-            sb.AppendLine(@"
+        sb.AppendLine(@"
     }
 }
 

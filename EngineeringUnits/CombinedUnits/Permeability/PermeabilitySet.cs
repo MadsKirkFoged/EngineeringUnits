@@ -10,24 +10,28 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get Permeability from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static Permeability FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new Permeability(value, PermeabilityUnit.SI);
-            }
-            /// <summary>
-            ///     Get Permeability from HenryPerMeter.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static Permeability FromHenryPerMeter(double HenryPerMeter)
-            {
-                double value= (double)HenryPerMeter;
-                return new Permeability(value, PermeabilityUnit.HenryPerMeter);
-            }
+        /// <summary>
+        ///     Get Permeability from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Permeability FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new Permeability((double)SI, PermeabilityUnit.SI);
+        }
+        /// <summary>
+        ///     Get Permeability from HenryPerMeter.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static Permeability FromHenryPerMeter(double? HenryPerMeter)
+        {
+            if (HenryPerMeter is null)
+                return null;
+
+            return new Permeability((double)HenryPerMeter, PermeabilityUnit.HenryPerMeter);
+        }
     }
 }
 

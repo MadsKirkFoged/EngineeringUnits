@@ -10,42 +10,50 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get MolarEntropy from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarEntropy FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new MolarEntropy(value, MolarEntropyUnit.SI);
-            }
-            /// <summary>
-            ///     Get MolarEntropy from JoulePerMoleKelvin.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarEntropy FromJoulePerMoleKelvin(double JoulePerMoleKelvin)
-            {
-                double value= (double)JoulePerMoleKelvin;
-                return new MolarEntropy(value, MolarEntropyUnit.JoulePerMoleKelvin);
-            }
-            /// <summary>
-            ///     Get MolarEntropy from KilojoulePerMoleKelvin.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarEntropy FromKilojoulePerMoleKelvin(double KilojoulePerMoleKelvin)
-            {
-                double value= (double)KilojoulePerMoleKelvin;
-                return new MolarEntropy(value, MolarEntropyUnit.KilojoulePerMoleKelvin);
-            }
-            /// <summary>
-            ///     Get MolarEntropy from MegajoulePerMoleKelvin.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static MolarEntropy FromMegajoulePerMoleKelvin(double MegajoulePerMoleKelvin)
-            {
-                double value= (double)MegajoulePerMoleKelvin;
-                return new MolarEntropy(value, MolarEntropyUnit.MegajoulePerMoleKelvin);
-            }
+        /// <summary>
+        ///     Get MolarEntropy from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEntropy FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new MolarEntropy((double)SI, MolarEntropyUnit.SI);
+        }
+        /// <summary>
+        ///     Get MolarEntropy from JoulePerMoleKelvin.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEntropy FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
+        {
+            if (JoulePerMoleKelvin is null)
+                return null;
+
+            return new MolarEntropy((double)JoulePerMoleKelvin, MolarEntropyUnit.JoulePerMoleKelvin);
+        }
+        /// <summary>
+        ///     Get MolarEntropy from KilojoulePerMoleKelvin.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEntropy FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKelvin)
+        {
+            if (KilojoulePerMoleKelvin is null)
+                return null;
+
+            return new MolarEntropy((double)KilojoulePerMoleKelvin, MolarEntropyUnit.KilojoulePerMoleKelvin);
+        }
+        /// <summary>
+        ///     Get MolarEntropy from MegajoulePerMoleKelvin.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static MolarEntropy FromMegajoulePerMoleKelvin(double? MegajoulePerMoleKelvin)
+        {
+            if (MegajoulePerMoleKelvin is null)
+                return null;
+
+            return new MolarEntropy((double)MegajoulePerMoleKelvin, MolarEntropyUnit.MegajoulePerMoleKelvin);
+        }
     }
 }
 

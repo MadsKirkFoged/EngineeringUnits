@@ -10,51 +10,61 @@ namespace EngineeringUnits
 
  
 
-            /// <summary>
-            ///     Get ApparentPower from SI.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ApparentPower FromSI(double SI)
-            {
-                double value= (double)SI;
-                return new ApparentPower(value, ApparentPowerUnit.SI);
-            }
-            /// <summary>
-            ///     Get ApparentPower from Voltampere.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ApparentPower FromVoltampere(double Voltampere)
-            {
-                double value= (double)Voltampere;
-                return new ApparentPower(value, ApparentPowerUnit.Voltampere);
-            }
-            /// <summary>
-            ///     Get ApparentPower from Megavoltampere.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ApparentPower FromMegavoltampere(double Megavoltampere)
-            {
-                double value= (double)Megavoltampere;
-                return new ApparentPower(value, ApparentPowerUnit.Megavoltampere);
-            }
-            /// <summary>
-            ///     Get ApparentPower from Kilovoltampere.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ApparentPower FromKilovoltampere(double Kilovoltampere)
-            {
-                double value= (double)Kilovoltampere;
-                return new ApparentPower(value, ApparentPowerUnit.Kilovoltampere);
-            }
-            /// <summary>
-            ///     Get ApparentPower from Gigavoltampere.
-            /// </summary>
-            /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-            public static ApparentPower FromGigavoltampere(double Gigavoltampere)
-            {
-                double value= (double)Gigavoltampere;
-                return new ApparentPower(value, ApparentPowerUnit.Gigavoltampere);
-            }
+        /// <summary>
+        ///     Get ApparentPower from SI.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromSI(double? SI)
+        {
+            if (SI is null)
+                return null;
+
+            return new ApparentPower((double)SI, ApparentPowerUnit.SI);
+        }
+        /// <summary>
+        ///     Get ApparentPower from Voltampere.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromVoltampere(double? Voltampere)
+        {
+            if (Voltampere is null)
+                return null;
+
+            return new ApparentPower((double)Voltampere, ApparentPowerUnit.Voltampere);
+        }
+        /// <summary>
+        ///     Get ApparentPower from Megavoltampere.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromMegavoltampere(double? Megavoltampere)
+        {
+            if (Megavoltampere is null)
+                return null;
+
+            return new ApparentPower((double)Megavoltampere, ApparentPowerUnit.Megavoltampere);
+        }
+        /// <summary>
+        ///     Get ApparentPower from Kilovoltampere.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromKilovoltampere(double? Kilovoltampere)
+        {
+            if (Kilovoltampere is null)
+                return null;
+
+            return new ApparentPower((double)Kilovoltampere, ApparentPowerUnit.Kilovoltampere);
+        }
+        /// <summary>
+        ///     Get ApparentPower from Gigavoltampere.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static ApparentPower FromGigavoltampere(double? Gigavoltampere)
+        {
+            if (Gigavoltampere is null)
+                return null;
+
+            return new ApparentPower((double)Gigavoltampere, ApparentPowerUnit.Gigavoltampere);
+        }
     }
 }
 
