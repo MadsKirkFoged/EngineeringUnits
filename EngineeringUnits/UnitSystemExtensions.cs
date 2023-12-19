@@ -70,10 +70,10 @@ namespace EngineeringUnits
 
 
         static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactor = new();
-        static readonly object FactorLock = new object();
+        //static readonly object FactorLock = new object();
         public static Fraction ConvertionFactor(this UnitSystem From, UnitSystem To)
         {
-            lock (FactorLock)
+            //lock (FactorLock)
             {
                 var Hashes = (From.GetHashCode(), To.GetHashCode());
 

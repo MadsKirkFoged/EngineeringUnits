@@ -92,28 +92,28 @@ namespace EngineeringUnits
         }
 
 
-        static readonly object MultiplyLock = new object();
+        //static readonly object MultiplyLock = new object();
         static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheMultiply = new();
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
-            lock (MultiplyLock)
+            //lock (MultiplyLock)
             {
 
-            if (!left.ListOfUnits.Any())            
-                if (right.ListOfUnits.Any())                
-                    return right;
+            //if (!left.ListOfUnits.Any())            
+            //    if (right.ListOfUnits.Any())                
+            //        return right;
 
-            if (!right.ListOfUnits.Any())
-                if (left.ListOfUnits.Any())
-                    return left;
+            //if (!right.ListOfUnits.Any())
+            //    if (left.ListOfUnits.Any())
+            //        return left;
 
 
             var Hashes = (left.GetHashCode(), right.GetHashCode());
 
             if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
                 return local;
-            else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
-                return local2;
+            //else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
+            //    return local2;
 
 
 
@@ -166,11 +166,11 @@ namespace EngineeringUnits
         }
 
 
-        static readonly object DivideLock = new object();
+        //static readonly object DivideLock = new object();
         static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheDivide = new();
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
-            lock (DivideLock)
+            //lock (DivideLock)
             {
 
             var Hashes = (left.GetHashCode(), right.GetHashCode());
