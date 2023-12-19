@@ -112,8 +112,8 @@ namespace EngineeringUnits
 
             if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
                 return local;
-            //else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
-            //    return local2;
+                else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
+                    return local2;
 
 
 
