@@ -374,12 +374,7 @@ namespace EngineeringUnits
         {
             var local = (BaseUnit)obj;
 
-            //if (Unit != local.Unit)
-            //    throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
-
-            //return (int)((double)NEWValue - local.As(this));
             return CompareTo(local);
-
         }
 
         public int CompareTo(BaseUnit other)
