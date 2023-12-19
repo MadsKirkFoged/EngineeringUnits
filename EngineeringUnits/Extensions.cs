@@ -71,7 +71,15 @@ namespace EngineeringUnits
         public static UnitSystem ReduceUnits(this UnitSystem a)
         {
 
-            var test = a.ListOfUnits.GroupBy(x => x.UnitType);
+            var NewUnitList = a.ListOfUnits.ReduceUnits();
+
+
+            return new(NewUnitList.ToList(), a.Symbol);
+        }
+
+        public static List<RawUnit> ReduceUnits2(this List<RawUnit> a)
+        {
+            var test = a.GroupBy(x => x.UnitType);
 
             var NewUnitList = new List<RawUnit>();
 
@@ -105,8 +113,25 @@ namespace EngineeringUnits
 
             }
 
-            return new(NewUnitList, a.Symbol);
+            return NewUnitList;
         }
+
+        public static IEnumerable<RawUnit> ReduceUnits(this IEnumerable<RawUnit> a)
+        {
+            return a.GroupBy(x => new { x.UnitType, x.A })
+                              .Select(group => group.First()
+                                                    .CloneWithNewCount(group.Sum(x => x.Count)));
+
+        }
+
+        public static IEnumerable<T> SelectIfMultiple<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector)
+        {
+            return source
+                .GroupBy(keySelector)
+                .Where(group => group.Count() > 1)
+                .SelectMany(group => group);
+        }
+
 
         /// <summary>
         /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>

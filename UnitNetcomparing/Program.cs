@@ -42,6 +42,20 @@ public class Program
     public static void Main()
     {
 
+        List<int> numbers = new List<int> { 1, 1, 1, 2, 4, 6, 6, 8 };
+
+        var result = numbers
+                    .GroupBy(n => n)
+                    .Where(group => group.Count() > 1)
+                    .SelectMany(group => Enumerable.Repeat(group.Key, group.Count()));
+
+
+        foreach (var sum in result)
+        {
+            Console.Write($"{sum}; ");
+        }
+
+
         double d = 0.00000000000;
 
 

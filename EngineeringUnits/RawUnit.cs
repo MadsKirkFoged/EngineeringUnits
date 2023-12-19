@@ -48,16 +48,18 @@ namespace EngineeringUnits
             return this with
             {
                 Count = Count * -1,
-                HashCode = 0,
             };
 
         }
         public RawUnit CloneWithNewCount(int newCount)
         {
+            if (Count == newCount)
+                return this;
+
+
             return this with
             {
                 Count = newCount,
-                HashCode = 0,
             };
 
         }
@@ -68,30 +70,24 @@ namespace EngineeringUnits
             {
                 A = Fraction.One,
                 B = 0,
-                HashCode = 0,
                 Symbol = null,
             };
 
         }
 
-        private int HashCode;
-
         public override int GetHashCode()
         {
-
-            if (HashCode == 0)
+            int TempHashCode;
+            unchecked // Overflow is fine, just wrap
             {
-                unchecked // Overflow is fine, just wrap
-                {
-                    HashCode = (int)2166136261;
-                    HashCode = (HashCode * 16777619) ^ A.GetHashCode();
-                    HashCode = (HashCode * 45476689) ^ B.GetHashCode();
-                    HashCode = (HashCode * 16777619) ^ Count.GetHashCode();
-                    HashCode = (HashCode * 16777619) ^ UnitType.GetHashCode();                  
-                }
+                TempHashCode = (int)2166136261;
+                TempHashCode = (TempHashCode * 16777619) ^ A.GetHashCode();
+                TempHashCode = (TempHashCode * 45476689) ^ B.GetHashCode();
+                TempHashCode = (TempHashCode * 16777619) ^ Count.GetHashCode();
+                TempHashCode = (TempHashCode * 16777619) ^ UnitType.GetHashCode();
             }
 
-            return HashCode;
+            return TempHashCode;
         }
     }
 }

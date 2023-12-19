@@ -1,5 +1,6 @@
 ﻿using Fractions;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -9,6 +10,7 @@ namespace EngineeringUnits
 {
     public static class UnitSystemExtensions
     {
+        public static readonly UnitSystem UnitsystemForDouble = new();
 
         public static Fraction SumOfBConstants(this IEnumerable<RawUnit> me)
         {
@@ -63,15 +65,42 @@ namespace EngineeringUnits
                             .ToList();
 
             return new UnitSystem(test);
-
-
-            //foreach (var item in local.ListOfUnits)
-            //{
-            //    SIUnitList.Add(item.CloneAsSI());
-            //}
-
-            //return new UnitSystem(SIUnitList);
         }
+
+
+
+        static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactor = new();
+        static readonly object FactorLock = new object();
+        public static Fraction ConvertionFactor(this UnitSystem From, UnitSystem To)
+        {
+            lock (FactorLock)
+            {
+                var Hashes = (From.GetHashCode(), To.GetHashCode());
+
+                if (CacheFactor.TryGetValue(Hashes, out Fraction local))
+                    return local;
+
+                var test = To.SumConstant() / From.SumConstant();
+                var AlreadyAdded = CacheFactor.TryAdd(Hashes, test);
+                return test;
+            }
+        }
+
+
+        static readonly ConcurrentDictionary<int, Fraction> SumConstantCache = new();
+        public static Fraction SumConstant(this UnitSystem From)
+        {
+            var Hash = From.GetHashCode();
+
+            if (SumConstantCache.TryGetValue(From.GetHashCode(), out Fraction local))
+                return local;
+
+            var test = From.ListOfUnits.Aggregate(Fraction.One, (x, y) => x * y.TotalConstant);
+            var AlreadyAdded = SumConstantCache.TryAdd(Hash, test);
+            return test;
+
+        }
+
 
     }
 }

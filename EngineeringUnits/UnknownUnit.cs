@@ -44,11 +44,11 @@ namespace EngineeringUnits
 
         public static implicit operator double(UnknownUnit Unit)
         {
-            if (UnitSystem.UnitsystemForDouble != Unit.BaseUnit)            
+            if (UnitSystemExtensions.UnitsystemForDouble != Unit.BaseUnit)            
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
-            return (double)Unit.BaseUnit.GetValueAs(UnitSystem.UnitsystemForDouble);
+            return (double)Unit.BaseUnit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
         }
         public static implicit operator UnknownUnit(double Unit) => new (Unit);
         public static implicit operator UnknownUnit(int Unit) => new (Unit);
