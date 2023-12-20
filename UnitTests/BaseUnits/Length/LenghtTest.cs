@@ -451,5 +451,40 @@ namespace UnitTests
 
         }
 
+
+        //add test for + operator for unknownunit and length
+        [TestMethod]
+        public void AddOperatorUnknownUnitAndLength()
+        {
+
+            Length length = new(1, LengthUnit.Meter);
+            UnknownUnit unknownUnit = Length.FromMeter(2);
+
+            var unknownUnit2 = unknownUnit + length;
+            Length length2 = length + unknownUnit;
+
+            Assert.IsTrue(unknownUnit2 == length2);
+
+            Assert.IsTrue(Length.FromMeter(3) == unknownUnit2);
+            Assert.IsTrue(Length.FromMeter(3) == length2);
+        }
+
+        //add test for - operator for unknownunit and length
+        [TestMethod]
+        public void MinusOperatorUnknownUnitAndLength()
+        {
+
+            Length length = new(1, LengthUnit.Meter);
+            UnknownUnit unknownUnit = Length.FromMeter(2);
+
+            var unknownUnit2 = unknownUnit - length;
+            Length length2 = length - unknownUnit;
+
+            Assert.IsFalse(unknownUnit2 == length2);
+
+            Assert.IsTrue(Length.FromMeter(1) == unknownUnit2);
+            Assert.IsTrue(Length.FromMeter(-1) == length2);
+        }
+
     }
 }

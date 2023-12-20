@@ -78,6 +78,13 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
             }
         }
+
+        public static UnknownUnit operator +(BaseUnit local)
+        {
+            return local;
+        }
+
+
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)
@@ -99,6 +106,15 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
         }
+
+        public static UnknownUnit operator -(BaseUnit local)
+        {
+            if (local is null)
+                return null;
+
+            return local * -1;
+        }
+
         public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)

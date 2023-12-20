@@ -34,6 +34,9 @@ namespace EngineeringUnits
         public static UnknownUnit operator +(UnknownUnit left, UnknownUnit right) => left?.BaseUnit + right?.BaseUnit;
         public static UnknownUnit operator -(UnknownUnit left, UnknownUnit right) => left?.BaseUnit - right?.BaseUnit;
 
+        public static UnknownUnit operator +(UnknownUnit local) => +local?.BaseUnit;
+        public static UnknownUnit operator -(UnknownUnit local) => -local?.BaseUnit;
+
         public static bool operator ==(UnknownUnit left, UnknownUnit right) => left?.BaseUnit == right?.BaseUnit;
         public static bool operator !=(UnknownUnit left, UnknownUnit right) => left?.BaseUnit != right?.BaseUnit;
         public static bool operator <=(UnknownUnit left, UnknownUnit right) => left?.BaseUnit <= right?.BaseUnit;
