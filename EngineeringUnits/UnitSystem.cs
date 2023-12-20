@@ -19,7 +19,7 @@ namespace EngineeringUnits
     // --> Combined with a value you get the BaseUnit class..
     // ex if you have a list of {length+1, duration-1} that could represent a speed [m/s] 
 
-    public class UnitSystem 
+    public class UnitSystem
     {      
         internal string Symbol { get; init; }     
 
@@ -70,6 +70,16 @@ namespace EngineeringUnits
             return !(a == b);
         }
 
+        public override bool Equals(object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !GetType().Equals(obj.GetType()))
+                return false;
+            else
+                return this == (UnitSystem)obj;
+        }
+
+        public bool Equals(UnitSystem other) => this == other;
 
         public static UnitSystem operator +(UnitSystem left, UnitSystem right)
         {

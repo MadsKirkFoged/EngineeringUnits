@@ -41,6 +41,21 @@ public class Program
 
     public static void Main()
     {
+        double positive = -10;
+
+        double negative = +positive;
+
+        Math.Clamp(positive, 0, 100);
+
+        Math.Min(positive, 100);
+        Math.Max(positive, 100);
+
+        Length lengthmin = Length.FromMeters(1);
+
+        //Length lengthmin1 = -lengthmin;
+
+        //var test = lengthmin.Minimum(lengthmin);
+
 
         MassFlow Min2 = UnitMath.Min(MassFlow.FromKilogramPerSecond(1),
                                      MassFlow.FromKilogramPerSecond(2));
