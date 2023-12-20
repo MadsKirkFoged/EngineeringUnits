@@ -381,37 +381,48 @@ namespace EngineeringUnits
             return a.Unit.Pow(toPower);
         }
 
-        public static UnknownUnit InRangeOf(this BaseUnit a, UnknownUnit Min, UnknownUnit Max)
+
+ 
+        public static UnknownUnit Clamp(this BaseUnit Clamped, UnknownUnit Lower, UnknownUnit Upper)
         {
-            if (a is null || Min is null || Max is null)
+            if (Clamped is null || Lower is null || Upper is null)
                 return null;
 
-            GuardAgainst.DifferentUnits(a, Min, Max);
+            GuardAgainst.DifferentUnits(Clamped, Lower, Upper);
 
 
-            if (Max < Min)
+            if (Upper < Lower)
             {
                 //TODO you need max to be larger then min
-                return a;
+                return Clamped;
             }
 
 
-            if (a < Min)
-                return Min;
+            if (Clamped < Lower)
+                return Lower;
 
 
-            if (a > Max)
-                return Max;
+            if (Clamped > Upper)
+                return Upper;
 
 
-            return a;
+            return Clamped;
 
 
         }
-        public static UnknownUnit InRangeOf(this UnknownUnit a, UnknownUnit Min, UnknownUnit Max)
-        {
-            return a.BaseUnit.InRangeOf(Min, Max);
-        }
+
+
+        public static UnknownUnit Clamp(this UnknownUnit Clamped, UnknownUnit Lower, UnknownUnit Upper) => Clamped.BaseUnit.Clamp(Lower, Upper);
+
+
+
+
+        [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
+        public static UnknownUnit InRangeOf(this BaseUnit a, UnknownUnit Min, UnknownUnit Max) => a.Clamp(Min, Max);
+
+        [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
+        public static UnknownUnit InRangeOf(this UnknownUnit a, UnknownUnit Min, UnknownUnit Max) => a.Clamp(Min, Max);
+ 
 
         public static bool IsZero(this BaseUnit a)
         {
