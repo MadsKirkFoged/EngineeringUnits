@@ -45,6 +45,10 @@ public class Program
 
         double negative = +positive;
 
+        Math.Clamp(positive, 0, 100);
+
+        Math.Min(positive, 100);
+        Math.Max(positive, 100);
 
         Length lengthmin = Length.FromMeters(1);
 
