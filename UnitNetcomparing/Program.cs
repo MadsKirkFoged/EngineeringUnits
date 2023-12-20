@@ -41,6 +41,17 @@ public class Program
 
     public static void Main()
     {
+        double positive = -10;
+
+        double negative = +positive;
+
+
+        Length lengthmin = Length.FromMeters(1);
+
+        //Length lengthmin1 = -lengthmin;
+
+        //var test = lengthmin.Minimum(lengthmin);
+
 
         List<int> numbers = new List<int> { 1, 1, 1, 2, 4, 6, 6, 8 };
 

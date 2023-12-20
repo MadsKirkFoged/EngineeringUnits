@@ -640,6 +640,7 @@ namespace EngineeringUnits
             return ((double)value).AddUnit<T>(UnitOfMeasure);
         }
 
+        //[Obsolete("Method1 is deprecated, please use Method2 instead.")]
         public static UnknownUnit Minimum(this UnknownUnit unit, UnknownUnit minimum)
         {
             if (unit is null || minimum is null)
@@ -684,6 +685,34 @@ namespace EngineeringUnits
 
             return maximum;
         }
+
+
+
+        //public static UnknownUnit LowerLimit(this UnknownUnit unit, UnknownUnit minimum)
+        //{
+        //    if (unit is null || minimum is null)
+        //        return null;
+
+        //    if (unit > minimum)
+        //        return unit;
+
+        //    return minimum;
+        //}
+
+        //public static UnknownUnit LowerLimit(this BaseUnit unit, UnknownUnit minimum)
+        //{
+        //    return ((UnknownUnit)unit).LowerLimit(minimum);
+        //}
+
+        //public static UnknownUnit LowerLimit(this UnknownUnit unit, BaseUnit minimum)
+        //{
+        //    return unit.LowerLimit((UnknownUnit)minimum);
+        //}
+
+        //public static UnknownUnit LowerLimit(this BaseUnit unit, BaseUnit minimum)
+        //{
+        //    return ((UnknownUnit)unit).LowerLimit((UnknownUnit)minimum);
+        //}
 
 
     }
