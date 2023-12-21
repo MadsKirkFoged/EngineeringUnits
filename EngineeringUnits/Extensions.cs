@@ -699,32 +699,32 @@ namespace EngineeringUnits
 
 
 
-        //public static UnknownUnit LowerLimit(this UnknownUnit unit, UnknownUnit minimum)
-        //{
-        //    if (unit is null || minimum is null)
-        //        return null;
+        public static UnknownUnit LowerLimit(this UnknownUnit unit, UnknownUnit limit)
+        {
+            if (unit is null || limit is null)
+                return null;
 
-        //    if (unit > minimum)
-        //        return unit;
+            if (unit > limit)
+                return unit;
 
-        //    return minimum;
-        //}
+            return limit;
+        }
 
-        //public static UnknownUnit LowerLimit(this BaseUnit unit, UnknownUnit minimum)
-        //{
-        //    return ((UnknownUnit)unit).LowerLimit(minimum);
-        //}
+        public static UnknownUnit LowerLimit(this BaseUnit unit, UnknownUnit limit) => ((UnknownUnit)unit).LowerLimit(limit);
 
-        //public static UnknownUnit LowerLimit(this UnknownUnit unit, BaseUnit minimum)
-        //{
-        //    return unit.LowerLimit((UnknownUnit)minimum);
-        //}
 
-        //public static UnknownUnit LowerLimit(this BaseUnit unit, BaseUnit minimum)
-        //{
-        //    return ((UnknownUnit)unit).LowerLimit((UnknownUnit)minimum);
-        //}
+        public static UnknownUnit UpperLimit(this UnknownUnit unit, UnknownUnit limit)
+        {
+            if (unit is null || limit is null)
+                return null;
 
+            if (unit < limit)
+                return unit;
+
+            return limit;
+        }
+
+        public static UnknownUnit UpperLimit(this BaseUnit unit, UnknownUnit limit) => ((UnknownUnit)unit).UpperLimit(limit);
 
     }
 }
