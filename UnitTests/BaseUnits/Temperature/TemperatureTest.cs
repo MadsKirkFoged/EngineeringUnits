@@ -182,6 +182,10 @@ namespace UnitTests
 
 
             var T4 = T1 * T1;
+
+            var test = T4.ToString();
+
+
             var T5 = T2 * T2;
             var T6 = T3 * T3;
 

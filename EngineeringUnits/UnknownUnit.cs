@@ -88,18 +88,40 @@ namespace EngineeringUnits
 
         public override string ToString()
         {
-            return this.IntelligentCast().ToString();
+            var CastingUnit = this.IntelligentCast();
+
+            if (CastingUnit is null)
+                return base.ToString();
+            
+
+            return CastingUnit.ToString();
         }
         public override string ToString(IFormatProvider provider)
         {
+            var CastingUnit = this.IntelligentCast();
+
+            if (CastingUnit is null)
+                return base.ToString(provider);
+
+
             return this.IntelligentCast().ToString(provider);
         }
         public override string ToString(string format)
         {
+            var CastingUnit = this.IntelligentCast();
+
+            if (CastingUnit is null)
+                return base.ToString(format);
+
             return this.IntelligentCast().ToString(format);
         }
         public override string ToString(string format, IFormatProvider provider)
         {
+            var CastingUnit = this.IntelligentCast();
+
+            if (CastingUnit is null)
+                return base.ToString(format, provider);
+
             return this.IntelligentCast().ToString(format, provider);
         }
 
