@@ -17,36 +17,32 @@ namespace EngineeringUnits
         [JsonProperty]
         private bool NoRunback { get; init; }
 
-        private static readonly object TempLock = new object();
 
         public Temperature() {}
 
         public Temperature(int value, TemperatureUnit selectedUnit) : this()
         {
-            lock (TempLock)
+
+            Unit = selectedUnit.Unit;
+            NEWValue = value;
+
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
             {
-
-                Unit = selectedUnit.Unit;
-                NEWValue = value;
-
-                //Public view of tempature
-                if (selectedUnit.Unit.IsSIUnit() is false)
-                {
-                    PublicUnit = selectedUnit;
-                    PublicValue = value;
-                }
-
-                //Forcing all temperatures to stay in kelvin for calculations
-
-                NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-                Unit = TemperatureUnit.Kelvin.Unit;
+                PublicUnit = selectedUnit;
+                PublicValue = value;
             }
+
+            //Forcing all temperatures to stay in kelvin for calculations
+
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            Unit = TemperatureUnit.Kelvin.Unit;
+
         }
 
         public Temperature(double value, TemperatureUnit selectedUnit) :this()
         {
-            lock (TempLock)
-            {
+
 
 
                 //Public view of tempature
@@ -75,14 +71,13 @@ namespace EngineeringUnits
                 Unit = selectedUnit.Unit;
                 NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
                 Unit = TemperatureUnit.Kelvin.Unit;
-            }
+            
 
         }
 
         public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
         {
-            lock (TempLock)
-            {
+
                 Unit = selectedUnit.Unit;
                 NEWValue = value;
 
@@ -96,17 +91,16 @@ namespace EngineeringUnits
                 //Forcing all temperatures to stay in kelvin for calculations
                 NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
                 Unit = TemperatureUnit.Kelvin.Unit;
-            }
+            
         }
 
         private Temperature(decimal value, TemperatureUnit selectedUnit, bool noRunback = true) : this()
         {
-            lock (TempLock)
-            {
+
                 NoRunback = noRunback;
                 NEWValue = value;
                 Unit = selectedUnit.Unit;
-            }
+            
         }
 
 

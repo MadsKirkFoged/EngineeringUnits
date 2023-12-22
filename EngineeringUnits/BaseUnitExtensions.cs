@@ -8,7 +8,7 @@ namespace EngineeringUnits
 {
     public static class BaseUnitExtensions
     {
-        public static decimal ConvertValueInto(this BaseUnit To, BaseUnit From)
+        internal static decimal ConvertValueInto(this BaseUnit To, BaseUnit From)
         {
             Fraction Factor = From.Unit.ConvertionFactor(To.Unit);
 
@@ -232,37 +232,55 @@ namespace EngineeringUnits
             //return valueToBeRoundedUp;
         }
 
+        /// <summary>
+        /// Rounds a collection of values to the nearest value, based on a specified reference value.
+        /// </summary>
+        /// <remarks>
+        /// The method calculates the absolute difference between each element in the collection and the specified
+        /// reference value, then rounds to the nearest value. The result is the element in the collection that is
+        /// closest to the reference value.
+        /// </remarks>
+        /// <param name="list">The collection of BaseUnits to be rounded.</param>
+        /// <param name="valueToBeRoundedDown">The reference value to which elements are rounded.</param>
+        /// <returns>
+        /// The BaseUnit in the collection that is closest to the specified reference value when rounded to the nearest value.
+        /// Returns null if the input collection is null or empty.
+        /// </returns>
         public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedDown)
         {
+            //Bedre name FindClosestTo?
+
             if (list is null || !list.Any())
                 return null;
 
             return new(list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault());
         }
-
+        
+        [Obsolete("Name has changed to: LowerLimitAt")]
         public static UnknownUnit Minimum(this BaseUnit unit, BaseUnit minimum)
         {
-            if (unit is null || minimum is null)
-                return null;
-
-            if (unit > minimum)
-                return new(unit);
-
-            return new(minimum);
+            return unit.LowerLimitAt(minimum);
         }
-
+        [Obsolete("Name has changed to: UpperLimitAt")]
         public static UnknownUnit Maximum(this BaseUnit unit, BaseUnit maximum)
         {
-            if (unit is null || maximum is null)
-                return null;
-
-            if (unit < maximum)
-                return new(unit);
-
-            return new(maximum);
+            return unit.UpperLimitAt(maximum);
         }
 
-        public static UnknownUnit UpperLimit(this BaseUnit unit, BaseUnit limit)
+        /// <summary>
+        /// Set a upper limit on a value/calculation.<br></br>
+        /// <example>
+        ///var l1 = Length.FromMeter(1); <br></br>
+        ///var l2 = Length.FromMeter(1); <br></br>
+        ///var l3 = (l1 + l2).UpperLimitAt(Length.FromMeter(1)); <br></br>
+        ///Sets result to a maximum value of 1 meters
+        /// </example>
+        /// </summary>
+        /// <param name="value">The source value or calculation result.</param>
+        /// <param name="limit">The Upper limit to be applied.</param>
+        /// <returns>The lesser of the source value or the specified limit. </returns>
+        /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+        public static UnknownUnit UpperLimitAt(this BaseUnit unit, BaseUnit limit)
         {
             if (unit is null || limit is null)
                 return null;
@@ -273,6 +291,35 @@ namespace EngineeringUnits
             return new(limit);
         }
 
+        /// <summary>
+        /// Set a lower limit on a value/calculation.<br></br>
+        /// <example>
+        ///var l1 = Length.FromMeter(1); <br></br>
+        ///var l2 = Length.FromMeter(1); <br></br>
+        ///var l3 = (l1 + l2).LowerLimitAt(Length.FromMeter(5)); <br></br>
+        ///Sets result to a minimum value of 5 meters
+        /// </example>
+        /// </summary>
+        /// <param name="value">The source value or calculation result.</param>
+        /// <param name="limit">The lower limit to be applied.</param>
+        /// <returns>The greater of the source value or the specified limit. </returns>
+        /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+        public static UnknownUnit LowerLimitAt(this BaseUnit value, BaseUnit limit)
+        {
+            if (value is null || limit is null)
+                return null;
+
+            if (value > limit)
+                return value.ToUnknownUnit();
+
+            return limit.ToUnknownUnit();
+        }
+
+
+        /// <summary>
+        /// Only use this if you are creating new extension functions!<br></br>
+        /// Converting from BaseUnit => UnknownUnit
+        /// </summary>
         public static UnknownUnit ToUnknownUnit(this BaseUnit unit)
         {
             if (unit is null)

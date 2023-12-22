@@ -56,7 +56,12 @@ public class Program
         Math.Min(positive, 100);
         Math.Max(positive, 100);
 
-        var lengthmin = Length.FromMeter(1) + Length.FromMeter(1);
+        var l1 = Length.FromMeter(1);
+        var l2 = Length.FromMeter(1);
+
+        var l3 = (l1 + l2).LowerLimitAt(Length.FromMeter(5));
+
+        var length = (Length.FromMeter(1) + Length.FromMeter(1)).LowerLimitAt(Length.FromMeter(5));
 
         //Length lengthmin1 = lengthmin * lengthmin;
 

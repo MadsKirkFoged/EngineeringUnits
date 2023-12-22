@@ -128,7 +128,7 @@ namespace UnitTests.Functionality
         public void UpperLimit()
         {
             Length L1 = new(10d, LengthUnit.Meter);
-            Length L2 = L1.UpperLimit(Length.FromMeter(15));
+            Length L2 = L1.UpperLimitAt(Length.FromMeter(15));
 
             Assert.AreEqual(L1, L2);
         }
@@ -137,7 +137,7 @@ namespace UnitTests.Functionality
         public void UpperLimit2()
         {
             Length L1 = new(10d, LengthUnit.Meter);
-            Length L2 = L1.UpperLimit(Length.FromMeter(5));
+            Length L2 = L1.UpperLimitAt(Length.FromMeter(5));
 
             Assert.AreNotEqual(L1, L2);
             Assert.AreEqual("5 m", $"{L2:S5}");
@@ -149,7 +149,7 @@ namespace UnitTests.Functionality
         public void UpperLimitUnknownUnit()
         {
             UnknownUnit L1 = new(10d, LengthUnit.Meter);
-            UnknownUnit L2 = L1.UpperLimit(Length.FromMeter(15));
+            UnknownUnit L2 = L1.UpperLimitAt(Length.FromMeter(15));
 
             Assert.AreEqual(L1, L2);
         }
@@ -158,10 +158,31 @@ namespace UnitTests.Functionality
         public void UpperLimitUnknownUnit2()
         {
             UnknownUnit L1 = new(10d, LengthUnit.Meter);
-            UnknownUnit L2 = L1.UpperLimit(Length.FromMeter(5));
+            UnknownUnit L2 = L1.UpperLimitAt(Length.FromMeter(5));
 
             Assert.AreNotEqual(L1, L2);
             Assert.AreEqual("5 m", $"{L2:S5}");
+        }
+
+        //Test with lowerlimit 
+        [TestMethod]
+        public void LowerLimit()
+        {
+            Length L1 = new(10d, LengthUnit.Meter);
+            Length L2 = L1.LowerLimitAt(Length.FromMeter(5));
+
+            Assert.AreEqual(L1, L2);
+        }
+
+        //Test with lowerlimit unknwon unit
+
+        [TestMethod]
+        public void LowerLimitUnknownUnit()
+        {
+            UnknownUnit L1 = new(10d, LengthUnit.Meter);
+            UnknownUnit L2 = L1.LowerLimitAt(Length.FromMeter(5));
+
+            Assert.AreEqual(L1, L2);
         }
 
     }
