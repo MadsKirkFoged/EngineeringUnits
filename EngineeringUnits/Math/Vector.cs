@@ -8,11 +8,11 @@ namespace EngineeringUnits
     public class UVector
     {
 
-        public UnknownUnit[] _vector;
+        public BaseUnit[] _vector;
         public int GetVectorSize => _vector.Length;
 
 
-        public UVector(params UnknownUnit[] x)
+        public UVector(params BaseUnit[] x)
         {
             //Check same type
             TypeCheck(x);
@@ -20,7 +20,7 @@ namespace EngineeringUnits
             _vector = x;
         }
 
-        public static void TypeCheck(UnknownUnit[] x)
+        public static void TypeCheck(BaseUnit[] x)
         {
             for (int i = 0; i < x.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace EngineeringUnits
 
         public static UVector operator +(UVector v1, UVector v2)
         {
-            UnknownUnit[] localvector = new UnknownUnit[v1.GetVectorSize];
+            BaseUnit[] localvector = new BaseUnit[v1.GetVectorSize];
 
             //Check same kind of vectors
             v1.SameTypeAs(v2);
@@ -58,7 +58,7 @@ namespace EngineeringUnits
 
         public static UVector operator -(UVector v1, UVector v2)
         {
-            UnknownUnit[] localvector = new UnknownUnit[v1.GetVectorSize];
+            BaseUnit[] localvector = new BaseUnit[v1.GetVectorSize];
 
             //Check same kind of vectors
             v1.SameTypeAs(v2);
@@ -75,7 +75,7 @@ namespace EngineeringUnits
         
         public static UVector operator *(UVector v1, double v2)
         {
-            UnknownUnit[] localvector = new UnknownUnit[v1.GetVectorSize];
+            BaseUnit[] localvector = new BaseUnit[v1.GetVectorSize];
 
             //Check same kind of vectors
             //v1.SameTypeAs(v2);

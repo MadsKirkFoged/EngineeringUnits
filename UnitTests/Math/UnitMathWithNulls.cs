@@ -35,7 +35,7 @@ namespace UnitTests
         [TestMethod]
         public void MathWithNullShouldBeNull2()
         {
-            UnknownUnit f1 = Frequency.FromMegahertz(-32);
+            UnknownUnit f1 = Frequency.FromMegahertz(-32).ToUnknownUnit();
             UnknownUnit f2 = null;
 
             UnknownUnit f3 = f1 + f2;

@@ -324,9 +324,9 @@ namespace UnitTests
         [TestMethod]
         public void UnknownOperators()
         {
-            UnknownUnit L1 = new Length(5, LengthUnit.Meter);
-            UnknownUnit L2 = new Length(2, LengthUnit.Inch);
-            UnknownUnit L4 = new Length(2, LengthUnit.Inch);
+            UnknownUnit L1 = new Length(5, LengthUnit.Meter).ToUnknownUnit();
+            UnknownUnit L2 = new Length(2, LengthUnit.Inch).ToUnknownUnit();
+            UnknownUnit L4 = new Length(2, LengthUnit.Inch).ToUnknownUnit();
 
             UnknownUnit L3 = L1;
 
@@ -458,7 +458,7 @@ namespace UnitTests
         {
 
             Length length = new(1, LengthUnit.Meter);
-            UnknownUnit unknownUnit = Length.FromMeter(2);
+            UnknownUnit unknownUnit = Length.FromMeter(2).ToUnknownUnit();
 
             var unknownUnit2 = unknownUnit + length;
             Length length2 = length + unknownUnit;
@@ -475,7 +475,7 @@ namespace UnitTests
         {
 
             Length length = new(1, LengthUnit.Meter);
-            UnknownUnit unknownUnit = Length.FromMeter(2);
+            UnknownUnit unknownUnit = Length.FromMeter(2).ToUnknownUnit();
 
             var unknownUnit2 = unknownUnit - length;
             Length length2 = length - unknownUnit;

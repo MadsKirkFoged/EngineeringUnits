@@ -101,6 +101,79 @@ namespace EngineeringUnits
 
         }
 
+        /// <summary>
+        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
+        /// <example>
+        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
+        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> of 'Meter'. This will merge it into one and increase the Count to 2.
+        /// </example>
+        /// </summary>
+        /// <returns>A <see cref="UnitSystem"/> that is cleaned up without any lose of information</returns>
+        /// <param name="a">Source value</param>
+        public static UnitSystem ReduceUnits(this UnitSystem a)
+        {
 
+            var NewUnitList = a.ListOfUnits.ReduceUnits();
+
+
+            return new(NewUnitList.ToList(), a.Symbol);
+        }
+
+
+        /// <summary>
+        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
+        /// For now this is only used when taking the square root!
+        /// <example>
+        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
+        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> One of 'Meter' and One of 'Foot'. This will merge it into one and increase the Count to 2.
+        /// </example>
+        /// </summary>
+        /// <returns>A <see cref="UnitSystem"/> that is cleaned up. Beware this can lose information</returns>
+        /// <param name="a">Source value</param>
+        public static UnitSystem ReduceUnitsHard(this UnitSystem a)
+        {
+
+            //This reduces units of the same baseunit-type but with different types 
+
+            var test = a.ListOfUnits.GroupBy(x => x.UnitType);
+
+            var NewUnitList = new List<RawUnit>();
+
+            foreach (var GroupOfTypes in test)
+            {
+
+                if (GroupOfTypes.Count() <= 1)
+                {
+                    //just add the unit
+                    NewUnitList.Add(GroupOfTypes.First());
+                }
+                else
+                {
+                    var TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
+                    NewUnitList.Add(GroupOfTypes.First().CloneWithNewCount(TotalCount));
+
+                }
+
+            }
+
+            return new(NewUnitList);
+        }
+
+        public static UnitSystem Pow(this UnitSystem a, int toPower)
+        {
+            return toPower switch
+            {
+                0 => new UnitSystem(),
+                1 => a,
+                > 1 => a.Pow(toPower - 1) * a,
+                < 0 => a.Pow(toPower + 1) / a
+            };
+
+        }
+
+        public static UnitSystem Pow(this UnitTypebase a, int toPower)
+        {
+            return a.Unit.Pow(toPower);
+        }
     }
 }

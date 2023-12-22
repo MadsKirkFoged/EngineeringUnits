@@ -17,147 +17,91 @@ namespace EngineeringUnits
     // --> If you try to convert it into a Power then you get a WrongUnitException
     // --> You can only convert it into the correct unit (in this case 'Speed')
 
-    public class UnknownUnit: IEquatable<UnknownUnit>, IComparable, IComparable<UnknownUnit>, IFormattable
+    public class UnknownUnit: BaseUnit
     {
-        public BaseUnit BaseUnit { get; init; }
 
 
-        public UnknownUnit() => BaseUnit = new BaseUnit();
-        public UnknownUnit(double valueLocalUnit) => BaseUnit = new BaseUnit(valueLocalUnit, new UnitSystem());
-        public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) => BaseUnit = new BaseUnit(valueLocalUnit, unitsystem);
-        public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) => BaseUnit = new BaseUnit(valueLocalUnit, unitsystem);
-        public UnknownUnit(BaseUnit baseunit) => BaseUnit = baseunit;
- 
+        public UnknownUnit() : base() { }
 
-        public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right) => left?.BaseUnit * right?.BaseUnit;
-        public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right) => left?.BaseUnit / right?.BaseUnit;
-        public static UnknownUnit operator +(UnknownUnit left, UnknownUnit right) => left?.BaseUnit + right?.BaseUnit;
-        public static UnknownUnit operator -(UnknownUnit left, UnknownUnit right) => left?.BaseUnit - right?.BaseUnit;
+        public UnknownUnit(double valueLocalUnit) : base(valueLocalUnit) { }
+        public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
+        public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
+        public UnknownUnit(BaseUnit baseunit) : base(baseunit) { }
 
-        public static UnknownUnit operator +(UnknownUnit local) => +local?.BaseUnit;
-        public static UnknownUnit operator -(UnknownUnit local) => -local?.BaseUnit;
+        public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right)
+        {
+            if (left is null || right is null)
+                return null;
 
-        public static bool operator ==(UnknownUnit left, UnknownUnit right) => left?.BaseUnit == right?.BaseUnit;
-        public static bool operator !=(UnknownUnit left, UnknownUnit right) => left?.BaseUnit != right?.BaseUnit;
-        public static bool operator <=(UnknownUnit left, UnknownUnit right) => left?.BaseUnit <= right?.BaseUnit;
-        public static bool operator >=(UnknownUnit left, UnknownUnit right) => left?.BaseUnit >= right?.BaseUnit;
-        public static bool operator < (UnknownUnit left, UnknownUnit right) => left?.BaseUnit < right?.BaseUnit;
-        public static bool operator > (UnknownUnit left, UnknownUnit right) => left?.BaseUnit > right?.BaseUnit;
+            try
+            {
+                var NewTestValue = left.NEWValue * right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            }
+        }
+        public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right)
+        {
+            if (left is null || right is null)
+                return null;
+
+            if (right.NEWValue == 0m)
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+
+            try
+            {
+                var NewTestValue = left.NEWValue / right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
+        }
 
 
         public static implicit operator double(UnknownUnit Unit)
         {
-            if (UnitSystemExtensions.UnitsystemForDouble != Unit.BaseUnit)            
+            if (UnitSystemExtensions.UnitsystemForDouble != Unit)            
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
-            return (double)Unit.BaseUnit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
+            return (double)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
         }
-        public static implicit operator UnknownUnit(double Unit) => new (Unit);
-        public static implicit operator UnknownUnit(int Unit) => new (Unit);
         public static explicit operator decimal(UnknownUnit Unit)
         {
-            if (new UnitSystem() != Unit.BaseUnit.Unit)            
+            if (new UnitSystem() != Unit.Unit)            
                 throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
-            return Unit.BaseUnit.GetValueAs(new UnitSystem());
-        }
-        public static explicit operator BaseUnit(UnknownUnit Unit)
-        {
-            if (Unit is null)
-                return null;
-            
-
-            return Unit.BaseUnit;
+            return Unit.GetValueAs(new UnitSystem());
         }
 
-        public static implicit operator UnitSystem(UnknownUnit unit) => unit.Unit;
 
-        [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
-        public double Value => BaseUnit.Value;
-        public decimal SI => BaseUnit.GetBaseValue();
-
-        public UnitSystem Unit 
-        { 
-            get => BaseUnit.Unit; 
-            init => throw new MemberAccessException("UnknownUnit cant init the Unitsystem!"); 
-        }
 
         public override string ToString()
         {
-            if (BaseUnit.Unit.Symbol is not null)            
-                return BaseUnit.ToString();            
-
-            BaseUnit simple = this.IntelligentCast();
-            return simple.ToString();
+            return this.IntelligentCast().ToString();
         }
-
-        public string ToString(string format, IFormatProvider provider)
+        public override string ToString(IFormatProvider provider)
         {
-            if (BaseUnit.Unit.Symbol is not null)
-                return BaseUnit.ToString(format, provider);
-
-            BaseUnit simple = this.IntelligentCast();
-            return simple.ToString(format, provider);
-
-
+            return this.IntelligentCast().ToString(provider);
         }
-
-        public string ToString(string format)
+        public override string ToString(string format)
         {
-            if (BaseUnit.Unit.Symbol is not null)
-                return BaseUnit.ToString(format);
-
-            BaseUnit simple = this.IntelligentCast();
-            return simple.ToString(format);
-
-
+            return this.IntelligentCast().ToString(format);
         }
-
-        public override int GetHashCode() => BaseUnit.GetHashCode();
-
-        public override bool Equals(object obj)
+        public override string ToString(string format, IFormatProvider provider)
         {
-            //Check for null and compare run-time types.
-            if ((obj == null) || !GetType().Equals(obj.GetType()))
-                return false;
-            else
-                return this == (UnknownUnit)obj;
+            return this.IntelligentCast().ToString(format, provider);
         }
-
-
-        public bool Equals(UnknownUnit other)
-        {
-             return this == other;
-        }
-
-        public int CompareTo(object obj)
-        {
-            var local = (UnknownUnit)obj;
-            return CompareTo(local);
-        }
-
-        public int CompareTo(UnknownUnit other)
-        {
-           if(Unit != other.Unit)            
-                throw new WrongUnitException($"Cannot do Compare two different units!");
-
-            return (this - other).SI switch
-            {
-                0m => 0,
-                <0m => -1,
-                >0m => 1,
-            };
-           
-        }
-
-        //public void UnitCheck(UnitSystem a)
-        //{
-        //    BaseUnit.UnitCheck(a);
-        //}
-
-        public double As(UnitSystem b) => BaseUnit.GetValueAsDouble(b);
 
     }
 }

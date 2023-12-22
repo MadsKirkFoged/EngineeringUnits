@@ -41,6 +41,12 @@ public class Program
 
     public static void Main()
     {
+
+        int ii = 0;
+
+
+        decimal d1 = ii;  
+
         double positive = -10;
 
         double negative = +positive;
@@ -50,9 +56,9 @@ public class Program
         Math.Min(positive, 100);
         Math.Max(positive, 100);
 
-        Length lengthmin = Length.FromMeters(1);
+        var lengthmin = Length.FromMeter(1) + Length.FromMeter(1);
 
-        //Length lengthmin1 = -lengthmin;
+        //Length lengthmin1 = lengthmin * lengthmin;
 
         //var test = lengthmin.Minimum(lengthmin);
 
@@ -70,19 +76,19 @@ public class Program
         //Power p1 = (m1 * (h2 - h1)).Minimum(Power.Zero);
 
 
-        var p1 = Pressure.FromBar(10);
-        var p2 = Pressure.FromBar(20);
+        //var p1 = Pressure.FromBar(10);
+        //var p2 = Pressure.FromBar(20);
 
 
         
 
 
-        Console.WriteLine($"{nameof(p1)}: {p1}"); // prints "p1: 10 bar"
-        Console.WriteLine($"{nameof(p2)}: {p2}"); // prints "p2: 20 bar"
-        Console.WriteLine($"p1.Minimum(p2): {p1.Minimum(p2)}"); // prints "p1.Minimum(p2): 20 bar"
-        Console.WriteLine($"p2.Minimum(p1): {p2.Minimum(p1)}"); // prints "p2.Minimum(p1): 20 bar"
-        Console.WriteLine($"p1.Maximum(p2): {p1.Maximum(p2)}"); // prints "p1.Maximum(p2): 10 bar"
-        Console.WriteLine($"p2.Maximum(p1): {p2.Maximum(p1)}"); // prints "p2.Maximum(p1): 10 bar"
+        //Console.WriteLine($"{nameof(p1)}: {p1}"); // prints "p1: 10 bar"
+        //Console.WriteLine($"{nameof(p2)}: {p2}"); // prints "p2: 20 bar"
+        //Console.WriteLine($"p1.Minimum(p2): {p1.Minimum(p2)}"); // prints "p1.Minimum(p2): 20 bar"
+        //Console.WriteLine($"p2.Minimum(p1): {p2.Minimum(p1)}"); // prints "p2.Minimum(p1): 20 bar"
+        //Console.WriteLine($"p1.Maximum(p2): {p1.Maximum(p2)}"); // prints "p1.Maximum(p2): 10 bar"
+        //Console.WriteLine($"p2.Maximum(p1): {p2.Maximum(p1)}"); // prints "p2.Maximum(p1): 10 bar"
 
 
 
@@ -267,9 +273,9 @@ public class Program
 
         //var returntest = await Task.WhenAll(DataTasks);
 
-        double? nulltest = null;
+        //double? nulltest = null;
 
-        UnknownUnit UnknownUnittest = nulltest;
+        //UnknownUnit UnknownUnittest = new(nulltest);
 
         //UnknownUnit nulltest = massFlow3;
 
@@ -356,8 +362,8 @@ public class Program
 
             //}
 
-            //var p1 = new Power(5, PowerUnit.SI);
-            //var p2 = new Power(10, PowerUnit.SI);
+            var p1 = new Power(5, PowerUnit.SI);
+            var p2 = new Power(10, PowerUnit.SI);
             var p3 = new Power(15, PowerUnit.SI);
 
             var v1 = new UVector(p1, p2);

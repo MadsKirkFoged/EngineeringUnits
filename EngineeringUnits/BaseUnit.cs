@@ -51,13 +51,24 @@ namespace EngineeringUnits
             Unit = unitSystem;
             NEWValue = value;
         }
+
+        public BaseUnit(decimal value) : this(value, new UnitSystem()) { }
+        public BaseUnit(double value) : this(value, new UnitSystem()) { }
+        public BaseUnit(int value) : this(value, new UnitSystem()) { }
+
+
         protected BaseUnit(UnknownUnit unit)
         {
             Unit = unit.Unit;
-            NEWValue = unit.BaseUnit.NEWValue;
+            NEWValue = unit.NEWValue;
+        }
+        protected BaseUnit(BaseUnit unit)
+        {
+            Unit = unit.Unit;
+            NEWValue = unit.NEWValue;
         }
 
-       
+
         public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)
@@ -78,10 +89,9 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
             }
         }
-
         public static UnknownUnit operator +(BaseUnit local)
         {
-            return local;
+            return new(local);
         }
 
 
@@ -106,7 +116,6 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
         }
-
         public static UnknownUnit operator -(BaseUnit local)
         {
             if (local is null)
@@ -132,6 +141,63 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
             }
         }
+        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
+        {
+            if (left is null || right is null)
+                return null;
+
+            try
+            {
+                var NewTestValue = left.NEWValue * right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            }
+        }
+        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
+        {
+            if (left is null || right is null)
+                return null;
+
+            try
+            {
+                var NewTestValue = left.NEWValue * right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            }
+        }
+        
+        public static UnknownUnit operator *(BaseUnit left, int right)
+        {
+            return left * new BaseUnit(right);
+        }
+        public static UnknownUnit operator *(int left, BaseUnit right)
+        {
+            return new BaseUnit(left) * right;
+        }
+        public static UnknownUnit operator *(BaseUnit left, double right)
+        {
+            return left * new BaseUnit(right);
+        }
+        public static UnknownUnit operator *(decimal left, BaseUnit right)
+        {
+            return new BaseUnit(left) * right;
+        }
+        public static UnknownUnit operator *(BaseUnit left, decimal right)
+        {
+            return left * new BaseUnit(right);
+        }
+
+
         public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)
@@ -152,23 +218,73 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }
         }
-
-        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
-        {
-            return left / right?.BaseUnit;
-        }
         public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
         {
-            return left?.BaseUnit / right;
+            if (left is null || right is null)
+                return null;
+
+            if (right.NEWValue == 0m)
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+
+            try
+            {
+                var NewTestValue = left.NEWValue / right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
         }
-        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
+        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
         {
-            return left * right?.BaseUnit;
+            if (left is null || right is null)
+                return null;
+
+            if (right.NEWValue == 0m)
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+
+            try
+            {
+                var NewTestValue = left.NEWValue / right.NEWValue;
+
+                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+
+            }
+            catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
         }
-        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
+
+
+        public static UnknownUnit operator /(BaseUnit left, int right)
         {
-            return left?.BaseUnit * right;
+            return left / new BaseUnit(right);
         }
+        public static UnknownUnit operator /(int left, BaseUnit right)
+        {
+            return new BaseUnit(left) / right;
+        }
+        public static UnknownUnit operator /(BaseUnit left, double right)
+        {
+            return left / new BaseUnit(right);
+        }
+        public static UnknownUnit operator /(double left, BaseUnit right)
+        {
+            return new BaseUnit(left) / right;
+        }
+        public static UnknownUnit operator /(BaseUnit left, decimal right)
+        {
+            return left / new BaseUnit(right);
+        }
+        public static UnknownUnit operator /(decimal left, BaseUnit right)
+        {
+            return new BaseUnit(left) / right;
+        }
+
 
         public static bool operator ==(BaseUnit left, BaseUnit right)
         {
@@ -254,13 +370,7 @@ namespace EngineeringUnits
             return left.NEWValue > right.GetValueAs(left.Unit);
         }
 
-        public static implicit operator UnknownUnit(BaseUnit baseUnit)
-        {
-            if (baseUnit is null)
-                return null;
-
-            return new(baseUnit);
-        }
+       
 
         public static implicit operator UnitSystem(BaseUnit unit) => unit.Unit;
 
@@ -275,14 +385,14 @@ namespace EngineeringUnits
         /// </summary>
         /// <returns>String representation.</returns>
         /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.InvariantCulture" /> if null.</param>
-        public string ToString(IFormatProvider provider) => ToString("g4", provider);
+        public virtual string ToString(IFormatProvider provider) => ToString("g4", provider);
 
         /// <summary>
         /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.InvariantCulture" />.
         /// </summary>
         /// <param name="format">The format string.</param>
         /// <returns>The string representation.</returns>
-        public string ToString(string format) => ToString(format, CultureInfo.InvariantCulture);
+        public virtual string ToString(string format) => ToString(format, CultureInfo.InvariantCulture);
 
         /// <summary>
         /// Gets the string representation of this instance in the specified format string using the specified format provider, or <see cref="CultureInfo.CurrentUICulture" /> if null.
@@ -383,7 +493,6 @@ namespace EngineeringUnits
             else
                 return this == (BaseUnit)obj;
         }
-
         public bool Equals(BaseUnit other) => this == other;
 
         public int CompareTo(object obj)
@@ -392,7 +501,6 @@ namespace EngineeringUnits
 
             return CompareTo(local);
         }
-
         public int CompareTo(BaseUnit other)
         {
 
@@ -406,6 +514,10 @@ namespace EngineeringUnits
                 >0m => 1,
             };
         }
-    
+
+
+        public decimal SI => this.GetBaseValue();
+
+
     }
 }

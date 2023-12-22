@@ -103,7 +103,7 @@ namespace UnitTests
         [TestMethod]
         public void UnknownPositiveAbs()
         {
-            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(58);
+            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(58).ToUnknownUnit();
             UnknownUnit f2 = f1.Abs();
 
             Assert.AreEqual(f1, f2);
@@ -113,7 +113,7 @@ namespace UnitTests
         [TestMethod]
         public void UnknownNegativeAbs()
         {
-            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(-58);
+            UnknownUnit f1 = Power.FromBritishThermalUnitPerMinute(-58).ToUnknownUnit();
             UnknownUnit f2 = f1.Abs();
 
             Assert.AreNotEqual(f1, f2);

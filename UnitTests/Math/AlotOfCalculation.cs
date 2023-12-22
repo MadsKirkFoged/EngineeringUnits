@@ -14,11 +14,11 @@ namespace UnitTests
             Length L1 = new Length(10, LengthUnit.Meter);
             Length L2 = new Length(10, LengthUnit.Centimeter);
 
-            UnknownUnit result1 = 0;
-            UnknownUnit result2 = 0;
-            UnknownUnit result3 = new Length(10, LengthUnit.Meter);
-            UnknownUnit result4 = new Length(10, LengthUnit.Meter);
-            UnknownUnit result5 = 0;
+            UnknownUnit result1 = new(0);
+            UnknownUnit result2 = new(0);
+            UnknownUnit result3 = new Length(10, LengthUnit.Meter).ToUnknownUnit();
+            UnknownUnit result4 = new Length(10, LengthUnit.Meter).ToUnknownUnit();
+            UnknownUnit result5 = new(0);
 
             for (int i = 0; i < 50; i++)
             {

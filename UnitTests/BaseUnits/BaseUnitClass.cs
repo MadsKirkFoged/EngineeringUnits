@@ -71,7 +71,7 @@ public class CreatingBaseUnits
         var unit = new BaseUnit(1, PressureUnit.Pascal);
 
         // Act
-        var UnknownUnit = (UnknownUnit)unit;
+        var UnknownUnit = unit.ToUnknownUnit();
         var BackToPressureUnit = (Pressure)UnknownUnit;
 
         // Assert
