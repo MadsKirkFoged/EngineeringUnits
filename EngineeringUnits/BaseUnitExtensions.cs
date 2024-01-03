@@ -16,8 +16,13 @@ namespace EngineeringUnits
         }
 
 
-        public static decimal GetValueAs(this BaseUnit From, UnitSystem To)
+        internal static DecimalSafe GetValueAs(this BaseUnit From, UnitSystem To)
         {
+            if (From.NEWValue.IsNotAValue())            
+                return From.NEWValue;
+            
+
+
             Fraction b1 = From.Unit.SumOfBConstants();
             Fraction b2 = To.SumOfBConstants();
             Fraction Factor = To.ConvertionFactor(From.Unit);
@@ -38,14 +43,8 @@ namespace EngineeringUnits
             return (decimal)y2test2;
         }
 
-        public static double GetValueAsDouble(this BaseUnit From, UnitSystem To)
+        internal static double GetValueAsDouble(this BaseUnit From, UnitSystem To)
         {
-            if (From.IsNaN)
-                return double.NaN;
-
-            if (From.Inf)
-                return double.PositiveInfinity;
-
             return (double)From.GetValueAs(To);
         }
 
@@ -54,7 +53,7 @@ namespace EngineeringUnits
             return From.Unit.ReduceUnits().ToString();
         }
 
-        public static decimal GetBaseValue(this BaseUnit From)
+        internal static decimal GetBaseValue(this BaseUnit From)
         {
             if (From.Unit.IsSIUnit())
                 return From.NEWValue;
@@ -62,41 +61,40 @@ namespace EngineeringUnits
             return (decimal)(From.Unit.SumConstant() * (Fraction)From.NEWValue);
         }
 
+       
+        /// <summary>
+        /// Converts the value of the <paramref name="From"/> BaseUnit to the specified <paramref name="UnitSystem"/>.
+        /// </summary>
+        /// <param name="From">The source BaseUnit.</param>
+        /// <param name="b">The target UnitSystem.</param>
+        /// <returns>The converted value as a double.</returns>
         public static double As(this BaseUnit From, UnitSystem b)
         {
             return From.GetValueAsDouble(b);
         }
 
 
-        /// <returns>Absolute value of your unit</returns>
-        /// <param name="a">Source value</param>
-        public static UnknownUnit Abs(this BaseUnit a)
+
+        /// <summary>
+        /// Converts the <paramref name="From"/> Unit to specified <paramref name="UnitSystem"/>.
+        /// </summary>
+        /// <param name="From">The source BaseUnit.</param>
+        /// <param name="selectedUnit">The target UnitSystem.</param>
+        /// <returns>The orginal unit converted into a new.</returns>
+        public static UnknownUnit ToUnit(this BaseUnit From, UnitSystem selectedUnit)
         {
-            if (a is null)
-                return null;
+            GuardAgainst.DifferentUnits(From, selectedUnit);
 
-            if (a.GetBaseValue() > 0)
-                return new(a);
-
-            return a * -1;
-
-        }
-
-        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
-        /// <param name="a">Source value</param>
-        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<BaseUnit> a)
-        {
-            return a.Select(x => x.Abs());
-        }
-
-        public static UnknownUnit ToUnit(this BaseUnit a, UnitSystem selectedUnit)
-        {
-            GuardAgainst.DifferentUnits(a, selectedUnit);
-
-            return new(a.GetValueAs(selectedUnit), selectedUnit);
+            return new UnknownUnit(From.GetValueAs(selectedUnit), selectedUnit);
         }
 
 
+        /// <summary>
+        /// Raises the <paramref name="a"/> BaseUnit to the power of <paramref name="toPower"/>.
+        /// </summary>
+        /// <param name="a">The source BaseUnit.</param>
+        /// <param name="toPower">The power to raise the BaseUnit to.</param>
+        /// <returns>The result of raising the BaseUnit to the specified power.</returns>
         public static UnknownUnit Pow(this BaseUnit a, int toPower)
         {
             if (a is null)
@@ -109,9 +107,15 @@ namespace EngineeringUnits
                 > 1 => a.Pow(toPower - 1) * a,
                 < 0 => a.Pow(toPower + 1) / a
             };
-
         }
 
+        /// <summary>
+        /// Clamps the value of the <paramref name="Clamped"/> between the <paramref name="Lower"/> and <paramref name="Upper"/> limits.
+        /// </summary>
+        /// <param name="Clamped">The value to be clamped.</param>
+        /// <param name="Lower">The lower limit BaseUnit.</param>
+        /// <param name="Upper">The upper limit BaseUnit.</param>
+        /// <returns>The clamped value between lower and upper limits.</returns>
         public static UnknownUnit Clamp(this BaseUnit Clamped, BaseUnit Lower, BaseUnit Upper)
         {
             if (Clamped is null || Lower is null || Upper is null)
@@ -123,26 +127,31 @@ namespace EngineeringUnits
             if (Upper < Lower)
             {
                 //TODO you need max to be larger then min
-                return new(Clamped);
+                return Clamped.ToUnknownUnit();
             }
 
 
             if (Clamped < Lower)
-                return new(Lower);
+                return Lower.ToUnknownUnit();
 
 
             if (Clamped > Upper)
-                return new(Upper);
+                return Upper.ToUnknownUnit();
 
 
-            return new(Clamped);
-
-
+            return Clamped.ToUnknownUnit();
         }
 
         [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
         public static UnknownUnit InRangeOf(this BaseUnit a, BaseUnit Min, BaseUnit Max) => a.Clamp(Min, Max);
 
+
+
+        /// <summary>
+        /// Determines whether the specified Unit is equal to zero.
+        /// </summary>
+        /// <param name="a">The BaseUnit to check.</param>
+        /// <returns>True if the BaseUnit is equal to zero; otherwise, false.</returns>
         public static bool IsZero(this BaseUnit a)
         {
             if (a is null)
@@ -151,6 +160,11 @@ namespace EngineeringUnits
             return a.GetBaseValue() == 0m;
         }
 
+        /// <summary>
+        /// Determines whether the specified Unit is not equal to zero.
+        /// </summary>
+        /// <param name="a">The BaseUnit to check.</param>
+        /// <returns>True if the BaseUnit is not equal to zero; otherwise, false.</returns>
         public static bool IsNotZero(this BaseUnit a)
         {
             if (a is null)
@@ -159,6 +173,11 @@ namespace EngineeringUnits
             return !a.IsZero();
         }
 
+        /// <summary>
+        /// Determines whether the specified Unit is above zero.
+        /// </summary>
+        /// <param name="a">The BaseUnit to check.</param>
+        /// <returns>True if the BaseUnit is above zero; otherwise, false.</returns>
         public static bool IsAboveZero(this BaseUnit a)
         {
             if (a is null)
@@ -167,6 +186,11 @@ namespace EngineeringUnits
             return a.GetBaseValue() > 0;
         }
 
+        /// <summary>
+        /// Determines whether the specified Unit is below zero.
+        /// </summary>
+        /// <param name="a">The BaseUnit to check.</param>
+        /// <returns>True if the BaseUnit is below zero; otherwise, false.</returns>
         public static bool IsBelowZero(this BaseUnit a)
         {
             if (a is null)
@@ -175,33 +199,18 @@ namespace EngineeringUnits
             return a.GetBaseValue() < 0;
         }
 
-        public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
 
-            return list.Aggregate(new UnknownUnit(0m, list.First()),
-                                (x, y) => x + y);
-        }
 
-        public static UnknownUnit Average(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.Sum() / list.Count();
-        }
-
-        public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return new(list.OrderBy(x => x)
-                       .ToList()
-                        [list.Count() / 2]);
-        }
-
+        /// <summary>
+        /// Finds the value in the list closest and above to the specified reference value. <br></br>
+        /// <example>
+        /// <br></br> Simple example: <br></br>
+        ///[1,2,4,7].RoundUpToNearest(5) <br></br>
+        ///--> returns 7; <br></br>
+        /// </example>
+        /// </summary> 
+        /// <param name="list">The collection of BaseUnits.</param>
+        /// <param name="valueToBeRoundedUp">The reference value.</param>
         public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedUp)
         {
             if (list is null || !list.Any())
@@ -213,10 +222,19 @@ namespace EngineeringUnits
                     return new(item);
             }
 
-            return new(list.Max());
-            //return valueToBeRoundedUp;
+            return list.Max().ToUnknownUnit();
         }
 
+        /// <summary>
+        /// Finds the value in the list closest and below to the specified reference value. <br></br>
+        /// <example>
+        /// <br></br> Simple example: <br></br>
+        ///[1,2,4,7].RoundDownToNearest(5) <br></br>
+        ///--> returns 4; <br></br>
+        /// </example>
+        /// </summary> 
+        /// <param name="list">The collection of BaseUnits.</param>
+        /// <param name="valueToBeRoundedDown">The reference value.</param>
         public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedDown)
         {
             if (list is null || !list.Any())
@@ -228,32 +246,28 @@ namespace EngineeringUnits
                     return new(item);
             }
 
-            return new(list.Min());
+            return list.Min().ToUnknownUnit();
             //return valueToBeRoundedUp;
         }
 
         /// <summary>
-        /// Rounds a collection of values to the nearest value, based on a specified reference value.
-        /// </summary>
-        /// <remarks>
-        /// The method calculates the absolute difference between each element in the collection and the specified
-        /// reference value, then rounds to the nearest value. The result is the element in the collection that is
-        /// closest to the reference value.
-        /// </remarks>
-        /// <param name="list">The collection of BaseUnits to be rounded.</param>
-        /// <param name="valueToBeRoundedDown">The reference value to which elements are rounded.</param>
-        /// <returns>
-        /// The BaseUnit in the collection that is closest to the specified reference value when rounded to the nearest value.
-        /// Returns null if the input collection is null or empty.
-        /// </returns>
-        public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedDown)
+        /// Finds the value in the list closest to the specified reference value. <br></br>
+        /// <example>
+        /// <br></br> Simple example: <br></br>
+        ///[1,2,4,7].RoundToNearest(5) <br></br>
+        ///--> returns 4; <br></br>
+        /// </example>
+        /// </summary> 
+        /// <param name="list">The collection of BaseUnits.</param>
+        /// <param name="valueToBeRounded">The reference value.</param>
+        public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRounded)
         {
             //Bedre name FindClosestTo?
 
             if (list is null || !list.Any())
                 return null;
 
-            return new(list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault());
+            return new(list.OrderBy(x => (x - valueToBeRounded).Abs()).FirstOrDefault());
         }
         
         [Obsolete("Name has changed to: LowerLimitAt")]

@@ -12,13 +12,12 @@ namespace EngineeringUnits
     public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
-        internal bool Inf { get; init; }
-        internal bool IsNaN { get; init; }
         internal UnitSystem Unit { get; init; }
+        internal DecimalSafe NEWValue { get; init; }
+
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
         public double Value => (double)this.GetBaseValue();
-        internal decimal NEWValue { get; init; }
 
         public BaseUnit() { }
         public BaseUnit(decimal value, UnitSystem unitSystem)
@@ -29,22 +28,7 @@ namespace EngineeringUnits
         public BaseUnit(double value, UnitSystem unitSystem)
         {
             Unit = unitSystem;
-
-            if (double.IsNaN(value))
-            {
-                IsNaN = true;
-                return;
-            }
-
-            if (value.IsValueOverDecimalMax())
-            {
-                Inf = true;
-                return;
-            }
-
-            Inf = false;
-            NEWValue = (decimal)value;
-
+            NEWValue = value;
         }
         public BaseUnit(int value, UnitSystem unitSystem)
         {
@@ -351,38 +335,20 @@ namespace EngineeringUnits
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
 
-            //Set unit
-            var GetUnit = GetStandardSymbol(Unit);
-            var ValueToDisplay = NEWValue;
-
-            //It could not find a unit to display
-            if (GetUnit is null)
-            {
-                var SIUnit = Unit.GetSIUnitsystem();
-                var CorrectionToSI = SIUnit.ConvertionFactor(Unit);
-
-                ValueToDisplay = (decimal)(CorrectionToSI * (Fraction)ValueToDisplay);
-                GetUnit = GetStandardSymbol(SIUnit);
-            }
-
-            //Set value
+            //Convert value to string
             var value = format[0] switch
             {
                 'A'or'a' => "",
                 'U'or'u' => "",
                 'Q'or'q' => "",
-                'V'or'v' => ValueToDisplay.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                'S'or's' => ValueToDisplay.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                _ => ValueToDisplay.ToString(format, provider),
+                'V'or'v' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                'S'or's' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                _ => NEWValue.ToString(format, provider),
             };
 
-            if (Inf && value != "")
-                value = double.PositiveInfinity.ToString();
 
-            if (IsNaN && value != "")
-                value = double.NaN.ToString();
-
-
+            //Convert unit to string
+            var GetUnit = GetStandardSymbol(Unit);
 
             var unit = format[0] switch
             {
@@ -393,7 +359,7 @@ namespace EngineeringUnits
                 _ => $" {GetUnit}",
             };
 
-            //Merged and return       
+            //Merge       
             return $"{value}{unit}";
         }
 
@@ -410,9 +376,6 @@ namespace EngineeringUnits
             where T : UnitTypebase
         {
 
-            if (_unit.Symbol is not null)
-                return _unit.Symbol;
-
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return UnitTypebase.ListOf<T>()
                 .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
@@ -420,12 +383,7 @@ namespace EngineeringUnits
         }
         public virtual string GetStandardSymbol(UnitSystem _unit)
         {
-            if (_unit.Symbol is not null)
-                return _unit.Symbol;
-
             return $"{_unit}";
-
-            //return null;
         }
 
         public override bool Equals(object obj)
@@ -449,7 +407,8 @@ namespace EngineeringUnits
 
             if (Unit != other.Unit)
                 throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
-            ;
+            
+
             return (this - other).SI switch
             {
                 0m => 0,

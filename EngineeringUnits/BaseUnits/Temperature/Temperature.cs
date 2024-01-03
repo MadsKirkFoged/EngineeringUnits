@@ -12,7 +12,7 @@ namespace EngineeringUnits
         private TemperatureUnit PublicUnit { get; init; }
 
         [JsonProperty]
-        private decimal PublicValue { get; init; }
+        private DecimalSafe PublicValue { get; init; }
 
         [JsonProperty]
         private bool NoRunback { get; init; }
@@ -43,56 +43,44 @@ namespace EngineeringUnits
         public Temperature(double value, TemperatureUnit selectedUnit) :this()
         {
 
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
+            {
+                PublicUnit = selectedUnit;
+            }
 
 
-                //Public view of tempature
-                if (selectedUnit.Unit.IsSIUnit() is false)
-                {
-                    PublicUnit = selectedUnit;
-                }
+            NEWValue = value;
+            PublicValue = value;
 
-                if (double.IsNaN(value))
-                {
-                    IsNaN = true;
-                }
-                else if (double.IsInfinity(value) || value > (double)decimal.MaxValue || value < (double)decimal.MinValue)
-                {
-                    Inf = true;
-                }
-                else
-                {
-                    Inf = false;
-                    //SymbolValue = (decimal)value;
-                    NEWValue = (decimal)value;
-                    PublicValue = (decimal)value;
-                }
 
-                //Forcing all temperatures to stay in kelvin
-                Unit = selectedUnit.Unit;
-                NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-                Unit = TemperatureUnit.Kelvin.Unit;
-            
-
+            //Forcing all temperatures to stay in kelvin
+            Unit = selectedUnit.Unit;
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            Unit = TemperatureUnit.Kelvin.Unit;
         }
 
         public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
         {
 
-                Unit = selectedUnit.Unit;
-                NEWValue = value;
+            Unit = selectedUnit.Unit;
+            NEWValue = value;
 
-                //Public view of tempature
-                if (selectedUnit.Unit.IsSIUnit() is false)
-                {
-                    PublicUnit = selectedUnit;
-                    PublicValue = value;
-                }
+            //Public view of tempature
+            if (selectedUnit.Unit.IsSIUnit() is false)
+            {
+                PublicUnit = selectedUnit;
+                PublicValue = value;
+            }
 
-                //Forcing all temperatures to stay in kelvin for calculations
-                NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-                Unit = TemperatureUnit.Kelvin.Unit;
-            
+            //Forcing all temperatures to stay in kelvin for calculations
+            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            Unit = TemperatureUnit.Kelvin.Unit;
         }
+
+
+
+
 
         private Temperature(decimal value, TemperatureUnit selectedUnit, bool noRunback = true) : this()
         {

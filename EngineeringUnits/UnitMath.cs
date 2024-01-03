@@ -12,76 +12,110 @@ namespace EngineeringUnits
     public static class UnitMath
     {
 
-        //This is mostly for complying with UnitNets interfaces
-        //--> must of the function can be found as Extensions
-
-
-        public static UnknownUnit Sum(IEnumerable<BaseUnit> list)
+        /// <summary>
+        /// Calculates the sum of a collection of <see cref="BaseUnit"/> objects.
+        /// </summary>
+        /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
+        /// <returns>The sum of the <see cref="BaseUnit"/> objects.</returns>
+        /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+        public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
         {
-            UnknownUnit test = new(0m, list.First());
+            if (list is null || !list.Any())
+                return null;
 
-            foreach (var item in list)        
-                test += item;
-
-            return test;
+            return list.Aggregate(new UnknownUnit(0m, list.First()),
+                                (x, y) => x + y);
         }
 
 
-        public static UnknownUnit Average(IEnumerable<BaseUnit> list)
+
+        /// <summary>
+        /// Calculates the average value of a collection of <see cref="BaseUnit"/> objects.
+        /// </summary>
+        /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
+        /// <returns>The average value of the <see cref="BaseUnit"/> objects.</returns>
+        /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+        public static UnknownUnit Average(this IEnumerable<BaseUnit> list)
         {
-            UnknownUnit test = Sum(list);
+            if (list is null || !list.Any())
+                return null;
 
-            test /= list.Count();
-
-            return test;
+            return list.Sum() / list.Count();
         }
 
-       
+        /// <summary>
+        /// Calculates the mean value of a collection of <see cref="BaseUnit"/> objects.
+        /// </summary>
+        /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
+        /// <returns>The mean value of the <see cref="BaseUnit"/> objects.</returns>
+        /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+        public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
+        {
+            if (list is null || !list.Any())
+                return null;
 
+            return new(list.OrderBy(x => x)
+                       .ToList()
+                        [list.Count() / 2]);
+        }
+
+        /// <summary>
+        /// Calculates the minimum value of a collection of <see cref="BaseUnit"/> objects.
+        /// </summary>
+        /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
+        /// <returns>The minimum value of the <see cref="BaseUnit"/> objects.</returns>
         public static UnknownUnit Min(IEnumerable<BaseUnit> list)
         {
-
-            UnknownUnit test = new(list.First());
-
-            foreach (var item in list)
-            {
-                if (item < test)
-                    test = new(item);
-            }
-
-            return test;
+            return list.Min().ToUnknownUnit();
         }
 
-       
 
+
+        /// <summary>
+        /// Calculates the maximum value of a collection of <see cref="BaseUnit"/> objects.
+        /// </summary>
+        /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
+        /// <returns>The maximum value of the <see cref="BaseUnit"/> objects.</returns>
         public static UnknownUnit Max(IEnumerable<BaseUnit> list)
         {
-
-            UnknownUnit test = new(list.First());
-
-            foreach (var item in list)
-            {
-                if (item > test)
-                    test = new(item);
-            }
-
-            return test;
+            return list.Max().ToUnknownUnit();
         }
 
-      
 
 
-        public static UnknownUnit Sum(params BaseUnit[] x) { return Sum((IEnumerable<BaseUnit>)x); }
+
+        public static UnknownUnit Sum(params BaseUnit[] x) 
+        {
+            return x.Sum();
+        }
         
-        public static UnknownUnit Average(params BaseUnit[] x) { return Average((IEnumerable<BaseUnit>)x); }
+        public static UnknownUnit Average(params BaseUnit[] x) 
+        {
+            return x.Average();
+        }
 
-        public static UnknownUnit Max(params BaseUnit[] x) { return Max((IEnumerable<BaseUnit>)x); }
+        public static UnknownUnit Max(params BaseUnit[] x) 
+        { 
+            return x.Max().ToUnknownUnit(); 
+        }
 
-        public static UnknownUnit Min(params BaseUnit[] x) { return Min((IEnumerable<BaseUnit>)x); }
+        public static UnknownUnit Min(params BaseUnit[] x) 
+        { 
+            return x.Min().ToUnknownUnit(); 
+        }
 
 
 
 
+        /// <summary>
+        /// Performs linear interpolation between two points.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the point to interpolate.</param>
+        /// <param name="x0">The x-coordinate of the first reference point.</param>
+        /// <param name="x1">The x-coordinate of the second reference point.</param>
+        /// <param name="y0">The y-coordinate of the first reference point.</param>
+        /// <param name="y1">The y-coordinate of the second reference point.</param>
+        /// <returns>The interpolated value at the given x-coordinate.</returns>
         public static UnknownUnit LinearInterpolation(BaseUnit x, BaseUnit x0, BaseUnit x1, BaseUnit y0, BaseUnit y1)
         {
 
@@ -94,8 +128,32 @@ namespace EngineeringUnits
         }
 
 
+        /// <summary>
+        /// Calculates the absolute value of a <see cref="BaseUnit"/> object.
+        /// </summary>
+        /// <param name="a">The <see cref="BaseUnit"/> object.</param>
+        /// <returns>The absolute value of the <see cref="BaseUnit"/> object.</returns>
+        public static UnknownUnit Abs(this BaseUnit a)
+        {
+            if (a is null)
+                return null;
 
+            if (a.GetBaseValue() > 0)
+                return new(a);
 
+            return a * -1;
+        }
 
+        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
+        /// <param name="a">Source value</param>
+        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<BaseUnit> a)
+        {
+            return a.Select(x => x.Abs());
+        }
+    
+    
+    
+    
+    
     }
 }

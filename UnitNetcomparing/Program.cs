@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 //using UnitsNet;
 
 namespace Sandbox;
@@ -42,6 +43,26 @@ public class Program
     public static void Main()
     {
 
+        var testst = [1, 2, 3];
+
+
+        //var tupletest = (MassFlow.Zero, MassFlow.Zero).Max();
+
+
+
+
+        //var InfTest = MassFlow.FromKilogramPerSecond(1) / MassFlow.Zero;
+
+        //MassFlow massFlow3 = MassFlow.FromKilogramPerSecond(1) + InfTest;
+
+
+        //string NaNTest2 = InfTest.ToString();
+
+        List<int> mynewlist = new List<int> { 1, 1, 1, 2, 4, 6, 6, 8 };
+
+        mynewlist.Sum();
+
+
         int ii = 0;
 
 
@@ -72,20 +93,20 @@ public class Program
                                      MassFlow.FromKilogramPerSecond(2));
 
 
-        //var h1 = new Enthalpy(10, EnthalpyUnit.JoulePerKilogram);
-        //var h2 = new Enthalpy(100, EnthalpyUnit.JoulePerKilogram);
-        //var m1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
+        var h1 = new Enthalpy(10, EnthalpyUnit.JoulePerKilogram);
+        var h2 = new Enthalpy(100, EnthalpyUnit.JoulePerKilogram);
+        var m1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
 
 
 
-        //Power p1 = (m1 * (h2 - h1)).Minimum(Power.Zero);
+        UnknownUnit p11 = (m1 * (h2 - h1));
 
 
         //var p1 = Pressure.FromBar(10);
         //var p2 = Pressure.FromBar(20);
 
 
-        
+
 
 
         //Console.WriteLine($"{nameof(p1)}: {p1}"); // prints "p1: 10 bar"
@@ -186,11 +207,11 @@ public class Program
 
             var test = siUnit.ToString();
 
-            var convertedValue = valueWithUnit.GetValueAs(siUnit);
+            var convertedValue = valueWithUnit.As(siUnit);
             var value = new UnknownUnit(convertedValue, unit);
         }
 
-        var after = valueWithUnit.GetValueAs(unit);
+        var after = valueWithUnit.As(unit);
 
         var converterror = new SpecificEnergy(10, SpecificEnergyUnit.SI);
 

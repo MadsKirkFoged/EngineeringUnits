@@ -2,9 +2,11 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace EngineeringUnits
@@ -35,7 +37,7 @@ namespace EngineeringUnits
                 return null;
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            var value = a.GetValueAs(NewUnitSystem);
+            var value = (decimal)a.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
@@ -163,6 +165,11 @@ namespace EngineeringUnits
             var test3 = test2.DisplaySignificantDigits(count);
 
             return test3.ToString(CultureInfo.InvariantCulture);
+        }
+
+        public static string DisplaySignificantDigits(this DecimalSafe local, int count)
+        {
+            return ((decimal)local).DisplaySignificantDigits(count);
         }
 
 
