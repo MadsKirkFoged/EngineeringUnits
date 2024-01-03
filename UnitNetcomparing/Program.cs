@@ -43,8 +43,13 @@ public class Program
     public static void Main()
     {
 
-        var testst = [1, 2, 3];
 
+
+
+
+       var testtt = (MassFlow.FromCentigramPerDay(1), MassFlow.FromDecagramPerSecond(1)).Sum();
+
+       
 
         //var tupletest = (MassFlow.Zero, MassFlow.Zero).Max();
 

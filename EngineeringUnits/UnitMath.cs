@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace EngineeringUnits
 {
@@ -25,6 +26,14 @@ namespace EngineeringUnits
 
             return list.Aggregate(new UnknownUnit(0m, list.First()),
                                 (x, y) => x + y);
+        }
+
+
+
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit) list)
+        {
+            List<BaseUnit> test = [list.Item1, list.Item2];
+            return test.Sum();
         }
 
 
