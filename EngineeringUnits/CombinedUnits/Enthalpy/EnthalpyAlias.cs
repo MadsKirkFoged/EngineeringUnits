@@ -11,7 +11,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null;           
 
-            return new(Unit);
+            return Unit;
         }
 
         public static implicit operator SpecificEnergy(Enthalpy Unit)
@@ -19,7 +19,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null;           
 
-            return new(Unit);
+            return Unit;
         }
     }
 }

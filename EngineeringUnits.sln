@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "UnitNetcomparing\Sandbox.csproj", "{D96A6CC1-61C5-4FF6-B2FB-88C46DC7FCA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGen", "CodeGen\CodeGen.csproj", "{6505514A-A352-4B99-98A5-F95179022D94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGen", "CodeGen\CodeGen.csproj", "{6505514A-A352-4B99-98A5-F95179022D94}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineeringUnits", "EngineeringUnits\EngineeringUnits.csproj", "{114FD29F-BCAF-44E1-9743-DF2A3C472C3E}"
 EndProject

@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+	  <LangVersion>12.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeGen\CodeGen.csproj" />
     <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>
 

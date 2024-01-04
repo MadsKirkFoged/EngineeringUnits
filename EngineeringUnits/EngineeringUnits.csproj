@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <Title>EngineeringUnits</Title>
     <PackageId>EngineeringUnits</PackageId>
     <Authors>Mads Kirk Foged</Authors>
@@ -11,7 +11,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>UnitsNet Unit units measurement si metric imperial convert conversion Physics Engineering science Math mathematics calculation</PackageTags>
     <IsPackable>true</IsPackable>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>12.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

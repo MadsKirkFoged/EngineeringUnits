@@ -18,7 +18,7 @@ namespace UnitTests
         public void ConvertFromNull()
         {
             MassFlow massFlow = null;
-            UnknownUnit nulltest = massFlow;
+            UnknownUnit nulltest = massFlow.ToUnknownUnit();
 
             MassFlow massFlow2 = nulltest;
 

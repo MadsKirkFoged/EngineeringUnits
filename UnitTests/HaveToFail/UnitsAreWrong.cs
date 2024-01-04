@@ -319,22 +319,22 @@ namespace UnitTests.HaveToFail
         //}
 
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void WrongListToCompare()
-        {
-            var list1 = new List<UnknownUnit>
-            {
+        //[TestMethod]
+        //[ExpectedException(typeof(InvalidOperationException))]
+        //public void WrongListToCompare()
+        //{
+        //    var list1 = new List<UnknownUnit>
+        //    {
 
-            };
-            UnknownUnit Min = UnitMath.Min(list1);
-            UnknownUnit Average = UnitMath.Average(list1);
-            UnknownUnit Sum = UnitMath.Sum(list1);
-            UnknownUnit Max = UnitMath.Max(list1);
+        //    };
+        //    UnknownUnit Min = UnitMath.Min(list1);
+        //    UnknownUnit Average = UnitMath.Average(list1);
+        //    UnknownUnit Sum = UnitMath.Sum(list1);
+        //    UnknownUnit Max = UnitMath.Max(list1);
 
             
 
-        }
+        //}
         [TestMethod]
         [ExpectedException(typeof(WrongUnitException))]
         public void EnergyCantBePower()

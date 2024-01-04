@@ -1,4 +1,5 @@
 using EngineeringUnits.Units;
+using System;
 
 namespace EngineeringUnits
 {
@@ -8,7 +9,7 @@ namespace EngineeringUnits
 
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {
-            var output = (BaseUnit) toCast;
+            //var output = (BaseUnit) toCast;
             //_ = output.Unit;
             if (toCast.Unit == AccelerationUnit.SI.Unit)
 			{
@@ -351,8 +352,8 @@ namespace EngineeringUnits
 				return (Temperature) toCast;
 			}
 
-            return output;
-            
+
+            return null;            
         }
     }
 }

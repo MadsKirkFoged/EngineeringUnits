@@ -64,7 +64,7 @@ public class Extensiontest
     {
         Length SI = new(1, LengthUnit.Meter);
 
-        var Unknown = (UnknownUnit)SI;
+        UnknownUnit Unknown = SI.ToUnknownUnit();
 
         Length NewUnit = Unknown.ToUnit(LengthUnit.Chain);
 

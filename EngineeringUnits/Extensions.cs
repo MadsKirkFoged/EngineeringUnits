@@ -1,11 +1,15 @@
 ﻿using EngineeringUnits.Units;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EngineeringUnits
 {
@@ -29,92 +33,19 @@ namespace EngineeringUnits
         /// </summary>
         /// <param name="a">Source value</param>
         /// <exception cref="WrongUnitException">gg</exception>
-        public static UnknownUnit Sqrt(this UnknownUnit a)
-        {
-            if (a is null)
-                return null;
-
-            UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            var value = a.BaseUnit.GetValueAs(NewUnitSystem);
-
-            return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
-        }
-
-        /// <summary>
-        /// Returns the square root your unit.<br></br>
-        /// <example>
-        /// Exemple: The square root of an <see cref="Area"/> gives a <see cref="Length"/><br></br>
-        /// </example>
-        /// </summary>
-        /// <param name="a">Source value</param>
-        /// <exception cref="WrongUnitException">gg</exception>
         public static UnknownUnit Sqrt(this BaseUnit a)
         {
             if (a is null)
                 return null;
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-            var value = a.GetValueAs(NewUnitSystem);
+            var value = (decimal)a.GetValueAs(NewUnitSystem);
 
             return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
         }
 
-        /// <summary>
-        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
-        /// <example>
-        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
-        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> of 'Meter'. This will merge it into one and increase the Count to 2.
-        /// </example>
-        /// </summary>
-        /// <returns>A <see cref="UnitSystem"/> that is cleaned up without any lose of information</returns>
-        /// <param name="a">Source value</param>
-        public static UnitSystem ReduceUnits(this UnitSystem a)
-        {
 
-            var NewUnitList = a.ListOfUnits.ReduceUnits();
-
-
-            return new(NewUnitList.ToList(), a.Symbol);
-        }
-
-        public static List<RawUnit> ReduceUnits2(this List<RawUnit> a)
-        {
-            var test = a.GroupBy(x => x.UnitType);
-
-            var NewUnitList = new List<RawUnit>();
-
-            foreach (var GroupOfTypes in test)
-            {
-
-                if (GroupOfTypes.Count() <= 1)
-                {
-                    //just add the unit
-                    NewUnitList.Add(GroupOfTypes.First());
-                }
-                else
-                {
-
-                    var groupOfSameConstant = GroupOfTypes
-                        .Select(x => x)
-                        .GroupBy(x => x.A);
-
-
-                    foreach (var item in groupOfSameConstant)
-                    {
-
-                        var NewCount = item.Sum(x => x.Count);
-
-                        RawUnit NewUnit = item.First().CloneWithNewCount(NewCount);
-
-                        NewUnitList.Add(NewUnit);
-
-                    }
-                }
-
-            }
-
-            return NewUnitList;
-        }
+       
 
         public static IEnumerable<RawUnit> ReduceUnits(this IEnumerable<RawUnit> a)
         {
@@ -124,59 +55,8 @@ namespace EngineeringUnits
 
         }
 
-        public static IEnumerable<T> SelectIfMultiple<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector)
-        {
-            return source
-                .GroupBy(keySelector)
-                .Where(group => group.Count() > 1)
-                .SelectMany(group => group);
-        }
 
-
-        /// <summary>
-        /// Obs: You are only using this, if you are creating new mathematical operations!<br></br>
-        /// For now this is only used when taking the square root!
-        /// <example>
-        /// After doing mathematical operations, the <see langword="List"/> inside <see cref="UnitSystem"/> might contain multiply of the same <see cref="RawUnit"/><br></br>
-        /// Example: If the <see langword="List"/> contains two <see cref="RawUnit"/> One of 'Meter' and One of 'Foot'. This will merge it into one and increase the Count to 2.
-        /// </example>
-        /// </summary>
-        /// <returns>A <see cref="UnitSystem"/> that is cleaned up. Beware this can lose information</returns>
-        /// <param name="a">Source value</param>
-        public static UnitSystem ReduceUnitsHard(this UnitSystem a)
-        {
-
-            //This reduces units of the same baseunit-type but with different types 
-
-            var test = a.ListOfUnits.GroupBy(x => x.UnitType);
-
-            var NewUnitList = new List<RawUnit>();
-
-            foreach (var GroupOfTypes in test)
-            {
-
-                if (GroupOfTypes.Count() <= 1)
-                {
-                    //just add the unit
-                    NewUnitList.Add(GroupOfTypes.First());
-                }
-                else
-                {
-                    var TotalCount = GroupOfTypes.Aggregate(0, (a, b) => a + b.Count);
-                    NewUnitList.Add(GroupOfTypes.First().CloneWithNewCount(TotalCount));
-
-                }
-
-            }
-
-            return new(NewUnitList);
-        }
-
-        //public static decimal Normalize(this decimal value)
-        //{
-        //    return value / 1.000000000000000000000000000000000m;
-        //}
-
+        
 
         /// <returns>Square root of <see langword="decimal"/>!</returns>
         /// <param name="x">Source value</param>
@@ -289,351 +169,10 @@ namespace EngineeringUnits
             return test3.ToString(CultureInfo.InvariantCulture);
         }
 
-
-        /// <returns>Absolute value of your unit</returns>
-        /// <param name="a">Source value</param>
-        public static UnknownUnit Abs(this BaseUnit a)
+        public static string DisplaySignificantDigits(this DecimalSafe local, int count)
         {
-            if (a is null)
-                return null;
-
-            if (a.GetBaseValue() > 0)
-                return a;
-
-            return a * -1;
-
+            return ((decimal)local).DisplaySignificantDigits(count);
         }
-
-        /// <returns>Absolute value of your unit</returns>
-        /// <param name="a">Source value</param>
-        public static UnknownUnit Abs(this UnknownUnit a)
-        {
-            if (a is null)
-                return null;
-
-            return a.BaseUnit.Abs();
-        }
-
-        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
-        /// <param name="a">Source value</param>
-        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<BaseUnit> a)
-        {
-            return a.Select(x=> x.Abs());
-        }
-
-        /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
-        /// <param name="a">Source value</param>
-        public static IEnumerable<UnknownUnit> Abs(this IEnumerable<UnknownUnit> a)
-        {
-            return a.Select(x => x.Abs());
-        }
-
-
-        public static UnknownUnit ToUnit(this BaseUnit a, UnitSystem selectedUnit)
-        {
-            GuardAgainst.DifferentUnits(a, selectedUnit);
-
-            return new(a.GetValueAs(selectedUnit), selectedUnit);
-        }
-        public static UnknownUnit ToUnit(this UnknownUnit a, UnitSystem selectedUnit)
-        {
-            GuardAgainst.DifferentUnits(a, selectedUnit);
-
-            return new(a.BaseUnit.GetValueAs(selectedUnit), selectedUnit);
-        }
-
-        public static UnknownUnit Pow(this BaseUnit a, int toPower)
-        {
-            if (a is null)
-                return null;
-
-            return toPower switch
-            {
-                0 => 1,
-                1 => a,
-                > 1 => a.Pow(toPower - 1) * a,
-                < 0 => a.Pow(toPower + 1) / a
-            };
-
-        }
-
-        public static UnitSystem Pow(this UnitSystem a, int toPower)
-        {
-            return toPower switch
-            {
-                0 => new UnitSystem(),
-                1 => a,
-                > 1 => a.Pow(toPower - 1) * a,
-                < 0 => a.Pow(toPower + 1) / a
-            };
-
-        }
-
-        public static UnknownUnit Pow(this UnknownUnit a, int toPower)
-        {
-            if (a is null)
-                return null;
-
-            return a.BaseUnit.Pow(toPower);
-        }
-        public static UnitSystem Pow(this UnitTypebase a, int toPower)
-        {
-            return a.Unit.Pow(toPower);
-        }
-
-
- 
-        public static UnknownUnit Clamp(this BaseUnit Clamped, UnknownUnit Lower, UnknownUnit Upper)
-        {
-            if (Clamped is null || Lower is null || Upper is null)
-                return null;
-
-            GuardAgainst.DifferentUnits(Clamped, Lower, Upper);
-
-
-            if (Upper < Lower)
-            {
-                //TODO you need max to be larger then min
-                return Clamped;
-            }
-
-
-            if (Clamped < Lower)
-                return Lower;
-
-
-            if (Clamped > Upper)
-                return Upper;
-
-
-            return Clamped;
-
-
-        }
-
-
-        public static UnknownUnit Clamp(this UnknownUnit Clamped, UnknownUnit Lower, UnknownUnit Upper) => Clamped.BaseUnit.Clamp(Lower, Upper);
-
-
-
-
-        [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
-        public static UnknownUnit InRangeOf(this BaseUnit a, UnknownUnit Min, UnknownUnit Max) => a.Clamp(Min, Max);
-
-        [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
-        public static UnknownUnit InRangeOf(this UnknownUnit a, UnknownUnit Min, UnknownUnit Max) => a.Clamp(Min, Max);
- 
-
-        public static bool IsZero(this BaseUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.GetBaseValue() == 0m;
-        }
-        public static bool IsZero(this UnknownUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.BaseUnit.IsZero();
-        }
-
-        public static bool IsNotZero(this BaseUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return !a.IsZero();
-        }
-        public static bool IsNotZero(this UnknownUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.BaseUnit.IsNotZero();
-        }
-
-        public static bool IsAboveZero(this BaseUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.GetBaseValue() > 0;
-        }
-        public static bool IsAboveZero(this UnknownUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.BaseUnit.IsAboveZero();
-        }
-
-        public static bool IsBelowZero(this BaseUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.GetBaseValue() < 0;
-        }
-        public static bool IsBelowZero(this UnknownUnit a)
-        {
-            if (a is null)
-                return false;
-
-            return a.BaseUnit.IsBelowZero();
-        }
-
-
-        public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-             return list.Aggregate(new UnknownUnit(0m, list.First()),
-                                 (x, y) => x + y);
-        }
-        public static UnknownUnit Sum(this IEnumerable<UnknownUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.Aggregate(new UnknownUnit(0m, list.First().BaseUnit.Unit),
-                                 (x, y) => x + y);
-        }
-
-        public static UnknownUnit Average(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.Sum() / list.Count();
-        }
-        public static UnknownUnit Average(this IEnumerable<UnknownUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.Sum() / list.Count();
-        }
-
-
-        public static UnknownUnit Mean(this IEnumerable<UnknownUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.OrderBy(x => x)
-                       .ToList()[list.Count() / 2];
-        }
-
-        public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.OrderBy(x => x)
-                       .ToList()
-                        [list.Count() / 2];
-        }
-
-
-        public static UnknownUnit RoundUpToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedUp)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            foreach (var item in list.OrderBy(x => x))
-            {
-                if (valueToBeRoundedUp <= item)                
-                    return item;                
-            }
-
-            return list.Max();
-            //return valueToBeRoundedUp;
-        }
-        public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedUp)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            foreach (var item in list.OrderBy(x => x))
-            {
-                if (valueToBeRoundedUp <= item)                
-                    return item;                
-            }
-
-            return list.Max();
-            //return valueToBeRoundedUp;
-        }
-
-        public static UnknownUnit RoundDownToNearest(this IEnumerable<UnknownUnit> list, UnknownUnit valueToBeRoundedDown)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            foreach (var item in list.OrderByDescending(x => x))
-            {
-                if (valueToBeRoundedDown >= item)
-                    return item;
-            }
-
-            return list.Min();
-            //return valueToBeRoundedUp;
-        }
-        public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            foreach (var item in list.OrderByDescending(x => x))
-            {
-                if (valueToBeRoundedDown >= item)
-                    return item;
-            }
-
-            return list.Min();
-            //return valueToBeRoundedUp;
-        }
-
-        public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, UnknownUnit valueToBeRoundedDown)
-        {
-            if (list is null || !list.Any())
-                return null;
-
-            return list.OrderBy(x => (x - valueToBeRoundedDown).Abs()).FirstOrDefault();
-        }
-
-        //public static void ShouldHaveSameUnits(UnitSystem a, UnitSystem b)
-        //{
-        //    if (a != b)
-        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
-        //}
-
-        //public static void ShouldHaveSameUnits(UnitSystem a, UnitSystem b, UnitSystem c)
-        //{
-        //    ShouldHaveSameUnits(a, b);
-        //    ShouldHaveSameUnits(a, c);
-        //}
-
-
-        //public static void UnitCheck(this IUnitSystem a, IUnitSystem b)
-        //{
-        //    if (a.Unit != b.Unit)
-        //        throw new WrongUnitException($"This is NOT a [{b.Unit}] as expected! Your Unit is a [{a.Unit}]");
-        //}
-
-        //public static void UnitCheck(this UnitSystem a, UnitSystem b)
-        //{
-        //    if (a != b)
-        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
-        //}
-
-        //public static void UnitCheck(this BaseUnit a, UnitSystem b)
-        //{
-        //    if (a.Unit != b)
-        //        throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a.Unit}]");
-        //}
 
 
         public static UnknownUnit AddUnit<T>(this double value, string UnitOfMeasure) where T : UnitTypebase
@@ -651,80 +190,12 @@ namespace EngineeringUnits
             return ((double)value).AddUnit<T>(UnitOfMeasure);
         }
 
-        //[Obsolete("Method1 is deprecated, please use Method2 instead.")]
-        public static UnknownUnit Minimum(this UnknownUnit unit, UnknownUnit minimum)
-        {
-            if (unit is null || minimum is null)
-                return null;
 
-            if (unit > minimum)            
-                return unit;
-
-            return minimum;
-        }
-
-        public static UnknownUnit Minimum(this BaseUnit unit, UnknownUnit minimum)
-        {
-            if (unit is null || minimum is null)
-                return null;
-
-            if (unit > minimum)
-                return unit;
-
-            return minimum;
-        }
-
-        public static UnknownUnit Maximum(this UnknownUnit unit, UnknownUnit maximum)
-        {
-            if (unit is null || maximum is null)
-                return null;
-
-            if (unit < maximum)
-                return unit;
-
-            return maximum;
-        }
-
-        public static UnknownUnit Maximum(this BaseUnit unit, UnknownUnit maximum)
-        {
-            if (unit is null || maximum is null)
-                return null;
-
-
-            if (unit < maximum)
-                return unit;
-
-            return maximum;
-        }
-
-
-
-        public static UnknownUnit LowerLimit(this UnknownUnit unit, UnknownUnit limit)
-        {
-            if (unit is null || limit is null)
-                return null;
-
-            if (unit > limit)
-                return unit;
-
-            return limit;
-        }
-
-        public static UnknownUnit LowerLimit(this BaseUnit unit, UnknownUnit limit) => ((UnknownUnit)unit).LowerLimit(limit);
-
-
-        public static UnknownUnit UpperLimit(this UnknownUnit unit, UnknownUnit limit)
-        {
-            if (unit is null || limit is null)
-                return null;
-
-            if (unit < limit)
-                return unit;
-
-            return limit;
-        }
-
-        public static UnknownUnit UpperLimit(this BaseUnit unit, UnknownUnit limit) => ((UnknownUnit)unit).UpperLimit(limit);
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5, tuple.Item6];
 
     }
 }
