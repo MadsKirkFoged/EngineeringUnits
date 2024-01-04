@@ -1,5 +1,4 @@
-﻿using CodeGen;
-using EngineeringUnits;
+﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Fractions;
 using Newtonsoft.Json;
@@ -254,20 +253,20 @@ public class Program
 
         var lllist = new List<string>();
 
-        List<string> assembly = ListOfUnitsForDifferentGenerators.GetListOFAllUnits();
+        //List<string> assembly = ListOfUnitsForDifferentGenerators.GetListOFAllUnits();
 
         //List<string> assembly = new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Acceleration", "Angle", "ApparentPower", "AreaDensity", "AreaMomentOfInertia", "Area", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PressureChangeRate", "Pressure", "Ratio", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "WarpingMomentOfInertia", "SpecificThermalResistance" };
 
-        assembly.Sort();
+        //assembly.Sort();
 
-        foreach (var assemblyName in assembly)
-        {
-            var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
-            PrintOut += "\n"+assemblyName+":";
-            foreach (FieldInfo item in t.GetFields(BindingFlags.Static | BindingFlags.Public))
+        //foreach (var assemblyName in assembly)
+        //{
+        //    var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
+        //    PrintOut += "\n"+assemblyName+":";
+        //    foreach (FieldInfo item in t.GetFields(BindingFlags.Static | BindingFlags.Public))
 
-                PrintOut+=$"[{item.Name}], ";
-        }
+        //        PrintOut+=$"[{item.Name}], ";
+        //}
 
         //Length temp = valueOfT.AddUnit<LengthUnit>(unit);
 
