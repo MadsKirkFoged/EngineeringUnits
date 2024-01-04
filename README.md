@@ -64,7 +64,7 @@ Length L2 = new Length(1, LengthUnit.Mile);
 ###### Get told if you mess up a calculation
 ```C#
 Mass mass = new Mass(10, MassUnit.Kilogram);
-Volume volume = new Volume(0, VolumeUnit.CubicMeter);
+Volume volume = new Volume(4, VolumeUnit.CubicMeter);
 
 Density D1 = mass / volume; // 2.5 kg/m³
 Density D2 = volume / mass; // WrongUnitException: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
@@ -85,7 +85,7 @@ Length length = Length.FromYards(1);
 Debug.Print($"{length}"); //1 yd
 
 //Returns as an other unit
-Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.9144 m
+Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.914 m
 
 //Returns as a double
 Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
@@ -93,56 +93,41 @@ Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
 
 ###### Absolute value
 ```C#
-MassFlow M1 = new MassFlow(10, MassFlowUnit.HectogramPerSecond); //-10 kg/s
-MassFlow M2 = M1.Abs(); //10 kg/s                   
+MassFlow M1 = new MassFlow(-10, MassFlowUnit.KilogramPerSecond); //-10 kg/s
+MassFlow M2 = M1.Abs(); //10 kg/s                     
 ```
 
-###### min/max value
+###### min/max/Average/Mean/Sum value
 ```C#
-Length L1 = Length.FromMeter(10); //10m
+//Following functions work in this way:
+//min() max() Average() Mean() Sum()
 
-Length L2 = L1.Minimum(Length.FromMeter(5)); //10m
-Length L3 = L1.Minimum(Length.FromMeter(15)); //15m
-Length L4 = L1.Maximum(Length.FromMeter(5)); //5m
-Length L5 = L1.Maximum(Length.FromMeter(15)); //10m                  
+Length L1 = Length.FromMeter(5);
+Length L2 = Length.FromMeter(15);
+
+//Recommended way
+Length LMin = (L1, L2).Min(); //5m
+
+//Obsolete way
+Length LMin2 = UnitMath.Min(L1, L2); //5m
+
+//Alternative way using a list
+List<Length> List = [L1, L2];
+Length LMin3 = List.Min(); //5m
+
+//Obsolete way using a list
+List<Length> List2 = new List<Length>() { L1, L2 };
+Length LMin4 = List2.Min(); //5m
+               
 ```
 
 ###### Powers and Square Roots
 ```C#
-Length L1 = new Length(54.3, LengthUnit.Foot); //16.55064 m
-Area A1 = L1.Pow(2);  //273.9236844096 m²    
-Length L2 = A1.Sqrt(); //16.55064 m               
+Length L1 = new Length(54.3, LengthUnit.Foot); //54.3 ft
+Area A1 = L1.Pow(2);  //2948 ft²    
+Length L2 = A1.Sqrt(); //54.3 ft               
 ```
 
-###### Get the min/max/Average/Sum from a list of units
-```C#
- var MyList = new List<Mass>
- {
-     Mass.FromKilogram(43),
-     Mass.FromMegapound(2),
-     Mass.FromMilligram(77644),
-     Mass.FromPound(345)
- };
-
- Mass Min = MyList.Min();    //7.764e+04 mg
- Mass Max = MyList.Max();    //2 Mlb
- Mass Avg = MyList.Average(); //2.268e+05 kg
- Mass Sum = MyList.Sum();     //9.074e+05 kg
- Mass Mean = MyList.Mean();     //345 lb
-
-```
-
-```C#
-Length length = Length.FromYards(1);
-Length length2 = Length.FromMeters(5);
-
-var list = new List<Length>();
-
-list.Add(length);
-list.Add(length2);
-
-Length lenghtAvg = list.Average();
-```
 
 Find the closed in a list
 ```C#
@@ -159,18 +144,30 @@ Length L2 = MyList.RoundDownToNearest(Length.FromMeter(30)); //20m
 Length L3 = MyList.RoundToNearest(Length.FromMeter(4)); //5m
 ```
 
-###### Force quantity In Range Of(min,max)
+###### Clamp(min,max)
 ```C#
-Power f1 = new(19, PowerUnit.KilojoulePerHour);
-Power f2 = f1.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5)); //5 W
+//The value is restricted (Clamp) to be inside the limits.
 
-Power f7 = new(-19, PowerUnit.KilojoulePerHour);
-Power f8 = f7.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5)); //-5 W
+Power min = Power.FromWatt(-5);
+Power max = Power.FromWatt(5);
 
-Power f9 = new(4, PowerUnit.Watt);
-Power f10 = f9.InRangeOf(Power.FromWatts(-5), Power.FromWatts(5)); //4 W
+Power f1 = Power.FromWatt(19);
+Power f2 = f1.Clamp(min, max); //5 W
 
+Power f3 = Power.FromWatt(-19);
+Power f4 = f3.Clamp(min, max); //-5 W
+
+Power f5 = Power.FromWatt(4);
+Power f6 = f5.Clamp(min, max); //4 W
+
+Power f7 = Power.FromWatt(-10).LowerLimitAt(min);//-5 W
+Power f8 = Power.FromWatt(10).UpperLimitAt(max); //5 W
+
+//Same as using Clamp(min, max)
+Power f9 = Power.FromWatt(4).LowerLimitAt(min)
+                            .UpperLimitAt(max); //4 W
 ```
+
 
 ###### Checks
 ```C#
@@ -181,21 +178,26 @@ if ((length - length2).IsAboveZero())
 if ((length - length2).IsBelowZero())
 if ((length - length2).IsZero())
 if ((length - length2).IsNotZero())
-
 ```
 
-###### Combine methods in one line
+###### Chaining functions
 ```C#
 //Create a list of Lenghts
-var listOfLenghts = new List<Length>() 
-                      {Length.FromYards(1), 
-                      Length.FromYards(2) };
+List<Length> listOfLengths = [Length.FromYard(-1),
+                              Length.FromYard(-2),
+                              Length.FromYard(3),
+                              Length.FromYard(4)];
 
+// Chaining many functions together
+Area NewUnit = listOfLengths                          // [-1,-2,3,4]
+               .Select(x => x.Abs())                  // [1,2,3,4]
+               .Where(x => x > Length.FromMeter(1))   // [2,3,4]
+               .Average()                             // [4.5]
+               .Pow(2)                                // [20.25] yr2 (turn into area!)
+               .UpperLimitAt(Area.FromSquareMeter(8)) // Set the upper limit of the area to 8 m^2
+               .ToUnit(AreaUnit.SquareMeter);         // Turn the area into a specific unit-type
+                                                      // result: 7.525 m²
 
-Area NewUnit = listOfLenghts //Take the list 
-               .Average()    //--> calculate the average of the list
-               .Pow(2)       //--> Calculate the 2. power of the lenght, making it into a Area
-               .ToUnit(AreaUnit.SquareMeter); //Turn the area into a specific unit-type
                            
 ```
 
@@ -220,7 +222,6 @@ If 10mio in ~1sec is too slow for you then converting to double, do your calcula
 This way you only have a small part of your code where you bypass the safety features.
 
 ```C#
-//dummy data
 Power P2 = Power.FromSI(10);
 Length L2 = Length.FromSI(2);
 Temperature T2 = Temperature.FromSI(4);
@@ -267,8 +268,7 @@ string Output5 = $"{T1:UnitOnly}"; // °C
 
 //The build-in "General"
 string Output6 = $"{T1:G1}"; // 1E+01 °C
-string Output7 = $"{T1:G4}"; // 10.57 °C
-            
+string Output7 = $"{T1:G4}"; // 10.57 °C            
 ```
 
 ###### Transfer Units in APIs or store in database
