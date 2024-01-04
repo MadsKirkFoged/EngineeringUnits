@@ -10,8 +10,8 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  major: 1
-  minor: 1
+  major: 2
+  minor: 0
   Build: $[counter(variables['minor'], 0)]
   VersionNumber: $(major).$(minor).$(Build)
 
