@@ -1,6 +1,7 @@
 ﻿using EngineeringUnits.Units;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace EngineeringUnits
 {
@@ -188,8 +190,12 @@ namespace EngineeringUnits
             return ((double)value).AddUnit<T>(UnitOfMeasure);
         }
 
-        
 
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5];
+        public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5, tuple.Item6];
 
     }
 }

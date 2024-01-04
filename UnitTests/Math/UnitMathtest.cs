@@ -352,5 +352,74 @@ namespace UnitTests
 
 
 
+        [TestMethod]
+        public void SumTuple()
+        {
+            var sum2 = (Frequency.FromHertz(1), Frequency.FromHertz(2)).Sum();
+            var sum3 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3)).Sum();
+            var sum4 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4)).Sum();
+            var sum5 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4), Frequency.FromHertz(5)).Sum();
+
+            Assert.AreEqual(Frequency.FromHertz(3), sum2);
+            Assert.AreEqual(Frequency.FromHertz(6), sum3);
+            Assert.AreEqual(Frequency.FromHertz(10), sum4);
+            Assert.AreEqual(Frequency.FromHertz(15), sum5);
         }
+
+        [TestMethod]
+        public void Average()
+        {
+            var average2 = (Frequency.FromHertz(1), Frequency.FromHertz(2)).Average();
+            var average3 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3)).Average();
+            var average4 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4)).Average();
+            var average5 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4), Frequency.FromHertz(5)).Average();
+
+            Assert.AreEqual(Frequency.FromHertz(1.5), average2);
+            Assert.AreEqual(Frequency.FromHertz(2), average3);
+            Assert.AreEqual(Frequency.FromHertz(2.5), average4);
+            Assert.AreEqual(Frequency.FromHertz(3), average5);
+        }
+        [TestMethod]
+        public void Mean()
+        {
+            var mean2 = (Frequency.FromHertz(1), Frequency.FromHertz(2)).Mean();
+            var mean3 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3)).Mean();
+            var mean4 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4)).Mean();
+            var mean5 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4), Frequency.FromHertz(5)).Mean();
+
+            Assert.AreEqual(Frequency.FromHertz(2), mean2);
+            Assert.AreEqual(Frequency.FromHertz(2), mean3);
+            Assert.AreEqual(Frequency.FromHertz(3), mean4);
+            Assert.AreEqual(Frequency.FromHertz(3), mean5);
+        }
+        [TestMethod]
+        public void Min()
+        {
+            var min2 = (Frequency.FromHertz(1), Frequency.FromHertz(2)).Min();
+            var min3 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3)).Min();
+            var min4 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4)).Min();
+            var min5 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4), Frequency.FromHertz(5)).Min();
+
+            Assert.AreEqual(Frequency.FromHertz(1), min2);
+            Assert.AreEqual(Frequency.FromHertz(1), min3);
+            Assert.AreEqual(Frequency.FromHertz(1), min4);
+            Assert.AreEqual(Frequency.FromHertz(1), min5);
+        }
+
+        [TestMethod]
+        public void Max()
+        {
+            var max2 = (Frequency.FromHertz(1), Frequency.FromHertz(2)).Max();
+            var max3 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3)).Max();
+            var max4 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4)).Max();
+            var max5 = (Frequency.FromHertz(1), Frequency.FromHertz(2), Frequency.FromHertz(3), Frequency.FromHertz(4), Frequency.FromHertz(5)).Max();
+
+            Assert.AreEqual(Frequency.FromHertz(2), max2);
+            Assert.AreEqual(Frequency.FromHertz(3), max3);
+            Assert.AreEqual(Frequency.FromHertz(4), max4);
+            Assert.AreEqual(Frequency.FromHertz(5), max5);
+        }
+
+
+    }
 }

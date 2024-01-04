@@ -28,13 +28,12 @@ namespace EngineeringUnits
                                 (x, y) => x + y);
         }
 
-
-
-        public static UnknownUnit Sum(this (BaseUnit, BaseUnit) list)
-        {
-            List<BaseUnit> test = [list.Item1, list.Item2];
-            return test.Sum();
-        }
+        public static UnknownUnit Sum(params BaseUnit[] x) => x.Sum();
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit) list) => list.ToList().Sum();
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Sum();
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Sum();
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Sum();
+        public static UnknownUnit Sum(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Sum();
 
 
 
@@ -52,6 +51,16 @@ namespace EngineeringUnits
             return list.Sum() / list.Count();
         }
 
+        public static UnknownUnit Average(params BaseUnit[] x) => x.Average();
+        public static UnknownUnit Average(this (BaseUnit, BaseUnit) list) => list.ToList().Average();
+        public static UnknownUnit Average(this (BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Average();
+        public static UnknownUnit Average(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Average();
+        public static UnknownUnit Average(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Average();
+        public static UnknownUnit Average(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Average();
+
+
+
+
         /// <summary>
         /// Calculates the mean value of a collection of <see cref="BaseUnit"/> objects.
         /// </summary>
@@ -68,6 +77,15 @@ namespace EngineeringUnits
                         [list.Count() / 2]);
         }
 
+        public static UnknownUnit Mean(params BaseUnit[] x) => x.Mean();
+        public static UnknownUnit Mean(this (BaseUnit, BaseUnit) list) => list.ToList().Mean();
+        public static UnknownUnit Mean(this (BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Mean();
+        public static UnknownUnit Mean(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Mean();
+        public static UnknownUnit Mean(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Mean();
+        public static UnknownUnit Mean(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Mean();
+
+
+
         /// <summary>
         /// Calculates the minimum value of a collection of <see cref="BaseUnit"/> objects.
         /// </summary>
@@ -78,6 +96,12 @@ namespace EngineeringUnits
             return list.Min().ToUnknownUnit();
         }
 
+        public static UnknownUnit Min(params BaseUnit[] x) => x.Min().ToUnknownUnit();
+        public static UnknownUnit Min(this (BaseUnit, BaseUnit) list) => list.ToList().Min().ToUnknownUnit();
+        public static UnknownUnit Min(this (BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Min().ToUnknownUnit();
+        public static UnknownUnit Min(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Min().ToUnknownUnit();
+        public static UnknownUnit Min(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Min().ToUnknownUnit();
+        public static UnknownUnit Min(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Min().ToUnknownUnit();
 
 
         /// <summary>
@@ -90,28 +114,12 @@ namespace EngineeringUnits
             return list.Max().ToUnknownUnit();
         }
 
-
-
-
-        public static UnknownUnit Sum(params BaseUnit[] x) 
-        {
-            return x.Sum();
-        }
-        
-        public static UnknownUnit Average(params BaseUnit[] x) 
-        {
-            return x.Average();
-        }
-
-        public static UnknownUnit Max(params BaseUnit[] x) 
-        { 
-            return x.Max().ToUnknownUnit(); 
-        }
-
-        public static UnknownUnit Min(params BaseUnit[] x) 
-        { 
-            return x.Min().ToUnknownUnit(); 
-        }
+        public static UnknownUnit Max(params BaseUnit[] x) => x.Max().ToUnknownUnit();
+        public static UnknownUnit Max(this (BaseUnit, BaseUnit) list) => list.ToList().Max().ToUnknownUnit();
+        public static UnknownUnit Max(this (BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Max().ToUnknownUnit();
+        public static UnknownUnit Max(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Max().ToUnknownUnit();
+        public static UnknownUnit Max(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Max().ToUnknownUnit();
+        public static UnknownUnit Max(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) list) => list.ToList().Max().ToUnknownUnit();
 
 
 
