@@ -11,9 +11,8 @@ pool:
 
 variables:
   major: 2
-  minor: 1
-  count: 0
-  Build: $[counter(variables['count'], 0)]
+  minor: 2
+  Build: $[counter(variables['2.2'], 0)]
   VersionNumber: $(major).$(minor).$(Build)
 
 steps:
