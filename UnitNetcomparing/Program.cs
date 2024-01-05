@@ -43,6 +43,10 @@ public class Program
     public static void Main()
     {
 
+        Ratio test = Ratio.FromDecimalFraction(1);
+
+        Ratio MassRatio2 = 1 - test;
+
         Pressure p1 = Pressure.FromBar(10);
         UnknownUnit p2 = Pressure.FromBar(10);
 
