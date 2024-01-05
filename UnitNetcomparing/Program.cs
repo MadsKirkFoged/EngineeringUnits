@@ -43,11 +43,22 @@ public class Program
     public static void Main()
     {
 
+        UnknownUnit DensityLiq = Density.FromKilogramPerCubicMeter(100);
+        Density DensityGas = 10d*DensityLiq;
+
+
+        Speed Vmax = Speed.FromMeterPerSecond(1) * ((DensityLiq - DensityGas) / DensityGas).Sqrt();
+
+
+
+
+
+
         Ratio test = Ratio.FromDecimalFraction(1);
 
         Ratio MassRatio2 = 1 - test;
 
-        Pressure p1 = Pressure.FromBar(10);
+        Pressure p1 = Pressure.FromBar(10) * 10;
         UnknownUnit p2 = Pressure.FromBar(10);
 
         if (p1 == p2)

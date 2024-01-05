@@ -153,6 +153,10 @@ namespace EngineeringUnits
         {
             return left * new BaseUnit(right);
         }
+        public static UnknownUnit operator *(double left, BaseUnit right)
+        {
+            return new BaseUnit(left) * right;
+        }
         public static UnknownUnit operator *(decimal left, BaseUnit right)
         {
             return new BaseUnit(left) * right;
@@ -183,14 +187,6 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }
         }
-        //public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
-        //{
-        //    return (BaseUnit)left / right;
-        //}
-        //public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
-        //{
-        //    return left / (BaseUnit)right;
-        //}
 
 
         public static UnknownUnit operator /(BaseUnit left, int right)
