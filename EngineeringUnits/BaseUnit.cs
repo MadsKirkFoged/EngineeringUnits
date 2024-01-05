@@ -84,6 +84,12 @@ namespace EngineeringUnits
             return new(local);
         }
 
+        public static UnknownUnit operator +(int left, BaseUnit right) => new BaseUnit(left) + right;
+        public static UnknownUnit operator +(BaseUnit left, int right) => left + new BaseUnit(right);
+        public static UnknownUnit operator +(double left, BaseUnit right) => new BaseUnit(left) + right;
+        public static UnknownUnit operator +(BaseUnit left, double right) => left + new BaseUnit(right);
+        public static UnknownUnit operator +(decimal left, BaseUnit right) => new BaseUnit(left) + right;
+        public static UnknownUnit operator +(BaseUnit left, decimal right) => left + new BaseUnit(right);
 
         public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
         {
@@ -114,6 +120,15 @@ namespace EngineeringUnits
             return local * -1;
         }
 
+        public static UnknownUnit operator -(int left, BaseUnit right)      => new BaseUnit(left) - right;
+        public static UnknownUnit operator -(BaseUnit left, int right)      => left - new BaseUnit(right);
+        public static UnknownUnit operator -(double left, BaseUnit right)   => new BaseUnit(left) - right;
+        public static UnknownUnit operator -(BaseUnit left, double right)   => left - new BaseUnit(right);
+        public static UnknownUnit operator -(decimal left, BaseUnit right)  => new BaseUnit(left) - right;
+        public static UnknownUnit operator -(BaseUnit left, decimal right)  => left - new BaseUnit(right);
+
+
+
         public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
         {
             if (left is null || right is null)
@@ -131,16 +146,6 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
             }
         }
-        //public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
-        //{
-        //    return left * (BaseUnit)right;
-        //}
-        //public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
-        //{
-        //    return (BaseUnit)left * right;
-
-        //}
-        
         public static UnknownUnit operator *(BaseUnit left, int right)
         {
             return left * new BaseUnit(right);
