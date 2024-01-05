@@ -171,13 +171,19 @@ Power f9 = Power.FromWatt(4).LowerLimitAt(min)
 
 ###### Checks
 ```C#
-var length = Length.FromYards(1);
-var length2 = Length.FromMeters(5);
+var length1 = Length.FromYard(1);
+var length2 = Length.FromMeter(5);
 
-if ((length - length2).IsAboveZero())
-if ((length - length2).IsBelowZero())
-if ((length - length2).IsZero())
-if ((length - length2).IsNotZero())
+if ((length1 - length2).IsAboveZero())
+if ((length1 - length2).IsBelowZero())
+if ((length1 - length2).IsZero())
+if ((length1 - length2).IsNotZero())
+if (length1 >= length2)
+if (length1 <= length2)
+if (length1 == length2)
+if (length1 < length2)
+if (length1 > length2)
+
 ```
 
 ###### Chaining functions
