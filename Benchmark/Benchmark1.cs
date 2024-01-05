@@ -265,7 +265,7 @@ namespace Benchmark
         }
 
         [Benchmark]
-        public double LengthDividedByLength()
+        public Ratio LengthDividedByLength()
         {
             return _L1/_L2;
         }

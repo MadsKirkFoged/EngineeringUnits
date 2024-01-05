@@ -12,7 +12,7 @@ namespace EngineeringUnits
         public ElectricAdmittance(int value, ElectricAdmittanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
         public ElectricAdmittance(UnknownUnit value) : base(value) { }
 
-        public ElectricAdmittance(UnknownUnit value, ElectricAdmittanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public ElectricAdmittance(UnknownUnit value, ElectricAdmittanceUnit selectedUnit) : base((decimal)value, selectedUnit.Unit) { }
 
         public static ElectricAdmittance From(double value, ElectricAdmittanceUnit unit) => new(value, unit);
         public double As(ElectricAdmittanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);

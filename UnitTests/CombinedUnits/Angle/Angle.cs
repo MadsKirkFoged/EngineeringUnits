@@ -70,8 +70,8 @@ namespace UnitTests
         [TestMethod]
         public void AngleCanBeZero()
         {
-            EngineeringUnits.Angle angle = 0;
-            Assert.AreEqual(0, angle);
+            EngineeringUnits.Angle angle = EngineeringUnits.Angle.Zero;
+            Assert.AreEqual(EngineeringUnits.Angle.Zero, angle);
         }
 
         [TestMethod]

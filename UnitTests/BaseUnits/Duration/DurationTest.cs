@@ -100,8 +100,8 @@ namespace UnitTests
         [TestMethod]
         public void ElectricCurrentCanBeZero()
         {
-            ElectricCurrent el = 0;
-            Assert.AreEqual(0, el);
+            ElectricCurrent el = ElectricCurrent.Zero;
+            Assert.AreEqual(ElectricCurrent.Zero, el);
         }
 
 

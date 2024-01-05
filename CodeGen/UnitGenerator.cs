@@ -104,16 +104,14 @@ namespace EngineeringUnits
             return new(Unit);        
         }
 
-        public static implicit operator Variable(int zero)
+        public static implicit operator UnknownUnit(Variable Unit)
         {
-            if (zero != 0)
-                throw new WrongUnitException(""You need to give it a unit unless you set it to 0(zero)!"");" +
+            return new(Unit);
+        }
 
-            "\n\t\t\treturn Zero;\n" +
-        "\t\t}\n" +
-        "\tpublic override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VariableUnit>(_unit);\n"+
-    "\t}\n" +
-"}\n");
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VariableUnit>(_unit);
+        }
+    }");
 
 
            
