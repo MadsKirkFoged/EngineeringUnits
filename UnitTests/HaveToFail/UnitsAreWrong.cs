@@ -366,66 +366,66 @@ namespace UnitTests.HaveToFail
 
         //}
 
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void SpeedShouldBeZero()
-        {
-            Speed speed = 5;
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void SpeedShouldBeZero()
+        //{
+        //    Speed speed = 5;
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void DurationShouldBeZero()
-        {
-            Duration duration = 5;
-        }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void LengthShouldBeZero()
-        {
-            Length length = 5;
-        }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void AmountShouldBeZero()
-        {
-            AmountOfSubstance amount = 3;
-        }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void LuminousIntensityShouldBeZero()
-        {
-            LuminousIntensity luminousIntensity = 3;
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void DurationShouldBeZero()
+        //{
+        //    Duration duration = 5;
+        //}
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void LengthShouldBeZero()
+        //{
+        //    Length length = 5;
+        //}
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void AmountShouldBeZero()
+        //{
+        //    AmountOfSubstance amount = 3;
+        //}
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void LuminousIntensityShouldBeZero()
+        //{
+        //    LuminousIntensity luminousIntensity = 3;
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void AccelerationShouldBeZero()
-        {
-            Acceleration a = 5;
-        }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void AngleShouldBeZero()
-        {
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void AccelerationShouldBeZero()
+        //{
+        //    Acceleration a = 5;
+        //}
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void AngleShouldBeZero()
+        //{
           
-            EngineeringUnits.Angle angle = 5;
-        }
+        //    EngineeringUnits.Angle angle = 5;
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void MassShouldBeZero()
-        {
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void MassShouldBeZero()
+        //{
 
-            Mass mass = 5;
-        }
-        [TestMethod]
-        [ExpectedException(typeof(WrongUnitException))]
-        public void VolumeShouldBeZero()
-        {
+        //    Mass mass = 5;
+        //}
+        //[TestMethod]
+        //[ExpectedException(typeof(WrongUnitException))]
+        //public void VolumeShouldBeZero()
+        //{
 
-            Volume volume = 5;
-        }
+        //    Volume volume = 5;
+        //}
 
 
     }

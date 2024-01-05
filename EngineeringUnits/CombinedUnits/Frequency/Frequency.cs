@@ -39,13 +39,11 @@ namespace EngineeringUnits
             return new(Unit);        
         }
 
-        public static implicit operator Frequency(int zero)
+        public static implicit operator UnknownUnit(Frequency Unit)
         {
-            if (zero != 0)
-                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
-			return Zero;
-		}
-	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
-	}
-}
+            return new(Unit);
+        }
 
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
+        }
+    }

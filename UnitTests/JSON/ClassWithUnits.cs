@@ -13,12 +13,12 @@ namespace UnitTests.JSON
         public MassFlow massflow { get; set; }
 
 
-        public ClassWithUnits()
-        {
-            massflow = 0;
+        //public ClassWithUnits()
+        //{
+        //    massflow = 0;
 
 
-        }
+        //}
 
 
     }

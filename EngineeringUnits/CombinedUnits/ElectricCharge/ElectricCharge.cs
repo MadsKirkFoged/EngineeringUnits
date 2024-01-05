@@ -39,13 +39,11 @@ namespace EngineeringUnits
             return new(Unit);        
         }
 
-        public static implicit operator ElectricCharge(int zero)
+        public static implicit operator UnknownUnit(ElectricCharge Unit)
         {
-            if (zero != 0)
-                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
-			return Zero;
-		}
-	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeUnit>(_unit);
-	}
-}
+            return new(Unit);
+        }
 
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeUnit>(_unit);
+        }
+    }

@@ -39,13 +39,11 @@ namespace EngineeringUnits
             return new(Unit);        
         }
 
-        public static implicit operator TorquePerLength(int zero)
+        public static implicit operator UnknownUnit(TorquePerLength Unit)
         {
-            if (zero != 0)
-                throw new WrongUnitException("You need to give it a unit unless you set it to 0(zero)!");
-			return Zero;
-		}
-	public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorquePerLengthUnit>(_unit);
-	}
-}
+            return new(Unit);
+        }
 
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorquePerLengthUnit>(_unit);
+        }
+    }

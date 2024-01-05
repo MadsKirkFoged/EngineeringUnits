@@ -51,8 +51,8 @@ namespace UnitTests
       [TestMethod]
       public void SpeedCanBeZero()
         {
-            Speed speed = 0;
-            Assert.AreEqual(0, speed);
+            Speed speed = Speed.Zero;
+            Assert.AreEqual(Speed.Zero, speed);
         }
 
 
