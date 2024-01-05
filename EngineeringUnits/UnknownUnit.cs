@@ -28,46 +28,46 @@ namespace EngineeringUnits
         public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
         public UnknownUnit(BaseUnit baseunit) : base(baseunit) { }
 
-        public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right)
-        {
-            if (left is null || right is null)
-                return null;
+        //public static UnknownUnit operator *(UnknownUnit left, UnknownUnit right)
+        //{
+        //    if (left is null || right is null)
+        //        return null;
 
-            try
-            {
-                var NewTestValue = left.NEWValue * right.NEWValue;
+        //    try
+        //    {
+        //        var NewTestValue = left.NEWValue * right.NEWValue;
 
-                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
+        //        return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
-            }
-        }
-        public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right)
-        {
-            if (left is null || right is null)
-                return null;
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+        //    }
+        //}
+        //public static UnknownUnit operator /(UnknownUnit left, UnknownUnit right)
+        //{
+        //    if (left is null || right is null)
+        //        return null;
 
-            if (right.NEWValue == 0m)
-                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+        //    if (right.NEWValue == 0m)
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
 
-            try
-            {
-                var NewTestValue = left.NEWValue / right.NEWValue;
+        //    try
+        //    {
+        //        var NewTestValue = left.NEWValue / right.NEWValue;
 
-                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
+        //        return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
 
-            }
-            catch (OverflowException)
-            {
-                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
-            }
-        }
+        //    }
+        //    catch (OverflowException)
+        //    {
+        //        return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+        //    }
+        //}
 
 
-        public static implicit operator double(UnknownUnit Unit)
+        public static explicit operator double(UnknownUnit Unit)
         {
             if (UnitSystemExtensions.UnitsystemForDouble != Unit)            
                 throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");

@@ -43,7 +43,11 @@ public class Program
     public static void Main()
     {
 
-        Length L2 = new Length(1, LengthUnit.Mile);
+        Pressure p1 = Pressure.FromBar(10);
+
+        UnknownUnit uu = p1;
+
+        //Length L2 = new Length(1, LengthUnit.Mile);
 
 
 

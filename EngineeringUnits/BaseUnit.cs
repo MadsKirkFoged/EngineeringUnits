@@ -36,6 +36,12 @@ namespace EngineeringUnits
             NEWValue = value;
         }
 
+        public BaseUnit(UnknownUnit value, UnitSystem unitSystem)
+        {
+            Unit = unitSystem;
+            NEWValue = value.NEWValue;
+        }
+
         public BaseUnit(decimal value) : this(value, new UnitSystem()) { }
         public BaseUnit(double value) : this(value, new UnitSystem()) { }
         public BaseUnit(int value) : this(value, new UnitSystem()) { }
@@ -125,15 +131,15 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
             }
         }
-        public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
-        {
-            return left * (BaseUnit)right;
-        }
-        public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
-        {
-            return (BaseUnit)left * right;
+        //public static UnknownUnit operator *(BaseUnit left, UnknownUnit right)
+        //{
+        //    return left * (BaseUnit)right;
+        //}
+        //public static UnknownUnit operator *(UnknownUnit left, BaseUnit right)
+        //{
+        //    return (BaseUnit)left * right;
 
-        }
+        //}
         
         public static UnknownUnit operator *(BaseUnit left, int right)
         {
@@ -177,14 +183,14 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }
         }
-        public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
-        {
-            return (BaseUnit)left / right;
-        }
-        public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
-        {
-            return left / (BaseUnit)right;
-        }
+        //public static UnknownUnit operator /(UnknownUnit left, BaseUnit right)
+        //{
+        //    return (BaseUnit)left / right;
+        //}
+        //public static UnknownUnit operator /(BaseUnit left, UnknownUnit right)
+        //{
+        //    return left / (BaseUnit)right;
+        //}
 
 
         public static UnknownUnit operator /(BaseUnit left, int right)
