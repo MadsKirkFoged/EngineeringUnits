@@ -304,9 +304,36 @@ namespace EngineeringUnits
             return left.NEWValue > right.GetValueAs(left.Unit);
         }
 
-       
 
         public static implicit operator UnitSystem(BaseUnit unit) => unit.Unit;
+
+        public static explicit operator int(BaseUnit Unit)
+        {
+            if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+
+            return (int)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
+        }
+
+        public static explicit operator double(BaseUnit Unit)
+        {
+            if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+
+            return Unit.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble);
+        }
+        public static explicit operator decimal(BaseUnit Unit)
+        {
+            if (new UnitSystem() != Unit.Unit)
+                throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+
+            return Unit.GetValueAs(new UnitSystem());
+        }
+
+
 
         /// <summary>
         ///     Gets the default string representation of value and unit.

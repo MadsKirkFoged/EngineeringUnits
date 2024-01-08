@@ -67,22 +67,22 @@ namespace EngineeringUnits
         //}
 
 
-        public static explicit operator double(UnknownUnit Unit)
-        {
-            if (UnitSystemExtensions.UnitsystemForDouble != Unit)            
-                throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+        //public static explicit operator double(UnknownUnit Unit)
+        //{
+        //    if (UnitSystemExtensions.UnitsystemForDouble != Unit)            
+        //        throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
-            return (double)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
-        }
-        public static explicit operator decimal(UnknownUnit Unit)
-        {
-            if (new UnitSystem() != Unit.Unit)            
-                throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
+        //    return (double)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
+        //}
+        //public static explicit operator decimal(UnknownUnit Unit)
+        //{
+        //    if (new UnitSystem() != Unit.Unit)            
+        //        throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
             
 
-            return Unit.GetValueAs(new UnitSystem());
-        }
+        //    return Unit.GetValueAs(new UnitSystem());
+        //}
 
 
 
