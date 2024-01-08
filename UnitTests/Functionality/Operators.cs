@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace UnitTests.Functionality
 {
 
@@ -120,7 +121,7 @@ namespace UnitTests.Functionality
         public void RatioAdditionIntAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             int R2 = 1;
 
             // Act
@@ -137,7 +138,7 @@ namespace UnitTests.Functionality
         public void RatioAdditionDoubleAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             double R2 = 1;
 
             // Act
@@ -154,7 +155,7 @@ namespace UnitTests.Functionality
         public void RatioAdditionDecimalAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             decimal R2 = 1;
 
             // Act
@@ -171,7 +172,7 @@ namespace UnitTests.Functionality
         public void RatioSubtractionIntAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             int R2 = 1;
 
             // Act
@@ -188,7 +189,7 @@ namespace UnitTests.Functionality
         public void RatioSubtractionDoubleAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             double R2 = 1;
 
             // Act
@@ -205,7 +206,7 @@ namespace UnitTests.Functionality
         public void RatioSubtractionDecimalAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             decimal R2 = 1;
 
             // Act
@@ -222,7 +223,7 @@ namespace UnitTests.Functionality
         public void RatioMultiplicationIntAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             int R2 = 2;
 
             // Act
@@ -241,7 +242,7 @@ namespace UnitTests.Functionality
         public void RatioMultiplicationDoubleAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             double R2 = 2;
 
             // Act
@@ -258,7 +259,7 @@ namespace UnitTests.Functionality
         public void RatioMultiplicationDecimalAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             decimal R2 = 2;
 
             // Act
@@ -275,7 +276,7 @@ namespace UnitTests.Functionality
         public void RatioDivisionIntAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             int R2 = 2;
 
             // Act
@@ -292,7 +293,7 @@ namespace UnitTests.Functionality
         public void RatioDivisionDoubleAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             double R2 = 2;
 
             // Act
@@ -309,7 +310,7 @@ namespace UnitTests.Functionality
         public void RatioDivisionDecimalAndRatio()
         {
             // Arrange
-            Ratio R1 = 10;
+            Ratio R1 = (Ratio)10;
             decimal R2 = 2;
 
             // Act
