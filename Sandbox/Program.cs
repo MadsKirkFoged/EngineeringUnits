@@ -43,10 +43,16 @@ public class Program
     public static void Main()
     {
 
-        decimal t1 = 10m;
-        decimal t2 = 0m;
+        Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
+        Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
+        MassFlow m1 = MassFlow.FromKilogramPerSecond(7.4526425854623);
 
-        decimal test = t1/t2;
+        Power P2 = Power.FromWatt(1567.1567896541);
+        Power P3 = Power.FromWatt(1000.3487624531);
+
+        Ratio R1 = (m1 * (h2 - h1) + P2) / P3;
+
+
 
 
         //for (int i = 0; i < 30000000; i++)

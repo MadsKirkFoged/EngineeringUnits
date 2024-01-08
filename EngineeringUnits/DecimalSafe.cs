@@ -10,7 +10,7 @@ public record DecimalSafe
 {
  
     [JsonProperty]
-    public decimal Value { get; init; }
+    internal decimal Value { get; init; }
 
     [JsonProperty]
     internal bool IsInf { get; init; }

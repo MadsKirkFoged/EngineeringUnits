@@ -12,8 +12,8 @@ namespace EngineeringUnits
     public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
-        public UnitSystem Unit { get; init; }
-        public DecimalSafe NEWValue { get; init; }
+        internal UnitSystem Unit { get; init; }
+        internal DecimalSafe NEWValue { get; init; }
 
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]

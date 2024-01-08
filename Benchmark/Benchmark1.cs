@@ -10,10 +10,54 @@ namespace Benchmark
     [MemoryDiagnoser]
     public class Benchy
     {
-        //Create a static Power 
-        static readonly Power Power1 = new(1, PowerUnit.Watt);
 
-        static readonly UnitSystem unit = Power1;
+        static readonly decimal h1m = 856.75245687853m;
+        static readonly decimal h2m = 1456.546239456m;
+        static readonly decimal m1m = 7.4526425854623m;
+        static readonly decimal P2m = 1567.1567896541m;
+        static readonly decimal P3m = 1000.3487624531m;
+
+        static readonly double h1d = 856.75245687853d;
+        static readonly double h2d = 1456.546239456d;
+        static readonly double m1d = 7.4526425854623d;
+        static readonly double P2d = 1567.1567896541d;
+        static readonly double P3d = 1000.3487624531d;
+
+        static readonly Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
+        static readonly Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
+        static readonly MassFlow m1 = MassFlow.FromKilogramPerSecond(7.4526425854623);
+        static readonly Power P2 = Power.FromWatt(1567.1567896541);
+        static readonly Power P3 = Power.FromWatt(1000.3487624531);
+
+
+      //| Method             | Mean        | Error     | StdDev    | Gen0   | Allocated |
+      //|------------------- |------------:|----------:|----------:|-------:|----------:|
+      //| CalculationUnits   | 241.1609 ns | 4.4254 ns | 6.7581 ns | 0.0668 |     288 B |
+      //| CalculationDecimal |  92.5406 ns | 1.5551 ns | 1.4547 ns |      - |         - |
+      //| CalculationDouble  |   0.5013 ns | 0.0389 ns | 0.0650 ns |      - |         - |
+
+        [Benchmark]
+        public static UnknownUnit CalculationUnits()
+        {
+            return (m1 * (h2 - h1) + P2) / P3;
+        }
+
+        [Benchmark]
+        public static decimal CalculationDecimal()
+        {
+            return (m1m * (h2m - h1m) + P2m) / P3m;
+        }
+
+        [Benchmark]
+        public static double CalculationDouble()
+        {
+            return (m1d * (h2d - h1d) + P2d) / P3d;
+        }
+
+        //Create a static Power 
+        //static readonly Power Power1 = new(1, PowerUnit.Watt);
+
+        //static readonly UnitSystem unit = Power1;
 
 
 
@@ -375,9 +419,9 @@ namespace Benchmark
         //}
 
 
-        readonly Power P1 = Power.FromKilowatt(10);
-        readonly Length L1 = Length.FromChain(2);
-        readonly Temperature T1 = Temperature.FromDegreesCelsius(4);
+        //readonly Power P1 = Power.FromKilowatt(10);
+        //readonly Length L1 = Length.FromChain(2);
+        //readonly Temperature T1 = Temperature.FromDegreesCelsius(4);
 
 
         //| CalculationIntoThermalConductivity   | 190.5 ns | 2.97 ns | 2.78 ns | 0.0501 |     216 B |
@@ -388,9 +432,17 @@ namespace Benchmark
         //    return P1 / (L1 * T1);
         //}
 
-        readonly Power P2 = Power.FromSI(10);
-        readonly Length L2 = Length.FromSI(2);
-        readonly Temperature T2 = Temperature.FromSI(4);
+        //static readonly Power P2 = Power.FromSI(10);
+        //static readonly Length L2 = Length.FromSI(2);
+        //static readonly Temperature T2 = Temperature.FromSI(4);
+
+        //static readonly decimal P2de = 15786.786764564564m;
+        //static readonly decimal L2de = 4564.864545634653456m;
+        //static readonly decimal T2de = 3456.532345334545m;
+
+        //static readonly double P2do = 15786.786764564564d;
+        //static readonly double L2do = 4564.864545634653456d;
+        //static readonly double T2do = 3456.532345334545d;
 
 
         ////| CalculationIntoThermalConductivitySI | 157.4 ns | 3.08 ns | 2.88 ns | 0.0501 |     216 B |
@@ -401,6 +453,17 @@ namespace Benchmark
         //    return P2 / (L2 * T2);
         //}
 
+        //[Benchmark]
+        //public decimal CalculationIntoThermalConductivitySI2()
+        //{
+        //    return P2de / (L2de * T2de);
+        //}
+
+        //[Benchmark]
+        //public double CalculationIntoThermalConductivitySI3()
+        //{
+        //    return P2do / (L2do * T2do);
+        //}
 
 
         //| Method | Mean     | Error    | StdDev   | Gen0   | Allocated |
@@ -413,11 +476,11 @@ namespace Benchmark
         //|------- |---------:|---------:|---------:|-------:|----------:|
         //| Values | 12.40 ns | 0.279 ns | 0.332 ns |      - |         - |
         //| units  | 19.17 ns | 0.362 ns | 0.339 ns |      - |         - |
-  //| JustCreation | 13.48 ns | 0.336 ns | 0.561 ns | 0.0167 |      72 B |
+        //| JustCreation | 13.48 ns | 0.336 ns | 0.561 ns | 0.0167 |      72 B |
         //| total  | 45.54 ns | 0.925 ns | 0.820 ns | 0.0167 |      72 B |
 
-        static readonly Power Left = Power.FromSI(10);
-        static readonly Length Right = Length.FromSI(2);
+        //static readonly Power Left = Power.FromSI(10);
+        //static readonly Length Right = Length.FromSI(2);
 
 
 
@@ -427,17 +490,17 @@ namespace Benchmark
         //    return Left.NEWValue / Right.NEWValue;
         //}
 
-        [Benchmark]
-        public UnitSystem units()
-        {
-            return Left.Unit / Right.Unit;
-        }
+        //[Benchmark]
+        //public UnitSystem units()
+        //{
+        //    return Left.Unit / Right.Unit;
+        //}
 
-        [Benchmark]
-        public int units2()
-        {
-            return (Left.GetHashCode() * 512265997) ^ Right.GetHashCode();
-        }
+        //[Benchmark]
+        //public int units2()
+        //{
+        //    return (Left.GetHashCode() * 512265997) ^ Right.GetHashCode();
+        //}
 
         //[Benchmark]
         //public UnknownUnit JustCreation()
