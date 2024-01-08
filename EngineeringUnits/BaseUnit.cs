@@ -12,8 +12,8 @@ namespace EngineeringUnits
     public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
     {
 
-        internal UnitSystem Unit { get; init; }
-        internal DecimalSafe NEWValue { get; init; }
+        public UnitSystem Unit { get; init; }
+        public DecimalSafe NEWValue { get; init; }
 
 
         [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
@@ -136,10 +136,7 @@ namespace EngineeringUnits
 
             try
             {
-                var NewTestValue = left.NEWValue * right.NEWValue;
-
-                return new UnknownUnit(NewTestValue, left.Unit * right.Unit);
-
+                return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
             }
             catch (OverflowException)
             {
@@ -177,17 +174,15 @@ namespace EngineeringUnits
             if (left is null || right is null)
                 return null;
 
-            if (right.NEWValue == 0m)
-                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
-
             try
             {
-                var NewTestValue = left.NEWValue / right.NEWValue;
-
-                return new UnknownUnit(NewTestValue, left.Unit / right.Unit);
-
+                return new UnknownUnit(left.NEWValue / right.NEWValue, left.Unit / right.Unit);
             }
             catch (OverflowException)
+            {
+                return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            }
+            catch (DivideByZeroException)
             {
                 return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
             }

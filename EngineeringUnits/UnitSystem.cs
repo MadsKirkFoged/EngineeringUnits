@@ -102,45 +102,26 @@ namespace EngineeringUnits
         }
 
 
-        //static readonly object MultiplyLock = new object();
-        static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheMultiply = new();
+        static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
         public static UnitSystem operator *(UnitSystem left, UnitSystem right)
         {
-            //lock (MultiplyLock)
-            {
-
-            //if (!left.ListOfUnits.Any())            
-            //    if (right.ListOfUnits.Any())                
-            //        return right;
-
-            //if (!right.ListOfUnits.Any())
-            //    if (left.ListOfUnits.Any())
-            //        return left;
-
-
-            var Hashes = (left.GetHashCode(), right.GetHashCode());
+            var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
 
             if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
                 return local;
-                else if (CacheMultiply.TryGetValue((Hashes.Item2, Hashes.Item1), out UnitSystem local2))
-                    return local2;
 
 
+            var test2 = new UnitSystem(
+                    new List<RawUnit>(
+                        left.ListOfUnits.Concat(
+                        right.ListOfUnits)));
 
-                var test2 = new UnitSystem(
-                        new List<RawUnit>(
-                            left.ListOfUnits.Concat(
-                            right.ListOfUnits)));
+            var AlreadyAdded = CacheMultiply.TryAdd(Hashes, test2);
 
-                var AlreadyAdded = CacheMultiply.TryAdd(Hashes, test2);
-
-                return test2;
-
-            }
-
-
-
+            return test2;
         }
+
+
         public static UnitSystem operator *(decimal left, UnitSystem right)
         {
             return right * left;
@@ -176,30 +157,26 @@ namespace EngineeringUnits
         }
 
 
-        //static readonly object DivideLock = new object();
-        static readonly ConcurrentDictionary<(int, int), UnitSystem> CacheDivide = new();
+        static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
         public static UnitSystem operator /(UnitSystem left, UnitSystem right)
         {
-            //lock (DivideLock)
-            {
-
-            var Hashes = (left.GetHashCode(), right.GetHashCode());
+            var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
 
             if (CacheDivide.TryGetValue(Hashes, out UnitSystem local))
                 return local;
 
 
-                List<RawUnit> LocalUnitList = new(left.ListOfUnits);
+            List<RawUnit> LocalUnitList = new(left.ListOfUnits);
 
-                foreach (var item in right.ListOfUnits)
-                    LocalUnitList.Add(item.CloneAndReverseCount());
+            foreach (var item in right.ListOfUnits)
+                LocalUnitList.Add(item.CloneAndReverseCount());
 
-                var DividedUnit = new UnitSystem(LocalUnitList);
+            var DividedUnit = new UnitSystem(LocalUnitList);
 
-                var AlreadyAdded = CacheDivide.TryAdd(Hashes, DividedUnit);
+            var AlreadyAdded = CacheDivide.TryAdd(Hashes, DividedUnit);
 
-                return DividedUnit;
-            }
+            return DividedUnit;
+
 
         }
 

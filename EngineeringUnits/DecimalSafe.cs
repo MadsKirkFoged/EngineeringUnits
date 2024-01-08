@@ -8,8 +8,9 @@ using System.Text;
 namespace EngineeringUnits;
 public record DecimalSafe
 {
+ 
     [JsonProperty]
-    internal decimal Value { get; init; }
+    public decimal Value { get; init; }
 
     [JsonProperty]
     internal bool IsInf { get; init; }
@@ -48,8 +49,12 @@ public record DecimalSafe
     public DecimalSafe(int value)
     {
         Value = value;
-    }   
+    }
 
+    //public static DecimalSafe operator /(DecimalSafe left, DecimalSafe right)
+    //{
+    //    return new DecimalSafe(left.Value / right.Value);
+    //}
 
     public static implicit operator DecimalSafe(decimal value) => new DecimalSafe(value);
     public static implicit operator DecimalSafe(double value) => new DecimalSafe(value);
@@ -119,6 +124,14 @@ public record DecimalSafe
             return double.NaN.ToString(format, provider);
 
         return Value.ToString(format, provider);
+    }
+
+    public bool IsZero()
+    {
+        if (IsNaN || IsInf)
+            return false;
+
+        return Value is 0m;
     }
 
     public bool IsAValue()

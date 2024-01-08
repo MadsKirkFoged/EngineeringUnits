@@ -43,34 +43,47 @@ public class Program
     public static void Main()
     {
 
+        decimal t1 = 10m;
+        decimal t2 = 0m;
+
+        decimal test = t1/t2;
+
+
+        //for (int i = 0; i < 30000000; i++)
+        //{
+        //    var test = BaseUnit.Divide(P1, L1);
+        //}
+
+        
+
         UnknownUnit DensityLiq = Density.FromKilogramPerCubicMeter(100);
-        Density DensityGas = 10 - DensityLiq;
+        //Density DensityGas = 10 - DensityLiq;
 
 
-        Speed Vmax = Speed.FromMeterPerSecond(1) * ((DensityLiq - DensityGas) / DensityGas).Sqrt();
-
-
-
+        //Speed Vmax = Speed.FromMeterPerSecond(1) * ((DensityLiq - DensityGas) / DensityGas).Sqrt();
 
 
 
-        Ratio test = Ratio.FromDecimalFraction(1);
 
-        Ratio MassRatio2 = 1 - test;
 
-        Pressure p1 = Pressure.FromBar(10) * 10;
-        UnknownUnit p2 = Pressure.FromBar(10);
 
-        if (p1 == p2)
-        {
+        //Ratio test = Ratio.FromDecimalFraction(1);
 
-        }
+        //Ratio MassRatio2 = 1 - test;
+
+        //Pressure p1 = Pressure.FromBar(10) * 10;
+        //UnknownUnit p2 = Pressure.FromBar(10);
+
+        //if (p1 == p2)
+        //{
+
+        //}
 
         //Length L2 = new Length(1, LengthUnit.Mile);
 
 
 
-        var testtt = (MassFlow.FromCentigramPerDay(1), MassFlow.FromDecagramPerSecond(1)).Sum();
+        //var testtt = (MassFlow.FromCentigramPerDay(1), MassFlow.FromDecagramPerSecond(1)).Sum();
 
        
 
