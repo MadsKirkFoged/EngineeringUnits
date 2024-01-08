@@ -42,6 +42,12 @@ public class Program
 
     public static void Main()
     {
+        SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
+
+        Enthalpy test2 = SpecificEnergy.FromSI(324);
+
+
+
         Pressure p1 = null;
 
         UnknownUnit p2 = p1;

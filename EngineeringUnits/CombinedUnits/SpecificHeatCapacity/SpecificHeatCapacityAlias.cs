@@ -11,7 +11,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null;           
 
-            return Unit;
+            return new(Unit);
         }
 
         public static implicit operator SpecificEntropy(SpecificHeatCapacity Unit)
@@ -19,7 +19,7 @@ namespace EngineeringUnits
             if (Unit is null)
                 return null;           
 
-            return Unit;
+            return new(Unit);
         }
     }
 }
