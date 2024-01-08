@@ -42,6 +42,12 @@ public class Program
 
     public static void Main()
     {
+        Pressure p1 = null;
+
+        UnknownUnit p2 = p1;
+
+
+
 
         Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
         Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);

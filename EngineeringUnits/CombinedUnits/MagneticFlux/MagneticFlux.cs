@@ -40,7 +40,10 @@ namespace EngineeringUnits
         }
 
         public static implicit operator UnknownUnit(MagneticFlux Unit)
-        {
+        {            
+            if (Unit is null)
+                return null;
+
             return new(Unit);
         }
 

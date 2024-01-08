@@ -41,6 +41,9 @@ namespace EngineeringUnits
 
         public static implicit operator UnknownUnit(Pressure Unit)
         {
+            if (Unit is null)
+                return null;
+
             return new(Unit);
         }
 
