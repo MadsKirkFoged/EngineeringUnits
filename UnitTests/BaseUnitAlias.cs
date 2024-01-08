@@ -12,7 +12,7 @@ namespace EngineeringUnits.Tests;
 public class BaseUnitAlias
 {
     [TestMethod()]
-    public void BaseUnitSwitchBetween()
+    public void SwitchBetweenAlias()
     {
         //Arrange
         SpecificHeatCapacity test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
@@ -25,7 +25,7 @@ public class BaseUnitAlias
     }
 
     [TestMethod()]
-    public void BaseUnitSwitchBetween2()
+    public void SwitchBetweenAlias2()
     {
         //Arrange
         SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
@@ -38,7 +38,7 @@ public class BaseUnitAlias
     }
 
     [TestMethod()]
-    public void BaseUnitSwitchBetween3()
+    public void SwitchBetweenAlias3()
     {
         //Arrange
         SpecificEntropy test = SpecificEntropy.FromBtuPerPoundRankine(0.51387988198709567);
