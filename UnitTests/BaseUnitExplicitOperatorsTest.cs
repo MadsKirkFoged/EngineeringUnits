@@ -10,7 +10,7 @@ using EngineeringUnits.Units;
 namespace EngineeringUnits.Tests;
 
 [TestClass()]
-public class BaseUnitExplicitOperatorsTest
+public class BaseUnitImplicitOperatorsTest
 {
     [TestMethod()]
     public void RatioToInt()
@@ -19,7 +19,7 @@ public class BaseUnitExplicitOperatorsTest
         Ratio R1 = new Ratio(1, RatioUnit.SI);
 
         // Act
-        int Int1 = (int)R1;
+        int Int1 = R1;
 
         // Assert
         Assert.AreEqual(1, Int1);
@@ -33,7 +33,7 @@ public class BaseUnitExplicitOperatorsTest
         Ratio R1 = new Ratio(1d, RatioUnit.SI);
 
         // Act
-        double Double1 = (double)R1;
+        double Double1 = R1;
 
         // Assert
         Assert.AreEqual(1, Double1);
@@ -47,7 +47,7 @@ public class BaseUnitExplicitOperatorsTest
         Ratio R1 = new Ratio(1m, RatioUnit.SI);
 
         // Act
-        decimal Decimal1 = (decimal)R1;
+        decimal Decimal1 = R1;
 
         // Assert
         Assert.AreEqual(1, Decimal1);
@@ -62,7 +62,7 @@ public class BaseUnitExplicitOperatorsTest
         Length R1 = new Length(1, LengthUnit.SI);
 
         // Act
-        int Int1 = (int)R1;
+        int Int1 = R1;
 
         // Assert
         Assert.AreEqual(1, Int1);
@@ -77,7 +77,7 @@ public class BaseUnitExplicitOperatorsTest
         Length R1 = new Length(1d, LengthUnit.SI);
 
         // Act
-        double Double1 = (double)R1;
+        double Double1 = R1;
 
         // Assert
         Assert.AreEqual(1, Double1);
@@ -92,7 +92,7 @@ public class BaseUnitExplicitOperatorsTest
         Length R1 = new Length(1m, LengthUnit.SI);
 
         // Act
-        decimal Decimal1 = (decimal)R1;
+        decimal Decimal1 = R1;
 
         // Assert
         Assert.AreEqual(1, Decimal1);
