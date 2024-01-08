@@ -113,5 +113,216 @@ namespace UnitTests.Functionality
 
         }
 
+
+
+        
+        [TestMethod]
+        public void RatioAdditionIntAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            int R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 + R1;
+            Ratio sum2 = R1 + R2;
+
+            // Assert
+            Assert.AreEqual(11, sum1);
+            Assert.AreEqual(11, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioAdditionDoubleAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            double R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 + R1;
+            Ratio sum2 = R1 + R2;
+
+            // Assert
+            Assert.AreEqual(11, sum1);
+            Assert.AreEqual(11, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioAdditionDecimalAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            decimal R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 + R1;
+            Ratio sum2 = R1 + R2;
+
+            // Assert
+            Assert.AreEqual(11, sum1);
+            Assert.AreEqual(11, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioSubtractionIntAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            int R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 - R1;
+            Ratio sum2 = R1 - R2;
+
+            // Assert
+            Assert.AreEqual(-9, sum1);
+            Assert.AreEqual(9, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioSubtractionDoubleAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            double R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 - R1;
+            Ratio sum2 = R1 - R2;
+
+            // Assert
+            Assert.AreEqual(-9, sum1);
+            Assert.AreEqual(9, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioSubtractionDecimalAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            decimal R2 = 1;
+
+            // Act
+            Ratio sum1 = R2 - R1;
+            Ratio sum2 = R1 - R2;
+
+            // Assert
+            Assert.AreEqual(-9, sum1);
+            Assert.AreEqual(9, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioMultiplicationIntAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            int R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 * R1;
+            Ratio sum2 = R1 * R2;
+
+            // Assert
+            Assert.AreEqual(20, sum1);
+            Assert.AreEqual(20, sum2);
+
+        }
+
+
+
+        [TestMethod]
+        public void RatioMultiplicationDoubleAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            double R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 * R1;
+            Ratio sum2 = R1 * R2;
+
+            // Assert
+            Assert.AreEqual(20, sum1);
+            Assert.AreEqual(20, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioMultiplicationDecimalAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            decimal R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 * R1;
+            Ratio sum2 = R1 * R2;
+
+            // Assert
+            Assert.AreEqual(20, sum1);
+            Assert.AreEqual(20, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioDivisionIntAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            int R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 / R1;
+            Ratio sum2 = R1 / R2;
+
+            // Assert
+            Assert.AreEqual(0.2, sum1);
+            Assert.AreEqual(5, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioDivisionDoubleAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            double R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 / R1;
+            Ratio sum2 = R1 / R2;
+
+            // Assert
+            Assert.AreEqual(0.2, sum1);
+            Assert.AreEqual(5, sum2);
+
+        }
+
+        [TestMethod]
+        public void RatioDivisionDecimalAndRatio()
+        {
+            // Arrange
+            Ratio R1 = 10;
+            decimal R2 = 2;
+
+            // Act
+            Ratio sum1 = R2 / R1;
+            Ratio sum2 = R1 / R2;
+
+            // Assert
+            Assert.AreEqual(0.2, sum1);
+            Assert.AreEqual(5, sum2);
+
+        }
+
+
     }
+
 }

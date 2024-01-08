@@ -44,7 +44,7 @@ public class Program
     {
 
         UnknownUnit DensityLiq = Density.FromKilogramPerCubicMeter(100);
-        Density DensityGas = 10d*DensityLiq;
+        Density DensityGas = 10 - DensityLiq;
 
 
         Speed Vmax = Speed.FromMeterPerSecond(1) * ((DensityLiq - DensityGas) / DensityGas).Sqrt();
