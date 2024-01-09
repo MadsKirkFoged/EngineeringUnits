@@ -27,6 +27,7 @@ namespace EngineeringUnits
 
         /// <summary>
         /// Returns the square root your unit.<br></br>
+        /// Taking the sqrt of a Negativ number will return null.<br></br>
         /// <example>
         /// Exemple: The square root of an <see cref="Area"/> gives a <see cref="Length"/><br></br>
         /// </example>
@@ -35,7 +36,7 @@ namespace EngineeringUnits
         /// <exception cref="WrongUnitException">gg</exception>
         public static UnknownUnit Sqrt(this BaseUnit a)
         {
-            if (a is null)
+            if (a is null || a.IsBelowZero())
                 return null;
 
             UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();

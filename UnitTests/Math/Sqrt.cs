@@ -25,6 +25,25 @@ namespace UnitTests
             Assert.AreEqual(1.3285923979911973, L1.SI);
         }
 
+        [TestMethod]
+        public void SqrtOfNegative()
+        {
+            Area A1 = Area.FromSquareFoot(-19);
+
+            Length L1 = A1.Sqrt();
+
+            Assert.IsNull(L1);
+        }
+
+        [TestMethod]
+        public void SqrtOfZero()
+        {
+            Area A1 = Area.FromSquareFoot(0);
+
+            Length L1 = A1.Sqrt();
+
+            Assert.AreEqual(0, L1.SI);
+        }
 
     }
 }
