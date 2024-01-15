@@ -126,13 +126,31 @@ namespace EngineeringUnits
 
         /// <summary>
         /// Performs linear interpolation between two points.
+        /// <code>
+        ///    ▲
+        /// y1 │             *
+        ///    │            /
+        ///    │           /
+        ///    │          /
+        ///    │         /
+        /// y  │ - - -  • (x,y)
+        ///    │       /
+        ///    │      / ¦
+        ///    │     /  
+        ///    │    /   ¦
+        ///  y0│   *    
+        ///    │        ¦
+        ///    └──────────────────►
+        ///        x0   x    x1
+        /// </code>
+        /// 
         /// </summary>
         /// <param name="x">The x-coordinate of the point to interpolate.</param>
         /// <param name="x0">The x-coordinate of the first reference point.</param>
         /// <param name="x1">The x-coordinate of the second reference point.</param>
         /// <param name="y0">The y-coordinate of the first reference point.</param>
         /// <param name="y1">The y-coordinate of the second reference point.</param>
-        /// <returns>The interpolated value at the given x-coordinate.</returns>
+        /// <returns>y-coordinate.</returns>
         public static UnknownUnit LinearInterpolation(BaseUnit x, BaseUnit x0, BaseUnit x1, BaseUnit y0, BaseUnit y1)
         {
 
