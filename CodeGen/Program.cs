@@ -22,7 +22,8 @@ namespace CodeGen
             //GenerateSetter.GenerateSetterClasses(libraryDir);
             //GenerateGetter.GenerateGetterClasses(libraryDir);
             //UnitListGenerator.UnitsInclude();
-            GenerateAlias.AliasClass(libraryDir);
+            //GenerateAlias.AliasClass(libraryDir);
+            AbsExtensionsGenerator.Generate(libraryDir);
 
         }
     }

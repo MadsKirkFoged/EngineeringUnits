@@ -327,8 +327,7 @@ namespace EngineeringUnits
             return Unit.GetValueAs(new UnitSystem());
         }
 
-
-
+   
         /// <summary>
         ///     Gets the default string representation of value and unit.
         /// </summary>

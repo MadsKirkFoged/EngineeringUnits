@@ -42,27 +42,32 @@ public class Program
 
     public static void Main()
     {
-        SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
+        UnknownUnit f1 = Frequency.FromMegahertz(-32);
 
-        Enthalpy test2 = SpecificEnergy.FromSI(324);
+    
 
 
+        //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
 
-        Pressure p1 = null;
-
-        UnknownUnit p2 = p1;
-
+        //Enthalpy test2 = SpecificEnergy.FromSI(324);
 
 
 
-        Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
-        Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
-        MassFlow m1 = MassFlow.FromKilogramPerSecond(7.4526425854623);
+        //Pressure p1 = null;
 
-        Power P2 = Power.FromWatt(1567.1567896541);
-        Power P3 = Power.FromWatt(1000.3487624531);
+        //UnknownUnit p2 = p1;
 
-        Ratio R1 = (m1 * (h2 - h1) + P2) / P3;
+
+
+
+        //Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
+        //Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
+        //MassFlow m1 = MassFlow.FromKilogramPerSecond(7.4526425854623);
+
+        //Power P2 = Power.FromWatt(1567.1567896541);
+        //Power P3 = Power.FromWatt(1000.3487624531);
+
+        //Ratio R1 = (m1 * (h2 - h1) + P2) / P3;
 
 
 
@@ -72,7 +77,7 @@ public class Program
         //    var test = BaseUnit.Divide(P1, L1);
         //}
 
-        
+
 
         UnknownUnit DensityLiq = Density.FromKilogramPerCubicMeter(100);
         //Density DensityGas = 10 - DensityLiq;

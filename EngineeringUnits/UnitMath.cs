@@ -156,9 +156,9 @@ namespace EngineeringUnits
                 return null;
 
             if (a.GetBaseValue() > 0)
-                return new(a);
+                return a.ToUnknownUnit();
 
-            return a * -1;
+            return -a;
         }
 
         /// <returns>Absolute value of your units inside the <see langword="List"/> </returns>
@@ -167,10 +167,6 @@ namespace EngineeringUnits
         {
             return a.Select(x => x.Abs());
         }
-    
-    
-    
-    
-    
+
     }
 }

@@ -130,5 +130,14 @@ namespace UnitTests
             Assert.IsNull(f2);
         }
 
+        [TestMethod]
+        public void AbsDoesNotChangeType()
+        {
+            Power f1 = Power.FromBritishThermalUnitPerMinute(58);
+            double f2 = f1.Abs().Watt;
+
+            Assert.AreEqual(f1.Watt, f2);
+        }
+
     }
 }
