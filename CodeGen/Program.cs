@@ -17,6 +17,7 @@ namespace CodeGen
 
 
             UnitGenerator.GenerateClasses(libraryDir);
+            GenerateUnitEnum.GenerateClasses(libraryDir);
             GenerateAlias.GenerateEnums(libraryDir);
             GenerateSetter.GenerateSetterClasses(libraryDir);
             GenerateGetter.GenerateGetterClasses(libraryDir);
