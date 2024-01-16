@@ -13,45 +13,45 @@ namespace CodeGen
     {
         public static void Generate(string projectRootPath)
         {
-            StringBuilder builder = new StringBuilder();
+            //StringBuilder builder = new StringBuilder();
             //StringBuilder staticUnits = new StringBuilder();
             StringBuilder conditionals = new StringBuilder();
 
             foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
             {
-                conditionals.AppendLine($"\t\t\tif (toCast.Unit == {item}Unit.SI.Unit)");
-                conditionals.AppendLine($"\t\t\t{{");
-                conditionals.AppendLine($"\t\t\t\treturn ({item}) toCast;");
-                conditionals.AppendLine($"\t\t\t}}");
+                string functions = $$"""
+                                    if (toCast == [Variable]Unit.SI.Unit)                               
+                                        return ([Variable]) toCast;                              
+                                    """.Replace("[Variable]", $"{item}");
+
+                conditionals.AppendLine(functions);
 
             }
 
 
+            string builder = $$"""
+
+                               using EngineeringUnits.Units;
+                               using System;
+
+                               namespace EngineeringUnits
+                               {
+                                   //This class is auto-generated, changes to the file will be overwritten!
+                                   public static class UnknownUnitExtensions
+                                   {
+
+                                      public static BaseUnit IntelligentCast(this UnknownUnit toCast)
+                                       {            
+                                           [InsertFunctions]
+
+                                           return null;            
+                                       }
+                                   }
+                               }
+
+                               """.Replace("[InsertFunctions]", conditionals.ToString());
 
 
-
-
-
-            builder.AppendLine(@"using EngineeringUnits.Units;
-
-namespace EngineeringUnits
-{
-    //This class is auto-generated, changes to the file will be overwritten!
-    public static class UnknownUnitExtensions
-    {");
-            builder.AppendLine();
-            //builder.Append(staticUnits);
-            builder.AppendLine(@"       public static BaseUnit IntelligentCast(this UnknownUnit toCast)
-        {
-            BaseUnit output = (BaseUnit) toCast;
-            UnitSystem unit = output.Unit;");
-            builder.Append(conditionals);
-            builder.AppendLine(@"
-            return output;
-            
-        }
-    }
-}");
 
             File.WriteAllText(Path.Combine(projectRootPath, "UnknownUnitExtensions.cs"), builder.ToString());
         }
