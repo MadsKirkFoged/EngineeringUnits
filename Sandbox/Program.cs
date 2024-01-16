@@ -42,9 +42,15 @@ public class Program
 
     public static void Main()
     {
-        UnknownUnit f1 = Frequency.FromMegahertz(-32);
 
-    
+
+
+        Cost f1 = new Cost(10, CostUnit.USDollar);
+
+        Energy e1 = new Energy(10, EnergyUnit.KilowattHour);
+
+
+        var test = f1 / e1;
 
 
         //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);

@@ -16,7 +16,7 @@ namespace CodeGen
 
         public static List<string> GetListOfBaseUnits()
         {
-            return new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass" };
+            return new List<string>() { "AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Cost" };
         }
 
         public static List<string> GetListOFAllUnits()

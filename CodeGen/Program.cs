@@ -15,15 +15,15 @@ namespace CodeGen
             string solutionDir = assemblyDir.Substring(0, assemblyDir.IndexOf(GENERATOR_NAME));
             string libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
-            //UnknownUnitExtensionsGenerator.Generate(libraryDir);
            
-            //UnitGenerator.GenerateClasses(libraryDir);
-            //GenerateAlias.GenerateEnums(libraryDir);
-            //GenerateSetter.GenerateSetterClasses(libraryDir);
-            //GenerateGetter.GenerateGetterClasses(libraryDir);
-            //UnitListGenerator.UnitsInclude();
-            //GenerateAlias.AliasClass(libraryDir);
+            UnitGenerator.GenerateClasses(libraryDir);
+            GenerateAlias.GenerateEnums(libraryDir);
+            GenerateSetter.GenerateSetterClasses(libraryDir);
+            GenerateGetter.GenerateGetterClasses(libraryDir);
+            UnitListGenerator.UnitsInclude();
+            GenerateAlias.AliasClass(libraryDir);
             AbsExtensionsGenerator.Generate(libraryDir);
+            UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
         }
     }

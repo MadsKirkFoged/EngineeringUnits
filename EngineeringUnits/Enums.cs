@@ -14,6 +14,7 @@ namespace EngineeringUnits
         temperature,
         amountOfSubstance,
         luminousIntensity,
+        Cost,
         CombinedUnit
     }
 
