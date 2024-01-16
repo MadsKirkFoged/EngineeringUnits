@@ -17,6 +17,10 @@ namespace CodeGen
             foreach (string assemblyName in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
             {
                 var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
+
+                if (t is null)
+                    continue;
+                
                 PrintOut += "\n" + assemblyName + ":";
                 foreach (var item in t.GetFields())
                 {

@@ -45,12 +45,10 @@ public class Program
 
 
 
-        Cost f1 = new Cost(10, CostUnit.USDollar);
+        Cost f1 = new Cost(10, CostUnit.USDollar); //10 $
+        Energy e1 = new Energy(10, EnergyUnit.KilowattHour); //10 kWh
 
-        Energy e1 = new Energy(10, EnergyUnit.KilowattHour);
-
-
-        var test = f1 / e1;
+        EnergyCost test = f1 / e1; //1 $/kWh
 
 
         //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);

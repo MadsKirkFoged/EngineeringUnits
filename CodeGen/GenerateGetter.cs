@@ -26,6 +26,9 @@ namespace CodeGen
 
                 string sb = Getter(item);
 
+                if (sb is null)
+                    continue;
+
                 foreach (var i in item)
                 { 
                     
@@ -43,6 +46,9 @@ namespace CodeGen
             {
 
                 string sb = Getter(item);
+
+                if (sb is null)
+                    continue;
 
                 foreach (var i in item)
                 {
@@ -78,7 +84,9 @@ namespace EngineeringUnits
             
                 var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
 
-               
+            if (t is null)            
+                return null;
+            
                     foreach (var i in t.GetFields())
                     {
 

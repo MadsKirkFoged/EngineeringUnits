@@ -8,6 +8,8 @@ public record CostUnit : UnitTypebase
 {
     public static readonly CostUnit SI = new CostUnit("USD", "$", 1);
     public static readonly CostUnit USDollar = new CostUnit("USD", "$", 1);
+    public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", 1/1000000m);
+
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", 0.915873m);
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", 0.789326m);
 
@@ -27,6 +29,12 @@ public record CostUnit : UnitTypebase
         Unit = new UnitSystem(unit);
     }
 
+    public override string ToString()
+    {
+        if (Unit.Symbol is not null)        
+            return $"{Unit.Symbol}";       
 
+        return $"{Unit}";
+    }
 
 }

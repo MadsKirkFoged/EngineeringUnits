@@ -46,6 +46,10 @@ namespace EngineeringUnits
             /// </summary>
             public double RevolutionsPerMinute => As(FrequencyUnit.RevolutionsPerMinute);
             /// <summary>
+            ///     Get Frequency in RPM.
+            /// </summary>
+            public double RPM => As(FrequencyUnit.RPM);
+            /// <summary>
             ///     Get Frequency in CyclePerHour.
             /// </summary>
             public double CyclePerHour => As(FrequencyUnit.CyclePerHour);
