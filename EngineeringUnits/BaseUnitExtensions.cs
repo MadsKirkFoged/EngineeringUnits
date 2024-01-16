@@ -16,7 +16,7 @@ namespace EngineeringUnits
         }
 
 
-        internal static DecimalSafe GetValueAs(this BaseUnit From, UnitSystem To)
+        public static DecimalSafe GetValueAs(this BaseUnit From, UnitSystem To)
         {
             if (From.NEWValue.IsNotAValue())            
                 return From.NEWValue;
@@ -43,7 +43,7 @@ namespace EngineeringUnits
             return (decimal)y2test2;
         }
 
-        internal static double GetValueAsDouble(this BaseUnit From, UnitSystem To)
+        public static double GetValueAsDouble(this BaseUnit From, UnitSystem To)
         {
             return (double)From.GetValueAs(To);
         }
