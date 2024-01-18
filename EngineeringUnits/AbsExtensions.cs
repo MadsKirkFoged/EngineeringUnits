@@ -66,6 +66,21 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
+  public static AreaCost Abs(this AreaCost a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
   public static BitRate Abs(this BitRate a)
   {
       if (a is null)
@@ -591,6 +606,21 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
+  public static LengthCost Abs(this LengthCost a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
   public static LinearDensity Abs(this LinearDensity a)
   {
       if (a is null)
@@ -667,6 +697,21 @@ public static class AbsExtensions
   /// Returns the absolute value
   /// </summary>
   public static Magnetization Abs(this Magnetization a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
+  public static MassCost Abs(this MassCost a)
   {
       if (a is null)
           return null;
@@ -817,6 +862,21 @@ public static class AbsExtensions
   /// Returns the absolute value
   /// </summary>
   public static Power Abs(this Power a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
+  public static PowerCost Abs(this PowerCost a)
   {
       if (a is null)
           return null;
@@ -1072,6 +1132,21 @@ public static class AbsExtensions
   /// Returns the absolute value
   /// </summary>
   public static Volume Abs(this Volume a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
+  public static VolumeCost Abs(this VolumeCost a)
   {
       if (a is null)
           return null;

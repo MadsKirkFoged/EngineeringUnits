@@ -18,6 +18,8 @@ if (toCast == AreaMomentOfInertiaUnit.SI.Unit)
     return (AreaMomentOfInertia) toCast;                              
 if (toCast == AreaUnit.SI.Unit)                               
     return (Area) toCast;                              
+if (toCast == AreaCostUnit.SI.Unit)                               
+    return (AreaCost) toCast;                              
 if (toCast == BitRateUnit.SI.Unit)                               
     return (BitRate) toCast;                              
 if (toCast == BrakeSpecificFuelConsumptionUnit.SI.Unit)                               
@@ -88,6 +90,8 @@ if (toCast == KinematicViscosityUnit.SI.Unit)
     return (KinematicViscosity) toCast;                              
 if (toCast == LapseRateUnit.SI.Unit)                               
     return (LapseRate) toCast;                              
+if (toCast == LengthCostUnit.SI.Unit)                               
+    return (LengthCost) toCast;                              
 if (toCast == LinearDensityUnit.SI.Unit)                               
     return (LinearDensity) toCast;                              
 if (toCast == LinearPowerDensityUnit.SI.Unit)                               
@@ -100,6 +104,8 @@ if (toCast == MagneticFluxUnit.SI.Unit)
     return (MagneticFlux) toCast;                              
 if (toCast == MagnetizationUnit.SI.Unit)                               
     return (Magnetization) toCast;                              
+if (toCast == MassCostUnit.SI.Unit)                               
+    return (MassCost) toCast;                              
 if (toCast == MassFlowUnit.SI.Unit)                               
     return (MassFlow) toCast;                              
 if (toCast == MassFluxUnit.SI.Unit)                               
@@ -120,6 +126,8 @@ if (toCast == PowerDensityUnit.SI.Unit)
     return (PowerDensity) toCast;                              
 if (toCast == PowerUnit.SI.Unit)                               
     return (Power) toCast;                              
+if (toCast == PowerCostUnit.SI.Unit)                               
+    return (PowerCost) toCast;                              
 if (toCast == PressureChangeRateUnit.SI.Unit)                               
     return (PressureChangeRate) toCast;                              
 if (toCast == RatioUnit.SI.Unit)                               
@@ -154,6 +162,8 @@ if (toCast == VolumePerLengthUnit.SI.Unit)
     return (VolumePerLength) toCast;                              
 if (toCast == VolumeUnit.SI.Unit)                               
     return (Volume) toCast;                              
+if (toCast == VolumeCostUnit.SI.Unit)                               
+    return (VolumeCost) toCast;                              
 if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)                               
     return (WarpingMomentOfInertia) toCast;                              
 if (toCast == SpecificThermalResistanceUnit.SI.Unit)                               

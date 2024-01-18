@@ -50,6 +50,7 @@ public class Program
 
         EnergyCost test = f1 / e1; //1 $/kWh
 
+        
 
         //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
 
