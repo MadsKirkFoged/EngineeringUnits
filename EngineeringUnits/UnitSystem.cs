@@ -21,7 +21,7 @@ namespace EngineeringUnits
 
     public class UnitSystem
     {      
-        internal string Symbol { get; init; }     
+        public string Symbol { get; init; }     
 
         //[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public ImmutableList<RawUnit> ListOfUnits { get; init; }
