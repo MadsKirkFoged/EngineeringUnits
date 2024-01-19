@@ -24,6 +24,7 @@ namespace CodeGen
             GenerateGetter.GenerateGetterClasses(libraryDir);
             UnitListGenerator.UnitsInclude();
             GenerateAlias.AliasClass(libraryDir);
+            
             AbsExtensionsGenerator.Generate(libraryDir);
             UnknownUnitExtensionsGenerator.Generate(libraryDir);
 

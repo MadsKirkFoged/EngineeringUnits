@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EngineeringUnits;
+namespace EngineeringUnits.Units;
 public partial record PowerCostUnit : UnitTypebase
 {
 

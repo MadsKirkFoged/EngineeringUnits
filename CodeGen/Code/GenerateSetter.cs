@@ -16,7 +16,7 @@ namespace CodeGen.Code
         public static void GenerateSetterClasses(string projectPath)
         {
             List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-            list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
+            //list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
             foreach (var item in list)
             {

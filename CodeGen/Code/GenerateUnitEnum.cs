@@ -33,10 +33,22 @@ public class GenerateUnitEnum
                                     using System.Collections.Generic;
                                     using System.Text;
 
-                                    namespace EngineeringUnits;
+                                    namespace EngineeringUnits.Units;
                                     public partial record [Variable]Unit : UnitTypebase
                                     {    
                                     
+                                    
+
+
+
+
+                                        public override string ToString()
+                                        {
+                                            if (Unit.Symbol is not null)
+                                                return $"{Unit.Symbol}";
+
+                                            return $"{Unit}";
+                                        }
 
                                     }    
     
