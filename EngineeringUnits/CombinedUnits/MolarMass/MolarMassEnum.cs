@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record MolarMassUnit : UnitTypebase
+    public partial record MolarMassUnit : UnitTypebase
     {
 
         public static readonly MolarMassUnit SI =                new(MassUnit.SI,    AmountOfSubstanceUnit.SI);

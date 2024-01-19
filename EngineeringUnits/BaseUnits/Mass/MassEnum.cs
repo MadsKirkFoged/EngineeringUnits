@@ -13,7 +13,7 @@ namespace EngineeringUnits.Units
 
 
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
-    public record MassUnit : UnitTypebase
+    public partial record MassUnit : UnitTypebase
     {
 
 

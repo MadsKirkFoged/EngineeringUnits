@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record HeatTransferCoefficientUnit : UnitTypebase
+    public partial record HeatTransferCoefficientUnit : UnitTypebase
     {
 
         public static readonly HeatTransferCoefficientUnit SI = new(PowerUnit.SI, AreaUnit.SI, TemperatureUnit.SI);

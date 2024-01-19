@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record AmountOfSubstanceUnit : UnitTypebase
+    public partial record AmountOfSubstanceUnit : UnitTypebase
     {
 
 

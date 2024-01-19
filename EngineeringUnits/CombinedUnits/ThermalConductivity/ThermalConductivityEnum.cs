@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ThermalConductivityUnit : UnitTypebase
+    public partial record ThermalConductivityUnit : UnitTypebase
     {
         public static readonly ThermalConductivityUnit SI = new(PowerUnit.SI, LengthUnit.SI, TemperatureUnit.SI);
         public static readonly ThermalConductivityUnit WattPerMeterKelvin = new(PowerUnit.Watt, LengthUnit.Meter, TemperatureUnit.Kelvin);

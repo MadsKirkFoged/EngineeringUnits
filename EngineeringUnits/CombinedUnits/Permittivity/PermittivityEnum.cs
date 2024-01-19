@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record PermittivityUnit : UnitTypebase
+    public partial record PermittivityUnit : UnitTypebase
     {
 
         public static readonly PermittivityUnit SI = new(CapacitanceUnit.SI, LengthUnit.SI);

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record SpecificVolumeUnit : UnitTypebase
+    public partial record SpecificVolumeUnit : UnitTypebase
     {
         public static readonly SpecificVolumeUnit SI = new SpecificVolumeUnit(VolumeUnit.SI, MassUnit.SI);
         public static readonly SpecificVolumeUnit CubicMeterPerKilogram = new SpecificVolumeUnit(VolumeUnit.CubicMeter, MassUnit.Kilogram);

@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record LengthUnit : UnitTypebase
+    public partial record LengthUnit : UnitTypebase
     {
 
 

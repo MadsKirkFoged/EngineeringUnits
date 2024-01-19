@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record CapacitanceUnit : UnitTypebase
+    public partial record CapacitanceUnit : UnitTypebase
     {
 
         public static readonly CapacitanceUnit SI = new(DurationUnit.SI, ElectricCurrentUnit.SI, LengthUnit.SI, MassUnit.SI, "F");

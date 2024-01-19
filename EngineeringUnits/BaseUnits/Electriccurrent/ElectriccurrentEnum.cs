@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record ElectricCurrentUnit : UnitTypebase
+    public partial record ElectricCurrentUnit : UnitTypebase
     {
 
 

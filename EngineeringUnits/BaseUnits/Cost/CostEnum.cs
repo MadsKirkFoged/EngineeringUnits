@@ -6,7 +6,7 @@ using System.Text;
 using static EngineeringUnits.ExchangeRates;
 
 namespace EngineeringUnits.Units;
-public record CostUnit : UnitTypebase
+public partial record CostUnit : UnitTypebase
 {
     public static readonly CostUnit SI = new CostUnit("USD", "$", GetRate(Currency.USDollar));
     public static readonly CostUnit USDollar = new CostUnit("USD", "$", GetRate(Currency.USDollar));

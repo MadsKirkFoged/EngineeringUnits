@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record CoefficientOfThermalExpansionUnit : UnitTypebase
+    public partial record CoefficientOfThermalExpansionUnit : UnitTypebase
     {
 
         public static readonly CoefficientOfThermalExpansionUnit SI = new(TemperatureUnit.SI);

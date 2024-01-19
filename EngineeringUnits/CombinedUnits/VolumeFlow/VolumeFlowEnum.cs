@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record VolumeFlowUnit : UnitTypebase
+    public partial record VolumeFlowUnit : UnitTypebase
     {
 
         public static readonly VolumeFlowUnit AcreFootPerDay =           new(VolumeUnit.AcreFoot, DurationUnit.Day, "af/d");

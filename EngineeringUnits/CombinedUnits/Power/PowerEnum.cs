@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record PowerUnit : UnitTypebase
+    public partial record PowerUnit : UnitTypebase
     {
 
 

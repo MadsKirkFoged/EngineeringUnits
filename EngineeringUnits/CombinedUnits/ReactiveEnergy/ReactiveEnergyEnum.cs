@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ReactiveEnergyUnit : UnitTypebase
+    public partial record ReactiveEnergyUnit : UnitTypebase
     {
 
         public static readonly ReactiveEnergyUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI, DurationUnit.SI, "vars");

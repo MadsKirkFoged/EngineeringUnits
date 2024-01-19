@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ElectricSurfaceChargeDensityUnit : UnitTypebase
+    public partial record ElectricSurfaceChargeDensityUnit : UnitTypebase
     {
 
         public static readonly ElectricSurfaceChargeDensityUnit SI = new(ElectricChargeUnit.SI, AreaUnit.SI);

@@ -9,7 +9,7 @@ using System.Text;
 namespace EngineeringUnits.Units
 {
 
-    public record LuminousIntensityUnit : UnitTypebase
+    public partial record LuminousIntensityUnit : UnitTypebase
     {
 
         public static readonly LuminousIntensityUnit SI = new(PreFix.SI);

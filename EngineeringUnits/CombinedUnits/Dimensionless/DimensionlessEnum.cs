@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record DimensionlessUnit : UnitTypebase
+    public partial record DimensionlessUnit : UnitTypebase
     {
 
         public static readonly DimensionlessUnit SI = new("-");

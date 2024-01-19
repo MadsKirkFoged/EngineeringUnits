@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record AccelerationUnit : UnitTypebase
+    public partial record AccelerationUnit : UnitTypebase
     {
 
         public static readonly AccelerationUnit SI =                            new(LengthUnit.SI,          DurationUnit.SI);

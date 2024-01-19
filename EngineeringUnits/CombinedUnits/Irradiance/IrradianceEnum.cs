@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record IrradianceUnit : UnitTypebase
+    public partial record IrradianceUnit : UnitTypebase
     {
 
         public static readonly IrradianceUnit SI = new(PowerUnit.SI, AreaUnit.SI);

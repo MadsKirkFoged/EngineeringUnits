@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record RotationalSpeedUnit : UnitTypebase
+    public partial record RotationalSpeedUnit : UnitTypebase
     {
 
         public static readonly RotationalSpeedUnit SI = new(DurationUnit.Second, "rad/s");

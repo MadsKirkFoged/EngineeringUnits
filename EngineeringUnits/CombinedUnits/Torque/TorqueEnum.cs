@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record TorqueUnit : UnitTypebase
+    public partial record TorqueUnit : UnitTypebase
     {
 
         public static readonly TorqueUnit SI =                       new(ForceUnit.SI, LengthUnit.SI);

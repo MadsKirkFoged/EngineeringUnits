@@ -8,7 +8,9 @@ namespace EngineeringUnits;
 public partial record AreaCostUnit : UnitTypebase
 {
 
-    public static readonly AreaCostUnit SI = new(CostUnit.SI, AreaUnit.SI);
+    public static readonly AreaCostUnit SI =                     new(CostUnit.SI, AreaUnit.SI);
+    public static readonly AreaCostUnit USDollarPerSquareMeter = new(CostUnit.USDollar, AreaUnit.SquareMeter);
+    public static readonly AreaCostUnit EuroPerSquareMeter =     new(CostUnit.Euro, AreaUnit.SquareMeter);
 
     public AreaCostUnit(CostUnit cost, AreaUnit area)
     {

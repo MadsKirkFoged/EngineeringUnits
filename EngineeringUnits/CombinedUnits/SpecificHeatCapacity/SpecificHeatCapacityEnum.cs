@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record SpecificHeatCapacityUnit : UnitTypebase
+    public partial record SpecificHeatCapacityUnit : UnitTypebase
     {
 
         public static readonly SpecificHeatCapacityUnit SI =                                  new(EnergyUnit.SI, MassUnit.SI, TemperatureUnit.SI);

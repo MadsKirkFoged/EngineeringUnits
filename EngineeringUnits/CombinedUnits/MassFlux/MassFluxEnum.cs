@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record MassFluxUnit : UnitTypebase
+    public partial record MassFluxUnit : UnitTypebase
     {
 
         public static readonly MassFluxUnit SI = new(MassUnit.SI, DurationUnit.SI, AreaUnit.SI);

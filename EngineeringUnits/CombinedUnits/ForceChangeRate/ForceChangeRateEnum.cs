@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ForceChangeRateUnit : UnitTypebase
+    public partial record ForceChangeRateUnit : UnitTypebase
     {
 
         public static readonly ForceChangeRateUnit SI = new(ForceUnit.SI, DurationUnit.SI);

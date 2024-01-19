@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record MassFlowUnit : UnitTypebase
+    public partial record MassFlowUnit : UnitTypebase
     {
 
         public static readonly MassFlowUnit CentigramPerDay =    new(MassUnit.Centigram, DurationUnit.Day);

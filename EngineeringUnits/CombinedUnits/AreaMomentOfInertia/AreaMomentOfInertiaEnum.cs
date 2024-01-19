@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record AreaMomentOfInertiaUnit : UnitTypebase
+    public partial record AreaMomentOfInertiaUnit : UnitTypebase
     {
 
         public static readonly AreaMomentOfInertiaUnit SI = new(LengthUnit.SI);

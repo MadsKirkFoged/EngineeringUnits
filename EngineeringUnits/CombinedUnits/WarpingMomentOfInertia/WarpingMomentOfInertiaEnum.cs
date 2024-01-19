@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record WarpingMomentOfInertiaUnit : UnitTypebase
+    public partial record WarpingMomentOfInertiaUnit : UnitTypebase
     {
 
         public static readonly WarpingMomentOfInertiaUnit MeterToTheSixth = new(LengthUnit.Meter);

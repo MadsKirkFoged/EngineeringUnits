@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ElectricChargeUnit : UnitTypebase
+    public partial record ElectricChargeUnit : UnitTypebase
     {
 
         public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI, "C");

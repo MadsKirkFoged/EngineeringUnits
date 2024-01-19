@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record FuelEfficiencyUnit : UnitTypebase
+    public partial record FuelEfficiencyUnit : UnitTypebase
     {
 
         public static readonly FuelEfficiencyUnit SI = new(LengthUnit.SI, VolumeUnit.SI);

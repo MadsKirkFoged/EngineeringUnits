@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record MolarFlowUnit : UnitTypebase
+    public partial record MolarFlowUnit : UnitTypebase
     {
 
         public static readonly MolarFlowUnit SI = new MolarFlowUnit(AmountOfSubstanceUnit.SI, DurationUnit.SI);

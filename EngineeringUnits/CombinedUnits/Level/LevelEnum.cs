@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record LevelUnit : UnitTypebase
+    public partial record LevelUnit : UnitTypebase
     {
 
         public static readonly LevelUnit SI = new();

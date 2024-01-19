@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record RatioUnit : UnitTypebase
+    public partial record RatioUnit : UnitTypebase
     {
 
         public static readonly RatioUnit SI = new("-");

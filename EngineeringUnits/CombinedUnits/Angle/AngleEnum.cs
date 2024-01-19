@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record AngleUnit : UnitTypebase
+    public partial record AngleUnit : UnitTypebase
     {
 
         public static readonly AngleUnit SI = new("°", 1m);

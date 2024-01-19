@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record BrakeSpecificFuelConsumptionUnit : UnitTypebase
+    public partial record BrakeSpecificFuelConsumptionUnit : UnitTypebase
     {
 
         public static readonly BrakeSpecificFuelConsumptionUnit SI = new(MassUnit.SI, EnergyUnit.SI);

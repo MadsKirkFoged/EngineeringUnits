@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record SpeedUnit : UnitTypebase
+    public partial record SpeedUnit : UnitTypebase
     {
 
        public static readonly SpeedUnit CentimeterPerHour =     new(LengthUnit.Centimeter,    DurationUnit.Hour);

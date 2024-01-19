@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EngineeringUnits;
-public record MassCostUnit : UnitTypebase
+public partial record MassCostUnit : UnitTypebase
 {
     public static readonly MassCostUnit SI = new(CostUnit.SI, MassUnit.SI);
     public static readonly MassCostUnit EuroPerKilogram = new(CostUnit.Euro, MassUnit.Kilogram);

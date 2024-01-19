@@ -8,7 +8,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record FrequencyUnit : UnitTypebase
+    public partial record FrequencyUnit : UnitTypebase
     {
 
         public static readonly FrequencyUnit SI =        new(DurationUnit.Second, "Hz");

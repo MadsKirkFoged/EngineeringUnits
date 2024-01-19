@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EngineeringUnits;
-public record PowerCostUnit : UnitTypebase
+public partial record PowerCostUnit : UnitTypebase
 {
 
     public static readonly PowerCostUnit SI = new(CostUnit.SI, PowerUnit.SI);

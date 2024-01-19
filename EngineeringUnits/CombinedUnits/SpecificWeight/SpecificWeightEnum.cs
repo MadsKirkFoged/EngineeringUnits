@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record SpecificWeightUnit : UnitTypebase
+    public partial record SpecificWeightUnit : UnitTypebase
     {
 
         public static readonly SpecificWeightUnit SI = new(ForceUnit.SI, VolumeUnit.SI);

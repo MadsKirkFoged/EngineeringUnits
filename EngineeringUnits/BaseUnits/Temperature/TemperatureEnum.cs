@@ -11,7 +11,7 @@ namespace EngineeringUnits.Units
 
 
 
-    public record TemperatureUnit : UnitTypebase
+    public partial record TemperatureUnit : UnitTypebase
     {
 
         public static readonly TemperatureUnit Kelvin =              new("K",    1m,      1m,  0m);

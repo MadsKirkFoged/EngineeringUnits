@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EngineeringUnits.Units
 {
-    public record JerkUnit : UnitTypebase
+    public partial record JerkUnit : UnitTypebase
     {
         public static readonly JerkUnit SI = new(LengthUnit.SI, DurationUnit.SI);
         public static readonly JerkUnit KilometerPerSecondCubed = new(LengthUnit.Kilometer, DurationUnit.Second);

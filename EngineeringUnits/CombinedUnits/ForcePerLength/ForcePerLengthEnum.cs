@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ForcePerLengthUnit : UnitTypebase
+    public partial record ForcePerLengthUnit : UnitTypebase
     {
         public static readonly ForcePerLengthUnit SI = new(ForceUnit.SI, LengthUnit.SI);
         public static readonly ForcePerLengthUnit NewtonPerMeter = new(ForceUnit.Newton, LengthUnit.Meter);

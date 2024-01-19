@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record LuminousFluxUnit : UnitTypebase
+    public partial record LuminousFluxUnit : UnitTypebase
     {
 
         public static readonly LuminousFluxUnit SI = new(LuminousIntensityUnit.SI);

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EngineeringUnits;
-public record VolumeCostUnit : UnitTypebase
+public partial record VolumeCostUnit : UnitTypebase
 {
     public static readonly VolumeCostUnit SI = new(CostUnit.SI, VolumeUnit.SI);
     public static readonly VolumeCostUnit USDollarPerCubicMeter = new(CostUnit.USDollar, VolumeUnit.CubicMeter);

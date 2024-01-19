@@ -9,7 +9,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record AreaUnit : UnitTypebase
+    public partial record AreaUnit : UnitTypebase
     {
 
         public static readonly AreaUnit Acre                 = new(LengthUnit.Chain, "ac", 10);

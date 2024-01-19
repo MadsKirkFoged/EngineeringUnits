@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EngineeringUnits;
-public record LengthCostUnit : UnitTypebase
+public partial record LengthCostUnit : UnitTypebase
 {
     public static readonly LengthCostUnit SI = new(CostUnit.SI, LengthUnit.SI);
     public static readonly LengthCostUnit DollarPerMeter = new(CostUnit.USDollar, LengthUnit.Meter);

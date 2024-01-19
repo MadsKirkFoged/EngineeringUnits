@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record DynamicViscosityUnit : UnitTypebase
+    public partial record DynamicViscosityUnit : UnitTypebase
     {
 
         public static readonly DynamicViscosityUnit SI =                             new(PressureUnit.SI, DurationUnit.SI);

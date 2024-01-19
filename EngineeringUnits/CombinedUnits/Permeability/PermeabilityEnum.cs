@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record PermeabilityUnit : UnitTypebase
+    public partial record PermeabilityUnit : UnitTypebase
     {
 
         public static readonly PermeabilityUnit SI = new(ElectricInductanceUnit.SI, LengthUnit.SI);

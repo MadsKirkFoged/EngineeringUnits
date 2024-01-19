@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record BitRateUnit : UnitTypebase
+    public partial record BitRateUnit : UnitTypebase
     {
 
         public static readonly BitRateUnit SI = new("", 1m);

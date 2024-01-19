@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record TemperatureChangeRateUnit : UnitTypebase
+    public partial record TemperatureChangeRateUnit : UnitTypebase
     {
 
         public static readonly TemperatureChangeRateUnit SI = new(TemperatureUnit.SI, DurationUnit.SI);

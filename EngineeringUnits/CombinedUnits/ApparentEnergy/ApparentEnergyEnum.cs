@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ApparentEnergyUnit : UnitTypebase
+    public partial record ApparentEnergyUnit : UnitTypebase
     {
 
 

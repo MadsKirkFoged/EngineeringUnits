@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record InformationUnit : UnitTypebase
+    public partial record InformationUnit : UnitTypebase
     {
 
         public static readonly InformationUnit SI = new("");

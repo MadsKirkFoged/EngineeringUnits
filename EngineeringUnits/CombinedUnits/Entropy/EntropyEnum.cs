@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record EntropyUnit : UnitTypebase
+    public partial record EntropyUnit : UnitTypebase
     {
 
         public static readonly EntropyUnit SI =                          new(EnergyUnit.SI, TemperatureUnit.SI);

@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record MagnetizationUnit : UnitTypebase
+    public partial record MagnetizationUnit : UnitTypebase
     {
 
         public static readonly MagnetizationUnit SI = new(ElectricCurrentUnit.SI, LengthUnit.SI);

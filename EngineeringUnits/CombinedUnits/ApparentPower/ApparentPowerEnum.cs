@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ApparentPowerUnit : UnitTypebase
+    public partial record ApparentPowerUnit : UnitTypebase
     {
 
         public static readonly ApparentPowerUnit SI = new(ElectricPotentialUnit.SI, ElectricCurrentUnit.SI);

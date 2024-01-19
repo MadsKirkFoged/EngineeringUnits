@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record LapseRateUnit : UnitTypebase
+    public partial record LapseRateUnit : UnitTypebase
     {
 
         public static readonly LapseRateUnit SI = new(TemperatureUnit.SI, LengthUnit.SI);

@@ -34,7 +34,7 @@ public class GenerateUnitEnum
                                     using System.Text;
 
                                     namespace EngineeringUnits;
-                                    public record [Variable]Unit : UnitTypebase
+                                    public partial record [Variable]Unit : UnitTypebase
                                     {    
                                     
 

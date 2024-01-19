@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record ThermalResistanceUnit : UnitTypebase
+    public partial record ThermalResistanceUnit : UnitTypebase
     {
 
         public static readonly ThermalResistanceUnit SI = new(AreaUnit.SI, TemperatureUnit.SI, PowerUnit.SI);

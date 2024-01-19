@@ -7,7 +7,7 @@ namespace EngineeringUnits.Units
 {
 
 
-    public record VolumePerLengthUnit : UnitTypebase
+    public partial record VolumePerLengthUnit : UnitTypebase
     {
 
         public static readonly VolumePerLengthUnit SI = new(VolumeUnit.SI, LengthUnit.SI);
