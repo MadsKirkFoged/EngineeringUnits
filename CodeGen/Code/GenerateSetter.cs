@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeGen
+namespace CodeGen.Code
 {
     class GenerateSetter
     {
-        
+
 
 
 
@@ -65,6 +65,16 @@ namespace CodeGen
 
         public static string Setter(string className)
         {
+
+            var name = "EngineeringUnits.Units." + className + "Unit, EngineeringUnits";
+            var t = Type.GetType(name);
+
+            if (t is null)
+            {
+                return null;
+            }
+
+
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine(@"
@@ -79,17 +89,11 @@ namespace EngineeringUnits
 
  ");
 
-        var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
 
-            if (t is null)
+            foreach (var i in t.GetFields())
             {
-                return null;
-            }
 
-        foreach (var i in t.GetFields())
-        {
-
-            sb.Append(@"
+                sb.Append(@"
         /// <summary>
         ///     Get Variable from UnitEnum.
         /// </summary>
@@ -102,11 +106,11 @@ namespace EngineeringUnits
             return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
         }");
 
-            sb = sb.Replace("UnitEnum", $"{i.Name}");
-        }
+                sb = sb.Replace("UnitEnum", $"{i.Name}");
+            }
 
 
-        sb.AppendLine(@"
+            sb.AppendLine(@"
     }
 }
 

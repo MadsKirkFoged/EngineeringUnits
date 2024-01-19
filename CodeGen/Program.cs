@@ -1,6 +1,7 @@
 ﻿
 using System.IO;
 using System.Reflection;
+using CodeGen.Code;
 
 namespace CodeGen
 {

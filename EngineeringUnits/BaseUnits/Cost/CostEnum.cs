@@ -1,17 +1,19 @@
 ﻿using Fractions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using static EngineeringUnits.ExchangeRates;
 
-namespace EngineeringUnits;
+namespace EngineeringUnits.Units;
 public record CostUnit : UnitTypebase
 {
-    public static readonly CostUnit SI = new CostUnit("USD", "$", 1);
-    public static readonly CostUnit USDollar = new CostUnit("USD", "$", 1);
-    public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", 1/1000000m);
+    public static readonly CostUnit SI = new CostUnit("USD", "$", GetRate(Currency.USDollar));
+    public static readonly CostUnit USDollar = new CostUnit("USD", "$", GetRate(Currency.USDollar));
+    public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", GetRate(Currency.USDollar)/1000000m);
 
-    public static readonly CostUnit Euro = new CostUnit("Euro", "€", 0.915873m);
-    public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", 0.789326m);
+    public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
+    public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
 
 
     public CostUnit(string code, string Symbol, decimal Rate)

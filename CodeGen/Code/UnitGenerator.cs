@@ -9,11 +9,11 @@ using System.Linq;
 using EngineeringUnits.Units;
 using System.Collections;
 
-namespace CodeGen
+namespace CodeGen.Code
 {
-    internal  class UnitGenerator
+    internal class UnitGenerator
     {
-                    
+
 
         public static void GenerateClasses(string projectPath)
         {
@@ -21,12 +21,12 @@ namespace CodeGen
             List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
             list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
             foreach (var item in list)
-             {
+            {
 
                 string sb = Generate(item);
-               
+
                 sb = sb.Replace("Variable", $"{item}");
-                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits",item);
+                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
 
 
                 if (!Directory.Exists(projectPathWithUnit))
@@ -37,7 +37,7 @@ namespace CodeGen
 
                 File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
 
-             }
+            }
 
             foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
             {
@@ -63,7 +63,7 @@ namespace CodeGen
 
 
 
-           sb.AppendLine(@"
+            sb.AppendLine(@"
 using EngineeringUnits.Units;
 
 
@@ -117,14 +117,14 @@ namespace EngineeringUnits
     }");
 
 
-           
+
 
             return sb.ToString();
 
 
 
         }
-       
+
 
     }
 

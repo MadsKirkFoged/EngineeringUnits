@@ -8,7 +8,7 @@ using System.Text;
 using System.Linq;
 using EngineeringUnits.Units;
 using System.Collections;
-namespace CodeGen
+namespace CodeGen.Code
 {
     internal class GenerateGetter
     {
@@ -30,8 +30,8 @@ namespace CodeGen
                     continue;
 
                 foreach (var i in item)
-                { 
-                    
+                {
+
                     sb = sb.Replace("Variable", $"{item}");
 
                 }
@@ -69,8 +69,8 @@ namespace CodeGen
         public static string Getter(string className)
         {
             StringBuilder sb = new StringBuilder();
-           
-                sb.AppendLine(@"
+
+            sb.AppendLine(@"
 using EngineeringUnits.Units;
 
 
@@ -81,39 +81,39 @@ namespace EngineeringUnits
 
  ");
             // sb.Append(AllGetters());
-            
-                var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
 
-            if (t is null)            
+            var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
+
+            if (t is null)
                 return null;
-            
-                    foreach (var i in t.GetFields())
-                    {
 
-                        sb.Append(@"
+            foreach (var i in t.GetFields())
+            {
+
+                sb.Append(@"
             /// <summary>
             ///     Get Variable in UnitEnum.
             /// </summary>
             public double UnitEnum => As(VariableUnit.UnitEnum);");
 
-                        sb = sb.Replace("UnitEnum", $"{i.Name}");
-                    }
-                
+                sb = sb.Replace("UnitEnum", $"{i.Name}");
+            }
+
 
             sb.AppendLine(@"
     }
 }
 
 ");
-            
+
 
             return sb.ToString();
-        
- }
+
+        }
 
 
 
-       
+
 
 
 

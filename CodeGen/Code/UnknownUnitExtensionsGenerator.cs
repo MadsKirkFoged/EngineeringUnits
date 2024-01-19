@@ -3,10 +3,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
-
 using EngineeringUnits;
 
-namespace CodeGen
+namespace CodeGen.Code
 {
     // generates the UnknownUnitExtensions.cs file
     internal static class UnknownUnitExtensionsGenerator

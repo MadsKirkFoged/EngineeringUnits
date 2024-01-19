@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeGen
+namespace CodeGen.Code
 {
-   internal class GenerateAlias
+    internal class GenerateAlias
     {
 
-       
+
         public static void GenerateEnums(string projectPath)
         {
-           
+
             string str;
 
 
@@ -27,18 +27,18 @@ namespace CodeGen
                     Directory.CreateDirectory(path);
                 }
 
-                
-
-                    string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits",i.Key, $"{i.Key}Enum.cs");
-
-                    str = File.ReadAllText(Path.Combine(projectPathWithUnit));
-
-                    str = str.Replace($"{i.Key}", $"{i.Value}");
 
 
+                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", i.Key, $"{i.Key}Enum.cs");
 
-                    File.WriteAllText(Path.Combine(path, $"{i.Value}Enum.cs"), str.ToString());
-                
+                str = File.ReadAllText(Path.Combine(projectPathWithUnit));
+
+                str = str.Replace($"{i.Key}", $"{i.Value}");
+
+
+
+                File.WriteAllText(Path.Combine(path, $"{i.Value}Enum.cs"), str.ToString());
+
             }
 
 
@@ -47,7 +47,7 @@ namespace CodeGen
         }
 
 
-        
+
 
 
 
@@ -55,20 +55,20 @@ namespace CodeGen
 
         public static void AliasClass(string projectPath)
         {
-           
+
 
             foreach (var item in ListOfUnitsForDifferentGenerators.AliasList())
             {
 
                 string sb = CreateAlias(item.Value);
 
-               
 
 
-                    sb = sb.Replace("Variable", $"{item.Value}");
-                    sb = sb.Replace("Original", $"{item.Key}");
 
-                
+                sb = sb.Replace("Variable", $"{item.Value}");
+                sb = sb.Replace("Original", $"{item.Key}");
+
+
                 string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item.Value);
 
                 File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item.Value}Alias.cs"), sb.ToString());
@@ -118,6 +118,6 @@ namespace EngineeringUnits
 
         }
 
-        
+
     }
 }

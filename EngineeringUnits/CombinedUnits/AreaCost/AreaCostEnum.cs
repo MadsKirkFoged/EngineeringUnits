@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace EngineeringUnits;
-public record AreaCostUnit : UnitTypebase
+public partial record AreaCostUnit : UnitTypebase
 {
 
     public static readonly AreaCostUnit SI = new(CostUnit.SI, AreaUnit.SI);
 
-    private AreaCostUnit(CostUnit cost, AreaUnit area)
+    public AreaCostUnit(CostUnit cost, AreaUnit area)
     {
         var localUnit = cost / area;
         var localSymbol = $"{cost}/{area}";

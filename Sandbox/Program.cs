@@ -10,9 +10,12 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.Metrics;
+
 //using UnitsNet;
 
 namespace Sandbox;
+
+
 
 public class Program
 {
@@ -43,7 +46,7 @@ public class Program
     public static void Main()
     {
 
-
+        var test22 = AreaCostUnit.DollarPerSquareMillimeter;
 
         Cost f1 = new Cost(10, CostUnit.USDollar); //10 $
         Energy e1 = new Energy(10, EnergyUnit.KilowattHour); //10 kWh
@@ -675,4 +678,25 @@ public class Program
 
       
     }
+
+
+    public partial record AreaCostUnit : UnitTypebase
+    {
+
+        public static readonly AreaCostUnit DollarPerSquareMillimeter = new AreaCostUnit(CostUnit.SI, AreaUnit.SquareMillimeter);
+
+
+        public AreaCostUnit(CostUnit cost, AreaUnit area)
+        {
+            var localUnit = cost / area;
+            var localSymbol = $"{cost}/{area}";
+
+
+            Unit = new UnitSystem(localUnit, localSymbol);
+        }
+    }
+
+
+
+
 }

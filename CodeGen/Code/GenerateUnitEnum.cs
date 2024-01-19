@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeGen;
+namespace CodeGen.Code;
 public class GenerateUnitEnum
 {
     public static void GenerateClasses(string projectPath)
@@ -24,8 +24,8 @@ public class GenerateUnitEnum
 
             if (File.Exists(path3))
                 continue;
-       
-      
+
+
 
             string functions = $$"""
                                     using Fractions;
@@ -45,7 +45,7 @@ public class GenerateUnitEnum
 
             File.WriteAllText(path3, functions);
 
-        }       
+        }
 
     }
 
