@@ -13,7 +13,7 @@ public partial record VolumeCostUnit : UnitTypebase
 
 
 
-    private VolumeCostUnit(CostUnit cost, VolumeUnit volume)
+    public VolumeCostUnit(CostUnit cost, VolumeUnit volume)
     {
         var localUnit = cost / volume;
         var localSymbol = $"{cost}/{volume}";

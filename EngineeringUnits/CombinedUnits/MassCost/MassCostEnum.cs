@@ -11,7 +11,7 @@ public partial record MassCostUnit : UnitTypebase
     public static readonly MassCostUnit EuroPerKilogram = new(CostUnit.Euro, MassUnit.Kilogram);
     public static readonly MassCostUnit USDollarPerKilogram = new(CostUnit.USDollar, MassUnit.Kilogram);
 
-    private MassCostUnit(CostUnit cost, MassUnit mass)
+    public MassCostUnit(CostUnit cost, MassUnit mass)
     {
         var localUnit = cost / mass;
         var localSymbol = $"{cost}/{mass}";

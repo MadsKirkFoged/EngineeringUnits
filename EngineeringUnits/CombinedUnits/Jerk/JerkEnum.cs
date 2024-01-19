@@ -16,7 +16,7 @@ namespace EngineeringUnits.Units
         public static readonly JerkUnit NanometerPerSecondCubed = new(LengthUnit.Nanometer, DurationUnit.Second);
 
 
-        private JerkUnit(LengthUnit length, DurationUnit duration)
+        public JerkUnit(LengthUnit length, DurationUnit duration)
         {
             Unit = length/duration.Pow(3);
         }

@@ -11,7 +11,7 @@ public partial record LengthCostUnit : UnitTypebase
     public static readonly LengthCostUnit DollarPerMeter = new(CostUnit.USDollar, LengthUnit.Meter);
     public static readonly LengthCostUnit EuroPerMeter = new(CostUnit.Euro, LengthUnit.Meter);
 
-    private LengthCostUnit(CostUnit cost, LengthUnit length)
+    public LengthCostUnit(CostUnit cost, LengthUnit length)
     {
         var localUnit = cost / length;
         var localSymbol = $"{cost}/{length}";

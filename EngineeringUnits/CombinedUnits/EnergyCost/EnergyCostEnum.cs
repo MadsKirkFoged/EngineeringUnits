@@ -17,7 +17,7 @@ public partial record EnergyCostUnit : UnitTypebase
     public static readonly EnergyCostUnit DollarPerMegawattHour = new(CostUnit.USDollar, EnergyUnit.MegawattHour);
 
 
-    private EnergyCostUnit(CostUnit cost, EnergyUnit energy)
+    public EnergyCostUnit(CostUnit cost, EnergyUnit energy)
     {
         var localUnit = cost / energy;
         var localSymbol = $"{cost}/{energy}";

@@ -15,7 +15,7 @@ public partial record PowerCostUnit : UnitTypebase
 
 
 
-    private PowerCostUnit(CostUnit cost, PowerUnit power)
+    public PowerCostUnit(CostUnit cost, PowerUnit power)
     {
         var localUnit = cost / power;
         var localSymbol = $"{cost}/{power}";

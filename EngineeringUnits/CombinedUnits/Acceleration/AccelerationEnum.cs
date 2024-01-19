@@ -27,20 +27,20 @@ namespace EngineeringUnits.Units
         public static readonly AccelerationUnit MillistandardGravity =          new(PreFix.milli, StandardGravity);
 
 
-        private AccelerationUnit(LengthUnit length, DurationUnit duration)
+        public AccelerationUnit(LengthUnit length, DurationUnit duration)
         {
             Unit = length/duration.Pow(2);
         }
 
 
-        private AccelerationUnit(SpeedUnit speed, DurationUnit duration)
+        public AccelerationUnit(SpeedUnit speed, DurationUnit duration)
         {
             Unit = new UnitSystem(speed/duration,
                                 $"{speed}/{duration}");         
         }
 
-        private AccelerationUnit(PreFix SI, AccelerationUnit unit) :base(SI, unit) {}
-        private AccelerationUnit(AccelerationUnit unit, string NewSymbol, decimal correction) :base(unit, NewSymbol, correction) {}
+        public AccelerationUnit(PreFix SI, AccelerationUnit unit) :base(SI, unit) {}
+        public AccelerationUnit(AccelerationUnit unit, string NewSymbol, decimal correction) :base(unit, NewSymbol, correction) {}
 
 
 
