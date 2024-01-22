@@ -302,6 +302,16 @@ string unit = "Meter";
 //Put it back together
 Length temp = value.AddUnit<LengthUnit>(unit);
 ```
+###### Add you own units?
+There is a guide in the [Wiki section](https://github.com/MadsKirkFoged/EngineeringUnits/wiki/Costume-units)
+
+
+###### Want to contribute to making EngineeringUnits better?
+We need more code exemples of real users using EngineeringUnits.
+Create an 'Issue' and showcase how you are using it!
+This could both improve your code and help other people learn!
+ 
+
 
 ###### What units are included?
 ```C#
