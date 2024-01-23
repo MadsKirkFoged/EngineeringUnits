@@ -22,70 +22,136 @@ namespace EngineeringUnits
             return new EnergyCost((double)SI, EnergyCostUnit.SI);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerJoule.
+        ///     Get EnergyCost from USDollarPerJoule.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerJoule(double? DollarPerJoule)
+        public static EnergyCost FromUSDollarPerJoule(double? USDollarPerJoule)
         {
-            if (DollarPerJoule is null)
+            if (USDollarPerJoule is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerJoule, EnergyCostUnit.DollarPerJoule);
+            return new EnergyCost((double)USDollarPerJoule, EnergyCostUnit.USDollarPerJoule);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerKilojoule.
+        ///     Get EnergyCost from USDollarPerKilojoule.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerKilojoule(double? DollarPerKilojoule)
+        public static EnergyCost FromUSDollarPerKilojoule(double? USDollarPerKilojoule)
         {
-            if (DollarPerKilojoule is null)
+            if (USDollarPerKilojoule is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerKilojoule, EnergyCostUnit.DollarPerKilojoule);
+            return new EnergyCost((double)USDollarPerKilojoule, EnergyCostUnit.USDollarPerKilojoule);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerMegajoule.
+        ///     Get EnergyCost from USDollarPerMegajoule.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerMegajoule(double? DollarPerMegajoule)
+        public static EnergyCost FromUSDollarPerMegajoule(double? USDollarPerMegajoule)
         {
-            if (DollarPerMegajoule is null)
+            if (USDollarPerMegajoule is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerMegajoule, EnergyCostUnit.DollarPerMegajoule);
+            return new EnergyCost((double)USDollarPerMegajoule, EnergyCostUnit.USDollarPerMegajoule);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerGigajoule.
+        ///     Get EnergyCost from USDollarPerGigajoule.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerGigajoule(double? DollarPerGigajoule)
+        public static EnergyCost FromUSDollarPerGigajoule(double? USDollarPerGigajoule)
         {
-            if (DollarPerGigajoule is null)
+            if (USDollarPerGigajoule is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerGigajoule, EnergyCostUnit.DollarPerGigajoule);
+            return new EnergyCost((double)USDollarPerGigajoule, EnergyCostUnit.USDollarPerGigajoule);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerKilowattHour.
+        ///     Get EnergyCost from USDollarPerKilowattHour.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerKilowattHour(double? DollarPerKilowattHour)
+        public static EnergyCost FromUSDollarPerKilowattHour(double? USDollarPerKilowattHour)
         {
-            if (DollarPerKilowattHour is null)
+            if (USDollarPerKilowattHour is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerKilowattHour, EnergyCostUnit.DollarPerKilowattHour);
+            return new EnergyCost((double)USDollarPerKilowattHour, EnergyCostUnit.USDollarPerKilowattHour);
         }
         /// <summary>
-        ///     Get EnergyCost from DollarPerMegawattHour.
+        ///     Get EnergyCost from USDollarPerMegawattHour.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static EnergyCost FromDollarPerMegawattHour(double? DollarPerMegawattHour)
+        public static EnergyCost FromUSDollarPerMegawattHour(double? USDollarPerMegawattHour)
         {
-            if (DollarPerMegawattHour is null)
+            if (USDollarPerMegawattHour is null)
                 return null;
 
-            return new EnergyCost((double)DollarPerMegawattHour, EnergyCostUnit.DollarPerMegawattHour);
+            return new EnergyCost((double)USDollarPerMegawattHour, EnergyCostUnit.USDollarPerMegawattHour);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerJoule.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerJoule(double? MillionUSDollarPerJoule)
+        {
+            if (MillionUSDollarPerJoule is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerJoule, EnergyCostUnit.MillionUSDollarPerJoule);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerKilojoule.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerKilojoule(double? MillionUSDollarPerKilojoule)
+        {
+            if (MillionUSDollarPerKilojoule is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerKilojoule, EnergyCostUnit.MillionUSDollarPerKilojoule);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerMegajoule.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerMegajoule(double? MillionUSDollarPerMegajoule)
+        {
+            if (MillionUSDollarPerMegajoule is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerMegajoule, EnergyCostUnit.MillionUSDollarPerMegajoule);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerGigajoule.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerGigajoule(double? MillionUSDollarPerGigajoule)
+        {
+            if (MillionUSDollarPerGigajoule is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerGigajoule, EnergyCostUnit.MillionUSDollarPerGigajoule);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerKilowattHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerKilowattHour(double? MillionUSDollarPerKilowattHour)
+        {
+            if (MillionUSDollarPerKilowattHour is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerKilowattHour, EnergyCostUnit.MillionUSDollarPerKilowattHour);
+        }
+        /// <summary>
+        ///     Get EnergyCost from MillionUSDollarPerMegawattHour.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static EnergyCost FromMillionUSDollarPerMegawattHour(double? MillionUSDollarPerMegawattHour)
+        {
+            if (MillionUSDollarPerMegawattHour is null)
+                return null;
+
+            return new EnergyCost((double)MillionUSDollarPerMegawattHour, EnergyCostUnit.MillionUSDollarPerMegawattHour);
         }
     }
 }

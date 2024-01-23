@@ -14,29 +14,53 @@ namespace EngineeringUnits
             /// </summary>
             public double SI => As(EnergyCostUnit.SI);
             /// <summary>
-            ///     Get EnergyCost in DollarPerJoule.
+            ///     Get EnergyCost in USDollarPerJoule.
             /// </summary>
-            public double DollarPerJoule => As(EnergyCostUnit.DollarPerJoule);
+            public double USDollarPerJoule => As(EnergyCostUnit.USDollarPerJoule);
             /// <summary>
-            ///     Get EnergyCost in DollarPerKilojoule.
+            ///     Get EnergyCost in USDollarPerKilojoule.
             /// </summary>
-            public double DollarPerKilojoule => As(EnergyCostUnit.DollarPerKilojoule);
+            public double USDollarPerKilojoule => As(EnergyCostUnit.USDollarPerKilojoule);
             /// <summary>
-            ///     Get EnergyCost in DollarPerMegajoule.
+            ///     Get EnergyCost in USDollarPerMegajoule.
             /// </summary>
-            public double DollarPerMegajoule => As(EnergyCostUnit.DollarPerMegajoule);
+            public double USDollarPerMegajoule => As(EnergyCostUnit.USDollarPerMegajoule);
             /// <summary>
-            ///     Get EnergyCost in DollarPerGigajoule.
+            ///     Get EnergyCost in USDollarPerGigajoule.
             /// </summary>
-            public double DollarPerGigajoule => As(EnergyCostUnit.DollarPerGigajoule);
+            public double USDollarPerGigajoule => As(EnergyCostUnit.USDollarPerGigajoule);
             /// <summary>
-            ///     Get EnergyCost in DollarPerKilowattHour.
+            ///     Get EnergyCost in USDollarPerKilowattHour.
             /// </summary>
-            public double DollarPerKilowattHour => As(EnergyCostUnit.DollarPerKilowattHour);
+            public double USDollarPerKilowattHour => As(EnergyCostUnit.USDollarPerKilowattHour);
             /// <summary>
-            ///     Get EnergyCost in DollarPerMegawattHour.
+            ///     Get EnergyCost in USDollarPerMegawattHour.
             /// </summary>
-            public double DollarPerMegawattHour => As(EnergyCostUnit.DollarPerMegawattHour);
+            public double USDollarPerMegawattHour => As(EnergyCostUnit.USDollarPerMegawattHour);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerJoule.
+            /// </summary>
+            public double MillionUSDollarPerJoule => As(EnergyCostUnit.MillionUSDollarPerJoule);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerKilojoule.
+            /// </summary>
+            public double MillionUSDollarPerKilojoule => As(EnergyCostUnit.MillionUSDollarPerKilojoule);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerMegajoule.
+            /// </summary>
+            public double MillionUSDollarPerMegajoule => As(EnergyCostUnit.MillionUSDollarPerMegajoule);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerGigajoule.
+            /// </summary>
+            public double MillionUSDollarPerGigajoule => As(EnergyCostUnit.MillionUSDollarPerGigajoule);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerKilowattHour.
+            /// </summary>
+            public double MillionUSDollarPerKilowattHour => As(EnergyCostUnit.MillionUSDollarPerKilowattHour);
+            /// <summary>
+            ///     Get EnergyCost in MillionUSDollarPerMegawattHour.
+            /// </summary>
+            public double MillionUSDollarPerMegawattHour => As(EnergyCostUnit.MillionUSDollarPerMegawattHour);
     }
 }
 
