@@ -1,8 +1,6 @@
 ﻿using Fractions;
 
-namespace EngineeringUnits;
-
-// TODO: should this be EngineeringUnits.Units ?
+namespace EngineeringUnits.Units;
 
 public record CombinedUnit : UnitTypebase
 {
