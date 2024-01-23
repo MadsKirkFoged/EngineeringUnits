@@ -3,8 +3,8 @@ using Fractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+namespace EngineeringUnits.Units;
 
-namespace EngineeringUnits;
 public partial record MassCostUnit : UnitTypebase
 {
     public static readonly MassCostUnit SI = new(CostUnit.SI, MassUnit.SI);
