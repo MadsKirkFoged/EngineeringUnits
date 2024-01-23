@@ -1,18 +1,9 @@
 ﻿using Fractions;
-using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace EngineeringUnits.Units;
 
 public partial record LengthUnit : UnitTypebase
 {
-
-
-
     public static readonly LengthUnit Kilometer =           new(PreFix.kilo);
     public static readonly LengthUnit Hectometer =          new(PreFix.hecto);
     public static readonly LengthUnit Meter =               new(PreFix.SI);

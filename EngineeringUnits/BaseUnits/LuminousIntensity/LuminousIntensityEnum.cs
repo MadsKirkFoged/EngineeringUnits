@@ -1,16 +1,9 @@
-﻿using EngineeringUnits.Units;
-using Fractions;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using Fractions;
 
 namespace EngineeringUnits.Units;
 
 public partial record LuminousIntensityUnit : UnitTypebase
 {
-
     public static readonly LuminousIntensityUnit SI = new(PreFix.SI);
     public static readonly LuminousIntensityUnit Candela = new("cd", 1);
 

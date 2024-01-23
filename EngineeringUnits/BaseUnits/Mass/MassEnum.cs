@@ -1,19 +1,11 @@
-﻿using EngineeringUnits.Units;
-using Fractions;
+﻿using Fractions;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 
 namespace EngineeringUnits.Units;
 
 [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore, ItemTypeNameHandling = TypeNameHandling.All)]
 public partial record MassUnit : UnitTypebase
 {
-
-
     public static readonly MassUnit SI =         new($"{PrefixSISymbol(PreFix.kilo)}g", PrefixSISize(PreFix.kilo)/1000m);
     public static readonly MassUnit Kilogram =   new($"{PrefixSISymbol(PreFix.kilo)}g", PrefixSISize(PreFix.kilo)/1000m);
     public static readonly MassUnit Picogram =   new($"{PrefixSISymbol(PreFix.pico)}g", PrefixSISize(PreFix.pico)/1000m);

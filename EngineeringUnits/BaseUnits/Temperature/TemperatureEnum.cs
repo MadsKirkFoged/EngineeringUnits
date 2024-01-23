@@ -1,16 +1,9 @@
-﻿using EngineeringUnits.Units;
-using Fractions;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+﻿using Fractions;
 
 namespace EngineeringUnits.Units;
 
 public partial record TemperatureUnit : UnitTypebase
 {
-
     public static readonly TemperatureUnit Kelvin =              new("K",    1m,      1m,  0m);
     public static readonly TemperatureUnit SI =                  new("K",    1m,      1m,  0m);
     public static readonly TemperatureUnit DegreeCelsius =       new("°C",   1m,      1m,  -273.15m);
