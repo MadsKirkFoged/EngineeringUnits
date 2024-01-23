@@ -6,24 +6,19 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace EngineeringUnits.Units
+namespace EngineeringUnits.Units;
+
+[Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
+public record TemperatureDeltaUnit : UnitTypebase
 {
 
 
-    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
-    public record TemperatureDeltaUnit : UnitTypebase
-    {
+    public static readonly TemperatureUnit SI = new("K", 1m, 1m, 0m);
+
+    public TemperatureDeltaUnit() { }
 
 
-        public static readonly TemperatureUnit SI = new("K", 1m, 1m, 0m);
 
-        public TemperatureDeltaUnit() { }
-
-
-    
-     
-
-    }
-
+ 
 
 }
