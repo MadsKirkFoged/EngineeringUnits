@@ -18,6 +18,10 @@ namespace EngineeringUnits
             /// </summary>
             public double USDollarPerSquareMeter => As(AreaCostUnit.USDollarPerSquareMeter);
             /// <summary>
+            ///     Get AreaCost in MillionUSDollarPerSquareMeter.
+            /// </summary>
+            public double MillionUSDollarPerSquareMeter => As(AreaCostUnit.MillionUSDollarPerSquareMeter);
+            /// <summary>
             ///     Get AreaCost in EuroPerSquareMeter.
             /// </summary>
             public double EuroPerSquareMeter => As(AreaCostUnit.EuroPerSquareMeter);

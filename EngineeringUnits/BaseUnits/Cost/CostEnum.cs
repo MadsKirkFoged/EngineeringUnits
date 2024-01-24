@@ -1,11 +1,8 @@
 ﻿using Fractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using static EngineeringUnits.ExchangeRates;
 
 namespace EngineeringUnits.Units;
+
 public partial record CostUnit : UnitTypebase
 {
     public static readonly CostUnit SI = new CostUnit("USD", "$", GetRate(Currency.USDollar));

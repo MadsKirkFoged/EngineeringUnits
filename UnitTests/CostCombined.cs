@@ -29,7 +29,7 @@ public class CostCombined
     public void EnergyCost()
     {
         //Arrange
-        EnergyCost test = new EnergyCost(10, EnergyCostUnit.DollarPerKilowattHour);
+        EnergyCost test = new EnergyCost(10, EnergyCostUnit.USDollarPerKilowattHour);
 
         // Assert
         Assert.AreEqual("10 $/kWh", test.ToString());

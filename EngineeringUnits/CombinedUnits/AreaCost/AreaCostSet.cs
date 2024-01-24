@@ -33,6 +33,17 @@ namespace EngineeringUnits
             return new AreaCost((double)USDollarPerSquareMeter, AreaCostUnit.USDollarPerSquareMeter);
         }
         /// <summary>
+        ///     Get AreaCost from MillionUSDollarPerSquareMeter.
+        /// </summary>
+        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+        public static AreaCost FromMillionUSDollarPerSquareMeter(double? MillionUSDollarPerSquareMeter)
+        {
+            if (MillionUSDollarPerSquareMeter is null)
+                return null;
+
+            return new AreaCost((double)MillionUSDollarPerSquareMeter, AreaCostUnit.MillionUSDollarPerSquareMeter);
+        }
+        /// <summary>
         ///     Get AreaCost from EuroPerSquareMeter.
         /// </summary>
         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

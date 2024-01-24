@@ -9,12 +9,18 @@ public partial record EnergyCostUnit : UnitTypebase
 {
 
     public static readonly EnergyCostUnit SI = new(CostUnit.SI, EnergyUnit.SI);
-    public static readonly EnergyCostUnit DollarPerJoule = new(CostUnit.USDollar, EnergyUnit.Joule);
-    public static readonly EnergyCostUnit DollarPerKilojoule = new(CostUnit.USDollar, EnergyUnit.Kilojoule);
-    public static readonly EnergyCostUnit DollarPerMegajoule = new(CostUnit.USDollar, EnergyUnit.Megajoule);
-    public static readonly EnergyCostUnit DollarPerGigajoule = new(CostUnit.USDollar, EnergyUnit.Gigajoule);
-    public static readonly EnergyCostUnit DollarPerKilowattHour = new(CostUnit.USDollar, EnergyUnit.KilowattHour);
-    public static readonly EnergyCostUnit DollarPerMegawattHour = new(CostUnit.USDollar, EnergyUnit.MegawattHour);
+    public static readonly EnergyCostUnit USDollarPerJoule =        new(CostUnit.USDollar, EnergyUnit.Joule);
+    public static readonly EnergyCostUnit USDollarPerKilojoule =    new(CostUnit.USDollar, EnergyUnit.Kilojoule);
+    public static readonly EnergyCostUnit USDollarPerMegajoule =    new(CostUnit.USDollar, EnergyUnit.Megajoule);
+    public static readonly EnergyCostUnit USDollarPerGigajoule =    new(CostUnit.USDollar, EnergyUnit.Gigajoule);
+    public static readonly EnergyCostUnit USDollarPerKilowattHour = new(CostUnit.USDollar, EnergyUnit.KilowattHour);
+    public static readonly EnergyCostUnit USDollarPerMegawattHour = new(CostUnit.USDollar, EnergyUnit.MegawattHour);
+    public static readonly EnergyCostUnit MillionUSDollarPerJoule =        new(CostUnit.MillionUSDollar, EnergyUnit.Joule);
+    public static readonly EnergyCostUnit MillionUSDollarPerKilojoule =    new(CostUnit.MillionUSDollar, EnergyUnit.Kilojoule);
+    public static readonly EnergyCostUnit MillionUSDollarPerMegajoule =    new(CostUnit.MillionUSDollar, EnergyUnit.Megajoule);
+    public static readonly EnergyCostUnit MillionUSDollarPerGigajoule =    new(CostUnit.MillionUSDollar, EnergyUnit.Gigajoule);
+    public static readonly EnergyCostUnit MillionUSDollarPerKilowattHour = new(CostUnit.MillionUSDollar, EnergyUnit.KilowattHour);
+    public static readonly EnergyCostUnit MillionUSDollarPerMegawattHour = new(CostUnit.MillionUSDollar, EnergyUnit.MegawattHour);
 
 
     public EnergyCostUnit(CostUnit cost, EnergyUnit energy)
