@@ -199,6 +199,19 @@ namespace EngineeringUnits
             return a.GetBaseValue() < 0;
         }
 
+        /// <summary>
+        /// Determines whether the specified Unit is NaN.
+        /// </summary>
+        /// <param name="a">The BaseUnit to check.</param>
+        /// <returns>True if the BaseUnit is NaN; otherwise, false.</returns>
+        public static bool IsNaN(this BaseUnit a)
+        {
+            if (a is null)
+                return false;
+
+            return double.IsNaN(a.Value); // TODO: avoid using deprecated .Value here
+        }
+
 
 
         /// <summary>
