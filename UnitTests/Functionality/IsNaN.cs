@@ -14,9 +14,11 @@ namespace UnitTests.Functionality
         {
             Mass mass1 = new Mass(double.NaN, MassUnit.SI);
             Mass mass2 = Mass.FromCentigram(double.NaN);
+            Mass mass3 = Mass.FromCentigram(5);
 
             Assert.IsTrue(mass1.IsNaN());
             Assert.IsTrue(mass2.IsNaN());
+            Assert.IsFalse(mass3.IsNaN());
 
             // old check. could remove ...........
             double nan1 = mass1.SI;
