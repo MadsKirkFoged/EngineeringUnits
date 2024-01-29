@@ -29,11 +29,13 @@ public class IsNaN
     {
         Temperature tempNan1 = new Temperature(double.NaN, TemperatureUnit.SI);
         Temperature tempNan2 = Temperature.FromKelvins(double.NaN);
+        Temperature tempNan3 = Temperature.NaN;
 
         Temperature tempNotNan1 = Temperature.FromDegreesCelsius(20);
 
         Assert.IsTrue(tempNan1.IsNaN());
         Assert.IsTrue(tempNan2.IsNaN());
+        Assert.IsTrue(tempNan3.IsNaN());
         Assert.IsFalse(tempNotNan1.IsNaN());
     }
 }

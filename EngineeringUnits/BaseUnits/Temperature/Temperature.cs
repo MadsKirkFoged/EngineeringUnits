@@ -105,6 +105,7 @@ namespace EngineeringUnits
             return new Temperature(this.GetValueAs(selectedUnit.Unit), selectedUnit, false);
         }
         public static Temperature Zero => new(0, TemperatureUnit.SI);
+        public static Temperature NaN => new(double.NaN, TemperatureUnit.SI);
 
         //public static implicit operator Temperature(UnknownUnit Unit) => new(Unit);
 
