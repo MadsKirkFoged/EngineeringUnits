@@ -11,24 +11,29 @@ public class IsNaN
     [TestMethod]
     public void IsNaNCheck()
     {
-        Mass mass1 = new Mass(double.NaN, MassUnit.SI);
-        Mass mass2 = Mass.FromCentigram(double.NaN);
-        Mass mass3 = Mass.FromCentigram(5);
+        Mass massNan1 = new Mass(double.NaN, MassUnit.SI);
+        Mass massNan2 = Mass.FromCentigram(double.NaN);
+        Mass massNan3 = Mass.NaN;
 
-        Assert.IsTrue(mass1.IsNaN());
-        Assert.IsTrue(mass2.IsNaN());
-        Assert.IsFalse(mass3.IsNaN());
+        Mass massNotNan1 = Mass.FromCentigram(5);
+
+        Assert.IsTrue(massNan1.IsNaN());
+        Assert.IsTrue(massNan2.IsNaN());
+        Assert.IsTrue(massNan3.IsNaN());
+
+        Assert.IsFalse(massNotNan1.IsNaN());
     }
 
     [TestMethod]
     public void IsNaNCheckTemperature()
     {
-        Temperature temp1 = new Temperature(double.NaN, TemperatureUnit.SI);
-        Temperature temp2 = Temperature.FromKelvins(double.NaN);
-        Temperature temp3 = Temperature.FromDegreesCelsius(20);
+        Temperature tempNan1 = new Temperature(double.NaN, TemperatureUnit.SI);
+        Temperature tempNan2 = Temperature.FromKelvins(double.NaN);
 
-        Assert.IsTrue(temp1.IsNaN());
-        Assert.IsTrue(temp2.IsNaN());
-        Assert.IsFalse(temp3.IsNaN());
+        Temperature tempNotNan1 = Temperature.FromDegreesCelsius(20);
+
+        Assert.IsTrue(tempNan1.IsNaN());
+        Assert.IsTrue(tempNan2.IsNaN());
+        Assert.IsFalse(tempNotNan1.IsNaN());
     }
 }
