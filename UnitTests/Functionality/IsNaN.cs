@@ -33,9 +33,11 @@ namespace UnitTests.Functionality
         {
             Temperature temp1 = new Temperature(double.NaN, TemperatureUnit.SI);
             Temperature temp2 = Temperature.FromKelvins(double.NaN);
+            Temperature temp3 = Temperature.FromDegreesCelsius(20);
 
             Assert.IsTrue(temp1.IsNaN());
             Assert.IsTrue(temp2.IsNaN());
+            Assert.IsFalse(temp3.IsNaN());
 
             // old check. could remove ...........
             double nan1 = temp1.SI;
