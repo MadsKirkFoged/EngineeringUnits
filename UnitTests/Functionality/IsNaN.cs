@@ -1,43 +1,41 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static EngineeringUnits.BaseUnitExtensions;
 
+namespace UnitTests.Functionality;
 
-namespace UnitTests.Functionality
+[TestClass]
+public class IsNaN
 {
-    [TestClass]
-    public class IsNaN
+    [TestMethod]
+    public void IsNaNCheck()
     {
-        [TestMethod]
-        public void IsNaNCheck()
-        {
+        Mass massNan1 = new Mass(double.NaN, MassUnit.SI);
+        Mass massNan2 = Mass.FromCentigram(double.NaN);
+        Mass massNan3 = Mass.NaN;
 
-            Mass mass1 = new Mass(double.NaN, MassUnit.SI);
+        Mass massNotNan1 = Mass.FromCentigram(5);
 
-            Mass mass2 = Mass.FromCentigram(double.NaN);
+        Assert.IsTrue(massNan1.IsNaN());
+        Assert.IsTrue(massNan2.IsNaN());
+        Assert.IsTrue(massNan3.IsNaN());
 
-            double nan1 = mass1.SI;
+        Assert.IsFalse(massNotNan1.IsNaN());
+    }
 
-            double nan2 = mass2.Gram;
+    [TestMethod]
+    public void IsNaNCheckTemperature()
+    {
+        Temperature tempNan1 = new Temperature(double.NaN, TemperatureUnit.SI);
+        Temperature tempNan2 = Temperature.FromKelvins(double.NaN);
+        Temperature tempNan3 = Temperature.NaN;
 
-            Assert.AreEqual(nan1, double.NaN);
-            Assert.AreEqual(nan2, double.NaN);
-        }
+        Temperature tempNotNan1 = Temperature.FromDegreesCelsius(20);
 
-        [TestMethod]
-        public void IsNaNCheckTemperature()
-        {
-
-            Temperature temp1 = new Temperature(double.NaN, TemperatureUnit.SI);
-
-            Temperature temp2 = Temperature.FromKelvins(double.NaN);
-
-            double nan1 = temp1.SI;
-
-            double nan2 = temp2.DegreesCelsius;
-
-            Assert.AreEqual(nan1, double.NaN);
-            Assert.AreEqual(nan2, double.NaN);
-        }
+        Assert.IsTrue(tempNan1.IsNaN());
+        Assert.IsTrue(tempNan2.IsNaN());
+        Assert.IsTrue(tempNan3.IsNaN());
+        Assert.IsFalse(tempNotNan1.IsNaN());
     }
 }
