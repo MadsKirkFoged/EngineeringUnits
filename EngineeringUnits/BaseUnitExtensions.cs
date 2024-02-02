@@ -209,9 +209,7 @@ namespace EngineeringUnits
             if (a is null)
                 return false;
 
-            //return double.IsNaN(a.Value); // TODO: avoid using deprecated .Value here
-            //return double.IsNaN(a.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble));
-            return double.IsNaN(a.As(UnitSystemExtensions.UnitsystemForDouble));
+            return a.NEWValue.IsNaN;
         }
 
 
