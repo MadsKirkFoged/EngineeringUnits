@@ -20,23 +20,29 @@ namespace EngineeringUnits
         {
             if (From.NEWValue.IsNotAValue())            
                 return From.NEWValue;
-            
 
+                Fraction b1 = To.SumOfBConstants();
+                Fraction b2 = From.Unit.SumOfBConstants();
 
-            Fraction b1 = From.Unit.SumOfBConstants();
-            Fraction b2 = To.SumOfBConstants();
-            Fraction Factor = To.ConvertionFactor(From.Unit);
 
             Fraction y2test2;
 
             if (b1.IsZero && b2.IsZero)
             {
+                Fraction Factor = To.ConvertionFactor(From.Unit);
                 y2test2 = Factor * (Fraction)From.NEWValue;
             }
             else
             {
-                Fraction b3test2 = (Factor * (b1 * -1)) + b2;
-                y2test2 = (Factor * (Fraction)From.NEWValue) + b3test2;
+
+                Fraction a2 = From.Unit.SumConstant();
+                Fraction x2 = (Fraction)From.NEWValue;
+
+                Fraction a1 = To.SumConstant();
+
+                y2test2 = (a2*x2 + b2-b1)/a1;
+
+
 
             } 
 

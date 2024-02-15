@@ -46,14 +46,48 @@ public class Program
     public static void Main()
     {
 
-        var test22 = AreaCostUnit.DollarPerSquareMillimeter;
+  
+        var de1 = Temperature.FromDegreesCelsius(10) * Temperature.FromDegreesCelsius(10);
 
-        Cost f1 = new Cost(10, CostUnit.USDollar); //10 $
-        Energy e1 = new Energy(10, EnergyUnit.KilowattHour); //10 kWh
+        var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
 
-        EnergyCost test = f1 / e1; //1 $/kWh
 
-        
+        Pressure A = new Pressure(10, PressureUnit.BarAbsolute);
+        Pressure G = new Pressure(10, PressureUnit.BarGauge);
+
+
+        var AToG = A.ToUnit(PressureUnit.BarGauge);
+
+
+
+        if (AToG == A)
+        {
+            var test = 10;
+        }
+
+
+
+        var AToA = G.ToUnit(PressureUnit.BarAbsolute);
+
+        var AToNon = A.ToUnit(PressureUnit.Bar);
+
+        var GToNon = G.ToUnit(PressureUnit.Bar);
+
+
+
+        Pressure DesignPressureEntity = (10.1).AddUnit<PressureUnit>("test");
+
+
+
+
+        //var test22 = AreaCostUnit.DollarPerSquareMillimeter;
+
+        //Cost f1 = new Cost(10, CostUnit.USDollar); //10 $
+        //Energy e1 = new Energy(10, EnergyUnit.KilowattHour); //10 kWh
+
+        //EnergyCost test = f1 / e1; //1 $/kWh
+
+
 
         //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
 

@@ -60,8 +60,22 @@ namespace UnitTests
             Pressure P9 = P5.ToUnit(PressureReference.Absolute);
             Assert.AreEqual(P9.ToString(), "10 bar(a)");
             Assert.AreEqual($"{P9}", "10 bar(a)");
-
-
         }
+
+
+        [TestMethod]
+        public void AbsoluteToAbsolute()
+        {
+            //Arrange
+            Pressure A = new Pressure(10, PressureUnit.BarAbsolute);
+
+            //Act
+            var G = A.ToUnit(PressureUnit.BarGauge);
+
+
+            //Assert
+            Assert.AreEqual(A, G);
+        }
+
     }
 }

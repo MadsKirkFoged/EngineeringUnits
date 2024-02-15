@@ -49,15 +49,6 @@ namespace EngineeringUnits
 
         }
 
-        //public Pressure ToUnit(PressureUnit selectedUnit, PressureReference reference)
-        //{
-
-
-
-
-        //    throw new System.NotImplementedException();
-        //}
-
         public Pressure ToUnit(PressureReference ConvertingTo)
         {
      
@@ -84,6 +75,21 @@ namespace EngineeringUnits
 
                 return local;
             }
+            else if (Reference is PressureReference.Absolute && ConvertingTo is PressureReference.Undefined)
+            {
+                Pressure local = this;
+                local.Reference = ConvertingTo;
+
+                return local;
+            }
+
+            else if (Reference is PressureReference.Gauge && ConvertingTo is PressureReference.Undefined)
+            {
+                Pressure local = this + FromAtmosphere(1);
+                local.Reference = ConvertingTo;
+
+                return local;
+            }
 
             return this;
         }
@@ -94,34 +100,22 @@ namespace EngineeringUnits
         }
 
 
-        //public override string ToString(string format, IFormatProvider provider)
+        //private Pressure ConvertComingIn(PressureReference reference) => reference switch
         //{
+        //    PressureReference.Absolute => this + FromAtmosphere(0),
+        //    PressureReference.Gauge => this + FromAtmosphere(1),
+        //    PressureReference.Undefined => this,
+        //    //PressureReference.Vacuum => this,
+        //    _ => throw new System.NotImplementedException(),
+        //};
 
-        //    if (Reference is not PressureReference.Undefined)            
-        //        return ConvertGoingOut(Reference).ToString(format, provider) + GetSymbol(Reference);
-            
-
-        //    return base.ToString(format, provider);
-
-        //}
-
-
-        private Pressure ConvertComingIn(PressureReference reference) => reference switch
-        {
-            PressureReference.Absolute => this + FromAtmosphere(0),
-            PressureReference.Gauge => this + FromAtmosphere(1),
-            PressureReference.Undefined => this,
-            //PressureReference.Vacuum => this,
-            _ => throw new System.NotImplementedException(),
-        };
-
-        private Pressure ConvertGoingOut(PressureReference reference) => reference switch
-        {
-            PressureReference.Absolute => this - FromAtmosphere(0),
-            PressureReference.Gauge => this - FromAtmosphere(1),
-            //PressureReference.Vacuum => this,
-            _ => throw new System.NotImplementedException(),
-        };
+        //private Pressure ConvertGoingOut(PressureReference reference) => reference switch
+        //{
+        //    PressureReference.Absolute => this - FromAtmosphere(0),
+        //    PressureReference.Gauge => this - FromAtmosphere(1),
+        //    //PressureReference.Vacuum => this,
+        //    _ => throw new System.NotImplementedException(),
+        //};
 
 
         private string GetSymbol(PressureReference reference) => reference switch
