@@ -35,14 +35,16 @@ namespace EngineeringUnits
             else
             {
 
+
+                b1 = To.SumOfBConstants();
+                b2 = From.Unit.SumOfBConstants();
+
                 Fraction a2 = From.Unit.SumConstant();
                 Fraction x2 = (Fraction)From.NEWValue;
 
                 Fraction a1 = To.SumConstant();
 
                 y2test2 = (a2*x2 + b2-b1)/a1;
-
-
 
             } 
 

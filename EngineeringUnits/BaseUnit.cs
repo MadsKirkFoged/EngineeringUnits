@@ -1,5 +1,6 @@
 using Fractions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
 
@@ -69,6 +70,18 @@ namespace EngineeringUnits
 
             try
             {
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+                    var rightvalue = right.ConvertValueInto(left);  
+                    var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+
+
+                    var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+
+                    return new UnknownUnit(value, left.Unit);
+                }
+
+
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
                     return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
 
@@ -136,6 +149,44 @@ namespace EngineeringUnits
 
             try
             {
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+
+                    Fraction x1 = Fraction.FromDecimal(left.NEWValue);
+                    Fraction x2 = Fraction.FromDecimal(right.NEWValue);
+
+                    var a1 = left.Unit.SumConstant();
+                    var a2 = right.Unit.SumConstant();
+
+                    var b1 = left.Unit.SumOfBConstants();
+                    var b2 = right.Unit.SumOfBConstants();
+
+
+
+                    //var value3 = (a1 * x1 + b1 - b1 * x2) / (a1 * x2);
+                    //var d1 = value3.ToDecimal();
+
+
+                    var v1 = a1 * x1  + b1;
+                    var v2 = a2 * x2  + b2;
+                    var x3 = v1 * v2;
+
+
+
+                    //Go back to the original unit
+                    var NewUnit = left.Unit * right.Unit;
+
+                    //Fraction x3 = value3;
+                    var a3 = NewUnit.SumConstant();
+                    var b3 = NewUnit.SumOfBConstants();
+
+                    var value4 = (1/a3 * x3 + (b3/a3)*-1);
+                    var d4 = value4.ToDecimal();
+
+                    return new UnknownUnit(value4.ToDecimal(), NewUnit);
+                }
+
+
                 return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
             }
             catch (OverflowException)
@@ -176,6 +227,46 @@ namespace EngineeringUnits
 
             try
             {
+
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+
+
+                    Fraction x1 = Fraction.FromDecimal(left.NEWValue);
+                    Fraction x2 = Fraction.FromDecimal(right.NEWValue);
+
+                    var a1 = left.Unit.SumConstant();
+                    var a2 = right.Unit.SumConstant();
+
+                    var b1 = left.Unit.SumOfBConstants();
+                    var b2 = right.Unit.SumOfBConstants();
+
+
+
+                    //var value3 = (a1 * x1 + b1 - b1 * x2) / (a1 * x2);
+                    //var d1 = value3.ToDecimal();
+
+
+                    var v1 = a1 * x1  + b1;
+                    var v2 = a2 * x2  + b2;
+                    var x3 = v1/ v2;
+
+
+
+                    //Go back to the original unit
+                    var NewUnit = left.Unit / right.Unit;
+
+                    //Fraction x3 = value3;
+                    var a3 = NewUnit.SumConstant();
+                    var b3 = NewUnit.SumOfBConstants();
+
+                    var value4 = (1/a3 * x3 + (b3/a3)*-1);
+                    var d4 = value4.ToDecimal();
+
+                    return new UnknownUnit(value4.ToDecimal(), left.Unit / right.Unit);
+                }
+
+
                 return new UnknownUnit(left.NEWValue / right.NEWValue, left.Unit / right.Unit);
             }
             catch (OverflowException)

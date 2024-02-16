@@ -29,7 +29,7 @@ namespace EngineeringUnits
         public Fraction A { get; init; }
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
-        public decimal B { get; init; }
+        public Fraction B { get; init; }
 
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(1)]
         public int Count { get; init; } 
@@ -39,7 +39,7 @@ namespace EngineeringUnits
         public Fraction TotalConstant => Fraction.Pow(A, Count);
 
         [JsonIgnore]
-        public bool IsSI => A == Fraction.One && B == 0m;
+        public bool IsSI => A == Fraction.One && B == Fraction.Zero;
 
         public RawUnit() {}
 

@@ -13,8 +13,8 @@ namespace EngineeringUnits
         public static readonly UnitSystem UnitsystemForDouble = new();
 
         public static Fraction SumOfBConstants(this IEnumerable<RawUnit> me)
-        {
-            return me.Aggregate(Fraction.Zero, (x, y) => x + (Fraction)y.B);
+        {         
+            return me.Aggregate(Fraction.Zero, (x, y) => x + y.B * y.Count);
         }
 
         public static Fraction SumOfBConstants(this UnitSystem me)

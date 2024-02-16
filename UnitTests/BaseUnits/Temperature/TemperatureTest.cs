@@ -190,8 +190,8 @@ namespace UnitTests
             var T6 = T3 * T3;
 
 
-            Assert.AreEqual("74610.92 K²", $"{T4:G7}");
             Assert.AreEqual("0 K²", T5.ToString());
+            Assert.AreEqual("74610.92 K²", $"{T4:G7}");
             Assert.AreEqual("65214.97 K²", $"{T6:G7}");
         }
 

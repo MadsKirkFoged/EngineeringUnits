@@ -46,7 +46,44 @@ public class Program
     public static void Main()
     {
 
-  
+        Temperature T1 = new(10, TemperatureUnit.DegreeCelsius);
+        Temperature T2 = new(10, TemperatureUnit.Kelvin);
+
+        Ratio T7 = (T2 / T1);
+
+
+
+
+        Temperature Fahrenheit = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+
+
+        Temperature R1 = Fahrenheit / 10;
+
+
+        Ratio R2 = Fahrenheit / Fahrenheit;
+
+
+        var InDecimal = 273.15m - 32m * (5/9m);
+
+
+        Fraction fconvert = Fraction.FromDecimal(InDecimal);
+
+
+        Fraction f = new Fraction(273.15m) - (new Fraction(32)  * new Fraction(5, 9));
+
+        var InDecimal2 = f.ToDecimal();
+
+
+
+
+
+        var Fahrenheit2 = new Temperature(32, TemperatureUnit.DegreeFahrenheit);
+        var Kelvin = new Temperature(273.15m, TemperatureUnit.Kelvin);
+
+
+        Temperature ttest = Temperature.FromDegreesFahrenheit(50);
+
+
         var de1 = Temperature.FromDegreesCelsius(10) * Temperature.FromDegreesCelsius(10);
 
         var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
