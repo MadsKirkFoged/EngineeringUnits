@@ -46,8 +46,20 @@ public class Program
     public static void Main()
     {
 
-        Temperature T1 = new(10, TemperatureUnit.DegreeCelsius);
-        Temperature T2 = new(10, TemperatureUnit.Kelvin);
+        SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+        MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+        Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+        Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
+
+
+        Temperature T3 = T2 - T1;
+
+
+        Power Q1 = M1 * P1 * (T2 - T1);
+
+        string tests = T1.ToString();
+        
+
 
         Ratio T7 = (T2 / T1);
 

@@ -66,7 +66,7 @@ namespace EngineeringUnits
             if (From.Unit.IsSIUnit())
                 return From.NEWValue;
 
-            return (decimal)(From.Unit.SumConstant() * (Fraction)From.NEWValue);
+            return (decimal)(From.Unit.SumConstant() * (Fraction)From.NEWValue + From.Unit.SumOfBConstants());
         }
 
        

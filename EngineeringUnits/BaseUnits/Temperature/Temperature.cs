@@ -159,6 +159,6 @@ namespace EngineeringUnits
 
         }
 
-
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
     }
 }
