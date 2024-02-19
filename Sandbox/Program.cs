@@ -46,6 +46,11 @@ public class Program
     public static void Main()
     {
 
+        Pressure DesignPressureEntityA = 10d.AddUnit<PressureUnit>("BarA");
+        Pressure DesignPressureEntityG = 10d.AddUnit<PressureUnit>("BarG");
+
+
+
 
         Pressure gtest = new Pressure(10, PressureUnit.BarG);
 

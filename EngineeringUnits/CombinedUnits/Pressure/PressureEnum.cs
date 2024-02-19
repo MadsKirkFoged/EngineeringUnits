@@ -71,6 +71,7 @@ namespace EngineeringUnits.Units
         public PressureUnit(PressureUnit pressureunit, PressureReference Reference)
         {
             this.Reference = Reference;
+            var ListOfUnits = pressureunit.Unit.ListOfUnits;
 
             string NewSymbol = Reference switch
             {
@@ -79,26 +80,23 @@ namespace EngineeringUnits.Units
                 _ => throw new NotImplementedException()
             };
 
-            Fraction NewB = Reference switch
+
+            if (Reference is not PressureReference.Absolute)
             {
-                PressureReference.Absolute => Fraction.FromDecimal(101325m),
-                PressureReference.Gauge => Fraction.FromDecimal(-101325m),
-                _ => throw new NotImplementedException()
-            };
+                var dimensionless = new RawUnit()
+                {
+                    Symbol=null,
+                    A = Fraction.One,
+                    UnitType = BaseunitType.CombinedUnit,
+                    B = Fraction.FromDecimal(101325m),
+                    Count = 1,
+                };
 
+                ListOfUnits = ListOfUnits.Add(dimensionless);
+            }
+           
 
-            var dimensionless = new RawUnit()
-            {
-                Symbol=null,
-                A = Fraction.One,
-                UnitType = BaseunitType.CombinedUnit,
-                B = Fraction.FromDecimal(101325m),
-                Count = 1,
-            };
-
-            var ListOfUnits = pressureunit.Unit.ListOfUnits.Add(dimensionless).ToList();
-
-            Unit = new UnitSystem(ListOfUnits, NewSymbol);
+            Unit = new UnitSystem(ListOfUnits.ToList(), NewSymbol);
         }
 
 

@@ -28,8 +28,8 @@ namespace UnitTests
 
             //Converting from undefined to Gauge
             Pressure P3 = P1.ToUnit(PressureUnit.BarG);
-            Assert.AreEqual(P3.ToString(), "10 barg");
-            Assert.AreEqual($"{P3}", "10 barg");
+            Assert.AreEqual(P3.ToString(), "8.987 barg");
+            Assert.AreEqual($"{P3}", "8.987 barg");
 
             //Creating new with Gauge
             Pressure P4 = new Pressure(10m, PressureUnit.BarG);
