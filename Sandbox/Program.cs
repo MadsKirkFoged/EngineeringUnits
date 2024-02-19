@@ -46,6 +46,11 @@ public class Program
     public static void Main()
     {
 
+
+        Pressure gtest = new Pressure(10, PressureUnit.BarG);
+
+
+
         SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
         MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
         Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
@@ -101,26 +106,26 @@ public class Program
         var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
 
 
-        Pressure A = new Pressure(10, PressureUnit.BarAbsolute);
-        Pressure G = new Pressure(10, PressureUnit.BarGauge);
+        //Pressure A = new Pressure(10, PressureUnit.BarAbsolute);
+        //Pressure G = new Pressure(10, PressureUnit.BarGauge);
 
 
-        var AToG = A.ToUnit(PressureUnit.BarGauge);
-
-
-
-        if (AToG == A)
-        {
-            var test = 10;
-        }
+        //var AToG = A.ToUnit(PressureUnit.BarGauge);
 
 
 
-        var AToA = G.ToUnit(PressureUnit.BarAbsolute);
+        //if (AToG == A)
+        //{
+        //    var test = 10;
+        //}
 
-        var AToNon = A.ToUnit(PressureUnit.Bar);
 
-        var GToNon = G.ToUnit(PressureUnit.Bar);
+
+       // var AToA = G.ToUnit(PressureUnit.BarAbsolute);
+
+        //var AToNon = A.ToUnit(PressureUnit.Bar);
+
+        //var GToNon = G.ToUnit(PressureUnit.Bar);
 
 
 

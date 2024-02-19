@@ -22,7 +22,7 @@ namespace UnitTests
             double K3 = T2.As(TemperatureUnit.SI) / T1.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "-0.8914 ");
+            Assert.AreEqual(T3.ToString(), "0.8914 ");
             Assert.AreEqual(K3, 0.89136455411224458);
         }
 
@@ -40,7 +40,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) / T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "34.02 ");
+            Assert.AreEqual(T3.ToString(), "1.122 ");
             Assert.AreEqual(K3, 1.12187543849099);
         }
 

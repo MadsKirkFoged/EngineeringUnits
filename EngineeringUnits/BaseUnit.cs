@@ -239,38 +239,30 @@ namespace EngineeringUnits
                 {
 
 
-                    Fraction x1 = Fraction.FromDecimal(left.NEWValue);
-                    Fraction x2 = Fraction.FromDecimal(right.NEWValue);
+                    //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
+                    //Therefore we will convert these units to their base unit
 
-                    var a1 = left.Unit.SumConstant();
-                    var a2 = right.Unit.SumConstant();
+                    if (left.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var LeftValue = left.GetBaseValue();
 
-                    var b1 = left.Unit.SumOfBConstants();
-                    var b2 = right.Unit.SumOfBConstants();
+                        //Set unit to the base unit
+                        var Leftunit = left.Unit.GetSIUnitsystem();
 
+                        left= new UnknownUnit(LeftValue, Leftunit).IntelligentCast();
+                    }
 
+                    if (right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var rightValue = right.GetBaseValue();
 
-                    //var value3 = (a1 * x1 + b1 - b1 * x2) / (a1 * x2);
-                    //var d1 = value3.ToDecimal();
+                        //Set unit to the base unit
+                        var rightunit = right.Unit.GetSIUnitsystem();
 
-
-                    var v1 = a1 * x1  + b1;
-                    var v2 = a2 * x2  + b2;
-                    var x3 = v1/ v2;
-
-
-
-                    //Go back to the original unit
-                    var NewUnit = left.Unit / right.Unit;
-
-                    //Fraction x3 = value3;
-                    var a3 = NewUnit.SumConstant();
-                    var b3 = NewUnit.SumOfBConstants();
-
-                    var value4 = (1/a3 * x3 + (b3/a3)*-1);
-                    var d4 = value4.ToDecimal();
-
-                    return new UnknownUnit(value4.ToDecimal(), left.Unit / right.Unit);
+                        right= new UnknownUnit(rightValue, rightunit).IntelligentCast();
+                    }
                 }
 
 

@@ -1,6 +1,10 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
+using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace EngineeringUnits.Units
@@ -54,18 +58,43 @@ namespace EngineeringUnits.Units
         public static readonly PressureUnit PoundPerInchSecondSquared =          new(Pascal, "lbm/(in·s²)", 1.785796732283465e1m);
 
 
-        public static readonly PressureUnit BarAbsolute = new(Bar, PressureReference.Absolute);
-        public static readonly PressureUnit BarGauge = new(Bar, PressureReference.Gauge);
+        //public static readonly PressureUnit BarAbsolute = new(Bar, PressureReference.Absolute);
+        //public static readonly PressureUnit BarGauge = new(Bar, PressureReference.Gauge);
+
+        public static readonly PressureUnit BarA = new(Bar, PressureReference.Absolute);
+        public static readonly PressureUnit BarG = new(Bar, PressureReference.Gauge);
 
 
         public PressureReference Reference { get; private set; }
 
 
-
-        public PressureUnit(PressureUnit pressureunit, PressureReference Reference) : base(pressureunit)
+        public PressureUnit(PressureUnit pressureunit, PressureReference Reference)
         {
             this.Reference = Reference;
+
+            string NewSymbol = Reference switch
+            {
+                PressureReference.Absolute => pressureunit.Unit.Symbol + "a",
+                PressureReference.Gauge => pressureunit.Unit.Symbol + "g",
+                _ => throw new NotImplementedException()
+            };
+
+
+            var dimensionless = new RawUnit()
+            {
+                Symbol=null,
+                A = Fraction.One,
+                UnitType = BaseunitType.CombinedUnit,
+                B = Fraction.FromDecimal(101325m),
+                Count = 1,
+            };
+
+            var ListOfUnits = pressureunit.Unit.ListOfUnits.Add(dimensionless).ToList();
+
+            Unit = new UnitSystem(ListOfUnits, NewSymbol);
         }
+
+
 
         public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol)
         {
