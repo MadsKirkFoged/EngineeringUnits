@@ -57,11 +57,16 @@ namespace EngineeringUnits
 
         public static UnitSystem GetSIUnitsystem(this UnitSystem local)
         {
-
-            var SIUnitList = new List<RawUnit>();
-
             var test = local.ListOfUnits
                             .Select(x => x.CloneAsSI())
+                            .ToList();
+
+            return new UnitSystem(test);
+        }
+        public static UnitSystem GetWithOutOffset(this UnitSystem local)
+        {
+            var test = local.ListOfUnits
+                            .Select(x => x.CloneWithOutOffset())
                             .ToList();
 
             return new UnitSystem(test);

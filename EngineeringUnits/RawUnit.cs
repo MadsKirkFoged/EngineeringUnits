@@ -81,15 +81,13 @@ namespace EngineeringUnits
                 _ => throw new InvalidOperationException("Invalid UnitType")
             };
 
-
-            //return this with
-            //{
-            //    A = Fraction.One,
-            //    B = 0,
-            //    Symbol = null,
-            //};
-
         }
+
+        public RawUnit CloneWithOutOffset()
+        {
+            return this with {B = 0, Symbol = null };
+        }
+
 
         public override int GetHashCode()
         {

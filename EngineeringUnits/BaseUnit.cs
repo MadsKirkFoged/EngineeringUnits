@@ -72,13 +72,31 @@ namespace EngineeringUnits
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
-                    var rightvalue = right.GetValueAs(left);  
-                    var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+
+                    //Working with B-Constants units does not really make sense to show as unit after a calculation
 
 
-                    var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+                    //Check if there is a similarly unit but without the B-Constant
+                    if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                    {
 
-                    return new UnknownUnit(value, left.Unit);
+                        var leftvalue = left.GetValueAs(right);
+                        var br = right.Unit.SumOfBConstants() / right.Unit.SumConstant();
+                        var valuer = (right.NEWValue + leftvalue) + br.ToDecimal();
+                        return new UnknownUnit(valuer, right.Unit);
+                    }
+                    else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        var NewUnit = left.Unit.GetWithOutOffset();
+                        var NewValue = left.GetValueAs(NewUnit);
+                        left = new UnknownUnit(NewValue, NewUnit);
+                    }
+
+                        var rightvalue = right.GetValueAs(left);
+                        var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+                        var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+                        return new UnknownUnit(value, left.Unit);
+
                 }
 
 
@@ -116,13 +134,30 @@ namespace EngineeringUnits
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
+
+                    //Working with B-Constants units does not really make sense to show as unit after a calculation
+
+                    //Check if there is a similarly unit but without the B-Constant
+                    if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                    {
+
+                        var leftvalue = left.GetValueAs(right);
+                        var br = right.Unit.SumOfBConstants() / right.Unit.SumConstant();
+                        var valuer = (right.NEWValue - leftvalue) + br.ToDecimal();
+                        return new UnknownUnit(valuer, right.Unit);
+                    }
+                    else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        var NewUnit = left.Unit.GetWithOutOffset();
+                        var NewValue = left.GetValueAs(NewUnit);
+                        left = new BaseUnit(NewValue, NewUnit);
+                    }
+
                     var rightvalue = right.GetValueAs(left);
                     var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
-
-
-                    var value = (left.NEWValue - rightvalue) - b.ToDecimal();
-
+                    var value = (left.NEWValue - rightvalue) + b.ToDecimal();
                     return new UnknownUnit(value, left.Unit);
+
                 }
 
 
