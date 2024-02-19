@@ -72,13 +72,31 @@ namespace EngineeringUnits
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
-                    var rightvalue = right.GetValueAs(left);  
-                    var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+
+                    //Working with B-Constants units does not really make sense to show as unit after a calculation
 
 
-                    var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+                    //Check if there is a similarly unit but without the B-Constant
+                    if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                    {
 
-                    return new UnknownUnit(value, left.Unit);
+                        var leftvalue = left.GetValueAs(right);
+                        var br = right.Unit.SumOfBConstants() / right.Unit.SumConstant();
+                        var valuer = (right.NEWValue + leftvalue) + br.ToDecimal();
+                        return new UnknownUnit(valuer, right.Unit);
+                    }
+                    else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        var NewUnit = left.Unit.GetWithOutOffset();
+                        var NewValue = left.GetValueAs(NewUnit);
+                        left = new UnknownUnit(NewValue, NewUnit);
+                    }
+
+                        var rightvalue = right.GetValueAs(left);
+                        var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+                        var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+                        return new UnknownUnit(value, left.Unit);
+
                 }
 
 
@@ -116,13 +134,30 @@ namespace EngineeringUnits
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
+
+                    //Working with B-Constants units does not really make sense to show as unit after a calculation
+
+                    //Check if there is a similarly unit but without the B-Constant
+                    if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                    {
+
+                        var leftvalue = left.GetValueAs(right);
+                        var br = right.Unit.SumOfBConstants() / right.Unit.SumConstant();
+                        var valuer = (right.NEWValue - leftvalue) + br.ToDecimal();
+                        return new UnknownUnit(valuer, right.Unit);
+                    }
+                    else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        var NewUnit = left.Unit.GetWithOutOffset();
+                        var NewValue = left.GetValueAs(NewUnit);
+                        left = new BaseUnit(NewValue, NewUnit);
+                    }
+
                     var rightvalue = right.GetValueAs(left);
                     var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
-
-
-                    var value = (left.NEWValue - rightvalue) - b.ToDecimal();
-
+                    var value = (left.NEWValue - rightvalue) + b.ToDecimal();
                     return new UnknownUnit(value, left.Unit);
+
                 }
 
 
@@ -452,20 +487,36 @@ namespace EngineeringUnits
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
 
+            var NewNEWValue = NEWValue;
+
+            //Convert unit to string
+            var GetUnit = Unit.Symbol;
+
+            if (GetUnit is null)            
+                GetUnit = GetStandardSymbol(Unit);
+
+
+            // If GetUnit is still null it could not find a standard symbol
+            // --> convert it to SI
+            if (GetUnit is null)
+            {
+                var NewUnit = Unit.GetSIUnitsystem();
+                NewNEWValue = this.GetValueAs(NewUnit);
+                GetUnit = GetStandardSymbol(NewUnit);
+            }
+
+
             //Convert value to string
             var value = format[0] switch
             {
                 'A'or'a' => "",
                 'U'or'u' => "",
                 'Q'or'q' => "",
-                'V'or'v' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                'S'or's' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                _ => NEWValue.ToString(format, provider),
+                'V'or'v' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                'S'or's' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                _ => NewNEWValue.ToString(format, provider),
             };
 
-
-            //Convert unit to string
-            var GetUnit = GetStandardSymbol(Unit);
 
             var unit = format[0] switch
             {
@@ -492,10 +543,10 @@ namespace EngineeringUnits
         public static string GetStandardSymbol<T>(UnitSystem _unit)
             where T : UnitTypebase
         {
-
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return UnitTypebase.ListOf<T>()
-                .Find(x => x.Unit.SumConstant() == _unit.SumConstant() && x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
+                .Find(x => x.Unit.SumConstant() == _unit.SumConstant() && 
+                           x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
                 .Unit.ToString();
         }
         public virtual string GetStandardSymbol(UnitSystem _unit)

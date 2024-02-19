@@ -77,5 +77,23 @@ namespace UnitTests
             Assert.AreEqual(A, G);
         }
 
+        [TestMethod]
+        public void GaugeAddGauge()
+        {
+            //Arrange
+            Pressure A = new Pressure(10, PressureUnit.BarG);
+            Pressure B = new Pressure(5, PressureUnit.BarG);
+
+            //Act
+            Pressure C = A + B;
+            double K3 = A.As(PressureUnit.SI) - B.As(PressureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(C.ToString(), "17.03 bar");
+            Assert.AreEqual(C.As(PressureUnit.Bar), 17.0265);
+            Assert.AreEqual(C.As(PressureUnit.BarA), 17.0265);
+            Assert.AreEqual(K3, 500000);
+        }
+
     }
 }

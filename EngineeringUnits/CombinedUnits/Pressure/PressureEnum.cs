@@ -57,10 +57,6 @@ namespace EngineeringUnits.Units
         public static readonly PressureUnit PoundForcePerSquareInch =            new(ForceUnit.PoundForce, AreaUnit.SquareInch, "psi");
         public static readonly PressureUnit PoundPerInchSecondSquared =          new(Pascal, "lbm/(in·s²)", 1.785796732283465e1m);
 
-
-        //public static readonly PressureUnit BarAbsolute = new(Bar, PressureReference.Absolute);
-        //public static readonly PressureUnit BarGauge = new(Bar, PressureReference.Gauge);
-
         public static readonly PressureUnit BarA = new(Bar, PressureReference.Absolute);
         public static readonly PressureUnit BarG = new(Bar, PressureReference.Gauge);
 

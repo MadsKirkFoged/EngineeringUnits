@@ -210,7 +210,7 @@ namespace UnitTests
             double K3 = T2.As(TemperatureUnit.SI) + T1.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "314.9 °C");
+            Assert.AreEqual(T3.ToString(), "588.1 K");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), 598.87);
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), 314.92777777777775);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 588.0777777777778);
@@ -231,7 +231,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) + T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "598.9 °F");
+            Assert.AreEqual(T3.ToString(), "1059 °R");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), 598.87);
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), 314.92777777777775);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 588.0777777777778);
@@ -251,7 +251,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) + T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "304.2 °C");
+            Assert.AreEqual(T3.ToString(), "577.3 K");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), 304.15);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 577.3);
             Assert.AreEqual(K3, 577.3);
@@ -271,7 +271,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) + T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "490.7 °F");
+            Assert.AreEqual(T3.ToString(), "950.3 °R");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), 490.67);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 527.9666666666667);
             Assert.AreEqual(K3, 527.9666666666667);
@@ -311,7 +311,7 @@ namespace UnitTests
             double K3 = T2.As(TemperatureUnit.SI) - T1.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "-306.9 °C");
+            Assert.AreEqual(T3.ToString(), "-33.78 K");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), -520.46999999999991);
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), -306.92777777777775);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), -33.777777777777779);
@@ -332,7 +332,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) - T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "-398.9 °F");
+            Assert.AreEqual(T3.ToString(), "60.8 °R");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), -398.87);
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), -239.37222222222223);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 33.777777777777779);
@@ -352,7 +352,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) - T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "-250.2 °C");
+            Assert.AreEqual(T3.ToString(), "23 K");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeCelsius), -250.15);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 23);
             Assert.AreEqual(K3, 23);
@@ -372,7 +372,7 @@ namespace UnitTests
             double K3 = T1.As(TemperatureUnit.SI) - T2.As(TemperatureUnit.SI);
 
             //Assert
-            Assert.AreEqual(T3.ToString(), "-436.7 °F");
+            Assert.AreEqual(T3.ToString(), "23 °R");
             Assert.AreEqual(T3.As(TemperatureUnit.DegreeFahrenheit), -436.67);
             Assert.AreEqual(T3.As(TemperatureUnit.Kelvin), 12.777777777777779);
             Assert.AreEqual(K3, 12.777777777777779, 0.000000001);
