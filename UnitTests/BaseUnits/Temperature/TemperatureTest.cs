@@ -10,6 +10,194 @@ namespace UnitTests
     public class TemperatureTest
     {
         [TestMethod]
+        public void CelsiusDivideFahrenheit()
+        {
+
+            //Arrange
+            Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T2 / T1;
+            double K3 = T2.As(TemperatureUnit.SI) / T1.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "-0.8914 ");
+            Assert.AreEqual(K3, 0.89136455411224458);
+        }
+
+
+        [TestMethod]
+        public void FahrenheitDivideCelsius()
+        {
+
+            //Arrange
+            Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T1 / T2;
+            double K3 = T1.As(TemperatureUnit.SI) / T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "34.02 ");
+            Assert.AreEqual(K3, 1.12187543849099);
+        }
+
+        [TestMethod]
+        public void CelsiusDivideCelsius()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T1 / T2;
+            double K3 = T1.As(TemperatureUnit.SI) / T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "1.083 ");
+            Assert.AreEqual(K3, 1.0829875518672198);
+        }
+
+
+        [TestMethod]
+        public void FahrenheitDivideFahrenheit()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
+
+            //Act
+            var T3 = T1 / T2;
+            double K3 = T1.As(TemperatureUnit.SI) / T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "1.05 ");
+            Assert.AreEqual(K3, 1.0496042443979554);
+        }
+
+
+        [TestMethod]
+        public void KelvinDivideKelvin()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.Kelvin);
+            Temperature T2 = new(4, TemperatureUnit.Kelvin);
+
+            //Act
+            var T3 = T1 / T2;
+            double K3 = T1.As(TemperatureUnit.SI) / T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "6.75 ");
+            Assert.AreEqual(K3, 6.75);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+
+        [TestMethod]
+        public void CelsiusTimesFahrenheit()
+        {
+
+            //Arrange
+            Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T2 * T1;
+            double K3 = T2.As(TemperatureUnit.SI) * T1.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "8.617e+04 K²");
+            Assert.AreEqual(K3, 86173.633611111116);
+        }
+
+
+        [TestMethod]
+        public void FahrenheitTimesCelsius()
+        {
+
+            //Arrange
+            Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T1 * T2;
+            double K3 = T1.As(TemperatureUnit.SI) * T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "8.617e+04 K²");
+            Assert.AreEqual(K3, 86173.633611111116);
+        }
+
+        [TestMethod]
+        public void CelsiusTimesCelsius()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
+
+            //Act
+            var T3 = T1 * T2;
+            double K3 = T1.As(TemperatureUnit.SI) * T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "8.319e+04 K²");
+            Assert.AreEqual(K3, 83186.57249999998);
+        }
+
+
+        [TestMethod]
+        public void FahrenheitTimesFahrenheit()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
+            Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
+
+            //Act
+            var T3 = T1 * T2;
+            double K3 = T1.As(TemperatureUnit.SI) * T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "6.965e+04 K²");
+            Assert.AreEqual(K3, 69646.3823765432);
+        }
+
+
+        [TestMethod]
+        public void KelvinTimesKelvin()
+        {
+
+            //Arrange
+            Temperature T1 = new(27, TemperatureUnit.Kelvin);
+            Temperature T2 = new(4, TemperatureUnit.Kelvin);
+
+            //Act
+            var T3 = T1 * T2;
+            double K3 = T1.As(TemperatureUnit.SI) * T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "108 K²");
+            Assert.AreEqual(K3, 108);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+
+        [TestMethod]
         public void CelsiusAddFahrenheit()
         {
 
