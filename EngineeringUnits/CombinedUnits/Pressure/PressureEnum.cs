@@ -79,6 +79,13 @@ namespace EngineeringUnits.Units
                 _ => throw new NotImplementedException()
             };
 
+            Fraction NewB = Reference switch
+            {
+                PressureReference.Absolute => Fraction.FromDecimal(101325m),
+                PressureReference.Gauge => Fraction.FromDecimal(-101325m),
+                _ => throw new NotImplementedException()
+            };
+
 
             var dimensionless = new RawUnit()
             {
