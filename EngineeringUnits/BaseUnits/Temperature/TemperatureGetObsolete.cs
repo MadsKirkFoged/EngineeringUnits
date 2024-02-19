@@ -12,23 +12,20 @@ namespace EngineeringUnits
             /// <summary>
             ///     Get Temperature in Kelvin.
             /// </summary>
-            public double Kelvin => As(TemperatureUnit.Kelvin);
-            /// <summary>
-            ///     Get Temperature in SI.
-            /// </summary>
-            public double SI => As(TemperatureUnit.SI);
+            public double Kelvins => As(TemperatureUnit.Kelvin);
+
             /// <summary>
             ///     Get Temperature in DegreeCelsius.
             /// </summary>
-            public double DegreeCelsius => As(TemperatureUnit.DegreeCelsius);
+            public double DegreesCelsius => As(TemperatureUnit.DegreeCelsius);
             /// <summary>
             ///     Get Temperature in DegreeFahrenheit.
             /// </summary>
-            public double DegreeFahrenheit => As(TemperatureUnit.DegreeFahrenheit);
+            public double DegreesFahrenheit => As(TemperatureUnit.DegreeFahrenheit);
             /// <summary>
             ///     Get Temperature in DegreeRankine.
             /// </summary>
-            public double DegreeRankine => As(TemperatureUnit.DegreeRankine);
+            public double DegreesRankine => As(TemperatureUnit.DegreeRankine);
     }
 }
 

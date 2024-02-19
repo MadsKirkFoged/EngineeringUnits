@@ -49,7 +49,7 @@ public class Program
         Pressure P11 = new Pressure(10, PressureUnit.Bar);
         Pressure P2 = P11.ToUnit(PressureUnit.BarA);
 
-
+        var mystring = P2.ToString();
 
 
         Pressure DesignPressureEntityA = 10d.AddUnit<PressureUnit>("BarA");

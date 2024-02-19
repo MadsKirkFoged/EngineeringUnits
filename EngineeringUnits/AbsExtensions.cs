@@ -891,6 +891,21 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
+  public static Pressure Abs(this Pressure a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
   public static PressureChangeRate Abs(this PressureChangeRate a)
   {
       if (a is null)
@@ -1401,21 +1416,6 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
-  public static Cost Abs(this Cost a)
-  {
-      if (a is null)
-          return null;
-
-      if (a.GetBaseValue() > 0)
-          return a;
-
-      return -a;
-  }
-
-
-  /// <summary>
-  /// Returns the absolute value
-  /// </summary>
   public static Temperature Abs(this Temperature a)
   {
       if (a is null)
@@ -1431,7 +1431,7 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
-  public static Pressure Abs(this Pressure a)
+  public static Cost Abs(this Cost a)
   {
       if (a is null)
           return null;

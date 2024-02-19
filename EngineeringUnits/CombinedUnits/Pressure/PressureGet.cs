@@ -181,6 +181,14 @@ namespace EngineeringUnits
             ///     Get Pressure in PoundPerInchSecondSquared.
             /// </summary>
             public double PoundPerInchSecondSquared => As(PressureUnit.PoundPerInchSecondSquared);
+            /// <summary>
+            ///     Get Pressure in BarA.
+            /// </summary>
+            public double BarA => As(PressureUnit.BarA);
+            /// <summary>
+            ///     Get Pressure in BarG.
+            /// </summary>
+            public double BarG => As(PressureUnit.BarG);
     }
 }
 

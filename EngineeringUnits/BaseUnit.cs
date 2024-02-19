@@ -500,7 +500,11 @@ namespace EngineeringUnits
 
 
             //Convert unit to string
-            var GetUnit = GetStandardSymbol(Unit);
+            var GetUnit = Unit.Symbol;
+
+            if (GetUnit is null)            
+                GetUnit = GetStandardSymbol(Unit);
+            
 
             var unit = format[0] switch
             {
@@ -527,10 +531,10 @@ namespace EngineeringUnits
         public static string GetStandardSymbol<T>(UnitSystem _unit)
             where T : UnitTypebase
         {
-
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return UnitTypebase.ListOf<T>()
-                .Find(x => x.Unit.SumConstant() == _unit.SumConstant() && x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
+                .Find(x => x.Unit.SumConstant() == _unit.SumConstant() && 
+                           x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
                 .Unit.ToString();
         }
         public virtual string GetStandardSymbol(UnitSystem _unit)

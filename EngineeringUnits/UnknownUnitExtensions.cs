@@ -128,6 +128,8 @@ if (toCast == PowerUnit.SI.Unit)
     return (Power) toCast;                              
 if (toCast == PowerCostUnit.SI.Unit)                               
     return (PowerCost) toCast;                              
+if (toCast == PressureUnit.SI.Unit)                               
+    return (Pressure) toCast;                              
 if (toCast == PressureChangeRateUnit.SI.Unit)                               
     return (PressureChangeRate) toCast;                              
 if (toCast == RatioUnit.SI.Unit)                               
@@ -196,12 +198,10 @@ if (toCast == LuminousIntensityUnit.SI.Unit)
     return (LuminousIntensity) toCast;                              
 if (toCast == MassUnit.SI.Unit)                               
     return (Mass) toCast;                              
-if (toCast == CostUnit.SI.Unit)                               
-    return (Cost) toCast;                              
 if (toCast == TemperatureUnit.SI.Unit)                               
     return (Temperature) toCast;                              
-if (toCast == PressureUnit.SI.Unit)                               
-    return (Pressure) toCast;                              
+if (toCast == CostUnit.SI.Unit)                               
+    return (Cost) toCast;                              
 
 
             return null;            
