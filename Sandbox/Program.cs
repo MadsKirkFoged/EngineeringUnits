@@ -46,75 +46,83 @@ public class Program
     public static void Main()
     {
 
-        Pressure P11 = new Pressure(10, PressureUnit.Bar);
-        Pressure P2 = P11.ToUnit(PressureUnit.BarA);
 
-        var mystring = P2.ToString();
+        Power pp1 = new Power(10, PowerUnit.Kilowatt);
+        Enthalpy ee1 = new Enthalpy(10, EnthalpyUnit.SI);
 
+        MassFlow massFlow = pp1 / ee1;
 
-        Pressure DesignPressureEntityA = 10d.AddUnit<PressureUnit>("BarA");
-        Pressure DesignPressureEntityG = 10d.AddUnit<PressureUnit>("BarG");
+        var mystring = massFlow.ToString();
 
-        Pressure DesignPressureEntityG2 = DesignPressureEntityG + DesignPressureEntityG;
+        //Pressure P11 = new Pressure(10, PressureUnit.Bar);
+        //Pressure P2 = P11.ToUnit(PressureUnit.BarA);
 
-
-        Pressure gtest = new Pressure(10, PressureUnit.BarG);
-
+        //var mystring = P2.ToString();
 
 
-        SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-        MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
-        Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
-        Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
+        //Pressure DesignPressureEntityA = 10d.AddUnit<PressureUnit>("BarA");
+        //Pressure DesignPressureEntityG = 10d.AddUnit<PressureUnit>("BarG");
+
+        //Pressure DesignPressureEntityG2 = DesignPressureEntityG + DesignPressureEntityG;
 
 
-        Temperature T3 = T2 - T1;
+        //Pressure gtest = new Pressure(10, PressureUnit.BarG);
 
 
-        Power Q1 = M1 * P1 * (T2 - T1);
 
-        string tests = T1.ToString();
+        //SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
+        //MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+        //Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+        //Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
+
+
+        //Temperature T3 = T2 - T1;
+
+
+        //Power Q1 = M1 * P1 * (T2 - T1);
+
+        //string tests = T1.ToString();
         
 
 
-        Ratio T7 = (T2 / T1);
+        //Ratio T7 = (T2 / T1);
 
 
 
 
-        Temperature Fahrenheit = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
+        //Temperature Fahrenheit = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
 
 
-        Temperature R1 = Fahrenheit / 10;
+        //Temperature R1 = Fahrenheit / 10;
 
 
-        Ratio R2 = Fahrenheit / Fahrenheit;
+        //Ratio R2 = Fahrenheit / Fahrenheit;
 
 
-        var InDecimal = 273.15m - 32m * (5/9m);
+        //var InDecimal = 273.15m - 32m * (5/9m);
 
 
-        Fraction fconvert = Fraction.FromDecimal(InDecimal);
+        //Fraction fconvert = Fraction.FromDecimal(InDecimal);
 
 
-        Fraction f = new Fraction(273.15m) - (new Fraction(32)  * new Fraction(5, 9));
+        //Fraction f = new Fraction(273.15m) - (new Fraction(32)  * new Fraction(5, 9));
 
-        var InDecimal2 = f.ToDecimal();
-
-
+        //var InDecimal2 = f.ToDecimal();
 
 
 
-        var Fahrenheit2 = new Temperature(32, TemperatureUnit.DegreeFahrenheit);
-        var Kelvin = new Temperature(273.15m, TemperatureUnit.Kelvin);
 
 
-        Temperature ttest = Temperature.FromDegreesFahrenheit(50);
+        //var Fahrenheit2 = new Temperature(32, TemperatureUnit.DegreeFahrenheit);
+        //var Kelvin = new Temperature(273.15m, TemperatureUnit.Kelvin);
 
 
-        var de1 = Temperature.FromDegreesCelsius(10) * Temperature.FromDegreesCelsius(10);
+        //Temperature ttest = Temperature.FromDegreesFahrenheit(50);
 
-        var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
+
+        //var de1 = Temperature.FromDegreesCelsius(10) * Temperature.FromDegreesCelsius(10);
+
+        //var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
 
 
         //Pressure A = new Pressure(10, PressureUnit.BarAbsolute);

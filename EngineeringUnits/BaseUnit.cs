@@ -487,24 +487,36 @@ namespace EngineeringUnits
             if (provider is null)
                 provider = CultureInfo.InvariantCulture;
 
-            //Convert value to string
-            var value = format[0] switch
-            {
-                'A'or'a' => "",
-                'U'or'u' => "",
-                'Q'or'q' => "",
-                'V'or'v' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                'S'or's' => NEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-                _ => NEWValue.ToString(format, provider),
-            };
-
+            var NewNEWValue = NEWValue;
 
             //Convert unit to string
             var GetUnit = Unit.Symbol;
 
             if (GetUnit is null)            
                 GetUnit = GetStandardSymbol(Unit);
-            
+
+
+            // If GetUnit is still null it could not find a standard symbol
+            // --> convert it to SI
+            if (GetUnit is null)
+            {
+                var NewUnit = Unit.GetSIUnitsystem();
+                NewNEWValue = this.GetValueAs(NewUnit);
+                GetUnit = GetStandardSymbol(NewUnit);
+            }
+
+
+            //Convert value to string
+            var value = format[0] switch
+            {
+                'A'or'a' => "",
+                'U'or'u' => "",
+                'Q'or'q' => "",
+                'V'or'v' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                'S'or's' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+                _ => NewNEWValue.ToString(format, provider),
+            };
+
 
             var unit = format[0] switch
             {
