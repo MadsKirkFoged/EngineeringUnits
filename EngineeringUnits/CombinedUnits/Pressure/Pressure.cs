@@ -9,9 +9,18 @@ namespace EngineeringUnits
     {
 
         public Pressure() { }
-        public Pressure(decimal value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Pressure(double value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Pressure(int value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+        public Pressure(decimal value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) 
+        {
+            Reference = selectedUnit.Reference;
+        }
+        public Pressure(double value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) 
+        {
+            Reference = selectedUnit.Reference;
+        }
+        public Pressure(int value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit)         
+        {
+            Reference = selectedUnit.Reference;
+        }
         public Pressure(UnknownUnit value) : base(value) { }
 
         public static Pressure From(double value, PressureUnit unit) => new(value, unit);
@@ -26,7 +35,10 @@ namespace EngineeringUnits
             return From((double)value, unit);
         }
         public double As(PressureUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-        public Pressure ToUnit(PressureUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit, Reference);
+        public Pressure ToUnit(PressureUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+
+
+
         public static Pressure Zero => new(0, PressureUnit.SI);
         public static Pressure NaN => new(double.NaN, PressureUnit.SI);
 

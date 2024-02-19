@@ -37,6 +37,21 @@ public record CombinedUnit : UnitTypebase
         Unit = new UnitSystem(unit);
     }
 
+    public CombinedUnit(Fraction Constant, Fraction b)
+    {
+        var unit = new RawUnit()
+        {
+            Symbol=null,
+            A = Constant,
+            UnitType = BaseunitType.CombinedUnit,
+            B = b,
+            Count = 1,
+
+        };
+
+        Unit = new UnitSystem(unit);
+    }
+
     public override string ToString()
     {
         if (Unit.Symbol is not null)

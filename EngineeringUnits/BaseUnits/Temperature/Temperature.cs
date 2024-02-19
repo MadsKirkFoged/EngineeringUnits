@@ -20,62 +20,62 @@ namespace EngineeringUnits
 
         public Temperature() {}
 
-        public Temperature(int value, TemperatureUnit selectedUnit) : this()
+        public Temperature(int value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit)
         {
 
-            Unit = selectedUnit.Unit;
-            NEWValue = value;
+            //Unit = selectedUnit.Unit;
+            //NEWValue = value;
 
-            //Public view of tempature
-            if (selectedUnit.Unit.IsSIUnit() is false)
-            {
-                PublicUnit = selectedUnit;
-                PublicValue = value;
-            }
+            ////Public view of tempature
+            //if (selectedUnit.Unit.IsSIUnit() is false)
+            //{
+            //    PublicUnit = selectedUnit;
+            //    PublicValue = value;
+            //}
 
-            //Forcing all temperatures to stay in kelvin for calculations
+            ////Forcing all temperatures to stay in kelvin for calculations
 
-            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            //NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit;
 
         }
 
-        public Temperature(double value, TemperatureUnit selectedUnit) :this()
+        public Temperature(double value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit)
         {
 
-            //Public view of tempature
-            if (selectedUnit.Unit.IsSIUnit() is false)
-            {
-                PublicUnit = selectedUnit;
-            }
+            ////Public view of tempature
+            //if (selectedUnit.Unit.IsSIUnit() is false)
+            //{
+            //    PublicUnit = selectedUnit;
+            //}
 
 
-            NEWValue = value;
-            PublicValue = value;
+            //NEWValue = value;
+            //PublicValue = value;
 
 
-            //Forcing all temperatures to stay in kelvin
-            Unit = selectedUnit.Unit;
-            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            ////Forcing all temperatures to stay in kelvin
+            //Unit = selectedUnit.Unit;
+            //NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit;
         }
 
-        public Temperature(decimal value, TemperatureUnit selectedUnit) : this()
+        public Temperature(decimal value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit)
         {
 
-            Unit = selectedUnit.Unit;
-            NEWValue = value;
+            //Unit = selectedUnit.Unit;
+            //NEWValue = value;
 
-            //Public view of tempature
-            if (selectedUnit.Unit.IsSIUnit() is false)
-            {
-                PublicUnit = selectedUnit;
-                PublicValue = value;
-            }
+            ////Public view of tempature
+            //if (selectedUnit.Unit.IsSIUnit() is false)
+            //{
+            //    PublicUnit = selectedUnit;
+            //    PublicValue = value;
+            //}
 
-            //Forcing all temperatures to stay in kelvin for calculations
-            NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
-            Unit = TemperatureUnit.Kelvin.Unit;
+            ////Forcing all temperatures to stay in kelvin for calculations
+            //NEWValue = this.GetValueAs(TemperatureUnit.Kelvin.Unit);
+            //Unit = TemperatureUnit.Kelvin.Unit;
         }
 
 
@@ -159,6 +159,6 @@ namespace EngineeringUnits
 
         }
 
-
+        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
     }
 }

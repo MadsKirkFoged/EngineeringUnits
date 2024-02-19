@@ -1,5 +1,6 @@
 using Fractions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Globalization;
 
@@ -69,6 +70,18 @@ namespace EngineeringUnits
 
             try
             {
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+                    var rightvalue = right.GetValueAs(left);  
+                    var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+
+
+                    var value = (left.NEWValue + rightvalue) + b.ToDecimal();
+
+                    return new UnknownUnit(value, left.Unit);
+                }
+
+
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
                     return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
 
@@ -101,6 +114,19 @@ namespace EngineeringUnits
 
             try
             {
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+                    var rightvalue = right.GetValueAs(left);
+                    var b = left.Unit.SumOfBConstants() / left.Unit.SumConstant();
+
+
+                    var value = (left.NEWValue - rightvalue) - b.ToDecimal();
+
+                    return new UnknownUnit(value, left.Unit);
+                }
+
+
+
                 if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
                     return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
@@ -136,6 +162,38 @@ namespace EngineeringUnits
 
             try
             {
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+
+                    //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
+                    //Therefore we will convert these units to their base unit
+
+                    if (left.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var LeftValue = left.GetBaseValue();
+
+                        //Set unit to the base unit
+                        var Leftunit = left.Unit.GetSIUnitsystem();
+
+                        left= new UnknownUnit(LeftValue, Leftunit).IntelligentCast();
+                    }
+
+                    if (right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var rightValue = right.GetBaseValue();
+
+                        //Set unit to the base unit
+                        var rightunit = right.Unit.GetSIUnitsystem();
+
+                        right= new UnknownUnit(rightValue, rightunit).IntelligentCast();
+                    }
+
+                    //return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
+                }
+
+
                 return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
             }
             catch (OverflowException)
@@ -176,6 +234,38 @@ namespace EngineeringUnits
 
             try
             {
+
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                {
+
+
+                    //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
+                    //Therefore we will convert these units to their base unit
+
+                    if (left.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var LeftValue = left.GetBaseValue();
+
+                        //Set unit to the base unit
+                        var Leftunit = left.Unit.GetSIUnitsystem();
+
+                        left= new UnknownUnit(LeftValue, Leftunit).IntelligentCast();
+                    }
+
+                    if (right.Unit.SumOfBConstants() != Fraction.Zero)
+                    {
+                        //Set value to the base unit
+                        var rightValue = right.GetBaseValue();
+
+                        //Set unit to the base unit
+                        var rightunit = right.Unit.GetSIUnitsystem();
+
+                        right= new UnknownUnit(rightValue, rightunit).IntelligentCast();
+                    }
+                }
+
+
                 return new UnknownUnit(left.NEWValue / right.NEWValue, left.Unit / right.Unit);
             }
             catch (OverflowException)
@@ -405,7 +495,7 @@ namespace EngineeringUnits
 
             //This check the list of Predefined unit and if it finds a match it returns that Symbol
             return UnitTypebase.ListOf<T>()
-                .Find(x => x.Unit.SumConstant() == _unit.SumConstant())?
+                .Find(x => x.Unit.SumConstant() == _unit.SumConstant() && x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
                 .Unit.ToString();
         }
         public virtual string GetStandardSymbol(UnitSystem _unit)

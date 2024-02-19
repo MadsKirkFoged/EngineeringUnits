@@ -29,7 +29,7 @@ namespace EngineeringUnits
         public Fraction A { get; init; }
 
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(0d)]
-        public decimal B { get; init; }
+        public Fraction B { get; init; }
 
         [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)][DefaultValue(1)]
         public int Count { get; init; } 
@@ -39,7 +39,7 @@ namespace EngineeringUnits
         public Fraction TotalConstant => Fraction.Pow(A, Count);
 
         [JsonIgnore]
-        public bool IsSI => A == Fraction.One && B == 0m;
+        public bool IsSI => A == Fraction.One && B == Fraction.Zero;
 
         public RawUnit() {}
 
@@ -66,12 +66,28 @@ namespace EngineeringUnits
 
         public RawUnit CloneAsSI()
         {
-            return this with
+
+            return UnitType switch
             {
-                A = Fraction.One,
-                B = 0,
-                Symbol = null,
+                BaseunitType.length => this with { A = Fraction.One, B = 0, Symbol = LengthUnit.SI.ToString() },
+                BaseunitType.mass => this with { A = Fraction.One, B = 0, Symbol = MassUnit.SI.ToString() },
+                BaseunitType.time => this with { A = Fraction.One, B = 0, Symbol = DurationUnit.SI.ToString() },
+                BaseunitType.electricCurrent => this with { A = Fraction.One, B = 0, Symbol = ElectricCurrentUnit.SI.ToString() },
+                BaseunitType.temperature => this with { A = Fraction.One, B = 0, Symbol = TemperatureUnit.SI.ToString() },
+                BaseunitType.amountOfSubstance => this with { A = Fraction.One, B = 0, Symbol = AmountOfSubstanceUnit.SI.ToString() },
+                BaseunitType.luminousIntensity => this with { A = Fraction.One, B = 0, Symbol = LuminousIntensityUnit.SI.ToString() },
+                BaseunitType.Cost => this with { A = Fraction.One, B = 0, Symbol = CostUnit.SI.ToString() },
+                BaseunitType.CombinedUnit => this with { A = Fraction.One, B = 0, Symbol = null },
+                _ => throw new InvalidOperationException("Invalid UnitType")
             };
+
+
+            //return this with
+            //{
+            //    A = Fraction.One,
+            //    B = 0,
+            //    Symbol = null,
+            //};
 
         }
 

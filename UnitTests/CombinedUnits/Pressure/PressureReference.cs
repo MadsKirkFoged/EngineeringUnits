@@ -22,46 +22,60 @@ namespace UnitTests
             Assert.AreEqual($"{P1}", "10 bar");
 
             //Creating new with undefined and setting to Absolute
-            Pressure P2 = P1.ToUnit(PressureUnit.Bar).ToUnit(PressureReference.Absolute);
-            Assert.AreEqual(P2.ToString(), "10 bar(a)");
-            Assert.AreEqual($"{P2}", "10 bar(a)");
+            Pressure P2 = P1.ToUnit(PressureUnit.BarA);
+            Assert.AreEqual(P2.ToString(), "10 bara");
+            Assert.AreEqual($"{P2}", "10 bara");
 
             //Converting from undefined to Gauge
-            Pressure P3 = P1.ToUnit(PressureReference.Gauge);
-            Assert.AreEqual(P3.ToString(), "10 bar(g)");
-            Assert.AreEqual($"{P3}", "10 bar(g)");
+            Pressure P3 = P1.ToUnit(PressureUnit.BarG);
+            Assert.AreEqual(P3.ToString(), "8.987 barg");
+            Assert.AreEqual($"{P3}", "8.987 barg");
 
             //Creating new with Gauge
-            Pressure P4 = new Pressure(10m, PressureUnit.Bar, PressureReference.Gauge);
-            Assert.AreEqual(P4.ToString(), "10 bar(g)");
-            Assert.AreEqual($"{P4}", "10 bar(g)");
+            Pressure P4 = new Pressure(10m, PressureUnit.BarG);
+            Assert.AreEqual(P4.ToString(), "10 barg");
+            Assert.AreEqual($"{P4}", "10 barg");
 
             //Creating new with Absolute
-            Pressure P5 = new Pressure(10m, PressureUnit.Bar, PressureReference.Absolute);
-            Assert.AreEqual(P5.ToString(), "10 bar(a)");
-            Assert.AreEqual($"{P5}", "10 bar(a)");
+            Pressure P5 = new Pressure(10m, PressureUnit.BarA);
+            Assert.AreEqual(P5.ToString(), "10 bara");
+            Assert.AreEqual($"{P5}", "10 bara");
 
             //Converting from Gauge to Gauge
-            Pressure P6 = P4.ToUnit(PressureReference.Gauge);
-            Assert.AreEqual(P6.ToString(), "10 bar(g)");
-            Assert.AreEqual($"{P6}", "10 bar(g)");
+            Pressure P6 = P4.ToUnit(PressureUnit.BarG);
+            Assert.AreEqual(P6.ToString(), "10 barg");
+            Assert.AreEqual($"{P6}", "10 barg");
 
             //Converting from Absolute to Gauge
-            Pressure P7 = P5.ToUnit(PressureReference.Gauge);
-            Assert.AreEqual(P7.ToString(), "8.987 bar(g)");
-            Assert.AreEqual($"{P7}", "8.987 bar(g)");
+            Pressure P7 = P5.ToUnit(PressureUnit.BarG);
+            Assert.AreEqual(P7.ToString(), "8.987 barg");
+            Assert.AreEqual($"{P7}", "8.987 barg");
 
             //Converting from Gauge to Absolute
-            Pressure P8 = P4.ToUnit(PressureReference.Absolute);
-            Assert.AreEqual(P8.ToString(), "11.01 bar(a)");
-            Assert.AreEqual($"{P8}", "11.01 bar(a)");
+            Pressure P8 = P4.ToUnit(PressureUnit.BarA);
+            Assert.AreEqual(P8.ToString(), "11.01 bara");
+            Assert.AreEqual($"{P8}", "11.01 bara");
 
             //Converting from Absolute to Absolute
-            Pressure P9 = P5.ToUnit(PressureReference.Absolute);
-            Assert.AreEqual(P9.ToString(), "10 bar(a)");
-            Assert.AreEqual($"{P9}", "10 bar(a)");
-
-
+            Pressure P9 = P5.ToUnit(PressureUnit.BarA);
+            Assert.AreEqual(P9.ToString(), "10 bara");
+            Assert.AreEqual($"{P9}", "10 bara");
         }
+
+
+        [TestMethod]
+        public void AbsoluteToAbsolute()
+        {
+            //Arrange
+            Pressure A = new Pressure(10, PressureUnit.BarA);
+
+            //Act
+            var G = A.ToUnit(PressureUnit.BarG);
+
+
+            //Assert
+            Assert.AreEqual(A, G);
+        }
+
     }
 }

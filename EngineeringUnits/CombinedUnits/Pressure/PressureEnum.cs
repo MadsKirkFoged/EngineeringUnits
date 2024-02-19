@@ -1,6 +1,10 @@
 ﻿using EngineeringUnits.Units;
+using Fractions;
+using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace EngineeringUnits.Units
@@ -54,24 +58,77 @@ namespace EngineeringUnits.Units
         public static readonly PressureUnit PoundPerInchSecondSquared =          new(Pascal, "lbm/(in·s²)", 1.785796732283465e1m);
 
 
+        //public static readonly PressureUnit BarAbsolute = new(Bar, PressureReference.Absolute);
+        //public static readonly PressureUnit BarGauge = new(Bar, PressureReference.Gauge);
+
+        public static readonly PressureUnit BarA = new(Bar, PressureReference.Absolute);
+        public static readonly PressureUnit BarG = new(Bar, PressureReference.Gauge);
+
+
+        public PressureReference Reference { get; private set; }
+
+
+        public PressureUnit(PressureUnit pressureunit, PressureReference Reference)
+        {
+            this.Reference = Reference;
+            var ListOfUnits = pressureunit.Unit.ListOfUnits;
+
+            string NewSymbol = Reference switch
+            {
+                PressureReference.Absolute => pressureunit.Unit.Symbol + "a",
+                PressureReference.Gauge => pressureunit.Unit.Symbol + "g",
+                _ => throw new NotImplementedException()
+            };
+
+
+            if (Reference is not PressureReference.Absolute)
+            {
+                var dimensionless = new RawUnit()
+                {
+                    Symbol=null,
+                    A = Fraction.One,
+                    UnitType = BaseunitType.CombinedUnit,
+                    B = Fraction.FromDecimal(101325m),
+                    Count = 1,
+                };
+
+                ListOfUnits = ListOfUnits.Add(dimensionless);
+            }
+           
+
+            Unit = new UnitSystem(ListOfUnits.ToList(), NewSymbol);
+        }
+
+
 
         public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol)
         {
             Unit = new UnitSystem(mass / (length * duration.Pow(2)), NewSymbol);
+            Reference = PressureReference.Undefined;
         }
 
         public PressureUnit(ForceUnit force, AreaUnit area)
         {
             Unit = new UnitSystem((force / area), 
                                 $"{force}/{area}");
+
+            Reference = PressureReference.Undefined;
         }
 
         public PressureUnit(ForceUnit force, AreaUnit area, string NewSymbol)
         {
             Unit = new UnitSystem((force / area), NewSymbol);
+
+            Reference = PressureReference.Undefined;
         }
-        public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit) {}
-        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  {}
+        public PressureUnit(PreFix SI, PressureUnit unit) : base(SI, unit) 
+        {
+            Reference = PressureReference.Undefined;
+        }
+        public PressureUnit(PressureUnit unit, string NewSymbol = "Empty", decimal correction = 1) : base(unit, NewSymbol, correction)  
+        {
+            Reference = PressureReference.Undefined;
+        }
 
         public override string ToString()
         {
