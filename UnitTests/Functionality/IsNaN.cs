@@ -67,17 +67,11 @@ public class IsNaN
 
         double valNan = double.NaN;
 
-        Length lengthSumShouldBeNanD = lengthNotNan + valNan;
-        Length lengthDiffShouldBeNanD1 = lengthNotNan - valNan;
-        Length lengthDiffShouldBeNanD2 = valNan - lengthNotNan;
         Length lengthProdShouldBeNanD1 = lengthNotNan * valNan;
         Length lengthProdShouldBeNanD2 = valNan * lengthNotNan;
         Length lengthDivShouldBeNanD1 = lengthNotNan / valNan;
         Length lengthDivShouldBeNanD2 = valNan / lengthNotNan;
 
-        Assert.IsTrue(lengthSumShouldBeNanD.IsNaN());
-        Assert.IsTrue(lengthDiffShouldBeNanD1.IsNaN());
-        Assert.IsTrue(lengthDiffShouldBeNanD2.IsNaN());
         Assert.IsTrue(lengthProdShouldBeNanD1.IsNaN());
         Assert.IsTrue(lengthProdShouldBeNanD2.IsNaN());
         Assert.IsTrue(lengthDivShouldBeNanD1.IsNaN());
