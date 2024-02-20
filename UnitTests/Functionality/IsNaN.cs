@@ -38,4 +38,15 @@ public class IsNaN
         Assert.IsTrue(tempNan3.IsNaN());
         Assert.IsFalse(tempNotNan1.IsNaN());
     }
+
+    [TestMethod]
+    public void NaNWithOperators()
+    {
+        Length lengthNotNan = Length.FromMeter(2);
+        Length lengthNan = Length.NaN;
+
+        Length lengthSumShouldBeNan = lengthNotNan + lengthNan;
+
+        Assert.IsTrue(lengthSumShouldBeNan.IsNaN());
+    }
 }
