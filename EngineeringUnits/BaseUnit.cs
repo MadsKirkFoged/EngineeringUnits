@@ -173,6 +173,7 @@ namespace EngineeringUnits
                 return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
             }
         }
+
         public static UnknownUnit operator -(BaseUnit local)
         {
             if (local is null)
