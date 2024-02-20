@@ -143,7 +143,7 @@ namespace EngineeringUnits
 
                         var leftvalue = left.GetValueAs(right);
                         var br = right.Unit.SumOfBConstants() / right.Unit.SumConstant();
-                        var valuer = (right.NEWValue - leftvalue) + br.ToDecimal();
+                        var valuer = (leftvalue - right.NEWValue) + br.ToDecimal();
                         return new UnknownUnit(valuer, right.Unit);
                     }
                     else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)

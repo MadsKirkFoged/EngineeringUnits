@@ -398,6 +398,24 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void CelsiusMinusKelvin()
+        {
+
+            //Arrange
+            Temperature T1 = new(50, TemperatureUnit.DegreeCelsius);
+            Temperature T2 = new(322, TemperatureUnit.Kelvin);
+
+            //Act
+            Temperature T3 = T1 - T2;
+            double K3 = T1.As(TemperatureUnit.SI) - T2.As(TemperatureUnit.SI);
+
+            //Assert
+            Assert.AreEqual(T3.ToString(), "1.15 K");
+            Assert.AreEqual(K3, 1.15, 0.0000001);
+
+        }
+
 
         [TestMethod]
         public void TemperatureEqual()
