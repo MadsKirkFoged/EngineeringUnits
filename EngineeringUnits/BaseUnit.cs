@@ -68,6 +68,9 @@ namespace EngineeringUnits
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
 
+            if (left.IsNaN() || right.IsNaN())
+                return new UnknownUnit(double.NaN, left.Unit);
+
             try
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
@@ -129,6 +132,9 @@ namespace EngineeringUnits
 
             if (left.Unit != right.Unit)
                 throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
+
+            if (left.IsNaN() || right.IsNaN())
+                return new UnknownUnit(double.NaN, left.Unit);
 
             try
             {
@@ -196,12 +202,14 @@ namespace EngineeringUnits
             if (left is null || right is null)
                 return null;
 
+            if (left.IsNaN() || right.IsNaN())
+                return new UnknownUnit(double.NaN, left.Unit * right.Unit);
+
             try
             {
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
-
-                    //Showing a unit like 캜 as 캜^2 is not very useful (As I understand the conversion between 컆^2 and 캜^2 is not linear)
+                    //Showing a unit like 째C as 째C^2 is not very useful (As I understand the conversion between 째k^2 and 째C^2 is not linear)
                     //Therefore we will convert these units to their base unit
 
                     if (left.Unit.SumOfBConstants() != Fraction.Zero)
@@ -239,6 +247,9 @@ namespace EngineeringUnits
         }
         public static UnknownUnit operator *(BaseUnit left, int right)
         {
+            if (left.IsNaN())
+                return new UnknownUnit(double.NaN, left.Unit);
+
             return left * new BaseUnit(right);
         }
         public static UnknownUnit operator *(int left, BaseUnit right)
@@ -268,14 +279,15 @@ namespace EngineeringUnits
             if (left is null || right is null)
                 return null;
 
+            if (left.IsNaN() || right.IsNaN())
+                return new UnknownUnit(double.NaN, left.Unit / right.Unit);
+
             try
             {
 
                 if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
                 {
-
-
-                    //Showing a unit like 캜 as 캜^2 is not very useful (As I understand the conversion between 컆^2 and 캜^2 is not linear)
+                    //Showing a unit like 째C as 째C^2 is not very useful (As I understand the conversion between 째k^2 and 째C^2 is not linear)
                     //Therefore we will convert these units to their base unit
 
                     if (left.Unit.SumOfBConstants() != Fraction.Zero)
