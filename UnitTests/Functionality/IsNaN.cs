@@ -70,7 +70,7 @@ public class IsNaN
         Length lengthProdShouldBeNanD1 = lengthNotNan * valNan;
         Length lengthProdShouldBeNanD2 = valNan * lengthNotNan;
         Length lengthDivShouldBeNanD1 = lengthNotNan / valNan;
-        Length lengthDivShouldBeNanD2 = valNan / lengthNotNan;
+        var lengthDivShouldBeNanD2 = valNan / lengthNotNan;
 
         Assert.IsTrue(lengthProdShouldBeNanD1.IsNaN());
         Assert.IsTrue(lengthProdShouldBeNanD2.IsNaN());
