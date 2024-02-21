@@ -22,4 +22,11 @@ public partial record AreaCostUnit : UnitTypebase
         Unit = new UnitSystem(localUnit, localSymbol);
     }
 
+    public override string ToString()
+    {
+        if (Unit.Symbol is not null)
+            return $"{Unit.Symbol}";
+
+        return $"{Unit}";
+    }
 }    

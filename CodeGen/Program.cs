@@ -22,12 +22,13 @@ namespace CodeGen
             GenerateAlias.GenerateEnums(libraryDir);
             GenerateSetter.GenerateSetterClasses(libraryDir);
             GenerateGetter.GenerateGetterClasses(libraryDir);
-            UnitListGenerator.UnitsInclude();
             GenerateAlias.AliasClass(libraryDir);
             
             AbsExtensionsGenerator.Generate(libraryDir);
             UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
+            UnitListGenerator.ShowUnittypes();
+            UnitListGenerator.ShowUnitNames();
         }
     }
 }
