@@ -10,7 +10,7 @@ namespace EngineeringUnits.Units
     public partial record RatioUnit : UnitTypebase
     {
 
-        public static readonly RatioUnit SI = new("-");
+        public static readonly RatioUnit SI = new("");
         public static readonly RatioUnit DecimalFraction = new("-");
         public static readonly RatioUnit PartPerBillion = new("ppb", 1/1e9m);
         public static readonly RatioUnit PartPerMillion = new("ppm", 1 / 1e6m);

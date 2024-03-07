@@ -10,7 +10,9 @@ namespace EngineeringUnits
 
        public static BaseUnit IntelligentCast(this UnknownUnit toCast)
         {            
-            if (toCast == AccelerationUnit.SI.Unit)                               
+            if (toCast == RatioUnit.SI.Unit)                               
+    return (Ratio) toCast;                              
+if (toCast == AccelerationUnit.SI.Unit)                               
     return (Acceleration) toCast;                              
 if (toCast == AreaDensityUnit.SI.Unit)                               
     return (AreaDensity) toCast;                              
@@ -132,8 +134,6 @@ if (toCast == PressureUnit.SI.Unit)
     return (Pressure) toCast;                              
 if (toCast == PressureChangeRateUnit.SI.Unit)                               
     return (PressureChangeRate) toCast;                              
-if (toCast == RatioUnit.SI.Unit)                               
-    return (Ratio) toCast;                              
 if (toCast == ReactiveEnergyUnit.SI.Unit)                               
     return (ReactiveEnergy) toCast;                              
 if (toCast == ReactivePowerUnit.SI.Unit)                               

@@ -6,6 +6,21 @@ public static class AbsExtensions
   /// <summary>
   /// Returns the absolute value
   /// </summary>
+  public static Ratio Abs(this Ratio a)
+  {
+      if (a is null)
+          return null;
+
+      if (a.GetBaseValue() > 0)
+          return a;
+
+      return -a;
+  }
+
+
+  /// <summary>
+  /// Returns the absolute value
+  /// </summary>
   public static Acceleration Abs(this Acceleration a)
   {
       if (a is null)
@@ -907,21 +922,6 @@ public static class AbsExtensions
   /// Returns the absolute value
   /// </summary>
   public static PressureChangeRate Abs(this PressureChangeRate a)
-  {
-      if (a is null)
-          return null;
-
-      if (a.GetBaseValue() > 0)
-          return a;
-
-      return -a;
-  }
-
-
-  /// <summary>
-  /// Returns the absolute value
-  /// </summary>
-  public static Ratio Abs(this Ratio a)
   {
       if (a is null)
           return null;

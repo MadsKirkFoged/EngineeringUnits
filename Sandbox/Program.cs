@@ -46,8 +46,16 @@ public class Program
     public static void Main()
     {
 
+        Ratio myratio = new Ratio(10,RatioUnit.Percent);
 
-        Power pp1 = new Power(10, PowerUnit.Kilowatt);
+
+
+
+        UnknownUnit localUnit = myratio.ToUnit(RatioUnit.Percent);
+
+        var mytest = localUnit.ToString();
+
+                Power pp1 = new Power(10, PowerUnit.Kilowatt);
         Enthalpy ee1 = new Enthalpy(10, EnthalpyUnit.SI);
 
         MassFlow massFlow = pp1 / ee1;

@@ -541,7 +541,7 @@ namespace EngineeringUnits
             };
 
             //Merge       
-            return $"{value}{unit}";
+            return $"{value}{unit}".Trim();
         }
 
         public override int GetHashCode()
