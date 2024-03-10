@@ -1,21 +1,9 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
-using Fractions;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
-using System.Diagnostics.Metrics;
 
 //using UnitsNet;
 
 namespace Sandbox;
-
-
 
 public class Program
 {
@@ -46,120 +34,82 @@ public class Program
     public static void Main()
     {
 
-        Ratio myratio = new Ratio(10,RatioUnit.Percent);
-
-
-
+        var myratio = new Ratio(10, RatioUnit.Percent);
 
         UnknownUnit localUnit = myratio.ToUnit(RatioUnit.Percent);
+        _ = localUnit.ToString();
 
-        var mytest = localUnit.ToString();
-
-                Power pp1 = new Power(10, PowerUnit.Kilowatt);
-        Enthalpy ee1 = new Enthalpy(10, EnthalpyUnit.SI);
+        var pp1 = new Power(10, PowerUnit.Kilowatt);
+        var ee1 = new Enthalpy(10, EnthalpyUnit.SI);
 
         MassFlow massFlow = pp1 / ee1;
-
-        var mystring = massFlow.ToString();
+        _ = massFlow.ToString();
 
         //Pressure P11 = new Pressure(10, PressureUnit.Bar);
         //Pressure P2 = P11.ToUnit(PressureUnit.BarA);
 
         //var mystring = P2.ToString();
 
-
         //Pressure DesignPressureEntityA = 10d.AddUnit<PressureUnit>("BarA");
         //Pressure DesignPressureEntityG = 10d.AddUnit<PressureUnit>("BarG");
 
         //Pressure DesignPressureEntityG2 = DesignPressureEntityG + DesignPressureEntityG;
 
-
         //Pressure gtest = new Pressure(10, PressureUnit.BarG);
-
-
 
         //SpecificEntropy P1 = new(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
         //MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
         //Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
         //Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
 
-
         //Temperature T3 = T2 - T1;
-
 
         //Power Q1 = M1 * P1 * (T2 - T1);
 
         //string tests = T1.ToString();
-        
-
 
         //Ratio T7 = (T2 / T1);
 
-
-
-
         //Temperature Fahrenheit = new Temperature(68, TemperatureUnit.DegreeFahrenheit);
-
 
         //Temperature R1 = Fahrenheit / 10;
 
-
         //Ratio R2 = Fahrenheit / Fahrenheit;
-
 
         //var InDecimal = 273.15m - 32m * (5/9m);
 
-
         //Fraction fconvert = Fraction.FromDecimal(InDecimal);
-
 
         //Fraction f = new Fraction(273.15m) - (new Fraction(32)  * new Fraction(5, 9));
 
         //var InDecimal2 = f.ToDecimal();
 
-
-
-
-
         //var Fahrenheit2 = new Temperature(32, TemperatureUnit.DegreeFahrenheit);
         //var Kelvin = new Temperature(273.15m, TemperatureUnit.Kelvin);
 
-
         //Temperature ttest = Temperature.FromDegreesFahrenheit(50);
-
 
         //var de1 = Temperature.FromDegreesCelsius(10) * Temperature.FromDegreesCelsius(10);
 
         //var de2 = Temperature.FromDegreesFahrenheit(50) * Temperature.FromDegreesFahrenheit(50);
 
-
         //Pressure A = new Pressure(10, PressureUnit.BarAbsolute);
         //Pressure G = new Pressure(10, PressureUnit.BarGauge);
 
-
         //var AToG = A.ToUnit(PressureUnit.BarGauge);
-
-
 
         //if (AToG == A)
         //{
         //    var test = 10;
         //}
 
-
-
-       // var AToA = G.ToUnit(PressureUnit.BarAbsolute);
+        // var AToA = G.ToUnit(PressureUnit.BarAbsolute);
 
         //var AToNon = A.ToUnit(PressureUnit.Bar);
 
         //var GToNon = G.ToUnit(PressureUnit.Bar);
 
-
-
-        Pressure DesignPressureEntity = (10.1).AddUnit<PressureUnit>("test");
-
-
-
+        _ = 10.1.AddUnit<PressureUnit>("test");
 
         //var test22 = AreaCostUnit.DollarPerSquareMillimeter;
 
@@ -168,20 +118,13 @@ public class Program
 
         //EnergyCost test = f1 / e1; //1 $/kWh
 
-
-
         //SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
 
         //Enthalpy test2 = SpecificEnergy.FromSI(324);
 
-
-
         //Pressure p1 = null;
 
         //UnknownUnit p2 = p1;
-
-
-
 
         //Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
         //Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
@@ -192,26 +135,15 @@ public class Program
 
         //Ratio R1 = (m1 * (h2 - h1) + P2) / P3;
 
-
-
-
         //for (int i = 0; i < 30000000; i++)
         //{
         //    var test = BaseUnit.Divide(P1, L1);
         //}
 
-
-
-        UnknownUnit DensityLiq = Density.FromKilogramPerCubicMeter(100);
+        _ = Density.FromKilogramPerCubicMeter(100);
         //Density DensityGas = 10 - DensityLiq;
 
-
         //Speed Vmax = Speed.FromMeterPerSecond(1) * ((DensityLiq - DensityGas) / DensityGas).Sqrt();
-
-
-
-
-
 
         //Ratio test = Ratio.FromDecimalFraction(1);
 
@@ -227,21 +159,13 @@ public class Program
 
         //Length L2 = new Length(1, LengthUnit.Mile);
 
-
-
         //var testtt = (MassFlow.FromCentigramPerDay(1), MassFlow.FromDecagramPerSecond(1)).Sum();
 
-       
-
         //var tupletest = (MassFlow.Zero, MassFlow.Zero).Max();
-
-
-
 
         //var InfTest = MassFlow.FromKilogramPerSecond(1) / MassFlow.Zero;
 
         //MassFlow massFlow3 = MassFlow.FromKilogramPerSecond(1) + InfTest;
-
 
         //string NaNTest2 = InfTest.ToString();
 
@@ -249,9 +173,7 @@ public class Program
 
         //mynewlist.Sum();
 
-
         //int ii = 0;
-
 
         //decimal d1 = ii;  
 
@@ -275,26 +197,17 @@ public class Program
 
         ////var test = lengthmin.Minimum(lengthmin);
 
-
         //MassFlow Min2 = UnitMath.Min(MassFlow.FromKilogramPerSecond(1),
         //                             MassFlow.FromKilogramPerSecond(2));
-
 
         //var h1 = new Enthalpy(10, EnthalpyUnit.JoulePerKilogram);
         //var h2 = new Enthalpy(100, EnthalpyUnit.JoulePerKilogram);
         //var m1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
 
-
-
         //UnknownUnit p11 = (m1 * (h2 - h1));
-
 
         ////var p1 = Pressure.FromBar(10);
         ////var p2 = Pressure.FromBar(20);
-
-
-
-
 
         ////Console.WriteLine($"{nameof(p1)}: {p1}"); // prints "p1: 10 bar"
         ////Console.WriteLine($"{nameof(p2)}: {p2}"); // prints "p2: 20 bar"
@@ -303,8 +216,6 @@ public class Program
         ////Console.WriteLine($"p1.Maximum(p2): {p1.Maximum(p2)}"); // prints "p1.Maximum(p2): 10 bar"
         ////Console.WriteLine($"p2.Maximum(p1): {p2.Maximum(p1)}"); // prints "p2.Maximum(p1): 10 bar"
 
-
-
         //List<int> numbers = new List<int> { 1, 1, 1, 2, 4, 6, 6, 8 };
 
         //var result = numbers
@@ -312,24 +223,18 @@ public class Program
         //            .Where(group => group.Count() > 1)
         //            .SelectMany(group => Enumerable.Repeat(group.Key, group.Count()));
 
-
         //foreach (var sum in result)
         //{
         //    Console.Write($"{sum}; ");
         //}
 
-
         //double d = 0.00000000000;
-
 
         //double? aa = d;
 
-
         //Power PZero = Power.Zero;
 
-
         //var PZero2 = PZero.Kilowatt;
-
 
         ////var ppp = 1/0.000295299830714159m;
 
@@ -348,14 +253,11 @@ public class Program
 
         //UnitSystem unitt = TemperatureUnit.DegreeFahrenheit;
 
-
         //var TT = Temperature.FromDegreesFahrenheit(32);
-
 
         //var nantest = new Mass(double.NaN, MassUnit.SI).SI;
 
         //var nantest2 =  Mass.FromCentigram(double.NaN).Grain;
-
 
         //var jerk1 = new Jerk(10, JerkUnit.MeterPerSecondCubed);
         //var jerk2 = Jerk.FromCentimeterPerSecondCubed(10);
@@ -363,16 +265,12 @@ public class Program
 
         //var jerk4 = jerk1 + jerk2 +jerk3;
 
-
-
         //var specificEnergy1 = SpecificEnergy.FromJoulePerKilogram(1000);
         //var specificEnergy2 = SpecificEnergy.FromJoulePerKilogram(2000);
-
 
         //MassFlow massflow0 = Power.FromKilowatt(100) / (specificEnergy2- specificEnergy1);
 
         //var teste = massflow0.ToString();
-
 
         //var massflow1 = new MassFlow(1, MassFlowUnit.SI);
 
@@ -791,27 +689,19 @@ public class Program
         //    Console.WriteLine(elapsedMs.ToString());
         //    _=Console.ReadLine();
 
-      
     }
-
 
     public partial record AreaCostUnit : UnitTypebase
     {
 
         public static readonly AreaCostUnit DollarPerSquareMillimeter = new AreaCostUnit(CostUnit.SI, AreaUnit.SquareMillimeter);
 
-
         public AreaCostUnit(CostUnit cost, AreaUnit area)
         {
-            var localUnit = cost / area;
+            UnitSystem localUnit = cost / area;
             var localSymbol = $"{cost}/{area}";
-
 
             Unit = new UnitSystem(localUnit, localSymbol);
         }
     }
-
-
-
-
 }
