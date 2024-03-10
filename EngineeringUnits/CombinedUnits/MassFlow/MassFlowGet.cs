@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class MassFlow
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class MassFlow
-    {
-
- 
 
             /// <summary>
             ///     Get MassFlow in CentigramPerDay.
@@ -146,6 +144,6 @@ namespace EngineeringUnits
             /// </summary>
             public double TonnePerHour => As(MassFlowUnit.TonnePerHour);
     }
-}
+
 
 

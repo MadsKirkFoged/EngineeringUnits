@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class PowerDensity
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class PowerDensity
-    {
-
- 
 
             /// <summary>
             ///     Get PowerDensity in SI.
@@ -190,6 +188,6 @@ namespace EngineeringUnits
             /// </summary>
             public double DecawattPerCubicFoot => As(PowerDensityUnit.DecawattPerCubicFoot);
     }
-}
+
 
 

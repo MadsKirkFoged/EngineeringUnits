@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class VolumeFlow
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class VolumeFlow
-    {
-
- 
 
             /// <summary>
             ///     Get VolumeFlow in AcreFootPerDay.
@@ -238,6 +236,6 @@ namespace EngineeringUnits
             /// </summary>
             public double MegaukGallonPerSecond => As(VolumeFlowUnit.MegaukGallonPerSecond);
     }
-}
+
 
 

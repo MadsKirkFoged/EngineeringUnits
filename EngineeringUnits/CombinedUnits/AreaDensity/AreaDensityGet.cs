@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class AreaDensity
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class AreaDensity
-    {
-
- 
 
             /// <summary>
             ///     Get AreaDensity in SI.
@@ -18,6 +16,6 @@ namespace EngineeringUnits
             /// </summary>
             public double KilogramPerSquareMeter => As(AreaDensityUnit.KilogramPerSquareMeter);
     }
-}
+
 
 

@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Length
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Length
-    {
-
- 
 
             /// <summary>
             ///     Get Length in Kilometer.
@@ -138,6 +136,6 @@ namespace EngineeringUnits
             /// </summary>
             public double Megaparsec => As(LengthUnit.Megaparsec);
     }
-}
+
 
 

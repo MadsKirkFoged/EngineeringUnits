@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class ElectricCurrent
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class ElectricCurrent
-    {
-
- 
 
             /// <summary>
             ///     Get ElectricCurrent in SI.
@@ -46,6 +44,6 @@ namespace EngineeringUnits
             /// </summary>
             public double Picoampere => As(ElectricCurrentUnit.Picoampere);
     }
-}
+
 
 

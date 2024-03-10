@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class LengthCost
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class LengthCost
-    {
-
- 
 
             /// <summary>
             ///     Get LengthCost in SI.
@@ -22,6 +20,6 @@ namespace EngineeringUnits
             /// </summary>
             public double EuroPerMeter => As(LengthCostUnit.EuroPerMeter);
     }
-}
+
 
 

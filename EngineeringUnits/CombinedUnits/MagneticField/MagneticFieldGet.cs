@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class MagneticField
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class MagneticField
-    {
-
- 
 
             /// <summary>
             ///     Get MagneticField in SI.
@@ -38,6 +36,6 @@ namespace EngineeringUnits
             /// </summary>
             public double Nanotesla => As(MagneticFieldUnit.Nanotesla);
     }
-}
+
 
 

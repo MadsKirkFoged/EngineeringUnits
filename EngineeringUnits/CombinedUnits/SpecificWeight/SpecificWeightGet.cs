@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class SpecificWeight
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class SpecificWeight
-    {
-
- 
 
             /// <summary>
             ///     Get SpecificWeight in SI.
@@ -82,6 +80,6 @@ namespace EngineeringUnits
             /// </summary>
             public double TonneForcePerCubicMillimeter => As(SpecificWeightUnit.TonneForcePerCubicMillimeter);
     }
-}
+
 
 

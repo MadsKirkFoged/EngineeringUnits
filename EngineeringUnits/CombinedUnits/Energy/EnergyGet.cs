@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Energy
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Energy
-    {
-
- 
 
             /// <summary>
             ///     Get Energy in SI.
@@ -162,6 +160,6 @@ namespace EngineeringUnits
             /// </summary>
             public double HorsepowerHour => As(EnergyUnit.HorsepowerHour);
     }
-}
+
 
 

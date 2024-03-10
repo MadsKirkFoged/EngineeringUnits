@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Force
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Force
-    {
-
- 
 
             /// <summary>
             ///     Get Force in SI.
@@ -78,6 +76,6 @@ namespace EngineeringUnits
             /// </summary>
             public double Poundal => As(ForceUnit.Poundal);
     }
-}
+
 
 

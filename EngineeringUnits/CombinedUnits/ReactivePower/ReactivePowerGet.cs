@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class ReactivePower
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class ReactivePower
-    {
-
- 
 
             /// <summary>
             ///     Get ReactivePower in SI.
@@ -30,6 +28,6 @@ namespace EngineeringUnits
             /// </summary>
             public double GigavoltampereReactive => As(ReactivePowerUnit.GigavoltampereReactive);
     }
-}
+
 
 

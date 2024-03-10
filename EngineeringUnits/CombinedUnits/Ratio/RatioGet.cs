@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Ratio
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Ratio
-    {
-
- 
 
             /// <summary>
             ///     Get Ratio in SI.
@@ -166,6 +164,6 @@ namespace EngineeringUnits
             /// </summary>
             public double PicolitersPerMililiter => As(RatioUnit.PicolitersPerMililiter);
     }
-}
+
 
 

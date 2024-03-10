@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class ForcePerLength
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class ForcePerLength
-    {
-
- 
 
             /// <summary>
             ///     Get ForcePerLength in SI.
@@ -166,6 +164,6 @@ namespace EngineeringUnits
             /// </summary>
             public double DecinewtonPerMillimeter => As(ForcePerLengthUnit.DecinewtonPerMillimeter);
     }
-}
+
 
 

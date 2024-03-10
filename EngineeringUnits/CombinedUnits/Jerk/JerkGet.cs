@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Jerk
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Jerk
-    {
-
- 
 
             /// <summary>
             ///     Get Jerk in SI.
@@ -42,6 +40,6 @@ namespace EngineeringUnits
             /// </summary>
             public double NanometerPerSecondCubed => As(JerkUnit.NanometerPerSecondCubed);
     }
-}
+
 
 

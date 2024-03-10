@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class PressureChangeRate
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class PressureChangeRate
-    {
-
- 
 
             /// <summary>
             ///     Get PressureChangeRate in SI.
@@ -66,6 +64,6 @@ namespace EngineeringUnits
             /// </summary>
             public double MegapoundForcePerSquareInchPerMinute => As(PressureChangeRateUnit.MegapoundForcePerSquareInchPerMinute);
     }
-}
+
 
 

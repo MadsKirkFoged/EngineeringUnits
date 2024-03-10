@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Volume
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Volume
-    {
-
- 
 
             /// <summary>
             ///     Get Volume in SI.
@@ -226,6 +224,6 @@ namespace EngineeringUnits
             /// </summary>
             public double UsTeaspoon => As(VolumeUnit.UsTeaspoon);
     }
-}
+
 
 

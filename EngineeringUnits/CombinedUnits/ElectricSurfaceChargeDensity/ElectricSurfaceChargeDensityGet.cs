@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class ElectricSurfaceChargeDensity
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class ElectricSurfaceChargeDensity
-    {
-
- 
 
             /// <summary>
             ///     Get ElectricSurfaceChargeDensity in SI.
@@ -26,6 +24,6 @@ namespace EngineeringUnits
             /// </summary>
             public double CoulombPerSquareInch => As(ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
     }
-}
+
 
 

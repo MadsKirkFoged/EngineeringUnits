@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Temperature
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Temperature
-    {
-
- 
 
             /// <summary>
             ///     Get Temperature in Kelvin.
@@ -30,6 +28,6 @@ namespace EngineeringUnits
             /// </summary>
             public double DegreeRankine => As(TemperatureUnit.DegreeRankine);
     }
-}
+
 
 

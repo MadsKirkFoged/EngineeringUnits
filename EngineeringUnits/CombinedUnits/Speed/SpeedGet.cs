@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Speed
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Speed
-    {
-
- 
 
             /// <summary>
             ///     Get Speed in CentimeterPerHour.
@@ -150,6 +148,6 @@ namespace EngineeringUnits
             /// </summary>
             public double MilePerSecond => As(SpeedUnit.MilePerSecond);
     }
-}
+
 
 

@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class MassFlux
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class MassFlux
-    {
-
- 
 
             /// <summary>
             ///     Get MassFlux in SI.
@@ -62,6 +60,6 @@ namespace EngineeringUnits
             /// </summary>
             public double KilogramPerSecondPerSquareMillimeter => As(MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
     }
-}
+
 
 

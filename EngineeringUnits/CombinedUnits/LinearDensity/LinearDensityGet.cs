@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class LinearDensity
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class LinearDensity
-    {
-
- 
 
             /// <summary>
             ///     Get LinearDensity in SI.
@@ -70,6 +68,6 @@ namespace EngineeringUnits
             /// </summary>
             public double PoundPerInch => As(LinearDensityUnit.PoundPerInch);
     }
-}
+
 
 

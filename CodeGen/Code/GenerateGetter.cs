@@ -63,13 +63,11 @@ internal class GenerateGetter
         _=sb.AppendLine(@"
 using EngineeringUnits.Units;
 
-
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Variable
-    {
-
- ");
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class Variable
+{
+");
         // sb.Append(AllGetters());
 
         var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
@@ -79,7 +77,6 @@ namespace EngineeringUnits
 
         foreach (System.Reflection.FieldInfo i in t.GetFields())
         {
-
             _=sb.Append(@"
             /// <summary>
             ///     Get Variable in UnitEnum.
@@ -91,7 +88,7 @@ namespace EngineeringUnits
 
         _=sb.AppendLine(@"
     }
-}
+
 
 ");
 

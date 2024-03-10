@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class MolarMass
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class MolarMass
-    {
-
- 
 
             /// <summary>
             ///     Get MolarMass in SI.
@@ -62,6 +60,6 @@ namespace EngineeringUnits
             /// </summary>
             public double PoundPerMole => As(MolarMassUnit.PoundPerMole);
     }
-}
+
 
 

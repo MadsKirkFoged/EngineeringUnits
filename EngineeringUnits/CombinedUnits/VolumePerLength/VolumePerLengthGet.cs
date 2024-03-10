@@ -1,13 +1,11 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class VolumePerLength
+{
 
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class VolumePerLength
-    {
-
- 
 
             /// <summary>
             ///     Get VolumePerLength in SI.
@@ -42,6 +40,6 @@ namespace EngineeringUnits
             /// </summary>
             public double OilBarrelPerFoot => As(VolumePerLengthUnit.OilBarrelPerFoot);
     }
-}
+
 
 
