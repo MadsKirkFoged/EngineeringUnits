@@ -1,11 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EngineeringUnits;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EngineeringUnits.Units;
+﻿using EngineeringUnits.Units;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EngineeringUnits.Tests;
 
@@ -16,7 +10,7 @@ public class BaseUnitImplicitOperatorsTest
     public void RatioToInt()
     {
         // Arrange
-        Ratio R1 = new Ratio(1, RatioUnit.SI);
+        var R1 = new Ratio(1, RatioUnit.SI);
 
         // Act
         int Int1 = R1;
@@ -28,9 +22,9 @@ public class BaseUnitImplicitOperatorsTest
 
     [TestMethod()]
     public void RatioToDouble()
-    {        
+    {
         // Arrange
-        Ratio R1 = new Ratio(1d, RatioUnit.SI);
+        var R1 = new Ratio(1d, RatioUnit.SI);
 
         // Act
         double Double1 = R1;
@@ -44,7 +38,7 @@ public class BaseUnitImplicitOperatorsTest
     public void RatioToDecimal()
     {
         // Arrange
-        Ratio R1 = new Ratio(1m, RatioUnit.SI);
+        var R1 = new Ratio(1m, RatioUnit.SI);
 
         // Act
         decimal Decimal1 = R1;
@@ -59,7 +53,7 @@ public class BaseUnitImplicitOperatorsTest
     public void LengthToInt()
     {
         // Arrange
-        Length R1 = new Length(1, LengthUnit.SI);
+        var R1 = new Length(1, LengthUnit.SI);
 
         // Act
         int Int1 = R1;
@@ -74,7 +68,7 @@ public class BaseUnitImplicitOperatorsTest
     public void LengthToDouble()
     {
         // Arrange
-        Length R1 = new Length(1d, LengthUnit.SI);
+        var R1 = new Length(1d, LengthUnit.SI);
 
         // Act
         double Double1 = R1;
@@ -89,7 +83,7 @@ public class BaseUnitImplicitOperatorsTest
     public void LengthToDecimal()
     {
         // Arrange
-        Length R1 = new Length(1m, LengthUnit.SI);
+        var R1 = new Length(1m, LengthUnit.SI);
 
         // Act
         decimal Decimal1 = R1;

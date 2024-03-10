@@ -7,7 +7,6 @@ namespace UnitTests.BaseUnits;
 public class CreatingBaseUnits
 {
 
-
     [TestMethod]
     public void Decimal_Test()
     {
@@ -21,8 +20,7 @@ public class CreatingBaseUnits
         Assert.AreEqual(1.5, value);
     }
 
-
-    [TestMethod]    
+    [TestMethod]
     public void NegDecimal_Test()
     {
         // Arrange
@@ -36,7 +34,7 @@ public class CreatingBaseUnits
     }
 
     //add test for int and temperature
-    [TestMethod]    
+    [TestMethod]
     public void Int_Test()
     {
         // Arrange
@@ -77,7 +75,6 @@ public class CreatingBaseUnits
         // Assert
         Assert.AreEqual(1, BackToPressureUnit.Pascal);
     }
-
 
     //Create test for implicit operator baseunit to unitsystem
     [TestMethod]
@@ -195,6 +192,4 @@ public class CreatingBaseUnits
         // Assert
         Assert.AreEqual(0.001m, GetBaseValue);
     }
-
-
 }

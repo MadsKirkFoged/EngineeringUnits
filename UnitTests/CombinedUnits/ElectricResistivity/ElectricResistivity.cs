@@ -1,75 +1,63 @@
 using EngineeringUnits;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
-using UnitsNet;
-using System.Linq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 using EngineeringUnits.Units;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public class ElectricResistivityTest
 {
-    [TestClass]
-    public class ElectricResistivityTest
+
+    [TestMethod]
+    public void ElectricResistivityAutoTest()
     {
+        var A1 = new UnitsNet.ElectricResistivity(1, UnitsNet.Units.ElectricResistivityUnit.KiloohmMeter);
+        var A2 = new EngineeringUnits.ElectricResistivity(1, ElectricResistivityUnit.KiloohmMeter);
 
+        var WorkingCompares = 0;
 
-
-        [TestMethod]
-        public void ElectricResistivityAutoTest()
+        foreach (ElectricResistivityUnit EU in UnitTypebase.ListOf<ElectricResistivityUnit>())
         {
-            var A1 = new UnitsNet.ElectricResistivity(1, UnitsNet.Units.ElectricResistivityUnit.KiloohmMeter);
-            var A2 = new EngineeringUnits.ElectricResistivity(1, ElectricResistivityUnit.KiloohmMeter);
 
-            int WorkingCompares = 0;
+            var Error = 1E-5;
+            var RelError = 1E-5;
 
+            IEnumerable<UnitsNet.Units.ElectricResistivityUnit> UNList = UnitsNet.ElectricResistivity.Units.Where(x => x.ToString() == EU.QuantityName);
 
-            foreach (var EU in UnitTypebase.ListOf<ElectricResistivityUnit>())
+            if (UNList.Count() == 1)
             {
+                UnitsNet.Units.ElectricResistivityUnit UN = UNList.Single();
 
+                if (UN == UnitsNet.Units.ElectricResistivityUnit.NanoohmMeter)
+                    Error = 0.0001220703125;
 
-                double Error = 1E-5;
-                double RelError = 1E-5;
+                Debug.Print($"");
+                Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
-                var UNList = UnitsNet.ElectricResistivity.Units.Where(x => x.ToString() == EU.QuantityName);
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
 
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        RelError);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a")
 
-                if (UNList.Count() == 1)
-                {
-                    var UN = UNList.Single();
+                                );
 
-                    if (UN == UnitsNet.Units.ElectricResistivityUnit.NanoohmMeter) Error = 0.0001220703125;
-
-
-                    Debug.Print($"");
-                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
-                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
-                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
-
-                    //All units absolute difference
-                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
-
-                    //All units relative difference
-                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                            A1.As(UN)),
-                                                            RelError);
-                    //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                    A1.ToUnit(UN).ToString("a")
-
-
-                                    );
-
-                    WorkingCompares++;
-
-                }
-
+                WorkingCompares++;
             }
-
-            //Number of comparables units
-            Assert.AreEqual(14, WorkingCompares);
-
         }
+
+        //Number of comparables units
+        Assert.AreEqual(14, WorkingCompares);
     }
 }

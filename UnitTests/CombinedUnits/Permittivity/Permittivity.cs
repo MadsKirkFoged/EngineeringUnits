@@ -1,79 +1,65 @@
 using EngineeringUnits;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
-using UnitsNet;
-using System.Linq;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 using EngineeringUnits.Units;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public class PermittivityTest
 {
-    [TestClass]
-    public class PermittivityTest
+
+    [TestMethod]
+    public void PermittivityAutoTest()
     {
+        var A1 = new UnitsNet.Permittivity(1, UnitsNet.Units.PermittivityUnit.FaradPerMeter);
+        var A2 = new EngineeringUnits.Permittivity(1, PermittivityUnit.FaradPerMeter);
 
+        var WorkingCompares = 0;
 
-
-        [TestMethod]
-        public void PermittivityAutoTest()
+        foreach (PermittivityUnit EU in UnitTypebase.ListOf<PermittivityUnit>())
         {
-            var A1 = new UnitsNet.Permittivity(1, UnitsNet.Units.PermittivityUnit.FaradPerMeter);
-            var A2 = new EngineeringUnits.Permittivity(1, PermittivityUnit.FaradPerMeter);
 
-            int WorkingCompares = 0;
+            var Error = 1E-5;
+            var RelError = 2E-4;
 
+            IEnumerable<UnitsNet.Units.PermittivityUnit> UNList = UnitsNet.Permittivity.Units.Where(x => x.ToString() == EU.QuantityName);
 
-            foreach (var EU in UnitTypebase.ListOf<PermittivityUnit>())
+            if (UNList.Count() == 1)
             {
+                UnitsNet.Units.PermittivityUnit UN = UNList.Single();
 
+                //if (UN == UnitsNet.Units.PermittivityUnit.NanowattPerSquareMeter) Error = 0.0001220703125;
 
-                double Error = 1E-5;
-                double RelError = 2E-4;
+                Debug.Print($"");
+                Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
 
-                var UNList = UnitsNet.Permittivity.Units.Where(x => x.ToString() == EU.QuantityName);
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
 
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        RelError);
 
-                if (UNList.Count() == 1)
-                {
-                    var UN = UNList.Single();
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                            A1.ToUnit(UN).ToString("a")
 
-                    //if (UN == UnitsNet.Units.PermittivityUnit.NanowattPerSquareMeter) Error = 0.0001220703125;
+                            );
 
-
-                    Debug.Print($"");
-                    Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
-                    Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
-                    Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
-                    Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
-
-                    //All units absolute difference
-                    Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
-
-                    //All units relative difference
-                    Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
-                                                            A1.As(UN)),
-                                                            RelError);
-
-
-
-                    //All units symbol compare
-                    Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-
-
-                                );
-
-
-                    WorkingCompares++;
-
-                }
+                WorkingCompares++;
 
             }
-
-            //Number of comparables units
-            Assert.AreEqual(1, WorkingCompares);
-
         }
+
+        //Number of comparables units
+        Assert.AreEqual(1, WorkingCompares);
+
     }
 }

@@ -2,46 +2,39 @@
 using EngineeringUnits.Units;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public class AmountOfSubstanceTest
 {
-    [TestClass]
-    public class AmountOfSubstanceTest
+
+    [TestMethod]
+    public void AmountOfSubstance01()
     {
+        var a1 = AmountOfSubstance.From(10, AmountOfSubstanceUnit.Centimole);
+        Assert.AreEqual(10, a1.Centimole);
 
-        [TestMethod]
-        public void AmountOfSubstance01()
-        {
-            AmountOfSubstance a1 = AmountOfSubstance.From(10, AmountOfSubstanceUnit.Centimole);
-            Assert.AreEqual(10, a1.Centimole);
+        var a2 = AmountOfSubstance.From(1, AmountOfSubstanceUnit.Decimole);
+        Assert.AreEqual(a1, a2);
+    }
+    [TestMethod]
+    public void AmountOfSubstance02()
+    {
+        double? value = null;
+        var a = AmountOfSubstance.From(value, AmountOfSubstanceUnit.Centimole);
+        Assert.IsNull(a);
 
-            AmountOfSubstance a2 = AmountOfSubstance.From(1, AmountOfSubstanceUnit.Decimole);
-            Assert.AreEqual(a1, a2);
-        }
-        [TestMethod]
-        public void AmountOfSubstance02()
-        {
-            double? value = null;
-            AmountOfSubstance a = AmountOfSubstance.From(value, AmountOfSubstanceUnit.Centimole);
-            Assert.IsNull(a);
+    }
 
-        }
+    [TestMethod]
+    public void FromAmountOfSubstance()
+    {
+        double? value = 100;
+        var a = AmountOfSubstance.From(value, AmountOfSubstanceUnit.Centimole);
+        var a2 = AmountOfSubstance.From(value, null);
+        Assert.IsNotNull(a);
+        Assert.IsNull(a2);
 
-
-         [TestMethod]
-        public void FromAmountOfSubstance()
-        {
-            double? value = 100;
-            AmountOfSubstance a = AmountOfSubstance.From(value, AmountOfSubstanceUnit.Centimole);
-            AmountOfSubstance a2 = AmountOfSubstance.From(value, null);
-            Assert.IsNotNull(a);
-            Assert.IsNull(a2);
-
-        }
     }
 }

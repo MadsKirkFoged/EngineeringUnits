@@ -1,11 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests;
 
@@ -18,7 +13,7 @@ public class Constantstest
     public void GravitationalConstant_Test()
     {
         // Arrange
-        var unit = Constants.GravitationalConstant;
+        BaseUnit unit = Constants.GravitationalConstant;
 
         // Act
         var value = unit.As(ForceUnit.Newton);
@@ -26,6 +21,4 @@ public class Constantstest
         // Assert
         Assert.AreEqual(0.0000000000667408, value);
     }
-
- 
 }

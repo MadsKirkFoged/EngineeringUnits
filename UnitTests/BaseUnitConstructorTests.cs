@@ -1,10 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EngineeringUnits;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EngineeringUnits.Tests;
 
@@ -19,7 +13,6 @@ public class BaseUnitConstructorTests
 
         // Act
 
-
         // Assert
         Assert.AreEqual(1, ratio.SI);
     }
@@ -32,7 +25,6 @@ public class BaseUnitConstructorTests
 
         // Act
 
-
         // Assert
         Assert.AreEqual(1, ratio.SI);
     }
@@ -44,7 +36,6 @@ public class BaseUnitConstructorTests
         var ratio = new BaseUnit(1m);
 
         // Act
-
 
         // Assert
         Assert.AreEqual(1, ratio.SI);
