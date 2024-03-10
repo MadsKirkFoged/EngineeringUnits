@@ -32,19 +32,19 @@ public partial class LuminousIntensity : BaseUnit
     public static implicit operator LuminousIntensity(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, LuminousIntensityUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(LuminousIntensity Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);
 }

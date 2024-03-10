@@ -32,19 +32,19 @@ public partial class ElectricResistance : BaseUnit
     public static implicit operator ElectricResistance(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, ElectricResistanceUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(ElectricResistance Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricResistanceUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricResistanceUnit>(_unit);
 }

@@ -32,19 +32,19 @@ public partial class Temperature : BaseUnit
     public static implicit operator Temperature(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, TemperatureUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(Temperature Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
 }

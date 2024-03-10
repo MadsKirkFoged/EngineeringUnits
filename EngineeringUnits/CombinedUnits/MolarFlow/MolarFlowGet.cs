@@ -6,16 +6,13 @@ namespace EngineeringUnits;
 public partial class MolarFlow
 {
 
-
-            /// <summary>
-            ///     Get MolarFlow in SI.
-            /// </summary>
-            public double SI => As(MolarFlowUnit.SI);
-            /// <summary>
-            ///     Get MolarFlow in MolePerSecond.
-            /// </summary>
-            public double MolePerSecond => As(MolarFlowUnit.MolePerSecond);
-    }
-
-
+    /// <summary>
+    ///     Get MolarFlow in SI.
+    /// </summary>
+    public new double SI => As(MolarFlowUnit.SI);
+    /// <summary>
+    ///     Get MolarFlow in MolePerSecond.
+    /// </summary>
+    public double MolePerSecond => As(MolarFlowUnit.MolePerSecond);
+}
 

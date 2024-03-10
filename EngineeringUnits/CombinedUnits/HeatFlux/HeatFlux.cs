@@ -32,19 +32,19 @@ public partial class HeatFlux : BaseUnit
     public static implicit operator HeatFlux(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, HeatFluxUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(HeatFlux Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);
 }

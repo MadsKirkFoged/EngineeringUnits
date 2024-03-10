@@ -6,16 +6,13 @@ namespace EngineeringUnits;
 public partial class MagneticFlux
 {
 
-
-            /// <summary>
-            ///     Get MagneticFlux in SI.
-            /// </summary>
-            public double SI => As(MagneticFluxUnit.SI);
-            /// <summary>
-            ///     Get MagneticFlux in Weber.
-            /// </summary>
-            public double Weber => As(MagneticFluxUnit.Weber);
-    }
-
-
+    /// <summary>
+    ///     Get MagneticFlux in SI.
+    /// </summary>
+    public new double SI => As(MagneticFluxUnit.SI);
+    /// <summary>
+    ///     Get MagneticFlux in Weber.
+    /// </summary>
+    public double Weber => As(MagneticFluxUnit.Weber);
+}
 

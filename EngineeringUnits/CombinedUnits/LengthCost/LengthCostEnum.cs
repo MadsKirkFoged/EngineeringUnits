@@ -1,9 +1,3 @@
-using EngineeringUnits.Units;
-using Fractions;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EngineeringUnits.Units;
 public partial record LengthCostUnit : UnitTypebase
 {
@@ -13,9 +7,8 @@ public partial record LengthCostUnit : UnitTypebase
 
     public LengthCostUnit(CostUnit cost, LengthUnit length)
     {
-        var localUnit = cost / length;
+        UnitSystem localUnit = cost / length;
         var localSymbol = $"{cost}/{length}";
-
 
         Unit = new UnitSystem(localUnit, localSymbol);
     }
@@ -27,5 +20,4 @@ public partial record LengthCostUnit : UnitTypebase
 
         return $"{Unit}";
     }
-
-}    
+}

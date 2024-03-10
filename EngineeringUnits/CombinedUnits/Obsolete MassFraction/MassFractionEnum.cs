@@ -1,21 +1,9 @@
-﻿using EngineeringUnits.Units;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System;
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+[Obsolete("MassFraction is deprecated, please use Ratio instead.", true)]
+public record MassFractionUnit : UnitTypebase
 {
-
-    [Obsolete("MassFraction is deprecated, please use Ratio instead.", true)]
-    public record MassFractionUnit : UnitTypebase
-    {
-
-      
-
-    }
-
-
-
 
 }

@@ -6,7 +6,6 @@ public record CombinedUnit : UnitTypebase
 {
     public CombinedUnit() { }
 
-
     public CombinedUnit(string symbol, Fraction Constant)
     {
         var unit = new RawUnit()
@@ -18,7 +17,6 @@ public record CombinedUnit : UnitTypebase
             Count = 1,
 
         };
-
 
         Unit = new UnitSystem(unit);
     }
@@ -59,9 +57,6 @@ public record CombinedUnit : UnitTypebase
             return $"{Unit.Symbol}";
         }
 
-
         return $"{Unit}";
     }
-
-
 }

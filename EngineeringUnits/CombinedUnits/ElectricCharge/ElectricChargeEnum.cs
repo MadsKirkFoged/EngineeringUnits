@@ -1,42 +1,27 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿namespace EngineeringUnits.Units;
 
-namespace EngineeringUnits.Units
+public partial record ElectricChargeUnit : UnitTypebase
 {
 
+    public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI, "C");
+    public static readonly ElectricChargeUnit Coulomb = new(ElectricCurrentUnit.Ampere, DurationUnit.Second, "C");
+    public static readonly ElectricChargeUnit AmpereHour = new(ElectricCurrentUnit.Ampere, DurationUnit.Hour, "A-h");
+    public static readonly ElectricChargeUnit KiloampereHour = new(PreFix.kilo, AmpereHour);
+    public static readonly ElectricChargeUnit MegaampereHour = new(PreFix.mega, AmpereHour);
+    public static readonly ElectricChargeUnit MilliampereHour = new(PreFix.milli, AmpereHour);
 
-    public partial record ElectricChargeUnit : UnitTypebase
+    public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol)
     {
-
-        public static readonly ElectricChargeUnit SI = new(ElectricCurrentUnit.SI, DurationUnit.SI, "C");
-        public static readonly ElectricChargeUnit Coulomb = new(ElectricCurrentUnit.Ampere, DurationUnit.Second, "C");
-        public static readonly ElectricChargeUnit AmpereHour = new(ElectricCurrentUnit.Ampere, DurationUnit.Hour, "A-h");
-        public static readonly ElectricChargeUnit KiloampereHour = new(PreFix.kilo, AmpereHour);
-        public static readonly ElectricChargeUnit MegaampereHour = new(PreFix.mega, AmpereHour);
-        public static readonly ElectricChargeUnit MilliampereHour = new(PreFix.milli, AmpereHour);
-
-
-        public ElectricChargeUnit(ElectricCurrentUnit electricCurrent, DurationUnit duration, string NewSymbol)
-        {
-            Unit = new UnitSystem(electricCurrent * duration, NewSymbol);
-        }
-             
-
-        public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit) {}
-
-        public override string ToString()
-        {
-            if (Unit.Symbol is not null)
-                return $"{Unit.Symbol}";
-
-            return $"{Unit}";
-        }
-
+        Unit = new UnitSystem(electricCurrent * duration, NewSymbol);
     }
 
+    public ElectricChargeUnit(PreFix SI, ElectricChargeUnit unit) : base(SI, unit) { }
 
+    public override string ToString()
+    {
+        if (Unit.Symbol is not null)
+            return $"{Unit.Symbol}";
 
-
+        return $"{Unit}";
+    }
 }

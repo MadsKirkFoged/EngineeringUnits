@@ -6,16 +6,13 @@ namespace EngineeringUnits;
 public partial class VolumetricHeatTransferCoefficient
 {
 
-
-            /// <summary>
-            ///     Get VolumetricHeatTransferCoefficient in SI.
-            /// </summary>
-            public double SI => As(VolumetricHeatTransferCoefficientUnit.SI);
-            /// <summary>
-            ///     Get VolumetricHeatTransferCoefficient in WattPerCubicMeterKelvin.
-            /// </summary>
-            public double WattPerCubicMeterKelvin => As(VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
-    }
-
-
+    /// <summary>
+    ///     Get VolumetricHeatTransferCoefficient in SI.
+    /// </summary>
+    public new double SI => As(VolumetricHeatTransferCoefficientUnit.SI);
+    /// <summary>
+    ///     Get VolumetricHeatTransferCoefficient in WattPerCubicMeterKelvin.
+    /// </summary>
+    public double WattPerCubicMeterKelvin => As(VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
+}
 

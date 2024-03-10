@@ -32,19 +32,19 @@ public partial class AmountOfSubstance : BaseUnit
     public static implicit operator AmountOfSubstance(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, AmountOfSubstanceUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(AmountOfSubstance Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit);
 }

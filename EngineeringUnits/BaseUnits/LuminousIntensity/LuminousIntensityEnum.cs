@@ -7,7 +7,6 @@ public partial record LuminousIntensityUnit : UnitTypebase
     public static readonly LuminousIntensityUnit SI = new(PreFix.SI);
     public static readonly LuminousIntensityUnit Candela = new("cd", 1);
 
-
     public LuminousIntensityUnit(string symbol, decimal Constant)
     {
         var unit = new RawUnit()
@@ -20,10 +19,8 @@ public partial record LuminousIntensityUnit : UnitTypebase
 
         };
 
-
         Unit = new UnitSystem(unit);
     }
-
 
     public LuminousIntensityUnit(PreFix SI)
     {

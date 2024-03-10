@@ -1,12 +1,5 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace EngineeringUnits.CombinedUnits.ElectricConductance;
 
-namespace EngineeringUnits.CombinedUnits.ElectricConductance
+internal class same_as_Admittance
 {
-    class same_as_Admittance
-    {
-    }
 }

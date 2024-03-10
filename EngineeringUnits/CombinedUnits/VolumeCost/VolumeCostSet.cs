@@ -1,49 +1,44 @@
 
 using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
 
-namespace EngineeringUnits
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class VolumeCost
 {
-    //This class is auto-generated, changes to the file will be overwritten!
-    public partial class VolumeCost
+
+    /// <summary>
+    ///     Get VolumeCost from SI.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    public static VolumeCost FromSI(double? SI)
     {
+        if (SI is null)
+            return null;
 
- 
+        return new VolumeCost((double)SI, VolumeCostUnit.SI);
+    }
+    /// <summary>
+    ///     Get VolumeCost from USDollarPerCubicMeter.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    public static VolumeCost FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter)
+    {
+        if (USDollarPerCubicMeter is null)
+            return null;
 
-        /// <summary>
-        ///     Get VolumeCost from SI.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static VolumeCost FromSI(double? SI)
-        {
-            if (SI is null)
-                return null;
+        return new VolumeCost((double)USDollarPerCubicMeter, VolumeCostUnit.USDollarPerCubicMeter);
+    }
+    /// <summary>
+    ///     Get VolumeCost from EuroPerCubicMeter.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    public static VolumeCost FromEuroPerCubicMeter(double? EuroPerCubicMeter)
+    {
+        if (EuroPerCubicMeter is null)
+            return null;
 
-            return new VolumeCost((double)SI, VolumeCostUnit.SI);
-        }
-        /// <summary>
-        ///     Get VolumeCost from USDollarPerCubicMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static VolumeCost FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter)
-        {
-            if (USDollarPerCubicMeter is null)
-                return null;
-
-            return new VolumeCost((double)USDollarPerCubicMeter, VolumeCostUnit.USDollarPerCubicMeter);
-        }
-        /// <summary>
-        ///     Get VolumeCost from EuroPerCubicMeter.
-        /// </summary>
-        /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-        public static VolumeCost FromEuroPerCubicMeter(double? EuroPerCubicMeter)
-        {
-            if (EuroPerCubicMeter is null)
-                return null;
-
-            return new VolumeCost((double)EuroPerCubicMeter, VolumeCostUnit.EuroPerCubicMeter);
-        }
+        return new VolumeCost((double)EuroPerCubicMeter, VolumeCostUnit.EuroPerCubicMeter);
     }
 }
-
 

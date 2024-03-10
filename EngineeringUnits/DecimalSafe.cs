@@ -1,14 +1,11 @@
 ﻿using Fractions;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits;
 public record DecimalSafe
 {
- 
+
     [JsonProperty]
     internal decimal Value { get; init; }
 
@@ -56,12 +53,25 @@ public record DecimalSafe
     //    return new DecimalSafe(left.Value / right.Value);
     //}
 
-    public static implicit operator DecimalSafe(decimal value) => new DecimalSafe(value);
-    public static implicit operator DecimalSafe(double value) => new DecimalSafe(value);
-    public static implicit operator DecimalSafe(int value) => new DecimalSafe(value);
+    public static implicit operator DecimalSafe(decimal value)
+    {
+        return new DecimalSafe(value);
+    }
 
+    public static implicit operator DecimalSafe(double value)
+    {
+        return new DecimalSafe(value);
+    }
 
-    public static implicit operator decimal(DecimalSafe value) => value.Value;
+    public static implicit operator DecimalSafe(int value)
+    {
+        return new DecimalSafe(value);
+    }
+
+    public static implicit operator decimal(DecimalSafe value)
+    {
+        return value.Value;
+    }
 
     public static explicit operator double(DecimalSafe value)
     {
@@ -74,11 +84,15 @@ public record DecimalSafe
         return (double)value.Value;
     }
 
+    public static explicit operator int(DecimalSafe value)
+    {
+        return (int)value.Value;
+    }
 
-    public static explicit operator int(DecimalSafe value) => (int)value.Value;
-
-    public static explicit operator Fraction(DecimalSafe value) => (Fraction)value.Value;
-
+    public static explicit operator Fraction(DecimalSafe value)
+    {
+        return (Fraction)value.Value;
+    }
 
     public override string ToString()
     {
@@ -87,7 +101,6 @@ public record DecimalSafe
 
         if (IsNaN)
             return double.NaN.ToString();
-
 
         return Value.ToString();
     }
@@ -99,7 +112,6 @@ public record DecimalSafe
 
         if (IsNaN)
             return double.NaN.ToString(format);
-
 
         return Value.ToString(format);
     }
@@ -139,13 +151,9 @@ public record DecimalSafe
         if (IsNaN || IsInf)
             return false;
 
-
         return true;
     }
 
-    public bool IsNotAValue()
-    {
-        return !IsAValue();
-    }
+    public bool IsNotAValue() => !IsAValue();
 
 }

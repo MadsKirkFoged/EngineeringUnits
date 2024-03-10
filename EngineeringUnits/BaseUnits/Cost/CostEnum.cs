@@ -12,7 +12,6 @@ public partial record CostUnit : UnitTypebase
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
 
-
     public CostUnit(string code, string Symbol, decimal Rate)
     {
         var unit = new RawUnit()
@@ -30,10 +29,9 @@ public partial record CostUnit : UnitTypebase
 
     public override string ToString()
     {
-        if (Unit.Symbol is not null)        
-            return $"{Unit.Symbol}";       
+        if (Unit.Symbol is not null)
+            return $"{Unit.Symbol}";
 
         return $"{Unit}";
     }
-
 }

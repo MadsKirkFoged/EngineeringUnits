@@ -1,9 +1,3 @@
-using EngineeringUnits.Units;
-using Fractions;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EngineeringUnits.Units;
 public partial record VolumeCostUnit : UnitTypebase
 {
@@ -11,13 +5,10 @@ public partial record VolumeCostUnit : UnitTypebase
     public static readonly VolumeCostUnit USDollarPerCubicMeter = new(CostUnit.USDollar, VolumeUnit.CubicMeter);
     public static readonly VolumeCostUnit EuroPerCubicMeter = new(CostUnit.Euro, VolumeUnit.CubicMeter);
 
-
-
     public VolumeCostUnit(CostUnit cost, VolumeUnit volume)
     {
-        var localUnit = cost / volume;
+        UnitSystem localUnit = cost / volume;
         var localSymbol = $"{cost}/{volume}";
-
 
         Unit = new UnitSystem(localUnit, localSymbol);
     }
@@ -29,5 +20,4 @@ public partial record VolumeCostUnit : UnitTypebase
 
         return $"{Unit}";
     }
-
-}    
+}

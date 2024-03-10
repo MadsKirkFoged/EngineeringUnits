@@ -1,21 +1,9 @@
-﻿using EngineeringUnits.Units;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System;
 
-namespace EngineeringUnits.Units
+namespace EngineeringUnits.Units;
+
+[Obsolete("VolumeConcentration is deprecated, please use Ratio instead.", true)]
+public record VolumeConcentrationUnit : UnitTypebase
 {
-
-    [Obsolete("VolumeConcentration is deprecated, please use Ratio instead.", true)]
-    public record VolumeConcentrationUnit : UnitTypebase
-    {
-
-       
-
-    }
-
-
-
 
 }

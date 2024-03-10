@@ -1,7 +1,4 @@
 ﻿using EngineeringUnits.Units;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EngineeringUnits;
 public partial class Ratio : BaseUnit
@@ -21,6 +18,4 @@ public partial class Ratio : BaseUnit
     {
         return new Ratio(Unit, RatioUnit.DecimalFraction);
     }
-
-
 }

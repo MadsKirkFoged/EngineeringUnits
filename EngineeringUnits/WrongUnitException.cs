@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+[Serializable]
+public class WrongUnitException : Exception
 {
-    [Serializable]
-    public class WrongUnitException : Exception
-    {
-        public WrongUnitException()
-        { }
+    public WrongUnitException()
+    { }
 
-        public WrongUnitException(string message)
-            : base(message)
-        { }
+    public WrongUnitException(string message)
+        : base(message)
+    { }
 
-        public WrongUnitException(string message, Exception innerException)
-            : base(message, innerException)
-        { }
-    }
+    public WrongUnitException(string message, Exception innerException)
+        : base(message, innerException)
+    { }
 }

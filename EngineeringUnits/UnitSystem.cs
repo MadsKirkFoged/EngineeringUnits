@@ -1,284 +1,246 @@
-﻿using EngineeringUnits.Units;
-using Fractions;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System;
+﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Text.RegularExpressions;
+using System.Linq;
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+// A unitsystem is list of RawUnits
+// It represent how a unit of measure is defined
+// --> It does not know the value of the unit!
+// --> Combined with a value you get the BaseUnit class..
+// ex if you have a list of {length+1, duration-1} that could represent a speed [m/s] 
+
+public class UnitSystem
 {
+    public string Symbol { get; init; }
 
-    // A unitsystem is list of RawUnits
-    // It represent how a unit of measure is defined
-    // --> It does not know the value of the unit!
-    // --> Combined with a value you get the BaseUnit class..
-    // ex if you have a list of {length+1, duration-1} that could represent a speed [m/s] 
+    //[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
+    public ImmutableList<RawUnit> ListOfUnits { get; init; }
 
-    public class UnitSystem
-    {      
-        public string Symbol { get; init; }     
+    public UnitSystem()
+    {
+        ListOfUnits = ImmutableList<RawUnit>.Empty;
+    }
 
-        //[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
-        public ImmutableList<RawUnit> ListOfUnits { get; init; }
+    public UnitSystem(List<RawUnit> LocalUnitList, string symbol = null)
+    {
+        ListOfUnits = LocalUnitList.ReduceUnits().ToImmutableList();
+        Symbol = symbol;
+    }
 
-        public UnitSystem() 
+    public UnitSystem(RawUnit unit) : this([unit]) { }
+    public UnitSystem(decimal unit, string symbol)
+    {
+        //Adding just a dimensionless unit
+        var dimensionless = new RawUnit()
         {
-            ListOfUnits = ImmutableList<RawUnit>.Empty;
-        }
+            Symbol=symbol,
+            A = new(unit),
+            UnitType = BaseunitType.CombinedUnit,
+            B = 0,
+            Count = 1,
+        };
 
-        public UnitSystem(List<RawUnit> LocalUnitList, string symbol = null)
-        {
-            ListOfUnits = LocalUnitList.ReduceUnits().ToImmutableList();
-            Symbol = symbol;
-        }
+        ListOfUnits = new List<RawUnit>() { dimensionless }.ToImmutableList();
+    }
 
-        public UnitSystem(RawUnit unit) : this(new List<RawUnit>() {unit}) { }
-        public UnitSystem(decimal unit, string symbol)
-        {
-            //Adding just a dimensionless unit
-            var dimensionless = new RawUnit()
-            {
-                Symbol=symbol,
-                A = new(unit),
-                UnitType = BaseunitType.CombinedUnit,
-                B = 0,
-                Count = 1,
-            };
+    public UnitSystem(UnitSystem unit, string symbol)
+    {
+        ListOfUnits = new List<RawUnit>(unit.ListOfUnits).ToImmutableList();
+        Symbol = symbol;
+    }
 
-            ListOfUnits = new List<RawUnit>() {dimensionless}.ToImmutableList();
-        }
+    public static bool operator ==(UnitSystem a, UnitSystem b)
+    {
+        return a.GetHashCodeForUnitTypeCompare() == b.GetHashCodeForUnitTypeCompare();
+    }
+    public static bool operator !=(UnitSystem a, UnitSystem b)
+    {
+        return !(a == b);
+    }
 
-        public UnitSystem(UnitSystem unit, string symbol)
-        {
-            ListOfUnits = new List<RawUnit>(unit.ListOfUnits).ToImmutableList();
-            Symbol = symbol;
-        }
+    public override bool Equals(object obj)
+    {
+        //Check for null and compare run-time types.
+        if ((obj == null) || !GetType().Equals(obj.GetType()))
+            return false;
+        else
+            return this == (UnitSystem)obj;
+    }
 
-       
+    public bool Equals(UnitSystem other) => this == other;
 
-        public static bool operator ==(UnitSystem a, UnitSystem b)
-        {
-            return a.GetHashCodeForUnitTypeCompare() == b.GetHashCodeForUnitTypeCompare();
-        }
-        public static bool operator !=(UnitSystem a, UnitSystem b)
-        {
-            return !(a == b);
-        }
+    public static UnitSystem operator +(UnitSystem left, UnitSystem right)
+    {
+        if (left != right)
+            throw new WrongUnitException($"Failed to do: {left} + {right}. Expected both units to be the same!");
 
-        public override bool Equals(object obj)
-        {
-            //Check for null and compare run-time types.
-            if ((obj == null) || !GetType().Equals(obj.GetType()))
-                return false;
-            else
-                return this == (UnitSystem)obj;
-        }
+        //Using left unitsystem as the final system
+        return left;
+    }
+    public static UnitSystem operator -(UnitSystem left, UnitSystem right)
+    {
+        if (left != right)
+            throw new WrongUnitException($"Failed to do: {left} - {right}. Expected both units to be the same!");
 
-        public bool Equals(UnitSystem other) => this == other;
+        //Using left unitsystem as the final system
+        return left;
 
-        public static UnitSystem operator +(UnitSystem left, UnitSystem right)
-        {
-            if (left != right)
-                throw new WrongUnitException($"Failed to do: {left} + {right}. Expected both units to be the same!");
+    }
 
-            //Using left unitsystem as the final system
-            return left;
-        }
-        public static UnitSystem operator -(UnitSystem left, UnitSystem right)
-        {
-            if (left != right)
-                throw new WrongUnitException($"Failed to do: {left} - {right}. Expected both units to be the same!");
+    private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
+    public static UnitSystem operator *(UnitSystem left, UnitSystem right)
+    {
+        var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
 
-            //Using left unitsystem as the final system
-            return left;
-
-
-
-        }
-
-
-        static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
-        public static UnitSystem operator *(UnitSystem left, UnitSystem right)
-        {
-            var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
-
-            if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
-                return local;
-
-
-            var test2 = new UnitSystem(
-                    new List<RawUnit>(
-                        left.ListOfUnits.Concat(
-                        right.ListOfUnits)));
-
-            var AlreadyAdded = CacheMultiply.TryAdd(Hashes, test2);
-
-            return test2;
-        }
-
-
-        public static UnitSystem operator *(decimal left, UnitSystem right)
-        {
-            return right * left;
-        }
-        public static UnitSystem operator *(UnitSystem left, decimal right)
-        {
-            if (right == 1)
-                return left;
-
-
-
-            List<RawUnit> LocalUnitList = new();
-
-            LocalUnitList.AddRange(left.ListOfUnits);
-            //LocalUnitList.Add(new CombinedUnit(constant));
-
-            var dimensionless = new RawUnit()
-            {
-                Symbol=null,
-                A = new(right),
-                UnitType = BaseunitType.CombinedUnit,
-                B = 0,
-                Count = 1,
-
-            };
-            LocalUnitList.Add(dimensionless);
-
-
-            return new UnitSystem(LocalUnitList, left.Symbol);
-
-
-
-        }
-
-
-        static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
-        public static UnitSystem operator /(UnitSystem left, UnitSystem right)
-        {
-            var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
-
-            if (CacheDivide.TryGetValue(Hashes, out UnitSystem local))
-                return local;
-
-
-            List<RawUnit> LocalUnitList = new(left.ListOfUnits);
-
-            foreach (var item in right.ListOfUnits)
-                LocalUnitList.Add(item.CloneAndReverseCount());
-
-            var DividedUnit = new UnitSystem(LocalUnitList);
-
-            var AlreadyAdded = CacheDivide.TryAdd(Hashes, DividedUnit);
-
-            return DividedUnit;
-
-
-        }
-
-
-        public override string ToString()
-        {
-
-            if (Symbol is not null)
-                return Symbol;
-
-
-            //Creates all positive symbols
-            var local = ListOfUnits
-                .Where(x => x.Count > 0)
-                .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
-
-            //If any negative values are present create a '/'
-            if (ListOfUnits.Any(x => x.Count < 0))
-                local += "/";
-
-            //Creates all negative symbols
-            local += ListOfUnits
-                .Where(x => x.Count < 0)
-                .Aggregate("", (x, y) => x += $"{y.Symbol}{(y.Count * -1).ToSuperScript()}");
-
-
+        if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
             return local;
+
+        var test2 = new UnitSystem(
+                new List<RawUnit>(
+                    left.ListOfUnits.Concat(
+                    right.ListOfUnits)));
+        _ = CacheMultiply.TryAdd(Hashes, test2);
+
+        return test2;
+    }
+
+    public static UnitSystem operator *(decimal left, UnitSystem right)
+    {
+        return right * left;
+    }
+    public static UnitSystem operator *(UnitSystem left, decimal right)
+    {
+        if (right == 1)
+            return left;
+
+        List<RawUnit> LocalUnitList = [.. left.ListOfUnits];
+        //LocalUnitList.Add(new CombinedUnit(constant));
+
+        var dimensionless = new RawUnit()
+        {
+            Symbol=null,
+            A = new(right),
+            UnitType = BaseunitType.CombinedUnit,
+            B = 0,
+            Count = 1,
+
+        };
+        LocalUnitList.Add(dimensionless);
+
+        return new UnitSystem(LocalUnitList, left.Symbol);
+
+    }
+
+    private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
+    public static UnitSystem operator /(UnitSystem left, UnitSystem right)
+    {
+        var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
+
+        if (CacheDivide.TryGetValue(Hashes, out UnitSystem local))
+            return local;
+
+        List<RawUnit> LocalUnitList = new(left.ListOfUnits);
+
+        foreach (RawUnit item in right.ListOfUnits)
+            LocalUnitList.Add(item.CloneAndReverseCount());
+
+        var DividedUnit = new UnitSystem(LocalUnitList);
+        _ = CacheDivide.TryAdd(Hashes, DividedUnit);
+
+        return DividedUnit;
+
+    }
+
+    public override string ToString()
+    {
+
+        if (Symbol is not null)
+            return Symbol;
+
+        //Creates all positive symbols
+        var local = ListOfUnits
+            .Where(x => x.Count > 0)
+            .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
+
+        //If any negative values are present create a '/'
+        if (ListOfUnits.Any(x => x.Count < 0))
+            local += "/";
+
+        //Creates all negative symbols
+        local += ListOfUnits
+            .Where(x => x.Count < 0)
+            .Aggregate("", (x, y) => x += $"{y.Symbol}{(y.Count * -1).ToSuperScript()}");
+
+        return local;
+    }
+
+    private int HashCodeCached;
+    public override int GetHashCode()
+    {
+        if (HashCodeCached is not 0)
+            return HashCodeCached;
+
+        int TempHashCode;
+        unchecked // Overflow is fine, just wrap
+        {
+            TempHashCode = 795945743;
+
+            foreach (RawUnit item in ListOfUnits.OrderBy(x => x.UnitType))
+            {
+                TempHashCode = (TempHashCode * 512265997) ^ item.GetHashCode();
+            }
         }
 
+        HashCodeCached = TempHashCode;
 
-        int HashCodeCached;
-        public override int GetHashCode()
+        return TempHashCode;
+    }
+
+    internal int HashCodeForUnitCompare;
+    public int GetHashCodeForUnitTypeCompare()
+    {
+        //This can tell if two units is of the same type
+        //ex meter and feet is both length and would return the same hashcode
+
+        if (HashCodeForUnitCompare == 0)
         {
-            if (HashCodeCached is not 0)
-                return HashCodeCached;
 
+            //Exemple of output:
+            //Mass - 2
+            //Length - 1
+            //Duration - 3
 
-            int TempHashCode;
-            unchecked // Overflow is fine, just wrap
+            IOrderedEnumerable<(BaseunitType Key, int)> _UnitsCount = ListOfUnits
+                              .Where(x => x.UnitType is not BaseunitType.CombinedUnit)
+                              .GroupBy(x => x.UnitType)
+                              .Select(x => (x.Key, x.Sum(x => x.Count)))
+                              .Where(x => x.Item2 != 0)
+                              .OrderBy(x => x.Key)
+                              .ThenBy(x => x.Item2);
+
+            HashCode hashCode = new();
+
+            foreach ((BaseunitType Key, var Value) in _UnitsCount)
             {
-                TempHashCode = 795945743;
-
-                foreach (var item in ListOfUnits.OrderBy(x => x.UnitType))
-                {
-                    TempHashCode = (TempHashCode * 512265997) ^ item.GetHashCode();
-                }
+                hashCode.Add(Key);
+                hashCode.Add(Value);
             }
 
-            HashCodeCached = TempHashCode;
-
-            return TempHashCode;
+            HashCodeForUnitCompare = hashCode.ToHashCode();
         }
 
-        internal int HashCodeForUnitCompare;
-        public int GetHashCodeForUnitTypeCompare()
-        {
-            //This can tell if two units is of the same type
-            //ex meter and feet is both length and would return the same hashcode
+        return HashCodeForUnitCompare;
+    }
 
+    private bool? isSIUnit = null;
+    public bool IsSIUnit()
+    {
+        if (isSIUnit is null)
+            isSIUnit = ListOfUnits.All(x => x.IsSI);
 
-            if (HashCodeForUnitCompare == 0)
-            {
-
-                //Exemple of output:
-                //Mass - 2
-                //Length - 1
-                //Duration - 3
-
-                var _UnitsCount = ListOfUnits
-                                  .Where(x => x.UnitType is not BaseunitType.CombinedUnit)
-                                  .GroupBy(x => x.UnitType)
-                                  .Select(x => (x.Key, x.Sum(x => x.Count)))
-                                  .Where(x => x.Item2 != 0)
-                                  .OrderBy(x => x.Key)
-                                  .ThenBy(x => x.Item2);
-
-
-                HashCode hashCode = new();               
-
-                foreach (var (Key, Value) in _UnitsCount)
-                {
-                    hashCode.Add(Key);
-                    hashCode.Add(Value);
-                }
-
-                HashCodeForUnitCompare = hashCode.ToHashCode();
-            }
-
-            return HashCodeForUnitCompare;
-        }
-
-
-        bool? isSIUnit = null;
-        public bool IsSIUnit()
-        {
-            if (isSIUnit is null)            
-                isSIUnit = ListOfUnits.All(x => x.IsSI);           
-
-            return (bool)isSIUnit;
-        }
-
-
-
+        return (bool)isSIUnit;
     }
 }

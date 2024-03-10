@@ -1,81 +1,68 @@
 ﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
-using Fractions;
 using System;
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+[Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
+public partial class TemperatureDelta : BaseUnit
 {
 
-    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
-    public partial class TemperatureDelta : BaseUnit
+    public TemperatureDelta()
+    {
+        //Unit = TemperatureUnit.SI.Unit.Copy();
+    }
+
+    public TemperatureDelta(int value, TemperatureUnit selectedUnit) : this()
     {
 
-        public TemperatureDelta()
-        {
-            //Unit = TemperatureUnit.SI.Unit.Copy();
-        }
+        //Unit = selectedUnit.Unit;
+        //SetValue(value);
 
-        public TemperatureDelta(int value, TemperatureUnit selectedUnit) : this()
-        {
+        ////Forcing all TemperatureDeltas to stay in kelvin
+        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
-            //Unit = selectedUnit.Unit;
-            //SetValue(value);
+    }
 
-            ////Forcing all TemperatureDeltas to stay in kelvin
-            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+    public TemperatureDelta(double value, TemperatureUnit selectedUnit) : this()
+    {
 
-        }
+        //Unit = selectedUnit.Unit;
+        //SetValue(value);
 
-        public TemperatureDelta(double value, TemperatureUnit selectedUnit) :this()
-        {
+        ////Forcing all TemperatureDeltas to stay in kelvin
+        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
-            //Unit = selectedUnit.Unit;
-            //SetValue(value);
+    }
 
-            ////Forcing all TemperatureDeltas to stay in kelvin
-            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+    public TemperatureDelta(decimal value, TemperatureUnit selectedUnit) : this()
+    {
 
-        }
+        //Unit = selectedUnit.Unit.Copy();
+        //SetValue(value);
 
-        public TemperatureDelta(decimal value, TemperatureUnit selectedUnit) : this()
-        {
+        ////Forcing all TemperatureDeltas to stay in kelvin
+        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
+        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
+        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
 
-            //Unit = selectedUnit.Unit.Copy();
-            //SetValue(value);
+    }
 
-            ////Forcing all TemperatureDeltas to stay in kelvin
-            ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-            //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-            //Unit = TemperatureUnit.Kelvin.Unit.Copy();
+    public static TemperatureDelta From(double value, TemperatureUnit unit) => new(value, unit);
 
-        }
+    public double As(TemperatureUnit ReturnInThisUnit) => (double)this.GetValueAs(ReturnInThisUnit.Unit);
 
-        public static TemperatureDelta From(double value, TemperatureUnit unit) => new(value, unit);
+    public TemperatureDelta ToUnit(TemperatureUnit selectedUnit) => new TemperatureDelta(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);
 
-        public double As(TemperatureUnit ReturnInThisUnit) => (double)this.GetValueAs(ReturnInThisUnit.Unit);
+    public static implicit operator TemperatureDelta(UnknownUnit Unit)
+    {
+        TemperatureDelta local = new(0, TemperatureUnit.SI);
 
-        public TemperatureDelta ToUnit(TemperatureUnit selectedUnit)
-        {
-            return new TemperatureDelta(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-        }
-        public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);
-
-        public static implicit operator TemperatureDelta(UnknownUnit Unit)
-        {
-            TemperatureDelta local = new(0, TemperatureUnit.SI);
-
-            //local.Transform(Unit);
-            return local;
-        }
-
-
-
+        //local.Transform(Unit);
+        return local;
     }
 }

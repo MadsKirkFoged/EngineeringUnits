@@ -6,24 +6,21 @@ namespace EngineeringUnits;
 public partial class ElectricCurrentDensity
 {
 
-
-            /// <summary>
-            ///     Get ElectricCurrentDensity in SI.
-            /// </summary>
-            public double SI => As(ElectricCurrentDensityUnit.SI);
-            /// <summary>
-            ///     Get ElectricCurrentDensity in AmperePerSquareMeter.
-            /// </summary>
-            public double AmperePerSquareMeter => As(ElectricCurrentDensityUnit.AmperePerSquareMeter);
-            /// <summary>
-            ///     Get ElectricCurrentDensity in AmperePerSquareInch.
-            /// </summary>
-            public double AmperePerSquareInch => As(ElectricCurrentDensityUnit.AmperePerSquareInch);
-            /// <summary>
-            ///     Get ElectricCurrentDensity in AmperePerSquareFoot.
-            /// </summary>
-            public double AmperePerSquareFoot => As(ElectricCurrentDensityUnit.AmperePerSquareFoot);
-    }
-
-
+    /// <summary>
+    ///     Get ElectricCurrentDensity in SI.
+    /// </summary>
+    public new double SI => As(ElectricCurrentDensityUnit.SI);
+    /// <summary>
+    ///     Get ElectricCurrentDensity in AmperePerSquareMeter.
+    /// </summary>
+    public double AmperePerSquareMeter => As(ElectricCurrentDensityUnit.AmperePerSquareMeter);
+    /// <summary>
+    ///     Get ElectricCurrentDensity in AmperePerSquareInch.
+    /// </summary>
+    public double AmperePerSquareInch => As(ElectricCurrentDensityUnit.AmperePerSquareInch);
+    /// <summary>
+    ///     Get ElectricCurrentDensity in AmperePerSquareFoot.
+    /// </summary>
+    public double AmperePerSquareFoot => As(ElectricCurrentDensityUnit.AmperePerSquareFoot);
+}
 

@@ -32,19 +32,19 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
     public static implicit operator VolumetricHeatTransferCoefficient(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, VolumetricHeatTransferCoefficientUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(VolumetricHeatTransferCoefficient Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);
 }

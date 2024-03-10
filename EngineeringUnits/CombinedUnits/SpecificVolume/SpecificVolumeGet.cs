@@ -6,16 +6,13 @@ namespace EngineeringUnits;
 public partial class SpecificVolume
 {
 
-
-            /// <summary>
-            ///     Get SpecificVolume in SI.
-            /// </summary>
-            public double SI => As(SpecificVolumeUnit.SI);
-            /// <summary>
-            ///     Get SpecificVolume in CubicMeterPerKilogram.
-            /// </summary>
-            public double CubicMeterPerKilogram => As(SpecificVolumeUnit.CubicMeterPerKilogram);
-    }
-
-
+    /// <summary>
+    ///     Get SpecificVolume in SI.
+    /// </summary>
+    public new double SI => As(SpecificVolumeUnit.SI);
+    /// <summary>
+    ///     Get SpecificVolume in CubicMeterPerKilogram.
+    /// </summary>
+    public double CubicMeterPerKilogram => As(SpecificVolumeUnit.CubicMeterPerKilogram);
+}
 

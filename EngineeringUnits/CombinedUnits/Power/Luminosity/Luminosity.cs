@@ -1,39 +1,35 @@
 ﻿using EngineeringUnits.Units;
 
+namespace EngineeringUnits;
 
-namespace EngineeringUnits
+public partial class Luminosity : BaseUnit
 {
-    public partial class Luminosity : BaseUnit
+
+    public Luminosity()
     {
+        //Unit = new UnitSystem(PowerUnit.SI);
+    }
 
-        public Luminosity()
-        {
-            //Unit = new UnitSystem(PowerUnit.SI);
-        }
+    public Luminosity(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public Luminosity(double value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public Luminosity(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public Luminosity(UnknownUnit value) : base(value) { }
 
-        public Luminosity(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Luminosity(double value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Luminosity(int value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public Luminosity(UnknownUnit value) : base(value) { }
+    public static Luminosity From(double value, PowerUnit unit) => new(value, unit);
+    public double As(PowerUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
+    public Luminosity ToUnit(PowerUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public static Luminosity Zero => new(0, PowerUnit.SI);
 
+    public static implicit operator Luminosity(UnknownUnit Unit)
+    {
+        return new(Unit);
+    }
 
-        public static Luminosity From(double value, PowerUnit unit) => new(value, unit);
-        public double As(PowerUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-        public Luminosity ToUnit(PowerUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-        public static Luminosity Zero => new(0, PowerUnit.SI);
+    public static implicit operator Luminosity(int zero)
+    {
+        if (zero != 0)
+            throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
 
-        public static implicit operator Luminosity(UnknownUnit Unit) => new(Unit);
-
-        public static implicit operator Luminosity(int zero)
-        {
-            if (zero != 0)
-                throw new WrongUnitException($"You need to give it a unit unless you set it to 0 (zero)!");
-
-            return Zero;
-        }
-
-
-
-
+        return Zero;
     }
 }

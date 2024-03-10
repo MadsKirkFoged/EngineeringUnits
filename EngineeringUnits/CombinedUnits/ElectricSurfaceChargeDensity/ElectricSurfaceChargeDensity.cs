@@ -32,19 +32,19 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
     public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, ElectricSurfaceChargeDensityUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(ElectricSurfaceChargeDensity Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);
 }

@@ -5,22 +5,20 @@ namespace EngineeringUnits.Units;
 public partial record DurationUnit : UnitTypebase
 {
 
+    public static readonly DurationUnit Nanosecond = new(PreFix.nano);
+    public static readonly DurationUnit Millisecond = new(PreFix.milli);
+    public static readonly DurationUnit Microsecond = new(PreFix.micro);
+    public static readonly DurationUnit Second = new(PreFix.SI);
 
-    public static readonly DurationUnit Nanosecond =    new(PreFix.nano);
-    public static readonly DurationUnit Millisecond =   new(PreFix.milli);
-    public static readonly DurationUnit Microsecond =   new(PreFix.micro);
-    public static readonly DurationUnit Second =        new(PreFix.SI);
-
-    public static readonly DurationUnit Minute =        new("min", 60m);
-    public static readonly DurationUnit Hour =          new("h", 3600m);
-    public static readonly DurationUnit Day =           new("day", 24*3600m);
-    public static readonly DurationUnit Week =          new("wk", 7*24*3600m);
-    public static readonly DurationUnit Month30 =       new("mo", 30 * 24 * 3600m);
-    public static readonly DurationUnit Year365 =       new("yr", 365*24*3600m);
-    public static readonly DurationUnit SI =            new(PreFix.SI);
+    public static readonly DurationUnit Minute = new("min", 60m);
+    public static readonly DurationUnit Hour = new("h", 3600m);
+    public static readonly DurationUnit Day = new("day", 24*3600m);
+    public static readonly DurationUnit Week = new("wk", 7*24*3600m);
+    public static readonly DurationUnit Month30 = new("mo", 30 * 24 * 3600m);
+    public static readonly DurationUnit Year365 = new("yr", 365*24*3600m);
+    public static readonly DurationUnit SI = new(PreFix.SI);
 
     public DurationUnit() { }
-
 
     public DurationUnit(string symbol, decimal Constant)
     {
@@ -34,10 +32,8 @@ public partial record DurationUnit : UnitTypebase
 
         };
 
-
         Unit = new UnitSystem(unit);
     }
-
 
     public DurationUnit(PreFix SI)
     {
@@ -61,8 +57,6 @@ public partial record DurationUnit : UnitTypebase
             return $"{Unit.Symbol}";
         }
 
-
         return $"{Unit}";
     }
-
 }

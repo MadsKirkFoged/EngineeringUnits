@@ -1,20 +1,9 @@
-﻿using EngineeringUnits.Units;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System;
+﻿using System;
 
-namespace EngineeringUnits.Units
+namespace EngineeringUnits.Units;
+
+[Obsolete("RelativeHumidity is deprecated, please use Ratio instead.", true)]
+public record RelativeHumidityUnit : UnitTypebase
 {
-
-    [Obsolete("RelativeHumidity is deprecated, please use Ratio instead.", true)]
-    public record RelativeHumidityUnit : UnitTypebase
-    {
-
-       
-
-    }
-
-
-
 
 }

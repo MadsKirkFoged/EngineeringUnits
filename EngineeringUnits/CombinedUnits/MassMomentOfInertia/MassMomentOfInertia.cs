@@ -32,19 +32,19 @@ public partial class MassMomentOfInertia : BaseUnit
     public static implicit operator MassMomentOfInertia(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, MassMomentOfInertiaUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(MassMomentOfInertia Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);
 }

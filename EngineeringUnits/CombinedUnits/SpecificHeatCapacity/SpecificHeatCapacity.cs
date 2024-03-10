@@ -32,19 +32,19 @@ public partial class SpecificHeatCapacity : BaseUnit
     public static implicit operator SpecificHeatCapacity(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, SpecificHeatCapacityUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(SpecificHeatCapacity Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit);
 }
