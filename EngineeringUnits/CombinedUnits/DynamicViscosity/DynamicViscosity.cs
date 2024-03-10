@@ -2,51 +2,50 @@
 using EngineeringUnits.Units;
 
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class DynamicViscosity : BaseUnit
 {
-    //This class is auto-generated, changes to the file will be overwritten!
-    public partial class DynamicViscosity : BaseUnit
+
+    public DynamicViscosity() { }
+    public DynamicViscosity(decimal value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public DynamicViscosity(double value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public DynamicViscosity(int value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public DynamicViscosity(UnknownUnit value) : base(value) { }
+
+    public static DynamicViscosity From(double value, DynamicViscosityUnit unit) => new(value, unit);
+
+    public static DynamicViscosity From(double? value, DynamicViscosityUnit unit)
     {
-
-        public DynamicViscosity() { }
-        public DynamicViscosity(decimal value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public DynamicViscosity(double value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public DynamicViscosity(int value, DynamicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public DynamicViscosity(UnknownUnit value) : base(value) { }
-
-        public static DynamicViscosity From(double value, DynamicViscosityUnit unit) => new(value, unit);
-
-        public static DynamicViscosity From(double? value, DynamicViscosityUnit unit)
+        if (value is null || unit is null)
         {
-            if (value is null || unit is null)
-            {
-                return null;
-            }
-
-            return From((double)value, unit);
-        }
-        public double As(DynamicViscosityUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-        public DynamicViscosity ToUnit(DynamicViscosityUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-        public static DynamicViscosity Zero => new(0, DynamicViscosityUnit.SI);
-        public static DynamicViscosity NaN => new(double.NaN, DynamicViscosityUnit.SI);
-
-        public static implicit operator DynamicViscosity(UnknownUnit Unit)
-        {
-            if (Unit is null)
-                return null; 
-
-            GuardAgainst.DifferentUnits(Unit, DynamicViscosityUnit.SI);
-            return new(Unit);        
+            return null;
         }
 
-        public static implicit operator UnknownUnit(DynamicViscosity Unit)
-        {            
-            if (Unit is null)
-                return null;
-
-            return new(Unit);
-        }
-
-        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);
-        }
+        return From((double)value, unit);
     }
+    public double As(DynamicViscosityUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+    public DynamicViscosity ToUnit(DynamicViscosityUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public static DynamicViscosity Zero => new(0, DynamicViscosityUnit.SI);
+    public static DynamicViscosity NaN => new(double.NaN, DynamicViscosityUnit.SI);
+
+    public static implicit operator DynamicViscosity(UnknownUnit Unit)
+    {
+        if (Unit is null)
+            return null; 
+
+        GuardAgainst.DifferentUnits(Unit, DynamicViscosityUnit.SI);
+        return new(Unit);        
+    }
+
+    public static implicit operator UnknownUnit(DynamicViscosity Unit)
+    {            
+        if (Unit is null)
+            return null;
+
+        return new(Unit);
+    }
+
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);    
+}

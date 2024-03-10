@@ -2,51 +2,50 @@
 using EngineeringUnits.Units;
 
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class MolarMass : BaseUnit
 {
-    //This class is auto-generated, changes to the file will be overwritten!
-    public partial class MolarMass : BaseUnit
+
+    public MolarMass() { }
+    public MolarMass(decimal value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public MolarMass(double value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public MolarMass(int value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public MolarMass(UnknownUnit value) : base(value) { }
+
+    public static MolarMass From(double value, MolarMassUnit unit) => new(value, unit);
+
+    public static MolarMass From(double? value, MolarMassUnit unit)
     {
-
-        public MolarMass() { }
-        public MolarMass(decimal value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public MolarMass(double value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public MolarMass(int value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public MolarMass(UnknownUnit value) : base(value) { }
-
-        public static MolarMass From(double value, MolarMassUnit unit) => new(value, unit);
-
-        public static MolarMass From(double? value, MolarMassUnit unit)
+        if (value is null || unit is null)
         {
-            if (value is null || unit is null)
-            {
-                return null;
-            }
-
-            return From((double)value, unit);
-        }
-        public double As(MolarMassUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-        public MolarMass ToUnit(MolarMassUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-        public static MolarMass Zero => new(0, MolarMassUnit.SI);
-        public static MolarMass NaN => new(double.NaN, MolarMassUnit.SI);
-
-        public static implicit operator MolarMass(UnknownUnit Unit)
-        {
-            if (Unit is null)
-                return null; 
-
-            GuardAgainst.DifferentUnits(Unit, MolarMassUnit.SI);
-            return new(Unit);        
+            return null;
         }
 
-        public static implicit operator UnknownUnit(MolarMass Unit)
-        {            
-            if (Unit is null)
-                return null;
-
-            return new(Unit);
-        }
-
-        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);
-        }
+        return From((double)value, unit);
     }
+    public double As(MolarMassUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+    public MolarMass ToUnit(MolarMassUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public static MolarMass Zero => new(0, MolarMassUnit.SI);
+    public static MolarMass NaN => new(double.NaN, MolarMassUnit.SI);
+
+    public static implicit operator MolarMass(UnknownUnit Unit)
+    {
+        if (Unit is null)
+            return null; 
+
+        GuardAgainst.DifferentUnits(Unit, MolarMassUnit.SI);
+        return new(Unit);        
+    }
+
+    public static implicit operator UnknownUnit(MolarMass Unit)
+    {            
+        if (Unit is null)
+            return null;
+
+        return new(Unit);
+    }
+
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);    
+}

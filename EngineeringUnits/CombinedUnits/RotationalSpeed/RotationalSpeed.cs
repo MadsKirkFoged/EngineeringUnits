@@ -2,51 +2,50 @@
 using EngineeringUnits.Units;
 
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+//This class is auto-generated, changes to the file will be overwritten!
+public partial class RotationalSpeed : BaseUnit
 {
-    //This class is auto-generated, changes to the file will be overwritten!
-    public partial class RotationalSpeed : BaseUnit
+
+    public RotationalSpeed() { }
+    public RotationalSpeed(decimal value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public RotationalSpeed(double value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public RotationalSpeed(int value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
+    public RotationalSpeed(UnknownUnit value) : base(value) { }
+
+    public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new(value, unit);
+
+    public static RotationalSpeed From(double? value, RotationalSpeedUnit unit)
     {
-
-        public RotationalSpeed() { }
-        public RotationalSpeed(decimal value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public RotationalSpeed(double value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public RotationalSpeed(int value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
-        public RotationalSpeed(UnknownUnit value) : base(value) { }
-
-        public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new(value, unit);
-
-        public static RotationalSpeed From(double? value, RotationalSpeedUnit unit)
+        if (value is null || unit is null)
         {
-            if (value is null || unit is null)
-            {
-                return null;
-            }
-
-            return From((double)value, unit);
-        }
-        public double As(RotationalSpeedUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-        public RotationalSpeed ToUnit(RotationalSpeedUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-        public static RotationalSpeed Zero => new(0, RotationalSpeedUnit.SI);
-        public static RotationalSpeed NaN => new(double.NaN, RotationalSpeedUnit.SI);
-
-        public static implicit operator RotationalSpeed(UnknownUnit Unit)
-        {
-            if (Unit is null)
-                return null; 
-
-            GuardAgainst.DifferentUnits(Unit, RotationalSpeedUnit.SI);
-            return new(Unit);        
+            return null;
         }
 
-        public static implicit operator UnknownUnit(RotationalSpeed Unit)
-        {            
-            if (Unit is null)
-                return null;
-
-            return new(Unit);
-        }
-
-        public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);
-        }
+        return From((double)value, unit);
     }
+    public double As(RotationalSpeedUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+    public RotationalSpeed ToUnit(RotationalSpeedUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public static RotationalSpeed Zero => new(0, RotationalSpeedUnit.SI);
+    public static RotationalSpeed NaN => new(double.NaN, RotationalSpeedUnit.SI);
+
+    public static implicit operator RotationalSpeed(UnknownUnit Unit)
+    {
+        if (Unit is null)
+            return null; 
+
+        GuardAgainst.DifferentUnits(Unit, RotationalSpeedUnit.SI);
+        return new(Unit);        
+    }
+
+    public static implicit operator UnknownUnit(RotationalSpeed Unit)
+    {            
+        if (Unit is null)
+            return null;
+
+        return new(Unit);
+    }
+
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);    
+}
