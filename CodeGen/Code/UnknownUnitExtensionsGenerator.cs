@@ -1,34 +1,29 @@
-﻿
-using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using EngineeringUnits;
 
-namespace CodeGen.Code
+namespace CodeGen.Code;
+
+// generates the UnknownUnitExtensions.cs file
+internal static class UnknownUnitExtensionsGenerator
 {
-    // generates the UnknownUnitExtensions.cs file
-    internal static class UnknownUnitExtensionsGenerator
+    public static void Generate(string projectRootPath)
     {
-        public static void Generate(string projectRootPath)
+        //StringBuilder builder = new StringBuilder();
+        //StringBuilder staticUnits = new StringBuilder();
+        var conditionals = new StringBuilder();
+
+        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
         {
-            //StringBuilder builder = new StringBuilder();
-            //StringBuilder staticUnits = new StringBuilder();
-            StringBuilder conditionals = new StringBuilder();
-
-            foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
-            {
-                string functions = $$"""
-                                    if (toCast == [Variable]Unit.SI.Unit)                               
+            var functions = $$"""
+                                if (toCast == [Variable]Unit.SI.Unit)                               
                                         return ([Variable]) toCast;                              
-                                    """.Replace("[Variable]", $"{item}");
+                              """.Replace("[Variable]", $"{item}");
 
-                conditionals.AppendLine(functions);
+            _=conditionals.AppendLine(functions);
 
-            }
+        }
 
-
-            string builder = $$"""
+        var builder = $$"""
 
                                using EngineeringUnits.Units;
                                using System;
@@ -50,12 +45,6 @@ namespace CodeGen.Code
 
                                """.Replace("[InsertFunctions]", conditionals.ToString());
 
-
-
-            File.WriteAllText(Path.Combine(projectRootPath, "UnknownUnitExtensions.cs"), builder.ToString());
-        }
+        File.WriteAllText(Path.Combine(projectRootPath, "UnknownUnitExtensions.cs"), builder.ToString());
     }
-
-
-
 }

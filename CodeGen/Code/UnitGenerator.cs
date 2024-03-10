@@ -1,69 +1,56 @@
-﻿using EngineeringUnits;
-using System;
-using System.Diagnostics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 using System.Text;
-using System.Linq;
-using EngineeringUnits.Units;
-using System.Collections;
 
-namespace CodeGen.Code
+namespace CodeGen.Code;
+
+internal class UnitGenerator
 {
-    internal class UnitGenerator
+
+    public static void GenerateClasses(string projectPath)
     {
 
-
-        public static void GenerateClasses(string projectPath)
+        List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
+        list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
+        foreach (var item in list)
         {
 
-            List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-            list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
-            foreach (var item in list)
+            var sb = Generate(item);
+
+            sb = sb.Replace("Variable", $"{item}");
+            var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
+
+            if (!Directory.Exists(projectPathWithUnit))
             {
-
-                string sb = Generate(item);
-
-                sb = sb.Replace("Variable", $"{item}");
-                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
-
-
-                if (!Directory.Exists(projectPathWithUnit))
-                {
-                    Directory.CreateDirectory(projectPathWithUnit);
-                }
-
-
-                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
-
+                _=Directory.CreateDirectory(projectPathWithUnit);
             }
 
-            foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
-            {
-
-                string sb = Generate(item);
-                sb = sb.Replace("Variable", $"{item}");
-                string projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
-                if (!Directory.Exists(projectPathWithUnit))
-                {
-                    Directory.CreateDirectory(projectPathWithUnit);
-                }
-                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
-
-            }
+            File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
 
         }
 
-
-
-        public static string Generate(string className)
+        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
         {
-            StringBuilder sb = new StringBuilder();
 
+            var sb = Generate(item);
+            sb = sb.Replace("Variable", $"{item}");
+            var projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
+            if (!Directory.Exists(projectPathWithUnit))
+            {
+                _=Directory.CreateDirectory(projectPathWithUnit);
+            }
 
+            File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}.cs"), sb.ToString());
 
-            sb.AppendLine(@"
+        }
+    }
+
+    public static string Generate(string className)
+    {
+        var sb = new StringBuilder();
+
+        _=sb.AppendLine(@"
 using EngineeringUnits.Units;
 
 
@@ -116,16 +103,7 @@ namespace EngineeringUnits
         }
     }");
 
-
-
-
-            return sb.ToString();
-
-
-
-        }
-
+        return sb.ToString();
 
     }
-
 }

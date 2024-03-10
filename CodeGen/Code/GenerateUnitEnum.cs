@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeGen.Code;
 public class GenerateUnitEnum
@@ -13,21 +9,18 @@ public class GenerateUnitEnum
 
         List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
 
-
         foreach (var item in list)
         {
             //string path = Path.Combine(projectPath, $@"CombinedUnits/{item}/{item}Enum.cs");
 
-            string path1 = Path.Combine(projectPath, "CombinedUnits");
-            string path2 = Path.Combine(path1, $"{item}");
-            string path3 = Path.Combine(path2, $"{item}Enum.cs");
+            var path1 = Path.Combine(projectPath, "CombinedUnits");
+            var path2 = Path.Combine(path1, $"{item}");
+            var path3 = Path.Combine(path2, $"{item}Enum.cs");
 
             if (File.Exists(path3))
                 continue;
 
-
-
-            string functions = $$"""
+            var functions = $$"""
                                     using Fractions;
                                     using System;
                                     using System.Collections.Generic;
@@ -54,14 +47,8 @@ public class GenerateUnitEnum
     
                                     """.Replace("[Variable]", $"{item}");
 
-
             File.WriteAllText(path3, functions);
 
         }
-
     }
-
-
-
-
 }

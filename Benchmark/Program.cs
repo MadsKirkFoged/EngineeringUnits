@@ -1,17 +1,8 @@
 ﻿using BenchmarkDotNet.Running;
 
+namespace Benchmark;
 
-namespace Benchmark
+internal class Program
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-
-            BenchmarkRunner.Run<Benchy>();
-
-
-        }
-    }
+    private static void Main(string[] args) => BenchmarkRunner.Run<Benchy>();
 }

@@ -1,83 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CodeGen.Code
+namespace CodeGen.Code;
+
+internal class GenerateSetter
 {
-    class GenerateSetter
+
+    public static void GenerateSetterClasses(string projectPath)
     {
+        List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
+        //list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
-
-
-
-        public static void GenerateSetterClasses(string projectPath)
+        foreach (var item in list)
         {
-            List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-            //list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
-            foreach (var item in list)
+            var sb = Setter(item);
+
+            if (sb is null)
+                continue;
+
+            foreach (var i in item)
             {
 
-                string sb = Setter(item);
-
-                if (sb is null)
-                    continue;
-
-                foreach (var i in item)
-                {
-
-                    sb = sb.Replace("Variable", $"{item}");
-
-                }
-                string projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
-
-                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Set.cs"), sb.ToString());
-
+                sb = sb.Replace("Variable", $"{item}");
 
             }
 
-            foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
-            {
+            var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
 
-                string sb = Setter(item);
-
-                if (sb is null)
-                    continue;
-
-                foreach (var i in item)
-                {
-
-                    sb = sb.Replace("Variable", $"{item}");
-
-                }
-                string projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
-
-                File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Set.cs"), sb.ToString());
-
-            }
-
+            File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Set.cs"), sb.ToString());
 
         }
 
-
-        public static string Setter(string className)
+        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
         {
 
-            var name = "EngineeringUnits.Units." + className + "Unit, EngineeringUnits";
-            var t = Type.GetType(name);
+            var sb = Setter(item);
 
-            if (t is null)
+            if (sb is null)
+                continue;
+
+            foreach (var i in item)
             {
-                return null;
+
+                sb = sb.Replace("Variable", $"{item}");
+
             }
 
+            var projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
 
-            StringBuilder sb = new StringBuilder();
+            File.WriteAllText(Path.Combine(projectPathWithUnit, $"{item}Set.cs"), sb.ToString());
 
-            sb.AppendLine(@"
+        }
+    }
+
+    public static string Setter(string className)
+    {
+
+        var name = "EngineeringUnits.Units." + className + "Unit, EngineeringUnits";
+        var t = Type.GetType(name);
+
+        if (t is null)
+        {
+            return null;
+        }
+
+        var sb = new StringBuilder();
+
+        _=sb.AppendLine(@"
 using EngineeringUnits.Units;
 
 
@@ -89,11 +81,10 @@ namespace EngineeringUnits
 
  ");
 
+        foreach (System.Reflection.FieldInfo i in t.GetFields())
+        {
 
-            foreach (var i in t.GetFields())
-            {
-
-                sb.Append(@"
+            _=sb.Append(@"
         /// <summary>
         ///     Get Variable from UnitEnum.
         /// </summary>
@@ -106,19 +97,16 @@ namespace EngineeringUnits
             return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
         }");
 
-                sb = sb.Replace("UnitEnum", $"{i.Name}");
-            }
+            sb = sb.Replace("UnitEnum", $"{i.Name}");
+        }
 
-
-            sb.AppendLine(@"
+        _=sb.AppendLine(@"
     }
 }
 
 ");
 
+        return sb.ToString();
 
-            return sb.ToString();
-
-        }
     }
 }
