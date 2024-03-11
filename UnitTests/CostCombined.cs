@@ -1,14 +1,8 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests;
-
 
 [TestClass()]
 public class CostCombined
@@ -17,8 +11,7 @@ public class CostCombined
     public void AreaCost()
     {
         //Arrange
-        AreaCost test = new AreaCost(10, AreaCostUnit.SI);
-
+        var test = new AreaCost(10, AreaCostUnit.SI);
 
         // Assert
         Assert.AreEqual("10 $/m²", test.ToString());
@@ -29,7 +22,7 @@ public class CostCombined
     public void EnergyCost()
     {
         //Arrange
-        EnergyCost test = new EnergyCost(10, EnergyCostUnit.USDollarPerKilowattHour);
+        var test = new EnergyCost(10, EnergyCostUnit.USDollarPerKilowattHour);
 
         // Assert
         Assert.AreEqual("10 $/kWh", test.ToString());
@@ -40,7 +33,7 @@ public class CostCombined
     public void LengthCost()
     {
         //Arrange
-        LengthCost test = new LengthCost(10, LengthCostUnit.EuroPerMeter);
+        var test = new LengthCost(10, LengthCostUnit.EuroPerMeter);
 
         // Assert
         Assert.AreEqual("10 €/m", test.ToString());
@@ -51,7 +44,7 @@ public class CostCombined
     public void MassCost()
     {
         //Arrange
-        MassCost test = new MassCost(10, MassCostUnit.EuroPerKilogram);
+        var test = new MassCost(10, MassCostUnit.EuroPerKilogram);
 
         // Assert
         Assert.AreEqual("10 €/kg", test.ToString());
@@ -62,7 +55,7 @@ public class CostCombined
     public void PowerCost()
     {
         //Arrange
-        PowerCost test = new PowerCost(10, PowerCostUnit.USDollarPerKilowatt);
+        var test = new PowerCost(10, PowerCostUnit.USDollarPerKilowatt);
 
         // Assert
         Assert.AreEqual("10 $/kW", test.ToString());
@@ -73,10 +66,9 @@ public class CostCombined
     public void VolumeCost()
     {
         //Arrange
-        VolumeCost test = new VolumeCost(10, VolumeCostUnit.EuroPerCubicMeter);
+        var test = new VolumeCost(10, VolumeCostUnit.EuroPerCubicMeter);
 
         // Assert
         Assert.AreEqual("10 €/m³", test.ToString());
     }
-
 }

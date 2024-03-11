@@ -58,7 +58,6 @@ public class Angle
         UnitsNet.Energy L1 = new(56239676, UnitsNet.Units.EnergyUnit.BritishThermalUnit);
         EngineeringUnits.Energy L2 = new(56239676, EnergyUnit.BritishThermalUnit);
 
-
         //Difference in procent
         Assert.AreEqual(0, HelperClass.Percent(L2.As(EnergyUnit.Joule),
                                                 L1.As(UnitsNet.Units.EnergyUnit.Joule)), 0.0004);
@@ -167,7 +166,6 @@ public class Angle
                                 .Replace("btu", "BTU")
                                 .Replace("ST", "t (short)")
 
-
                                 );
 
                 WorkingCompares++;
@@ -216,7 +214,6 @@ public class Angle
 
         //Difference in procent
         Assert.AreEqual(0, HelperClass.Percent(L2.As(SpecificEntropyUnit.JoulePerKilogramKelvin), L1.As(UnitsNet.Units.SpecificEntropyUnit.JoulePerKilogramKelvin)), 0.0004);
-
 
     }
 

@@ -15,8 +15,6 @@ public class ThreadSafety
         LengthUnit unit1 = LengthUnit.Meter;
         DurationUnit unit2 = DurationUnit.Millisecond;
 
-
-
         List<Task> tasks = [];
         for (var i = 1; i < 400; ++i)
         {

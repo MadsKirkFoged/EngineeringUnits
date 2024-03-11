@@ -52,7 +52,6 @@ public class UnitsAreWrong
         var mass = Mass.FromKilogram(3);
         _ = length != mass;
 
-
     }
 
     [TestMethod]
@@ -62,7 +61,6 @@ public class UnitsAreWrong
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
         _ = length > mass;
-
 
     }
     [TestMethod]
@@ -175,7 +173,6 @@ public class UnitsAreWrong
         _=speed.Equals(test);
 
     }
-
 
     [TestMethod]
     [ExpectedException(typeof(WrongUnitException))]
@@ -299,8 +296,6 @@ public class UnitsAreWrong
     //    UnknownUnit Average = UnitMath.Average(list1);
     //    UnknownUnit Sum = UnitMath.Sum(list1);
     //    UnknownUnit Max = UnitMath.Max(list1);
-
-
 
     //}
     [TestMethod]

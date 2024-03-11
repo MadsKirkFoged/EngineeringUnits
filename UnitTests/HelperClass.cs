@@ -1,24 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace UnitTests;
 
-namespace UnitTests
+public class HelperClass
 {
-   public class HelperClass
-    {
 
+    public static double Percent(double a, double b) => (a - b) / a * 100;
 
-
-        public static double Percent(double a, double b)
-        {
-
-           return ((a - b) / a) * 100;
-
-        }
-
-
-
-
-
-    }
 }

@@ -29,12 +29,10 @@ public class UnitMathTest
             MassFlow.FromKilogramPerSecond(9),
         };
 
-
         MassFlow Average = UnitMath.Average(list1);
         MassFlow Sum = UnitMath.Sum(list1);
         MassFlow Max = UnitMath.Max(list1);
         MassFlow Min = UnitMath.Min(list1);
-
 
         MassFlow Average2 = UnitMath.Average(
             MassFlow.FromKilogramPerSecond(1),
@@ -148,7 +146,6 @@ public class UnitMathTest
 
         };
 
-
         UnknownUnit Average = UnitMath.Average(list1);
         UnknownUnit Sum = UnitMath.Sum(list1);
         UnknownUnit Max = UnitMath.Max(list1);
@@ -196,7 +193,6 @@ public class UnitMathTest
         Assert.AreEqual(Max.As(SpeedUnit.KilometerPerhour), 1);
         Assert.AreEqual(Min.As(SpeedUnit.KilometerPerhour), 0.2);
 
-
         Assert.AreEqual(Average, Average2);
         Assert.AreEqual(Sum, Sum2);
         Assert.AreEqual(Max, Max2);
@@ -206,8 +202,6 @@ public class UnitMathTest
         Assert.AreEqual(Sum, Sum3);
         Assert.AreEqual(Max, Max3);
         Assert.AreEqual(Min, Min3);
-
-
 
     }
 
@@ -224,8 +218,6 @@ public class UnitMathTest
             Acceleration.FromKilometerPerSecondSquared(1)/Duration.FromMicrosecond(4)
 
         };
-
-
 
         UnknownUnit Average = UnitMath.Average(list1);
         UnknownUnit Sum = UnitMath.Sum(list1);
@@ -282,8 +274,6 @@ public class UnitMathTest
         Assert.IsTrue(Average.Equals(Average3));
         _=Max.CompareTo(Max3);
         _=Max.Equals(Max3);
-
-
 
     }
 

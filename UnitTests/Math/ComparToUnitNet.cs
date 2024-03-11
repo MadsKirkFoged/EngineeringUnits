@@ -12,8 +12,6 @@ namespace UnitTests;
 public class ComparToUnitNet
 {
 
-
-
     [TestMethod]
     public void AmountCompare()
     {
@@ -84,8 +82,6 @@ public class ComparToUnitNet
         Assert.AreEqual(0, HelperClass.Percent(A2.As(AmountOfSubstanceUnit.PoundMole),
                                                 A1.As(UnitsNet.Units.AmountOfSubstanceUnit.PoundMole)), 1E-10);
 
-
-
         Assert.AreEqual(A2.ToUnit(AmountOfSubstanceUnit.Centimole).DisplaySymbol(),
                         A1.ToUnit(UnitsNet.Units.AmountOfSubstanceUnit.Centimole).ToString("a"));
         Assert.AreEqual(A2.ToUnit(AmountOfSubstanceUnit.CentipoundMole).DisplaySymbol(),
@@ -116,7 +112,6 @@ public class ComparToUnitNet
                         A1.ToUnit(UnitsNet.Units.AmountOfSubstanceUnit.NanopoundMole).ToString("a"));
         Assert.AreEqual(A2.ToUnit(AmountOfSubstanceUnit.PoundMole).DisplaySymbol(),
                         A1.ToUnit(UnitsNet.Units.AmountOfSubstanceUnit.PoundMole).ToString("a"));
-
 
     }
 
@@ -289,7 +284,6 @@ public class ComparToUnitNet
 
                                 A1.ToUnit(UN).ToString("a")
 
-
                             );
                 WorkingCompares++;
             }
@@ -305,7 +299,6 @@ public class ComparToUnitNet
 
         UnitsNet.ElectricCurrent A1 = new(0.0000546, UnitsNet.Units.ElectricCurrentUnit.Ampere);
         EngineeringUnits.ElectricCurrent A2 = new(0.0000546, ElectricCurrentUnit.Ampere);
-
 
         Assert.AreEqual(0, A2.As(ElectricCurrentUnit.Ampere) - A1.As(UnitsNet.Units.ElectricCurrentUnit.Ampere), 0);
         Assert.AreEqual(0, A2.As(ElectricCurrentUnit.Centiampere) - A1.As(UnitsNet.Units.ElectricCurrentUnit.Centiampere), 0);
@@ -358,7 +351,6 @@ public class ComparToUnitNet
                         A1.ToUnit(UnitsNet.Units.ElectricCurrentUnit.Nanoampere).ToString("a"));
         Assert.AreEqual(A2.ToUnit(ElectricCurrentUnit.Picoampere).DisplaySymbol(),
                         A1.ToUnit(UnitsNet.Units.ElectricCurrentUnit.Picoampere).ToString("a"));
-
 
     }
 

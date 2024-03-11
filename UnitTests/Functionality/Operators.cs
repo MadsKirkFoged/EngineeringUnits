@@ -4,7 +4,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Functionality;
 
-
 [TestClass]
 public class Operators
 {
@@ -103,7 +102,6 @@ public class Operators
         Assert.IsNull(L4 * L4);
 
     }
-
 
     [TestMethod]
     public void RatioAdditionIntAndRatio()

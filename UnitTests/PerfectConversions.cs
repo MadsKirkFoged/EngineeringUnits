@@ -173,7 +173,6 @@ public class PerfectConversions
         var Pound = new Mass(1, MassUnit.Pound);
         var kilo = new Mass(0.45359237m, MassUnit.Kilogram);
 
-
         Assert.AreEqual(kilo, Pound);
     }
 }
