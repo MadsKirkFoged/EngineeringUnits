@@ -16,7 +16,7 @@ internal class UnitGenerator
         foreach (var item in list)
         {
 
-            var sb = Generate(item);
+            var sb = Generate();
 
             sb = sb.Replace("Variable", $"{item}");
             var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
@@ -33,7 +33,7 @@ internal class UnitGenerator
         foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfBaseUnits())
         {
 
-            var sb = Generate(item);
+            var sb = Generate();
             sb = sb.Replace("Variable", $"{item}");
             var projectPathWithUnit = Path.Combine(projectPath, "BaseUnits", item);
             if (!Directory.Exists(projectPathWithUnit))
@@ -46,7 +46,7 @@ internal class UnitGenerator
         }
     }
 
-    public static string Generate(string className)
+    public static string Generate()
     {
         var sb = new StringBuilder();
 

@@ -38,7 +38,7 @@ internal class GenerateAlias
         foreach (KeyValuePair<string, string> item in ListOfUnitsForDifferentGenerators.AliasList())
         {
 
-            var sb = CreateAlias(item.Value);
+            var sb = CreateAlias();
 
             sb = sb.Replace("Variable", $"{item.Value}");
             sb = sb.Replace("Original", $"{item.Key}");
@@ -50,7 +50,7 @@ internal class GenerateAlias
         }
     }
 
-    public static string CreateAlias(string className)
+    public static string CreateAlias()
     {
 
         var sb = new StringBuilder();
