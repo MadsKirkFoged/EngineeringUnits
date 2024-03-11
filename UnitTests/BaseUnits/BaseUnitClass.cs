@@ -187,7 +187,7 @@ public class CreatingBaseUnits
         var unit = new BaseUnit(1, MassUnit.Gram);
 
         // Act
-        var GetBaseValue = unit.SI;
+        var GetBaseValue = unit.AsSI;
 
         // Assert
         Assert.AreEqual(0.001m, GetBaseValue);

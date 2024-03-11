@@ -14,7 +14,7 @@ public class BaseUnitConstructorTests
         // Act
 
         // Assert
-        Assert.AreEqual(1, ratio.SI);
+        Assert.AreEqual(1, ratio.AsSI);
     }
 
     [TestMethod()]
@@ -26,7 +26,7 @@ public class BaseUnitConstructorTests
         // Act
 
         // Assert
-        Assert.AreEqual(1, ratio.SI);
+        Assert.AreEqual(1, ratio.AsSI);
     }
 
     [TestMethod()]
@@ -38,6 +38,6 @@ public class BaseUnitConstructorTests
         // Act
 
         // Assert
-        Assert.AreEqual(1, ratio.SI);
+        Assert.AreEqual(1, ratio.AsSI);
     }
 }

@@ -93,7 +93,7 @@ public class UVector
         //Add vectors
         for (var i = 0; i < v1.GetVectorSize; i++)
         {
-            localDotProduct += v1._vector[i].SI * v2._vector[i].SI;
+            localDotProduct += v1._vector[i].AsSI * v2._vector[i].AsSI;
         }
 
         return new UnknownUnit(localDotProduct, v1._vector[0].Unit.GetSIUnitsystem());
@@ -107,9 +107,9 @@ public class UVector
         if (v2.GetVectorSize != 3)
             throw new Exception("Vector v2 must be 3 dimensional.");
 
-        var x = (v1._vector[1].SI * v2._vector[2].SI) - (v1._vector[2].SI * v2._vector[1].SI);
-        var y = (v1._vector[2].SI * v2._vector[0].SI) - (v1._vector[0].SI * v2._vector[2].SI);
-        var z = (v1._vector[0].SI * v2._vector[1].SI) - (v1._vector[1].SI * v2._vector[0].SI);
+        var x = (v1._vector[1].AsSI * v2._vector[2].AsSI) - (v1._vector[2].AsSI * v2._vector[1].AsSI);
+        var y = (v1._vector[2].AsSI * v2._vector[0].AsSI) - (v1._vector[0].AsSI * v2._vector[2].AsSI);
+        var z = (v1._vector[0].AsSI * v2._vector[1].AsSI) - (v1._vector[1].AsSI * v2._vector[0].AsSI);
 
         var X = new UnknownUnit(x, v1._vector[0].Unit.GetSIUnitsystem());
         var Y = new UnknownUnit(y, v1._vector[0].Unit.GetSIUnitsystem());

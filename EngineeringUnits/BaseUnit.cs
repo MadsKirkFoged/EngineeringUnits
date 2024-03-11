@@ -612,7 +612,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (Unit != other.Unit)
             throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
 
-        return (this - other).SI switch
+        return (this - other).AsSI switch
         {
             0m => 0,
             <0m => -1,
@@ -620,6 +620,6 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         };
     }
 
-    public decimal SI => this.GetBaseValue();
+    public decimal AsSI => this.GetBaseValue();
 
 }
