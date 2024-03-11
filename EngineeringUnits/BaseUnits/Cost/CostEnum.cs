@@ -1,6 +1,7 @@
 ﻿using Fractions;
 using static EngineeringUnits.ExchangeRates;
 
+#pragma warning disable IDE0060
 namespace EngineeringUnits.Units;
 
 public partial record CostUnit : UnitTypebase
@@ -12,6 +13,7 @@ public partial record CostUnit : UnitTypebase
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
 
+    // The code that's violating the rule is on this line.
     public CostUnit(string code, string Symbol, decimal Rate)
     {
         var unit = new RawUnit()

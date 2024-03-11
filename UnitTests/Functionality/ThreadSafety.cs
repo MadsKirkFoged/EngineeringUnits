@@ -1,44 +1,35 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public class ThreadSafety
 {
-    [TestClass]
-    public class ThreadSafety
+    [TestMethod]// (Skip = "race condition demonstration")]
+    public void ParallelAccess2()
     {
-        [TestMethod]// (Skip = "race condition demonstration")]
-        public void ParallelAccess2()
+        LengthUnit unit1 = LengthUnit.Meter;
+        DurationUnit unit2 = DurationUnit.Millisecond;
+
+
+
+        List<Task> tasks = [];
+        for (var i = 1; i < 400; ++i)
         {
-            var unit1 = LengthUnit.Meter;
-            var unit2 = DurationUnit.Millisecond;
-
-            
-
-            List<Task> tasks = new();
-            for (int i = 1; i < 400; ++i)
-            {
-                tasks.Add(Task.Run(dividedUnit));
-            }
-
-            Task.WaitAll(tasks.ToArray());
-
-
-
-
-            //Local function
-            UnitSystem dividedUnit()
-            {
-                var unit3 = unit1.Unit / unit2.Unit;
-                return unit3;
-            }
+            tasks.Add(Task.Run(dividedUnit));
         }
 
+        Task.WaitAll([.. tasks]);
 
+        //Local function
+        UnitSystem dividedUnit()
+        {
+            UnitSystem unit3 = unit1.Unit / unit2.Unit;
+            return unit3;
+        }
     }
 }

@@ -115,7 +115,7 @@ public record UnitTypebase
         foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
         {
             ListToUser.Add(field.Name);
-            if (field.Name.ToLower() == name.ToLower())
+            if (field.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase))
                 return (T)field.GetValue(field);
         }
 

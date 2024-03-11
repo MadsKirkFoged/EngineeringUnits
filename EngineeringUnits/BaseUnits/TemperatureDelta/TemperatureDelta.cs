@@ -7,57 +7,39 @@ namespace EngineeringUnits;
 public partial class TemperatureDelta : BaseUnit
 {
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public TemperatureDelta()
     {
-        //Unit = TemperatureUnit.SI.Unit.Copy();
     }
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public TemperatureDelta(int value, TemperatureUnit selectedUnit) : this()
     {
-
-        //Unit = selectedUnit.Unit;
-        //SetValue(value);
-
-        ////Forcing all TemperatureDeltas to stay in kelvin
-        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
-
     }
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public TemperatureDelta(double value, TemperatureUnit selectedUnit) : this()
     {
-
-        //Unit = selectedUnit.Unit;
-        //SetValue(value);
-
-        ////Forcing all TemperatureDeltas to stay in kelvin
-        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
-
     }
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public TemperatureDelta(decimal value, TemperatureUnit selectedUnit) : this()
     {
-
-        //Unit = selectedUnit.Unit.Copy();
-        //SetValue(value);
-
-        ////Forcing all TemperatureDeltas to stay in kelvin
-        ////ValueLocalUnit = ToTheOutSide(TemperatureDeltaUnit.Kelvin.Unit);
-        //SymbolValue = ToTheOutSide(TemperatureUnit.Kelvin.Unit);
-        //Unit = TemperatureUnit.Kelvin.Unit.Copy();
-
     }
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public static TemperatureDelta From(double value, TemperatureUnit unit) => new(value, unit);
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public double As(TemperatureUnit ReturnInThisUnit) => (double)this.GetValueAs(ReturnInThisUnit.Unit);
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public TemperatureDelta ToUnit(TemperatureUnit selectedUnit) => new TemperatureDelta(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);
 
+    [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public static implicit operator TemperatureDelta(UnknownUnit Unit)
     {
         TemperatureDelta local = new(0, TemperatureUnit.SI);

@@ -12,7 +12,7 @@ public class MolarityTest
 {
 
     [TestMethod]
-    [System.Obsolete]
+    [System.Obsolete("..")]
     public void MolarityAutoTest()
     {
         var A1 = new UnitsNet.Molarity(1, UnitsNet.Units.MolarityUnit.MolesPerLiter);

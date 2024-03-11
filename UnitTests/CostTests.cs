@@ -1,12 +1,8 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static EngineeringUnits.ExchangeRates;
+#pragma warning disable IDE0060
 
 namespace UnitTests;
 
@@ -21,14 +17,11 @@ public class CostTests
         ExchangeRates.UpdateRate(Currency.BritishPound, 1.2665902m);
     }
 
-
-
     [TestMethod()]
     public void CostDollar()
     {
         //Arrange
-        Cost test = new Cost(10, CostUnit.USDollar);
-
+        var test = new Cost(10, CostUnit.USDollar);
 
         // Assert
         Assert.AreEqual("10 $", test.ToString());
@@ -38,8 +31,7 @@ public class CostTests
     public void CostEuro()
     {
         //Arrange
-        Cost test = new Cost(10, CostUnit.Euro);
-
+        var test = new Cost(10, CostUnit.Euro);
 
         // Assert
         Assert.AreEqual("10 €", test.ToString());
@@ -49,8 +41,7 @@ public class CostTests
     public void CostBritishPound()
     {
         //Arrange
-        Cost test = new Cost(10, CostUnit.BritishPound);
-
+        var test = new Cost(10, CostUnit.BritishPound);
 
         // Assert
         Assert.AreEqual("10 £", test.ToString());
@@ -60,29 +51,26 @@ public class CostTests
     public void CostConvertUSToEuro()
     {
         //Arrange
-        decimal USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
+        var USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
 
         //Act
-        Cost USD = new Cost(10, CostUnit.USDollar);
-        var Euro = USD.Euro;
+        var USD = new Cost(10, CostUnit.USDollar);
+        _ = USD.Euro;
 
         // Assert
         Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);
     }
-   
 
     [TestMethod()]
     public void UpdateAfterInit()
     {
         //Arrange
-        decimal USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
-        
+        var USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
 
         //Act
-        Cost USD = new Cost(10, CostUnit.USDollar);
+        var USD = new Cost(10, CostUnit.USDollar);
         ExchangeRates.UpdateRate(Currency.Euro, 10.000m); //This should not have any affect
-
-        var Euro = USD.Euro;
+        _ = USD.Euro;
 
         // Assert
         Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);

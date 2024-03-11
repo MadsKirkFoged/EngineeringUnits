@@ -1,25 +1,16 @@
 ﻿using EngineeringUnits;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UnitTests.JSON
+namespace UnitTests.JSON;
+
+public class ClassWithUnits
 {
-    public class ClassWithUnits
-    {
 
-        public MassFlow massflow { get; set; }
+    public MassFlow Massflow { get; set; }
 
+    //public ClassWithUnits()
+    //{
+    //    massflow = 0;
 
-        //public ClassWithUnits()
-        //{
-        //    massflow = 0;
+    //}
 
-
-        //}
-
-
-    }
 }

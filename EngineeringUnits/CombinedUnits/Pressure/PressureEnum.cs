@@ -1,7 +1,6 @@
 ﻿using Fractions;
 using System;
 using System.Collections.Immutable;
-using System.Linq;
 
 namespace EngineeringUnits.Units;
 
@@ -82,7 +81,7 @@ public partial record PressureUnit : UnitTypebase
             ListOfUnits = ListOfUnits.Add(dimensionless);
         }
 
-        Unit = new UnitSystem(ListOfUnits.ToList(), NewSymbol);
+        Unit = new UnitSystem([.. ListOfUnits], NewSymbol);
     }
 
     public PressureUnit(MassUnit mass, LengthUnit length, DurationUnit duration, string NewSymbol)

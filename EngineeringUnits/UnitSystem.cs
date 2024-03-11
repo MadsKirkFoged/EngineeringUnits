@@ -21,7 +21,7 @@ public class UnitSystem
 
     public UnitSystem()
     {
-        ListOfUnits = ImmutableList<RawUnit>.Empty;
+        ListOfUnits = [];
     }
 
     public UnitSystem(List<RawUnit> LocalUnitList, string symbol = null)
@@ -43,7 +43,7 @@ public class UnitSystem
             Count = 1,
         };
 
-        ListOfUnits = new List<RawUnit>() { dimensionless }.ToImmutableList();
+        ListOfUnits = [dimensionless];
     }
 
     public UnitSystem(UnitSystem unit, string symbol)

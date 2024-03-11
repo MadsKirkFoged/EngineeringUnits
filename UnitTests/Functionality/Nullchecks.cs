@@ -1,31 +1,22 @@
 ﻿using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UnitTests
+namespace UnitTests;
+
+[TestClass]
+public class Nullchecks
 {
-    [TestClass]
-    public class nullchecks
+
+    [TestMethod]
+    public void ConvertFromNull()
     {
+        MassFlow massFlow = null;
+        var nulltest = massFlow.ToUnknownUnit();
 
+        MassFlow massFlow2 = nulltest;
 
+        Assert.IsNull(nulltest);
+        Assert.IsNull(massFlow2);
 
-        [TestMethod]
-        public void ConvertFromNull()
-        {
-            MassFlow massFlow = null;
-            UnknownUnit nulltest = massFlow.ToUnknownUnit();
-
-            MassFlow massFlow2 = nulltest;
-
-
-            Assert.IsNull(nulltest);
-            Assert.IsNull(massFlow2);
-
-        }
     }
 }

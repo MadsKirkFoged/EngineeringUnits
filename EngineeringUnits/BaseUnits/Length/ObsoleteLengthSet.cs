@@ -61,7 +61,7 @@ public partial class Length
     /// </summary>
     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
     [Obsolete("Use without the 's' - FromdDtpPicas->FromdDtpPica")]
-    public static Length fromdtppicas(double dtppicas)
+    public static Length Fromdtppicas(double dtppicas)
     {
         var value = (double)dtppicas;
         return new Length(value, LengthUnit.DtpPica);

@@ -2,6 +2,7 @@
 using CodeGen.Code;
 using System.IO;
 using System.Reflection;
+#pragma warning disable IDE0060
 
 namespace CodeGen;
 

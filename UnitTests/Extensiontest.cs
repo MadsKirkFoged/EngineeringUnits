@@ -1,11 +1,8 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests;
 
@@ -28,7 +25,6 @@ public class Extensiontest
         Assert.AreEqual("m²", unitSystem.ReduceUnitsHard().ToString());
     }
 
-
     [TestMethod]
     public void ReduceUnits()
     {
@@ -39,9 +35,9 @@ public class Extensiontest
 
         UnitSystem unitSystem = area;
 
-        Assert.AreEqual(2, unitSystem.ListOfUnits.Count());
-        Assert.AreEqual(2, unitSystem.ReduceUnits().ListOfUnits.Count());
-        Assert.AreEqual(1, unitSystem.ReduceUnitsHard().ListOfUnits.Count());
+        Assert.AreEqual(2, unitSystem.ListOfUnits.Count);
+        Assert.AreEqual(2, unitSystem.ReduceUnits().ListOfUnits.Count);
+        Assert.AreEqual(1, unitSystem.ReduceUnitsHard().ListOfUnits.Count);
     }
 
     //Create test for ToUnit
@@ -49,7 +45,6 @@ public class Extensiontest
     public void ToUnit()
     {
         Length SI = new(1, LengthUnit.Meter);
-
 
         Length NewUnit = SI.ToUnit(LengthUnit.Chain);
 
@@ -64,7 +59,7 @@ public class Extensiontest
     {
         Length SI = new(1, LengthUnit.Meter);
 
-        UnknownUnit Unknown = SI.ToUnknownUnit();
+        var Unknown = SI.ToUnknownUnit();
 
         Length NewUnit = Unknown.ToUnit(LengthUnit.Chain);
 
@@ -72,16 +67,15 @@ public class Extensiontest
         Assert.AreEqual("0.04971 ch", NewUnit.ToString("G5"));
     }
 
-
     //Create test for Mean(this IEnumerable<UnknownUnit> list)
-    [TestMethod]    
+    [TestMethod]
     public void Mean()
     {
         Length SI = new(1, LengthUnit.Meter);
         Length SI2 = new(2, LengthUnit.Meter);
         Length SI3 = new(3, LengthUnit.Meter);
 
-        List<Length> list = new() { SI, SI2, SI3 };
+        List<Length> list = [SI, SI2, SI3];
 
         Length Mean = list.Mean();
 
@@ -97,7 +91,7 @@ public class Extensiontest
         Length SI3 = new(3, LengthUnit.Meter);
         Length SI4 = new(4, LengthUnit.Meter);
 
-        List<Length> list = new() { SI, SI2, SI3, SI4 };
+        List<Length> list = [SI, SI2, SI3, SI4];
 
         Length Mean = list.Mean();
 
@@ -108,13 +102,12 @@ public class Extensiontest
     [TestMethod]
     public void SumZero()
     {
-        List<Length> list = new();
+        List<Length> list = [];
 
         Length Sum = list.Sum();
 
         Assert.IsNull(Sum);
     }
-
 
     //create test for sum with one item
     [TestMethod]
@@ -122,12 +115,10 @@ public class Extensiontest
     {
         Length SI = new(1, LengthUnit.Meter);
 
-        List<Length> list = new() { SI };
+        List<Length> list = [SI];
 
         Length Sum = list.Sum();
 
         Assert.AreEqual("1 m", Sum.ToString("G5"));
     }
-
-
 }

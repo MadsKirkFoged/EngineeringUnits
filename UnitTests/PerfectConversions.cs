@@ -1,11 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests;
 
@@ -40,8 +35,6 @@ public class PerfectConversions
         Assert.AreNotEqual(meter, kilometer);
     }
 
-
-
     [TestMethod]
     public void MeterToKilometerDecimalSmallDiff1()
     {
@@ -61,7 +54,6 @@ public class PerfectConversions
     }
 
     //Add unit test from degresscelcius to Fahrenheit
-
 
     [TestMethod]
     public void FeetToYard()
@@ -131,10 +123,6 @@ public class PerfectConversions
         Assert.AreNotEqual(DegreeCelsius, Fahrenheit);
     }
 
-
-
-
-
     //Add unit test from Pound to Ounce
     [TestMethod]
     public void PoundToOunce()
@@ -175,8 +163,6 @@ public class PerfectConversions
         var kilo = new Mass(1, MassUnit.Kilogram);
         var Pound = new Mass(2.2046226218487758072297380135m, MassUnit.Pound);
 
-        var test = kilo.As(MassUnit.Pound);
-
         Assert.AreEqual(kilo, Pound);
     }
 
@@ -187,9 +173,7 @@ public class PerfectConversions
         var Pound = new Mass(1, MassUnit.Pound);
         var kilo = new Mass(0.45359237m, MassUnit.Kilogram);
 
- 
+
         Assert.AreEqual(kilo, Pound);
     }
-
-
 }

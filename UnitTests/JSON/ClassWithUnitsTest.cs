@@ -18,7 +18,7 @@ namespace UnitTests
 
             var test = new ClassWithUnits
             {
-                massflow = MassFlow.FromKilogramPerSecond(10)
+                Massflow = MassFlow.FromKilogramPerSecond(10)
             };
 
             //Debug.WriteLine($"{test.massflow}");
@@ -29,8 +29,8 @@ namespace UnitTests
             ClassWithUnits JSON = JsonConvert.DeserializeObject<ClassWithUnits>(jsonString1);
             //var jsonString2 = JsonConvert.SerializeObject(JSON);
 
-            UnitSystem unitSystem1 = test.massflow;
-            UnitSystem unitSystem = JSON.massflow;
+            UnitSystem unitSystem1 = test.Massflow;
+            UnitSystem unitSystem = JSON.Massflow;
 
 
             foreach (var item in unitSystem.ListOfUnits)
@@ -43,7 +43,7 @@ namespace UnitTests
                 Debug.Print($"{item.GetType()}");
             }
 
-            Debug.WriteLine($"{JSON.massflow}");
+            Debug.WriteLine($"{JSON.Massflow}");
             Debug.WriteLine($"List count: {unitSystem.ListOfUnits.Count}");
 
 
