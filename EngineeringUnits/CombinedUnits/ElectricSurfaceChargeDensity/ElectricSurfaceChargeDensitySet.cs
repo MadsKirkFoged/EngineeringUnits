@@ -16,8 +16,7 @@ public static ElectricSurfaceChargeDensity FromSI(double? SI)
         return null;
 
     return new ElectricSurfaceChargeDensity((double)SI, ElectricSurfaceChargeDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricSurfaceChargeDensity FromCoulombPerSquareMeter(double? Cou
         return null;
 
     return new ElectricSurfaceChargeDensity((double)CoulombPerSquareMeter, ElectricSurfaceChargeDensityUnit.CoulombPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricSurfaceChargeDensity FromCoulombPerSquareCentimeter(double
         return null;
 
     return new ElectricSurfaceChargeDensity((double)CoulombPerSquareCentimeter, ElectricSurfaceChargeDensityUnit.CoulombPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareInch.
 /// </summary>
@@ -52,7 +49,6 @@ public static ElectricSurfaceChargeDensity FromCoulombPerSquareInch(double? Coul
         return null;
 
     return new ElectricSurfaceChargeDensity((double)CoulombPerSquareInch, ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
-}
-
+}                     
 
 }                     

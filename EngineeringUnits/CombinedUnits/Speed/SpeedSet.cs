@@ -16,8 +16,7 @@ public static Speed FromCentimeterPerHour(double? CentimeterPerHour)
         return null;
 
     return new Speed((double)CentimeterPerHour, SpeedUnit.CentimeterPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from CentimeterPerMinute.
 /// </summary>
@@ -28,8 +27,7 @@ public static Speed FromCentimeterPerMinute(double? CentimeterPerMinute)
         return null;
 
     return new Speed((double)CentimeterPerMinute, SpeedUnit.CentimeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from CentimeterPerSecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static Speed FromCentimeterPerSecond(double? CentimeterPerSecond)
         return null;
 
     return new Speed((double)CentimeterPerSecond, SpeedUnit.CentimeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from DecimeterPerMinute.
 /// </summary>
@@ -52,8 +49,7 @@ public static Speed FromDecimeterPerMinute(double? DecimeterPerMinute)
         return null;
 
     return new Speed((double)DecimeterPerMinute, SpeedUnit.DecimeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from DecimeterPerSecond.
 /// </summary>
@@ -64,8 +60,7 @@ public static Speed FromDecimeterPerSecond(double? DecimeterPerSecond)
         return null;
 
     return new Speed((double)DecimeterPerSecond, SpeedUnit.DecimeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from FootPerHour.
 /// </summary>
@@ -76,8 +71,7 @@ public static Speed FromFootPerHour(double? FootPerHour)
         return null;
 
     return new Speed((double)FootPerHour, SpeedUnit.FootPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from FootPerMinute.
 /// </summary>
@@ -88,8 +82,7 @@ public static Speed FromFootPerMinute(double? FootPerMinute)
         return null;
 
     return new Speed((double)FootPerMinute, SpeedUnit.FootPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from FootPerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static Speed FromFootPerSecond(double? FootPerSecond)
         return null;
 
     return new Speed((double)FootPerSecond, SpeedUnit.FootPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from InchPerHour.
 /// </summary>
@@ -112,8 +104,7 @@ public static Speed FromInchPerHour(double? InchPerHour)
         return null;
 
     return new Speed((double)InchPerHour, SpeedUnit.InchPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from InchPerMinute.
 /// </summary>
@@ -124,8 +115,7 @@ public static Speed FromInchPerMinute(double? InchPerMinute)
         return null;
 
     return new Speed((double)InchPerMinute, SpeedUnit.InchPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from InchPerSecond.
 /// </summary>
@@ -136,8 +126,7 @@ public static Speed FromInchPerSecond(double? InchPerSecond)
         return null;
 
     return new Speed((double)InchPerSecond, SpeedUnit.InchPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from KilometerPerHour.
 /// </summary>
@@ -148,8 +137,7 @@ public static Speed FromKilometerPerHour(double? KilometerPerHour)
         return null;
 
     return new Speed((double)KilometerPerHour, SpeedUnit.KilometerPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from KilometerPerMinute.
 /// </summary>
@@ -160,8 +148,7 @@ public static Speed FromKilometerPerMinute(double? KilometerPerMinute)
         return null;
 
     return new Speed((double)KilometerPerMinute, SpeedUnit.KilometerPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from KilometerPerSecond.
 /// </summary>
@@ -172,8 +159,7 @@ public static Speed FromKilometerPerSecond(double? KilometerPerSecond)
         return null;
 
     return new Speed((double)KilometerPerSecond, SpeedUnit.KilometerPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from Knot.
 /// </summary>
@@ -184,8 +170,7 @@ public static Speed FromKnot(double? Knot)
         return null;
 
     return new Speed((double)Knot, SpeedUnit.Knot);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MeterPerHour.
 /// </summary>
@@ -196,8 +181,7 @@ public static Speed FromMeterPerHour(double? MeterPerHour)
         return null;
 
     return new Speed((double)MeterPerHour, SpeedUnit.MeterPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MeterPerMinute.
 /// </summary>
@@ -208,8 +192,7 @@ public static Speed FromMeterPerMinute(double? MeterPerMinute)
         return null;
 
     return new Speed((double)MeterPerMinute, SpeedUnit.MeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MeterPerSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static Speed FromMeterPerSecond(double? MeterPerSecond)
         return null;
 
     return new Speed((double)MeterPerSecond, SpeedUnit.MeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MicrometerPerMinute.
 /// </summary>
@@ -232,8 +214,7 @@ public static Speed FromMicrometerPerMinute(double? MicrometerPerMinute)
         return null;
 
     return new Speed((double)MicrometerPerMinute, SpeedUnit.MicrometerPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MicrometerPerSecond.
 /// </summary>
@@ -244,8 +225,7 @@ public static Speed FromMicrometerPerSecond(double? MicrometerPerSecond)
         return null;
 
     return new Speed((double)MicrometerPerSecond, SpeedUnit.MicrometerPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MilePerHour.
 /// </summary>
@@ -256,8 +236,7 @@ public static Speed FromMilePerHour(double? MilePerHour)
         return null;
 
     return new Speed((double)MilePerHour, SpeedUnit.MilePerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MillimeterPerHour.
 /// </summary>
@@ -268,8 +247,7 @@ public static Speed FromMillimeterPerHour(double? MillimeterPerHour)
         return null;
 
     return new Speed((double)MillimeterPerHour, SpeedUnit.MillimeterPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MillimeterPerMinute.
 /// </summary>
@@ -280,8 +258,7 @@ public static Speed FromMillimeterPerMinute(double? MillimeterPerMinute)
         return null;
 
     return new Speed((double)MillimeterPerMinute, SpeedUnit.MillimeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MillimeterPerSecond.
 /// </summary>
@@ -292,8 +269,7 @@ public static Speed FromMillimeterPerSecond(double? MillimeterPerSecond)
         return null;
 
     return new Speed((double)MillimeterPerSecond, SpeedUnit.MillimeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from NanometerPerMinute.
 /// </summary>
@@ -304,8 +280,7 @@ public static Speed FromNanometerPerMinute(double? NanometerPerMinute)
         return null;
 
     return new Speed((double)NanometerPerMinute, SpeedUnit.NanometerPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from NanometerPerSecond.
 /// </summary>
@@ -316,8 +291,7 @@ public static Speed FromNanometerPerSecond(double? NanometerPerSecond)
         return null;
 
     return new Speed((double)NanometerPerSecond, SpeedUnit.NanometerPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from UsSurveyFootPerHour.
 /// </summary>
@@ -328,8 +302,7 @@ public static Speed FromUsSurveyFootPerHour(double? UsSurveyFootPerHour)
         return null;
 
     return new Speed((double)UsSurveyFootPerHour, SpeedUnit.UsSurveyFootPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from UsSurveyFootPerMinute.
 /// </summary>
@@ -340,8 +313,7 @@ public static Speed FromUsSurveyFootPerMinute(double? UsSurveyFootPerMinute)
         return null;
 
     return new Speed((double)UsSurveyFootPerMinute, SpeedUnit.UsSurveyFootPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from UsSurveyFootPerSecond.
 /// </summary>
@@ -352,8 +324,7 @@ public static Speed FromUsSurveyFootPerSecond(double? UsSurveyFootPerSecond)
         return null;
 
     return new Speed((double)UsSurveyFootPerSecond, SpeedUnit.UsSurveyFootPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from YardPerHour.
 /// </summary>
@@ -364,8 +335,7 @@ public static Speed FromYardPerHour(double? YardPerHour)
         return null;
 
     return new Speed((double)YardPerHour, SpeedUnit.YardPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from YardPerMinute.
 /// </summary>
@@ -376,8 +346,7 @@ public static Speed FromYardPerMinute(double? YardPerMinute)
         return null;
 
     return new Speed((double)YardPerMinute, SpeedUnit.YardPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Speed from YardPerSecond.
 /// </summary>
@@ -388,8 +357,7 @@ public static Speed FromYardPerSecond(double? YardPerSecond)
         return null;
 
     return new Speed((double)YardPerSecond, SpeedUnit.YardPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Speed from KilometerPerhour.
 /// </summary>
@@ -400,8 +368,7 @@ public static Speed FromKilometerPerhour(double? KilometerPerhour)
         return null;
 
     return new Speed((double)KilometerPerhour, SpeedUnit.KilometerPerhour);
-}
-
+}                     
 /// <summary>
 /// Get Speed from SI.
 /// </summary>
@@ -412,8 +379,7 @@ public static Speed FromSI(double? SI)
         return null;
 
     return new Speed((double)SI, SpeedUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Speed from MilePerSecond.
 /// </summary>
@@ -424,7 +390,6 @@ public static Speed FromMilePerSecond(double? MilePerSecond)
         return null;
 
     return new Speed((double)MilePerSecond, SpeedUnit.MilePerSecond);
-}
-
+}                     
 
 }                     

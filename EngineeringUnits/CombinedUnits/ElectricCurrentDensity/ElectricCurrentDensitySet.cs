@@ -16,8 +16,7 @@ public static ElectricCurrentDensity FromSI(double? SI)
         return null;
 
     return new ElectricCurrentDensity((double)SI, ElectricCurrentDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentDensity from AmperePerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricCurrentDensity FromAmperePerSquareMeter(double? AmperePerS
         return null;
 
     return new ElectricCurrentDensity((double)AmperePerSquareMeter, ElectricCurrentDensityUnit.AmperePerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentDensity from AmperePerSquareInch.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricCurrentDensity FromAmperePerSquareInch(double? AmperePerSq
         return null;
 
     return new ElectricCurrentDensity((double)AmperePerSquareInch, ElectricCurrentDensityUnit.AmperePerSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentDensity from AmperePerSquareFoot.
 /// </summary>
@@ -52,7 +49,6 @@ public static ElectricCurrentDensity FromAmperePerSquareFoot(double? AmperePerSq
         return null;
 
     return new ElectricCurrentDensity((double)AmperePerSquareFoot, ElectricCurrentDensityUnit.AmperePerSquareFoot);
-}
-
+}                     
 
 }                     

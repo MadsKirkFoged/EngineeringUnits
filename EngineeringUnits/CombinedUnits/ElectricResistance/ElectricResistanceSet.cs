@@ -16,8 +16,7 @@ public static ElectricResistance FromSI(double? SI)
         return null;
 
     return new ElectricResistance((double)SI, ElectricResistanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Ohm.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricResistance FromOhm(double? Ohm)
         return null;
 
     return new ElectricResistance((double)Ohm, ElectricResistanceUnit.Ohm);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Gigaohm.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricResistance FromGigaohm(double? Gigaohm)
         return null;
 
     return new ElectricResistance((double)Gigaohm, ElectricResistanceUnit.Gigaohm);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Kiloohm.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricResistance FromKiloohm(double? Kiloohm)
         return null;
 
     return new ElectricResistance((double)Kiloohm, ElectricResistanceUnit.Kiloohm);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Megaohm.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricResistance FromMegaohm(double? Megaohm)
         return null;
 
     return new ElectricResistance((double)Megaohm, ElectricResistanceUnit.Megaohm);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Microohm.
 /// </summary>
@@ -76,8 +71,7 @@ public static ElectricResistance FromMicroohm(double? Microohm)
         return null;
 
     return new ElectricResistance((double)Microohm, ElectricResistanceUnit.Microohm);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistance from Milliohm.
 /// </summary>
@@ -88,7 +82,6 @@ public static ElectricResistance FromMilliohm(double? Milliohm)
         return null;
 
     return new ElectricResistance((double)Milliohm, ElectricResistanceUnit.Milliohm);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static ThermalResistance FromSI(double? SI)
         return null;
 
     return new ThermalResistance((double)SI, ThermalResistanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ThermalResistance from SquareMeterDegreeCelsiusPerWatt.
 /// </summary>
@@ -28,8 +27,7 @@ public static ThermalResistance FromSquareMeterDegreeCelsiusPerWatt(double? Squa
         return null;
 
     return new ThermalResistance((double)SquareMeterDegreeCelsiusPerWatt, ThermalResistanceUnit.SquareMeterDegreeCelsiusPerWatt);
-}
-
+}                     
 /// <summary>
 /// Get ThermalResistance from SquareMeterKelvinPerKilowatt.
 /// </summary>
@@ -40,8 +38,7 @@ public static ThermalResistance FromSquareMeterKelvinPerKilowatt(double? SquareM
         return null;
 
     return new ThermalResistance((double)SquareMeterKelvinPerKilowatt, ThermalResistanceUnit.SquareMeterKelvinPerKilowatt);
-}
-
+}                     
 /// <summary>
 /// Get ThermalResistance from SquareCentimeterKelvinPerWatt.
 /// </summary>
@@ -52,8 +49,7 @@ public static ThermalResistance FromSquareCentimeterKelvinPerWatt(double? Square
         return null;
 
     return new ThermalResistance((double)SquareCentimeterKelvinPerWatt, ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
-}
-
+}                     
 /// <summary>
 /// Get ThermalResistance from SquareCentimeterHourDegreeCelsiusPerKilocalorie.
 /// </summary>
@@ -64,8 +60,7 @@ public static ThermalResistance FromSquareCentimeterHourDegreeCelsiusPerKilocalo
         return null;
 
     return new ThermalResistance((double)SquareCentimeterHourDegreeCelsiusPerKilocalorie, ThermalResistanceUnit.SquareCentimeterHourDegreeCelsiusPerKilocalorie);
-}
-
+}                     
 /// <summary>
 /// Get ThermalResistance from HourSquareFeetDegreeFahrenheitPerBtu.
 /// </summary>
@@ -76,7 +71,6 @@ public static ThermalResistance FromHourSquareFeetDegreeFahrenheitPerBtu(double?
         return null;
 
     return new ThermalResistance((double)HourSquareFeetDegreeFahrenheitPerBtu, ThermalResistanceUnit.HourSquareFeetDegreeFahrenheitPerBtu);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static ApparentPower FromSI(double? SI)
         return null;
 
     return new ApparentPower((double)SI, ApparentPowerUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ApparentPower from Voltampere.
 /// </summary>
@@ -28,8 +27,7 @@ public static ApparentPower FromVoltampere(double? Voltampere)
         return null;
 
     return new ApparentPower((double)Voltampere, ApparentPowerUnit.Voltampere);
-}
-
+}                     
 /// <summary>
 /// Get ApparentPower from Megavoltampere.
 /// </summary>
@@ -40,8 +38,7 @@ public static ApparentPower FromMegavoltampere(double? Megavoltampere)
         return null;
 
     return new ApparentPower((double)Megavoltampere, ApparentPowerUnit.Megavoltampere);
-}
-
+}                     
 /// <summary>
 /// Get ApparentPower from Kilovoltampere.
 /// </summary>
@@ -52,8 +49,7 @@ public static ApparentPower FromKilovoltampere(double? Kilovoltampere)
         return null;
 
     return new ApparentPower((double)Kilovoltampere, ApparentPowerUnit.Kilovoltampere);
-}
-
+}                     
 /// <summary>
 /// Get ApparentPower from Gigavoltampere.
 /// </summary>
@@ -64,7 +60,6 @@ public static ApparentPower FromGigavoltampere(double? Gigavoltampere)
         return null;
 
     return new ApparentPower((double)Gigavoltampere, ApparentPowerUnit.Gigavoltampere);
-}
-
+}                     
 
 }                     

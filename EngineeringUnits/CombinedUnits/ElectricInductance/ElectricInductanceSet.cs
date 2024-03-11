@@ -16,8 +16,7 @@ public static ElectricInductance FromSI(double? SI)
         return null;
 
     return new ElectricInductance((double)SI, ElectricInductanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricInductance from Henry.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricInductance FromHenry(double? Henry)
         return null;
 
     return new ElectricInductance((double)Henry, ElectricInductanceUnit.Henry);
-}
-
+}                     
 /// <summary>
 /// Get ElectricInductance from Microhenry.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricInductance FromMicrohenry(double? Microhenry)
         return null;
 
     return new ElectricInductance((double)Microhenry, ElectricInductanceUnit.Microhenry);
-}
-
+}                     
 /// <summary>
 /// Get ElectricInductance from Millihenry.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricInductance FromMillihenry(double? Millihenry)
         return null;
 
     return new ElectricInductance((double)Millihenry, ElectricInductanceUnit.Millihenry);
-}
-
+}                     
 /// <summary>
 /// Get ElectricInductance from Nanohenry.
 /// </summary>
@@ -64,7 +60,6 @@ public static ElectricInductance FromNanohenry(double? Nanohenry)
         return null;
 
     return new ElectricInductance((double)Nanohenry, ElectricInductanceUnit.Nanohenry);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static ElectricPotentialChangeRate FromSI(double? SI)
         return null;
 
     return new ElectricPotentialChangeRate((double)SI, ElectricPotentialChangeRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from VoltPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricPotentialChangeRate FromVoltPerSecond(double? VoltPerSecon
         return null;
 
     return new ElectricPotentialChangeRate((double)VoltPerSecond, ElectricPotentialChangeRateUnit.VoltPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from VoltPerMinute.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricPotentialChangeRate FromVoltPerMinute(double? VoltPerMinut
         return null;
 
     return new ElectricPotentialChangeRate((double)VoltPerMinute, ElectricPotentialChangeRateUnit.VoltPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from VoltPerMicrosecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricPotentialChangeRate FromVoltPerMicrosecond(double? VoltPer
         return null;
 
     return new ElectricPotentialChangeRate((double)VoltPerMicrosecond, ElectricPotentialChangeRateUnit.VoltPerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from VoltPerHour.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricPotentialChangeRate FromVoltPerHour(double? VoltPerHour)
         return null;
 
     return new ElectricPotentialChangeRate((double)VoltPerHour, ElectricPotentialChangeRateUnit.VoltPerHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MillivoltPerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static ElectricPotentialChangeRate FromMillivoltPerSecond(double? Millivo
         return null;
 
     return new ElectricPotentialChangeRate((double)MillivoltPerSecond, ElectricPotentialChangeRateUnit.MillivoltPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MillivoltPerMinute.
 /// </summary>
@@ -88,8 +82,7 @@ public static ElectricPotentialChangeRate FromMillivoltPerMinute(double? Millivo
         return null;
 
     return new ElectricPotentialChangeRate((double)MillivoltPerMinute, ElectricPotentialChangeRateUnit.MillivoltPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MillivoltPerMicrosecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static ElectricPotentialChangeRate FromMillivoltPerMicrosecond(double? Mi
         return null;
 
     return new ElectricPotentialChangeRate((double)MillivoltPerMicrosecond, ElectricPotentialChangeRateUnit.MillivoltPerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MillivoltPerHour.
 /// </summary>
@@ -112,8 +104,7 @@ public static ElectricPotentialChangeRate FromMillivoltPerHour(double? Millivolt
         return null;
 
     return new ElectricPotentialChangeRate((double)MillivoltPerHour, ElectricPotentialChangeRateUnit.MillivoltPerHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MicrovoltPerSecond.
 /// </summary>
@@ -124,8 +115,7 @@ public static ElectricPotentialChangeRate FromMicrovoltPerSecond(double? Microvo
         return null;
 
     return new ElectricPotentialChangeRate((double)MicrovoltPerSecond, ElectricPotentialChangeRateUnit.MicrovoltPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MicrovoltPerMinute.
 /// </summary>
@@ -136,8 +126,7 @@ public static ElectricPotentialChangeRate FromMicrovoltPerMinute(double? Microvo
         return null;
 
     return new ElectricPotentialChangeRate((double)MicrovoltPerMinute, ElectricPotentialChangeRateUnit.MicrovoltPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MicrovoltPerMicrosecond.
 /// </summary>
@@ -148,8 +137,7 @@ public static ElectricPotentialChangeRate FromMicrovoltPerMicrosecond(double? Mi
         return null;
 
     return new ElectricPotentialChangeRate((double)MicrovoltPerMicrosecond, ElectricPotentialChangeRateUnit.MicrovoltPerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MicrovoltPerHour.
 /// </summary>
@@ -160,8 +148,7 @@ public static ElectricPotentialChangeRate FromMicrovoltPerHour(double? Microvolt
         return null;
 
     return new ElectricPotentialChangeRate((double)MicrovoltPerHour, ElectricPotentialChangeRateUnit.MicrovoltPerHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MegavoltPerSecond.
 /// </summary>
@@ -172,8 +159,7 @@ public static ElectricPotentialChangeRate FromMegavoltPerSecond(double? Megavolt
         return null;
 
     return new ElectricPotentialChangeRate((double)MegavoltPerSecond, ElectricPotentialChangeRateUnit.MegavoltPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MegavoltPerMinute.
 /// </summary>
@@ -184,8 +170,7 @@ public static ElectricPotentialChangeRate FromMegavoltPerMinute(double? Megavolt
         return null;
 
     return new ElectricPotentialChangeRate((double)MegavoltPerMinute, ElectricPotentialChangeRateUnit.MegavoltPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MegavoltPerMicrosecond.
 /// </summary>
@@ -196,8 +181,7 @@ public static ElectricPotentialChangeRate FromMegavoltPerMicrosecond(double? Meg
         return null;
 
     return new ElectricPotentialChangeRate((double)MegavoltPerMicrosecond, ElectricPotentialChangeRateUnit.MegavoltPerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from MegavoltPerHour.
 /// </summary>
@@ -208,8 +192,7 @@ public static ElectricPotentialChangeRate FromMegavoltPerHour(double? MegavoltPe
         return null;
 
     return new ElectricPotentialChangeRate((double)MegavoltPerHour, ElectricPotentialChangeRateUnit.MegavoltPerHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from KilovoltPerSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static ElectricPotentialChangeRate FromKilovoltPerSecond(double? Kilovolt
         return null;
 
     return new ElectricPotentialChangeRate((double)KilovoltPerSecond, ElectricPotentialChangeRateUnit.KilovoltPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from KilovoltPerMinute.
 /// </summary>
@@ -232,8 +214,7 @@ public static ElectricPotentialChangeRate FromKilovoltPerMinute(double? Kilovolt
         return null;
 
     return new ElectricPotentialChangeRate((double)KilovoltPerMinute, ElectricPotentialChangeRateUnit.KilovoltPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from KilovoltPerMicrosecond.
 /// </summary>
@@ -244,8 +225,7 @@ public static ElectricPotentialChangeRate FromKilovoltPerMicrosecond(double? Kil
         return null;
 
     return new ElectricPotentialChangeRate((double)KilovoltPerMicrosecond, ElectricPotentialChangeRateUnit.KilovoltPerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotentialChangeRate from KilovoltPerHour.
 /// </summary>
@@ -256,7 +236,6 @@ public static ElectricPotentialChangeRate FromKilovoltPerHour(double? KilovoltPe
         return null;
 
     return new ElectricPotentialChangeRate((double)KilovoltPerHour, ElectricPotentialChangeRateUnit.KilovoltPerHour);
-}
-
+}                     
 
 }                     

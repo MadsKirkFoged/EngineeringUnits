@@ -16,8 +16,7 @@ public static Illuminance FromSI(double? SI)
         return null;
 
     return new Illuminance((double)SI, IlluminanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Illuminance from Lux.
 /// </summary>
@@ -28,8 +27,7 @@ public static Illuminance FromLux(double? Lux)
         return null;
 
     return new Illuminance((double)Lux, IlluminanceUnit.Lux);
-}
-
+}                     
 /// <summary>
 /// Get Illuminance from Kilolux.
 /// </summary>
@@ -40,8 +38,7 @@ public static Illuminance FromKilolux(double? Kilolux)
         return null;
 
     return new Illuminance((double)Kilolux, IlluminanceUnit.Kilolux);
-}
-
+}                     
 /// <summary>
 /// Get Illuminance from Megalux.
 /// </summary>
@@ -52,8 +49,7 @@ public static Illuminance FromMegalux(double? Megalux)
         return null;
 
     return new Illuminance((double)Megalux, IlluminanceUnit.Megalux);
-}
-
+}                     
 /// <summary>
 /// Get Illuminance from Millilux.
 /// </summary>
@@ -64,7 +60,6 @@ public static Illuminance FromMillilux(double? Millilux)
         return null;
 
     return new Illuminance((double)Millilux, IlluminanceUnit.Millilux);
-}
-
+}                     
 
 }                     

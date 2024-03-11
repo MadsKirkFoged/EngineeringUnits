@@ -16,8 +16,7 @@ public static LengthCost FromSI(double? SI)
         return null;
 
     return new LengthCost((double)SI, LengthCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LengthCost from DollarPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static LengthCost FromDollarPerMeter(double? DollarPerMeter)
         return null;
 
     return new LengthCost((double)DollarPerMeter, LengthCostUnit.DollarPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LengthCost from EuroPerMeter.
 /// </summary>
@@ -40,7 +38,6 @@ public static LengthCost FromEuroPerMeter(double? EuroPerMeter)
         return null;
 
     return new LengthCost((double)EuroPerMeter, LengthCostUnit.EuroPerMeter);
-}
-
+}                     
 
 }                     

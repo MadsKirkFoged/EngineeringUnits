@@ -96,8 +96,7 @@ internal class GenerateSetter
                              return null;
                      
                          return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
-                     }
-                     
+                     }                     
                      """.Replace("UnitEnum", $"{i.Name}");
 
             _=sb.AppendLine(test2);

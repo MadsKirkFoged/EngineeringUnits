@@ -16,8 +16,7 @@ public static SpecificEnergy FromSI(double? SI)
         return null;
 
     return new SpecificEnergy((double)SI, SpecificEnergyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from JoulePerKilogram.
 /// </summary>
@@ -28,8 +27,7 @@ public static SpecificEnergy FromJoulePerKilogram(double? JoulePerKilogram)
         return null;
 
     return new SpecificEnergy((double)JoulePerKilogram, SpecificEnergyUnit.JoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilojoulePerKilogram.
 /// </summary>
@@ -40,8 +38,7 @@ public static SpecificEnergy FromKilojoulePerKilogram(double? KilojoulePerKilogr
         return null;
 
     return new SpecificEnergy((double)KilojoulePerKilogram, SpecificEnergyUnit.KilojoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from MegajoulePerKilogram.
 /// </summary>
@@ -52,8 +49,7 @@ public static SpecificEnergy FromMegajoulePerKilogram(double? MegajoulePerKilogr
         return null;
 
     return new SpecificEnergy((double)MegajoulePerKilogram, SpecificEnergyUnit.MegajoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from BtuPerPound.
 /// </summary>
@@ -64,8 +60,7 @@ public static SpecificEnergy FromBtuPerPound(double? BtuPerPound)
         return null;
 
     return new SpecificEnergy((double)BtuPerPound, SpecificEnergyUnit.BtuPerPound);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from CaloriePerGram.
 /// </summary>
@@ -76,8 +71,7 @@ public static SpecificEnergy FromCaloriePerGram(double? CaloriePerGram)
         return null;
 
     return new SpecificEnergy((double)CaloriePerGram, SpecificEnergyUnit.CaloriePerGram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilocaloriePerGram.
 /// </summary>
@@ -88,8 +82,7 @@ public static SpecificEnergy FromKilocaloriePerGram(double? KilocaloriePerGram)
         return null;
 
     return new SpecificEnergy((double)KilocaloriePerGram, SpecificEnergyUnit.KilocaloriePerGram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from WattDayPerKilogram.
 /// </summary>
@@ -100,8 +93,7 @@ public static SpecificEnergy FromWattDayPerKilogram(double? WattDayPerKilogram)
         return null;
 
     return new SpecificEnergy((double)WattDayPerKilogram, SpecificEnergyUnit.WattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilowattDayPerKilogram.
 /// </summary>
@@ -112,8 +104,7 @@ public static SpecificEnergy FromKilowattDayPerKilogram(double? KilowattDayPerKi
         return null;
 
     return new SpecificEnergy((double)KilowattDayPerKilogram, SpecificEnergyUnit.KilowattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from MegawattDayPerKilogram.
 /// </summary>
@@ -124,8 +115,7 @@ public static SpecificEnergy FromMegawattDayPerKilogram(double? MegawattDayPerKi
         return null;
 
     return new SpecificEnergy((double)MegawattDayPerKilogram, SpecificEnergyUnit.MegawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from GigawattDayPerKilogram.
 /// </summary>
@@ -136,8 +126,7 @@ public static SpecificEnergy FromGigawattDayPerKilogram(double? GigawattDayPerKi
         return null;
 
     return new SpecificEnergy((double)GigawattDayPerKilogram, SpecificEnergyUnit.GigawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from TerawattDayPerKilogram.
 /// </summary>
@@ -148,8 +137,7 @@ public static SpecificEnergy FromTerawattDayPerKilogram(double? TerawattDayPerKi
         return null;
 
     return new SpecificEnergy((double)TerawattDayPerKilogram, SpecificEnergyUnit.TerawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from WattHourPerKilogram.
 /// </summary>
@@ -160,8 +148,7 @@ public static SpecificEnergy FromWattHourPerKilogram(double? WattHourPerKilogram
         return null;
 
     return new SpecificEnergy((double)WattHourPerKilogram, SpecificEnergyUnit.WattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilowattHourPerKilogram.
 /// </summary>
@@ -172,8 +159,7 @@ public static SpecificEnergy FromKilowattHourPerKilogram(double? KilowattHourPer
         return null;
 
     return new SpecificEnergy((double)KilowattHourPerKilogram, SpecificEnergyUnit.KilowattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from MegawattHourPerKilogram.
 /// </summary>
@@ -184,8 +170,7 @@ public static SpecificEnergy FromMegawattHourPerKilogram(double? MegawattHourPer
         return null;
 
     return new SpecificEnergy((double)MegawattHourPerKilogram, SpecificEnergyUnit.MegawattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from GigawattHourPerKilogram.
 /// </summary>
@@ -196,8 +181,7 @@ public static SpecificEnergy FromGigawattHourPerKilogram(double? GigawattHourPer
         return null;
 
     return new SpecificEnergy((double)GigawattHourPerKilogram, SpecificEnergyUnit.GigawattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from WattDayPerTonne.
 /// </summary>
@@ -208,8 +192,7 @@ public static SpecificEnergy FromWattDayPerTonne(double? WattDayPerTonne)
         return null;
 
     return new SpecificEnergy((double)WattDayPerTonne, SpecificEnergyUnit.WattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilowattDayPerTonne.
 /// </summary>
@@ -220,8 +203,7 @@ public static SpecificEnergy FromKilowattDayPerTonne(double? KilowattDayPerTonne
         return null;
 
     return new SpecificEnergy((double)KilowattDayPerTonne, SpecificEnergyUnit.KilowattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from MegawattDayPerTonne.
 /// </summary>
@@ -232,8 +214,7 @@ public static SpecificEnergy FromMegawattDayPerTonne(double? MegawattDayPerTonne
         return null;
 
     return new SpecificEnergy((double)MegawattDayPerTonne, SpecificEnergyUnit.MegawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from GigawattDayPerTonne.
 /// </summary>
@@ -244,8 +225,7 @@ public static SpecificEnergy FromGigawattDayPerTonne(double? GigawattDayPerTonne
         return null;
 
     return new SpecificEnergy((double)GigawattDayPerTonne, SpecificEnergyUnit.GigawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from TerawattDayPerTonne.
 /// </summary>
@@ -256,8 +236,7 @@ public static SpecificEnergy FromTerawattDayPerTonne(double? TerawattDayPerTonne
         return null;
 
     return new SpecificEnergy((double)TerawattDayPerTonne, SpecificEnergyUnit.TerawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from WattDayPerShortTon.
 /// </summary>
@@ -268,8 +247,7 @@ public static SpecificEnergy FromWattDayPerShortTon(double? WattDayPerShortTon)
         return null;
 
     return new SpecificEnergy((double)WattDayPerShortTon, SpecificEnergyUnit.WattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from KilowattDayPerShortTon.
 /// </summary>
@@ -280,8 +258,7 @@ public static SpecificEnergy FromKilowattDayPerShortTon(double? KilowattDayPerSh
         return null;
 
     return new SpecificEnergy((double)KilowattDayPerShortTon, SpecificEnergyUnit.KilowattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from MegawattDayPerShortTon.
 /// </summary>
@@ -292,8 +269,7 @@ public static SpecificEnergy FromMegawattDayPerShortTon(double? MegawattDayPerSh
         return null;
 
     return new SpecificEnergy((double)MegawattDayPerShortTon, SpecificEnergyUnit.MegawattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from GigawattDayPerShortTon.
 /// </summary>
@@ -304,8 +280,7 @@ public static SpecificEnergy FromGigawattDayPerShortTon(double? GigawattDayPerSh
         return null;
 
     return new SpecificEnergy((double)GigawattDayPerShortTon, SpecificEnergyUnit.GigawattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEnergy from TerawattDayPerShortTon.
 /// </summary>
@@ -316,7 +291,6 @@ public static SpecificEnergy FromTerawattDayPerShortTon(double? TerawattDayPerSh
         return null;
 
     return new SpecificEnergy((double)TerawattDayPerShortTon, SpecificEnergyUnit.TerawattDayPerShortTon);
-}
-
+}                     
 
 }                     

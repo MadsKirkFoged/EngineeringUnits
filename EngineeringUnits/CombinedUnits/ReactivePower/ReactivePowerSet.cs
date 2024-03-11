@@ -16,8 +16,7 @@ public static ReactivePower FromSI(double? SI)
         return null;
 
     return new ReactivePower((double)SI, ReactivePowerUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ReactivePower from VoltampereReactive.
 /// </summary>
@@ -28,8 +27,7 @@ public static ReactivePower FromVoltampereReactive(double? VoltampereReactive)
         return null;
 
     return new ReactivePower((double)VoltampereReactive, ReactivePowerUnit.VoltampereReactive);
-}
-
+}                     
 /// <summary>
 /// Get ReactivePower from MegavoltampereReactive.
 /// </summary>
@@ -40,8 +38,7 @@ public static ReactivePower FromMegavoltampereReactive(double? MegavoltampereRea
         return null;
 
     return new ReactivePower((double)MegavoltampereReactive, ReactivePowerUnit.MegavoltampereReactive);
-}
-
+}                     
 /// <summary>
 /// Get ReactivePower from KilovoltampereReactive.
 /// </summary>
@@ -52,8 +49,7 @@ public static ReactivePower FromKilovoltampereReactive(double? KilovoltampereRea
         return null;
 
     return new ReactivePower((double)KilovoltampereReactive, ReactivePowerUnit.KilovoltampereReactive);
-}
-
+}                     
 /// <summary>
 /// Get ReactivePower from GigavoltampereReactive.
 /// </summary>
@@ -64,7 +60,6 @@ public static ReactivePower FromGigavoltampereReactive(double? GigavoltampereRea
         return null;
 
     return new ReactivePower((double)GigavoltampereReactive, ReactivePowerUnit.GigavoltampereReactive);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static PressureChangeRate FromSI(double? SI)
         return null;
 
     return new PressureChangeRate((double)SI, PressureChangeRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from PascalPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static PressureChangeRate FromPascalPerSecond(double? PascalPerSecond)
         return null;
 
     return new PressureChangeRate((double)PascalPerSecond, PressureChangeRateUnit.PascalPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from PascalPerMinute.
 /// </summary>
@@ -40,8 +38,7 @@ public static PressureChangeRate FromPascalPerMinute(double? PascalPerMinute)
         return null;
 
     return new PressureChangeRate((double)PascalPerMinute, PressureChangeRateUnit.PascalPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from MegapascalPerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static PressureChangeRate FromMegapascalPerSecond(double? MegapascalPerSe
         return null;
 
     return new PressureChangeRate((double)MegapascalPerSecond, PressureChangeRateUnit.MegapascalPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from MegapascalPerMinute.
 /// </summary>
@@ -64,8 +60,7 @@ public static PressureChangeRate FromMegapascalPerMinute(double? MegapascalPerMi
         return null;
 
     return new PressureChangeRate((double)MegapascalPerMinute, PressureChangeRateUnit.MegapascalPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from KilopoundForcePerSquareInchPerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static PressureChangeRate FromKilopoundForcePerSquareInchPerSecond(double
         return null;
 
     return new PressureChangeRate((double)KilopoundForcePerSquareInchPerSecond, PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from KilopoundForcePerSquareInchPerMinute.
 /// </summary>
@@ -88,8 +82,7 @@ public static PressureChangeRate FromKilopoundForcePerSquareInchPerMinute(double
         return null;
 
     return new PressureChangeRate((double)KilopoundForcePerSquareInchPerMinute, PressureChangeRateUnit.KilopoundForcePerSquareInchPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from KilopascalPerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static PressureChangeRate FromKilopascalPerSecond(double? KilopascalPerSe
         return null;
 
     return new PressureChangeRate((double)KilopascalPerSecond, PressureChangeRateUnit.KilopascalPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from KilopascalPerMinute.
 /// </summary>
@@ -112,8 +104,7 @@ public static PressureChangeRate FromKilopascalPerMinute(double? KilopascalPerMi
         return null;
 
     return new PressureChangeRate((double)KilopascalPerMinute, PressureChangeRateUnit.KilopascalPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from AtmospherePerSecond.
 /// </summary>
@@ -124,8 +115,7 @@ public static PressureChangeRate FromAtmospherePerSecond(double? AtmospherePerSe
         return null;
 
     return new PressureChangeRate((double)AtmospherePerSecond, PressureChangeRateUnit.AtmospherePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from PoundForcePerSquareInchPerMinute.
 /// </summary>
@@ -136,8 +126,7 @@ public static PressureChangeRate FromPoundForcePerSquareInchPerMinute(double? Po
         return null;
 
     return new PressureChangeRate((double)PoundForcePerSquareInchPerMinute, PressureChangeRateUnit.PoundForcePerSquareInchPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from PoundForcePerSquareInchPerSecond.
 /// </summary>
@@ -148,8 +137,7 @@ public static PressureChangeRate FromPoundForcePerSquareInchPerSecond(double? Po
         return null;
 
     return new PressureChangeRate((double)PoundForcePerSquareInchPerSecond, PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from MegapoundForcePerSquareInchPerSecond.
 /// </summary>
@@ -160,8 +148,7 @@ public static PressureChangeRate FromMegapoundForcePerSquareInchPerSecond(double
         return null;
 
     return new PressureChangeRate((double)MegapoundForcePerSquareInchPerSecond, PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get PressureChangeRate from MegapoundForcePerSquareInchPerMinute.
 /// </summary>
@@ -172,7 +159,6 @@ public static PressureChangeRate FromMegapoundForcePerSquareInchPerMinute(double
         return null;
 
     return new PressureChangeRate((double)MegapoundForcePerSquareInchPerMinute, PressureChangeRateUnit.MegapoundForcePerSquareInchPerMinute);
-}
-
+}                     
 
 }                     

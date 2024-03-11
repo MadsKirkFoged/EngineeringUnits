@@ -16,8 +16,7 @@ public static Density FromSI(double? SI)
         return null;
 
     return new Density((double)SI, DensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Density from CentigramPerDeciliter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Density FromCentigramPerDeciliter(double? CentigramPerDeciliter)
         return null;
 
     return new Density((double)CentigramPerDeciliter, DensityUnit.CentigramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from CentigramPerLiter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Density FromCentigramPerLiter(double? CentigramPerLiter)
         return null;
 
     return new Density((double)CentigramPerLiter, DensityUnit.CentigramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from CentigramPerMilliliter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Density FromCentigramPerMilliliter(double? CentigramPerMilliliter)
         return null;
 
     return new Density((double)CentigramPerMilliliter, DensityUnit.CentigramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from DecigramPerDeciliter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Density FromDecigramPerDeciliter(double? DecigramPerDeciliter)
         return null;
 
     return new Density((double)DecigramPerDeciliter, DensityUnit.DecigramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from DecigramPerLiter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Density FromDecigramPerLiter(double? DecigramPerLiter)
         return null;
 
     return new Density((double)DecigramPerLiter, DensityUnit.DecigramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from DecigramPerMilliliter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Density FromDecigramPerMilliliter(double? DecigramPerMilliliter)
         return null;
 
     return new Density((double)DecigramPerMilliliter, DensityUnit.DecigramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from DecigramPerMicroliter.
 /// </summary>
@@ -100,8 +93,7 @@ public static Density FromDecigramPerMicroliter(double? DecigramPerMicroliter)
         return null;
 
     return new Density((double)DecigramPerMicroliter, DensityUnit.DecigramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerCubicCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static Density FromGramPerCubicCentimeter(double? GramPerCubicCentimeter)
         return null;
 
     return new Density((double)GramPerCubicCentimeter, DensityUnit.GramPerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerCubicMeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static Density FromGramPerCubicMeter(double? GramPerCubicMeter)
         return null;
 
     return new Density((double)GramPerCubicMeter, DensityUnit.GramPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerCubicMillimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static Density FromGramPerCubicMillimeter(double? GramPerCubicMillimeter)
         return null;
 
     return new Density((double)GramPerCubicMillimeter, DensityUnit.GramPerCubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerDeciliter.
 /// </summary>
@@ -148,8 +137,7 @@ public static Density FromGramPerDeciliter(double? GramPerDeciliter)
         return null;
 
     return new Density((double)GramPerDeciliter, DensityUnit.GramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerLiter.
 /// </summary>
@@ -160,8 +148,7 @@ public static Density FromGramPerLiter(double? GramPerLiter)
         return null;
 
     return new Density((double)GramPerLiter, DensityUnit.GramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerMilliliter.
 /// </summary>
@@ -172,8 +159,7 @@ public static Density FromGramPerMilliliter(double? GramPerMilliliter)
         return null;
 
     return new Density((double)GramPerMilliliter, DensityUnit.GramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from GramPerMicroliter.
 /// </summary>
@@ -184,8 +170,7 @@ public static Density FromGramPerMicroliter(double? GramPerMicroliter)
         return null;
 
     return new Density((double)GramPerMicroliter, DensityUnit.GramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilogramPerCubicCentimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static Density FromKilogramPerCubicCentimeter(double? KilogramPerCubicCen
         return null;
 
     return new Density((double)KilogramPerCubicCentimeter, DensityUnit.KilogramPerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilogramPerCubicMeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static Density FromKilogramPerCubicMeter(double? KilogramPerCubicMeter)
         return null;
 
     return new Density((double)KilogramPerCubicMeter, DensityUnit.KilogramPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilogramPerCubicMillimeter.
 /// </summary>
@@ -220,8 +203,7 @@ public static Density FromKilogramPerCubicMillimeter(double? KilogramPerCubicMil
         return null;
 
     return new Density((double)KilogramPerCubicMillimeter, DensityUnit.KilogramPerCubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilogramPerLiter.
 /// </summary>
@@ -232,8 +214,7 @@ public static Density FromKilogramPerLiter(double? KilogramPerLiter)
         return null;
 
     return new Density((double)KilogramPerLiter, DensityUnit.KilogramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilopoundPerCubicFoot.
 /// </summary>
@@ -244,8 +225,7 @@ public static Density FromKilopoundPerCubicFoot(double? KilopoundPerCubicFoot)
         return null;
 
     return new Density((double)KilopoundPerCubicFoot, DensityUnit.KilopoundPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Density from KilopoundPerCubicInch.
 /// </summary>
@@ -256,8 +236,7 @@ public static Density FromKilopoundPerCubicInch(double? KilopoundPerCubicInch)
         return null;
 
     return new Density((double)KilopoundPerCubicInch, DensityUnit.KilopoundPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get Density from MicrogramPerCubicMeter.
 /// </summary>
@@ -268,8 +247,7 @@ public static Density FromMicrogramPerCubicMeter(double? MicrogramPerCubicMeter)
         return null;
 
     return new Density((double)MicrogramPerCubicMeter, DensityUnit.MicrogramPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MicrogramPerDeciliter.
 /// </summary>
@@ -280,8 +258,7 @@ public static Density FromMicrogramPerDeciliter(double? MicrogramPerDeciliter)
         return null;
 
     return new Density((double)MicrogramPerDeciliter, DensityUnit.MicrogramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MicrogramPerLiter.
 /// </summary>
@@ -292,8 +269,7 @@ public static Density FromMicrogramPerLiter(double? MicrogramPerLiter)
         return null;
 
     return new Density((double)MicrogramPerLiter, DensityUnit.MicrogramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MicrogramPerMilliliter.
 /// </summary>
@@ -304,8 +280,7 @@ public static Density FromMicrogramPerMilliliter(double? MicrogramPerMilliliter)
         return null;
 
     return new Density((double)MicrogramPerMilliliter, DensityUnit.MicrogramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MicrogramPerMicroliter.
 /// </summary>
@@ -316,8 +291,7 @@ public static Density FromMicrogramPerMicroliter(double? MicrogramPerMicroliter)
         return null;
 
     return new Density((double)MicrogramPerMicroliter, DensityUnit.MicrogramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MilligramPerCubicMeter.
 /// </summary>
@@ -328,8 +302,7 @@ public static Density FromMilligramPerCubicMeter(double? MilligramPerCubicMeter)
         return null;
 
     return new Density((double)MilligramPerCubicMeter, DensityUnit.MilligramPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MilligramPerDeciliter.
 /// </summary>
@@ -340,8 +313,7 @@ public static Density FromMilligramPerDeciliter(double? MilligramPerDeciliter)
         return null;
 
     return new Density((double)MilligramPerDeciliter, DensityUnit.MilligramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MilligramPerLiter.
 /// </summary>
@@ -352,8 +324,7 @@ public static Density FromMilligramPerLiter(double? MilligramPerLiter)
         return null;
 
     return new Density((double)MilligramPerLiter, DensityUnit.MilligramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MilligramPerMilliliter.
 /// </summary>
@@ -364,8 +335,7 @@ public static Density FromMilligramPerMilliliter(double? MilligramPerMilliliter)
         return null;
 
     return new Density((double)MilligramPerMilliliter, DensityUnit.MilligramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from MilligramPerMicroliter.
 /// </summary>
@@ -376,8 +346,7 @@ public static Density FromMilligramPerMicroliter(double? MilligramPerMicroliter)
         return null;
 
     return new Density((double)MilligramPerMicroliter, DensityUnit.MilligramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from NanogramPerDeciliter.
 /// </summary>
@@ -388,8 +357,7 @@ public static Density FromNanogramPerDeciliter(double? NanogramPerDeciliter)
         return null;
 
     return new Density((double)NanogramPerDeciliter, DensityUnit.NanogramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from NanogramPerLiter.
 /// </summary>
@@ -400,8 +368,7 @@ public static Density FromNanogramPerLiter(double? NanogramPerLiter)
         return null;
 
     return new Density((double)NanogramPerLiter, DensityUnit.NanogramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from NanogramPerMilliliter.
 /// </summary>
@@ -412,8 +379,7 @@ public static Density FromNanogramPerMilliliter(double? NanogramPerMilliliter)
         return null;
 
     return new Density((double)NanogramPerMilliliter, DensityUnit.NanogramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from NanogramPerMicroliter.
 /// </summary>
@@ -424,8 +390,7 @@ public static Density FromNanogramPerMicroliter(double? NanogramPerMicroliter)
         return null;
 
     return new Density((double)NanogramPerMicroliter, DensityUnit.NanogramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from PicogramPerDeciliter.
 /// </summary>
@@ -436,8 +401,7 @@ public static Density FromPicogramPerDeciliter(double? PicogramPerDeciliter)
         return null;
 
     return new Density((double)PicogramPerDeciliter, DensityUnit.PicogramPerDeciliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from PicogramPerLiter.
 /// </summary>
@@ -448,8 +412,7 @@ public static Density FromPicogramPerLiter(double? PicogramPerLiter)
         return null;
 
     return new Density((double)PicogramPerLiter, DensityUnit.PicogramPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Density from PicogramPerMilliliter.
 /// </summary>
@@ -460,8 +423,7 @@ public static Density FromPicogramPerMilliliter(double? PicogramPerMilliliter)
         return null;
 
     return new Density((double)PicogramPerMilliliter, DensityUnit.PicogramPerMilliliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from PicogramPerMicroliter.
 /// </summary>
@@ -472,8 +434,7 @@ public static Density FromPicogramPerMicroliter(double? PicogramPerMicroliter)
         return null;
 
     return new Density((double)PicogramPerMicroliter, DensityUnit.PicogramPerMicroliter);
-}
-
+}                     
 /// <summary>
 /// Get Density from PoundPerCubicFoot.
 /// </summary>
@@ -484,8 +445,7 @@ public static Density FromPoundPerCubicFoot(double? PoundPerCubicFoot)
         return null;
 
     return new Density((double)PoundPerCubicFoot, DensityUnit.PoundPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Density from PoundPerCubicInch.
 /// </summary>
@@ -496,8 +456,7 @@ public static Density FromPoundPerCubicInch(double? PoundPerCubicInch)
         return null;
 
     return new Density((double)PoundPerCubicInch, DensityUnit.PoundPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get Density from PoundPerImperialGallon.
 /// </summary>
@@ -508,8 +467,7 @@ public static Density FromPoundPerImperialGallon(double? PoundPerImperialGallon)
         return null;
 
     return new Density((double)PoundPerImperialGallon, DensityUnit.PoundPerImperialGallon);
-}
-
+}                     
 /// <summary>
 /// Get Density from PoundPerUSGallon.
 /// </summary>
@@ -520,8 +478,7 @@ public static Density FromPoundPerUSGallon(double? PoundPerUSGallon)
         return null;
 
     return new Density((double)PoundPerUSGallon, DensityUnit.PoundPerUSGallon);
-}
-
+}                     
 /// <summary>
 /// Get Density from SlugPerCubicFoot.
 /// </summary>
@@ -532,8 +489,7 @@ public static Density FromSlugPerCubicFoot(double? SlugPerCubicFoot)
         return null;
 
     return new Density((double)SlugPerCubicFoot, DensityUnit.SlugPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Density from TonnePerCubicCentimeter.
 /// </summary>
@@ -544,8 +500,7 @@ public static Density FromTonnePerCubicCentimeter(double? TonnePerCubicCentimete
         return null;
 
     return new Density((double)TonnePerCubicCentimeter, DensityUnit.TonnePerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from TonnePerCubicMeter.
 /// </summary>
@@ -556,8 +511,7 @@ public static Density FromTonnePerCubicMeter(double? TonnePerCubicMeter)
         return null;
 
     return new Density((double)TonnePerCubicMeter, DensityUnit.TonnePerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Density from TonnePerCubicMillimeter.
 /// </summary>
@@ -568,7 +522,6 @@ public static Density FromTonnePerCubicMillimeter(double? TonnePerCubicMillimete
         return null;
 
     return new Density((double)TonnePerCubicMillimeter, DensityUnit.TonnePerCubicMillimeter);
-}
-
+}                     
 
 }                     

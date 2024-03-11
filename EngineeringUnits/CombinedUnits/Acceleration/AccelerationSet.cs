@@ -16,8 +16,7 @@ public static Acceleration FromSI(double? SI)
         return null;
 
     return new Acceleration((double)SI, AccelerationUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from KilometerPerSecondSquared.
 /// </summary>
@@ -28,8 +27,7 @@ public static Acceleration FromKilometerPerSecondSquared(double? KilometerPerSec
         return null;
 
     return new Acceleration((double)KilometerPerSecondSquared, AccelerationUnit.KilometerPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from MeterPerSecondSquared.
 /// </summary>
@@ -40,8 +38,7 @@ public static Acceleration FromMeterPerSecondSquared(double? MeterPerSecondSquar
         return null;
 
     return new Acceleration((double)MeterPerSecondSquared, AccelerationUnit.MeterPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from DecimeterPerSecondSquared.
 /// </summary>
@@ -52,8 +49,7 @@ public static Acceleration FromDecimeterPerSecondSquared(double? DecimeterPerSec
         return null;
 
     return new Acceleration((double)DecimeterPerSecondSquared, AccelerationUnit.DecimeterPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from CentimeterPerSecondSquared.
 /// </summary>
@@ -64,8 +60,7 @@ public static Acceleration FromCentimeterPerSecondSquared(double? CentimeterPerS
         return null;
 
     return new Acceleration((double)CentimeterPerSecondSquared, AccelerationUnit.CentimeterPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from MicrometerPerSecondSquared.
 /// </summary>
@@ -76,8 +71,7 @@ public static Acceleration FromMicrometerPerSecondSquared(double? MicrometerPerS
         return null;
 
     return new Acceleration((double)MicrometerPerSecondSquared, AccelerationUnit.MicrometerPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from MillimeterPerSecondSquared.
 /// </summary>
@@ -88,8 +82,7 @@ public static Acceleration FromMillimeterPerSecondSquared(double? MillimeterPerS
         return null;
 
     return new Acceleration((double)MillimeterPerSecondSquared, AccelerationUnit.MillimeterPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from NanometerPerSecondSquared.
 /// </summary>
@@ -100,8 +93,7 @@ public static Acceleration FromNanometerPerSecondSquared(double? NanometerPerSec
         return null;
 
     return new Acceleration((double)NanometerPerSecondSquared, AccelerationUnit.NanometerPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from InchPerSecondSquared.
 /// </summary>
@@ -112,8 +104,7 @@ public static Acceleration FromInchPerSecondSquared(double? InchPerSecondSquared
         return null;
 
     return new Acceleration((double)InchPerSecondSquared, AccelerationUnit.InchPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from FootPerSecondSquared.
 /// </summary>
@@ -124,8 +115,7 @@ public static Acceleration FromFootPerSecondSquared(double? FootPerSecondSquared
         return null;
 
     return new Acceleration((double)FootPerSecondSquared, AccelerationUnit.FootPerSecondSquared);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from KnotPerSecond.
 /// </summary>
@@ -136,8 +126,7 @@ public static Acceleration FromKnotPerSecond(double? KnotPerSecond)
         return null;
 
     return new Acceleration((double)KnotPerSecond, AccelerationUnit.KnotPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from KnotPerMinute.
 /// </summary>
@@ -148,8 +137,7 @@ public static Acceleration FromKnotPerMinute(double? KnotPerMinute)
         return null;
 
     return new Acceleration((double)KnotPerMinute, AccelerationUnit.KnotPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from KnotPerHour.
 /// </summary>
@@ -160,8 +148,7 @@ public static Acceleration FromKnotPerHour(double? KnotPerHour)
         return null;
 
     return new Acceleration((double)KnotPerHour, AccelerationUnit.KnotPerHour);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from StandardGravity.
 /// </summary>
@@ -172,8 +159,7 @@ public static Acceleration FromStandardGravity(double? StandardGravity)
         return null;
 
     return new Acceleration((double)StandardGravity, AccelerationUnit.StandardGravity);
-}
-
+}                     
 /// <summary>
 /// Get Acceleration from MillistandardGravity.
 /// </summary>
@@ -184,7 +170,6 @@ public static Acceleration FromMillistandardGravity(double? MillistandardGravity
         return null;
 
     return new Acceleration((double)MillistandardGravity, AccelerationUnit.MillistandardGravity);
-}
-
+}                     
 
 }                     

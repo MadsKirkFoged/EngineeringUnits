@@ -16,8 +16,7 @@ public static Entropy FromSI(double? SI)
         return null;
 
     return new Entropy((double)SI, EntropyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from JoulePerKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static Entropy FromJoulePerKelvin(double? JoulePerKelvin)
         return null;
 
     return new Entropy((double)JoulePerKelvin, EntropyUnit.JoulePerKelvin);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from CaloriePerKelvin.
 /// </summary>
@@ -40,8 +38,7 @@ public static Entropy FromCaloriePerKelvin(double? CaloriePerKelvin)
         return null;
 
     return new Entropy((double)CaloriePerKelvin, EntropyUnit.CaloriePerKelvin);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from JoulePerDegreeCelsius.
 /// </summary>
@@ -52,8 +49,7 @@ public static Entropy FromJoulePerDegreeCelsius(double? JoulePerDegreeCelsius)
         return null;
 
     return new Entropy((double)JoulePerDegreeCelsius, EntropyUnit.JoulePerDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from KilocaloriePerKelvin.
 /// </summary>
@@ -64,8 +60,7 @@ public static Entropy FromKilocaloriePerKelvin(double? KilocaloriePerKelvin)
         return null;
 
     return new Entropy((double)KilocaloriePerKelvin, EntropyUnit.KilocaloriePerKelvin);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from KilojoulePerDegreeCelsius.
 /// </summary>
@@ -76,8 +71,7 @@ public static Entropy FromKilojoulePerDegreeCelsius(double? KilojoulePerDegreeCe
         return null;
 
     return new Entropy((double)KilojoulePerDegreeCelsius, EntropyUnit.KilojoulePerDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from KilojoulePerKelvin.
 /// </summary>
@@ -88,8 +82,7 @@ public static Entropy FromKilojoulePerKelvin(double? KilojoulePerKelvin)
         return null;
 
     return new Entropy((double)KilojoulePerKelvin, EntropyUnit.KilojoulePerKelvin);
-}
-
+}                     
 /// <summary>
 /// Get Entropy from MegajoulePerKelvin.
 /// </summary>
@@ -100,7 +93,6 @@ public static Entropy FromMegajoulePerKelvin(double? MegajoulePerKelvin)
         return null;
 
     return new Entropy((double)MegajoulePerKelvin, EntropyUnit.MegajoulePerKelvin);
-}
-
+}                     
 
 }                     

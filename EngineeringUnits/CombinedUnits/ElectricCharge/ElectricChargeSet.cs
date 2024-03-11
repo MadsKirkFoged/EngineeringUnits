@@ -16,8 +16,7 @@ public static ElectricCharge FromSI(double? SI)
         return null;
 
     return new ElectricCharge((double)SI, ElectricChargeUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCharge from Coulomb.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricCharge FromCoulomb(double? Coulomb)
         return null;
 
     return new ElectricCharge((double)Coulomb, ElectricChargeUnit.Coulomb);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCharge from AmpereHour.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricCharge FromAmpereHour(double? AmpereHour)
         return null;
 
     return new ElectricCharge((double)AmpereHour, ElectricChargeUnit.AmpereHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCharge from KiloampereHour.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricCharge FromKiloampereHour(double? KiloampereHour)
         return null;
 
     return new ElectricCharge((double)KiloampereHour, ElectricChargeUnit.KiloampereHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCharge from MegaampereHour.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricCharge FromMegaampereHour(double? MegaampereHour)
         return null;
 
     return new ElectricCharge((double)MegaampereHour, ElectricChargeUnit.MegaampereHour);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCharge from MilliampereHour.
 /// </summary>
@@ -76,7 +71,6 @@ public static ElectricCharge FromMilliampereHour(double? MilliampereHour)
         return null;
 
     return new ElectricCharge((double)MilliampereHour, ElectricChargeUnit.MilliampereHour);
-}
-
+}                     
 
 }                     

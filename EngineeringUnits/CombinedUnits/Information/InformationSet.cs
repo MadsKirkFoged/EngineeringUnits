@@ -16,8 +16,7 @@ public static Information FromSI(double? SI)
         return null;
 
     return new Information((double)SI, InformationUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Information from Byte.
 /// </summary>
@@ -28,8 +27,7 @@ public static Information FromByte(double? Byte)
         return null;
 
     return new Information((double)Byte, InformationUnit.Byte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Bit.
 /// </summary>
@@ -40,8 +38,7 @@ public static Information FromBit(double? Bit)
         return null;
 
     return new Information((double)Bit, InformationUnit.Bit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Kibibit.
 /// </summary>
@@ -52,8 +49,7 @@ public static Information FromKibibit(double? Kibibit)
         return null;
 
     return new Information((double)Kibibit, InformationUnit.Kibibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Mebibit.
 /// </summary>
@@ -64,8 +60,7 @@ public static Information FromMebibit(double? Mebibit)
         return null;
 
     return new Information((double)Mebibit, InformationUnit.Mebibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Gibibit.
 /// </summary>
@@ -76,8 +71,7 @@ public static Information FromGibibit(double? Gibibit)
         return null;
 
     return new Information((double)Gibibit, InformationUnit.Gibibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Tebibit.
 /// </summary>
@@ -88,8 +82,7 @@ public static Information FromTebibit(double? Tebibit)
         return null;
 
     return new Information((double)Tebibit, InformationUnit.Tebibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Pebibit.
 /// </summary>
@@ -100,8 +93,7 @@ public static Information FromPebibit(double? Pebibit)
         return null;
 
     return new Information((double)Pebibit, InformationUnit.Pebibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Exbibit.
 /// </summary>
@@ -112,8 +104,7 @@ public static Information FromExbibit(double? Exbibit)
         return null;
 
     return new Information((double)Exbibit, InformationUnit.Exbibit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Kibibyte.
 /// </summary>
@@ -124,8 +115,7 @@ public static Information FromKibibyte(double? Kibibyte)
         return null;
 
     return new Information((double)Kibibyte, InformationUnit.Kibibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Mebibyte.
 /// </summary>
@@ -136,8 +126,7 @@ public static Information FromMebibyte(double? Mebibyte)
         return null;
 
     return new Information((double)Mebibyte, InformationUnit.Mebibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Gibibyte.
 /// </summary>
@@ -148,8 +137,7 @@ public static Information FromGibibyte(double? Gibibyte)
         return null;
 
     return new Information((double)Gibibyte, InformationUnit.Gibibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Tebibyte.
 /// </summary>
@@ -160,8 +148,7 @@ public static Information FromTebibyte(double? Tebibyte)
         return null;
 
     return new Information((double)Tebibyte, InformationUnit.Tebibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Pebibyte.
 /// </summary>
@@ -172,8 +159,7 @@ public static Information FromPebibyte(double? Pebibyte)
         return null;
 
     return new Information((double)Pebibyte, InformationUnit.Pebibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Exbibyte.
 /// </summary>
@@ -184,8 +170,7 @@ public static Information FromExbibyte(double? Exbibyte)
         return null;
 
     return new Information((double)Exbibyte, InformationUnit.Exbibyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Kilobyte.
 /// </summary>
@@ -196,8 +181,7 @@ public static Information FromKilobyte(double? Kilobyte)
         return null;
 
     return new Information((double)Kilobyte, InformationUnit.Kilobyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Megabyte.
 /// </summary>
@@ -208,8 +192,7 @@ public static Information FromMegabyte(double? Megabyte)
         return null;
 
     return new Information((double)Megabyte, InformationUnit.Megabyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Gigabyte.
 /// </summary>
@@ -220,8 +203,7 @@ public static Information FromGigabyte(double? Gigabyte)
         return null;
 
     return new Information((double)Gigabyte, InformationUnit.Gigabyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Terabyte.
 /// </summary>
@@ -232,8 +214,7 @@ public static Information FromTerabyte(double? Terabyte)
         return null;
 
     return new Information((double)Terabyte, InformationUnit.Terabyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Petabyte.
 /// </summary>
@@ -244,8 +225,7 @@ public static Information FromPetabyte(double? Petabyte)
         return null;
 
     return new Information((double)Petabyte, InformationUnit.Petabyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Exabyte.
 /// </summary>
@@ -256,8 +236,7 @@ public static Information FromExabyte(double? Exabyte)
         return null;
 
     return new Information((double)Exabyte, InformationUnit.Exabyte);
-}
-
+}                     
 /// <summary>
 /// Get Information from Kilobit.
 /// </summary>
@@ -268,8 +247,7 @@ public static Information FromKilobit(double? Kilobit)
         return null;
 
     return new Information((double)Kilobit, InformationUnit.Kilobit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Megabit.
 /// </summary>
@@ -280,8 +258,7 @@ public static Information FromMegabit(double? Megabit)
         return null;
 
     return new Information((double)Megabit, InformationUnit.Megabit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Gigabit.
 /// </summary>
@@ -292,8 +269,7 @@ public static Information FromGigabit(double? Gigabit)
         return null;
 
     return new Information((double)Gigabit, InformationUnit.Gigabit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Terabit.
 /// </summary>
@@ -304,8 +280,7 @@ public static Information FromTerabit(double? Terabit)
         return null;
 
     return new Information((double)Terabit, InformationUnit.Terabit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Petabit.
 /// </summary>
@@ -316,8 +291,7 @@ public static Information FromPetabit(double? Petabit)
         return null;
 
     return new Information((double)Petabit, InformationUnit.Petabit);
-}
-
+}                     
 /// <summary>
 /// Get Information from Exabit.
 /// </summary>
@@ -328,7 +302,6 @@ public static Information FromExabit(double? Exabit)
         return null;
 
     return new Information((double)Exabit, InformationUnit.Exabit);
-}
-
+}                     
 
 }                     

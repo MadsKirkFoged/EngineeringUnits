@@ -29,7 +29,6 @@ internal static class AbsExtensionsGenerator
 
                                      return -a;
                                  }
-
                                """.Replace("Variable", $"{item}");
 
             _=conditionals.AppendLine(functions);
@@ -41,7 +40,6 @@ internal static class AbsExtensionsGenerator
                          {
                              [InsertFunctions]
                          }
-
                          """.Replace("[InsertFunctions]", conditionals.ToString());
 
         File.WriteAllText(Path.Combine(projectRootPath, "AbsExtensions.cs"), builder);

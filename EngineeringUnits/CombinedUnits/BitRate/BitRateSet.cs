@@ -16,8 +16,7 @@ public static BitRate FromSI(double? SI)
         return null;
 
     return new BitRate((double)SI, BitRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from BytePerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static BitRate FromBytePerSecond(double? BytePerSecond)
         return null;
 
     return new BitRate((double)BytePerSecond, BitRateUnit.BytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from BitPerSecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static BitRate FromBitPerSecond(double? BitPerSecond)
         return null;
 
     return new BitRate((double)BitPerSecond, BitRateUnit.BitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from KibibitPerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static BitRate FromKibibitPerSecond(double? KibibitPerSecond)
         return null;
 
     return new BitRate((double)KibibitPerSecond, BitRateUnit.KibibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from MebibitPerSecond.
 /// </summary>
@@ -64,8 +60,7 @@ public static BitRate FromMebibitPerSecond(double? MebibitPerSecond)
         return null;
 
     return new BitRate((double)MebibitPerSecond, BitRateUnit.MebibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from GibibitPerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static BitRate FromGibibitPerSecond(double? GibibitPerSecond)
         return null;
 
     return new BitRate((double)GibibitPerSecond, BitRateUnit.GibibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from TebibitPerSecond.
 /// </summary>
@@ -88,8 +82,7 @@ public static BitRate FromTebibitPerSecond(double? TebibitPerSecond)
         return null;
 
     return new BitRate((double)TebibitPerSecond, BitRateUnit.TebibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from PebibitPerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static BitRate FromPebibitPerSecond(double? PebibitPerSecond)
         return null;
 
     return new BitRate((double)PebibitPerSecond, BitRateUnit.PebibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from ExbibitPerSecond.
 /// </summary>
@@ -112,8 +104,7 @@ public static BitRate FromExbibitPerSecond(double? ExbibitPerSecond)
         return null;
 
     return new BitRate((double)ExbibitPerSecond, BitRateUnit.ExbibitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from KibibytePerSecond.
 /// </summary>
@@ -124,8 +115,7 @@ public static BitRate FromKibibytePerSecond(double? KibibytePerSecond)
         return null;
 
     return new BitRate((double)KibibytePerSecond, BitRateUnit.KibibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from MebibytePerSecond.
 /// </summary>
@@ -136,8 +126,7 @@ public static BitRate FromMebibytePerSecond(double? MebibytePerSecond)
         return null;
 
     return new BitRate((double)MebibytePerSecond, BitRateUnit.MebibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from GibibytePerSecond.
 /// </summary>
@@ -148,8 +137,7 @@ public static BitRate FromGibibytePerSecond(double? GibibytePerSecond)
         return null;
 
     return new BitRate((double)GibibytePerSecond, BitRateUnit.GibibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from TebibytePerSecond.
 /// </summary>
@@ -160,8 +148,7 @@ public static BitRate FromTebibytePerSecond(double? TebibytePerSecond)
         return null;
 
     return new BitRate((double)TebibytePerSecond, BitRateUnit.TebibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from PebibytePerSecond.
 /// </summary>
@@ -172,8 +159,7 @@ public static BitRate FromPebibytePerSecond(double? PebibytePerSecond)
         return null;
 
     return new BitRate((double)PebibytePerSecond, BitRateUnit.PebibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from ExbibytePerSecond.
 /// </summary>
@@ -184,8 +170,7 @@ public static BitRate FromExbibytePerSecond(double? ExbibytePerSecond)
         return null;
 
     return new BitRate((double)ExbibytePerSecond, BitRateUnit.ExbibytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from KilobytePerSecond.
 /// </summary>
@@ -196,8 +181,7 @@ public static BitRate FromKilobytePerSecond(double? KilobytePerSecond)
         return null;
 
     return new BitRate((double)KilobytePerSecond, BitRateUnit.KilobytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from MegabytePerSecond.
 /// </summary>
@@ -208,8 +192,7 @@ public static BitRate FromMegabytePerSecond(double? MegabytePerSecond)
         return null;
 
     return new BitRate((double)MegabytePerSecond, BitRateUnit.MegabytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from GigabytePerSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static BitRate FromGigabytePerSecond(double? GigabytePerSecond)
         return null;
 
     return new BitRate((double)GigabytePerSecond, BitRateUnit.GigabytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from TerabytePerSecond.
 /// </summary>
@@ -232,8 +214,7 @@ public static BitRate FromTerabytePerSecond(double? TerabytePerSecond)
         return null;
 
     return new BitRate((double)TerabytePerSecond, BitRateUnit.TerabytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from PetabytePerSecond.
 /// </summary>
@@ -244,8 +225,7 @@ public static BitRate FromPetabytePerSecond(double? PetabytePerSecond)
         return null;
 
     return new BitRate((double)PetabytePerSecond, BitRateUnit.PetabytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from ExabytePerSecond.
 /// </summary>
@@ -256,8 +236,7 @@ public static BitRate FromExabytePerSecond(double? ExabytePerSecond)
         return null;
 
     return new BitRate((double)ExabytePerSecond, BitRateUnit.ExabytePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from KilobitPerSecond.
 /// </summary>
@@ -268,8 +247,7 @@ public static BitRate FromKilobitPerSecond(double? KilobitPerSecond)
         return null;
 
     return new BitRate((double)KilobitPerSecond, BitRateUnit.KilobitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from MegabitPerSecond.
 /// </summary>
@@ -280,8 +258,7 @@ public static BitRate FromMegabitPerSecond(double? MegabitPerSecond)
         return null;
 
     return new BitRate((double)MegabitPerSecond, BitRateUnit.MegabitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from GigabitPerSecond.
 /// </summary>
@@ -292,8 +269,7 @@ public static BitRate FromGigabitPerSecond(double? GigabitPerSecond)
         return null;
 
     return new BitRate((double)GigabitPerSecond, BitRateUnit.GigabitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from TerabitPerSecond.
 /// </summary>
@@ -304,8 +280,7 @@ public static BitRate FromTerabitPerSecond(double? TerabitPerSecond)
         return null;
 
     return new BitRate((double)TerabitPerSecond, BitRateUnit.TerabitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from PetabitPerSecond.
 /// </summary>
@@ -316,8 +291,7 @@ public static BitRate FromPetabitPerSecond(double? PetabitPerSecond)
         return null;
 
     return new BitRate((double)PetabitPerSecond, BitRateUnit.PetabitPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get BitRate from ExabitPerSecond.
 /// </summary>
@@ -328,7 +302,6 @@ public static BitRate FromExabitPerSecond(double? ExabitPerSecond)
         return null;
 
     return new BitRate((double)ExabitPerSecond, BitRateUnit.ExabitPerSecond);
-}
-
+}                     
 
 }                     

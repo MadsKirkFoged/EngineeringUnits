@@ -16,8 +16,7 @@ public static LinearPowerDensity FromSI(double? SI)
         return null;
 
     return new LinearPowerDensity((double)SI, LinearPowerDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from WattPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static LinearPowerDensity FromWattPerMeter(double? WattPerMeter)
         return null;
 
     return new LinearPowerDensity((double)WattPerMeter, LinearPowerDensityUnit.WattPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from WattPerMillimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static LinearPowerDensity FromWattPerMillimeter(double? WattPerMillimeter
         return null;
 
     return new LinearPowerDensity((double)WattPerMillimeter, LinearPowerDensityUnit.WattPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from WattPerInch.
 /// </summary>
@@ -52,8 +49,7 @@ public static LinearPowerDensity FromWattPerInch(double? WattPerInch)
         return null;
 
     return new LinearPowerDensity((double)WattPerInch, LinearPowerDensityUnit.WattPerInch);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from WattPerFoot.
 /// </summary>
@@ -64,8 +60,7 @@ public static LinearPowerDensity FromWattPerFoot(double? WattPerFoot)
         return null;
 
     return new LinearPowerDensity((double)WattPerFoot, LinearPowerDensityUnit.WattPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from WattPerCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static LinearPowerDensity FromWattPerCentimeter(double? WattPerCentimeter
         return null;
 
     return new LinearPowerDensity((double)WattPerCentimeter, LinearPowerDensityUnit.WattPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MilliwattPerMillimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static LinearPowerDensity FromMilliwattPerMillimeter(double? MilliwattPer
         return null;
 
     return new LinearPowerDensity((double)MilliwattPerMillimeter, LinearPowerDensityUnit.MilliwattPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MilliwattPerMeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static LinearPowerDensity FromMilliwattPerMeter(double? MilliwattPerMeter
         return null;
 
     return new LinearPowerDensity((double)MilliwattPerMeter, LinearPowerDensityUnit.MilliwattPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MilliwattPerInch.
 /// </summary>
@@ -112,8 +104,7 @@ public static LinearPowerDensity FromMilliwattPerInch(double? MilliwattPerInch)
         return null;
 
     return new LinearPowerDensity((double)MilliwattPerInch, LinearPowerDensityUnit.MilliwattPerInch);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MilliwattPerFoot.
 /// </summary>
@@ -124,8 +115,7 @@ public static LinearPowerDensity FromMilliwattPerFoot(double? MilliwattPerFoot)
         return null;
 
     return new LinearPowerDensity((double)MilliwattPerFoot, LinearPowerDensityUnit.MilliwattPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MilliwattPerCentimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static LinearPowerDensity FromMilliwattPerCentimeter(double? MilliwattPer
         return null;
 
     return new LinearPowerDensity((double)MilliwattPerCentimeter, LinearPowerDensityUnit.MilliwattPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MegawattPerMillimeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static LinearPowerDensity FromMegawattPerMillimeter(double? MegawattPerMi
         return null;
 
     return new LinearPowerDensity((double)MegawattPerMillimeter, LinearPowerDensityUnit.MegawattPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MegawattPerMeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static LinearPowerDensity FromMegawattPerMeter(double? MegawattPerMeter)
         return null;
 
     return new LinearPowerDensity((double)MegawattPerMeter, LinearPowerDensityUnit.MegawattPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MegawattPerInch.
 /// </summary>
@@ -172,8 +159,7 @@ public static LinearPowerDensity FromMegawattPerInch(double? MegawattPerInch)
         return null;
 
     return new LinearPowerDensity((double)MegawattPerInch, LinearPowerDensityUnit.MegawattPerInch);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MegawattPerFoot.
 /// </summary>
@@ -184,8 +170,7 @@ public static LinearPowerDensity FromMegawattPerFoot(double? MegawattPerFoot)
         return null;
 
     return new LinearPowerDensity((double)MegawattPerFoot, LinearPowerDensityUnit.MegawattPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from MegawattPerCentimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static LinearPowerDensity FromMegawattPerCentimeter(double? MegawattPerCe
         return null;
 
     return new LinearPowerDensity((double)MegawattPerCentimeter, LinearPowerDensityUnit.MegawattPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from KilowattPerMillimeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static LinearPowerDensity FromKilowattPerMillimeter(double? KilowattPerMi
         return null;
 
     return new LinearPowerDensity((double)KilowattPerMillimeter, LinearPowerDensityUnit.KilowattPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from KilowattPerMeter.
 /// </summary>
@@ -220,8 +203,7 @@ public static LinearPowerDensity FromKilowattPerMeter(double? KilowattPerMeter)
         return null;
 
     return new LinearPowerDensity((double)KilowattPerMeter, LinearPowerDensityUnit.KilowattPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from KilowattPerInch.
 /// </summary>
@@ -232,8 +214,7 @@ public static LinearPowerDensity FromKilowattPerInch(double? KilowattPerInch)
         return null;
 
     return new LinearPowerDensity((double)KilowattPerInch, LinearPowerDensityUnit.KilowattPerInch);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from KilowattPerFoot.
 /// </summary>
@@ -244,8 +225,7 @@ public static LinearPowerDensity FromKilowattPerFoot(double? KilowattPerFoot)
         return null;
 
     return new LinearPowerDensity((double)KilowattPerFoot, LinearPowerDensityUnit.KilowattPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from KilowattPerCentimeter.
 /// </summary>
@@ -256,8 +236,7 @@ public static LinearPowerDensity FromKilowattPerCentimeter(double? KilowattPerCe
         return null;
 
     return new LinearPowerDensity((double)KilowattPerCentimeter, LinearPowerDensityUnit.KilowattPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from GigawattPerMillimeter.
 /// </summary>
@@ -268,8 +247,7 @@ public static LinearPowerDensity FromGigawattPerMillimeter(double? GigawattPerMi
         return null;
 
     return new LinearPowerDensity((double)GigawattPerMillimeter, LinearPowerDensityUnit.GigawattPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from GigawattPerMeter.
 /// </summary>
@@ -280,8 +258,7 @@ public static LinearPowerDensity FromGigawattPerMeter(double? GigawattPerMeter)
         return null;
 
     return new LinearPowerDensity((double)GigawattPerMeter, LinearPowerDensityUnit.GigawattPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from GigawattPerInch.
 /// </summary>
@@ -292,8 +269,7 @@ public static LinearPowerDensity FromGigawattPerInch(double? GigawattPerInch)
         return null;
 
     return new LinearPowerDensity((double)GigawattPerInch, LinearPowerDensityUnit.GigawattPerInch);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from GigawattPerFoot.
 /// </summary>
@@ -304,8 +280,7 @@ public static LinearPowerDensity FromGigawattPerFoot(double? GigawattPerFoot)
         return null;
 
     return new LinearPowerDensity((double)GigawattPerFoot, LinearPowerDensityUnit.GigawattPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearPowerDensity from GigawattPerCentimeter.
 /// </summary>
@@ -316,7 +291,6 @@ public static LinearPowerDensity FromGigawattPerCentimeter(double? GigawattPerCe
         return null;
 
     return new LinearPowerDensity((double)GigawattPerCentimeter, LinearPowerDensityUnit.GigawattPerCentimeter);
-}
-
+}                     
 
 }                     

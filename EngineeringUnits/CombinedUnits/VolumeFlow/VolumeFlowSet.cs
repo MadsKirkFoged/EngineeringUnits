@@ -16,8 +16,7 @@ public static VolumeFlow FromAcreFootPerDay(double? AcreFootPerDay)
         return null;
 
     return new VolumeFlow((double)AcreFootPerDay, VolumeFlowUnit.AcreFootPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from AcreFootPerHour.
 /// </summary>
@@ -28,8 +27,7 @@ public static VolumeFlow FromAcreFootPerHour(double? AcreFootPerHour)
         return null;
 
     return new VolumeFlow((double)AcreFootPerHour, VolumeFlowUnit.AcreFootPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from AcreFootPerMinute.
 /// </summary>
@@ -40,8 +38,7 @@ public static VolumeFlow FromAcreFootPerMinute(double? AcreFootPerMinute)
         return null;
 
     return new VolumeFlow((double)AcreFootPerMinute, VolumeFlowUnit.AcreFootPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from AcreFootPerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static VolumeFlow FromAcreFootPerSecond(double? AcreFootPerSecond)
         return null;
 
     return new VolumeFlow((double)AcreFootPerSecond, VolumeFlowUnit.AcreFootPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CentiliterPerDay.
 /// </summary>
@@ -64,8 +60,7 @@ public static VolumeFlow FromCentiliterPerDay(double? CentiliterPerDay)
         return null;
 
     return new VolumeFlow((double)CentiliterPerDay, VolumeFlowUnit.CentiliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CentiliterPerMinute.
 /// </summary>
@@ -76,8 +71,7 @@ public static VolumeFlow FromCentiliterPerMinute(double? CentiliterPerMinute)
         return null;
 
     return new VolumeFlow((double)CentiliterPerMinute, VolumeFlowUnit.CentiliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CentiliterPerSecond.
 /// </summary>
@@ -88,8 +82,7 @@ public static VolumeFlow FromCentiliterPerSecond(double? CentiliterPerSecond)
         return null;
 
     return new VolumeFlow((double)CentiliterPerSecond, VolumeFlowUnit.CentiliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicCentimeterPerMinute.
 /// </summary>
@@ -100,8 +93,7 @@ public static VolumeFlow FromCubicCentimeterPerMinute(double? CubicCentimeterPer
         return null;
 
     return new VolumeFlow((double)CubicCentimeterPerMinute, VolumeFlowUnit.CubicCentimeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicDecimeterPerMinute.
 /// </summary>
@@ -112,8 +104,7 @@ public static VolumeFlow FromCubicDecimeterPerMinute(double? CubicDecimeterPerMi
         return null;
 
     return new VolumeFlow((double)CubicDecimeterPerMinute, VolumeFlowUnit.CubicDecimeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicFootPerHour.
 /// </summary>
@@ -124,8 +115,7 @@ public static VolumeFlow FromCubicFootPerHour(double? CubicFootPerHour)
         return null;
 
     return new VolumeFlow((double)CubicFootPerHour, VolumeFlowUnit.CubicFootPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicFootPerMinute.
 /// </summary>
@@ -136,8 +126,7 @@ public static VolumeFlow FromCubicFootPerMinute(double? CubicFootPerMinute)
         return null;
 
     return new VolumeFlow((double)CubicFootPerMinute, VolumeFlowUnit.CubicFootPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicFootPerSecond.
 /// </summary>
@@ -148,8 +137,7 @@ public static VolumeFlow FromCubicFootPerSecond(double? CubicFootPerSecond)
         return null;
 
     return new VolumeFlow((double)CubicFootPerSecond, VolumeFlowUnit.CubicFootPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicMeterPerDay.
 /// </summary>
@@ -160,8 +148,7 @@ public static VolumeFlow FromCubicMeterPerDay(double? CubicMeterPerDay)
         return null;
 
     return new VolumeFlow((double)CubicMeterPerDay, VolumeFlowUnit.CubicMeterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicMeterPerHour.
 /// </summary>
@@ -172,8 +159,7 @@ public static VolumeFlow FromCubicMeterPerHour(double? CubicMeterPerHour)
         return null;
 
     return new VolumeFlow((double)CubicMeterPerHour, VolumeFlowUnit.CubicMeterPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicMeterPerMinute.
 /// </summary>
@@ -184,8 +170,7 @@ public static VolumeFlow FromCubicMeterPerMinute(double? CubicMeterPerMinute)
         return null;
 
     return new VolumeFlow((double)CubicMeterPerMinute, VolumeFlowUnit.CubicMeterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicMeterPerSecond.
 /// </summary>
@@ -196,8 +181,7 @@ public static VolumeFlow FromCubicMeterPerSecond(double? CubicMeterPerSecond)
         return null;
 
     return new VolumeFlow((double)CubicMeterPerSecond, VolumeFlowUnit.CubicMeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from SI.
 /// </summary>
@@ -208,8 +192,7 @@ public static VolumeFlow FromSI(double? SI)
         return null;
 
     return new VolumeFlow((double)SI, VolumeFlowUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicMillimeterPerSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static VolumeFlow FromCubicMillimeterPerSecond(double? CubicMillimeterPer
         return null;
 
     return new VolumeFlow((double)CubicMillimeterPerSecond, VolumeFlowUnit.CubicMillimeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicYardPerDay.
 /// </summary>
@@ -232,8 +214,7 @@ public static VolumeFlow FromCubicYardPerDay(double? CubicYardPerDay)
         return null;
 
     return new VolumeFlow((double)CubicYardPerDay, VolumeFlowUnit.CubicYardPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicYardPerHour.
 /// </summary>
@@ -244,8 +225,7 @@ public static VolumeFlow FromCubicYardPerHour(double? CubicYardPerHour)
         return null;
 
     return new VolumeFlow((double)CubicYardPerHour, VolumeFlowUnit.CubicYardPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicYardPerMinute.
 /// </summary>
@@ -256,8 +236,7 @@ public static VolumeFlow FromCubicYardPerMinute(double? CubicYardPerMinute)
         return null;
 
     return new VolumeFlow((double)CubicYardPerMinute, VolumeFlowUnit.CubicYardPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from CubicYardPerSecond.
 /// </summary>
@@ -268,8 +247,7 @@ public static VolumeFlow FromCubicYardPerSecond(double? CubicYardPerSecond)
         return null;
 
     return new VolumeFlow((double)CubicYardPerSecond, VolumeFlowUnit.CubicYardPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from DeciliterPerDay.
 /// </summary>
@@ -280,8 +258,7 @@ public static VolumeFlow FromDeciliterPerDay(double? DeciliterPerDay)
         return null;
 
     return new VolumeFlow((double)DeciliterPerDay, VolumeFlowUnit.DeciliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from DeciliterPerMinute.
 /// </summary>
@@ -292,8 +269,7 @@ public static VolumeFlow FromDeciliterPerMinute(double? DeciliterPerMinute)
         return null;
 
     return new VolumeFlow((double)DeciliterPerMinute, VolumeFlowUnit.DeciliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from DeciliterPerSecond.
 /// </summary>
@@ -304,8 +280,7 @@ public static VolumeFlow FromDeciliterPerSecond(double? DeciliterPerSecond)
         return null;
 
     return new VolumeFlow((double)DeciliterPerSecond, VolumeFlowUnit.DeciliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from KiloliterPerDay.
 /// </summary>
@@ -316,8 +291,7 @@ public static VolumeFlow FromKiloliterPerDay(double? KiloliterPerDay)
         return null;
 
     return new VolumeFlow((double)KiloliterPerDay, VolumeFlowUnit.KiloliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from KiloliterPerMinute.
 /// </summary>
@@ -328,8 +302,7 @@ public static VolumeFlow FromKiloliterPerMinute(double? KiloliterPerMinute)
         return null;
 
     return new VolumeFlow((double)KiloliterPerMinute, VolumeFlowUnit.KiloliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from KiloliterPerSecond.
 /// </summary>
@@ -340,8 +313,7 @@ public static VolumeFlow FromKiloliterPerSecond(double? KiloliterPerSecond)
         return null;
 
     return new VolumeFlow((double)KiloliterPerSecond, VolumeFlowUnit.KiloliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from KilousGallonPerMinute.
 /// </summary>
@@ -352,8 +324,7 @@ public static VolumeFlow FromKilousGallonPerMinute(double? KilousGallonPerMinute
         return null;
 
     return new VolumeFlow((double)KilousGallonPerMinute, VolumeFlowUnit.KilousGallonPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from LiterPerDay.
 /// </summary>
@@ -364,8 +335,7 @@ public static VolumeFlow FromLiterPerDay(double? LiterPerDay)
         return null;
 
     return new VolumeFlow((double)LiterPerDay, VolumeFlowUnit.LiterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from LiterPerHour.
 /// </summary>
@@ -376,8 +346,7 @@ public static VolumeFlow FromLiterPerHour(double? LiterPerHour)
         return null;
 
     return new VolumeFlow((double)LiterPerHour, VolumeFlowUnit.LiterPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from LiterPerMinute.
 /// </summary>
@@ -388,8 +357,7 @@ public static VolumeFlow FromLiterPerMinute(double? LiterPerMinute)
         return null;
 
     return new VolumeFlow((double)LiterPerMinute, VolumeFlowUnit.LiterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from LiterPerSecond.
 /// </summary>
@@ -400,8 +368,7 @@ public static VolumeFlow FromLiterPerSecond(double? LiterPerSecond)
         return null;
 
     return new VolumeFlow((double)LiterPerSecond, VolumeFlowUnit.LiterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MegaliterPerDay.
 /// </summary>
@@ -412,8 +379,7 @@ public static VolumeFlow FromMegaliterPerDay(double? MegaliterPerDay)
         return null;
 
     return new VolumeFlow((double)MegaliterPerDay, VolumeFlowUnit.MegaliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MicroliterPerDay.
 /// </summary>
@@ -424,8 +390,7 @@ public static VolumeFlow FromMicroliterPerDay(double? MicroliterPerDay)
         return null;
 
     return new VolumeFlow((double)MicroliterPerDay, VolumeFlowUnit.MicroliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MicroliterPerMinute.
 /// </summary>
@@ -436,8 +401,7 @@ public static VolumeFlow FromMicroliterPerMinute(double? MicroliterPerMinute)
         return null;
 
     return new VolumeFlow((double)MicroliterPerMinute, VolumeFlowUnit.MicroliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MicroliterPerSecond.
 /// </summary>
@@ -448,8 +412,7 @@ public static VolumeFlow FromMicroliterPerSecond(double? MicroliterPerSecond)
         return null;
 
     return new VolumeFlow((double)MicroliterPerSecond, VolumeFlowUnit.MicroliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MilliliterPerDay.
 /// </summary>
@@ -460,8 +423,7 @@ public static VolumeFlow FromMilliliterPerDay(double? MilliliterPerDay)
         return null;
 
     return new VolumeFlow((double)MilliliterPerDay, VolumeFlowUnit.MilliliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MilliliterPerMinute.
 /// </summary>
@@ -472,8 +434,7 @@ public static VolumeFlow FromMilliliterPerMinute(double? MilliliterPerMinute)
         return null;
 
     return new VolumeFlow((double)MilliliterPerMinute, VolumeFlowUnit.MilliliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MilliliterPerSecond.
 /// </summary>
@@ -484,8 +445,7 @@ public static VolumeFlow FromMilliliterPerSecond(double? MilliliterPerSecond)
         return null;
 
     return new VolumeFlow((double)MilliliterPerSecond, VolumeFlowUnit.MilliliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MillionUsGallonsPerDay.
 /// </summary>
@@ -496,8 +456,7 @@ public static VolumeFlow FromMillionUsGallonsPerDay(double? MillionUsGallonsPerD
         return null;
 
     return new VolumeFlow((double)MillionUsGallonsPerDay, VolumeFlowUnit.MillionUsGallonsPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from NanoliterPerDay.
 /// </summary>
@@ -508,8 +467,7 @@ public static VolumeFlow FromNanoliterPerDay(double? NanoliterPerDay)
         return null;
 
     return new VolumeFlow((double)NanoliterPerDay, VolumeFlowUnit.NanoliterPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from NanoliterPerMinute.
 /// </summary>
@@ -520,8 +478,7 @@ public static VolumeFlow FromNanoliterPerMinute(double? NanoliterPerMinute)
         return null;
 
     return new VolumeFlow((double)NanoliterPerMinute, VolumeFlowUnit.NanoliterPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from NanoliterPerSecond.
 /// </summary>
@@ -532,8 +489,7 @@ public static VolumeFlow FromNanoliterPerSecond(double? NanoliterPerSecond)
         return null;
 
     return new VolumeFlow((double)NanoliterPerSecond, VolumeFlowUnit.NanoliterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from OilBarrelPerDay.
 /// </summary>
@@ -544,8 +500,7 @@ public static VolumeFlow FromOilBarrelPerDay(double? OilBarrelPerDay)
         return null;
 
     return new VolumeFlow((double)OilBarrelPerDay, VolumeFlowUnit.OilBarrelPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from OilBarrelPerHour.
 /// </summary>
@@ -556,8 +511,7 @@ public static VolumeFlow FromOilBarrelPerHour(double? OilBarrelPerHour)
         return null;
 
     return new VolumeFlow((double)OilBarrelPerHour, VolumeFlowUnit.OilBarrelPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from OilBarrelPerMinute.
 /// </summary>
@@ -568,8 +522,7 @@ public static VolumeFlow FromOilBarrelPerMinute(double? OilBarrelPerMinute)
         return null;
 
     return new VolumeFlow((double)OilBarrelPerMinute, VolumeFlowUnit.OilBarrelPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from OilBarrelPerSecond.
 /// </summary>
@@ -580,8 +533,7 @@ public static VolumeFlow FromOilBarrelPerSecond(double? OilBarrelPerSecond)
         return null;
 
     return new VolumeFlow((double)OilBarrelPerSecond, VolumeFlowUnit.OilBarrelPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UkGallonPerDay.
 /// </summary>
@@ -592,8 +544,7 @@ public static VolumeFlow FromUkGallonPerDay(double? UkGallonPerDay)
         return null;
 
     return new VolumeFlow((double)UkGallonPerDay, VolumeFlowUnit.UkGallonPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UkGallonPerHour.
 /// </summary>
@@ -604,8 +555,7 @@ public static VolumeFlow FromUkGallonPerHour(double? UkGallonPerHour)
         return null;
 
     return new VolumeFlow((double)UkGallonPerHour, VolumeFlowUnit.UkGallonPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UkGallonPerMinute.
 /// </summary>
@@ -616,8 +566,7 @@ public static VolumeFlow FromUkGallonPerMinute(double? UkGallonPerMinute)
         return null;
 
     return new VolumeFlow((double)UkGallonPerMinute, VolumeFlowUnit.UkGallonPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UkGallonPerSecond.
 /// </summary>
@@ -628,8 +577,7 @@ public static VolumeFlow FromUkGallonPerSecond(double? UkGallonPerSecond)
         return null;
 
     return new VolumeFlow((double)UkGallonPerSecond, VolumeFlowUnit.UkGallonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UsGallonPerDay.
 /// </summary>
@@ -640,8 +588,7 @@ public static VolumeFlow FromUsGallonPerDay(double? UsGallonPerDay)
         return null;
 
     return new VolumeFlow((double)UsGallonPerDay, VolumeFlowUnit.UsGallonPerDay);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UsGallonPerHour.
 /// </summary>
@@ -652,8 +599,7 @@ public static VolumeFlow FromUsGallonPerHour(double? UsGallonPerHour)
         return null;
 
     return new VolumeFlow((double)UsGallonPerHour, VolumeFlowUnit.UsGallonPerHour);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UsGallonPerMinute.
 /// </summary>
@@ -664,8 +610,7 @@ public static VolumeFlow FromUsGallonPerMinute(double? UsGallonPerMinute)
         return null;
 
     return new VolumeFlow((double)UsGallonPerMinute, VolumeFlowUnit.UsGallonPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from UsGallonPerSecond.
 /// </summary>
@@ -676,8 +621,7 @@ public static VolumeFlow FromUsGallonPerSecond(double? UsGallonPerSecond)
         return null;
 
     return new VolumeFlow((double)UsGallonPerSecond, VolumeFlowUnit.UsGallonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get VolumeFlow from MegaukGallonPerSecond.
 /// </summary>
@@ -688,7 +632,6 @@ public static VolumeFlow FromMegaukGallonPerSecond(double? MegaukGallonPerSecond
         return null;
 
     return new VolumeFlow((double)MegaukGallonPerSecond, VolumeFlowUnit.MegaukGallonPerSecond);
-}
-
+}                     
 
 }                     

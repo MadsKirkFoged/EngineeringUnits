@@ -16,8 +16,7 @@ public static Molarity FromSI(double? SI)
         return null;
 
     return new Molarity((double)SI, MolarityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from MolesPerCubicMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Molarity FromMolesPerCubicMeter(double? MolesPerCubicMeter)
         return null;
 
     return new Molarity((double)MolesPerCubicMeter, MolarityUnit.MolesPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from MolesPerLiter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Molarity FromMolesPerLiter(double? MolesPerLiter)
         return null;
 
     return new Molarity((double)MolesPerLiter, MolarityUnit.MolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from NanomolesPerLiter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Molarity FromNanomolesPerLiter(double? NanomolesPerLiter)
         return null;
 
     return new Molarity((double)NanomolesPerLiter, MolarityUnit.NanomolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from PicomolesPerLiter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Molarity FromPicomolesPerLiter(double? PicomolesPerLiter)
         return null;
 
     return new Molarity((double)PicomolesPerLiter, MolarityUnit.PicomolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from CentimolesPerLiter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Molarity FromCentimolesPerLiter(double? CentimolesPerLiter)
         return null;
 
     return new Molarity((double)CentimolesPerLiter, MolarityUnit.CentimolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from DecimolesPerLiter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Molarity FromDecimolesPerLiter(double? DecimolesPerLiter)
         return null;
 
     return new Molarity((double)DecimolesPerLiter, MolarityUnit.DecimolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from MicromolesPerLiter.
 /// </summary>
@@ -100,8 +93,7 @@ public static Molarity FromMicromolesPerLiter(double? MicromolesPerLiter)
         return null;
 
     return new Molarity((double)MicromolesPerLiter, MolarityUnit.MicromolesPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Molarity from MillimolesPerLiter.
 /// </summary>
@@ -112,7 +104,6 @@ public static Molarity FromMillimolesPerLiter(double? MillimolesPerLiter)
         return null;
 
     return new Molarity((double)MillimolesPerLiter, MolarityUnit.MillimolesPerLiter);
-}
-
+}                     
 
 }                     

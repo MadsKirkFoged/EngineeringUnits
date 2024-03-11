@@ -16,7 +16,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -30,7 +29,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -46,7 +44,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -60,7 +57,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -76,7 +72,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -90,7 +85,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -106,7 +100,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -120,7 +113,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -136,7 +128,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -150,7 +141,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -166,7 +156,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -180,7 +169,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -196,7 +184,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -210,7 +197,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -226,7 +212,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -240,7 +225,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -256,7 +240,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -270,7 +253,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -286,7 +268,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -300,7 +281,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -316,7 +296,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -330,7 +309,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -346,7 +324,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -360,7 +337,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -376,7 +352,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -390,7 +365,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -406,7 +380,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -420,7 +393,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -436,7 +408,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -450,7 +421,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -466,7 +436,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -480,7 +449,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -496,7 +464,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -510,7 +477,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -526,7 +492,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -540,7 +505,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -556,7 +520,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -570,7 +533,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -586,7 +548,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -600,7 +561,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -616,7 +576,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -630,7 +589,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -646,7 +604,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -660,7 +617,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -676,7 +632,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -690,7 +645,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -706,7 +660,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -720,7 +673,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -736,7 +688,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -750,7 +701,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -766,7 +716,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -780,7 +729,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -796,7 +744,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -810,7 +757,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -826,7 +772,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -840,7 +785,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -856,7 +800,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -870,7 +813,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -886,7 +828,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -900,7 +841,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -916,7 +856,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -930,7 +869,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -946,7 +884,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -960,7 +897,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -976,7 +912,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -990,7 +925,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1006,7 +940,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1020,7 +953,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1036,7 +968,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1050,7 +981,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1066,7 +996,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1080,7 +1009,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1096,7 +1024,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1110,7 +1037,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1126,7 +1052,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1140,7 +1065,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1156,7 +1080,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1170,7 +1093,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1186,7 +1108,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1200,7 +1121,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1216,7 +1136,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1230,7 +1149,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1246,7 +1164,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1260,7 +1177,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1276,7 +1192,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1290,7 +1205,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1306,7 +1220,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1320,7 +1233,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1336,7 +1248,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1350,7 +1261,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1366,7 +1276,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1380,7 +1289,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1396,7 +1304,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1410,7 +1317,6 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
   /// <summary>
   /// Returns the absolute value
@@ -1426,7 +1332,6 @@ public static class AbsExtensions
       return -a;
   }
 
-
   /// <summary>
   /// Returns the absolute value
   /// </summary>
@@ -1440,6 +1345,5 @@ public static class AbsExtensions
 
       return -a;
   }
-
 
 }

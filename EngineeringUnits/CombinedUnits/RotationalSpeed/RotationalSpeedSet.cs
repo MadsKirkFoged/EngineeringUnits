@@ -16,8 +16,7 @@ public static RotationalSpeed FromSI(double? SI)
         return null;
 
     return new RotationalSpeed((double)SI, RotationalSpeedUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from RadianPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static RotationalSpeed FromRadianPerSecond(double? RadianPerSecond)
         return null;
 
     return new RotationalSpeed((double)RadianPerSecond, RotationalSpeedUnit.RadianPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from Hertz.
 /// </summary>
@@ -40,8 +38,7 @@ public static RotationalSpeed FromHertz(double? Hertz)
         return null;
 
     return new RotationalSpeed((double)Hertz, RotationalSpeedUnit.Hertz);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from Kilohertz.
 /// </summary>
@@ -52,8 +49,7 @@ public static RotationalSpeed FromKilohertz(double? Kilohertz)
         return null;
 
     return new RotationalSpeed((double)Kilohertz, RotationalSpeedUnit.Kilohertz);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from Megahertz.
 /// </summary>
@@ -64,8 +60,7 @@ public static RotationalSpeed FromMegahertz(double? Megahertz)
         return null;
 
     return new RotationalSpeed((double)Megahertz, RotationalSpeedUnit.Megahertz);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from Gigahertz.
 /// </summary>
@@ -76,8 +71,7 @@ public static RotationalSpeed FromGigahertz(double? Gigahertz)
         return null;
 
     return new RotationalSpeed((double)Gigahertz, RotationalSpeedUnit.Gigahertz);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from Terahertz.
 /// </summary>
@@ -88,8 +82,7 @@ public static RotationalSpeed FromTerahertz(double? Terahertz)
         return null;
 
     return new RotationalSpeed((double)Terahertz, RotationalSpeedUnit.Terahertz);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from PerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static RotationalSpeed FromPerSecond(double? PerSecond)
         return null;
 
     return new RotationalSpeed((double)PerSecond, RotationalSpeedUnit.PerSecond);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from BeatPerMinute.
 /// </summary>
@@ -112,8 +104,7 @@ public static RotationalSpeed FromBeatPerMinute(double? BeatPerMinute)
         return null;
 
     return new RotationalSpeed((double)BeatPerMinute, RotationalSpeedUnit.BeatPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from CyclePerHour.
 /// </summary>
@@ -124,8 +115,7 @@ public static RotationalSpeed FromCyclePerHour(double? CyclePerHour)
         return null;
 
     return new RotationalSpeed((double)CyclePerHour, RotationalSpeedUnit.CyclePerHour);
-}
-
+}                     
 /// <summary>
 /// Get RotationalSpeed from CyclePerMinute.
 /// </summary>
@@ -136,7 +126,6 @@ public static RotationalSpeed FromCyclePerMinute(double? CyclePerMinute)
         return null;
 
     return new RotationalSpeed((double)CyclePerMinute, RotationalSpeedUnit.CyclePerMinute);
-}
-
+}                     
 
 }                     

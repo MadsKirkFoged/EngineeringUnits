@@ -16,8 +16,7 @@ public static MagneticField FromSI(double? SI)
         return null;
 
     return new MagneticField((double)SI, MagneticFieldUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Tesla.
 /// </summary>
@@ -28,8 +27,7 @@ public static MagneticField FromTesla(double? Tesla)
         return null;
 
     return new MagneticField((double)Tesla, MagneticFieldUnit.Tesla);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Gauss.
 /// </summary>
@@ -40,8 +38,7 @@ public static MagneticField FromGauss(double? Gauss)
         return null;
 
     return new MagneticField((double)Gauss, MagneticFieldUnit.Gauss);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Milligauss.
 /// </summary>
@@ -52,8 +49,7 @@ public static MagneticField FromMilligauss(double? Milligauss)
         return null;
 
     return new MagneticField((double)Milligauss, MagneticFieldUnit.Milligauss);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Microtesla.
 /// </summary>
@@ -64,8 +60,7 @@ public static MagneticField FromMicrotesla(double? Microtesla)
         return null;
 
     return new MagneticField((double)Microtesla, MagneticFieldUnit.Microtesla);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Millitesla.
 /// </summary>
@@ -76,8 +71,7 @@ public static MagneticField FromMillitesla(double? Millitesla)
         return null;
 
     return new MagneticField((double)Millitesla, MagneticFieldUnit.Millitesla);
-}
-
+}                     
 /// <summary>
 /// Get MagneticField from Nanotesla.
 /// </summary>
@@ -88,7 +82,6 @@ public static MagneticField FromNanotesla(double? Nanotesla)
         return null;
 
     return new MagneticField((double)Nanotesla, MagneticFieldUnit.Nanotesla);
-}
-
+}                     
 
 }                     

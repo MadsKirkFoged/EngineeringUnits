@@ -16,8 +16,7 @@ public static MassCost FromSI(double? SI)
         return null;
 
     return new MassCost((double)SI, MassCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MassCost from EuroPerKilogram.
 /// </summary>
@@ -28,8 +27,7 @@ public static MassCost FromEuroPerKilogram(double? EuroPerKilogram)
         return null;
 
     return new MassCost((double)EuroPerKilogram, MassCostUnit.EuroPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get MassCost from USDollarPerKilogram.
 /// </summary>
@@ -40,8 +38,7 @@ public static MassCost FromUSDollarPerKilogram(double? USDollarPerKilogram)
         return null;
 
     return new MassCost((double)USDollarPerKilogram, MassCostUnit.USDollarPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get MassCost from USDollarPerTonne.
 /// </summary>
@@ -52,8 +49,7 @@ public static MassCost FromUSDollarPerTonne(double? USDollarPerTonne)
         return null;
 
     return new MassCost((double)USDollarPerTonne, MassCostUnit.USDollarPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get MassCost from MillionUSDollarPerTonne.
 /// </summary>
@@ -64,7 +60,6 @@ public static MassCost FromMillionUSDollarPerTonne(double? MillionUSDollarPerTon
         return null;
 
     return new MassCost((double)MillionUSDollarPerTonne, MassCostUnit.MillionUSDollarPerTonne);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static Temperature FromKelvin(double? Kelvin)
         return null;
 
     return new Temperature((double)Kelvin, TemperatureUnit.Kelvin);
-}
-
+}                     
 /// <summary>
 /// Get Temperature from SI.
 /// </summary>
@@ -28,8 +27,7 @@ public static Temperature FromSI(double? SI)
         return null;
 
     return new Temperature((double)SI, TemperatureUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Temperature from DegreeCelsius.
 /// </summary>
@@ -40,8 +38,7 @@ public static Temperature FromDegreeCelsius(double? DegreeCelsius)
         return null;
 
     return new Temperature((double)DegreeCelsius, TemperatureUnit.DegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get Temperature from DegreeFahrenheit.
 /// </summary>
@@ -52,8 +49,7 @@ public static Temperature FromDegreeFahrenheit(double? DegreeFahrenheit)
         return null;
 
     return new Temperature((double)DegreeFahrenheit, TemperatureUnit.DegreeFahrenheit);
-}
-
+}                     
 /// <summary>
 /// Get Temperature from DegreeRankine.
 /// </summary>
@@ -64,7 +60,6 @@ public static Temperature FromDegreeRankine(double? DegreeRankine)
         return null;
 
     return new Temperature((double)DegreeRankine, TemperatureUnit.DegreeRankine);
-}
-
+}                     
 
 }                     

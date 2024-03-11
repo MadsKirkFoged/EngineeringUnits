@@ -16,8 +16,7 @@ public static Irradiance FromSI(double? SI)
         return null;
 
     return new Irradiance((double)SI, IrradianceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from WattPerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Irradiance FromWattPerSquareMeter(double? WattPerSquareMeter)
         return null;
 
     return new Irradiance((double)WattPerSquareMeter, IrradianceUnit.WattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from WattPerSquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Irradiance FromWattPerSquareCentimeter(double? WattPerSquareCentim
         return null;
 
     return new Irradiance((double)WattPerSquareCentimeter, IrradianceUnit.WattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from KilowattPerSquareCentimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Irradiance FromKilowattPerSquareCentimeter(double? KilowattPerSqua
         return null;
 
     return new Irradiance((double)KilowattPerSquareCentimeter, IrradianceUnit.KilowattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MegawattPerSquareCentimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Irradiance FromMegawattPerSquareCentimeter(double? MegawattPerSqua
         return null;
 
     return new Irradiance((double)MegawattPerSquareCentimeter, IrradianceUnit.MegawattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MicrowattPerSquareCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Irradiance FromMicrowattPerSquareCentimeter(double? MicrowattPerSq
         return null;
 
     return new Irradiance((double)MicrowattPerSquareCentimeter, IrradianceUnit.MicrowattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MilliwattPerSquareCentimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Irradiance FromMilliwattPerSquareCentimeter(double? MilliwattPerSq
         return null;
 
     return new Irradiance((double)MilliwattPerSquareCentimeter, IrradianceUnit.MilliwattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from NanowattPerSquareCentimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static Irradiance FromNanowattPerSquareCentimeter(double? NanowattPerSqua
         return null;
 
     return new Irradiance((double)NanowattPerSquareCentimeter, IrradianceUnit.NanowattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from PicowattPerSquareCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static Irradiance FromPicowattPerSquareCentimeter(double? PicowattPerSqua
         return null;
 
     return new Irradiance((double)PicowattPerSquareCentimeter, IrradianceUnit.PicowattPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from KilowattPerSquareMeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static Irradiance FromKilowattPerSquareMeter(double? KilowattPerSquareMet
         return null;
 
     return new Irradiance((double)KilowattPerSquareMeter, IrradianceUnit.KilowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MegawattPerSquareMeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static Irradiance FromMegawattPerSquareMeter(double? MegawattPerSquareMet
         return null;
 
     return new Irradiance((double)MegawattPerSquareMeter, IrradianceUnit.MegawattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MicrowattPerSquareMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static Irradiance FromMicrowattPerSquareMeter(double? MicrowattPerSquareM
         return null;
 
     return new Irradiance((double)MicrowattPerSquareMeter, IrradianceUnit.MicrowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from MilliwattPerSquareMeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static Irradiance FromMilliwattPerSquareMeter(double? MilliwattPerSquareM
         return null;
 
     return new Irradiance((double)MilliwattPerSquareMeter, IrradianceUnit.MilliwattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from NanowattPerSquareMeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static Irradiance FromNanowattPerSquareMeter(double? NanowattPerSquareMet
         return null;
 
     return new Irradiance((double)NanowattPerSquareMeter, IrradianceUnit.NanowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiance from PicowattPerSquareMeter.
 /// </summary>
@@ -184,7 +170,6 @@ public static Irradiance FromPicowattPerSquareMeter(double? PicowattPerSquareMet
         return null;
 
     return new Irradiance((double)PicowattPerSquareMeter, IrradianceUnit.PicowattPerSquareMeter);
-}
-
+}                     
 
 }                     

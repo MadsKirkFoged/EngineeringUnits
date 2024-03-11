@@ -16,8 +16,7 @@ public static MolarMass FromSI(double? SI)
         return null;
 
     return new MolarMass((double)SI, MolarMassUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from KilogramPerMole.
 /// </summary>
@@ -28,8 +27,7 @@ public static MolarMass FromKilogramPerMole(double? KilogramPerMole)
         return null;
 
     return new MolarMass((double)KilogramPerMole, MolarMassUnit.KilogramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from CentigramPerMole.
 /// </summary>
@@ -40,8 +38,7 @@ public static MolarMass FromCentigramPerMole(double? CentigramPerMole)
         return null;
 
     return new MolarMass((double)CentigramPerMole, MolarMassUnit.CentigramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from DecagramPerMole.
 /// </summary>
@@ -52,8 +49,7 @@ public static MolarMass FromDecagramPerMole(double? DecagramPerMole)
         return null;
 
     return new MolarMass((double)DecagramPerMole, MolarMassUnit.DecagramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from DecigramPerMole.
 /// </summary>
@@ -64,8 +60,7 @@ public static MolarMass FromDecigramPerMole(double? DecigramPerMole)
         return null;
 
     return new MolarMass((double)DecigramPerMole, MolarMassUnit.DecigramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from GramPerMole.
 /// </summary>
@@ -76,8 +71,7 @@ public static MolarMass FromGramPerMole(double? GramPerMole)
         return null;
 
     return new MolarMass((double)GramPerMole, MolarMassUnit.GramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from HectogramPerMole.
 /// </summary>
@@ -88,8 +82,7 @@ public static MolarMass FromHectogramPerMole(double? HectogramPerMole)
         return null;
 
     return new MolarMass((double)HectogramPerMole, MolarMassUnit.HectogramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from KilopoundPerMole.
 /// </summary>
@@ -100,8 +93,7 @@ public static MolarMass FromKilopoundPerMole(double? KilopoundPerMole)
         return null;
 
     return new MolarMass((double)KilopoundPerMole, MolarMassUnit.KilopoundPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from MegapoundPerMole.
 /// </summary>
@@ -112,8 +104,7 @@ public static MolarMass FromMegapoundPerMole(double? MegapoundPerMole)
         return null;
 
     return new MolarMass((double)MegapoundPerMole, MolarMassUnit.MegapoundPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from MicrogramPerMole.
 /// </summary>
@@ -124,8 +115,7 @@ public static MolarMass FromMicrogramPerMole(double? MicrogramPerMole)
         return null;
 
     return new MolarMass((double)MicrogramPerMole, MolarMassUnit.MicrogramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from MilligramPerMole.
 /// </summary>
@@ -136,8 +126,7 @@ public static MolarMass FromMilligramPerMole(double? MilligramPerMole)
         return null;
 
     return new MolarMass((double)MilligramPerMole, MolarMassUnit.MilligramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from NanogramPerMole.
 /// </summary>
@@ -148,8 +137,7 @@ public static MolarMass FromNanogramPerMole(double? NanogramPerMole)
         return null;
 
     return new MolarMass((double)NanogramPerMole, MolarMassUnit.NanogramPerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarMass from PoundPerMole.
 /// </summary>
@@ -160,7 +148,6 @@ public static MolarMass FromPoundPerMole(double? PoundPerMole)
         return null;
 
     return new MolarMass((double)PoundPerMole, MolarMassUnit.PoundPerMole);
-}
-
+}                     
 
 }                     

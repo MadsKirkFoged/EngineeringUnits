@@ -16,8 +16,7 @@ public static AreaMomentOfInertia FromSI(double? SI)
         return null;
 
     return new AreaMomentOfInertia((double)SI, AreaMomentOfInertiaUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from MeterToTheFourth.
 /// </summary>
@@ -28,8 +27,7 @@ public static AreaMomentOfInertia FromMeterToTheFourth(double? MeterToTheFourth)
         return null;
 
     return new AreaMomentOfInertia((double)MeterToTheFourth, AreaMomentOfInertiaUnit.MeterToTheFourth);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from CentimeterToTheFourth.
 /// </summary>
@@ -40,8 +38,7 @@ public static AreaMomentOfInertia FromCentimeterToTheFourth(double? CentimeterTo
         return null;
 
     return new AreaMomentOfInertia((double)CentimeterToTheFourth, AreaMomentOfInertiaUnit.CentimeterToTheFourth);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from DecimeterToTheFourth.
 /// </summary>
@@ -52,8 +49,7 @@ public static AreaMomentOfInertia FromDecimeterToTheFourth(double? DecimeterToTh
         return null;
 
     return new AreaMomentOfInertia((double)DecimeterToTheFourth, AreaMomentOfInertiaUnit.DecimeterToTheFourth);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from MillimeterToTheFourth.
 /// </summary>
@@ -64,8 +60,7 @@ public static AreaMomentOfInertia FromMillimeterToTheFourth(double? MillimeterTo
         return null;
 
     return new AreaMomentOfInertia((double)MillimeterToTheFourth, AreaMomentOfInertiaUnit.MillimeterToTheFourth);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from InchToTheFourth.
 /// </summary>
@@ -76,8 +71,7 @@ public static AreaMomentOfInertia FromInchToTheFourth(double? InchToTheFourth)
         return null;
 
     return new AreaMomentOfInertia((double)InchToTheFourth, AreaMomentOfInertiaUnit.InchToTheFourth);
-}
-
+}                     
 /// <summary>
 /// Get AreaMomentOfInertia from FootToTheFourth.
 /// </summary>
@@ -88,7 +82,6 @@ public static AreaMomentOfInertia FromFootToTheFourth(double? FootToTheFourth)
         return null;
 
     return new AreaMomentOfInertia((double)FootToTheFourth, AreaMomentOfInertiaUnit.FootToTheFourth);
-}
-
+}                     
 
 }                     

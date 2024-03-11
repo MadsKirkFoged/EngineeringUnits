@@ -16,8 +16,7 @@ public static ElectricField FromSI(double? SI)
         return null;
 
     return new ElectricField((double)SI, ElectricFieldUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricField from VoltPerMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static ElectricField FromVoltPerMeter(double? VoltPerMeter)
         return null;
 
     return new ElectricField((double)VoltPerMeter, ElectricFieldUnit.VoltPerMeter);
-}
-
+}                     
 
 }                     

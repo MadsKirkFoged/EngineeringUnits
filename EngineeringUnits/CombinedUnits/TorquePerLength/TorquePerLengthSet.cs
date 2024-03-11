@@ -16,8 +16,7 @@ public static TorquePerLength FromSI(double? SI)
         return null;
 
     return new TorquePerLength((double)SI, TorquePerLengthUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from NewtonMeterPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static TorquePerLength FromNewtonMeterPerMeter(double? NewtonMeterPerMete
         return null;
 
     return new TorquePerLength((double)NewtonMeterPerMeter, TorquePerLengthUnit.NewtonMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilogramForceCentimeterPerMeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static TorquePerLength FromKilogramForceCentimeterPerMeter(double? Kilogr
         return null;
 
     return new TorquePerLength((double)KilogramForceCentimeterPerMeter, TorquePerLengthUnit.KilogramForceCentimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilogramForceMeterPerMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static TorquePerLength FromKilogramForceMeterPerMeter(double? KilogramFor
         return null;
 
     return new TorquePerLength((double)KilogramForceMeterPerMeter, TorquePerLengthUnit.KilogramForceMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilogramForceMillimeterPerMeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static TorquePerLength FromKilogramForceMillimeterPerMeter(double? Kilogr
         return null;
 
     return new TorquePerLength((double)KilogramForceMillimeterPerMeter, TorquePerLengthUnit.KilogramForceMillimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilonewtonCentimeterPerMeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static TorquePerLength FromKilonewtonCentimeterPerMeter(double? Kilonewto
         return null;
 
     return new TorquePerLength((double)KilonewtonCentimeterPerMeter, TorquePerLengthUnit.KilonewtonCentimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilonewtonMeterPerMeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static TorquePerLength FromKilonewtonMeterPerMeter(double? KilonewtonMete
         return null;
 
     return new TorquePerLength((double)KilonewtonMeterPerMeter, TorquePerLengthUnit.KilonewtonMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilonewtonMillimeterPerMeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static TorquePerLength FromKilonewtonMillimeterPerMeter(double? Kilonewto
         return null;
 
     return new TorquePerLength((double)KilonewtonMillimeterPerMeter, TorquePerLengthUnit.KilonewtonMillimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilopoundForceFootPerFoot.
 /// </summary>
@@ -112,8 +104,7 @@ public static TorquePerLength FromKilopoundForceFootPerFoot(double? KilopoundFor
         return null;
 
     return new TorquePerLength((double)KilopoundForceFootPerFoot, TorquePerLengthUnit.KilopoundForceFootPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from KilopoundForceInchPerFoot.
 /// </summary>
@@ -124,8 +115,7 @@ public static TorquePerLength FromKilopoundForceInchPerFoot(double? KilopoundFor
         return null;
 
     return new TorquePerLength((double)KilopoundForceInchPerFoot, TorquePerLengthUnit.KilopoundForceInchPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from MeganewtonCentimeterPerMeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static TorquePerLength FromMeganewtonCentimeterPerMeter(double? Meganewto
         return null;
 
     return new TorquePerLength((double)MeganewtonCentimeterPerMeter, TorquePerLengthUnit.MeganewtonCentimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from MeganewtonMeterPerMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static TorquePerLength FromMeganewtonMeterPerMeter(double? MeganewtonMete
         return null;
 
     return new TorquePerLength((double)MeganewtonMeterPerMeter, TorquePerLengthUnit.MeganewtonMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from MeganewtonMillimeterPerMeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static TorquePerLength FromMeganewtonMillimeterPerMeter(double? Meganewto
         return null;
 
     return new TorquePerLength((double)MeganewtonMillimeterPerMeter, TorquePerLengthUnit.MeganewtonMillimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from MegapoundForceFootPerFoot.
 /// </summary>
@@ -172,8 +159,7 @@ public static TorquePerLength FromMegapoundForceFootPerFoot(double? MegapoundFor
         return null;
 
     return new TorquePerLength((double)MegapoundForceFootPerFoot, TorquePerLengthUnit.MegapoundForceFootPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from MegapoundForceInchPerFoot.
 /// </summary>
@@ -184,8 +170,7 @@ public static TorquePerLength FromMegapoundForceInchPerFoot(double? MegapoundFor
         return null;
 
     return new TorquePerLength((double)MegapoundForceInchPerFoot, TorquePerLengthUnit.MegapoundForceInchPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from NewtonCentimeterPerMeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static TorquePerLength FromNewtonCentimeterPerMeter(double? NewtonCentime
         return null;
 
     return new TorquePerLength((double)NewtonCentimeterPerMeter, TorquePerLengthUnit.NewtonCentimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from NewtonMillimeterPerMeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static TorquePerLength FromNewtonMillimeterPerMeter(double? NewtonMillime
         return null;
 
     return new TorquePerLength((double)NewtonMillimeterPerMeter, TorquePerLengthUnit.NewtonMillimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from PoundForceFootPerFoot.
 /// </summary>
@@ -220,8 +203,7 @@ public static TorquePerLength FromPoundForceFootPerFoot(double? PoundForceFootPe
         return null;
 
     return new TorquePerLength((double)PoundForceFootPerFoot, TorquePerLengthUnit.PoundForceFootPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from PoundForceInchPerFoot.
 /// </summary>
@@ -232,8 +214,7 @@ public static TorquePerLength FromPoundForceInchPerFoot(double? PoundForceInchPe
         return null;
 
     return new TorquePerLength((double)PoundForceInchPerFoot, TorquePerLengthUnit.PoundForceInchPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from TonneForceCentimeterPerMeter.
 /// </summary>
@@ -244,8 +225,7 @@ public static TorquePerLength FromTonneForceCentimeterPerMeter(double? TonneForc
         return null;
 
     return new TorquePerLength((double)TonneForceCentimeterPerMeter, TorquePerLengthUnit.TonneForceCentimeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from TonneForceMeterPerMeter.
 /// </summary>
@@ -256,8 +236,7 @@ public static TorquePerLength FromTonneForceMeterPerMeter(double? TonneForceMete
         return null;
 
     return new TorquePerLength((double)TonneForceMeterPerMeter, TorquePerLengthUnit.TonneForceMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get TorquePerLength from TonneForceMillimeterPerMeter.
 /// </summary>
@@ -268,7 +247,6 @@ public static TorquePerLength FromTonneForceMillimeterPerMeter(double? TonneForc
         return null;
 
     return new TorquePerLength((double)TonneForceMillimeterPerMeter, TorquePerLengthUnit.TonneForceMillimeterPerMeter);
-}
-
+}                     
 
 }                     

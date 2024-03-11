@@ -16,8 +16,7 @@ public static BrakeSpecificFuelConsumption FromSI(double? SI)
         return null;
 
     return new BrakeSpecificFuelConsumption((double)SI, BrakeSpecificFuelConsumptionUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get BrakeSpecificFuelConsumption from KilogramPerJoule.
 /// </summary>
@@ -28,8 +27,7 @@ public static BrakeSpecificFuelConsumption FromKilogramPerJoule(double? Kilogram
         return null;
 
     return new BrakeSpecificFuelConsumption((double)KilogramPerJoule, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
-}
-
+}                     
 /// <summary>
 /// Get BrakeSpecificFuelConsumption from GramPerKiloWattHour.
 /// </summary>
@@ -40,8 +38,7 @@ public static BrakeSpecificFuelConsumption FromGramPerKiloWattHour(double? GramP
         return null;
 
     return new BrakeSpecificFuelConsumption((double)GramPerKiloWattHour, BrakeSpecificFuelConsumptionUnit.GramPerKiloWattHour);
-}
-
+}                     
 /// <summary>
 /// Get BrakeSpecificFuelConsumption from PoundPerMechanicalHorsepowerHour.
 /// </summary>
@@ -52,7 +49,6 @@ public static BrakeSpecificFuelConsumption FromPoundPerMechanicalHorsepowerHour(
         return null;
 
     return new BrakeSpecificFuelConsumption((double)PoundPerMechanicalHorsepowerHour, BrakeSpecificFuelConsumptionUnit.PoundPerMechanicalHorsepowerHour);
-}
-
+}                     
 
 }                     

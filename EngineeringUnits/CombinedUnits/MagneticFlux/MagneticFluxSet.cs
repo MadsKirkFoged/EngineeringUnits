@@ -16,8 +16,7 @@ public static MagneticFlux FromSI(double? SI)
         return null;
 
     return new MagneticFlux((double)SI, MagneticFluxUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MagneticFlux from Weber.
 /// </summary>
@@ -28,7 +27,6 @@ public static MagneticFlux FromWeber(double? Weber)
         return null;
 
     return new MagneticFlux((double)Weber, MagneticFluxUnit.Weber);
-}
-
+}                     
 
 }                     

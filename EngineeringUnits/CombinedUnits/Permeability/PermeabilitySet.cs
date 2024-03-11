@@ -16,8 +16,7 @@ public static Permeability FromSI(double? SI)
         return null;
 
     return new Permeability((double)SI, PermeabilityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Permeability from HenryPerMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static Permeability FromHenryPerMeter(double? HenryPerMeter)
         return null;
 
     return new Permeability((double)HenryPerMeter, PermeabilityUnit.HenryPerMeter);
-}
-
+}                     
 
 }                     

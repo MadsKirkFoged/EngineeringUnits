@@ -16,8 +16,7 @@ public static Cost FromSI(double? SI)
         return null;
 
     return new Cost((double)SI, CostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Cost from USDollar.
 /// </summary>
@@ -28,8 +27,7 @@ public static Cost FromUSDollar(double? USDollar)
         return null;
 
     return new Cost((double)USDollar, CostUnit.USDollar);
-}
-
+}                     
 /// <summary>
 /// Get Cost from MillionUSDollar.
 /// </summary>
@@ -40,8 +38,7 @@ public static Cost FromMillionUSDollar(double? MillionUSDollar)
         return null;
 
     return new Cost((double)MillionUSDollar, CostUnit.MillionUSDollar);
-}
-
+}                     
 /// <summary>
 /// Get Cost from Euro.
 /// </summary>
@@ -52,8 +49,7 @@ public static Cost FromEuro(double? Euro)
         return null;
 
     return new Cost((double)Euro, CostUnit.Euro);
-}
-
+}                     
 /// <summary>
 /// Get Cost from BritishPound.
 /// </summary>
@@ -64,7 +60,6 @@ public static Cost FromBritishPound(double? BritishPound)
         return null;
 
     return new Cost((double)BritishPound, CostUnit.BritishPound);
-}
-
+}                     
 
 }                     

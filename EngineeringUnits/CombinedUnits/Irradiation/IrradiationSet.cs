@@ -16,8 +16,7 @@ public static Irradiation FromSI(double? SI)
         return null;
 
     return new Irradiation((double)SI, IrradiationUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from JoulePerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Irradiation FromJoulePerSquareMeter(double? JoulePerSquareMeter)
         return null;
 
     return new Irradiation((double)JoulePerSquareMeter, IrradiationUnit.JoulePerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from JoulePerSquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Irradiation FromJoulePerSquareCentimeter(double? JoulePerSquareCen
         return null;
 
     return new Irradiation((double)JoulePerSquareCentimeter, IrradiationUnit.JoulePerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from JoulePerSquareMillimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Irradiation FromJoulePerSquareMillimeter(double? JoulePerSquareMil
         return null;
 
     return new Irradiation((double)JoulePerSquareMillimeter, IrradiationUnit.JoulePerSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from KilojoulePerSquareMeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Irradiation FromKilojoulePerSquareMeter(double? KilojoulePerSquare
         return null;
 
     return new Irradiation((double)KilojoulePerSquareMeter, IrradiationUnit.KilojoulePerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from KilowattHourPerSquareMeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Irradiation FromKilowattHourPerSquareMeter(double? KilowattHourPer
         return null;
 
     return new Irradiation((double)KilowattHourPerSquareMeter, IrradiationUnit.KilowattHourPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from MillijoulePerSquareCentimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Irradiation FromMillijoulePerSquareCentimeter(double? MillijoulePe
         return null;
 
     return new Irradiation((double)MillijoulePerSquareCentimeter, IrradiationUnit.MillijoulePerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Irradiation from WattHourPerSquareMeter.
 /// </summary>
@@ -100,7 +93,6 @@ public static Irradiation FromWattHourPerSquareMeter(double? WattHourPerSquareMe
         return null;
 
     return new Irradiation((double)WattHourPerSquareMeter, IrradiationUnit.WattHourPerSquareMeter);
-}
-
+}                     
 
 }                     

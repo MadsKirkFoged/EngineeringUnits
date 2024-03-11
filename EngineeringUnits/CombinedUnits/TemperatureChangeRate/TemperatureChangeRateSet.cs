@@ -16,8 +16,7 @@ public static TemperatureChangeRate FromSI(double? SI)
         return null;
 
     return new TemperatureChangeRate((double)SI, TemperatureChangeRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from DegreeCelsiusPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static TemperatureChangeRate FromDegreeCelsiusPerSecond(double? DegreeCel
         return null;
 
     return new TemperatureChangeRate((double)DegreeCelsiusPerSecond, TemperatureChangeRateUnit.DegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from DegreeCelsiusPerMinute.
 /// </summary>
@@ -40,8 +38,7 @@ public static TemperatureChangeRate FromDegreeCelsiusPerMinute(double? DegreeCel
         return null;
 
     return new TemperatureChangeRate((double)DegreeCelsiusPerMinute, TemperatureChangeRateUnit.DegreeCelsiusPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from CentidegreeCelsiusPerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static TemperatureChangeRate FromCentidegreeCelsiusPerSecond(double? Cent
         return null;
 
     return new TemperatureChangeRate((double)CentidegreeCelsiusPerSecond, TemperatureChangeRateUnit.CentidegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from DecadegreeCelsiusPerSecond.
 /// </summary>
@@ -64,8 +60,7 @@ public static TemperatureChangeRate FromDecadegreeCelsiusPerSecond(double? Decad
         return null;
 
     return new TemperatureChangeRate((double)DecadegreeCelsiusPerSecond, TemperatureChangeRateUnit.DecadegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from DecidegreeCelsiusPerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static TemperatureChangeRate FromDecidegreeCelsiusPerSecond(double? Decid
         return null;
 
     return new TemperatureChangeRate((double)DecidegreeCelsiusPerSecond, TemperatureChangeRateUnit.DecidegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from HectodegreeCelsiusPerSecond.
 /// </summary>
@@ -88,8 +82,7 @@ public static TemperatureChangeRate FromHectodegreeCelsiusPerSecond(double? Hect
         return null;
 
     return new TemperatureChangeRate((double)HectodegreeCelsiusPerSecond, TemperatureChangeRateUnit.HectodegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from KilodegreeCelsiusPerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static TemperatureChangeRate FromKilodegreeCelsiusPerSecond(double? Kilod
         return null;
 
     return new TemperatureChangeRate((double)KilodegreeCelsiusPerSecond, TemperatureChangeRateUnit.KilodegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from MicrodegreeCelsiusPerSecond.
 /// </summary>
@@ -112,8 +104,7 @@ public static TemperatureChangeRate FromMicrodegreeCelsiusPerSecond(double? Micr
         return null;
 
     return new TemperatureChangeRate((double)MicrodegreeCelsiusPerSecond, TemperatureChangeRateUnit.MicrodegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from MillidegreeCelsiusPerSecond.
 /// </summary>
@@ -124,8 +115,7 @@ public static TemperatureChangeRate FromMillidegreeCelsiusPerSecond(double? Mill
         return null;
 
     return new TemperatureChangeRate((double)MillidegreeCelsiusPerSecond, TemperatureChangeRateUnit.MillidegreeCelsiusPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get TemperatureChangeRate from NanodegreeCelsiusPerSecond.
 /// </summary>
@@ -136,7 +126,6 @@ public static TemperatureChangeRate FromNanodegreeCelsiusPerSecond(double? Nanod
         return null;
 
     return new TemperatureChangeRate((double)NanodegreeCelsiusPerSecond, TemperatureChangeRateUnit.NanodegreeCelsiusPerSecond);
-}
-
+}                     
 
 }                     

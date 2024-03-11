@@ -16,8 +16,7 @@ public static ThermalConductivity FromSI(double? SI)
         return null;
 
     return new ThermalConductivity((double)SI, ThermalConductivityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ThermalConductivity from WattPerMeterKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static ThermalConductivity FromWattPerMeterKelvin(double? WattPerMeterKel
         return null;
 
     return new ThermalConductivity((double)WattPerMeterKelvin, ThermalConductivityUnit.WattPerMeterKelvin);
-}
-
+}                     
 /// <summary>
 /// Get ThermalConductivity from BtuPerHourFootFahrenheit.
 /// </summary>
@@ -40,7 +38,6 @@ public static ThermalConductivity FromBtuPerHourFootFahrenheit(double? BtuPerHou
         return null;
 
     return new ThermalConductivity((double)BtuPerHourFootFahrenheit, ThermalConductivityUnit.BtuPerHourFootFahrenheit);
-}
-
+}                     
 
 }                     

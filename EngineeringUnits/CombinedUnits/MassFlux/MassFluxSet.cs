@@ -16,8 +16,7 @@ public static MassFlux FromSI(double? SI)
         return null;
 
     return new MassFlux((double)SI, MassFluxUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerSecondPerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static MassFlux FromKilogramPerSecondPerSquareMeter(double? KilogramPerSe
         return null;
 
     return new MassFlux((double)KilogramPerSecondPerSquareMeter, MassFluxUnit.KilogramPerSecondPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerHourPerSquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static MassFlux FromGramPerHourPerSquareCentimeter(double? GramPerHourPer
         return null;
 
     return new MassFlux((double)GramPerHourPerSquareCentimeter, MassFluxUnit.GramPerHourPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerHourPerSquareMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static MassFlux FromGramPerHourPerSquareMeter(double? GramPerHourPerSquar
         return null;
 
     return new MassFlux((double)GramPerHourPerSquareMeter, MassFluxUnit.GramPerHourPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerHourPerSquareMillimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static MassFlux FromGramPerHourPerSquareMillimeter(double? GramPerHourPer
         return null;
 
     return new MassFlux((double)GramPerHourPerSquareMillimeter, MassFluxUnit.GramPerHourPerSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerSecondPerSquareCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static MassFlux FromGramPerSecondPerSquareCentimeter(double? GramPerSecon
         return null;
 
     return new MassFlux((double)GramPerSecondPerSquareCentimeter, MassFluxUnit.GramPerSecondPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerSecondPerSquareMeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static MassFlux FromGramPerSecondPerSquareMeter(double? GramPerSecondPerS
         return null;
 
     return new MassFlux((double)GramPerSecondPerSquareMeter, MassFluxUnit.GramPerSecondPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from GramPerSecondPerSquareMillimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static MassFlux FromGramPerSecondPerSquareMillimeter(double? GramPerSecon
         return null;
 
     return new MassFlux((double)GramPerSecondPerSquareMillimeter, MassFluxUnit.GramPerSecondPerSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerHourPerSquareCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static MassFlux FromKilogramPerHourPerSquareCentimeter(double? KilogramPe
         return null;
 
     return new MassFlux((double)KilogramPerHourPerSquareCentimeter, MassFluxUnit.KilogramPerHourPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerHourPerSquareMeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static MassFlux FromKilogramPerHourPerSquareMeter(double? KilogramPerHour
         return null;
 
     return new MassFlux((double)KilogramPerHourPerSquareMeter, MassFluxUnit.KilogramPerHourPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerHourPerSquareMillimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static MassFlux FromKilogramPerHourPerSquareMillimeter(double? KilogramPe
         return null;
 
     return new MassFlux((double)KilogramPerHourPerSquareMillimeter, MassFluxUnit.KilogramPerHourPerSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerSecondPerSquareCentimeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static MassFlux FromKilogramPerSecondPerSquareCentimeter(double? Kilogram
         return null;
 
     return new MassFlux((double)KilogramPerSecondPerSquareCentimeter, MassFluxUnit.KilogramPerSecondPerSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassFlux from KilogramPerSecondPerSquareMillimeter.
 /// </summary>
@@ -160,7 +148,6 @@ public static MassFlux FromKilogramPerSecondPerSquareMillimeter(double? Kilogram
         return null;
 
     return new MassFlux((double)KilogramPerSecondPerSquareMillimeter, MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
-}
-
+}                     
 
 }                     

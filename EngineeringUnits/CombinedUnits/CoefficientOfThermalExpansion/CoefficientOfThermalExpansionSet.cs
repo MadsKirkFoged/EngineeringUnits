@@ -16,8 +16,7 @@ public static CoefficientOfThermalExpansion FromSI(double? SI)
         return null;
 
     return new CoefficientOfThermalExpansion((double)SI, CoefficientOfThermalExpansionUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get CoefficientOfThermalExpansion from InverseKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static CoefficientOfThermalExpansion FromInverseKelvin(double? InverseKel
         return null;
 
     return new CoefficientOfThermalExpansion((double)InverseKelvin, CoefficientOfThermalExpansionUnit.InverseKelvin);
-}
-
+}                     
 /// <summary>
 /// Get CoefficientOfThermalExpansion from InverseDegreeFahrenheit.
 /// </summary>
@@ -40,8 +38,7 @@ public static CoefficientOfThermalExpansion FromInverseDegreeFahrenheit(double? 
         return null;
 
     return new CoefficientOfThermalExpansion((double)InverseDegreeFahrenheit, CoefficientOfThermalExpansionUnit.InverseDegreeFahrenheit);
-}
-
+}                     
 /// <summary>
 /// Get CoefficientOfThermalExpansion from InverseDegreeCelsius.
 /// </summary>
@@ -52,7 +49,6 @@ public static CoefficientOfThermalExpansion FromInverseDegreeCelsius(double? Inv
         return null;
 
     return new CoefficientOfThermalExpansion((double)InverseDegreeCelsius, CoefficientOfThermalExpansionUnit.InverseDegreeCelsius);
-}
-
+}                     
 
 }                     

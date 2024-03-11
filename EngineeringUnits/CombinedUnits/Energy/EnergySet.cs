@@ -16,8 +16,7 @@ public static Energy FromSI(double? SI)
         return null;
 
     return new Energy((double)SI, EnergyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Millijoule.
 /// </summary>
@@ -28,8 +27,7 @@ public static Energy FromMillijoule(double? Millijoule)
         return null;
 
     return new Energy((double)Millijoule, EnergyUnit.Millijoule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Joule.
 /// </summary>
@@ -40,8 +38,7 @@ public static Energy FromJoule(double? Joule)
         return null;
 
     return new Energy((double)Joule, EnergyUnit.Joule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Kilojoule.
 /// </summary>
@@ -52,8 +49,7 @@ public static Energy FromKilojoule(double? Kilojoule)
         return null;
 
     return new Energy((double)Kilojoule, EnergyUnit.Kilojoule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Megajoule.
 /// </summary>
@@ -64,8 +60,7 @@ public static Energy FromMegajoule(double? Megajoule)
         return null;
 
     return new Energy((double)Megajoule, EnergyUnit.Megajoule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Gigajoule.
 /// </summary>
@@ -76,8 +71,7 @@ public static Energy FromGigajoule(double? Gigajoule)
         return null;
 
     return new Energy((double)Gigajoule, EnergyUnit.Gigajoule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Terajoule.
 /// </summary>
@@ -88,8 +82,7 @@ public static Energy FromTerajoule(double? Terajoule)
         return null;
 
     return new Energy((double)Terajoule, EnergyUnit.Terajoule);
-}
-
+}                     
 /// <summary>
 /// Get Energy from BritishThermalUnit.
 /// </summary>
@@ -100,8 +93,7 @@ public static Energy FromBritishThermalUnit(double? BritishThermalUnit)
         return null;
 
     return new Energy((double)BritishThermalUnit, EnergyUnit.BritishThermalUnit);
-}
-
+}                     
 /// <summary>
 /// Get Energy from KilobritishThermalUnit.
 /// </summary>
@@ -112,8 +104,7 @@ public static Energy FromKilobritishThermalUnit(double? KilobritishThermalUnit)
         return null;
 
     return new Energy((double)KilobritishThermalUnit, EnergyUnit.KilobritishThermalUnit);
-}
-
+}                     
 /// <summary>
 /// Get Energy from MegabritishThermalUnit.
 /// </summary>
@@ -124,8 +115,7 @@ public static Energy FromMegabritishThermalUnit(double? MegabritishThermalUnit)
         return null;
 
     return new Energy((double)MegabritishThermalUnit, EnergyUnit.MegabritishThermalUnit);
-}
-
+}                     
 /// <summary>
 /// Get Energy from GigabritishThermalUnit.
 /// </summary>
@@ -136,8 +126,7 @@ public static Energy FromGigabritishThermalUnit(double? GigabritishThermalUnit)
         return null;
 
     return new Energy((double)GigabritishThermalUnit, EnergyUnit.GigabritishThermalUnit);
-}
-
+}                     
 /// <summary>
 /// Get Energy from ElectronVolt.
 /// </summary>
@@ -148,8 +137,7 @@ public static Energy FromElectronVolt(double? ElectronVolt)
         return null;
 
     return new Energy((double)ElectronVolt, EnergyUnit.ElectronVolt);
-}
-
+}                     
 /// <summary>
 /// Get Energy from KiloelectronVolt.
 /// </summary>
@@ -160,8 +148,7 @@ public static Energy FromKiloelectronVolt(double? KiloelectronVolt)
         return null;
 
     return new Energy((double)KiloelectronVolt, EnergyUnit.KiloelectronVolt);
-}
-
+}                     
 /// <summary>
 /// Get Energy from MegaelectronVolt.
 /// </summary>
@@ -172,8 +159,7 @@ public static Energy FromMegaelectronVolt(double? MegaelectronVolt)
         return null;
 
     return new Energy((double)MegaelectronVolt, EnergyUnit.MegaelectronVolt);
-}
-
+}                     
 /// <summary>
 /// Get Energy from GigaelectronVolt.
 /// </summary>
@@ -184,8 +170,7 @@ public static Energy FromGigaelectronVolt(double? GigaelectronVolt)
         return null;
 
     return new Energy((double)GigaelectronVolt, EnergyUnit.GigaelectronVolt);
-}
-
+}                     
 /// <summary>
 /// Get Energy from TeraelectronVolt.
 /// </summary>
@@ -196,8 +181,7 @@ public static Energy FromTeraelectronVolt(double? TeraelectronVolt)
         return null;
 
     return new Energy((double)TeraelectronVolt, EnergyUnit.TeraelectronVolt);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Calorie.
 /// </summary>
@@ -208,8 +192,7 @@ public static Energy FromCalorie(double? Calorie)
         return null;
 
     return new Energy((double)Calorie, EnergyUnit.Calorie);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Kilocalorie.
 /// </summary>
@@ -220,8 +203,7 @@ public static Energy FromKilocalorie(double? Kilocalorie)
         return null;
 
     return new Energy((double)Kilocalorie, EnergyUnit.Kilocalorie);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Megacalorie.
 /// </summary>
@@ -232,8 +214,7 @@ public static Energy FromMegacalorie(double? Megacalorie)
         return null;
 
     return new Energy((double)Megacalorie, EnergyUnit.Megacalorie);
-}
-
+}                     
 /// <summary>
 /// Get Energy from WattDay.
 /// </summary>
@@ -244,8 +225,7 @@ public static Energy FromWattDay(double? WattDay)
         return null;
 
     return new Energy((double)WattDay, EnergyUnit.WattDay);
-}
-
+}                     
 /// <summary>
 /// Get Energy from KilowattDay.
 /// </summary>
@@ -256,8 +236,7 @@ public static Energy FromKilowattDay(double? KilowattDay)
         return null;
 
     return new Energy((double)KilowattDay, EnergyUnit.KilowattDay);
-}
-
+}                     
 /// <summary>
 /// Get Energy from MegawattDay.
 /// </summary>
@@ -268,8 +247,7 @@ public static Energy FromMegawattDay(double? MegawattDay)
         return null;
 
     return new Energy((double)MegawattDay, EnergyUnit.MegawattDay);
-}
-
+}                     
 /// <summary>
 /// Get Energy from GigawattDay.
 /// </summary>
@@ -280,8 +258,7 @@ public static Energy FromGigawattDay(double? GigawattDay)
         return null;
 
     return new Energy((double)GigawattDay, EnergyUnit.GigawattDay);
-}
-
+}                     
 /// <summary>
 /// Get Energy from TerawattDay.
 /// </summary>
@@ -292,8 +269,7 @@ public static Energy FromTerawattDay(double? TerawattDay)
         return null;
 
     return new Energy((double)TerawattDay, EnergyUnit.TerawattDay);
-}
-
+}                     
 /// <summary>
 /// Get Energy from WattHour.
 /// </summary>
@@ -304,8 +280,7 @@ public static Energy FromWattHour(double? WattHour)
         return null;
 
     return new Energy((double)WattHour, EnergyUnit.WattHour);
-}
-
+}                     
 /// <summary>
 /// Get Energy from KilowattHour.
 /// </summary>
@@ -316,8 +291,7 @@ public static Energy FromKilowattHour(double? KilowattHour)
         return null;
 
     return new Energy((double)KilowattHour, EnergyUnit.KilowattHour);
-}
-
+}                     
 /// <summary>
 /// Get Energy from MegawattHour.
 /// </summary>
@@ -328,8 +302,7 @@ public static Energy FromMegawattHour(double? MegawattHour)
         return null;
 
     return new Energy((double)MegawattHour, EnergyUnit.MegawattHour);
-}
-
+}                     
 /// <summary>
 /// Get Energy from GigawattHour.
 /// </summary>
@@ -340,8 +313,7 @@ public static Energy FromGigawattHour(double? GigawattHour)
         return null;
 
     return new Energy((double)GigawattHour, EnergyUnit.GigawattHour);
-}
-
+}                     
 /// <summary>
 /// Get Energy from TerawattHour.
 /// </summary>
@@ -352,8 +324,7 @@ public static Energy FromTerawattHour(double? TerawattHour)
         return null;
 
     return new Energy((double)TerawattHour, EnergyUnit.TerawattHour);
-}
-
+}                     
 /// <summary>
 /// Get Energy from FootPound.
 /// </summary>
@@ -364,8 +335,7 @@ public static Energy FromFootPound(double? FootPound)
         return null;
 
     return new Energy((double)FootPound, EnergyUnit.FootPound);
-}
-
+}                     
 /// <summary>
 /// Get Energy from DecathermEc.
 /// </summary>
@@ -376,8 +346,7 @@ public static Energy FromDecathermEc(double? DecathermEc)
         return null;
 
     return new Energy((double)DecathermEc, EnergyUnit.DecathermEc);
-}
-
+}                     
 /// <summary>
 /// Get Energy from DecathermImperial.
 /// </summary>
@@ -388,8 +357,7 @@ public static Energy FromDecathermImperial(double? DecathermImperial)
         return null;
 
     return new Energy((double)DecathermImperial, EnergyUnit.DecathermImperial);
-}
-
+}                     
 /// <summary>
 /// Get Energy from DecathermUs.
 /// </summary>
@@ -400,8 +368,7 @@ public static Energy FromDecathermUs(double? DecathermUs)
         return null;
 
     return new Energy((double)DecathermUs, EnergyUnit.DecathermUs);
-}
-
+}                     
 /// <summary>
 /// Get Energy from ThermEc.
 /// </summary>
@@ -412,8 +379,7 @@ public static Energy FromThermEc(double? ThermEc)
         return null;
 
     return new Energy((double)ThermEc, EnergyUnit.ThermEc);
-}
-
+}                     
 /// <summary>
 /// Get Energy from ThermImperial.
 /// </summary>
@@ -424,8 +390,7 @@ public static Energy FromThermImperial(double? ThermImperial)
         return null;
 
     return new Energy((double)ThermImperial, EnergyUnit.ThermImperial);
-}
-
+}                     
 /// <summary>
 /// Get Energy from ThermUs.
 /// </summary>
@@ -436,8 +401,7 @@ public static Energy FromThermUs(double? ThermUs)
         return null;
 
     return new Energy((double)ThermUs, EnergyUnit.ThermUs);
-}
-
+}                     
 /// <summary>
 /// Get Energy from Erg.
 /// </summary>
@@ -448,8 +412,7 @@ public static Energy FromErg(double? Erg)
         return null;
 
     return new Energy((double)Erg, EnergyUnit.Erg);
-}
-
+}                     
 /// <summary>
 /// Get Energy from HorsepowerHour.
 /// </summary>
@@ -460,7 +423,6 @@ public static Energy FromHorsepowerHour(double? HorsepowerHour)
         return null;
 
     return new Energy((double)HorsepowerHour, EnergyUnit.HorsepowerHour);
-}
-
+}                     
 
 }                     

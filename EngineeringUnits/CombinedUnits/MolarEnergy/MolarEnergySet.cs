@@ -16,8 +16,7 @@ public static MolarEnergy FromSI(double? SI)
         return null;
 
     return new MolarEnergy((double)SI, MolarEnergyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MolarEnergy from JoulePerMole.
 /// </summary>
@@ -28,8 +27,7 @@ public static MolarEnergy FromJoulePerMole(double? JoulePerMole)
         return null;
 
     return new MolarEnergy((double)JoulePerMole, MolarEnergyUnit.JoulePerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarEnergy from KilojoulePerMole.
 /// </summary>
@@ -40,8 +38,7 @@ public static MolarEnergy FromKilojoulePerMole(double? KilojoulePerMole)
         return null;
 
     return new MolarEnergy((double)KilojoulePerMole, MolarEnergyUnit.KilojoulePerMole);
-}
-
+}                     
 /// <summary>
 /// Get MolarEnergy from MegajoulePerMole.
 /// </summary>
@@ -52,7 +49,6 @@ public static MolarEnergy FromMegajoulePerMole(double? MegajoulePerMole)
         return null;
 
     return new MolarEnergy((double)MegajoulePerMole, MolarEnergyUnit.MegajoulePerMole);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static ForceChangeRate FromSI(double? SI)
         return null;
 
     return new ForceChangeRate((double)SI, ForceChangeRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from NewtonPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static ForceChangeRate FromNewtonPerSecond(double? NewtonPerSecond)
         return null;
 
     return new ForceChangeRate((double)NewtonPerSecond, ForceChangeRateUnit.NewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from NewtonPerMinute.
 /// </summary>
@@ -40,8 +38,7 @@ public static ForceChangeRate FromNewtonPerMinute(double? NewtonPerMinute)
         return null;
 
     return new ForceChangeRate((double)NewtonPerMinute, ForceChangeRateUnit.NewtonPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from PoundForcePerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static ForceChangeRate FromPoundForcePerSecond(double? PoundForcePerSecon
         return null;
 
     return new ForceChangeRate((double)PoundForcePerSecond, ForceChangeRateUnit.PoundForcePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from PoundForcePerMinute.
 /// </summary>
@@ -64,8 +60,7 @@ public static ForceChangeRate FromPoundForcePerMinute(double? PoundForcePerMinut
         return null;
 
     return new ForceChangeRate((double)PoundForcePerMinute, ForceChangeRateUnit.PoundForcePerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from KilopoundForcePerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static ForceChangeRate FromKilopoundForcePerSecond(double? KilopoundForce
         return null;
 
     return new ForceChangeRate((double)KilopoundForcePerSecond, ForceChangeRateUnit.KilopoundForcePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from KilopoundForcePerMinute.
 /// </summary>
@@ -88,8 +82,7 @@ public static ForceChangeRate FromKilopoundForcePerMinute(double? KilopoundForce
         return null;
 
     return new ForceChangeRate((double)KilopoundForcePerMinute, ForceChangeRateUnit.KilopoundForcePerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from NanonewtonPerSecond.
 /// </summary>
@@ -100,8 +93,7 @@ public static ForceChangeRate FromNanonewtonPerSecond(double? NanonewtonPerSecon
         return null;
 
     return new ForceChangeRate((double)NanonewtonPerSecond, ForceChangeRateUnit.NanonewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from MillinewtonPerSecond.
 /// </summary>
@@ -112,8 +104,7 @@ public static ForceChangeRate FromMillinewtonPerSecond(double? MillinewtonPerSec
         return null;
 
     return new ForceChangeRate((double)MillinewtonPerSecond, ForceChangeRateUnit.MillinewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from MicronewtonPerSecond.
 /// </summary>
@@ -124,8 +115,7 @@ public static ForceChangeRate FromMicronewtonPerSecond(double? MicronewtonPerSec
         return null;
 
     return new ForceChangeRate((double)MicronewtonPerSecond, ForceChangeRateUnit.MicronewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from CentinewtonPerSecond.
 /// </summary>
@@ -136,8 +126,7 @@ public static ForceChangeRate FromCentinewtonPerSecond(double? CentinewtonPerSec
         return null;
 
     return new ForceChangeRate((double)CentinewtonPerSecond, ForceChangeRateUnit.CentinewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from DecanewtonPerSecond.
 /// </summary>
@@ -148,8 +137,7 @@ public static ForceChangeRate FromDecanewtonPerSecond(double? DecanewtonPerSecon
         return null;
 
     return new ForceChangeRate((double)DecanewtonPerSecond, ForceChangeRateUnit.DecanewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from DecinewtonPerSecond.
 /// </summary>
@@ -160,8 +148,7 @@ public static ForceChangeRate FromDecinewtonPerSecond(double? DecinewtonPerSecon
         return null;
 
     return new ForceChangeRate((double)DecinewtonPerSecond, ForceChangeRateUnit.DecinewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from KilonewtonPerSecond.
 /// </summary>
@@ -172,8 +159,7 @@ public static ForceChangeRate FromKilonewtonPerSecond(double? KilonewtonPerSecon
         return null;
 
     return new ForceChangeRate((double)KilonewtonPerSecond, ForceChangeRateUnit.KilonewtonPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from DecanewtonPerMinute.
 /// </summary>
@@ -184,8 +170,7 @@ public static ForceChangeRate FromDecanewtonPerMinute(double? DecanewtonPerMinut
         return null;
 
     return new ForceChangeRate((double)DecanewtonPerMinute, ForceChangeRateUnit.DecanewtonPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get ForceChangeRate from KilonewtonPerMinute.
 /// </summary>
@@ -196,7 +181,6 @@ public static ForceChangeRate FromKilonewtonPerMinute(double? KilonewtonPerMinut
         return null;
 
     return new ForceChangeRate((double)KilonewtonPerMinute, ForceChangeRateUnit.KilonewtonPerMinute);
-}
-
+}                     
 
 }                     

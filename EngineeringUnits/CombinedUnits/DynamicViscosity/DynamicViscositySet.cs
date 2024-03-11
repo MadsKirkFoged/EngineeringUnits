@@ -16,8 +16,7 @@ public static DynamicViscosity FromSI(double? SI)
         return null;
 
     return new DynamicViscosity((double)SI, DynamicViscosityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from PascalSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static DynamicViscosity FromPascalSecond(double? PascalSecond)
         return null;
 
     return new DynamicViscosity((double)PascalSecond, DynamicViscosityUnit.PascalSecond);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from MicropascalSecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static DynamicViscosity FromMicropascalSecond(double? MicropascalSecond)
         return null;
 
     return new DynamicViscosity((double)MicropascalSecond, DynamicViscosityUnit.MicropascalSecond);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from MillipascalSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static DynamicViscosity FromMillipascalSecond(double? MillipascalSecond)
         return null;
 
     return new DynamicViscosity((double)MillipascalSecond, DynamicViscosityUnit.MillipascalSecond);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from PoundPerFootSecond.
 /// </summary>
@@ -64,8 +60,7 @@ public static DynamicViscosity FromPoundPerFootSecond(double? PoundPerFootSecond
         return null;
 
     return new DynamicViscosity((double)PoundPerFootSecond, DynamicViscosityUnit.PoundPerFootSecond);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from Poise.
 /// </summary>
@@ -76,8 +71,7 @@ public static DynamicViscosity FromPoise(double? Poise)
         return null;
 
     return new DynamicViscosity((double)Poise, DynamicViscosityUnit.Poise);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from Centipoise.
 /// </summary>
@@ -88,8 +82,7 @@ public static DynamicViscosity FromCentipoise(double? Centipoise)
         return null;
 
     return new DynamicViscosity((double)Centipoise, DynamicViscosityUnit.Centipoise);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from NewtonSecondPerMeterSquared.
 /// </summary>
@@ -100,8 +93,7 @@ public static DynamicViscosity FromNewtonSecondPerMeterSquared(double? NewtonSec
         return null;
 
     return new DynamicViscosity((double)NewtonSecondPerMeterSquared, DynamicViscosityUnit.NewtonSecondPerMeterSquared);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from PoundForceSecondPerSquareFoot.
 /// </summary>
@@ -112,8 +104,7 @@ public static DynamicViscosity FromPoundForceSecondPerSquareFoot(double? PoundFo
         return null;
 
     return new DynamicViscosity((double)PoundForceSecondPerSquareFoot, DynamicViscosityUnit.PoundForceSecondPerSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from PoundForceSecondPerSquareInch.
 /// </summary>
@@ -124,8 +115,7 @@ public static DynamicViscosity FromPoundForceSecondPerSquareInch(double? PoundFo
         return null;
 
     return new DynamicViscosity((double)PoundForceSecondPerSquareInch, DynamicViscosityUnit.PoundForceSecondPerSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get DynamicViscosity from Reyn.
 /// </summary>
@@ -136,7 +126,6 @@ public static DynamicViscosity FromReyn(double? Reyn)
         return null;
 
     return new DynamicViscosity((double)Reyn, DynamicViscosityUnit.Reyn);
-}
-
+}                     
 
 }                     

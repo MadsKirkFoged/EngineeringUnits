@@ -16,8 +16,7 @@ public static Ratio FromSI(double? SI)
         return null;
 
     return new Ratio((double)SI, RatioUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecimalFraction.
 /// </summary>
@@ -28,8 +27,7 @@ public static Ratio FromDecimalFraction(double? DecimalFraction)
         return null;
 
     return new Ratio((double)DecimalFraction, RatioUnit.DecimalFraction);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PartPerBillion.
 /// </summary>
@@ -40,8 +38,7 @@ public static Ratio FromPartPerBillion(double? PartPerBillion)
         return null;
 
     return new Ratio((double)PartPerBillion, RatioUnit.PartPerBillion);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PartPerMillion.
 /// </summary>
@@ -52,8 +49,7 @@ public static Ratio FromPartPerMillion(double? PartPerMillion)
         return null;
 
     return new Ratio((double)PartPerMillion, RatioUnit.PartPerMillion);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PartPerThousand.
 /// </summary>
@@ -64,8 +60,7 @@ public static Ratio FromPartPerThousand(double? PartPerThousand)
         return null;
 
     return new Ratio((double)PartPerThousand, RatioUnit.PartPerThousand);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PartPerTrillion.
 /// </summary>
@@ -76,8 +71,7 @@ public static Ratio FromPartPerTrillion(double? PartPerTrillion)
         return null;
 
     return new Ratio((double)PartPerTrillion, RatioUnit.PartPerTrillion);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from Percent.
 /// </summary>
@@ -88,8 +82,7 @@ public static Ratio FromPercent(double? Percent)
         return null;
 
     return new Ratio((double)Percent, RatioUnit.Percent);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from CentigramPerGram.
 /// </summary>
@@ -100,8 +93,7 @@ public static Ratio FromCentigramPerGram(double? CentigramPerGram)
         return null;
 
     return new Ratio((double)CentigramPerGram, RatioUnit.CentigramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from CentigramPerKilogram.
 /// </summary>
@@ -112,8 +104,7 @@ public static Ratio FromCentigramPerKilogram(double? CentigramPerKilogram)
         return null;
 
     return new Ratio((double)CentigramPerKilogram, RatioUnit.CentigramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecagramPerGram.
 /// </summary>
@@ -124,8 +115,7 @@ public static Ratio FromDecagramPerGram(double? DecagramPerGram)
         return null;
 
     return new Ratio((double)DecagramPerGram, RatioUnit.DecagramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecagramPerKilogram.
 /// </summary>
@@ -136,8 +126,7 @@ public static Ratio FromDecagramPerKilogram(double? DecagramPerKilogram)
         return null;
 
     return new Ratio((double)DecagramPerKilogram, RatioUnit.DecagramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecigramPerGram.
 /// </summary>
@@ -148,8 +137,7 @@ public static Ratio FromDecigramPerGram(double? DecigramPerGram)
         return null;
 
     return new Ratio((double)DecigramPerGram, RatioUnit.DecigramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecigramPerKilogram.
 /// </summary>
@@ -160,8 +148,7 @@ public static Ratio FromDecigramPerKilogram(double? DecigramPerKilogram)
         return null;
 
     return new Ratio((double)DecigramPerKilogram, RatioUnit.DecigramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from GramPerGram.
 /// </summary>
@@ -172,8 +159,7 @@ public static Ratio FromGramPerGram(double? GramPerGram)
         return null;
 
     return new Ratio((double)GramPerGram, RatioUnit.GramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from GramPerKilogram.
 /// </summary>
@@ -184,8 +170,7 @@ public static Ratio FromGramPerKilogram(double? GramPerKilogram)
         return null;
 
     return new Ratio((double)GramPerKilogram, RatioUnit.GramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from HectogramPerGram.
 /// </summary>
@@ -196,8 +181,7 @@ public static Ratio FromHectogramPerGram(double? HectogramPerGram)
         return null;
 
     return new Ratio((double)HectogramPerGram, RatioUnit.HectogramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from HectogramPerKilogram.
 /// </summary>
@@ -208,8 +192,7 @@ public static Ratio FromHectogramPerKilogram(double? HectogramPerKilogram)
         return null;
 
     return new Ratio((double)HectogramPerKilogram, RatioUnit.HectogramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from KilogramPerGram.
 /// </summary>
@@ -220,8 +203,7 @@ public static Ratio FromKilogramPerGram(double? KilogramPerGram)
         return null;
 
     return new Ratio((double)KilogramPerGram, RatioUnit.KilogramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from KilogramPerKilogram.
 /// </summary>
@@ -232,8 +214,7 @@ public static Ratio FromKilogramPerKilogram(double? KilogramPerKilogram)
         return null;
 
     return new Ratio((double)KilogramPerKilogram, RatioUnit.KilogramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MicrogramPerGram.
 /// </summary>
@@ -244,8 +225,7 @@ public static Ratio FromMicrogramPerGram(double? MicrogramPerGram)
         return null;
 
     return new Ratio((double)MicrogramPerGram, RatioUnit.MicrogramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MicrogramPerKilogram.
 /// </summary>
@@ -256,8 +236,7 @@ public static Ratio FromMicrogramPerKilogram(double? MicrogramPerKilogram)
         return null;
 
     return new Ratio((double)MicrogramPerKilogram, RatioUnit.MicrogramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MilligramPerGram.
 /// </summary>
@@ -268,8 +247,7 @@ public static Ratio FromMilligramPerGram(double? MilligramPerGram)
         return null;
 
     return new Ratio((double)MilligramPerGram, RatioUnit.MilligramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MilligramPerKilogram.
 /// </summary>
@@ -280,8 +258,7 @@ public static Ratio FromMilligramPerKilogram(double? MilligramPerKilogram)
         return null;
 
     return new Ratio((double)MilligramPerKilogram, RatioUnit.MilligramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from NanogramPerGram.
 /// </summary>
@@ -292,8 +269,7 @@ public static Ratio FromNanogramPerGram(double? NanogramPerGram)
         return null;
 
     return new Ratio((double)NanogramPerGram, RatioUnit.NanogramPerGram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from NanogramPerKilogram.
 /// </summary>
@@ -304,8 +280,7 @@ public static Ratio FromNanogramPerKilogram(double? NanogramPerKilogram)
         return null;
 
     return new Ratio((double)NanogramPerKilogram, RatioUnit.NanogramPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from CentilitersPerLiter.
 /// </summary>
@@ -316,8 +291,7 @@ public static Ratio FromCentilitersPerLiter(double? CentilitersPerLiter)
         return null;
 
     return new Ratio((double)CentilitersPerLiter, RatioUnit.CentilitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from CentilitersPerMililiter.
 /// </summary>
@@ -328,8 +302,7 @@ public static Ratio FromCentilitersPerMililiter(double? CentilitersPerMililiter)
         return null;
 
     return new Ratio((double)CentilitersPerMililiter, RatioUnit.CentilitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecilitersPerLiter.
 /// </summary>
@@ -340,8 +313,7 @@ public static Ratio FromDecilitersPerLiter(double? DecilitersPerLiter)
         return null;
 
     return new Ratio((double)DecilitersPerLiter, RatioUnit.DecilitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from DecilitersPerMililiter.
 /// </summary>
@@ -352,8 +324,7 @@ public static Ratio FromDecilitersPerMililiter(double? DecilitersPerMililiter)
         return null;
 
     return new Ratio((double)DecilitersPerMililiter, RatioUnit.DecilitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from LitersPerLiter.
 /// </summary>
@@ -364,8 +335,7 @@ public static Ratio FromLitersPerLiter(double? LitersPerLiter)
         return null;
 
     return new Ratio((double)LitersPerLiter, RatioUnit.LitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from LitersPerMililiter.
 /// </summary>
@@ -376,8 +346,7 @@ public static Ratio FromLitersPerMililiter(double? LitersPerMililiter)
         return null;
 
     return new Ratio((double)LitersPerMililiter, RatioUnit.LitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MicrolitersPerLiter.
 /// </summary>
@@ -388,8 +357,7 @@ public static Ratio FromMicrolitersPerLiter(double? MicrolitersPerLiter)
         return null;
 
     return new Ratio((double)MicrolitersPerLiter, RatioUnit.MicrolitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MicrolitersPerMililiter.
 /// </summary>
@@ -400,8 +368,7 @@ public static Ratio FromMicrolitersPerMililiter(double? MicrolitersPerMililiter)
         return null;
 
     return new Ratio((double)MicrolitersPerMililiter, RatioUnit.MicrolitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MillilitersPerLiter.
 /// </summary>
@@ -412,8 +379,7 @@ public static Ratio FromMillilitersPerLiter(double? MillilitersPerLiter)
         return null;
 
     return new Ratio((double)MillilitersPerLiter, RatioUnit.MillilitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from MillilitersPerMililiter.
 /// </summary>
@@ -424,8 +390,7 @@ public static Ratio FromMillilitersPerMililiter(double? MillilitersPerMililiter)
         return null;
 
     return new Ratio((double)MillilitersPerMililiter, RatioUnit.MillilitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from NanolitersPerLiter.
 /// </summary>
@@ -436,8 +401,7 @@ public static Ratio FromNanolitersPerLiter(double? NanolitersPerLiter)
         return null;
 
     return new Ratio((double)NanolitersPerLiter, RatioUnit.NanolitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from NanolitersPerMililiter.
 /// </summary>
@@ -448,8 +412,7 @@ public static Ratio FromNanolitersPerMililiter(double? NanolitersPerMililiter)
         return null;
 
     return new Ratio((double)NanolitersPerMililiter, RatioUnit.NanolitersPerMililiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PicolitersPerLiter.
 /// </summary>
@@ -460,8 +423,7 @@ public static Ratio FromPicolitersPerLiter(double? PicolitersPerLiter)
         return null;
 
     return new Ratio((double)PicolitersPerLiter, RatioUnit.PicolitersPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get Ratio from PicolitersPerMililiter.
 /// </summary>
@@ -472,7 +434,6 @@ public static Ratio FromPicolitersPerMililiter(double? PicolitersPerMililiter)
         return null;
 
     return new Ratio((double)PicolitersPerMililiter, RatioUnit.PicolitersPerMililiter);
-}
-
+}                     
 
 }                     

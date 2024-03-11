@@ -16,8 +16,7 @@ public static AmountOfSubstance FromSI(double? SI)
         return null;
 
     return new AmountOfSubstance((double)SI, AmountOfSubstanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Mole.
 /// </summary>
@@ -28,8 +27,7 @@ public static AmountOfSubstance FromMole(double? Mole)
         return null;
 
     return new AmountOfSubstance((double)Mole, AmountOfSubstanceUnit.Mole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Centimole.
 /// </summary>
@@ -40,8 +38,7 @@ public static AmountOfSubstance FromCentimole(double? Centimole)
         return null;
 
     return new AmountOfSubstance((double)Centimole, AmountOfSubstanceUnit.Centimole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Decimole.
 /// </summary>
@@ -52,8 +49,7 @@ public static AmountOfSubstance FromDecimole(double? Decimole)
         return null;
 
     return new AmountOfSubstance((double)Decimole, AmountOfSubstanceUnit.Decimole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Kilomole.
 /// </summary>
@@ -64,8 +60,7 @@ public static AmountOfSubstance FromKilomole(double? Kilomole)
         return null;
 
     return new AmountOfSubstance((double)Kilomole, AmountOfSubstanceUnit.Kilomole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Megamole.
 /// </summary>
@@ -76,8 +71,7 @@ public static AmountOfSubstance FromMegamole(double? Megamole)
         return null;
 
     return new AmountOfSubstance((double)Megamole, AmountOfSubstanceUnit.Megamole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Micromole.
 /// </summary>
@@ -88,8 +82,7 @@ public static AmountOfSubstance FromMicromole(double? Micromole)
         return null;
 
     return new AmountOfSubstance((double)Micromole, AmountOfSubstanceUnit.Micromole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Millimole.
 /// </summary>
@@ -100,8 +93,7 @@ public static AmountOfSubstance FromMillimole(double? Millimole)
         return null;
 
     return new AmountOfSubstance((double)Millimole, AmountOfSubstanceUnit.Millimole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Nanomole.
 /// </summary>
@@ -112,8 +104,7 @@ public static AmountOfSubstance FromNanomole(double? Nanomole)
         return null;
 
     return new AmountOfSubstance((double)Nanomole, AmountOfSubstanceUnit.Nanomole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from Picomole.
 /// </summary>
@@ -124,8 +115,7 @@ public static AmountOfSubstance FromPicomole(double? Picomole)
         return null;
 
     return new AmountOfSubstance((double)Picomole, AmountOfSubstanceUnit.Picomole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from NanopoundMole.
 /// </summary>
@@ -136,8 +126,7 @@ public static AmountOfSubstance FromNanopoundMole(double? NanopoundMole)
         return null;
 
     return new AmountOfSubstance((double)NanopoundMole, AmountOfSubstanceUnit.NanopoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from MicropoundMole.
 /// </summary>
@@ -148,8 +137,7 @@ public static AmountOfSubstance FromMicropoundMole(double? MicropoundMole)
         return null;
 
     return new AmountOfSubstance((double)MicropoundMole, AmountOfSubstanceUnit.MicropoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from MillipoundMole.
 /// </summary>
@@ -160,8 +148,7 @@ public static AmountOfSubstance FromMillipoundMole(double? MillipoundMole)
         return null;
 
     return new AmountOfSubstance((double)MillipoundMole, AmountOfSubstanceUnit.MillipoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from PoundMole.
 /// </summary>
@@ -172,8 +159,7 @@ public static AmountOfSubstance FromPoundMole(double? PoundMole)
         return null;
 
     return new AmountOfSubstance((double)PoundMole, AmountOfSubstanceUnit.PoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from KilopoundMole.
 /// </summary>
@@ -184,8 +170,7 @@ public static AmountOfSubstance FromKilopoundMole(double? KilopoundMole)
         return null;
 
     return new AmountOfSubstance((double)KilopoundMole, AmountOfSubstanceUnit.KilopoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from DecipoundMole.
 /// </summary>
@@ -196,8 +181,7 @@ public static AmountOfSubstance FromDecipoundMole(double? DecipoundMole)
         return null;
 
     return new AmountOfSubstance((double)DecipoundMole, AmountOfSubstanceUnit.DecipoundMole);
-}
-
+}                     
 /// <summary>
 /// Get AmountOfSubstance from CentipoundMole.
 /// </summary>
@@ -208,7 +192,6 @@ public static AmountOfSubstance FromCentipoundMole(double? CentipoundMole)
         return null;
 
     return new AmountOfSubstance((double)CentipoundMole, AmountOfSubstanceUnit.CentipoundMole);
-}
-
+}                     
 
 }                     

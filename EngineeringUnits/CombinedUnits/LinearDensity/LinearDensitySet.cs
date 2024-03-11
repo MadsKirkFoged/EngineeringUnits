@@ -16,8 +16,7 @@ public static LinearDensity FromSI(double? SI)
         return null;
 
     return new LinearDensity((double)SI, LinearDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from KilogramPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static LinearDensity FromKilogramPerMeter(double? KilogramPerMeter)
         return null;
 
     return new LinearDensity((double)KilogramPerMeter, LinearDensityUnit.KilogramPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from GramPerCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static LinearDensity FromGramPerCentimeter(double? GramPerCentimeter)
         return null;
 
     return new LinearDensity((double)GramPerCentimeter, LinearDensityUnit.GramPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from GramPerMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static LinearDensity FromGramPerMeter(double? GramPerMeter)
         return null;
 
     return new LinearDensity((double)GramPerMeter, LinearDensityUnit.GramPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from GramPerMillimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static LinearDensity FromGramPerMillimeter(double? GramPerMillimeter)
         return null;
 
     return new LinearDensity((double)GramPerMillimeter, LinearDensityUnit.GramPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from KilogramPerCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static LinearDensity FromKilogramPerCentimeter(double? KilogramPerCentime
         return null;
 
     return new LinearDensity((double)KilogramPerCentimeter, LinearDensityUnit.KilogramPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from KilogramPerMillimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static LinearDensity FromKilogramPerMillimeter(double? KilogramPerMillime
         return null;
 
     return new LinearDensity((double)KilogramPerMillimeter, LinearDensityUnit.KilogramPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MicrogramPerCentimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static LinearDensity FromMicrogramPerCentimeter(double? MicrogramPerCenti
         return null;
 
     return new LinearDensity((double)MicrogramPerCentimeter, LinearDensityUnit.MicrogramPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MicrogramPerMeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static LinearDensity FromMicrogramPerMeter(double? MicrogramPerMeter)
         return null;
 
     return new LinearDensity((double)MicrogramPerMeter, LinearDensityUnit.MicrogramPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MicrogramPerMillimeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static LinearDensity FromMicrogramPerMillimeter(double? MicrogramPerMilli
         return null;
 
     return new LinearDensity((double)MicrogramPerMillimeter, LinearDensityUnit.MicrogramPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MilligramPerCentimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static LinearDensity FromMilligramPerCentimeter(double? MilligramPerCenti
         return null;
 
     return new LinearDensity((double)MilligramPerCentimeter, LinearDensityUnit.MilligramPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MilligramPerMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static LinearDensity FromMilligramPerMeter(double? MilligramPerMeter)
         return null;
 
     return new LinearDensity((double)MilligramPerMeter, LinearDensityUnit.MilligramPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from MilligramPerMillimeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static LinearDensity FromMilligramPerMillimeter(double? MilligramPerMilli
         return null;
 
     return new LinearDensity((double)MilligramPerMillimeter, LinearDensityUnit.MilligramPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from PoundPerFoot.
 /// </summary>
@@ -172,8 +159,7 @@ public static LinearDensity FromPoundPerFoot(double? PoundPerFoot)
         return null;
 
     return new LinearDensity((double)PoundPerFoot, LinearDensityUnit.PoundPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get LinearDensity from PoundPerInch.
 /// </summary>
@@ -184,7 +170,6 @@ public static LinearDensity FromPoundPerInch(double? PoundPerInch)
         return null;
 
     return new LinearDensity((double)PoundPerInch, LinearDensityUnit.PoundPerInch);
-}
-
+}                     
 
 }                     

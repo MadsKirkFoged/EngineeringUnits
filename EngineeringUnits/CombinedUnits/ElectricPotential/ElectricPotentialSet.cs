@@ -16,8 +16,7 @@ public static ElectricPotential FromSI(double? SI)
         return null;
 
     return new ElectricPotential((double)SI, ElectricPotentialUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Volt.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricPotential FromVolt(double? Volt)
         return null;
 
     return new ElectricPotential((double)Volt, ElectricPotentialUnit.Volt);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Kilovolt.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricPotential FromKilovolt(double? Kilovolt)
         return null;
 
     return new ElectricPotential((double)Kilovolt, ElectricPotentialUnit.Kilovolt);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Megavolt.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricPotential FromMegavolt(double? Megavolt)
         return null;
 
     return new ElectricPotential((double)Megavolt, ElectricPotentialUnit.Megavolt);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Gigavolt.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricPotential FromGigavolt(double? Gigavolt)
         return null;
 
     return new ElectricPotential((double)Gigavolt, ElectricPotentialUnit.Gigavolt);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Microvolt.
 /// </summary>
@@ -76,8 +71,7 @@ public static ElectricPotential FromMicrovolt(double? Microvolt)
         return null;
 
     return new ElectricPotential((double)Microvolt, ElectricPotentialUnit.Microvolt);
-}
-
+}                     
 /// <summary>
 /// Get ElectricPotential from Millivolt.
 /// </summary>
@@ -88,7 +82,6 @@ public static ElectricPotential FromMillivolt(double? Millivolt)
         return null;
 
     return new ElectricPotential((double)Millivolt, ElectricPotentialUnit.Millivolt);
-}
-
+}                     
 
 }                     

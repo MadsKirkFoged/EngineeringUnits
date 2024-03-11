@@ -16,8 +16,7 @@ public static Force FromSI(double? SI)
         return null;
 
     return new Force((double)SI, ForceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Force from Newton.
 /// </summary>
@@ -28,8 +27,7 @@ public static Force FromNewton(double? Newton)
         return null;
 
     return new Force((double)Newton, ForceUnit.Newton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Micronewton.
 /// </summary>
@@ -40,8 +38,7 @@ public static Force FromMicronewton(double? Micronewton)
         return null;
 
     return new Force((double)Micronewton, ForceUnit.Micronewton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Millinewton.
 /// </summary>
@@ -52,8 +49,7 @@ public static Force FromMillinewton(double? Millinewton)
         return null;
 
     return new Force((double)Millinewton, ForceUnit.Millinewton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Decanewton.
 /// </summary>
@@ -64,8 +60,7 @@ public static Force FromDecanewton(double? Decanewton)
         return null;
 
     return new Force((double)Decanewton, ForceUnit.Decanewton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Kilonewton.
 /// </summary>
@@ -76,8 +71,7 @@ public static Force FromKilonewton(double? Kilonewton)
         return null;
 
     return new Force((double)Kilonewton, ForceUnit.Kilonewton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Meganewton.
 /// </summary>
@@ -88,8 +82,7 @@ public static Force FromMeganewton(double? Meganewton)
         return null;
 
     return new Force((double)Meganewton, ForceUnit.Meganewton);
-}
-
+}                     
 /// <summary>
 /// Get Force from Dyn.
 /// </summary>
@@ -100,8 +93,7 @@ public static Force FromDyn(double? Dyn)
         return null;
 
     return new Force((double)Dyn, ForceUnit.Dyn);
-}
-
+}                     
 /// <summary>
 /// Get Force from TonneForce.
 /// </summary>
@@ -112,8 +104,7 @@ public static Force FromTonneForce(double? TonneForce)
         return null;
 
     return new Force((double)TonneForce, ForceUnit.TonneForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from ShortTonForce.
 /// </summary>
@@ -124,8 +115,7 @@ public static Force FromShortTonForce(double? ShortTonForce)
         return null;
 
     return new Force((double)ShortTonForce, ForceUnit.ShortTonForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from PoundForce.
 /// </summary>
@@ -136,8 +126,7 @@ public static Force FromPoundForce(double? PoundForce)
         return null;
 
     return new Force((double)PoundForce, ForceUnit.PoundForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from KilogramForce.
 /// </summary>
@@ -148,8 +137,7 @@ public static Force FromKilogramForce(double? KilogramForce)
         return null;
 
     return new Force((double)KilogramForce, ForceUnit.KilogramForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from OunceForce.
 /// </summary>
@@ -160,8 +148,7 @@ public static Force FromOunceForce(double? OunceForce)
         return null;
 
     return new Force((double)OunceForce, ForceUnit.OunceForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from KiloPond.
 /// </summary>
@@ -172,8 +159,7 @@ public static Force FromKiloPond(double? KiloPond)
         return null;
 
     return new Force((double)KiloPond, ForceUnit.KiloPond);
-}
-
+}                     
 /// <summary>
 /// Get Force from KilopoundForce.
 /// </summary>
@@ -184,8 +170,7 @@ public static Force FromKilopoundForce(double? KilopoundForce)
         return null;
 
     return new Force((double)KilopoundForce, ForceUnit.KilopoundForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from MegapoundForce.
 /// </summary>
@@ -196,8 +181,7 @@ public static Force FromMegapoundForce(double? MegapoundForce)
         return null;
 
     return new Force((double)MegapoundForce, ForceUnit.MegapoundForce);
-}
-
+}                     
 /// <summary>
 /// Get Force from Poundal.
 /// </summary>
@@ -208,7 +192,6 @@ public static Force FromPoundal(double? Poundal)
         return null;
 
     return new Force((double)Poundal, ForceUnit.Poundal);
-}
-
+}                     
 
 }                     

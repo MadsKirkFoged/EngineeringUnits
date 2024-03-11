@@ -16,8 +16,7 @@ public static ReactiveEnergy FromSI(double? SI)
         return null;
 
     return new ReactiveEnergy((double)SI, ReactiveEnergyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ReactiveEnergy from VoltampereReactiveHour.
 /// </summary>
@@ -28,8 +27,7 @@ public static ReactiveEnergy FromVoltampereReactiveHour(double? VoltampereReacti
         return null;
 
     return new ReactiveEnergy((double)VoltampereReactiveHour, ReactiveEnergyUnit.VoltampereReactiveHour);
-}
-
+}                     
 /// <summary>
 /// Get ReactiveEnergy from MegavoltampereReactiveHour.
 /// </summary>
@@ -40,8 +38,7 @@ public static ReactiveEnergy FromMegavoltampereReactiveHour(double? Megavoltampe
         return null;
 
     return new ReactiveEnergy((double)MegavoltampereReactiveHour, ReactiveEnergyUnit.MegavoltampereReactiveHour);
-}
-
+}                     
 /// <summary>
 /// Get ReactiveEnergy from KilovoltampereReactiveHour.
 /// </summary>
@@ -52,7 +49,6 @@ public static ReactiveEnergy FromKilovoltampereReactiveHour(double? Kilovoltampe
         return null;
 
     return new ReactiveEnergy((double)KilovoltampereReactiveHour, ReactiveEnergyUnit.KilovoltampereReactiveHour);
-}
-
+}                     
 
 }                     

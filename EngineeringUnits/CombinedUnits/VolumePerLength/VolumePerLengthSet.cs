@@ -16,8 +16,7 @@ public static VolumePerLength FromSI(double? SI)
         return null;
 
     return new VolumePerLength((double)SI, VolumePerLengthUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from CubicMeterPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static VolumePerLength FromCubicMeterPerMeter(double? CubicMeterPerMeter)
         return null;
 
     return new VolumePerLength((double)CubicMeterPerMeter, VolumePerLengthUnit.CubicMeterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from CubicYardPerFoot.
 /// </summary>
@@ -40,8 +38,7 @@ public static VolumePerLength FromCubicYardPerFoot(double? CubicYardPerFoot)
         return null;
 
     return new VolumePerLength((double)CubicYardPerFoot, VolumePerLengthUnit.CubicYardPerFoot);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from CubicYardPerUsSurveyFoot.
 /// </summary>
@@ -52,8 +49,7 @@ public static VolumePerLength FromCubicYardPerUsSurveyFoot(double? CubicYardPerU
         return null;
 
     return new VolumePerLength((double)CubicYardPerUsSurveyFoot, VolumePerLengthUnit.CubicYardPerUsSurveyFoot);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from LiterPerKilometer.
 /// </summary>
@@ -64,8 +60,7 @@ public static VolumePerLength FromLiterPerKilometer(double? LiterPerKilometer)
         return null;
 
     return new VolumePerLength((double)LiterPerKilometer, VolumePerLengthUnit.LiterPerKilometer);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from LiterPerMeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static VolumePerLength FromLiterPerMeter(double? LiterPerMeter)
         return null;
 
     return new VolumePerLength((double)LiterPerMeter, VolumePerLengthUnit.LiterPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from LiterPerMillimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static VolumePerLength FromLiterPerMillimeter(double? LiterPerMillimeter)
         return null;
 
     return new VolumePerLength((double)LiterPerMillimeter, VolumePerLengthUnit.LiterPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get VolumePerLength from OilBarrelPerFoot.
 /// </summary>
@@ -100,7 +93,6 @@ public static VolumePerLength FromOilBarrelPerFoot(double? OilBarrelPerFoot)
         return null;
 
     return new VolumePerLength((double)OilBarrelPerFoot, VolumePerLengthUnit.OilBarrelPerFoot);
-}
-
+}                     
 
 }                     

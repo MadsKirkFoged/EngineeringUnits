@@ -16,8 +16,7 @@ public static FuelEfficiency FromSI(double? SI)
         return null;
 
     return new FuelEfficiency((double)SI, FuelEfficiencyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get FuelEfficiency from KilometerPerLiter.
 /// </summary>
@@ -28,8 +27,7 @@ public static FuelEfficiency FromKilometerPerLiter(double? KilometerPerLiter)
         return null;
 
     return new FuelEfficiency((double)KilometerPerLiter, FuelEfficiencyUnit.KilometerPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get FuelEfficiency from MilePerUkGallon.
 /// </summary>
@@ -40,8 +38,7 @@ public static FuelEfficiency FromMilePerUkGallon(double? MilePerUkGallon)
         return null;
 
     return new FuelEfficiency((double)MilePerUkGallon, FuelEfficiencyUnit.MilePerUkGallon);
-}
-
+}                     
 /// <summary>
 /// Get FuelEfficiency from MilePerUsGallon.
 /// </summary>
@@ -52,7 +49,6 @@ public static FuelEfficiency FromMilePerUsGallon(double? MilePerUsGallon)
         return null;
 
     return new FuelEfficiency((double)MilePerUsGallon, FuelEfficiencyUnit.MilePerUsGallon);
-}
-
+}                     
 
 }                     

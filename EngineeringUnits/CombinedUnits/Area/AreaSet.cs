@@ -16,8 +16,7 @@ public static Area FromAcre(double? Acre)
         return null;
 
     return new Area((double)Acre, AreaUnit.Acre);
-}
-
+}                     
 /// <summary>
 /// Get Area from Hectare.
 /// </summary>
@@ -28,8 +27,7 @@ public static Area FromHectare(double? Hectare)
         return null;
 
     return new Area((double)Hectare, AreaUnit.Hectare);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Area FromSquareCentimeter(double? SquareCentimeter)
         return null;
 
     return new Area((double)SquareCentimeter, AreaUnit.SquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareDecimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Area FromSquareDecimeter(double? SquareDecimeter)
         return null;
 
     return new Area((double)SquareDecimeter, AreaUnit.SquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareKilometer.
 /// </summary>
@@ -64,8 +60,7 @@ public static Area FromSquareKilometer(double? SquareKilometer)
         return null;
 
     return new Area((double)SquareKilometer, AreaUnit.SquareKilometer);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareMeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Area FromSquareMeter(double? SquareMeter)
         return null;
 
     return new Area((double)SquareMeter, AreaUnit.SquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareMicrometer.
 /// </summary>
@@ -88,8 +82,7 @@ public static Area FromSquareMicrometer(double? SquareMicrometer)
         return null;
 
     return new Area((double)SquareMicrometer, AreaUnit.SquareMicrometer);
-}
-
+}                     
 /// <summary>
 /// Get Area from SI.
 /// </summary>
@@ -100,8 +93,7 @@ public static Area FromSI(double? SI)
         return null;
 
     return new Area((double)SI, AreaUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareMillimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static Area FromSquareMillimeter(double? SquareMillimeter)
         return null;
 
     return new Area((double)SquareMillimeter, AreaUnit.SquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareNanometer.
 /// </summary>
@@ -124,8 +115,7 @@ public static Area FromSquareNanometer(double? SquareNanometer)
         return null;
 
     return new Area((double)SquareNanometer, AreaUnit.SquareNanometer);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareInch.
 /// </summary>
@@ -136,8 +126,7 @@ public static Area FromSquareInch(double? SquareInch)
         return null;
 
     return new Area((double)SquareInch, AreaUnit.SquareInch);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareFoot.
 /// </summary>
@@ -148,8 +137,7 @@ public static Area FromSquareFoot(double? SquareFoot)
         return null;
 
     return new Area((double)SquareFoot, AreaUnit.SquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareYard.
 /// </summary>
@@ -160,8 +148,7 @@ public static Area FromSquareYard(double? SquareYard)
         return null;
 
     return new Area((double)SquareYard, AreaUnit.SquareYard);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareMile.
 /// </summary>
@@ -172,8 +159,7 @@ public static Area FromSquareMile(double? SquareMile)
         return null;
 
     return new Area((double)SquareMile, AreaUnit.SquareMile);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareNauticalMile.
 /// </summary>
@@ -184,8 +170,7 @@ public static Area FromSquareNauticalMile(double? SquareNauticalMile)
         return null;
 
     return new Area((double)SquareNauticalMile, AreaUnit.SquareNauticalMile);
-}
-
+}                     
 /// <summary>
 /// Get Area from SquareChain.
 /// </summary>
@@ -196,7 +181,6 @@ public static Area FromSquareChain(double? SquareChain)
         return null;
 
     return new Area((double)SquareChain, AreaUnit.SquareChain);
-}
-
+}                     
 
 }                     

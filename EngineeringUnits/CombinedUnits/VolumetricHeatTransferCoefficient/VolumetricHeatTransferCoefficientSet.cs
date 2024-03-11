@@ -16,8 +16,7 @@ public static VolumetricHeatTransferCoefficient FromSI(double? SI)
         return null;
 
     return new VolumetricHeatTransferCoefficient((double)SI, VolumetricHeatTransferCoefficientUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get VolumetricHeatTransferCoefficient from WattPerCubicMeterKelvin.
 /// </summary>
@@ -28,7 +27,6 @@ public static VolumetricHeatTransferCoefficient FromWattPerCubicMeterKelvin(doub
         return null;
 
     return new VolumetricHeatTransferCoefficient((double)WattPerCubicMeterKelvin, VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
-}
-
+}                     
 
 }                     

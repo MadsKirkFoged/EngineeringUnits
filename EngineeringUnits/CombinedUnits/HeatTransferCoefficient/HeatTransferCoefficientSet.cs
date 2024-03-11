@@ -16,8 +16,7 @@ public static HeatTransferCoefficient FromSI(double? SI)
         return null;
 
     return new HeatTransferCoefficient((double)SI, HeatTransferCoefficientUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get HeatTransferCoefficient from WattPerSquareMeterKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static HeatTransferCoefficient FromWattPerSquareMeterKelvin(double? WattP
         return null;
 
     return new HeatTransferCoefficient((double)WattPerSquareMeterKelvin, HeatTransferCoefficientUnit.WattPerSquareMeterKelvin);
-}
-
+}                     
 /// <summary>
 /// Get HeatTransferCoefficient from WattPerSquareMeterCelsius.
 /// </summary>
@@ -40,8 +38,7 @@ public static HeatTransferCoefficient FromWattPerSquareMeterCelsius(double? Watt
         return null;
 
     return new HeatTransferCoefficient((double)WattPerSquareMeterCelsius, HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
-}
-
+}                     
 /// <summary>
 /// Get HeatTransferCoefficient from BtuPerSquareFootDegreeFahrenheit.
 /// </summary>
@@ -52,7 +49,6 @@ public static HeatTransferCoefficient FromBtuPerSquareFootDegreeFahrenheit(doubl
         return null;
 
     return new HeatTransferCoefficient((double)BtuPerSquareFootDegreeFahrenheit, HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
-}
-
+}                     
 
 }                     

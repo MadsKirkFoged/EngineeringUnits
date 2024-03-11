@@ -16,8 +16,7 @@ public static ElectricChargeDensity FromSI(double? SI)
         return null;
 
     return new ElectricChargeDensity((double)SI, ElectricChargeDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricChargeDensity from CoulombPerCubicMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static ElectricChargeDensity FromCoulombPerCubicMeter(double? CoulombPerC
         return null;
 
     return new ElectricChargeDensity((double)CoulombPerCubicMeter, ElectricChargeDensityUnit.CoulombPerCubicMeter);
-}
-
+}                     
 
 }                     

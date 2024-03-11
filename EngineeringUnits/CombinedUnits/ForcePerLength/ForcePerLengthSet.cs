@@ -16,8 +16,7 @@ public static ForcePerLength FromSI(double? SI)
         return null;
 
     return new ForcePerLength((double)SI, ForcePerLengthUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NewtonPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static ForcePerLength FromNewtonPerMeter(double? NewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)NewtonPerMeter, ForcePerLengthUnit.NewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NewtonPerCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static ForcePerLength FromNewtonPerCentimeter(double? NewtonPerCentimeter
         return null;
 
     return new ForcePerLength((double)NewtonPerCentimeter, ForcePerLengthUnit.NewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NewtonPerMillimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static ForcePerLength FromNewtonPerMillimeter(double? NewtonPerMillimeter
         return null;
 
     return new ForcePerLength((double)NewtonPerMillimeter, ForcePerLengthUnit.NewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilogramForcePerCentimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static ForcePerLength FromKilogramForcePerCentimeter(double? KilogramForc
         return null;
 
     return new ForcePerLength((double)KilogramForcePerCentimeter, ForcePerLengthUnit.KilogramForcePerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilogramForcePerMeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static ForcePerLength FromKilogramForcePerMeter(double? KilogramForcePerM
         return null;
 
     return new ForcePerLength((double)KilogramForcePerMeter, ForcePerLengthUnit.KilogramForcePerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilogramForcePerMillimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static ForcePerLength FromKilogramForcePerMillimeter(double? KilogramForc
         return null;
 
     return new ForcePerLength((double)KilogramForcePerMillimeter, ForcePerLengthUnit.KilogramForcePerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilonewtonPerCentimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static ForcePerLength FromKilonewtonPerCentimeter(double? KilonewtonPerCe
         return null;
 
     return new ForcePerLength((double)KilonewtonPerCentimeter, ForcePerLengthUnit.KilonewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilonewtonPerMeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static ForcePerLength FromKilonewtonPerMeter(double? KilonewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)KilonewtonPerMeter, ForcePerLengthUnit.KilonewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilonewtonPerMillimeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static ForcePerLength FromKilonewtonPerMillimeter(double? KilonewtonPerMi
         return null;
 
     return new ForcePerLength((double)KilonewtonPerMillimeter, ForcePerLengthUnit.KilonewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilopoundForcePerFoot.
 /// </summary>
@@ -136,8 +126,7 @@ public static ForcePerLength FromKilopoundForcePerFoot(double? KilopoundForcePer
         return null;
 
     return new ForcePerLength((double)KilopoundForcePerFoot, ForcePerLengthUnit.KilopoundForcePerFoot);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from KilopoundForcePerInch.
 /// </summary>
@@ -148,8 +137,7 @@ public static ForcePerLength FromKilopoundForcePerInch(double? KilopoundForcePer
         return null;
 
     return new ForcePerLength((double)KilopoundForcePerInch, ForcePerLengthUnit.KilopoundForcePerInch);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MeganewtonPerCentimeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static ForcePerLength FromMeganewtonPerCentimeter(double? MeganewtonPerCe
         return null;
 
     return new ForcePerLength((double)MeganewtonPerCentimeter, ForcePerLengthUnit.MeganewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MeganewtonPerMeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static ForcePerLength FromMeganewtonPerMeter(double? MeganewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)MeganewtonPerMeter, ForcePerLengthUnit.MeganewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MeganewtonPerMillimeter.
 /// </summary>
@@ -184,8 +170,7 @@ public static ForcePerLength FromMeganewtonPerMillimeter(double? MeganewtonPerMi
         return null;
 
     return new ForcePerLength((double)MeganewtonPerMillimeter, ForcePerLengthUnit.MeganewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MicronewtonPerCentimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static ForcePerLength FromMicronewtonPerCentimeter(double? MicronewtonPer
         return null;
 
     return new ForcePerLength((double)MicronewtonPerCentimeter, ForcePerLengthUnit.MicronewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MicronewtonPerMeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static ForcePerLength FromMicronewtonPerMeter(double? MicronewtonPerMeter
         return null;
 
     return new ForcePerLength((double)MicronewtonPerMeter, ForcePerLengthUnit.MicronewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MicronewtonPerMillimeter.
 /// </summary>
@@ -220,8 +203,7 @@ public static ForcePerLength FromMicronewtonPerMillimeter(double? MicronewtonPer
         return null;
 
     return new ForcePerLength((double)MicronewtonPerMillimeter, ForcePerLengthUnit.MicronewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MillinewtonPerCentimeter.
 /// </summary>
@@ -232,8 +214,7 @@ public static ForcePerLength FromMillinewtonPerCentimeter(double? MillinewtonPer
         return null;
 
     return new ForcePerLength((double)MillinewtonPerCentimeter, ForcePerLengthUnit.MillinewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MillinewtonPerMeter.
 /// </summary>
@@ -244,8 +225,7 @@ public static ForcePerLength FromMillinewtonPerMeter(double? MillinewtonPerMeter
         return null;
 
     return new ForcePerLength((double)MillinewtonPerMeter, ForcePerLengthUnit.MillinewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from MillinewtonPerMillimeter.
 /// </summary>
@@ -256,8 +236,7 @@ public static ForcePerLength FromMillinewtonPerMillimeter(double? MillinewtonPer
         return null;
 
     return new ForcePerLength((double)MillinewtonPerMillimeter, ForcePerLengthUnit.MillinewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from PoundForcePerFoot.
 /// </summary>
@@ -268,8 +247,7 @@ public static ForcePerLength FromPoundForcePerFoot(double? PoundForcePerFoot)
         return null;
 
     return new ForcePerLength((double)PoundForcePerFoot, ForcePerLengthUnit.PoundForcePerFoot);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from PoundForcePerInch.
 /// </summary>
@@ -280,8 +258,7 @@ public static ForcePerLength FromPoundForcePerInch(double? PoundForcePerInch)
         return null;
 
     return new ForcePerLength((double)PoundForcePerInch, ForcePerLengthUnit.PoundForcePerInch);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from PoundForcePerYard.
 /// </summary>
@@ -292,8 +269,7 @@ public static ForcePerLength FromPoundForcePerYard(double? PoundForcePerYard)
         return null;
 
     return new ForcePerLength((double)PoundForcePerYard, ForcePerLengthUnit.PoundForcePerYard);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from TonneForcePerCentimeter.
 /// </summary>
@@ -304,8 +280,7 @@ public static ForcePerLength FromTonneForcePerCentimeter(double? TonneForcePerCe
         return null;
 
     return new ForcePerLength((double)TonneForcePerCentimeter, ForcePerLengthUnit.TonneForcePerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from TonneForcePerMeter.
 /// </summary>
@@ -316,8 +291,7 @@ public static ForcePerLength FromTonneForcePerMeter(double? TonneForcePerMeter)
         return null;
 
     return new ForcePerLength((double)TonneForcePerMeter, ForcePerLengthUnit.TonneForcePerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from TonneForcePerMillimeter.
 /// </summary>
@@ -328,8 +302,7 @@ public static ForcePerLength FromTonneForcePerMillimeter(double? TonneForcePerMi
         return null;
 
     return new ForcePerLength((double)TonneForcePerMillimeter, ForcePerLengthUnit.TonneForcePerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NanonewtonPerCentimeter.
 /// </summary>
@@ -340,8 +313,7 @@ public static ForcePerLength FromNanonewtonPerCentimeter(double? NanonewtonPerCe
         return null;
 
     return new ForcePerLength((double)NanonewtonPerCentimeter, ForcePerLengthUnit.NanonewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NanonewtonPerMeter.
 /// </summary>
@@ -352,8 +324,7 @@ public static ForcePerLength FromNanonewtonPerMeter(double? NanonewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)NanonewtonPerMeter, ForcePerLengthUnit.NanonewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from NanonewtonPerMillimeter.
 /// </summary>
@@ -364,8 +335,7 @@ public static ForcePerLength FromNanonewtonPerMillimeter(double? NanonewtonPerMi
         return null;
 
     return new ForcePerLength((double)NanonewtonPerMillimeter, ForcePerLengthUnit.NanonewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from CentinewtonPerCentimeter.
 /// </summary>
@@ -376,8 +346,7 @@ public static ForcePerLength FromCentinewtonPerCentimeter(double? CentinewtonPer
         return null;
 
     return new ForcePerLength((double)CentinewtonPerCentimeter, ForcePerLengthUnit.CentinewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from CentinewtonPerMeter.
 /// </summary>
@@ -388,8 +357,7 @@ public static ForcePerLength FromCentinewtonPerMeter(double? CentinewtonPerMeter
         return null;
 
     return new ForcePerLength((double)CentinewtonPerMeter, ForcePerLengthUnit.CentinewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from CentinewtonPerMillimeter.
 /// </summary>
@@ -400,8 +368,7 @@ public static ForcePerLength FromCentinewtonPerMillimeter(double? CentinewtonPer
         return null;
 
     return new ForcePerLength((double)CentinewtonPerMillimeter, ForcePerLengthUnit.CentinewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecanewtonPerCentimeter.
 /// </summary>
@@ -412,8 +379,7 @@ public static ForcePerLength FromDecanewtonPerCentimeter(double? DecanewtonPerCe
         return null;
 
     return new ForcePerLength((double)DecanewtonPerCentimeter, ForcePerLengthUnit.DecanewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecanewtonPerMeter.
 /// </summary>
@@ -424,8 +390,7 @@ public static ForcePerLength FromDecanewtonPerMeter(double? DecanewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)DecanewtonPerMeter, ForcePerLengthUnit.DecanewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecanewtonPerMillimeter.
 /// </summary>
@@ -436,8 +401,7 @@ public static ForcePerLength FromDecanewtonPerMillimeter(double? DecanewtonPerMi
         return null;
 
     return new ForcePerLength((double)DecanewtonPerMillimeter, ForcePerLengthUnit.DecanewtonPerMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecinewtonPerCentimeter.
 /// </summary>
@@ -448,8 +412,7 @@ public static ForcePerLength FromDecinewtonPerCentimeter(double? DecinewtonPerCe
         return null;
 
     return new ForcePerLength((double)DecinewtonPerCentimeter, ForcePerLengthUnit.DecinewtonPerCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecinewtonPerMeter.
 /// </summary>
@@ -460,8 +423,7 @@ public static ForcePerLength FromDecinewtonPerMeter(double? DecinewtonPerMeter)
         return null;
 
     return new ForcePerLength((double)DecinewtonPerMeter, ForcePerLengthUnit.DecinewtonPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ForcePerLength from DecinewtonPerMillimeter.
 /// </summary>
@@ -472,7 +434,6 @@ public static ForcePerLength FromDecinewtonPerMillimeter(double? DecinewtonPerMi
         return null;
 
     return new ForcePerLength((double)DecinewtonPerMillimeter, ForcePerLengthUnit.DecinewtonPerMillimeter);
-}
-
+}                     
 
 }                     

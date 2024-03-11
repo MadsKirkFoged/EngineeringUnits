@@ -16,8 +16,7 @@ public static MolarFlow FromSI(double? SI)
         return null;
 
     return new MolarFlow((double)SI, MolarFlowUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MolarFlow from MolePerSecond.
 /// </summary>
@@ -28,7 +27,6 @@ public static MolarFlow FromMolePerSecond(double? MolePerSecond)
         return null;
 
     return new MolarFlow((double)MolePerSecond, MolarFlowUnit.MolePerSecond);
-}
-
+}                     
 
 }                     

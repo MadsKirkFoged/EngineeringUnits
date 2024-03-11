@@ -16,8 +16,7 @@ public static WarpingMomentOfInertia FromMeterToTheSixth(double? MeterToTheSixth
         return null;
 
     return new WarpingMomentOfInertia((double)MeterToTheSixth, WarpingMomentOfInertiaUnit.MeterToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from MillimeterToTheSixth.
 /// </summary>
@@ -28,8 +27,7 @@ public static WarpingMomentOfInertia FromMillimeterToTheSixth(double? Millimeter
         return null;
 
     return new WarpingMomentOfInertia((double)MillimeterToTheSixth, WarpingMomentOfInertiaUnit.MillimeterToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from InchToTheSixth.
 /// </summary>
@@ -40,8 +38,7 @@ public static WarpingMomentOfInertia FromInchToTheSixth(double? InchToTheSixth)
         return null;
 
     return new WarpingMomentOfInertia((double)InchToTheSixth, WarpingMomentOfInertiaUnit.InchToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from FootToTheSixth.
 /// </summary>
@@ -52,8 +49,7 @@ public static WarpingMomentOfInertia FromFootToTheSixth(double? FootToTheSixth)
         return null;
 
     return new WarpingMomentOfInertia((double)FootToTheSixth, WarpingMomentOfInertiaUnit.FootToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from DecimeterToTheSixth.
 /// </summary>
@@ -64,8 +60,7 @@ public static WarpingMomentOfInertia FromDecimeterToTheSixth(double? DecimeterTo
         return null;
 
     return new WarpingMomentOfInertia((double)DecimeterToTheSixth, WarpingMomentOfInertiaUnit.DecimeterToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from CentimeterToTheSixth.
 /// </summary>
@@ -76,8 +71,7 @@ public static WarpingMomentOfInertia FromCentimeterToTheSixth(double? Centimeter
         return null;
 
     return new WarpingMomentOfInertia((double)CentimeterToTheSixth, WarpingMomentOfInertiaUnit.CentimeterToTheSixth);
-}
-
+}                     
 /// <summary>
 /// Get WarpingMomentOfInertia from SI.
 /// </summary>
@@ -88,7 +82,6 @@ public static WarpingMomentOfInertia FromSI(double? SI)
         return null;
 
     return new WarpingMomentOfInertia((double)SI, WarpingMomentOfInertiaUnit.SI);
-}
-
+}                     
 
 }                     

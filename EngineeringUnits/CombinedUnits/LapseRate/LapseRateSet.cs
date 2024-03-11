@@ -16,8 +16,7 @@ public static LapseRate FromSI(double? SI)
         return null;
 
     return new LapseRate((double)SI, LapseRateUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LapseRate from DegreeCelsiusPerKilometer.
 /// </summary>
@@ -28,7 +27,6 @@ public static LapseRate FromDegreeCelsiusPerKilometer(double? DegreeCelsiusPerKi
         return null;
 
     return new LapseRate((double)DegreeCelsiusPerKilometer, LapseRateUnit.DegreeCelsiusPerKilometer);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static VolumeCost FromSI(double? SI)
         return null;
 
     return new VolumeCost((double)SI, VolumeCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get VolumeCost from USDollarPerCubicMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static VolumeCost FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter
         return null;
 
     return new VolumeCost((double)USDollarPerCubicMeter, VolumeCostUnit.USDollarPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get VolumeCost from EuroPerCubicMeter.
 /// </summary>
@@ -40,7 +38,6 @@ public static VolumeCost FromEuroPerCubicMeter(double? EuroPerCubicMeter)
         return null;
 
     return new VolumeCost((double)EuroPerCubicMeter, VolumeCostUnit.EuroPerCubicMeter);
-}
-
+}                     
 
 }                     

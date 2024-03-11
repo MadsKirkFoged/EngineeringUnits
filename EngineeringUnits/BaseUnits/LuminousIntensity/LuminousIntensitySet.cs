@@ -16,8 +16,7 @@ public static LuminousIntensity FromSI(double? SI)
         return null;
 
     return new LuminousIntensity((double)SI, LuminousIntensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LuminousIntensity from Candela.
 /// </summary>
@@ -28,7 +27,6 @@ public static LuminousIntensity FromCandela(double? Candela)
         return null;
 
     return new LuminousIntensity((double)Candela, LuminousIntensityUnit.Candela);
-}
-
+}                     
 
 }                     

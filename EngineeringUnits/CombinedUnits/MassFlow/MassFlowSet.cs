@@ -16,8 +16,7 @@ public static MassFlow FromCentigramPerDay(double? CentigramPerDay)
         return null;
 
     return new MassFlow((double)CentigramPerDay, MassFlowUnit.CentigramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from CentigramPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static MassFlow FromCentigramPerSecond(double? CentigramPerSecond)
         return null;
 
     return new MassFlow((double)CentigramPerSecond, MassFlowUnit.CentigramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from DecagramPerDay.
 /// </summary>
@@ -40,8 +38,7 @@ public static MassFlow FromDecagramPerDay(double? DecagramPerDay)
         return null;
 
     return new MassFlow((double)DecagramPerDay, MassFlowUnit.DecagramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from DecagramPerSecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static MassFlow FromDecagramPerSecond(double? DecagramPerSecond)
         return null;
 
     return new MassFlow((double)DecagramPerSecond, MassFlowUnit.DecagramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from DecigramPerDay.
 /// </summary>
@@ -64,8 +60,7 @@ public static MassFlow FromDecigramPerDay(double? DecigramPerDay)
         return null;
 
     return new MassFlow((double)DecigramPerDay, MassFlowUnit.DecigramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from DecigramPerSecond.
 /// </summary>
@@ -76,8 +71,7 @@ public static MassFlow FromDecigramPerSecond(double? DecigramPerSecond)
         return null;
 
     return new MassFlow((double)DecigramPerSecond, MassFlowUnit.DecigramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from GramPerDay.
 /// </summary>
@@ -88,8 +82,7 @@ public static MassFlow FromGramPerDay(double? GramPerDay)
         return null;
 
     return new MassFlow((double)GramPerDay, MassFlowUnit.GramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from GramPerHour.
 /// </summary>
@@ -100,8 +93,7 @@ public static MassFlow FromGramPerHour(double? GramPerHour)
         return null;
 
     return new MassFlow((double)GramPerHour, MassFlowUnit.GramPerHour);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from GramPerSecond.
 /// </summary>
@@ -112,8 +104,7 @@ public static MassFlow FromGramPerSecond(double? GramPerSecond)
         return null;
 
     return new MassFlow((double)GramPerSecond, MassFlowUnit.GramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MegagramPerDay.
 /// </summary>
@@ -124,8 +115,7 @@ public static MassFlow FromMegagramPerDay(double? MegagramPerDay)
         return null;
 
     return new MassFlow((double)MegagramPerDay, MassFlowUnit.MegagramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MicrogramPerSecond.
 /// </summary>
@@ -136,8 +126,7 @@ public static MassFlow FromMicrogramPerSecond(double? MicrogramPerSecond)
         return null;
 
     return new MassFlow((double)MicrogramPerSecond, MassFlowUnit.MicrogramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MicrogramPerDay.
 /// </summary>
@@ -148,8 +137,7 @@ public static MassFlow FromMicrogramPerDay(double? MicrogramPerDay)
         return null;
 
     return new MassFlow((double)MicrogramPerDay, MassFlowUnit.MicrogramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MilligramPerSecond.
 /// </summary>
@@ -160,8 +148,7 @@ public static MassFlow FromMilligramPerSecond(double? MilligramPerSecond)
         return null;
 
     return new MassFlow((double)MilligramPerSecond, MassFlowUnit.MilligramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MilligramPerDay.
 /// </summary>
@@ -172,8 +159,7 @@ public static MassFlow FromMilligramPerDay(double? MilligramPerDay)
         return null;
 
     return new MassFlow((double)MilligramPerDay, MassFlowUnit.MilligramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from NanogramPerSecond.
 /// </summary>
@@ -184,8 +170,7 @@ public static MassFlow FromNanogramPerSecond(double? NanogramPerSecond)
         return null;
 
     return new MassFlow((double)NanogramPerSecond, MassFlowUnit.NanogramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from NanogramPerDay.
 /// </summary>
@@ -196,8 +181,7 @@ public static MassFlow FromNanogramPerDay(double? NanogramPerDay)
         return null;
 
     return new MassFlow((double)NanogramPerDay, MassFlowUnit.NanogramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from HectogramPerDay.
 /// </summary>
@@ -208,8 +192,7 @@ public static MassFlow FromHectogramPerDay(double? HectogramPerDay)
         return null;
 
     return new MassFlow((double)HectogramPerDay, MassFlowUnit.HectogramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from HectogramPerSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static MassFlow FromHectogramPerSecond(double? HectogramPerSecond)
         return null;
 
     return new MassFlow((double)HectogramPerSecond, MassFlowUnit.HectogramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from SI.
 /// </summary>
@@ -232,8 +214,7 @@ public static MassFlow FromSI(double? SI)
         return null;
 
     return new MassFlow((double)SI, MassFlowUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from KilogramPerSecond.
 /// </summary>
@@ -244,8 +225,7 @@ public static MassFlow FromKilogramPerSecond(double? KilogramPerSecond)
         return null;
 
     return new MassFlow((double)KilogramPerSecond, MassFlowUnit.KilogramPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from KilogramPerMinute.
 /// </summary>
@@ -256,8 +236,7 @@ public static MassFlow FromKilogramPerMinute(double? KilogramPerMinute)
         return null;
 
     return new MassFlow((double)KilogramPerMinute, MassFlowUnit.KilogramPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from KilogramPerHour.
 /// </summary>
@@ -268,8 +247,7 @@ public static MassFlow FromKilogramPerHour(double? KilogramPerHour)
         return null;
 
     return new MassFlow((double)KilogramPerHour, MassFlowUnit.KilogramPerHour);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from KilogramPerDay.
 /// </summary>
@@ -280,8 +258,7 @@ public static MassFlow FromKilogramPerDay(double? KilogramPerDay)
         return null;
 
     return new MassFlow((double)KilogramPerDay, MassFlowUnit.KilogramPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from PoundPerSecond.
 /// </summary>
@@ -292,8 +269,7 @@ public static MassFlow FromPoundPerSecond(double? PoundPerSecond)
         return null;
 
     return new MassFlow((double)PoundPerSecond, MassFlowUnit.PoundPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from PoundPerMinute.
 /// </summary>
@@ -304,8 +280,7 @@ public static MassFlow FromPoundPerMinute(double? PoundPerMinute)
         return null;
 
     return new MassFlow((double)PoundPerMinute, MassFlowUnit.PoundPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from PoundPerHour.
 /// </summary>
@@ -316,8 +291,7 @@ public static MassFlow FromPoundPerHour(double? PoundPerHour)
         return null;
 
     return new MassFlow((double)PoundPerHour, MassFlowUnit.PoundPerHour);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from PoundPerDay.
 /// </summary>
@@ -328,8 +302,7 @@ public static MassFlow FromPoundPerDay(double? PoundPerDay)
         return null;
 
     return new MassFlow((double)PoundPerDay, MassFlowUnit.PoundPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MegapoundPerDay.
 /// </summary>
@@ -340,8 +313,7 @@ public static MassFlow FromMegapoundPerDay(double? MegapoundPerDay)
         return null;
 
     return new MassFlow((double)MegapoundPerDay, MassFlowUnit.MegapoundPerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MegapoundPerHour.
 /// </summary>
@@ -352,8 +324,7 @@ public static MassFlow FromMegapoundPerHour(double? MegapoundPerHour)
         return null;
 
     return new MassFlow((double)MegapoundPerHour, MassFlowUnit.MegapoundPerHour);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MegapoundPerMinute.
 /// </summary>
@@ -364,8 +335,7 @@ public static MassFlow FromMegapoundPerMinute(double? MegapoundPerMinute)
         return null;
 
     return new MassFlow((double)MegapoundPerMinute, MassFlowUnit.MegapoundPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from MegapoundPerSecond.
 /// </summary>
@@ -376,8 +346,7 @@ public static MassFlow FromMegapoundPerSecond(double? MegapoundPerSecond)
         return null;
 
     return new MassFlow((double)MegapoundPerSecond, MassFlowUnit.MegapoundPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from ShortTonPerHour.
 /// </summary>
@@ -388,8 +357,7 @@ public static MassFlow FromShortTonPerHour(double? ShortTonPerHour)
         return null;
 
     return new MassFlow((double)ShortTonPerHour, MassFlowUnit.ShortTonPerHour);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from TonnePerDay.
 /// </summary>
@@ -400,8 +368,7 @@ public static MassFlow FromTonnePerDay(double? TonnePerDay)
         return null;
 
     return new MassFlow((double)TonnePerDay, MassFlowUnit.TonnePerDay);
-}
-
+}                     
 /// <summary>
 /// Get MassFlow from TonnePerHour.
 /// </summary>
@@ -412,7 +379,6 @@ public static MassFlow FromTonnePerHour(double? TonnePerHour)
         return null;
 
     return new MassFlow((double)TonnePerHour, MassFlowUnit.TonnePerHour);
-}
-
+}                     
 
 }                     

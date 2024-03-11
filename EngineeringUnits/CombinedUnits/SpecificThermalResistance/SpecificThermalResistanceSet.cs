@@ -16,8 +16,7 @@ public static SpecificThermalResistance FromSI(double? SI)
         return null;
 
     return new SpecificThermalResistance((double)SI, SpecificThermalResistanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificThermalResistance from MeterDegreeCelsiusPerWatt.
 /// </summary>
@@ -28,8 +27,7 @@ public static SpecificThermalResistance FromMeterDegreeCelsiusPerWatt(double? Me
         return null;
 
     return new SpecificThermalResistance((double)MeterDegreeCelsiusPerWatt, SpecificThermalResistanceUnit.MeterDegreeCelsiusPerWatt);
-}
-
+}                     
 /// <summary>
 /// Get SpecificThermalResistance from MeterKelvinPerKilowatt.
 /// </summary>
@@ -40,8 +38,7 @@ public static SpecificThermalResistance FromMeterKelvinPerKilowatt(double? Meter
         return null;
 
     return new SpecificThermalResistance((double)MeterKelvinPerKilowatt, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
-}
-
+}                     
 /// <summary>
 /// Get SpecificThermalResistance from CentimeterKelvinPerWatt.
 /// </summary>
@@ -52,7 +49,6 @@ public static SpecificThermalResistance FromCentimeterKelvinPerWatt(double? Cent
         return null;
 
     return new SpecificThermalResistance((double)CentimeterKelvinPerWatt, SpecificThermalResistanceUnit.CentimeterKelvinPerWatt);
-}
-
+}                     
 
 }                     

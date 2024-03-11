@@ -16,8 +16,7 @@ public static ElectricCurrentGradient FromSI(double? SI)
         return null;
 
     return new ElectricCurrentGradient((double)SI, ElectricCurrentGradientUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentGradient from AmperePerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricCurrentGradient FromAmperePerSecond(double? AmperePerSecon
         return null;
 
     return new ElectricCurrentGradient((double)AmperePerSecond, ElectricCurrentGradientUnit.AmperePerSecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentGradient from AmperePerMicrosecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricCurrentGradient FromAmperePerMicrosecond(double? AmperePer
         return null;
 
     return new ElectricCurrentGradient((double)AmperePerMicrosecond, ElectricCurrentGradientUnit.AmperePerMicrosecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentGradient from AmperePerMillisecond.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricCurrentGradient FromAmperePerMillisecond(double? AmperePer
         return null;
 
     return new ElectricCurrentGradient((double)AmperePerMillisecond, ElectricCurrentGradientUnit.AmperePerMillisecond);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrentGradient from AmperePerNanosecond.
 /// </summary>
@@ -64,7 +60,6 @@ public static ElectricCurrentGradient FromAmperePerNanosecond(double? AmperePerN
         return null;
 
     return new ElectricCurrentGradient((double)AmperePerNanosecond, ElectricCurrentGradientUnit.AmperePerNanosecond);
-}
-
+}                     
 
 }                     

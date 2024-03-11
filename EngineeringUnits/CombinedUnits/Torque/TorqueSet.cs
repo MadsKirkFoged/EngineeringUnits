@@ -16,8 +16,7 @@ public static Torque FromSI(double? SI)
         return null;
 
     return new Torque((double)SI, TorqueUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Torque from NewtonMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Torque FromNewtonMeter(double? NewtonMeter)
         return null;
 
     return new Torque((double)NewtonMeter, TorqueUnit.NewtonMeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilonewtonMeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Torque FromKilonewtonMeter(double? KilonewtonMeter)
         return null;
 
     return new Torque((double)KilonewtonMeter, TorqueUnit.KilonewtonMeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from MeganewtonMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Torque FromMeganewtonMeter(double? MeganewtonMeter)
         return null;
 
     return new Torque((double)MeganewtonMeter, TorqueUnit.MeganewtonMeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from NewtonMillimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Torque FromNewtonMillimeter(double? NewtonMillimeter)
         return null;
 
     return new Torque((double)NewtonMillimeter, TorqueUnit.NewtonMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilonewtonMillimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Torque FromKilonewtonMillimeter(double? KilonewtonMillimeter)
         return null;
 
     return new Torque((double)KilonewtonMillimeter, TorqueUnit.KilonewtonMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from MeganewtonMillimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Torque FromMeganewtonMillimeter(double? MeganewtonMillimeter)
         return null;
 
     return new Torque((double)MeganewtonMillimeter, TorqueUnit.MeganewtonMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from NewtonCentimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static Torque FromNewtonCentimeter(double? NewtonCentimeter)
         return null;
 
     return new Torque((double)NewtonCentimeter, TorqueUnit.NewtonCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from MeganewtonCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static Torque FromMeganewtonCentimeter(double? MeganewtonCentimeter)
         return null;
 
     return new Torque((double)MeganewtonCentimeter, TorqueUnit.MeganewtonCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from PoundalFoot.
 /// </summary>
@@ -124,8 +115,7 @@ public static Torque FromPoundalFoot(double? PoundalFoot)
         return null;
 
     return new Torque((double)PoundalFoot, TorqueUnit.PoundalFoot);
-}
-
+}                     
 /// <summary>
 /// Get Torque from PoundForceFoot.
 /// </summary>
@@ -136,8 +126,7 @@ public static Torque FromPoundForceFoot(double? PoundForceFoot)
         return null;
 
     return new Torque((double)PoundForceFoot, TorqueUnit.PoundForceFoot);
-}
-
+}                     
 /// <summary>
 /// Get Torque from PoundForceInch.
 /// </summary>
@@ -148,8 +137,7 @@ public static Torque FromPoundForceInch(double? PoundForceInch)
         return null;
 
     return new Torque((double)PoundForceInch, TorqueUnit.PoundForceInch);
-}
-
+}                     
 /// <summary>
 /// Get Torque from TonneForceCentimeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static Torque FromTonneForceCentimeter(double? TonneForceCentimeter)
         return null;
 
     return new Torque((double)TonneForceCentimeter, TorqueUnit.TonneForceCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from TonneForceMeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static Torque FromTonneForceMeter(double? TonneForceMeter)
         return null;
 
     return new Torque((double)TonneForceMeter, TorqueUnit.TonneForceMeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from TonneForceMillimeter.
 /// </summary>
@@ -184,8 +170,7 @@ public static Torque FromTonneForceMillimeter(double? TonneForceMillimeter)
         return null;
 
     return new Torque((double)TonneForceMillimeter, TorqueUnit.TonneForceMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilonewtonCentimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static Torque FromKilonewtonCentimeter(double? KilonewtonCentimeter)
         return null;
 
     return new Torque((double)KilonewtonCentimeter, TorqueUnit.KilonewtonCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilogramForceCentimeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static Torque FromKilogramForceCentimeter(double? KilogramForceCentimeter
         return null;
 
     return new Torque((double)KilogramForceCentimeter, TorqueUnit.KilogramForceCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilogramForceMeter.
 /// </summary>
@@ -220,8 +203,7 @@ public static Torque FromKilogramForceMeter(double? KilogramForceMeter)
         return null;
 
     return new Torque((double)KilogramForceMeter, TorqueUnit.KilogramForceMeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilogramForceMillimeter.
 /// </summary>
@@ -232,8 +214,7 @@ public static Torque FromKilogramForceMillimeter(double? KilogramForceMillimeter
         return null;
 
     return new Torque((double)KilogramForceMillimeter, TorqueUnit.KilogramForceMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilopoundForceFoot.
 /// </summary>
@@ -244,8 +225,7 @@ public static Torque FromKilopoundForceFoot(double? KilopoundForceFoot)
         return null;
 
     return new Torque((double)KilopoundForceFoot, TorqueUnit.KilopoundForceFoot);
-}
-
+}                     
 /// <summary>
 /// Get Torque from MegapoundForceFoot.
 /// </summary>
@@ -256,8 +236,7 @@ public static Torque FromMegapoundForceFoot(double? MegapoundForceFoot)
         return null;
 
     return new Torque((double)MegapoundForceFoot, TorqueUnit.MegapoundForceFoot);
-}
-
+}                     
 /// <summary>
 /// Get Torque from KilopoundForceInch.
 /// </summary>
@@ -268,8 +247,7 @@ public static Torque FromKilopoundForceInch(double? KilopoundForceInch)
         return null;
 
     return new Torque((double)KilopoundForceInch, TorqueUnit.KilopoundForceInch);
-}
-
+}                     
 /// <summary>
 /// Get Torque from MegapoundForceInch.
 /// </summary>
@@ -280,7 +258,6 @@ public static Torque FromMegapoundForceInch(double? MegapoundForceInch)
         return null;
 
     return new Torque((double)MegapoundForceInch, TorqueUnit.MegapoundForceInch);
-}
-
+}                     
 
 }                     

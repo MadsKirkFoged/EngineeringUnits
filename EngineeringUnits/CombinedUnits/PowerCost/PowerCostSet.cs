@@ -16,8 +16,7 @@ public static PowerCost FromSI(double? SI)
         return null;
 
     return new PowerCost((double)SI, PowerCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get PowerCost from USDollarPerKilowatt.
 /// </summary>
@@ -28,8 +27,7 @@ public static PowerCost FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
         return null;
 
     return new PowerCost((double)USDollarPerKilowatt, PowerCostUnit.USDollarPerKilowatt);
-}
-
+}                     
 /// <summary>
 /// Get PowerCost from USDollarPerWatt.
 /// </summary>
@@ -40,7 +38,6 @@ public static PowerCost FromUSDollarPerWatt(double? USDollarPerWatt)
         return null;
 
     return new PowerCost((double)USDollarPerWatt, PowerCostUnit.USDollarPerWatt);
-}
-
+}                     
 
 }                     

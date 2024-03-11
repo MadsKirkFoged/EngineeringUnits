@@ -16,8 +16,7 @@ public static SpecificVolume FromSI(double? SI)
         return null;
 
     return new SpecificVolume((double)SI, SpecificVolumeUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificVolume from CubicMeterPerKilogram.
 /// </summary>
@@ -28,7 +27,6 @@ public static SpecificVolume FromCubicMeterPerKilogram(double? CubicMeterPerKilo
         return null;
 
     return new SpecificVolume((double)CubicMeterPerKilogram, SpecificVolumeUnit.CubicMeterPerKilogram);
-}
-
+}                     
 
 }                     

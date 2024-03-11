@@ -16,8 +16,7 @@ public static ElectricConductivity FromSI(double? SI)
         return null;
 
     return new ElectricConductivity((double)SI, ElectricConductivityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricConductivity from SiemensPerMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricConductivity FromSiemensPerMeter(double? SiemensPerMeter)
         return null;
 
     return new ElectricConductivity((double)SiemensPerMeter, ElectricConductivityUnit.SiemensPerMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricConductivity from SiemensPerInch.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricConductivity FromSiemensPerInch(double? SiemensPerInch)
         return null;
 
     return new ElectricConductivity((double)SiemensPerInch, ElectricConductivityUnit.SiemensPerInch);
-}
-
+}                     
 /// <summary>
 /// Get ElectricConductivity from SiemensPerFoot.
 /// </summary>
@@ -52,7 +49,6 @@ public static ElectricConductivity FromSiemensPerFoot(double? SiemensPerFoot)
         return null;
 
     return new ElectricConductivity((double)SiemensPerFoot, ElectricConductivityUnit.SiemensPerFoot);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static Magnetization FromSI(double? SI)
         return null;
 
     return new Magnetization((double)SI, MagnetizationUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Magnetization from AmperePerMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static Magnetization FromAmperePerMeter(double? AmperePerMeter)
         return null;
 
     return new Magnetization((double)AmperePerMeter, MagnetizationUnit.AmperePerMeter);
-}
-
+}                     
 
 }                     

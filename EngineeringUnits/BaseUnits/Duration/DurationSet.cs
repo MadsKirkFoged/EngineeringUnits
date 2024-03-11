@@ -16,8 +16,7 @@ public static Duration FromNanosecond(double? Nanosecond)
         return null;
 
     return new Duration((double)Nanosecond, DurationUnit.Nanosecond);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Millisecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static Duration FromMillisecond(double? Millisecond)
         return null;
 
     return new Duration((double)Millisecond, DurationUnit.Millisecond);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Microsecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static Duration FromMicrosecond(double? Microsecond)
         return null;
 
     return new Duration((double)Microsecond, DurationUnit.Microsecond);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Second.
 /// </summary>
@@ -52,8 +49,7 @@ public static Duration FromSecond(double? Second)
         return null;
 
     return new Duration((double)Second, DurationUnit.Second);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Minute.
 /// </summary>
@@ -64,8 +60,7 @@ public static Duration FromMinute(double? Minute)
         return null;
 
     return new Duration((double)Minute, DurationUnit.Minute);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Hour.
 /// </summary>
@@ -76,8 +71,7 @@ public static Duration FromHour(double? Hour)
         return null;
 
     return new Duration((double)Hour, DurationUnit.Hour);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Day.
 /// </summary>
@@ -88,8 +82,7 @@ public static Duration FromDay(double? Day)
         return null;
 
     return new Duration((double)Day, DurationUnit.Day);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Week.
 /// </summary>
@@ -100,8 +93,7 @@ public static Duration FromWeek(double? Week)
         return null;
 
     return new Duration((double)Week, DurationUnit.Week);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Month30.
 /// </summary>
@@ -112,8 +104,7 @@ public static Duration FromMonth30(double? Month30)
         return null;
 
     return new Duration((double)Month30, DurationUnit.Month30);
-}
-
+}                     
 /// <summary>
 /// Get Duration from Year365.
 /// </summary>
@@ -124,8 +115,7 @@ public static Duration FromYear365(double? Year365)
         return null;
 
     return new Duration((double)Year365, DurationUnit.Year365);
-}
-
+}                     
 /// <summary>
 /// Get Duration from SI.
 /// </summary>
@@ -136,7 +126,6 @@ public static Duration FromSI(double? SI)
         return null;
 
     return new Duration((double)SI, DurationUnit.SI);
-}
-
+}                     
 
 }                     

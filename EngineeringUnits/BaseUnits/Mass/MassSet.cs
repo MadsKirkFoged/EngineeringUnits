@@ -16,8 +16,7 @@ public static Mass FromSI(double? SI)
         return null;
 
     return new Mass((double)SI, MassUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Kilogram.
 /// </summary>
@@ -28,8 +27,7 @@ public static Mass FromKilogram(double? Kilogram)
         return null;
 
     return new Mass((double)Kilogram, MassUnit.Kilogram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Picogram.
 /// </summary>
@@ -40,8 +38,7 @@ public static Mass FromPicogram(double? Picogram)
         return null;
 
     return new Mass((double)Picogram, MassUnit.Picogram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Centigram.
 /// </summary>
@@ -52,8 +49,7 @@ public static Mass FromCentigram(double? Centigram)
         return null;
 
     return new Mass((double)Centigram, MassUnit.Centigram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Decagram.
 /// </summary>
@@ -64,8 +60,7 @@ public static Mass FromDecagram(double? Decagram)
         return null;
 
     return new Mass((double)Decagram, MassUnit.Decagram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Decigram.
 /// </summary>
@@ -76,8 +71,7 @@ public static Mass FromDecigram(double? Decigram)
         return null;
 
     return new Mass((double)Decigram, MassUnit.Decigram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Gram.
 /// </summary>
@@ -88,8 +82,7 @@ public static Mass FromGram(double? Gram)
         return null;
 
     return new Mass((double)Gram, MassUnit.Gram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Hectogram.
 /// </summary>
@@ -100,8 +93,7 @@ public static Mass FromHectogram(double? Hectogram)
         return null;
 
     return new Mass((double)Hectogram, MassUnit.Hectogram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Microgram.
 /// </summary>
@@ -112,8 +104,7 @@ public static Mass FromMicrogram(double? Microgram)
         return null;
 
     return new Mass((double)Microgram, MassUnit.Microgram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Milligram.
 /// </summary>
@@ -124,8 +115,7 @@ public static Mass FromMilligram(double? Milligram)
         return null;
 
     return new Mass((double)Milligram, MassUnit.Milligram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Nanogram.
 /// </summary>
@@ -136,8 +126,7 @@ public static Mass FromNanogram(double? Nanogram)
         return null;
 
     return new Mass((double)Nanogram, MassUnit.Nanogram);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Tonne.
 /// </summary>
@@ -148,8 +137,7 @@ public static Mass FromTonne(double? Tonne)
         return null;
 
     return new Mass((double)Tonne, MassUnit.Tonne);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Kilotonne.
 /// </summary>
@@ -160,8 +148,7 @@ public static Mass FromKilotonne(double? Kilotonne)
         return null;
 
     return new Mass((double)Kilotonne, MassUnit.Kilotonne);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Megatonne.
 /// </summary>
@@ -172,8 +159,7 @@ public static Mass FromMegatonne(double? Megatonne)
         return null;
 
     return new Mass((double)Megatonne, MassUnit.Megatonne);
-}
-
+}                     
 /// <summary>
 /// Get Mass from EarthMass.
 /// </summary>
@@ -184,8 +170,7 @@ public static Mass FromEarthMass(double? EarthMass)
         return null;
 
     return new Mass((double)EarthMass, MassUnit.EarthMass);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Ounce.
 /// </summary>
@@ -196,8 +181,7 @@ public static Mass FromOunce(double? Ounce)
         return null;
 
     return new Mass((double)Ounce, MassUnit.Ounce);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Pound.
 /// </summary>
@@ -208,8 +192,7 @@ public static Mass FromPound(double? Pound)
         return null;
 
     return new Mass((double)Pound, MassUnit.Pound);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Stone.
 /// </summary>
@@ -220,8 +203,7 @@ public static Mass FromStone(double? Stone)
         return null;
 
     return new Mass((double)Stone, MassUnit.Stone);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Slug.
 /// </summary>
@@ -232,8 +214,7 @@ public static Mass FromSlug(double? Slug)
         return null;
 
     return new Mass((double)Slug, MassUnit.Slug);
-}
-
+}                     
 /// <summary>
 /// Get Mass from ShortHundredweight.
 /// </summary>
@@ -244,8 +225,7 @@ public static Mass FromShortHundredweight(double? ShortHundredweight)
         return null;
 
     return new Mass((double)ShortHundredweight, MassUnit.ShortHundredweight);
-}
-
+}                     
 /// <summary>
 /// Get Mass from LongHundredweight.
 /// </summary>
@@ -256,8 +236,7 @@ public static Mass FromLongHundredweight(double? LongHundredweight)
         return null;
 
     return new Mass((double)LongHundredweight, MassUnit.LongHundredweight);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Kilopound.
 /// </summary>
@@ -268,8 +247,7 @@ public static Mass FromKilopound(double? Kilopound)
         return null;
 
     return new Mass((double)Kilopound, MassUnit.Kilopound);
-}
-
+}                     
 /// <summary>
 /// Get Mass from ShortTon.
 /// </summary>
@@ -280,8 +258,7 @@ public static Mass FromShortTon(double? ShortTon)
         return null;
 
     return new Mass((double)ShortTon, MassUnit.ShortTon);
-}
-
+}                     
 /// <summary>
 /// Get Mass from LongTon.
 /// </summary>
@@ -292,8 +269,7 @@ public static Mass FromLongTon(double? LongTon)
         return null;
 
     return new Mass((double)LongTon, MassUnit.LongTon);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Megapound.
 /// </summary>
@@ -304,8 +280,7 @@ public static Mass FromMegapound(double? Megapound)
         return null;
 
     return new Mass((double)Megapound, MassUnit.Megapound);
-}
-
+}                     
 /// <summary>
 /// Get Mass from Grain.
 /// </summary>
@@ -316,7 +291,6 @@ public static Mass FromGrain(double? Grain)
         return null;
 
     return new Mass((double)Grain, MassUnit.Grain);
-}
-
+}                     
 
 }                     

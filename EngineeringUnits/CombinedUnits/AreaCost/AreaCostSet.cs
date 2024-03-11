@@ -16,8 +16,7 @@ public static AreaCost FromSI(double? SI)
         return null;
 
     return new AreaCost((double)SI, AreaCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get AreaCost from USDollarPerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static AreaCost FromUSDollarPerSquareMeter(double? USDollarPerSquareMeter
         return null;
 
     return new AreaCost((double)USDollarPerSquareMeter, AreaCostUnit.USDollarPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get AreaCost from MillionUSDollarPerSquareMeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static AreaCost FromMillionUSDollarPerSquareMeter(double? MillionUSDollar
         return null;
 
     return new AreaCost((double)MillionUSDollarPerSquareMeter, AreaCostUnit.MillionUSDollarPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get AreaCost from EuroPerSquareMeter.
 /// </summary>
@@ -52,7 +49,6 @@ public static AreaCost FromEuroPerSquareMeter(double? EuroPerSquareMeter)
         return null;
 
     return new AreaCost((double)EuroPerSquareMeter, AreaCostUnit.EuroPerSquareMeter);
-}
-
+}                     
 
 }                     

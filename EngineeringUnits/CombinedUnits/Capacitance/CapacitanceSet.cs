@@ -16,8 +16,7 @@ public static Capacitance FromSI(double? SI)
         return null;
 
     return new Capacitance((double)SI, CapacitanceUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Farad.
 /// </summary>
@@ -28,8 +27,7 @@ public static Capacitance FromFarad(double? Farad)
         return null;
 
     return new Capacitance((double)Farad, CapacitanceUnit.Farad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Kilofarad.
 /// </summary>
@@ -40,8 +38,7 @@ public static Capacitance FromKilofarad(double? Kilofarad)
         return null;
 
     return new Capacitance((double)Kilofarad, CapacitanceUnit.Kilofarad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Megafarad.
 /// </summary>
@@ -52,8 +49,7 @@ public static Capacitance FromMegafarad(double? Megafarad)
         return null;
 
     return new Capacitance((double)Megafarad, CapacitanceUnit.Megafarad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Microfarad.
 /// </summary>
@@ -64,8 +60,7 @@ public static Capacitance FromMicrofarad(double? Microfarad)
         return null;
 
     return new Capacitance((double)Microfarad, CapacitanceUnit.Microfarad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Millifarad.
 /// </summary>
@@ -76,8 +71,7 @@ public static Capacitance FromMillifarad(double? Millifarad)
         return null;
 
     return new Capacitance((double)Millifarad, CapacitanceUnit.Millifarad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Nanofarad.
 /// </summary>
@@ -88,8 +82,7 @@ public static Capacitance FromNanofarad(double? Nanofarad)
         return null;
 
     return new Capacitance((double)Nanofarad, CapacitanceUnit.Nanofarad);
-}
-
+}                     
 /// <summary>
 /// Get Capacitance from Picofarad.
 /// </summary>
@@ -100,7 +93,6 @@ public static Capacitance FromPicofarad(double? Picofarad)
         return null;
 
     return new Capacitance((double)Picofarad, CapacitanceUnit.Picofarad);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static SpecificEntropy FromSI(double? SI)
         return null;
 
     return new SpecificEntropy((double)SI, SpecificEntropyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from JoulePerKilogramKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static SpecificEntropy FromJoulePerKilogramKelvin(double? JoulePerKilogra
         return null;
 
     return new SpecificEntropy((double)JoulePerKilogramKelvin, SpecificEntropyUnit.JoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from JoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -40,8 +38,7 @@ public static SpecificEntropy FromJoulePerKilogramDegreeCelsius(double? JoulePer
         return null;
 
     return new SpecificEntropy((double)JoulePerKilogramDegreeCelsius, SpecificEntropyUnit.JoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from KilojoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -52,8 +49,7 @@ public static SpecificEntropy FromKilojoulePerKilogramDegreeCelsius(double? Kilo
         return null;
 
     return new SpecificEntropy((double)KilojoulePerKilogramDegreeCelsius, SpecificEntropyUnit.KilojoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from KilojoulePerKilogramKelvin.
 /// </summary>
@@ -64,8 +60,7 @@ public static SpecificEntropy FromKilojoulePerKilogramKelvin(double? KilojoulePe
         return null;
 
     return new SpecificEntropy((double)KilojoulePerKilogramKelvin, SpecificEntropyUnit.KilojoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from MegajoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -76,8 +71,7 @@ public static SpecificEntropy FromMegajoulePerKilogramDegreeCelsius(double? Mega
         return null;
 
     return new SpecificEntropy((double)MegajoulePerKilogramDegreeCelsius, SpecificEntropyUnit.MegajoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from MegajoulePerKilogramKelvin.
 /// </summary>
@@ -88,8 +82,7 @@ public static SpecificEntropy FromMegajoulePerKilogramKelvin(double? MegajoulePe
         return null;
 
     return new SpecificEntropy((double)MegajoulePerKilogramKelvin, SpecificEntropyUnit.MegajoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from JoulePerKilogramRankine.
 /// </summary>
@@ -100,8 +93,7 @@ public static SpecificEntropy FromJoulePerKilogramRankine(double? JoulePerKilogr
         return null;
 
     return new SpecificEntropy((double)JoulePerKilogramRankine, SpecificEntropyUnit.JoulePerKilogramRankine);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from CaloriePerGramKelvin.
 /// </summary>
@@ -112,8 +104,7 @@ public static SpecificEntropy FromCaloriePerGramKelvin(double? CaloriePerGramKel
         return null;
 
     return new SpecificEntropy((double)CaloriePerGramKelvin, SpecificEntropyUnit.CaloriePerGramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from KilocaloriePerGramKelvin.
 /// </summary>
@@ -124,8 +115,7 @@ public static SpecificEntropy FromKilocaloriePerGramKelvin(double? KilocaloriePe
         return null;
 
     return new SpecificEntropy((double)KilocaloriePerGramKelvin, SpecificEntropyUnit.KilocaloriePerGramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from BtuPerPoundKelvin.
 /// </summary>
@@ -136,8 +126,7 @@ public static SpecificEntropy FromBtuPerPoundKelvin(double? BtuPerPoundKelvin)
         return null;
 
     return new SpecificEntropy((double)BtuPerPoundKelvin, SpecificEntropyUnit.BtuPerPoundKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from BtuPerPoundRankine.
 /// </summary>
@@ -148,8 +137,7 @@ public static SpecificEntropy FromBtuPerPoundRankine(double? BtuPerPoundRankine)
         return null;
 
     return new SpecificEntropy((double)BtuPerPoundRankine, SpecificEntropyUnit.BtuPerPoundRankine);
-}
-
+}                     
 /// <summary>
 /// Get SpecificEntropy from BtuPerPoundFahrenheit.
 /// </summary>
@@ -160,7 +148,6 @@ public static SpecificEntropy FromBtuPerPoundFahrenheit(double? BtuPerPoundFahre
         return null;
 
     return new SpecificEntropy((double)BtuPerPoundFahrenheit, SpecificEntropyUnit.BtuPerPoundFahrenheit);
-}
-
+}                     
 
 }                     

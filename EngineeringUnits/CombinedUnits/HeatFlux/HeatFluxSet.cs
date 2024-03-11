@@ -16,8 +16,7 @@ public static HeatFlux FromSI(double? SI)
         return null;
 
     return new HeatFlux((double)SI, HeatFluxUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from WattPerSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static HeatFlux FromWattPerSquareMeter(double? WattPerSquareMeter)
         return null;
 
     return new HeatFlux((double)WattPerSquareMeter, HeatFluxUnit.WattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from WattPerSquareInch.
 /// </summary>
@@ -40,8 +38,7 @@ public static HeatFlux FromWattPerSquareInch(double? WattPerSquareInch)
         return null;
 
     return new HeatFlux((double)WattPerSquareInch, HeatFluxUnit.WattPerSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from WattPerSquareFoot.
 /// </summary>
@@ -52,8 +49,7 @@ public static HeatFlux FromWattPerSquareFoot(double? WattPerSquareFoot)
         return null;
 
     return new HeatFlux((double)WattPerSquareFoot, HeatFluxUnit.WattPerSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from BtuPerHourSquareFoot.
 /// </summary>
@@ -64,8 +60,7 @@ public static HeatFlux FromBtuPerHourSquareFoot(double? BtuPerHourSquareFoot)
         return null;
 
     return new HeatFlux((double)BtuPerHourSquareFoot, HeatFluxUnit.BtuPerHourSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from BtuPerMinuteSquareFoot.
 /// </summary>
@@ -76,8 +71,7 @@ public static HeatFlux FromBtuPerMinuteSquareFoot(double? BtuPerMinuteSquareFoot
         return null;
 
     return new HeatFlux((double)BtuPerMinuteSquareFoot, HeatFluxUnit.BtuPerMinuteSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from BtuPerSecondSquareFoot.
 /// </summary>
@@ -88,8 +82,7 @@ public static HeatFlux FromBtuPerSecondSquareFoot(double? BtuPerSecondSquareFoot
         return null;
 
     return new HeatFlux((double)BtuPerSecondSquareFoot, HeatFluxUnit.BtuPerSecondSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from BtuPerSecondSquareInch.
 /// </summary>
@@ -100,8 +93,7 @@ public static HeatFlux FromBtuPerSecondSquareInch(double? BtuPerSecondSquareInch
         return null;
 
     return new HeatFlux((double)BtuPerSecondSquareInch, HeatFluxUnit.BtuPerSecondSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from CaloriePerSecondSquareCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static HeatFlux FromCaloriePerSecondSquareCentimeter(double? CaloriePerSe
         return null;
 
     return new HeatFlux((double)CaloriePerSecondSquareCentimeter, HeatFluxUnit.CaloriePerSecondSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from KilocaloriePerHourSquareMeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static HeatFlux FromKilocaloriePerHourSquareMeter(double? KilocaloriePerH
         return null;
 
     return new HeatFlux((double)KilocaloriePerHourSquareMeter, HeatFluxUnit.KilocaloriePerHourSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from KilocaloriePerSecondSquareCentimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static HeatFlux FromKilocaloriePerSecondSquareCentimeter(double? Kilocalo
         return null;
 
     return new HeatFlux((double)KilocaloriePerSecondSquareCentimeter, HeatFluxUnit.KilocaloriePerSecondSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from KilowattPerSquareMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static HeatFlux FromKilowattPerSquareMeter(double? KilowattPerSquareMeter
         return null;
 
     return new HeatFlux((double)KilowattPerSquareMeter, HeatFluxUnit.KilowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from MicrowattPerSquareMeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static HeatFlux FromMicrowattPerSquareMeter(double? MicrowattPerSquareMet
         return null;
 
     return new HeatFlux((double)MicrowattPerSquareMeter, HeatFluxUnit.MicrowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from MilliwattPerSquareMeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static HeatFlux FromMilliwattPerSquareMeter(double? MilliwattPerSquareMet
         return null;
 
     return new HeatFlux((double)MilliwattPerSquareMeter, HeatFluxUnit.MilliwattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from NanowattPerSquareMeter.
 /// </summary>
@@ -184,8 +170,7 @@ public static HeatFlux FromNanowattPerSquareMeter(double? NanowattPerSquareMeter
         return null;
 
     return new HeatFlux((double)NanowattPerSquareMeter, HeatFluxUnit.NanowattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from CentiwattPerSquareMeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static HeatFlux FromCentiwattPerSquareMeter(double? CentiwattPerSquareMet
         return null;
 
     return new HeatFlux((double)CentiwattPerSquareMeter, HeatFluxUnit.CentiwattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from DeciwattPerSquareMeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static HeatFlux FromDeciwattPerSquareMeter(double? DeciwattPerSquareMeter
         return null;
 
     return new HeatFlux((double)DeciwattPerSquareMeter, HeatFluxUnit.DeciwattPerSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from PoundForcePerFootSecond.
 /// </summary>
@@ -220,8 +203,7 @@ public static HeatFlux FromPoundForcePerFootSecond(double? PoundForcePerFootSeco
         return null;
 
     return new HeatFlux((double)PoundForcePerFootSecond, HeatFluxUnit.PoundForcePerFootSecond);
-}
-
+}                     
 /// <summary>
 /// Get HeatFlux from PoundPerSecondCubed.
 /// </summary>
@@ -232,7 +214,6 @@ public static HeatFlux FromPoundPerSecondCubed(double? PoundPerSecondCubed)
         return null;
 
     return new HeatFlux((double)PoundPerSecondCubed, HeatFluxUnit.PoundPerSecondCubed);
-}
-
+}                     
 
 }                     

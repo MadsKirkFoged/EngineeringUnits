@@ -16,8 +16,7 @@ public static MassMomentOfInertia FromSI(double? SI)
         return null;
 
     return new MassMomentOfInertia((double)SI, MassMomentOfInertiaUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilogramSquareMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static MassMomentOfInertia FromKilogramSquareMeter(double? KilogramSquare
         return null;
 
     return new MassMomentOfInertia((double)KilogramSquareMeter, MassMomentOfInertiaUnit.KilogramSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from GramSquareCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static MassMomentOfInertia FromGramSquareCentimeter(double? GramSquareCen
         return null;
 
     return new MassMomentOfInertia((double)GramSquareCentimeter, MassMomentOfInertiaUnit.GramSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from GramSquareDecimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static MassMomentOfInertia FromGramSquareDecimeter(double? GramSquareDeci
         return null;
 
     return new MassMomentOfInertia((double)GramSquareDecimeter, MassMomentOfInertiaUnit.GramSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from GramSquareMeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static MassMomentOfInertia FromGramSquareMeter(double? GramSquareMeter)
         return null;
 
     return new MassMomentOfInertia((double)GramSquareMeter, MassMomentOfInertiaUnit.GramSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from GramSquareMillimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static MassMomentOfInertia FromGramSquareMillimeter(double? GramSquareMil
         return null;
 
     return new MassMomentOfInertia((double)GramSquareMillimeter, MassMomentOfInertiaUnit.GramSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilogramSquareCentimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static MassMomentOfInertia FromKilogramSquareCentimeter(double? KilogramS
         return null;
 
     return new MassMomentOfInertia((double)KilogramSquareCentimeter, MassMomentOfInertiaUnit.KilogramSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilogramSquareDecimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static MassMomentOfInertia FromKilogramSquareDecimeter(double? KilogramSq
         return null;
 
     return new MassMomentOfInertia((double)KilogramSquareDecimeter, MassMomentOfInertiaUnit.KilogramSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilogramSquareMillimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static MassMomentOfInertia FromKilogramSquareMillimeter(double? KilogramS
         return null;
 
     return new MassMomentOfInertia((double)KilogramSquareMillimeter, MassMomentOfInertiaUnit.KilogramSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilotonneSquareCentimeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static MassMomentOfInertia FromKilotonneSquareCentimeter(double? Kilotonn
         return null;
 
     return new MassMomentOfInertia((double)KilotonneSquareCentimeter, MassMomentOfInertiaUnit.KilotonneSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilotonneSquareDecimeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static MassMomentOfInertia FromKilotonneSquareDecimeter(double? Kilotonne
         return null;
 
     return new MassMomentOfInertia((double)KilotonneSquareDecimeter, MassMomentOfInertiaUnit.KilotonneSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilotonneSquareMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static MassMomentOfInertia FromKilotonneSquareMeter(double? KilotonneSqua
         return null;
 
     return new MassMomentOfInertia((double)KilotonneSquareMeter, MassMomentOfInertiaUnit.KilotonneSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from KilotonneSquareMilimeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static MassMomentOfInertia FromKilotonneSquareMilimeter(double? Kilotonne
         return null;
 
     return new MassMomentOfInertia((double)KilotonneSquareMilimeter, MassMomentOfInertiaUnit.KilotonneSquareMilimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MegatonneSquareCentimeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static MassMomentOfInertia FromMegatonneSquareCentimeter(double? Megatonn
         return null;
 
     return new MassMomentOfInertia((double)MegatonneSquareCentimeter, MassMomentOfInertiaUnit.MegatonneSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MegatonneSquareDecimeter.
 /// </summary>
@@ -184,8 +170,7 @@ public static MassMomentOfInertia FromMegatonneSquareDecimeter(double? Megatonne
         return null;
 
     return new MassMomentOfInertia((double)MegatonneSquareDecimeter, MassMomentOfInertiaUnit.MegatonneSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MegatonneSquareMeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static MassMomentOfInertia FromMegatonneSquareMeter(double? MegatonneSqua
         return null;
 
     return new MassMomentOfInertia((double)MegatonneSquareMeter, MassMomentOfInertiaUnit.MegatonneSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MegatonneSquareMilimeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static MassMomentOfInertia FromMegatonneSquareMilimeter(double? Megatonne
         return null;
 
     return new MassMomentOfInertia((double)MegatonneSquareMilimeter, MassMomentOfInertiaUnit.MegatonneSquareMilimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MilligramSquareCentimeter.
 /// </summary>
@@ -220,8 +203,7 @@ public static MassMomentOfInertia FromMilligramSquareCentimeter(double? Milligra
         return null;
 
     return new MassMomentOfInertia((double)MilligramSquareCentimeter, MassMomentOfInertiaUnit.MilligramSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MilligramSquareDecimeter.
 /// </summary>
@@ -232,8 +214,7 @@ public static MassMomentOfInertia FromMilligramSquareDecimeter(double? Milligram
         return null;
 
     return new MassMomentOfInertia((double)MilligramSquareDecimeter, MassMomentOfInertiaUnit.MilligramSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MilligramSquareMeter.
 /// </summary>
@@ -244,8 +225,7 @@ public static MassMomentOfInertia FromMilligramSquareMeter(double? MilligramSqua
         return null;
 
     return new MassMomentOfInertia((double)MilligramSquareMeter, MassMomentOfInertiaUnit.MilligramSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from MilligramSquareMillimeter.
 /// </summary>
@@ -256,8 +236,7 @@ public static MassMomentOfInertia FromMilligramSquareMillimeter(double? Milligra
         return null;
 
     return new MassMomentOfInertia((double)MilligramSquareMillimeter, MassMomentOfInertiaUnit.MilligramSquareMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from PoundSquareFoot.
 /// </summary>
@@ -268,8 +247,7 @@ public static MassMomentOfInertia FromPoundSquareFoot(double? PoundSquareFoot)
         return null;
 
     return new MassMomentOfInertia((double)PoundSquareFoot, MassMomentOfInertiaUnit.PoundSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from PoundSquareInch.
 /// </summary>
@@ -280,8 +258,7 @@ public static MassMomentOfInertia FromPoundSquareInch(double? PoundSquareInch)
         return null;
 
     return new MassMomentOfInertia((double)PoundSquareInch, MassMomentOfInertiaUnit.PoundSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from SlugSquareFoot.
 /// </summary>
@@ -292,8 +269,7 @@ public static MassMomentOfInertia FromSlugSquareFoot(double? SlugSquareFoot)
         return null;
 
     return new MassMomentOfInertia((double)SlugSquareFoot, MassMomentOfInertiaUnit.SlugSquareFoot);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from SlugSquareInch.
 /// </summary>
@@ -304,8 +280,7 @@ public static MassMomentOfInertia FromSlugSquareInch(double? SlugSquareInch)
         return null;
 
     return new MassMomentOfInertia((double)SlugSquareInch, MassMomentOfInertiaUnit.SlugSquareInch);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from TonneSquareCentimeter.
 /// </summary>
@@ -316,8 +291,7 @@ public static MassMomentOfInertia FromTonneSquareCentimeter(double? TonneSquareC
         return null;
 
     return new MassMomentOfInertia((double)TonneSquareCentimeter, MassMomentOfInertiaUnit.TonneSquareCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from TonneSquareDecimeter.
 /// </summary>
@@ -328,8 +302,7 @@ public static MassMomentOfInertia FromTonneSquareDecimeter(double? TonneSquareDe
         return null;
 
     return new MassMomentOfInertia((double)TonneSquareDecimeter, MassMomentOfInertiaUnit.TonneSquareDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from TonneSquareMeter.
 /// </summary>
@@ -340,8 +313,7 @@ public static MassMomentOfInertia FromTonneSquareMeter(double? TonneSquareMeter)
         return null;
 
     return new MassMomentOfInertia((double)TonneSquareMeter, MassMomentOfInertiaUnit.TonneSquareMeter);
-}
-
+}                     
 /// <summary>
 /// Get MassMomentOfInertia from TonneSquareMilimeter.
 /// </summary>
@@ -352,7 +324,6 @@ public static MassMomentOfInertia FromTonneSquareMilimeter(double? TonneSquareMi
         return null;
 
     return new MassMomentOfInertia((double)TonneSquareMilimeter, MassMomentOfInertiaUnit.TonneSquareMilimeter);
-}
-
+}                     
 
 }                     

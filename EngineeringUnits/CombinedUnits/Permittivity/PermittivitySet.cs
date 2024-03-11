@@ -16,8 +16,7 @@ public static Permittivity FromSI(double? SI)
         return null;
 
     return new Permittivity((double)SI, PermittivityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Permittivity from FaradPerMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static Permittivity FromFaradPerMeter(double? FaradPerMeter)
         return null;
 
     return new Permittivity((double)FaradPerMeter, PermittivityUnit.FaradPerMeter);
-}
-
+}                     
 
 }                     

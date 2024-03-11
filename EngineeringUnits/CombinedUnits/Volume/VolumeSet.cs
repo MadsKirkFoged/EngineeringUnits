@@ -16,8 +16,7 @@ public static Volume FromSI(double? SI)
         return null;
 
     return new Volume((double)SI, VolumeUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static Volume FromCubicMeter(double? CubicMeter)
         return null;
 
     return new Volume((double)CubicMeter, VolumeUnit.CubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from HectocubicMeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Volume FromHectocubicMeter(double? HectocubicMeter)
         return null;
 
     return new Volume((double)HectocubicMeter, VolumeUnit.HectocubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from KilocubicMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static Volume FromKilocubicMeter(double? KilocubicMeter)
         return null;
 
     return new Volume((double)KilocubicMeter, VolumeUnit.KilocubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicKilometer.
 /// </summary>
@@ -64,8 +60,7 @@ public static Volume FromCubicKilometer(double? CubicKilometer)
         return null;
 
     return new Volume((double)CubicKilometer, VolumeUnit.CubicKilometer);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicMicrometer.
 /// </summary>
@@ -76,8 +71,7 @@ public static Volume FromCubicMicrometer(double? CubicMicrometer)
         return null;
 
     return new Volume((double)CubicMicrometer, VolumeUnit.CubicMicrometer);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicMile.
 /// </summary>
@@ -88,8 +82,7 @@ public static Volume FromCubicMile(double? CubicMile)
         return null;
 
     return new Volume((double)CubicMile, VolumeUnit.CubicMile);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicMillimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static Volume FromCubicMillimeter(double? CubicMillimeter)
         return null;
 
     return new Volume((double)CubicMillimeter, VolumeUnit.CubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicYard.
 /// </summary>
@@ -112,8 +104,7 @@ public static Volume FromCubicYard(double? CubicYard)
         return null;
 
     return new Volume((double)CubicYard, VolumeUnit.CubicYard);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicInch.
 /// </summary>
@@ -124,8 +115,7 @@ public static Volume FromCubicInch(double? CubicInch)
         return null;
 
     return new Volume((double)CubicInch, VolumeUnit.CubicInch);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicHectometer.
 /// </summary>
@@ -136,8 +126,7 @@ public static Volume FromCubicHectometer(double? CubicHectometer)
         return null;
 
     return new Volume((double)CubicHectometer, VolumeUnit.CubicHectometer);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicFoot.
 /// </summary>
@@ -148,8 +137,7 @@ public static Volume FromCubicFoot(double? CubicFoot)
         return null;
 
     return new Volume((double)CubicFoot, VolumeUnit.CubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from HectocubicFoot.
 /// </summary>
@@ -160,8 +148,7 @@ public static Volume FromHectocubicFoot(double? HectocubicFoot)
         return null;
 
     return new Volume((double)HectocubicFoot, VolumeUnit.HectocubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from KilocubicFoot.
 /// </summary>
@@ -172,8 +159,7 @@ public static Volume FromKilocubicFoot(double? KilocubicFoot)
         return null;
 
     return new Volume((double)KilocubicFoot, VolumeUnit.KilocubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from MegacubicFoot.
 /// </summary>
@@ -184,8 +170,7 @@ public static Volume FromMegacubicFoot(double? MegacubicFoot)
         return null;
 
     return new Volume((double)MegacubicFoot, VolumeUnit.MegacubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicDecimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static Volume FromCubicDecimeter(double? CubicDecimeter)
         return null;
 
     return new Volume((double)CubicDecimeter, VolumeUnit.CubicDecimeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from CubicCentimeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static Volume FromCubicCentimeter(double? CubicCentimeter)
         return null;
 
     return new Volume((double)CubicCentimeter, VolumeUnit.CubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Liter.
 /// </summary>
@@ -220,8 +203,7 @@ public static Volume FromLiter(double? Liter)
         return null;
 
     return new Volume((double)Liter, VolumeUnit.Liter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Nanoliter.
 /// </summary>
@@ -232,8 +214,7 @@ public static Volume FromNanoliter(double? Nanoliter)
         return null;
 
     return new Volume((double)Nanoliter, VolumeUnit.Nanoliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Microliter.
 /// </summary>
@@ -244,8 +225,7 @@ public static Volume FromMicroliter(double? Microliter)
         return null;
 
     return new Volume((double)Microliter, VolumeUnit.Microliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Milliliter.
 /// </summary>
@@ -256,8 +236,7 @@ public static Volume FromMilliliter(double? Milliliter)
         return null;
 
     return new Volume((double)Milliliter, VolumeUnit.Milliliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Deciliter.
 /// </summary>
@@ -268,8 +247,7 @@ public static Volume FromDeciliter(double? Deciliter)
         return null;
 
     return new Volume((double)Deciliter, VolumeUnit.Deciliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Centiliter.
 /// </summary>
@@ -280,8 +258,7 @@ public static Volume FromCentiliter(double? Centiliter)
         return null;
 
     return new Volume((double)Centiliter, VolumeUnit.Centiliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Hectoliter.
 /// </summary>
@@ -292,8 +269,7 @@ public static Volume FromHectoliter(double? Hectoliter)
         return null;
 
     return new Volume((double)Hectoliter, VolumeUnit.Hectoliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Kiloliter.
 /// </summary>
@@ -304,8 +280,7 @@ public static Volume FromKiloliter(double? Kiloliter)
         return null;
 
     return new Volume((double)Kiloliter, VolumeUnit.Kiloliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Megaliter.
 /// </summary>
@@ -316,8 +291,7 @@ public static Volume FromMegaliter(double? Megaliter)
         return null;
 
     return new Volume((double)Megaliter, VolumeUnit.Megaliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from Picoliter.
 /// </summary>
@@ -328,8 +302,7 @@ public static Volume FromPicoliter(double? Picoliter)
         return null;
 
     return new Volume((double)Picoliter, VolumeUnit.Picoliter);
-}
-
+}                     
 /// <summary>
 /// Get Volume from AcreFoot.
 /// </summary>
@@ -340,8 +313,7 @@ public static Volume FromAcreFoot(double? AcreFoot)
         return null;
 
     return new Volume((double)AcreFoot, VolumeUnit.AcreFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from BoardFoot.
 /// </summary>
@@ -352,8 +324,7 @@ public static Volume FromBoardFoot(double? BoardFoot)
         return null;
 
     return new Volume((double)BoardFoot, VolumeUnit.BoardFoot);
-}
-
+}                     
 /// <summary>
 /// Get Volume from AuTablespoon.
 /// </summary>
@@ -364,8 +335,7 @@ public static Volume FromAuTablespoon(double? AuTablespoon)
         return null;
 
     return new Volume((double)AuTablespoon, VolumeUnit.AuTablespoon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from ImperialBeerBarrel.
 /// </summary>
@@ -376,8 +346,7 @@ public static Volume FromImperialBeerBarrel(double? ImperialBeerBarrel)
         return null;
 
     return new Volume((double)ImperialBeerBarrel, VolumeUnit.ImperialBeerBarrel);
-}
-
+}                     
 /// <summary>
 /// Get Volume from MetricTeaspoon.
 /// </summary>
@@ -388,8 +357,7 @@ public static Volume FromMetricTeaspoon(double? MetricTeaspoon)
         return null;
 
     return new Volume((double)MetricTeaspoon, VolumeUnit.MetricTeaspoon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from MetricCup.
 /// </summary>
@@ -400,8 +368,7 @@ public static Volume FromMetricCup(double? MetricCup)
         return null;
 
     return new Volume((double)MetricCup, VolumeUnit.MetricCup);
-}
-
+}                     
 /// <summary>
 /// Get Volume from ImperialGallon.
 /// </summary>
@@ -412,8 +379,7 @@ public static Volume FromImperialGallon(double? ImperialGallon)
         return null;
 
     return new Volume((double)ImperialGallon, VolumeUnit.ImperialGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from KiloimperialGallon.
 /// </summary>
@@ -424,8 +390,7 @@ public static Volume FromKiloimperialGallon(double? KiloimperialGallon)
         return null;
 
     return new Volume((double)KiloimperialGallon, VolumeUnit.KiloimperialGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from MegaimperialGallon.
 /// </summary>
@@ -436,8 +401,7 @@ public static Volume FromMegaimperialGallon(double? MegaimperialGallon)
         return null;
 
     return new Volume((double)MegaimperialGallon, VolumeUnit.MegaimperialGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from ImperialOunce.
 /// </summary>
@@ -448,8 +412,7 @@ public static Volume FromImperialOunce(double? ImperialOunce)
         return null;
 
     return new Volume((double)ImperialOunce, VolumeUnit.ImperialOunce);
-}
-
+}                     
 /// <summary>
 /// Get Volume from ImperialPint.
 /// </summary>
@@ -460,8 +423,7 @@ public static Volume FromImperialPint(double? ImperialPint)
         return null;
 
     return new Volume((double)ImperialPint, VolumeUnit.ImperialPint);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsCustomaryCup.
 /// </summary>
@@ -472,8 +434,7 @@ public static Volume FromUsCustomaryCup(double? UsCustomaryCup)
         return null;
 
     return new Volume((double)UsCustomaryCup, VolumeUnit.UsCustomaryCup);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsBeerBarrel.
 /// </summary>
@@ -484,8 +445,7 @@ public static Volume FromUsBeerBarrel(double? UsBeerBarrel)
         return null;
 
     return new Volume((double)UsBeerBarrel, VolumeUnit.UsBeerBarrel);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UkTablespoon.
 /// </summary>
@@ -496,8 +456,7 @@ public static Volume FromUkTablespoon(double? UkTablespoon)
         return null;
 
     return new Volume((double)UkTablespoon, VolumeUnit.UkTablespoon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsOunce.
 /// </summary>
@@ -508,8 +467,7 @@ public static Volume FromUsOunce(double? UsOunce)
         return null;
 
     return new Volume((double)UsOunce, VolumeUnit.UsOunce);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsGallon.
 /// </summary>
@@ -520,8 +478,7 @@ public static Volume FromUsGallon(double? UsGallon)
         return null;
 
     return new Volume((double)UsGallon, VolumeUnit.UsGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from KilousGallon.
 /// </summary>
@@ -532,8 +489,7 @@ public static Volume FromKilousGallon(double? KilousGallon)
         return null;
 
     return new Volume((double)KilousGallon, VolumeUnit.KilousGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from MegausGallon.
 /// </summary>
@@ -544,8 +500,7 @@ public static Volume FromMegausGallon(double? MegausGallon)
         return null;
 
     return new Volume((double)MegausGallon, VolumeUnit.MegausGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from DecausGallon.
 /// </summary>
@@ -556,8 +511,7 @@ public static Volume FromDecausGallon(double? DecausGallon)
         return null;
 
     return new Volume((double)DecausGallon, VolumeUnit.DecausGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from DeciusGallon.
 /// </summary>
@@ -568,8 +522,7 @@ public static Volume FromDeciusGallon(double? DeciusGallon)
         return null;
 
     return new Volume((double)DeciusGallon, VolumeUnit.DeciusGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from HectousGallon.
 /// </summary>
@@ -580,8 +533,7 @@ public static Volume FromHectousGallon(double? HectousGallon)
         return null;
 
     return new Volume((double)HectousGallon, VolumeUnit.HectousGallon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from OilBarrel.
 /// </summary>
@@ -592,8 +544,7 @@ public static Volume FromOilBarrel(double? OilBarrel)
         return null;
 
     return new Volume((double)OilBarrel, VolumeUnit.OilBarrel);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsLegalCup.
 /// </summary>
@@ -604,8 +555,7 @@ public static Volume FromUsLegalCup(double? UsLegalCup)
         return null;
 
     return new Volume((double)UsLegalCup, VolumeUnit.UsLegalCup);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsPint.
 /// </summary>
@@ -616,8 +566,7 @@ public static Volume FromUsPint(double? UsPint)
         return null;
 
     return new Volume((double)UsPint, VolumeUnit.UsPint);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsQuart.
 /// </summary>
@@ -628,8 +577,7 @@ public static Volume FromUsQuart(double? UsQuart)
         return null;
 
     return new Volume((double)UsQuart, VolumeUnit.UsQuart);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsTablespoon.
 /// </summary>
@@ -640,8 +588,7 @@ public static Volume FromUsTablespoon(double? UsTablespoon)
         return null;
 
     return new Volume((double)UsTablespoon, VolumeUnit.UsTablespoon);
-}
-
+}                     
 /// <summary>
 /// Get Volume from UsTeaspoon.
 /// </summary>
@@ -652,7 +599,6 @@ public static Volume FromUsTeaspoon(double? UsTeaspoon)
         return null;
 
     return new Volume((double)UsTeaspoon, VolumeUnit.UsTeaspoon);
-}
-
+}                     
 
 }                     

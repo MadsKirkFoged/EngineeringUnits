@@ -16,8 +16,7 @@ public static Frequency FromSI(double? SI)
         return null;
 
     return new Frequency((double)SI, FrequencyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from Hertz.
 /// </summary>
@@ -28,8 +27,7 @@ public static Frequency FromHertz(double? Hertz)
         return null;
 
     return new Frequency((double)Hertz, FrequencyUnit.Hertz);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from Kilohertz.
 /// </summary>
@@ -40,8 +38,7 @@ public static Frequency FromKilohertz(double? Kilohertz)
         return null;
 
     return new Frequency((double)Kilohertz, FrequencyUnit.Kilohertz);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from Megahertz.
 /// </summary>
@@ -52,8 +49,7 @@ public static Frequency FromMegahertz(double? Megahertz)
         return null;
 
     return new Frequency((double)Megahertz, FrequencyUnit.Megahertz);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from Gigahertz.
 /// </summary>
@@ -64,8 +60,7 @@ public static Frequency FromGigahertz(double? Gigahertz)
         return null;
 
     return new Frequency((double)Gigahertz, FrequencyUnit.Gigahertz);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from Terahertz.
 /// </summary>
@@ -76,8 +71,7 @@ public static Frequency FromTerahertz(double? Terahertz)
         return null;
 
     return new Frequency((double)Terahertz, FrequencyUnit.Terahertz);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from PerSecond.
 /// </summary>
@@ -88,8 +82,7 @@ public static Frequency FromPerSecond(double? PerSecond)
         return null;
 
     return new Frequency((double)PerSecond, FrequencyUnit.PerSecond);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from BeatPerMinute.
 /// </summary>
@@ -100,8 +93,7 @@ public static Frequency FromBeatPerMinute(double? BeatPerMinute)
         return null;
 
     return new Frequency((double)BeatPerMinute, FrequencyUnit.BeatPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from RevolutionsPerMinute.
 /// </summary>
@@ -112,8 +104,7 @@ public static Frequency FromRevolutionsPerMinute(double? RevolutionsPerMinute)
         return null;
 
     return new Frequency((double)RevolutionsPerMinute, FrequencyUnit.RevolutionsPerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from RPM.
 /// </summary>
@@ -124,8 +115,7 @@ public static Frequency FromRPM(double? RPM)
         return null;
 
     return new Frequency((double)RPM, FrequencyUnit.RPM);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from CyclePerHour.
 /// </summary>
@@ -136,8 +126,7 @@ public static Frequency FromCyclePerHour(double? CyclePerHour)
         return null;
 
     return new Frequency((double)CyclePerHour, FrequencyUnit.CyclePerHour);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from CyclePerMinute.
 /// </summary>
@@ -148,8 +137,7 @@ public static Frequency FromCyclePerMinute(double? CyclePerMinute)
         return null;
 
     return new Frequency((double)CyclePerMinute, FrequencyUnit.CyclePerMinute);
-}
-
+}                     
 /// <summary>
 /// Get Frequency from RadianPerSecond.
 /// </summary>
@@ -160,7 +148,6 @@ public static Frequency FromRadianPerSecond(double? RadianPerSecond)
         return null;
 
     return new Frequency((double)RadianPerSecond, FrequencyUnit.RadianPerSecond);
-}
-
+}                     
 
 }                     

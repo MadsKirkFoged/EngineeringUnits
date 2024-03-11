@@ -16,8 +16,7 @@ public static Jerk FromSI(double? SI)
         return null;
 
     return new Jerk((double)SI, JerkUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from KilometerPerSecondCubed.
 /// </summary>
@@ -28,8 +27,7 @@ public static Jerk FromKilometerPerSecondCubed(double? KilometerPerSecondCubed)
         return null;
 
     return new Jerk((double)KilometerPerSecondCubed, JerkUnit.KilometerPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from MeterPerSecondCubed.
 /// </summary>
@@ -40,8 +38,7 @@ public static Jerk FromMeterPerSecondCubed(double? MeterPerSecondCubed)
         return null;
 
     return new Jerk((double)MeterPerSecondCubed, JerkUnit.MeterPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from DecimeterPerSecondCubed.
 /// </summary>
@@ -52,8 +49,7 @@ public static Jerk FromDecimeterPerSecondCubed(double? DecimeterPerSecondCubed)
         return null;
 
     return new Jerk((double)DecimeterPerSecondCubed, JerkUnit.DecimeterPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from CentimeterPerSecondCubed.
 /// </summary>
@@ -64,8 +60,7 @@ public static Jerk FromCentimeterPerSecondCubed(double? CentimeterPerSecondCubed
         return null;
 
     return new Jerk((double)CentimeterPerSecondCubed, JerkUnit.CentimeterPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from MicrometerPerSecondCubed.
 /// </summary>
@@ -76,8 +71,7 @@ public static Jerk FromMicrometerPerSecondCubed(double? MicrometerPerSecondCubed
         return null;
 
     return new Jerk((double)MicrometerPerSecondCubed, JerkUnit.MicrometerPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from MillimeterPerSecondCubed.
 /// </summary>
@@ -88,8 +82,7 @@ public static Jerk FromMillimeterPerSecondCubed(double? MillimeterPerSecondCubed
         return null;
 
     return new Jerk((double)MillimeterPerSecondCubed, JerkUnit.MillimeterPerSecondCubed);
-}
-
+}                     
 /// <summary>
 /// Get Jerk from NanometerPerSecondCubed.
 /// </summary>
@@ -100,7 +93,6 @@ public static Jerk FromNanometerPerSecondCubed(double? NanometerPerSecondCubed)
         return null;
 
     return new Jerk((double)NanometerPerSecondCubed, JerkUnit.NanometerPerSecondCubed);
-}
-
+}                     
 
 }                     

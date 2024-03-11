@@ -16,8 +16,7 @@ public static SpecificHeatCapacity FromSI(double? SI)
         return null;
 
     return new SpecificHeatCapacity((double)SI, SpecificHeatCapacityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from JoulePerKilogramKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramKelvin(double? JoulePerKi
         return null;
 
     return new SpecificHeatCapacity((double)JoulePerKilogramKelvin, SpecificHeatCapacityUnit.JoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from JoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -40,8 +38,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramDegreeCelsius(double? Jou
         return null;
 
     return new SpecificHeatCapacity((double)JoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.JoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from KilojoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -52,8 +49,7 @@ public static SpecificHeatCapacity FromKilojoulePerKilogramDegreeCelsius(double?
         return null;
 
     return new SpecificHeatCapacity((double)KilojoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.KilojoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from KilojoulePerKilogramKelvin.
 /// </summary>
@@ -64,8 +60,7 @@ public static SpecificHeatCapacity FromKilojoulePerKilogramKelvin(double? Kilojo
         return null;
 
     return new SpecificHeatCapacity((double)KilojoulePerKilogramKelvin, SpecificHeatCapacityUnit.KilojoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from MegajoulePerKilogramDegreeCelsius.
 /// </summary>
@@ -76,8 +71,7 @@ public static SpecificHeatCapacity FromMegajoulePerKilogramDegreeCelsius(double?
         return null;
 
     return new SpecificHeatCapacity((double)MegajoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.MegajoulePerKilogramDegreeCelsius);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from MegajoulePerKilogramKelvin.
 /// </summary>
@@ -88,8 +82,7 @@ public static SpecificHeatCapacity FromMegajoulePerKilogramKelvin(double? Megajo
         return null;
 
     return new SpecificHeatCapacity((double)MegajoulePerKilogramKelvin, SpecificHeatCapacityUnit.MegajoulePerKilogramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from JoulePerKilogramRankine.
 /// </summary>
@@ -100,8 +93,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramRankine(double? JoulePerK
         return null;
 
     return new SpecificHeatCapacity((double)JoulePerKilogramRankine, SpecificHeatCapacityUnit.JoulePerKilogramRankine);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from CaloriePerGramKelvin.
 /// </summary>
@@ -112,8 +104,7 @@ public static SpecificHeatCapacity FromCaloriePerGramKelvin(double? CaloriePerGr
         return null;
 
     return new SpecificHeatCapacity((double)CaloriePerGramKelvin, SpecificHeatCapacityUnit.CaloriePerGramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from KilocaloriePerGramKelvin.
 /// </summary>
@@ -124,8 +115,7 @@ public static SpecificHeatCapacity FromKilocaloriePerGramKelvin(double? Kilocalo
         return null;
 
     return new SpecificHeatCapacity((double)KilocaloriePerGramKelvin, SpecificHeatCapacityUnit.KilocaloriePerGramKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from BtuPerPoundKelvin.
 /// </summary>
@@ -136,8 +126,7 @@ public static SpecificHeatCapacity FromBtuPerPoundKelvin(double? BtuPerPoundKelv
         return null;
 
     return new SpecificHeatCapacity((double)BtuPerPoundKelvin, SpecificHeatCapacityUnit.BtuPerPoundKelvin);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from BtuPerPoundRankine.
 /// </summary>
@@ -148,8 +137,7 @@ public static SpecificHeatCapacity FromBtuPerPoundRankine(double? BtuPerPoundRan
         return null;
 
     return new SpecificHeatCapacity((double)BtuPerPoundRankine, SpecificHeatCapacityUnit.BtuPerPoundRankine);
-}
-
+}                     
 /// <summary>
 /// Get SpecificHeatCapacity from BtuPerPoundFahrenheit.
 /// </summary>
@@ -160,7 +148,6 @@ public static SpecificHeatCapacity FromBtuPerPoundFahrenheit(double? BtuPerPound
         return null;
 
     return new SpecificHeatCapacity((double)BtuPerPoundFahrenheit, SpecificHeatCapacityUnit.BtuPerPoundFahrenheit);
-}
-
+}                     
 
 }                     

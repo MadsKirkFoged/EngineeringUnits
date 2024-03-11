@@ -16,8 +16,7 @@ public static Length FromKilometer(double? Kilometer)
         return null;
 
     return new Length((double)Kilometer, LengthUnit.Kilometer);
-}
-
+}                     
 /// <summary>
 /// Get Length from Hectometer.
 /// </summary>
@@ -28,8 +27,7 @@ public static Length FromHectometer(double? Hectometer)
         return null;
 
     return new Length((double)Hectometer, LengthUnit.Hectometer);
-}
-
+}                     
 /// <summary>
 /// Get Length from Meter.
 /// </summary>
@@ -40,8 +38,7 @@ public static Length FromMeter(double? Meter)
         return null;
 
     return new Length((double)Meter, LengthUnit.Meter);
-}
-
+}                     
 /// <summary>
 /// Get Length from SI.
 /// </summary>
@@ -52,8 +49,7 @@ public static Length FromSI(double? SI)
         return null;
 
     return new Length((double)SI, LengthUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Length from Decimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static Length FromDecimeter(double? Decimeter)
         return null;
 
     return new Length((double)Decimeter, LengthUnit.Decimeter);
-}
-
+}                     
 /// <summary>
 /// Get Length from Centimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static Length FromCentimeter(double? Centimeter)
         return null;
 
     return new Length((double)Centimeter, LengthUnit.Centimeter);
-}
-
+}                     
 /// <summary>
 /// Get Length from Millimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static Length FromMillimeter(double? Millimeter)
         return null;
 
     return new Length((double)Millimeter, LengthUnit.Millimeter);
-}
-
+}                     
 /// <summary>
 /// Get Length from Micrometer.
 /// </summary>
@@ -100,8 +93,7 @@ public static Length FromMicrometer(double? Micrometer)
         return null;
 
     return new Length((double)Micrometer, LengthUnit.Micrometer);
-}
-
+}                     
 /// <summary>
 /// Get Length from Nanometer.
 /// </summary>
@@ -112,8 +104,7 @@ public static Length FromNanometer(double? Nanometer)
         return null;
 
     return new Length((double)Nanometer, LengthUnit.Nanometer);
-}
-
+}                     
 /// <summary>
 /// Get Length from Microinch.
 /// </summary>
@@ -124,8 +115,7 @@ public static Length FromMicroinch(double? Microinch)
         return null;
 
     return new Length((double)Microinch, LengthUnit.Microinch);
-}
-
+}                     
 /// <summary>
 /// Get Length from Twip.
 /// </summary>
@@ -136,8 +126,7 @@ public static Length FromTwip(double? Twip)
         return null;
 
     return new Length((double)Twip, LengthUnit.Twip);
-}
-
+}                     
 /// <summary>
 /// Get Length from Mil.
 /// </summary>
@@ -148,8 +137,7 @@ public static Length FromMil(double? Mil)
         return null;
 
     return new Length((double)Mil, LengthUnit.Mil);
-}
-
+}                     
 /// <summary>
 /// Get Length from DtpPoint.
 /// </summary>
@@ -160,8 +148,7 @@ public static Length FromDtpPoint(double? DtpPoint)
         return null;
 
     return new Length((double)DtpPoint, LengthUnit.DtpPoint);
-}
-
+}                     
 /// <summary>
 /// Get Length from DtpPica.
 /// </summary>
@@ -172,8 +159,7 @@ public static Length FromDtpPica(double? DtpPica)
         return null;
 
     return new Length((double)DtpPica, LengthUnit.DtpPica);
-}
-
+}                     
 /// <summary>
 /// Get Length from Inch.
 /// </summary>
@@ -184,8 +170,7 @@ public static Length FromInch(double? Inch)
         return null;
 
     return new Length((double)Inch, LengthUnit.Inch);
-}
-
+}                     
 /// <summary>
 /// Get Length from Hand.
 /// </summary>
@@ -196,8 +181,7 @@ public static Length FromHand(double? Hand)
         return null;
 
     return new Length((double)Hand, LengthUnit.Hand);
-}
-
+}                     
 /// <summary>
 /// Get Length from Foot.
 /// </summary>
@@ -208,8 +192,7 @@ public static Length FromFoot(double? Foot)
         return null;
 
     return new Length((double)Foot, LengthUnit.Foot);
-}
-
+}                     
 /// <summary>
 /// Get Length from Yard.
 /// </summary>
@@ -220,8 +203,7 @@ public static Length FromYard(double? Yard)
         return null;
 
     return new Length((double)Yard, LengthUnit.Yard);
-}
-
+}                     
 /// <summary>
 /// Get Length from Fathom.
 /// </summary>
@@ -232,8 +214,7 @@ public static Length FromFathom(double? Fathom)
         return null;
 
     return new Length((double)Fathom, LengthUnit.Fathom);
-}
-
+}                     
 /// <summary>
 /// Get Length from Chain.
 /// </summary>
@@ -244,8 +225,7 @@ public static Length FromChain(double? Chain)
         return null;
 
     return new Length((double)Chain, LengthUnit.Chain);
-}
-
+}                     
 /// <summary>
 /// Get Length from Shackle.
 /// </summary>
@@ -256,8 +236,7 @@ public static Length FromShackle(double? Shackle)
         return null;
 
     return new Length((double)Shackle, LengthUnit.Shackle);
-}
-
+}                     
 /// <summary>
 /// Get Length from Mile.
 /// </summary>
@@ -268,8 +247,7 @@ public static Length FromMile(double? Mile)
         return null;
 
     return new Length((double)Mile, LengthUnit.Mile);
-}
-
+}                     
 /// <summary>
 /// Get Length from NauticalMile.
 /// </summary>
@@ -280,8 +258,7 @@ public static Length FromNauticalMile(double? NauticalMile)
         return null;
 
     return new Length((double)NauticalMile, LengthUnit.NauticalMile);
-}
-
+}                     
 /// <summary>
 /// Get Length from UsSurveyFoot.
 /// </summary>
@@ -292,8 +269,7 @@ public static Length FromUsSurveyFoot(double? UsSurveyFoot)
         return null;
 
     return new Length((double)UsSurveyFoot, LengthUnit.UsSurveyFoot);
-}
-
+}                     
 /// <summary>
 /// Get Length from LightYear.
 /// </summary>
@@ -304,8 +280,7 @@ public static Length FromLightYear(double? LightYear)
         return null;
 
     return new Length((double)LightYear, LengthUnit.LightYear);
-}
-
+}                     
 /// <summary>
 /// Get Length from KilolightYear.
 /// </summary>
@@ -316,8 +291,7 @@ public static Length FromKilolightYear(double? KilolightYear)
         return null;
 
     return new Length((double)KilolightYear, LengthUnit.KilolightYear);
-}
-
+}                     
 /// <summary>
 /// Get Length from MegalightYear.
 /// </summary>
@@ -328,8 +302,7 @@ public static Length FromMegalightYear(double? MegalightYear)
         return null;
 
     return new Length((double)MegalightYear, LengthUnit.MegalightYear);
-}
-
+}                     
 /// <summary>
 /// Get Length from SolarRadius.
 /// </summary>
@@ -340,8 +313,7 @@ public static Length FromSolarRadius(double? SolarRadius)
         return null;
 
     return new Length((double)SolarRadius, LengthUnit.SolarRadius);
-}
-
+}                     
 /// <summary>
 /// Get Length from AstronomicalUnit.
 /// </summary>
@@ -352,8 +324,7 @@ public static Length FromAstronomicalUnit(double? AstronomicalUnit)
         return null;
 
     return new Length((double)AstronomicalUnit, LengthUnit.AstronomicalUnit);
-}
-
+}                     
 /// <summary>
 /// Get Length from Parsec.
 /// </summary>
@@ -364,8 +335,7 @@ public static Length FromParsec(double? Parsec)
         return null;
 
     return new Length((double)Parsec, LengthUnit.Parsec);
-}
-
+}                     
 /// <summary>
 /// Get Length from Kiloparsec.
 /// </summary>
@@ -376,8 +346,7 @@ public static Length FromKiloparsec(double? Kiloparsec)
         return null;
 
     return new Length((double)Kiloparsec, LengthUnit.Kiloparsec);
-}
-
+}                     
 /// <summary>
 /// Get Length from Megaparsec.
 /// </summary>
@@ -388,7 +357,6 @@ public static Length FromMegaparsec(double? Megaparsec)
         return null;
 
     return new Length((double)Megaparsec, LengthUnit.Megaparsec);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static EnergyCost FromSI(double? SI)
         return null;
 
     return new EnergyCost((double)SI, EnergyCostUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerJoule.
 /// </summary>
@@ -28,8 +27,7 @@ public static EnergyCost FromUSDollarPerJoule(double? USDollarPerJoule)
         return null;
 
     return new EnergyCost((double)USDollarPerJoule, EnergyCostUnit.USDollarPerJoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerKilojoule.
 /// </summary>
@@ -40,8 +38,7 @@ public static EnergyCost FromUSDollarPerKilojoule(double? USDollarPerKilojoule)
         return null;
 
     return new EnergyCost((double)USDollarPerKilojoule, EnergyCostUnit.USDollarPerKilojoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerMegajoule.
 /// </summary>
@@ -52,8 +49,7 @@ public static EnergyCost FromUSDollarPerMegajoule(double? USDollarPerMegajoule)
         return null;
 
     return new EnergyCost((double)USDollarPerMegajoule, EnergyCostUnit.USDollarPerMegajoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerGigajoule.
 /// </summary>
@@ -64,8 +60,7 @@ public static EnergyCost FromUSDollarPerGigajoule(double? USDollarPerGigajoule)
         return null;
 
     return new EnergyCost((double)USDollarPerGigajoule, EnergyCostUnit.USDollarPerGigajoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerKilowattHour.
 /// </summary>
@@ -76,8 +71,7 @@ public static EnergyCost FromUSDollarPerKilowattHour(double? USDollarPerKilowatt
         return null;
 
     return new EnergyCost((double)USDollarPerKilowattHour, EnergyCostUnit.USDollarPerKilowattHour);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from USDollarPerMegawattHour.
 /// </summary>
@@ -88,8 +82,7 @@ public static EnergyCost FromUSDollarPerMegawattHour(double? USDollarPerMegawatt
         return null;
 
     return new EnergyCost((double)USDollarPerMegawattHour, EnergyCostUnit.USDollarPerMegawattHour);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerJoule.
 /// </summary>
@@ -100,8 +93,7 @@ public static EnergyCost FromMillionUSDollarPerJoule(double? MillionUSDollarPerJ
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerJoule, EnergyCostUnit.MillionUSDollarPerJoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerKilojoule.
 /// </summary>
@@ -112,8 +104,7 @@ public static EnergyCost FromMillionUSDollarPerKilojoule(double? MillionUSDollar
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerKilojoule, EnergyCostUnit.MillionUSDollarPerKilojoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerMegajoule.
 /// </summary>
@@ -124,8 +115,7 @@ public static EnergyCost FromMillionUSDollarPerMegajoule(double? MillionUSDollar
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerMegajoule, EnergyCostUnit.MillionUSDollarPerMegajoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerGigajoule.
 /// </summary>
@@ -136,8 +126,7 @@ public static EnergyCost FromMillionUSDollarPerGigajoule(double? MillionUSDollar
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerGigajoule, EnergyCostUnit.MillionUSDollarPerGigajoule);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerKilowattHour.
 /// </summary>
@@ -148,8 +137,7 @@ public static EnergyCost FromMillionUSDollarPerKilowattHour(double? MillionUSDol
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerKilowattHour, EnergyCostUnit.MillionUSDollarPerKilowattHour);
-}
-
+}                     
 /// <summary>
 /// Get EnergyCost from MillionUSDollarPerMegawattHour.
 /// </summary>
@@ -160,7 +148,6 @@ public static EnergyCost FromMillionUSDollarPerMegawattHour(double? MillionUSDol
         return null;
 
     return new EnergyCost((double)MillionUSDollarPerMegawattHour, EnergyCostUnit.MillionUSDollarPerMegawattHour);
-}
-
+}                     
 
 }                     

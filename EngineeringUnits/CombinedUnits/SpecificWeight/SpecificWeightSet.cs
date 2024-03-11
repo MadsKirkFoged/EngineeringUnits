@@ -16,8 +16,7 @@ public static SpecificWeight FromSI(double? SI)
         return null;
 
     return new SpecificWeight((double)SI, SpecificWeightUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from NewtonPerCubicMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static SpecificWeight FromNewtonPerCubicMeter(double? NewtonPerCubicMeter
         return null;
 
     return new SpecificWeight((double)NewtonPerCubicMeter, SpecificWeightUnit.NewtonPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilogramForcePerCubicCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static SpecificWeight FromKilogramForcePerCubicCentimeter(double? Kilogra
         return null;
 
     return new SpecificWeight((double)KilogramForcePerCubicCentimeter, SpecificWeightUnit.KilogramForcePerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilogramForcePerCubicMeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static SpecificWeight FromKilogramForcePerCubicMeter(double? KilogramForc
         return null;
 
     return new SpecificWeight((double)KilogramForcePerCubicMeter, SpecificWeightUnit.KilogramForcePerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilogramForcePerCubicMillimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static SpecificWeight FromKilogramForcePerCubicMillimeter(double? Kilogra
         return null;
 
     return new SpecificWeight((double)KilogramForcePerCubicMillimeter, SpecificWeightUnit.KilogramForcePerCubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilonewtonPerCubicCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static SpecificWeight FromKilonewtonPerCubicCentimeter(double? Kilonewton
         return null;
 
     return new SpecificWeight((double)KilonewtonPerCubicCentimeter, SpecificWeightUnit.KilonewtonPerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilonewtonPerCubicMeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static SpecificWeight FromKilonewtonPerCubicMeter(double? KilonewtonPerCu
         return null;
 
     return new SpecificWeight((double)KilonewtonPerCubicMeter, SpecificWeightUnit.KilonewtonPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilonewtonPerCubicMillimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static SpecificWeight FromKilonewtonPerCubicMillimeter(double? Kilonewton
         return null;
 
     return new SpecificWeight((double)KilonewtonPerCubicMillimeter, SpecificWeightUnit.KilonewtonPerCubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilopoundForcePerCubicFoot.
 /// </summary>
@@ -112,8 +104,7 @@ public static SpecificWeight FromKilopoundForcePerCubicFoot(double? KilopoundFor
         return null;
 
     return new SpecificWeight((double)KilopoundForcePerCubicFoot, SpecificWeightUnit.KilopoundForcePerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from KilopoundForcePerCubicInch.
 /// </summary>
@@ -124,8 +115,7 @@ public static SpecificWeight FromKilopoundForcePerCubicInch(double? KilopoundFor
         return null;
 
     return new SpecificWeight((double)KilopoundForcePerCubicInch, SpecificWeightUnit.KilopoundForcePerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from MeganewtonPerCubicMeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static SpecificWeight FromMeganewtonPerCubicMeter(double? MeganewtonPerCu
         return null;
 
     return new SpecificWeight((double)MeganewtonPerCubicMeter, SpecificWeightUnit.MeganewtonPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from NewtonPerCubicCentimeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static SpecificWeight FromNewtonPerCubicCentimeter(double? NewtonPerCubic
         return null;
 
     return new SpecificWeight((double)NewtonPerCubicCentimeter, SpecificWeightUnit.NewtonPerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from NewtonPerCubicMillimeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static SpecificWeight FromNewtonPerCubicMillimeter(double? NewtonPerCubic
         return null;
 
     return new SpecificWeight((double)NewtonPerCubicMillimeter, SpecificWeightUnit.NewtonPerCubicMillimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from PoundForcePerCubicFoot.
 /// </summary>
@@ -172,8 +159,7 @@ public static SpecificWeight FromPoundForcePerCubicFoot(double? PoundForcePerCub
         return null;
 
     return new SpecificWeight((double)PoundForcePerCubicFoot, SpecificWeightUnit.PoundForcePerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from PoundForcePerCubicInch.
 /// </summary>
@@ -184,8 +170,7 @@ public static SpecificWeight FromPoundForcePerCubicInch(double? PoundForcePerCub
         return null;
 
     return new SpecificWeight((double)PoundForcePerCubicInch, SpecificWeightUnit.PoundForcePerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from TonneForcePerCubicCentimeter.
 /// </summary>
@@ -196,8 +181,7 @@ public static SpecificWeight FromTonneForcePerCubicCentimeter(double? TonneForce
         return null;
 
     return new SpecificWeight((double)TonneForcePerCubicCentimeter, SpecificWeightUnit.TonneForcePerCubicCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from TonneForcePerCubicMeter.
 /// </summary>
@@ -208,8 +192,7 @@ public static SpecificWeight FromTonneForcePerCubicMeter(double? TonneForcePerCu
         return null;
 
     return new SpecificWeight((double)TonneForcePerCubicMeter, SpecificWeightUnit.TonneForcePerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get SpecificWeight from TonneForcePerCubicMillimeter.
 /// </summary>
@@ -220,7 +203,6 @@ public static SpecificWeight FromTonneForcePerCubicMillimeter(double? TonneForce
         return null;
 
     return new SpecificWeight((double)TonneForcePerCubicMillimeter, SpecificWeightUnit.TonneForcePerCubicMillimeter);
-}
-
+}                     
 
 }                     

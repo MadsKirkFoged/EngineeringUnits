@@ -16,8 +16,7 @@ public static ElectricResistivity FromSI(double? SI)
         return null;
 
     return new ElectricResistivity((double)SI, ElectricResistivityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from OhmMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricResistivity FromOhmMeter(double? OhmMeter)
         return null;
 
     return new ElectricResistivity((double)OhmMeter, ElectricResistivityUnit.OhmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from OhmCentimeter.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricResistivity FromOhmCentimeter(double? OhmCentimeter)
         return null;
 
     return new ElectricResistivity((double)OhmCentimeter, ElectricResistivityUnit.OhmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from KiloohmCentimeter.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricResistivity FromKiloohmCentimeter(double? KiloohmCentimete
         return null;
 
     return new ElectricResistivity((double)KiloohmCentimeter, ElectricResistivityUnit.KiloohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MegaohmCentimeter.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricResistivity FromMegaohmCentimeter(double? MegaohmCentimete
         return null;
 
     return new ElectricResistivity((double)MegaohmCentimeter, ElectricResistivityUnit.MegaohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MicroohmCentimeter.
 /// </summary>
@@ -76,8 +71,7 @@ public static ElectricResistivity FromMicroohmCentimeter(double? MicroohmCentime
         return null;
 
     return new ElectricResistivity((double)MicroohmCentimeter, ElectricResistivityUnit.MicroohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MilliohmCentimeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static ElectricResistivity FromMilliohmCentimeter(double? MilliohmCentime
         return null;
 
     return new ElectricResistivity((double)MilliohmCentimeter, ElectricResistivityUnit.MilliohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from NanoohmCentimeter.
 /// </summary>
@@ -100,8 +93,7 @@ public static ElectricResistivity FromNanoohmCentimeter(double? NanoohmCentimete
         return null;
 
     return new ElectricResistivity((double)NanoohmCentimeter, ElectricResistivityUnit.NanoohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from PicoohmCentimeter.
 /// </summary>
@@ -112,8 +104,7 @@ public static ElectricResistivity FromPicoohmCentimeter(double? PicoohmCentimete
         return null;
 
     return new ElectricResistivity((double)PicoohmCentimeter, ElectricResistivityUnit.PicoohmCentimeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from KiloohmMeter.
 /// </summary>
@@ -124,8 +115,7 @@ public static ElectricResistivity FromKiloohmMeter(double? KiloohmMeter)
         return null;
 
     return new ElectricResistivity((double)KiloohmMeter, ElectricResistivityUnit.KiloohmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MegaohmMeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static ElectricResistivity FromMegaohmMeter(double? MegaohmMeter)
         return null;
 
     return new ElectricResistivity((double)MegaohmMeter, ElectricResistivityUnit.MegaohmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MicroohmMeter.
 /// </summary>
@@ -148,8 +137,7 @@ public static ElectricResistivity FromMicroohmMeter(double? MicroohmMeter)
         return null;
 
     return new ElectricResistivity((double)MicroohmMeter, ElectricResistivityUnit.MicroohmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from MilliohmMeter.
 /// </summary>
@@ -160,8 +148,7 @@ public static ElectricResistivity FromMilliohmMeter(double? MilliohmMeter)
         return null;
 
     return new ElectricResistivity((double)MilliohmMeter, ElectricResistivityUnit.MilliohmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from NanoohmMeter.
 /// </summary>
@@ -172,8 +159,7 @@ public static ElectricResistivity FromNanoohmMeter(double? NanoohmMeter)
         return null;
 
     return new ElectricResistivity((double)NanoohmMeter, ElectricResistivityUnit.NanoohmMeter);
-}
-
+}                     
 /// <summary>
 /// Get ElectricResistivity from PicoohmMeter.
 /// </summary>
@@ -184,7 +170,6 @@ public static ElectricResistivity FromPicoohmMeter(double? PicoohmMeter)
         return null;
 
     return new ElectricResistivity((double)PicoohmMeter, ElectricResistivityUnit.PicoohmMeter);
-}
-
+}                     
 
 }                     

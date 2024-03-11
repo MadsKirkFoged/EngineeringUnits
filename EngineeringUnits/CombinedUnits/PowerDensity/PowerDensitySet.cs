@@ -16,8 +16,7 @@ public static PowerDensity FromSI(double? SI)
         return null;
 
     return new PowerDensity((double)SI, PowerDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from WattPerCubicMeter.
 /// </summary>
@@ -28,8 +27,7 @@ public static PowerDensity FromWattPerCubicMeter(double? WattPerCubicMeter)
         return null;
 
     return new PowerDensity((double)WattPerCubicMeter, PowerDensityUnit.WattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from WattPerLiter.
 /// </summary>
@@ -40,8 +38,7 @@ public static PowerDensity FromWattPerLiter(double? WattPerLiter)
         return null;
 
     return new PowerDensity((double)WattPerLiter, PowerDensityUnit.WattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from WattPerCubicInch.
 /// </summary>
@@ -52,8 +49,7 @@ public static PowerDensity FromWattPerCubicInch(double? WattPerCubicInch)
         return null;
 
     return new PowerDensity((double)WattPerCubicInch, PowerDensityUnit.WattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from WattPerCubicFoot.
 /// </summary>
@@ -64,8 +60,7 @@ public static PowerDensity FromWattPerCubicFoot(double? WattPerCubicFoot)
         return null;
 
     return new PowerDensity((double)WattPerCubicFoot, PowerDensityUnit.WattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from TerawattPerLiter.
 /// </summary>
@@ -76,8 +71,7 @@ public static PowerDensity FromTerawattPerLiter(double? TerawattPerLiter)
         return null;
 
     return new PowerDensity((double)TerawattPerLiter, PowerDensityUnit.TerawattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from TerawattPerCubicMeter.
 /// </summary>
@@ -88,8 +82,7 @@ public static PowerDensity FromTerawattPerCubicMeter(double? TerawattPerCubicMet
         return null;
 
     return new PowerDensity((double)TerawattPerCubicMeter, PowerDensityUnit.TerawattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from TerawattPerCubicInch.
 /// </summary>
@@ -100,8 +93,7 @@ public static PowerDensity FromTerawattPerCubicInch(double? TerawattPerCubicInch
         return null;
 
     return new PowerDensity((double)TerawattPerCubicInch, PowerDensityUnit.TerawattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from TerawattPerCubicFoot.
 /// </summary>
@@ -112,8 +104,7 @@ public static PowerDensity FromTerawattPerCubicFoot(double? TerawattPerCubicFoot
         return null;
 
     return new PowerDensity((double)TerawattPerCubicFoot, PowerDensityUnit.TerawattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from PicowattPerLiter.
 /// </summary>
@@ -124,8 +115,7 @@ public static PowerDensity FromPicowattPerLiter(double? PicowattPerLiter)
         return null;
 
     return new PowerDensity((double)PicowattPerLiter, PowerDensityUnit.PicowattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from PicowattPerCubicMeter.
 /// </summary>
@@ -136,8 +126,7 @@ public static PowerDensity FromPicowattPerCubicMeter(double? PicowattPerCubicMet
         return null;
 
     return new PowerDensity((double)PicowattPerCubicMeter, PowerDensityUnit.PicowattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from PicowattPerCubicInch.
 /// </summary>
@@ -148,8 +137,7 @@ public static PowerDensity FromPicowattPerCubicInch(double? PicowattPerCubicInch
         return null;
 
     return new PowerDensity((double)PicowattPerCubicInch, PowerDensityUnit.PicowattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from PicowattPerCubicFoot.
 /// </summary>
@@ -160,8 +148,7 @@ public static PowerDensity FromPicowattPerCubicFoot(double? PicowattPerCubicFoot
         return null;
 
     return new PowerDensity((double)PicowattPerCubicFoot, PowerDensityUnit.PicowattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from NanowattPerLiter.
 /// </summary>
@@ -172,8 +159,7 @@ public static PowerDensity FromNanowattPerLiter(double? NanowattPerLiter)
         return null;
 
     return new PowerDensity((double)NanowattPerLiter, PowerDensityUnit.NanowattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from NanowattPerCubicMeter.
 /// </summary>
@@ -184,8 +170,7 @@ public static PowerDensity FromNanowattPerCubicMeter(double? NanowattPerCubicMet
         return null;
 
     return new PowerDensity((double)NanowattPerCubicMeter, PowerDensityUnit.NanowattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from NanowattPerCubicInch.
 /// </summary>
@@ -196,8 +181,7 @@ public static PowerDensity FromNanowattPerCubicInch(double? NanowattPerCubicInch
         return null;
 
     return new PowerDensity((double)NanowattPerCubicInch, PowerDensityUnit.NanowattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from NanowattPerCubicFoot.
 /// </summary>
@@ -208,8 +192,7 @@ public static PowerDensity FromNanowattPerCubicFoot(double? NanowattPerCubicFoot
         return null;
 
     return new PowerDensity((double)NanowattPerCubicFoot, PowerDensityUnit.NanowattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MilliwattPerLiter.
 /// </summary>
@@ -220,8 +203,7 @@ public static PowerDensity FromMilliwattPerLiter(double? MilliwattPerLiter)
         return null;
 
     return new PowerDensity((double)MilliwattPerLiter, PowerDensityUnit.MilliwattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MilliwattPerCubicMeter.
 /// </summary>
@@ -232,8 +214,7 @@ public static PowerDensity FromMilliwattPerCubicMeter(double? MilliwattPerCubicM
         return null;
 
     return new PowerDensity((double)MilliwattPerCubicMeter, PowerDensityUnit.MilliwattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MilliwattPerCubicInch.
 /// </summary>
@@ -244,8 +225,7 @@ public static PowerDensity FromMilliwattPerCubicInch(double? MilliwattPerCubicIn
         return null;
 
     return new PowerDensity((double)MilliwattPerCubicInch, PowerDensityUnit.MilliwattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MilliwattPerCubicFoot.
 /// </summary>
@@ -256,8 +236,7 @@ public static PowerDensity FromMilliwattPerCubicFoot(double? MilliwattPerCubicFo
         return null;
 
     return new PowerDensity((double)MilliwattPerCubicFoot, PowerDensityUnit.MilliwattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MicrowattPerLiter.
 /// </summary>
@@ -268,8 +247,7 @@ public static PowerDensity FromMicrowattPerLiter(double? MicrowattPerLiter)
         return null;
 
     return new PowerDensity((double)MicrowattPerLiter, PowerDensityUnit.MicrowattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MicrowattPerCubicMeter.
 /// </summary>
@@ -280,8 +258,7 @@ public static PowerDensity FromMicrowattPerCubicMeter(double? MicrowattPerCubicM
         return null;
 
     return new PowerDensity((double)MicrowattPerCubicMeter, PowerDensityUnit.MicrowattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MicrowattPerCubicInch.
 /// </summary>
@@ -292,8 +269,7 @@ public static PowerDensity FromMicrowattPerCubicInch(double? MicrowattPerCubicIn
         return null;
 
     return new PowerDensity((double)MicrowattPerCubicInch, PowerDensityUnit.MicrowattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MicrowattPerCubicFoot.
 /// </summary>
@@ -304,8 +280,7 @@ public static PowerDensity FromMicrowattPerCubicFoot(double? MicrowattPerCubicFo
         return null;
 
     return new PowerDensity((double)MicrowattPerCubicFoot, PowerDensityUnit.MicrowattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MegawattPerLiter.
 /// </summary>
@@ -316,8 +291,7 @@ public static PowerDensity FromMegawattPerLiter(double? MegawattPerLiter)
         return null;
 
     return new PowerDensity((double)MegawattPerLiter, PowerDensityUnit.MegawattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MegawattPerCubicMeter.
 /// </summary>
@@ -328,8 +302,7 @@ public static PowerDensity FromMegawattPerCubicMeter(double? MegawattPerCubicMet
         return null;
 
     return new PowerDensity((double)MegawattPerCubicMeter, PowerDensityUnit.MegawattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MegawattPerCubicInch.
 /// </summary>
@@ -340,8 +313,7 @@ public static PowerDensity FromMegawattPerCubicInch(double? MegawattPerCubicInch
         return null;
 
     return new PowerDensity((double)MegawattPerCubicInch, PowerDensityUnit.MegawattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from MegawattPerCubicFoot.
 /// </summary>
@@ -352,8 +324,7 @@ public static PowerDensity FromMegawattPerCubicFoot(double? MegawattPerCubicFoot
         return null;
 
     return new PowerDensity((double)MegawattPerCubicFoot, PowerDensityUnit.MegawattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from KilowattPerLiter.
 /// </summary>
@@ -364,8 +335,7 @@ public static PowerDensity FromKilowattPerLiter(double? KilowattPerLiter)
         return null;
 
     return new PowerDensity((double)KilowattPerLiter, PowerDensityUnit.KilowattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from KilowattPerCubicMeter.
 /// </summary>
@@ -376,8 +346,7 @@ public static PowerDensity FromKilowattPerCubicMeter(double? KilowattPerCubicMet
         return null;
 
     return new PowerDensity((double)KilowattPerCubicMeter, PowerDensityUnit.KilowattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from KilowattPerCubicInch.
 /// </summary>
@@ -388,8 +357,7 @@ public static PowerDensity FromKilowattPerCubicInch(double? KilowattPerCubicInch
         return null;
 
     return new PowerDensity((double)KilowattPerCubicInch, PowerDensityUnit.KilowattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from KilowattPerCubicFoot.
 /// </summary>
@@ -400,8 +368,7 @@ public static PowerDensity FromKilowattPerCubicFoot(double? KilowattPerCubicFoot
         return null;
 
     return new PowerDensity((double)KilowattPerCubicFoot, PowerDensityUnit.KilowattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from GigawattPerLiter.
 /// </summary>
@@ -412,8 +379,7 @@ public static PowerDensity FromGigawattPerLiter(double? GigawattPerLiter)
         return null;
 
     return new PowerDensity((double)GigawattPerLiter, PowerDensityUnit.GigawattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from GigawattPerCubicMeter.
 /// </summary>
@@ -424,8 +390,7 @@ public static PowerDensity FromGigawattPerCubicMeter(double? GigawattPerCubicMet
         return null;
 
     return new PowerDensity((double)GigawattPerCubicMeter, PowerDensityUnit.GigawattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from GigawattPerCubicInch.
 /// </summary>
@@ -436,8 +401,7 @@ public static PowerDensity FromGigawattPerCubicInch(double? GigawattPerCubicInch
         return null;
 
     return new PowerDensity((double)GigawattPerCubicInch, PowerDensityUnit.GigawattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from GigawattPerCubicFoot.
 /// </summary>
@@ -448,8 +412,7 @@ public static PowerDensity FromGigawattPerCubicFoot(double? GigawattPerCubicFoot
         return null;
 
     return new PowerDensity((double)GigawattPerCubicFoot, PowerDensityUnit.GigawattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DeciwattPerLiter.
 /// </summary>
@@ -460,8 +423,7 @@ public static PowerDensity FromDeciwattPerLiter(double? DeciwattPerLiter)
         return null;
 
     return new PowerDensity((double)DeciwattPerLiter, PowerDensityUnit.DeciwattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DeciwattPerCubicMeter.
 /// </summary>
@@ -472,8 +434,7 @@ public static PowerDensity FromDeciwattPerCubicMeter(double? DeciwattPerCubicMet
         return null;
 
     return new PowerDensity((double)DeciwattPerCubicMeter, PowerDensityUnit.DeciwattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DeciwattPerCubicInch.
 /// </summary>
@@ -484,8 +445,7 @@ public static PowerDensity FromDeciwattPerCubicInch(double? DeciwattPerCubicInch
         return null;
 
     return new PowerDensity((double)DeciwattPerCubicInch, PowerDensityUnit.DeciwattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DeciwattPerCubicFoot.
 /// </summary>
@@ -496,8 +456,7 @@ public static PowerDensity FromDeciwattPerCubicFoot(double? DeciwattPerCubicFoot
         return null;
 
     return new PowerDensity((double)DeciwattPerCubicFoot, PowerDensityUnit.DeciwattPerCubicFoot);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DecawattPerLiter.
 /// </summary>
@@ -508,8 +467,7 @@ public static PowerDensity FromDecawattPerLiter(double? DecawattPerLiter)
         return null;
 
     return new PowerDensity((double)DecawattPerLiter, PowerDensityUnit.DecawattPerLiter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DecawattPerCubicMeter.
 /// </summary>
@@ -520,8 +478,7 @@ public static PowerDensity FromDecawattPerCubicMeter(double? DecawattPerCubicMet
         return null;
 
     return new PowerDensity((double)DecawattPerCubicMeter, PowerDensityUnit.DecawattPerCubicMeter);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DecawattPerCubicInch.
 /// </summary>
@@ -532,8 +489,7 @@ public static PowerDensity FromDecawattPerCubicInch(double? DecawattPerCubicInch
         return null;
 
     return new PowerDensity((double)DecawattPerCubicInch, PowerDensityUnit.DecawattPerCubicInch);
-}
-
+}                     
 /// <summary>
 /// Get PowerDensity from DecawattPerCubicFoot.
 /// </summary>
@@ -544,7 +500,6 @@ public static PowerDensity FromDecawattPerCubicFoot(double? DecawattPerCubicFoot
         return null;
 
     return new PowerDensity((double)DecawattPerCubicFoot, PowerDensityUnit.DecawattPerCubicFoot);
-}
-
+}                     
 
 }                     

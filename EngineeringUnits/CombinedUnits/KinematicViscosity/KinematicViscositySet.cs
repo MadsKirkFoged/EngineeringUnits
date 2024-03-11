@@ -16,8 +16,7 @@ public static KinematicViscosity FromSI(double? SI)
         return null;
 
     return new KinematicViscosity((double)SI, KinematicViscosityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from SquareMeterPerSecond.
 /// </summary>
@@ -28,8 +27,7 @@ public static KinematicViscosity FromSquareMeterPerSecond(double? SquareMeterPer
         return null;
 
     return new KinematicViscosity((double)SquareMeterPerSecond, KinematicViscosityUnit.SquareMeterPerSecond);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Stokes.
 /// </summary>
@@ -40,8 +38,7 @@ public static KinematicViscosity FromStokes(double? Stokes)
         return null;
 
     return new KinematicViscosity((double)Stokes, KinematicViscosityUnit.Stokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Centistokes.
 /// </summary>
@@ -52,8 +49,7 @@ public static KinematicViscosity FromCentistokes(double? Centistokes)
         return null;
 
     return new KinematicViscosity((double)Centistokes, KinematicViscosityUnit.Centistokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Decistokes.
 /// </summary>
@@ -64,8 +60,7 @@ public static KinematicViscosity FromDecistokes(double? Decistokes)
         return null;
 
     return new KinematicViscosity((double)Decistokes, KinematicViscosityUnit.Decistokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Kilostokes.
 /// </summary>
@@ -76,8 +71,7 @@ public static KinematicViscosity FromKilostokes(double? Kilostokes)
         return null;
 
     return new KinematicViscosity((double)Kilostokes, KinematicViscosityUnit.Kilostokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Microstokes.
 /// </summary>
@@ -88,8 +82,7 @@ public static KinematicViscosity FromMicrostokes(double? Microstokes)
         return null;
 
     return new KinematicViscosity((double)Microstokes, KinematicViscosityUnit.Microstokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Millistokes.
 /// </summary>
@@ -100,8 +93,7 @@ public static KinematicViscosity FromMillistokes(double? Millistokes)
         return null;
 
     return new KinematicViscosity((double)Millistokes, KinematicViscosityUnit.Millistokes);
-}
-
+}                     
 /// <summary>
 /// Get KinematicViscosity from Nanostokes.
 /// </summary>
@@ -112,7 +104,6 @@ public static KinematicViscosity FromNanostokes(double? Nanostokes)
         return null;
 
     return new KinematicViscosity((double)Nanostokes, KinematicViscosityUnit.Nanostokes);
-}
-
+}                     
 
 }                     

@@ -16,8 +16,7 @@ public static AreaDensity FromSI(double? SI)
         return null;
 
     return new AreaDensity((double)SI, AreaDensityUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get AreaDensity from KilogramPerSquareMeter.
 /// </summary>
@@ -28,7 +27,6 @@ public static AreaDensity FromKilogramPerSquareMeter(double? KilogramPerSquareMe
         return null;
 
     return new AreaDensity((double)KilogramPerSquareMeter, AreaDensityUnit.KilogramPerSquareMeter);
-}
-
+}                     
 
 }                     

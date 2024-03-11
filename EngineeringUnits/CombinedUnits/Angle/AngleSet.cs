@@ -16,8 +16,7 @@ public static Angle FromSI(double? SI)
         return null;
 
     return new Angle((double)SI, AngleUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Arcminute.
 /// </summary>
@@ -28,8 +27,7 @@ public static Angle FromArcminute(double? Arcminute)
         return null;
 
     return new Angle((double)Arcminute, AngleUnit.Arcminute);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Arcsecond.
 /// </summary>
@@ -40,8 +38,7 @@ public static Angle FromArcsecond(double? Arcsecond)
         return null;
 
     return new Angle((double)Arcsecond, AngleUnit.Arcsecond);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Gradian.
 /// </summary>
@@ -52,8 +49,7 @@ public static Angle FromGradian(double? Gradian)
         return null;
 
     return new Angle((double)Gradian, AngleUnit.Gradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Radian.
 /// </summary>
@@ -64,8 +60,7 @@ public static Angle FromRadian(double? Radian)
         return null;
 
     return new Angle((double)Radian, AngleUnit.Radian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Centiradian.
 /// </summary>
@@ -76,8 +71,7 @@ public static Angle FromCentiradian(double? Centiradian)
         return null;
 
     return new Angle((double)Centiradian, AngleUnit.Centiradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Deciradian.
 /// </summary>
@@ -88,8 +82,7 @@ public static Angle FromDeciradian(double? Deciradian)
         return null;
 
     return new Angle((double)Deciradian, AngleUnit.Deciradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Microradian.
 /// </summary>
@@ -100,8 +93,7 @@ public static Angle FromMicroradian(double? Microradian)
         return null;
 
     return new Angle((double)Microradian, AngleUnit.Microradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Milliradian.
 /// </summary>
@@ -112,8 +104,7 @@ public static Angle FromMilliradian(double? Milliradian)
         return null;
 
     return new Angle((double)Milliradian, AngleUnit.Milliradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Nanoradian.
 /// </summary>
@@ -124,8 +115,7 @@ public static Angle FromNanoradian(double? Nanoradian)
         return null;
 
     return new Angle((double)Nanoradian, AngleUnit.Nanoradian);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Degree.
 /// </summary>
@@ -136,8 +126,7 @@ public static Angle FromDegree(double? Degree)
         return null;
 
     return new Angle((double)Degree, AngleUnit.Degree);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Microdegree.
 /// </summary>
@@ -148,8 +137,7 @@ public static Angle FromMicrodegree(double? Microdegree)
         return null;
 
     return new Angle((double)Microdegree, AngleUnit.Microdegree);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Millidegree.
 /// </summary>
@@ -160,8 +148,7 @@ public static Angle FromMillidegree(double? Millidegree)
         return null;
 
     return new Angle((double)Millidegree, AngleUnit.Millidegree);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Nanodegree.
 /// </summary>
@@ -172,8 +159,7 @@ public static Angle FromNanodegree(double? Nanodegree)
         return null;
 
     return new Angle((double)Nanodegree, AngleUnit.Nanodegree);
-}
-
+}                     
 /// <summary>
 /// Get Angle from Revolution.
 /// </summary>
@@ -184,7 +170,6 @@ public static Angle FromRevolution(double? Revolution)
         return null;
 
     return new Angle((double)Revolution, AngleUnit.Revolution);
-}
-
+}                     
 
 }                     

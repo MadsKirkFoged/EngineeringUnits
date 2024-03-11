@@ -16,8 +16,7 @@ public static LuminousFlux FromSI(double? SI)
         return null;
 
     return new LuminousFlux((double)SI, LuminousFluxUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get LuminousFlux from Lumen.
 /// </summary>
@@ -28,7 +27,6 @@ public static LuminousFlux FromLumen(double? Lumen)
         return null;
 
     return new LuminousFlux((double)Lumen, LuminousFluxUnit.Lumen);
-}
-
+}                     
 
 }                     

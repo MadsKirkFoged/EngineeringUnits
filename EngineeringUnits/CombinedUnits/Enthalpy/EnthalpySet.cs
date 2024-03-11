@@ -16,8 +16,7 @@ public static Enthalpy FromSI(double? SI)
         return null;
 
     return new Enthalpy((double)SI, EnthalpyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from JoulePerKilogram.
 /// </summary>
@@ -28,8 +27,7 @@ public static Enthalpy FromJoulePerKilogram(double? JoulePerKilogram)
         return null;
 
     return new Enthalpy((double)JoulePerKilogram, EnthalpyUnit.JoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilojoulePerKilogram.
 /// </summary>
@@ -40,8 +38,7 @@ public static Enthalpy FromKilojoulePerKilogram(double? KilojoulePerKilogram)
         return null;
 
     return new Enthalpy((double)KilojoulePerKilogram, EnthalpyUnit.KilojoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from MegajoulePerKilogram.
 /// </summary>
@@ -52,8 +49,7 @@ public static Enthalpy FromMegajoulePerKilogram(double? MegajoulePerKilogram)
         return null;
 
     return new Enthalpy((double)MegajoulePerKilogram, EnthalpyUnit.MegajoulePerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from BtuPerPound.
 /// </summary>
@@ -64,8 +60,7 @@ public static Enthalpy FromBtuPerPound(double? BtuPerPound)
         return null;
 
     return new Enthalpy((double)BtuPerPound, EnthalpyUnit.BtuPerPound);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from CaloriePerGram.
 /// </summary>
@@ -76,8 +71,7 @@ public static Enthalpy FromCaloriePerGram(double? CaloriePerGram)
         return null;
 
     return new Enthalpy((double)CaloriePerGram, EnthalpyUnit.CaloriePerGram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilocaloriePerGram.
 /// </summary>
@@ -88,8 +82,7 @@ public static Enthalpy FromKilocaloriePerGram(double? KilocaloriePerGram)
         return null;
 
     return new Enthalpy((double)KilocaloriePerGram, EnthalpyUnit.KilocaloriePerGram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from WattDayPerKilogram.
 /// </summary>
@@ -100,8 +93,7 @@ public static Enthalpy FromWattDayPerKilogram(double? WattDayPerKilogram)
         return null;
 
     return new Enthalpy((double)WattDayPerKilogram, EnthalpyUnit.WattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilowattDayPerKilogram.
 /// </summary>
@@ -112,8 +104,7 @@ public static Enthalpy FromKilowattDayPerKilogram(double? KilowattDayPerKilogram
         return null;
 
     return new Enthalpy((double)KilowattDayPerKilogram, EnthalpyUnit.KilowattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from MegawattDayPerKilogram.
 /// </summary>
@@ -124,8 +115,7 @@ public static Enthalpy FromMegawattDayPerKilogram(double? MegawattDayPerKilogram
         return null;
 
     return new Enthalpy((double)MegawattDayPerKilogram, EnthalpyUnit.MegawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from GigawattDayPerKilogram.
 /// </summary>
@@ -136,8 +126,7 @@ public static Enthalpy FromGigawattDayPerKilogram(double? GigawattDayPerKilogram
         return null;
 
     return new Enthalpy((double)GigawattDayPerKilogram, EnthalpyUnit.GigawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from TerawattDayPerKilogram.
 /// </summary>
@@ -148,8 +137,7 @@ public static Enthalpy FromTerawattDayPerKilogram(double? TerawattDayPerKilogram
         return null;
 
     return new Enthalpy((double)TerawattDayPerKilogram, EnthalpyUnit.TerawattDayPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from WattHourPerKilogram.
 /// </summary>
@@ -160,8 +148,7 @@ public static Enthalpy FromWattHourPerKilogram(double? WattHourPerKilogram)
         return null;
 
     return new Enthalpy((double)WattHourPerKilogram, EnthalpyUnit.WattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilowattHourPerKilogram.
 /// </summary>
@@ -172,8 +159,7 @@ public static Enthalpy FromKilowattHourPerKilogram(double? KilowattHourPerKilogr
         return null;
 
     return new Enthalpy((double)KilowattHourPerKilogram, EnthalpyUnit.KilowattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from MegawattHourPerKilogram.
 /// </summary>
@@ -184,8 +170,7 @@ public static Enthalpy FromMegawattHourPerKilogram(double? MegawattHourPerKilogr
         return null;
 
     return new Enthalpy((double)MegawattHourPerKilogram, EnthalpyUnit.MegawattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from GigawattHourPerKilogram.
 /// </summary>
@@ -196,8 +181,7 @@ public static Enthalpy FromGigawattHourPerKilogram(double? GigawattHourPerKilogr
         return null;
 
     return new Enthalpy((double)GigawattHourPerKilogram, EnthalpyUnit.GigawattHourPerKilogram);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from WattDayPerTonne.
 /// </summary>
@@ -208,8 +192,7 @@ public static Enthalpy FromWattDayPerTonne(double? WattDayPerTonne)
         return null;
 
     return new Enthalpy((double)WattDayPerTonne, EnthalpyUnit.WattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilowattDayPerTonne.
 /// </summary>
@@ -220,8 +203,7 @@ public static Enthalpy FromKilowattDayPerTonne(double? KilowattDayPerTonne)
         return null;
 
     return new Enthalpy((double)KilowattDayPerTonne, EnthalpyUnit.KilowattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from MegawattDayPerTonne.
 /// </summary>
@@ -232,8 +214,7 @@ public static Enthalpy FromMegawattDayPerTonne(double? MegawattDayPerTonne)
         return null;
 
     return new Enthalpy((double)MegawattDayPerTonne, EnthalpyUnit.MegawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from GigawattDayPerTonne.
 /// </summary>
@@ -244,8 +225,7 @@ public static Enthalpy FromGigawattDayPerTonne(double? GigawattDayPerTonne)
         return null;
 
     return new Enthalpy((double)GigawattDayPerTonne, EnthalpyUnit.GigawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from TerawattDayPerTonne.
 /// </summary>
@@ -256,8 +236,7 @@ public static Enthalpy FromTerawattDayPerTonne(double? TerawattDayPerTonne)
         return null;
 
     return new Enthalpy((double)TerawattDayPerTonne, EnthalpyUnit.TerawattDayPerTonne);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from WattDayPerShortTon.
 /// </summary>
@@ -268,8 +247,7 @@ public static Enthalpy FromWattDayPerShortTon(double? WattDayPerShortTon)
         return null;
 
     return new Enthalpy((double)WattDayPerShortTon, EnthalpyUnit.WattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from KilowattDayPerShortTon.
 /// </summary>
@@ -280,8 +258,7 @@ public static Enthalpy FromKilowattDayPerShortTon(double? KilowattDayPerShortTon
         return null;
 
     return new Enthalpy((double)KilowattDayPerShortTon, EnthalpyUnit.KilowattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from MegawattDayPerShortTon.
 /// </summary>
@@ -292,8 +269,7 @@ public static Enthalpy FromMegawattDayPerShortTon(double? MegawattDayPerShortTon
         return null;
 
     return new Enthalpy((double)MegawattDayPerShortTon, EnthalpyUnit.MegawattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from GigawattDayPerShortTon.
 /// </summary>
@@ -304,8 +280,7 @@ public static Enthalpy FromGigawattDayPerShortTon(double? GigawattDayPerShortTon
         return null;
 
     return new Enthalpy((double)GigawattDayPerShortTon, EnthalpyUnit.GigawattDayPerShortTon);
-}
-
+}                     
 /// <summary>
 /// Get Enthalpy from TerawattDayPerShortTon.
 /// </summary>
@@ -316,7 +291,6 @@ public static Enthalpy FromTerawattDayPerShortTon(double? TerawattDayPerShortTon
         return null;
 
     return new Enthalpy((double)TerawattDayPerShortTon, EnthalpyUnit.TerawattDayPerShortTon);
-}
-
+}                     
 
 }                     

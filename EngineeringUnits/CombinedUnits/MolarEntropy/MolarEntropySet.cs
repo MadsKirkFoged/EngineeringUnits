@@ -16,8 +16,7 @@ public static MolarEntropy FromSI(double? SI)
         return null;
 
     return new MolarEntropy((double)SI, MolarEntropyUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get MolarEntropy from JoulePerMoleKelvin.
 /// </summary>
@@ -28,8 +27,7 @@ public static MolarEntropy FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
         return null;
 
     return new MolarEntropy((double)JoulePerMoleKelvin, MolarEntropyUnit.JoulePerMoleKelvin);
-}
-
+}                     
 /// <summary>
 /// Get MolarEntropy from KilojoulePerMoleKelvin.
 /// </summary>
@@ -40,8 +38,7 @@ public static MolarEntropy FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKe
         return null;
 
     return new MolarEntropy((double)KilojoulePerMoleKelvin, MolarEntropyUnit.KilojoulePerMoleKelvin);
-}
-
+}                     
 /// <summary>
 /// Get MolarEntropy from MegajoulePerMoleKelvin.
 /// </summary>
@@ -52,7 +49,6 @@ public static MolarEntropy FromMegajoulePerMoleKelvin(double? MegajoulePerMoleKe
         return null;
 
     return new MolarEntropy((double)MegajoulePerMoleKelvin, MolarEntropyUnit.MegajoulePerMoleKelvin);
-}
-
+}                     
 
 }                     

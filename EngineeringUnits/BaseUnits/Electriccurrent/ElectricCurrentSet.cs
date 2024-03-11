@@ -16,8 +16,7 @@ public static ElectricCurrent FromSI(double? SI)
         return null;
 
     return new ElectricCurrent((double)SI, ElectricCurrentUnit.SI);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Ampere.
 /// </summary>
@@ -28,8 +27,7 @@ public static ElectricCurrent FromAmpere(double? Ampere)
         return null;
 
     return new ElectricCurrent((double)Ampere, ElectricCurrentUnit.Ampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Centiampere.
 /// </summary>
@@ -40,8 +38,7 @@ public static ElectricCurrent FromCentiampere(double? Centiampere)
         return null;
 
     return new ElectricCurrent((double)Centiampere, ElectricCurrentUnit.Centiampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Kiloampere.
 /// </summary>
@@ -52,8 +49,7 @@ public static ElectricCurrent FromKiloampere(double? Kiloampere)
         return null;
 
     return new ElectricCurrent((double)Kiloampere, ElectricCurrentUnit.Kiloampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Megaampere.
 /// </summary>
@@ -64,8 +60,7 @@ public static ElectricCurrent FromMegaampere(double? Megaampere)
         return null;
 
     return new ElectricCurrent((double)Megaampere, ElectricCurrentUnit.Megaampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Microampere.
 /// </summary>
@@ -76,8 +71,7 @@ public static ElectricCurrent FromMicroampere(double? Microampere)
         return null;
 
     return new ElectricCurrent((double)Microampere, ElectricCurrentUnit.Microampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Milliampere.
 /// </summary>
@@ -88,8 +82,7 @@ public static ElectricCurrent FromMilliampere(double? Milliampere)
         return null;
 
     return new ElectricCurrent((double)Milliampere, ElectricCurrentUnit.Milliampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Nanoampere.
 /// </summary>
@@ -100,8 +93,7 @@ public static ElectricCurrent FromNanoampere(double? Nanoampere)
         return null;
 
     return new ElectricCurrent((double)Nanoampere, ElectricCurrentUnit.Nanoampere);
-}
-
+}                     
 /// <summary>
 /// Get ElectricCurrent from Picoampere.
 /// </summary>
@@ -112,7 +104,6 @@ public static ElectricCurrent FromPicoampere(double? Picoampere)
         return null;
 
     return new ElectricCurrent((double)Picoampere, ElectricCurrentUnit.Picoampere);
-}
-
+}                     
 
 }                     
