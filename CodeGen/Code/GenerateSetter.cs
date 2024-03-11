@@ -67,46 +67,44 @@ internal class GenerateSetter
             return null;
         }
 
+        var test = $$"""
+                     using EngineeringUnits.Units;                     
+                     
+                     namespace EngineeringUnits;
+                     
+                     //This class is auto-generated, changes to the file will be overwritten!
+                     public partial class Variable
+                     {  
+                     
+                     [InsertHere]
+                     }                     
+                     """;
+
         var sb = new StringBuilder();
-
-        _=sb.AppendLine(@"
-using EngineeringUnits.Units;
-
-
-namespace EngineeringUnits
-{
-    //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Variable
-    {
-
- ");
 
         foreach (System.Reflection.FieldInfo i in t.GetFields())
         {
 
-            _=sb.Append(@"
-        /// <summary>
-        ///     Get Variable from UnitEnum.
-        /// </summary>
-        /// <exception cref=""ArgumentException"">If value is NaN or Infinity.</exception>
-        public static Variable FromUnitEnum(double? UnitEnum)
-        {
-            if (UnitEnum is null)
-                return null;
+            var test2 = $$"""
+                     /// <summary>
+                     /// Get Variable from UnitEnum.
+                     /// </summary>
+                     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+                     public static Variable FromUnitEnum(double? UnitEnum)
+                     {
+                         if (UnitEnum is null)
+                             return null;
+                     
+                         return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
+                     }
+                     
+                     """.Replace("UnitEnum", $"{i.Name}");
 
-            return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
-        }");
+            _=sb.AppendLine(test2);
 
-            sb = sb.Replace("UnitEnum", $"{i.Name}");
         }
 
-        _=sb.AppendLine(@"
-    }
-}
-
-");
-
-        return sb.ToString();
+        return test.Replace("[InsertHere]", sb.ToString());
 
     }
 }

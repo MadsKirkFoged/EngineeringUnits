@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class SpecificWeight : BaseUnit
-{
-
+{                   
     public SpecificWeight() { }
     public SpecificWeight(decimal value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public SpecificWeight(double value, SpecificWeightUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class SpecificWeight : BaseUnit
     public static implicit operator SpecificWeight(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, SpecificWeightUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(SpecificWeight Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);    
 }

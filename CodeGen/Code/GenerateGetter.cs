@@ -23,9 +23,7 @@ internal class GenerateGetter
 
             foreach (var i in item)
             {
-
                 sb = sb.Replace("Variable", $"{item}");
-
             }
 
             var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
@@ -58,41 +56,37 @@ internal class GenerateGetter
 
     public static string Getter(string className)
     {
-        var sb = new StringBuilder();
-
-        _=sb.AppendLine(@"
-using EngineeringUnits.Units;
-
-namespace EngineeringUnits;
-//This class is auto-generated, changes to the file will be overwritten!
-public partial class Variable
-{
-");
-        // sb.Append(AllGetters());
-
         var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
+        var sb = new StringBuilder();
 
         if (t is null)
             return null;
 
+        var test = $$"""
+                     using EngineeringUnits.Units;                     
+                     
+                     namespace EngineeringUnits;
+                     
+                     //This class is auto-generated, changes to the file will be overwritten!
+                     public partial class Variable
+                     {  
+                     
+                     [InsertHere]
+                     }                     
+                     """;
+
         foreach (System.Reflection.FieldInfo i in t.GetFields())
         {
-            _=sb.Append(@"
-            /// <summary>
-            ///     Get Variable in UnitEnum.
-            /// </summary>
-            public double UnitEnum => As(VariableUnit.UnitEnum);");
+            var test2 = $$"""
+                     /// <summary>
+                     /// Get Variable in UnitEnum.
+                     /// </summary>
+                     public double UnitEnum => As(VariableUnit.UnitEnum);                     
+                     """.Replace("UnitEnum", $"{i.Name}");
 
-            sb = sb.Replace("UnitEnum", $"{i.Name}");
+            _=sb.AppendLine(test2);
         }
 
-        _=sb.AppendLine(@"
-    }
-
-
-");
-
-        return sb.ToString();
-
+        return test.Replace("[InsertHere]", sb.ToString());
     }
 }

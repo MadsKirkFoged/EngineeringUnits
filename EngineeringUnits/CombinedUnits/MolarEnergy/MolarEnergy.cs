@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class MolarEnergy : BaseUnit
-{
-
+{                   
     public MolarEnergy() { }
     public MolarEnergy(decimal value, MolarEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public MolarEnergy(double value, MolarEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class MolarEnergy : BaseUnit
     public static implicit operator MolarEnergy(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, MolarEnergyUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(MolarEnergy Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);    
 }

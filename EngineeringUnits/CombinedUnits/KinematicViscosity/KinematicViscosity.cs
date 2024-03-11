@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class KinematicViscosity : BaseUnit
-{
-
+{                   
     public KinematicViscosity() { }
     public KinematicViscosity(decimal value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public KinematicViscosity(double value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class KinematicViscosity : BaseUnit
     public static implicit operator KinematicViscosity(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, KinematicViscosityUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(KinematicViscosity Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<KinematicViscosityUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<KinematicViscosityUnit>(_unit);    
 }

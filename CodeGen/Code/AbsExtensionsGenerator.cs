@@ -36,14 +36,13 @@ internal static class AbsExtensionsGenerator
         }
 
         var builder = $$"""
+                         namespace EngineeringUnits;
+                         public static class AbsExtensions
+                         {
+                             [InsertFunctions]
+                         }
 
-                               namespace EngineeringUnits;
-                               public static class AbsExtensions
-                               {
-                                   [InsertFunctions]
-                               }
-
-                               """.Replace("[InsertFunctions]", conditionals.ToString());
+                         """.Replace("[InsertFunctions]", conditionals.ToString());
 
         File.WriteAllText(Path.Combine(projectRootPath, "AbsExtensions.cs"), builder);
     }

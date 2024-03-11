@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class EnergyCost : BaseUnit
-{
-
+{                   
     public EnergyCost() { }
     public EnergyCost(decimal value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public EnergyCost(double value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class EnergyCost : BaseUnit
     public static implicit operator EnergyCost(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, EnergyCostUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(EnergyCost Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyCostUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyCostUnit>(_unit);    
 }

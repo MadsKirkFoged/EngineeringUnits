@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class RotationalSpeed : BaseUnit
-{
-
+{                   
     public RotationalSpeed() { }
     public RotationalSpeed(decimal value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public RotationalSpeed(double value, RotationalSpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class RotationalSpeed : BaseUnit
     public static implicit operator RotationalSpeed(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, RotationalSpeedUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(RotationalSpeed Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);    
 }

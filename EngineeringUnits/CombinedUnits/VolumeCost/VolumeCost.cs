@@ -1,12 +1,10 @@
-
 using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class VolumeCost : BaseUnit
-{
-
+{                   
     public VolumeCost() { }
     public VolumeCost(decimal value, VolumeCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public VolumeCost(double value, VolumeCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -32,19 +30,19 @@ public partial class VolumeCost : BaseUnit
     public static implicit operator VolumeCost(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, VolumeCostUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
     public static implicit operator UnknownUnit(VolumeCost Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeCostUnit>(_unit);
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeCostUnit>(_unit);    
 }
