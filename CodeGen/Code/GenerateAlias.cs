@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace CodeGen.Code;
 
@@ -38,10 +37,8 @@ internal class GenerateAlias
         foreach (KeyValuePair<string, string> item in ListOfUnitsForDifferentGenerators.AliasList())
         {
 
-            var sb = CreateAlias();
-
-            sb = sb.Replace("Variable", $"{item.Value}");
-            sb = sb.Replace("Original", $"{item.Key}");
+            var sb = CreateAlias().Replace("Variable", $"{item.Value}")
+                                  .Replace("Original", $"{item.Key}");
 
             var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item.Value);
 
@@ -53,38 +50,29 @@ internal class GenerateAlias
     public static string CreateAlias()
     {
 
-        var sb = new StringBuilder();
-        _=sb.AppendLine(@"
-using EngineeringUnits.Units;
-
-
-namespace EngineeringUnits
-{   //This class is auto-generated, changes to the file will be overwritten!
-    public partial class Variable : BaseUnit
-    {
-        public static implicit operator Variable(Original Unit)
-        {
-            if (Unit is null)
-                return null;           
-
-            return new(Unit);
-        }
-
-        public static implicit operator Original(Variable Unit)
-        {
-            if (Unit is null)
-                return null;           
-
-            return new(Unit);
-        }
-    }
-}
-
-
-
- ");
-
-        return sb.ToString();
-
+        return $$"""
+                   namespace EngineeringUnits;
+                   //This class is auto-generated, changes to the file will be overwritten!
+                    
+                   public partial class Variable : BaseUnit
+                   {
+                       public static implicit operator Variable(Original Unit)
+                       {
+                           if (Unit is null)
+                               return null;           
+                   
+                           return new(Unit);
+                       }
+                   
+                       public static implicit operator Original(Variable Unit)
+                       {
+                           if (Unit is null)
+                               return null;           
+                   
+                           return new(Unit);
+                       }
+                   }
+                   
+                   """;
     }
 }
