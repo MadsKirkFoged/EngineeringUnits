@@ -58,7 +58,7 @@ public partial class TemperatureDelta
     ///     Get Temperature in SI Unit (Kelvin).
     /// </summary>
     [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
-    public new double SI => As(TemperatureUnit.SI);
+    public double SI => As(TemperatureUnit.SI);
 
     /// <summary>
     ///     Get Temperature in MillidegreesCelsius.

@@ -4,7 +4,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class AmountOfSubstance : BaseUnit
-{                   
+{
     public AmountOfSubstance() { }
     public AmountOfSubstance(decimal value, AmountOfSubstanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public AmountOfSubstance(double value, AmountOfSubstanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -30,19 +30,19 @@ public partial class AmountOfSubstance : BaseUnit
     public static implicit operator AmountOfSubstance(UnknownUnit Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, AmountOfSubstanceUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit(AmountOfSubstance Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit);    
+    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit);
 }

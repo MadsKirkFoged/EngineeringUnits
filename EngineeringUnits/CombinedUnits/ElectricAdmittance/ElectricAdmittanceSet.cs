@@ -28,5 +28,5 @@ public partial class ElectricAdmittance
     /// <summary>
     ///     Get ElectricAdmittance in SI Unit (Siemens).
     /// </summary>
-    public new double SI => As(ElectricAdmittanceUnit.SI);
+    public double SI => As(ElectricAdmittanceUnit.SI);
 }
