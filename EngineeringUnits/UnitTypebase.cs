@@ -15,12 +15,15 @@ public record UnitTypebase
 {
 
     [JsonIgnore]
-    public string QuantityName { get; set; }
+    public string? QuantityName { get; set; }
 
     //[JsonIgnore]
     public UnitSystem Unit { get; init; }
 
-    public UnitTypebase() { }
+    public UnitTypebase()
+    {
+        Unit = new UnitSystem();
+    }
 
     protected UnitTypebase(PreFix SI, UnitTypebase baseunit)
     {

@@ -1,6 +1,7 @@
 using Fractions;
 using Newtonsoft.Json;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace EngineeringUnits;
@@ -60,6 +61,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         NEWValue = unit.NEWValue;
     }
 
+    [return: NotNullIfNotNull(nameof(left))]
+    [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator +(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
@@ -146,6 +149,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return left + new BaseUnit(right);
     }
 
+    [return: NotNullIfNotNull(nameof(left))]
+    [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator -(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
@@ -237,14 +242,11 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return left - new BaseUnit(right);
     }
 
-    //[return: NotNullIfNotNull(nameof(left))]
-    //[return: NotNullIfNotNull(nameof(right))]
+    [return: NotNullIfNotNull(nameof(left))]
+    [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator *(BaseUnit? left, BaseUnit? right)
     {
-        if (left is null)
-            return null;
-
-        if (right is null)
+        if (left is null || right is null)
             return null;
 
         if (left.IsNaN() || right.IsNaN())
@@ -321,6 +323,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return left * new BaseUnit(right);
     }
 
+    [return: NotNullIfNotNull(nameof(left))]
+    [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator /(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
@@ -613,9 +617,9 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     }
     public bool Equals(BaseUnit? other) => this == other;
 
-    public int CompareTo(object obj)
+    public int CompareTo(object? obj)
     {
-        var local = (BaseUnit)obj;
+        var local = (BaseUnit?)obj;
 
         return CompareTo(local);
     }

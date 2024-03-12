@@ -27,7 +27,8 @@ public static class UnitSystemExtensions
             NewUnitList.Add(item.CloneWithNewCount(item.Count/2));
         }
 
-        RawUnit combinedUnit = local.ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit).FirstOrDefault();
+        RawUnit? combinedUnit = local.ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit)
+                                                 .FirstOrDefault();
 
         if (combinedUnit is not null)
         {

@@ -20,12 +20,12 @@ internal class Program
         //UnitGenerator.GenerateClasses(libraryDir);
         //GenerateUnitEnum.GenerateClasses(libraryDir);
         //GenerateAlias.GenerateEnums(libraryDir);
-        GenerateSetter.GenerateSetterClasses(libraryDir);
+        //GenerateSetter.GenerateSetterClasses(libraryDir);
         //GenerateGetter.GenerateGetterClasses(libraryDir);
         //GenerateAlias.AliasClass(libraryDir);
 
         //AbsExtensionsGenerator.Generate(libraryDir);
-        //UnknownUnitExtensionsGenerator.Generate(libraryDir);
+        UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
         //_=UnitListGenerator.ShowUnittypes();
         //_=UnitListGenerator.ShowUnitNames();

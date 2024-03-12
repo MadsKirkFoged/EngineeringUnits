@@ -31,7 +31,7 @@ public class UnitSystem
     }
 
     public UnitSystem(RawUnit unit) : this([unit]) { }
-    public UnitSystem(decimal unit, string symbol)
+    public UnitSystem(decimal unit, string? symbol)
     {
         //Adding just a dimensionless unit
         var dimensionless = new RawUnit()
@@ -95,13 +95,10 @@ public class UnitSystem
     {
         var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
 
-        if (CacheMultiply.TryGetValue(Hashes, out UnitSystem local))
+        if (CacheMultiply.TryGetValue(Hashes, out UnitSystem? local))
             return local;
 
-        var test2 = new UnitSystem(
-                new List<RawUnit>(
-                    left.ListOfUnits.Concat(
-                    right.ListOfUnits)));
+        var test2 = new UnitSystem(new List<RawUnit>(left.ListOfUnits.Concat(right.ListOfUnits)));
         _ = CacheMultiply.TryAdd(Hashes, test2);
 
         return test2;
@@ -139,7 +136,7 @@ public class UnitSystem
     {
         var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
 
-        if (CacheDivide.TryGetValue(Hashes, out UnitSystem local))
+        if (CacheDivide.TryGetValue(Hashes, out UnitSystem? local))
             return local;
 
         List<RawUnit> LocalUnitList = new(left.ListOfUnits);

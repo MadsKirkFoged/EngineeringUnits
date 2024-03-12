@@ -27,7 +27,7 @@ internal static class AbsExtensionsGenerator
                                      if (a.GetBaseValue() > 0)
                                          return a;
 
-                                     return (-a)!;
+                                     return -a;
                                  }
                                """.Replace("Variable", $"{item}");
 

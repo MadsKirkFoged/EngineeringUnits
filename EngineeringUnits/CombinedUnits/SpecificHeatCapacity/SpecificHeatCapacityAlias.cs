@@ -8,7 +8,7 @@ public partial class SpecificHeatCapacity : BaseUnit
         if (Unit is null)
             return null;
 
-        return new(Unit);
+        return new(Unit!);
     }
 
     public static implicit operator SpecificEntropy?(SpecificHeatCapacity? Unit)
@@ -16,6 +16,6 @@ public partial class SpecificHeatCapacity : BaseUnit
         if (Unit is null)
             return null;
 
-        return new(Unit);
+        return new(Unit!);
     }
 }
