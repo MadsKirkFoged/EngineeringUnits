@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class BitRate
 /// Get BitRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static BitRate? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static BitRate? FromSI(double? SI)
 /// Get BitRate from BytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BytePerSecond))]
 public static BitRate? FromBytePerSecond(double? BytePerSecond)
 {
     if (BytePerSecond is null)
@@ -32,6 +35,7 @@ public static BitRate? FromBytePerSecond(double? BytePerSecond)
 /// Get BitRate from BitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BitPerSecond))]
 public static BitRate? FromBitPerSecond(double? BitPerSecond)
 {
     if (BitPerSecond is null)
@@ -43,6 +47,7 @@ public static BitRate? FromBitPerSecond(double? BitPerSecond)
 /// Get BitRate from KibibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KibibitPerSecond))]
 public static BitRate? FromKibibitPerSecond(double? KibibitPerSecond)
 {
     if (KibibitPerSecond is null)
@@ -54,6 +59,7 @@ public static BitRate? FromKibibitPerSecond(double? KibibitPerSecond)
 /// Get BitRate from MebibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MebibitPerSecond))]
 public static BitRate? FromMebibitPerSecond(double? MebibitPerSecond)
 {
     if (MebibitPerSecond is null)
@@ -65,6 +71,7 @@ public static BitRate? FromMebibitPerSecond(double? MebibitPerSecond)
 /// Get BitRate from GibibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GibibitPerSecond))]
 public static BitRate? FromGibibitPerSecond(double? GibibitPerSecond)
 {
     if (GibibitPerSecond is null)
@@ -76,6 +83,7 @@ public static BitRate? FromGibibitPerSecond(double? GibibitPerSecond)
 /// Get BitRate from TebibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TebibitPerSecond))]
 public static BitRate? FromTebibitPerSecond(double? TebibitPerSecond)
 {
     if (TebibitPerSecond is null)
@@ -87,6 +95,7 @@ public static BitRate? FromTebibitPerSecond(double? TebibitPerSecond)
 /// Get BitRate from PebibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PebibitPerSecond))]
 public static BitRate? FromPebibitPerSecond(double? PebibitPerSecond)
 {
     if (PebibitPerSecond is null)
@@ -98,6 +107,7 @@ public static BitRate? FromPebibitPerSecond(double? PebibitPerSecond)
 /// Get BitRate from ExbibitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ExbibitPerSecond))]
 public static BitRate? FromExbibitPerSecond(double? ExbibitPerSecond)
 {
     if (ExbibitPerSecond is null)
@@ -109,6 +119,7 @@ public static BitRate? FromExbibitPerSecond(double? ExbibitPerSecond)
 /// Get BitRate from KibibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KibibytePerSecond))]
 public static BitRate? FromKibibytePerSecond(double? KibibytePerSecond)
 {
     if (KibibytePerSecond is null)
@@ -120,6 +131,7 @@ public static BitRate? FromKibibytePerSecond(double? KibibytePerSecond)
 /// Get BitRate from MebibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MebibytePerSecond))]
 public static BitRate? FromMebibytePerSecond(double? MebibytePerSecond)
 {
     if (MebibytePerSecond is null)
@@ -131,6 +143,7 @@ public static BitRate? FromMebibytePerSecond(double? MebibytePerSecond)
 /// Get BitRate from GibibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GibibytePerSecond))]
 public static BitRate? FromGibibytePerSecond(double? GibibytePerSecond)
 {
     if (GibibytePerSecond is null)
@@ -142,6 +155,7 @@ public static BitRate? FromGibibytePerSecond(double? GibibytePerSecond)
 /// Get BitRate from TebibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TebibytePerSecond))]
 public static BitRate? FromTebibytePerSecond(double? TebibytePerSecond)
 {
     if (TebibytePerSecond is null)
@@ -153,6 +167,7 @@ public static BitRate? FromTebibytePerSecond(double? TebibytePerSecond)
 /// Get BitRate from PebibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PebibytePerSecond))]
 public static BitRate? FromPebibytePerSecond(double? PebibytePerSecond)
 {
     if (PebibytePerSecond is null)
@@ -164,6 +179,7 @@ public static BitRate? FromPebibytePerSecond(double? PebibytePerSecond)
 /// Get BitRate from ExbibytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ExbibytePerSecond))]
 public static BitRate? FromExbibytePerSecond(double? ExbibytePerSecond)
 {
     if (ExbibytePerSecond is null)
@@ -175,6 +191,7 @@ public static BitRate? FromExbibytePerSecond(double? ExbibytePerSecond)
 /// Get BitRate from KilobytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilobytePerSecond))]
 public static BitRate? FromKilobytePerSecond(double? KilobytePerSecond)
 {
     if (KilobytePerSecond is null)
@@ -186,6 +203,7 @@ public static BitRate? FromKilobytePerSecond(double? KilobytePerSecond)
 /// Get BitRate from MegabytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegabytePerSecond))]
 public static BitRate? FromMegabytePerSecond(double? MegabytePerSecond)
 {
     if (MegabytePerSecond is null)
@@ -197,6 +215,7 @@ public static BitRate? FromMegabytePerSecond(double? MegabytePerSecond)
 /// Get BitRate from GigabytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigabytePerSecond))]
 public static BitRate? FromGigabytePerSecond(double? GigabytePerSecond)
 {
     if (GigabytePerSecond is null)
@@ -208,6 +227,7 @@ public static BitRate? FromGigabytePerSecond(double? GigabytePerSecond)
 /// Get BitRate from TerabytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TerabytePerSecond))]
 public static BitRate? FromTerabytePerSecond(double? TerabytePerSecond)
 {
     if (TerabytePerSecond is null)
@@ -219,6 +239,7 @@ public static BitRate? FromTerabytePerSecond(double? TerabytePerSecond)
 /// Get BitRate from PetabytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PetabytePerSecond))]
 public static BitRate? FromPetabytePerSecond(double? PetabytePerSecond)
 {
     if (PetabytePerSecond is null)
@@ -230,6 +251,7 @@ public static BitRate? FromPetabytePerSecond(double? PetabytePerSecond)
 /// Get BitRate from ExabytePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ExabytePerSecond))]
 public static BitRate? FromExabytePerSecond(double? ExabytePerSecond)
 {
     if (ExabytePerSecond is null)
@@ -241,6 +263,7 @@ public static BitRate? FromExabytePerSecond(double? ExabytePerSecond)
 /// Get BitRate from KilobitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilobitPerSecond))]
 public static BitRate? FromKilobitPerSecond(double? KilobitPerSecond)
 {
     if (KilobitPerSecond is null)
@@ -252,6 +275,7 @@ public static BitRate? FromKilobitPerSecond(double? KilobitPerSecond)
 /// Get BitRate from MegabitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegabitPerSecond))]
 public static BitRate? FromMegabitPerSecond(double? MegabitPerSecond)
 {
     if (MegabitPerSecond is null)
@@ -263,6 +287,7 @@ public static BitRate? FromMegabitPerSecond(double? MegabitPerSecond)
 /// Get BitRate from GigabitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigabitPerSecond))]
 public static BitRate? FromGigabitPerSecond(double? GigabitPerSecond)
 {
     if (GigabitPerSecond is null)
@@ -274,6 +299,7 @@ public static BitRate? FromGigabitPerSecond(double? GigabitPerSecond)
 /// Get BitRate from TerabitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TerabitPerSecond))]
 public static BitRate? FromTerabitPerSecond(double? TerabitPerSecond)
 {
     if (TerabitPerSecond is null)
@@ -285,6 +311,7 @@ public static BitRate? FromTerabitPerSecond(double? TerabitPerSecond)
 /// Get BitRate from PetabitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PetabitPerSecond))]
 public static BitRate? FromPetabitPerSecond(double? PetabitPerSecond)
 {
     if (PetabitPerSecond is null)
@@ -296,6 +323,7 @@ public static BitRate? FromPetabitPerSecond(double? PetabitPerSecond)
 /// Get BitRate from ExabitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ExabitPerSecond))]
 public static BitRate? FromExabitPerSecond(double? ExabitPerSecond)
 {
     if (ExabitPerSecond is null)

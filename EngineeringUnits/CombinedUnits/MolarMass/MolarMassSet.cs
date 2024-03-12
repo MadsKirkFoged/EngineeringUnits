@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MolarMass
 /// Get MolarMass from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MolarMass? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MolarMass? FromSI(double? SI)
 /// Get MolarMass from KilogramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerMole))]
 public static MolarMass? FromKilogramPerMole(double? KilogramPerMole)
 {
     if (KilogramPerMole is null)
@@ -32,6 +35,7 @@ public static MolarMass? FromKilogramPerMole(double? KilogramPerMole)
 /// Get MolarMass from CentigramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentigramPerMole))]
 public static MolarMass? FromCentigramPerMole(double? CentigramPerMole)
 {
     if (CentigramPerMole is null)
@@ -43,6 +47,7 @@ public static MolarMass? FromCentigramPerMole(double? CentigramPerMole)
 /// Get MolarMass from DecagramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecagramPerMole))]
 public static MolarMass? FromDecagramPerMole(double? DecagramPerMole)
 {
     if (DecagramPerMole is null)
@@ -54,6 +59,7 @@ public static MolarMass? FromDecagramPerMole(double? DecagramPerMole)
 /// Get MolarMass from DecigramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecigramPerMole))]
 public static MolarMass? FromDecigramPerMole(double? DecigramPerMole)
 {
     if (DecigramPerMole is null)
@@ -65,6 +71,7 @@ public static MolarMass? FromDecigramPerMole(double? DecigramPerMole)
 /// Get MolarMass from GramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerMole))]
 public static MolarMass? FromGramPerMole(double? GramPerMole)
 {
     if (GramPerMole is null)
@@ -76,6 +83,7 @@ public static MolarMass? FromGramPerMole(double? GramPerMole)
 /// Get MolarMass from HectogramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HectogramPerMole))]
 public static MolarMass? FromHectogramPerMole(double? HectogramPerMole)
 {
     if (HectogramPerMole is null)
@@ -87,6 +95,7 @@ public static MolarMass? FromHectogramPerMole(double? HectogramPerMole)
 /// Get MolarMass from KilopoundPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundPerMole))]
 public static MolarMass? FromKilopoundPerMole(double? KilopoundPerMole)
 {
     if (KilopoundPerMole is null)
@@ -98,6 +107,7 @@ public static MolarMass? FromKilopoundPerMole(double? KilopoundPerMole)
 /// Get MolarMass from MegapoundPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegapoundPerMole))]
 public static MolarMass? FromMegapoundPerMole(double? MegapoundPerMole)
 {
     if (MegapoundPerMole is null)
@@ -109,6 +119,7 @@ public static MolarMass? FromMegapoundPerMole(double? MegapoundPerMole)
 /// Get MolarMass from MicrogramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrogramPerMole))]
 public static MolarMass? FromMicrogramPerMole(double? MicrogramPerMole)
 {
     if (MicrogramPerMole is null)
@@ -120,6 +131,7 @@ public static MolarMass? FromMicrogramPerMole(double? MicrogramPerMole)
 /// Get MolarMass from MilligramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilligramPerMole))]
 public static MolarMass? FromMilligramPerMole(double? MilligramPerMole)
 {
     if (MilligramPerMole is null)
@@ -131,6 +143,7 @@ public static MolarMass? FromMilligramPerMole(double? MilligramPerMole)
 /// Get MolarMass from NanogramPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanogramPerMole))]
 public static MolarMass? FromNanogramPerMole(double? NanogramPerMole)
 {
     if (NanogramPerMole is null)
@@ -142,6 +155,7 @@ public static MolarMass? FromNanogramPerMole(double? NanogramPerMole)
 /// Get MolarMass from PoundPerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundPerMole))]
 public static MolarMass? FromPoundPerMole(double? PoundPerMole)
 {
     if (PoundPerMole is null)

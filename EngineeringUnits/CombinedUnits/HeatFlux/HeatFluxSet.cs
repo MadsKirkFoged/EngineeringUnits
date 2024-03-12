@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class HeatFlux
 /// Get HeatFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static HeatFlux? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static HeatFlux? FromSI(double? SI)
 /// Get HeatFlux from WattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerSquareMeter))]
 public static HeatFlux? FromWattPerSquareMeter(double? WattPerSquareMeter)
 {
     if (WattPerSquareMeter is null)
@@ -32,6 +35,7 @@ public static HeatFlux? FromWattPerSquareMeter(double? WattPerSquareMeter)
 /// Get HeatFlux from WattPerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerSquareInch))]
 public static HeatFlux? FromWattPerSquareInch(double? WattPerSquareInch)
 {
     if (WattPerSquareInch is null)
@@ -43,6 +47,7 @@ public static HeatFlux? FromWattPerSquareInch(double? WattPerSquareInch)
 /// Get HeatFlux from WattPerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerSquareFoot))]
 public static HeatFlux? FromWattPerSquareFoot(double? WattPerSquareFoot)
 {
     if (WattPerSquareFoot is null)
@@ -54,6 +59,7 @@ public static HeatFlux? FromWattPerSquareFoot(double? WattPerSquareFoot)
 /// Get HeatFlux from BtuPerHourSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerHourSquareFoot))]
 public static HeatFlux? FromBtuPerHourSquareFoot(double? BtuPerHourSquareFoot)
 {
     if (BtuPerHourSquareFoot is null)
@@ -65,6 +71,7 @@ public static HeatFlux? FromBtuPerHourSquareFoot(double? BtuPerHourSquareFoot)
 /// Get HeatFlux from BtuPerMinuteSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerMinuteSquareFoot))]
 public static HeatFlux? FromBtuPerMinuteSquareFoot(double? BtuPerMinuteSquareFoot)
 {
     if (BtuPerMinuteSquareFoot is null)
@@ -76,6 +83,7 @@ public static HeatFlux? FromBtuPerMinuteSquareFoot(double? BtuPerMinuteSquareFoo
 /// Get HeatFlux from BtuPerSecondSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerSecondSquareFoot))]
 public static HeatFlux? FromBtuPerSecondSquareFoot(double? BtuPerSecondSquareFoot)
 {
     if (BtuPerSecondSquareFoot is null)
@@ -87,6 +95,7 @@ public static HeatFlux? FromBtuPerSecondSquareFoot(double? BtuPerSecondSquareFoo
 /// Get HeatFlux from BtuPerSecondSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerSecondSquareInch))]
 public static HeatFlux? FromBtuPerSecondSquareInch(double? BtuPerSecondSquareInch)
 {
     if (BtuPerSecondSquareInch is null)
@@ -98,6 +107,7 @@ public static HeatFlux? FromBtuPerSecondSquareInch(double? BtuPerSecondSquareInc
 /// Get HeatFlux from CaloriePerSecondSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CaloriePerSecondSquareCentimeter))]
 public static HeatFlux? FromCaloriePerSecondSquareCentimeter(double? CaloriePerSecondSquareCentimeter)
 {
     if (CaloriePerSecondSquareCentimeter is null)
@@ -109,6 +119,7 @@ public static HeatFlux? FromCaloriePerSecondSquareCentimeter(double? CaloriePerS
 /// Get HeatFlux from KilocaloriePerHourSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilocaloriePerHourSquareMeter))]
 public static HeatFlux? FromKilocaloriePerHourSquareMeter(double? KilocaloriePerHourSquareMeter)
 {
     if (KilocaloriePerHourSquareMeter is null)
@@ -120,6 +131,7 @@ public static HeatFlux? FromKilocaloriePerHourSquareMeter(double? KilocaloriePer
 /// Get HeatFlux from KilocaloriePerSecondSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilocaloriePerSecondSquareCentimeter))]
 public static HeatFlux? FromKilocaloriePerSecondSquareCentimeter(double? KilocaloriePerSecondSquareCentimeter)
 {
     if (KilocaloriePerSecondSquareCentimeter is null)
@@ -131,6 +143,7 @@ public static HeatFlux? FromKilocaloriePerSecondSquareCentimeter(double? Kilocal
 /// Get HeatFlux from KilowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilowattPerSquareMeter))]
 public static HeatFlux? FromKilowattPerSquareMeter(double? KilowattPerSquareMeter)
 {
     if (KilowattPerSquareMeter is null)
@@ -142,6 +155,7 @@ public static HeatFlux? FromKilowattPerSquareMeter(double? KilowattPerSquareMete
 /// Get HeatFlux from MicrowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrowattPerSquareMeter))]
 public static HeatFlux? FromMicrowattPerSquareMeter(double? MicrowattPerSquareMeter)
 {
     if (MicrowattPerSquareMeter is null)
@@ -153,6 +167,7 @@ public static HeatFlux? FromMicrowattPerSquareMeter(double? MicrowattPerSquareMe
 /// Get HeatFlux from MilliwattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilliwattPerSquareMeter))]
 public static HeatFlux? FromMilliwattPerSquareMeter(double? MilliwattPerSquareMeter)
 {
     if (MilliwattPerSquareMeter is null)
@@ -164,6 +179,7 @@ public static HeatFlux? FromMilliwattPerSquareMeter(double? MilliwattPerSquareMe
 /// Get HeatFlux from NanowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanowattPerSquareMeter))]
 public static HeatFlux? FromNanowattPerSquareMeter(double? NanowattPerSquareMeter)
 {
     if (NanowattPerSquareMeter is null)
@@ -175,6 +191,7 @@ public static HeatFlux? FromNanowattPerSquareMeter(double? NanowattPerSquareMete
 /// Get HeatFlux from CentiwattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentiwattPerSquareMeter))]
 public static HeatFlux? FromCentiwattPerSquareMeter(double? CentiwattPerSquareMeter)
 {
     if (CentiwattPerSquareMeter is null)
@@ -186,6 +203,7 @@ public static HeatFlux? FromCentiwattPerSquareMeter(double? CentiwattPerSquareMe
 /// Get HeatFlux from DeciwattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DeciwattPerSquareMeter))]
 public static HeatFlux? FromDeciwattPerSquareMeter(double? DeciwattPerSquareMeter)
 {
     if (DeciwattPerSquareMeter is null)
@@ -197,6 +215,7 @@ public static HeatFlux? FromDeciwattPerSquareMeter(double? DeciwattPerSquareMete
 /// Get HeatFlux from PoundForcePerFootSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerFootSecond))]
 public static HeatFlux? FromPoundForcePerFootSecond(double? PoundForcePerFootSecond)
 {
     if (PoundForcePerFootSecond is null)
@@ -208,6 +227,7 @@ public static HeatFlux? FromPoundForcePerFootSecond(double? PoundForcePerFootSec
 /// Get HeatFlux from PoundPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundPerSecondCubed))]
 public static HeatFlux? FromPoundPerSecondCubed(double? PoundPerSecondCubed)
 {
     if (PoundPerSecondCubed is null)

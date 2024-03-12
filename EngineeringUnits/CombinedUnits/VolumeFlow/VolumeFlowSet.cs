@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class VolumeFlow
 /// Get VolumeFlow from AcreFootPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AcreFootPerDay))]
 public static VolumeFlow? FromAcreFootPerDay(double? AcreFootPerDay)
 {
     if (AcreFootPerDay is null)
@@ -21,6 +23,7 @@ public static VolumeFlow? FromAcreFootPerDay(double? AcreFootPerDay)
 /// Get VolumeFlow from AcreFootPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AcreFootPerHour))]
 public static VolumeFlow? FromAcreFootPerHour(double? AcreFootPerHour)
 {
     if (AcreFootPerHour is null)
@@ -32,6 +35,7 @@ public static VolumeFlow? FromAcreFootPerHour(double? AcreFootPerHour)
 /// Get VolumeFlow from AcreFootPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AcreFootPerMinute))]
 public static VolumeFlow? FromAcreFootPerMinute(double? AcreFootPerMinute)
 {
     if (AcreFootPerMinute is null)
@@ -43,6 +47,7 @@ public static VolumeFlow? FromAcreFootPerMinute(double? AcreFootPerMinute)
 /// Get VolumeFlow from AcreFootPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AcreFootPerSecond))]
 public static VolumeFlow? FromAcreFootPerSecond(double? AcreFootPerSecond)
 {
     if (AcreFootPerSecond is null)
@@ -54,6 +59,7 @@ public static VolumeFlow? FromAcreFootPerSecond(double? AcreFootPerSecond)
 /// Get VolumeFlow from CentiliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentiliterPerDay))]
 public static VolumeFlow? FromCentiliterPerDay(double? CentiliterPerDay)
 {
     if (CentiliterPerDay is null)
@@ -65,6 +71,7 @@ public static VolumeFlow? FromCentiliterPerDay(double? CentiliterPerDay)
 /// Get VolumeFlow from CentiliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentiliterPerMinute))]
 public static VolumeFlow? FromCentiliterPerMinute(double? CentiliterPerMinute)
 {
     if (CentiliterPerMinute is null)
@@ -76,6 +83,7 @@ public static VolumeFlow? FromCentiliterPerMinute(double? CentiliterPerMinute)
 /// Get VolumeFlow from CentiliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentiliterPerSecond))]
 public static VolumeFlow? FromCentiliterPerSecond(double? CentiliterPerSecond)
 {
     if (CentiliterPerSecond is null)
@@ -87,6 +95,7 @@ public static VolumeFlow? FromCentiliterPerSecond(double? CentiliterPerSecond)
 /// Get VolumeFlow from CubicCentimeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicCentimeterPerMinute))]
 public static VolumeFlow? FromCubicCentimeterPerMinute(double? CubicCentimeterPerMinute)
 {
     if (CubicCentimeterPerMinute is null)
@@ -98,6 +107,7 @@ public static VolumeFlow? FromCubicCentimeterPerMinute(double? CubicCentimeterPe
 /// Get VolumeFlow from CubicDecimeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicDecimeterPerMinute))]
 public static VolumeFlow? FromCubicDecimeterPerMinute(double? CubicDecimeterPerMinute)
 {
     if (CubicDecimeterPerMinute is null)
@@ -109,6 +119,7 @@ public static VolumeFlow? FromCubicDecimeterPerMinute(double? CubicDecimeterPerM
 /// Get VolumeFlow from CubicFootPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicFootPerHour))]
 public static VolumeFlow? FromCubicFootPerHour(double? CubicFootPerHour)
 {
     if (CubicFootPerHour is null)
@@ -120,6 +131,7 @@ public static VolumeFlow? FromCubicFootPerHour(double? CubicFootPerHour)
 /// Get VolumeFlow from CubicFootPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicFootPerMinute))]
 public static VolumeFlow? FromCubicFootPerMinute(double? CubicFootPerMinute)
 {
     if (CubicFootPerMinute is null)
@@ -131,6 +143,7 @@ public static VolumeFlow? FromCubicFootPerMinute(double? CubicFootPerMinute)
 /// Get VolumeFlow from CubicFootPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicFootPerSecond))]
 public static VolumeFlow? FromCubicFootPerSecond(double? CubicFootPerSecond)
 {
     if (CubicFootPerSecond is null)
@@ -142,6 +155,7 @@ public static VolumeFlow? FromCubicFootPerSecond(double? CubicFootPerSecond)
 /// Get VolumeFlow from CubicMeterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMeterPerDay))]
 public static VolumeFlow? FromCubicMeterPerDay(double? CubicMeterPerDay)
 {
     if (CubicMeterPerDay is null)
@@ -153,6 +167,7 @@ public static VolumeFlow? FromCubicMeterPerDay(double? CubicMeterPerDay)
 /// Get VolumeFlow from CubicMeterPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMeterPerHour))]
 public static VolumeFlow? FromCubicMeterPerHour(double? CubicMeterPerHour)
 {
     if (CubicMeterPerHour is null)
@@ -164,6 +179,7 @@ public static VolumeFlow? FromCubicMeterPerHour(double? CubicMeterPerHour)
 /// Get VolumeFlow from CubicMeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMeterPerMinute))]
 public static VolumeFlow? FromCubicMeterPerMinute(double? CubicMeterPerMinute)
 {
     if (CubicMeterPerMinute is null)
@@ -175,6 +191,7 @@ public static VolumeFlow? FromCubicMeterPerMinute(double? CubicMeterPerMinute)
 /// Get VolumeFlow from CubicMeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMeterPerSecond))]
 public static VolumeFlow? FromCubicMeterPerSecond(double? CubicMeterPerSecond)
 {
     if (CubicMeterPerSecond is null)
@@ -186,6 +203,7 @@ public static VolumeFlow? FromCubicMeterPerSecond(double? CubicMeterPerSecond)
 /// Get VolumeFlow from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static VolumeFlow? FromSI(double? SI)
 {
     if (SI is null)
@@ -197,6 +215,7 @@ public static VolumeFlow? FromSI(double? SI)
 /// Get VolumeFlow from CubicMillimeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMillimeterPerSecond))]
 public static VolumeFlow? FromCubicMillimeterPerSecond(double? CubicMillimeterPerSecond)
 {
     if (CubicMillimeterPerSecond is null)
@@ -208,6 +227,7 @@ public static VolumeFlow? FromCubicMillimeterPerSecond(double? CubicMillimeterPe
 /// Get VolumeFlow from CubicYardPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicYardPerDay))]
 public static VolumeFlow? FromCubicYardPerDay(double? CubicYardPerDay)
 {
     if (CubicYardPerDay is null)
@@ -219,6 +239,7 @@ public static VolumeFlow? FromCubicYardPerDay(double? CubicYardPerDay)
 /// Get VolumeFlow from CubicYardPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicYardPerHour))]
 public static VolumeFlow? FromCubicYardPerHour(double? CubicYardPerHour)
 {
     if (CubicYardPerHour is null)
@@ -230,6 +251,7 @@ public static VolumeFlow? FromCubicYardPerHour(double? CubicYardPerHour)
 /// Get VolumeFlow from CubicYardPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicYardPerMinute))]
 public static VolumeFlow? FromCubicYardPerMinute(double? CubicYardPerMinute)
 {
     if (CubicYardPerMinute is null)
@@ -241,6 +263,7 @@ public static VolumeFlow? FromCubicYardPerMinute(double? CubicYardPerMinute)
 /// Get VolumeFlow from CubicYardPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicYardPerSecond))]
 public static VolumeFlow? FromCubicYardPerSecond(double? CubicYardPerSecond)
 {
     if (CubicYardPerSecond is null)
@@ -252,6 +275,7 @@ public static VolumeFlow? FromCubicYardPerSecond(double? CubicYardPerSecond)
 /// Get VolumeFlow from DeciliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DeciliterPerDay))]
 public static VolumeFlow? FromDeciliterPerDay(double? DeciliterPerDay)
 {
     if (DeciliterPerDay is null)
@@ -263,6 +287,7 @@ public static VolumeFlow? FromDeciliterPerDay(double? DeciliterPerDay)
 /// Get VolumeFlow from DeciliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DeciliterPerMinute))]
 public static VolumeFlow? FromDeciliterPerMinute(double? DeciliterPerMinute)
 {
     if (DeciliterPerMinute is null)
@@ -274,6 +299,7 @@ public static VolumeFlow? FromDeciliterPerMinute(double? DeciliterPerMinute)
 /// Get VolumeFlow from DeciliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DeciliterPerSecond))]
 public static VolumeFlow? FromDeciliterPerSecond(double? DeciliterPerSecond)
 {
     if (DeciliterPerSecond is null)
@@ -285,6 +311,7 @@ public static VolumeFlow? FromDeciliterPerSecond(double? DeciliterPerSecond)
 /// Get VolumeFlow from KiloliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KiloliterPerDay))]
 public static VolumeFlow? FromKiloliterPerDay(double? KiloliterPerDay)
 {
     if (KiloliterPerDay is null)
@@ -296,6 +323,7 @@ public static VolumeFlow? FromKiloliterPerDay(double? KiloliterPerDay)
 /// Get VolumeFlow from KiloliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KiloliterPerMinute))]
 public static VolumeFlow? FromKiloliterPerMinute(double? KiloliterPerMinute)
 {
     if (KiloliterPerMinute is null)
@@ -307,6 +335,7 @@ public static VolumeFlow? FromKiloliterPerMinute(double? KiloliterPerMinute)
 /// Get VolumeFlow from KiloliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KiloliterPerSecond))]
 public static VolumeFlow? FromKiloliterPerSecond(double? KiloliterPerSecond)
 {
     if (KiloliterPerSecond is null)
@@ -318,6 +347,7 @@ public static VolumeFlow? FromKiloliterPerSecond(double? KiloliterPerSecond)
 /// Get VolumeFlow from KilousGallonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilousGallonPerMinute))]
 public static VolumeFlow? FromKilousGallonPerMinute(double? KilousGallonPerMinute)
 {
     if (KilousGallonPerMinute is null)
@@ -329,6 +359,7 @@ public static VolumeFlow? FromKilousGallonPerMinute(double? KilousGallonPerMinut
 /// Get VolumeFlow from LiterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LiterPerDay))]
 public static VolumeFlow? FromLiterPerDay(double? LiterPerDay)
 {
     if (LiterPerDay is null)
@@ -340,6 +371,7 @@ public static VolumeFlow? FromLiterPerDay(double? LiterPerDay)
 /// Get VolumeFlow from LiterPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LiterPerHour))]
 public static VolumeFlow? FromLiterPerHour(double? LiterPerHour)
 {
     if (LiterPerHour is null)
@@ -351,6 +383,7 @@ public static VolumeFlow? FromLiterPerHour(double? LiterPerHour)
 /// Get VolumeFlow from LiterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LiterPerMinute))]
 public static VolumeFlow? FromLiterPerMinute(double? LiterPerMinute)
 {
     if (LiterPerMinute is null)
@@ -362,6 +395,7 @@ public static VolumeFlow? FromLiterPerMinute(double? LiterPerMinute)
 /// Get VolumeFlow from LiterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LiterPerSecond))]
 public static VolumeFlow? FromLiterPerSecond(double? LiterPerSecond)
 {
     if (LiterPerSecond is null)
@@ -373,6 +407,7 @@ public static VolumeFlow? FromLiterPerSecond(double? LiterPerSecond)
 /// Get VolumeFlow from MegaliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegaliterPerDay))]
 public static VolumeFlow? FromMegaliterPerDay(double? MegaliterPerDay)
 {
     if (MegaliterPerDay is null)
@@ -384,6 +419,7 @@ public static VolumeFlow? FromMegaliterPerDay(double? MegaliterPerDay)
 /// Get VolumeFlow from MicroliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicroliterPerDay))]
 public static VolumeFlow? FromMicroliterPerDay(double? MicroliterPerDay)
 {
     if (MicroliterPerDay is null)
@@ -395,6 +431,7 @@ public static VolumeFlow? FromMicroliterPerDay(double? MicroliterPerDay)
 /// Get VolumeFlow from MicroliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicroliterPerMinute))]
 public static VolumeFlow? FromMicroliterPerMinute(double? MicroliterPerMinute)
 {
     if (MicroliterPerMinute is null)
@@ -406,6 +443,7 @@ public static VolumeFlow? FromMicroliterPerMinute(double? MicroliterPerMinute)
 /// Get VolumeFlow from MicroliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicroliterPerSecond))]
 public static VolumeFlow? FromMicroliterPerSecond(double? MicroliterPerSecond)
 {
     if (MicroliterPerSecond is null)
@@ -417,6 +455,7 @@ public static VolumeFlow? FromMicroliterPerSecond(double? MicroliterPerSecond)
 /// Get VolumeFlow from MilliliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilliliterPerDay))]
 public static VolumeFlow? FromMilliliterPerDay(double? MilliliterPerDay)
 {
     if (MilliliterPerDay is null)
@@ -428,6 +467,7 @@ public static VolumeFlow? FromMilliliterPerDay(double? MilliliterPerDay)
 /// Get VolumeFlow from MilliliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilliliterPerMinute))]
 public static VolumeFlow? FromMilliliterPerMinute(double? MilliliterPerMinute)
 {
     if (MilliliterPerMinute is null)
@@ -439,6 +479,7 @@ public static VolumeFlow? FromMilliliterPerMinute(double? MilliliterPerMinute)
 /// Get VolumeFlow from MilliliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilliliterPerSecond))]
 public static VolumeFlow? FromMilliliterPerSecond(double? MilliliterPerSecond)
 {
     if (MilliliterPerSecond is null)
@@ -450,6 +491,7 @@ public static VolumeFlow? FromMilliliterPerSecond(double? MilliliterPerSecond)
 /// Get VolumeFlow from MillionUsGallonsPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillionUsGallonsPerDay))]
 public static VolumeFlow? FromMillionUsGallonsPerDay(double? MillionUsGallonsPerDay)
 {
     if (MillionUsGallonsPerDay is null)
@@ -461,6 +503,7 @@ public static VolumeFlow? FromMillionUsGallonsPerDay(double? MillionUsGallonsPer
 /// Get VolumeFlow from NanoliterPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanoliterPerDay))]
 public static VolumeFlow? FromNanoliterPerDay(double? NanoliterPerDay)
 {
     if (NanoliterPerDay is null)
@@ -472,6 +515,7 @@ public static VolumeFlow? FromNanoliterPerDay(double? NanoliterPerDay)
 /// Get VolumeFlow from NanoliterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanoliterPerMinute))]
 public static VolumeFlow? FromNanoliterPerMinute(double? NanoliterPerMinute)
 {
     if (NanoliterPerMinute is null)
@@ -483,6 +527,7 @@ public static VolumeFlow? FromNanoliterPerMinute(double? NanoliterPerMinute)
 /// Get VolumeFlow from NanoliterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanoliterPerSecond))]
 public static VolumeFlow? FromNanoliterPerSecond(double? NanoliterPerSecond)
 {
     if (NanoliterPerSecond is null)
@@ -494,6 +539,7 @@ public static VolumeFlow? FromNanoliterPerSecond(double? NanoliterPerSecond)
 /// Get VolumeFlow from OilBarrelPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(OilBarrelPerDay))]
 public static VolumeFlow? FromOilBarrelPerDay(double? OilBarrelPerDay)
 {
     if (OilBarrelPerDay is null)
@@ -505,6 +551,7 @@ public static VolumeFlow? FromOilBarrelPerDay(double? OilBarrelPerDay)
 /// Get VolumeFlow from OilBarrelPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(OilBarrelPerHour))]
 public static VolumeFlow? FromOilBarrelPerHour(double? OilBarrelPerHour)
 {
     if (OilBarrelPerHour is null)
@@ -516,6 +563,7 @@ public static VolumeFlow? FromOilBarrelPerHour(double? OilBarrelPerHour)
 /// Get VolumeFlow from OilBarrelPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(OilBarrelPerMinute))]
 public static VolumeFlow? FromOilBarrelPerMinute(double? OilBarrelPerMinute)
 {
     if (OilBarrelPerMinute is null)
@@ -527,6 +575,7 @@ public static VolumeFlow? FromOilBarrelPerMinute(double? OilBarrelPerMinute)
 /// Get VolumeFlow from OilBarrelPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(OilBarrelPerSecond))]
 public static VolumeFlow? FromOilBarrelPerSecond(double? OilBarrelPerSecond)
 {
     if (OilBarrelPerSecond is null)
@@ -538,6 +587,7 @@ public static VolumeFlow? FromOilBarrelPerSecond(double? OilBarrelPerSecond)
 /// Get VolumeFlow from UkGallonPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UkGallonPerDay))]
 public static VolumeFlow? FromUkGallonPerDay(double? UkGallonPerDay)
 {
     if (UkGallonPerDay is null)
@@ -549,6 +599,7 @@ public static VolumeFlow? FromUkGallonPerDay(double? UkGallonPerDay)
 /// Get VolumeFlow from UkGallonPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UkGallonPerHour))]
 public static VolumeFlow? FromUkGallonPerHour(double? UkGallonPerHour)
 {
     if (UkGallonPerHour is null)
@@ -560,6 +611,7 @@ public static VolumeFlow? FromUkGallonPerHour(double? UkGallonPerHour)
 /// Get VolumeFlow from UkGallonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UkGallonPerMinute))]
 public static VolumeFlow? FromUkGallonPerMinute(double? UkGallonPerMinute)
 {
     if (UkGallonPerMinute is null)
@@ -571,6 +623,7 @@ public static VolumeFlow? FromUkGallonPerMinute(double? UkGallonPerMinute)
 /// Get VolumeFlow from UkGallonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UkGallonPerSecond))]
 public static VolumeFlow? FromUkGallonPerSecond(double? UkGallonPerSecond)
 {
     if (UkGallonPerSecond is null)
@@ -582,6 +635,7 @@ public static VolumeFlow? FromUkGallonPerSecond(double? UkGallonPerSecond)
 /// Get VolumeFlow from UsGallonPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UsGallonPerDay))]
 public static VolumeFlow? FromUsGallonPerDay(double? UsGallonPerDay)
 {
     if (UsGallonPerDay is null)
@@ -593,6 +647,7 @@ public static VolumeFlow? FromUsGallonPerDay(double? UsGallonPerDay)
 /// Get VolumeFlow from UsGallonPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UsGallonPerHour))]
 public static VolumeFlow? FromUsGallonPerHour(double? UsGallonPerHour)
 {
     if (UsGallonPerHour is null)
@@ -604,6 +659,7 @@ public static VolumeFlow? FromUsGallonPerHour(double? UsGallonPerHour)
 /// Get VolumeFlow from UsGallonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UsGallonPerMinute))]
 public static VolumeFlow? FromUsGallonPerMinute(double? UsGallonPerMinute)
 {
     if (UsGallonPerMinute is null)
@@ -615,6 +671,7 @@ public static VolumeFlow? FromUsGallonPerMinute(double? UsGallonPerMinute)
 /// Get VolumeFlow from UsGallonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UsGallonPerSecond))]
 public static VolumeFlow? FromUsGallonPerSecond(double? UsGallonPerSecond)
 {
     if (UsGallonPerSecond is null)
@@ -626,6 +683,7 @@ public static VolumeFlow? FromUsGallonPerSecond(double? UsGallonPerSecond)
 /// Get VolumeFlow from MegaukGallonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegaukGallonPerSecond))]
 public static VolumeFlow? FromMegaukGallonPerSecond(double? MegaukGallonPerSecond)
 {
     if (MegaukGallonPerSecond is null)

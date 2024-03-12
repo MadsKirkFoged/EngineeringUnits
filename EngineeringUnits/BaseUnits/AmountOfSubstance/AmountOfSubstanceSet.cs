@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class AmountOfSubstance
 /// Get AmountOfSubstance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static AmountOfSubstance? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static AmountOfSubstance? FromSI(double? SI)
 /// Get AmountOfSubstance from Mole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Mole))]
 public static AmountOfSubstance? FromMole(double? Mole)
 {
     if (Mole is null)
@@ -32,6 +35,7 @@ public static AmountOfSubstance? FromMole(double? Mole)
 /// Get AmountOfSubstance from Centimole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Centimole))]
 public static AmountOfSubstance? FromCentimole(double? Centimole)
 {
     if (Centimole is null)
@@ -43,6 +47,7 @@ public static AmountOfSubstance? FromCentimole(double? Centimole)
 /// Get AmountOfSubstance from Decimole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Decimole))]
 public static AmountOfSubstance? FromDecimole(double? Decimole)
 {
     if (Decimole is null)
@@ -54,6 +59,7 @@ public static AmountOfSubstance? FromDecimole(double? Decimole)
 /// Get AmountOfSubstance from Kilomole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilomole))]
 public static AmountOfSubstance? FromKilomole(double? Kilomole)
 {
     if (Kilomole is null)
@@ -65,6 +71,7 @@ public static AmountOfSubstance? FromKilomole(double? Kilomole)
 /// Get AmountOfSubstance from Megamole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megamole))]
 public static AmountOfSubstance? FromMegamole(double? Megamole)
 {
     if (Megamole is null)
@@ -76,6 +83,7 @@ public static AmountOfSubstance? FromMegamole(double? Megamole)
 /// Get AmountOfSubstance from Micromole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Micromole))]
 public static AmountOfSubstance? FromMicromole(double? Micromole)
 {
     if (Micromole is null)
@@ -87,6 +95,7 @@ public static AmountOfSubstance? FromMicromole(double? Micromole)
 /// Get AmountOfSubstance from Millimole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millimole))]
 public static AmountOfSubstance? FromMillimole(double? Millimole)
 {
     if (Millimole is null)
@@ -98,6 +107,7 @@ public static AmountOfSubstance? FromMillimole(double? Millimole)
 /// Get AmountOfSubstance from Nanomole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Nanomole))]
 public static AmountOfSubstance? FromNanomole(double? Nanomole)
 {
     if (Nanomole is null)
@@ -109,6 +119,7 @@ public static AmountOfSubstance? FromNanomole(double? Nanomole)
 /// Get AmountOfSubstance from Picomole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Picomole))]
 public static AmountOfSubstance? FromPicomole(double? Picomole)
 {
     if (Picomole is null)
@@ -120,6 +131,7 @@ public static AmountOfSubstance? FromPicomole(double? Picomole)
 /// Get AmountOfSubstance from NanopoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanopoundMole))]
 public static AmountOfSubstance? FromNanopoundMole(double? NanopoundMole)
 {
     if (NanopoundMole is null)
@@ -131,6 +143,7 @@ public static AmountOfSubstance? FromNanopoundMole(double? NanopoundMole)
 /// Get AmountOfSubstance from MicropoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicropoundMole))]
 public static AmountOfSubstance? FromMicropoundMole(double? MicropoundMole)
 {
     if (MicropoundMole is null)
@@ -142,6 +155,7 @@ public static AmountOfSubstance? FromMicropoundMole(double? MicropoundMole)
 /// Get AmountOfSubstance from MillipoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillipoundMole))]
 public static AmountOfSubstance? FromMillipoundMole(double? MillipoundMole)
 {
     if (MillipoundMole is null)
@@ -153,6 +167,7 @@ public static AmountOfSubstance? FromMillipoundMole(double? MillipoundMole)
 /// Get AmountOfSubstance from PoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundMole))]
 public static AmountOfSubstance? FromPoundMole(double? PoundMole)
 {
     if (PoundMole is null)
@@ -164,6 +179,7 @@ public static AmountOfSubstance? FromPoundMole(double? PoundMole)
 /// Get AmountOfSubstance from KilopoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundMole))]
 public static AmountOfSubstance? FromKilopoundMole(double? KilopoundMole)
 {
     if (KilopoundMole is null)
@@ -175,6 +191,7 @@ public static AmountOfSubstance? FromKilopoundMole(double? KilopoundMole)
 /// Get AmountOfSubstance from DecipoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecipoundMole))]
 public static AmountOfSubstance? FromDecipoundMole(double? DecipoundMole)
 {
     if (DecipoundMole is null)
@@ -186,6 +203,7 @@ public static AmountOfSubstance? FromDecipoundMole(double? DecipoundMole)
 /// Get AmountOfSubstance from CentipoundMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentipoundMole))]
 public static AmountOfSubstance? FromCentipoundMole(double? CentipoundMole)
 {
     if (CentipoundMole is null)

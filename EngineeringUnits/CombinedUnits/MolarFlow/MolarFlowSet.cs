@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MolarFlow
 /// Get MolarFlow from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MolarFlow? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MolarFlow? FromSI(double? SI)
 /// Get MolarFlow from MolePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MolePerSecond))]
 public static MolarFlow? FromMolePerSecond(double? MolePerSecond)
 {
     if (MolePerSecond is null)

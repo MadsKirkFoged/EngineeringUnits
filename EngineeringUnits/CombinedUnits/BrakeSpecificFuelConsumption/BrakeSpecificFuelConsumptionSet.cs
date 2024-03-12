@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class BrakeSpecificFuelConsumption
 /// Get BrakeSpecificFuelConsumption from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static BrakeSpecificFuelConsumption? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static BrakeSpecificFuelConsumption? FromSI(double? SI)
 /// Get BrakeSpecificFuelConsumption from KilogramPerJoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerJoule))]
 public static BrakeSpecificFuelConsumption? FromKilogramPerJoule(double? KilogramPerJoule)
 {
     if (KilogramPerJoule is null)
@@ -32,6 +35,7 @@ public static BrakeSpecificFuelConsumption? FromKilogramPerJoule(double? Kilogra
 /// Get BrakeSpecificFuelConsumption from GramPerKiloWattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerKiloWattHour))]
 public static BrakeSpecificFuelConsumption? FromGramPerKiloWattHour(double? GramPerKiloWattHour)
 {
     if (GramPerKiloWattHour is null)
@@ -43,6 +47,7 @@ public static BrakeSpecificFuelConsumption? FromGramPerKiloWattHour(double? Gram
 /// Get BrakeSpecificFuelConsumption from PoundPerMechanicalHorsepowerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundPerMechanicalHorsepowerHour))]
 public static BrakeSpecificFuelConsumption? FromPoundPerMechanicalHorsepowerHour(double? PoundPerMechanicalHorsepowerHour)
 {
     if (PoundPerMechanicalHorsepowerHour is null)

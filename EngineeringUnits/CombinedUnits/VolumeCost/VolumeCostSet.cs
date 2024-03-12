@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class VolumeCost
 /// Get VolumeCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static VolumeCost? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static VolumeCost? FromSI(double? SI)
 /// Get VolumeCost from USDollarPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerCubicMeter))]
 public static VolumeCost? FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter)
 {
     if (USDollarPerCubicMeter is null)
@@ -32,6 +35,7 @@ public static VolumeCost? FromUSDollarPerCubicMeter(double? USDollarPerCubicMete
 /// Get VolumeCost from EuroPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(EuroPerCubicMeter))]
 public static VolumeCost? FromEuroPerCubicMeter(double? EuroPerCubicMeter)
 {
     if (EuroPerCubicMeter is null)

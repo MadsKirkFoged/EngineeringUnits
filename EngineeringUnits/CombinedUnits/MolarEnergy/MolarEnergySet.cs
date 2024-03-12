@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MolarEnergy
 /// Get MolarEnergy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MolarEnergy? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MolarEnergy? FromSI(double? SI)
 /// Get MolarEnergy from JoulePerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerMole))]
 public static MolarEnergy? FromJoulePerMole(double? JoulePerMole)
 {
     if (JoulePerMole is null)
@@ -32,6 +35,7 @@ public static MolarEnergy? FromJoulePerMole(double? JoulePerMole)
 /// Get MolarEnergy from KilojoulePerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerMole))]
 public static MolarEnergy? FromKilojoulePerMole(double? KilojoulePerMole)
 {
     if (KilojoulePerMole is null)
@@ -43,6 +47,7 @@ public static MolarEnergy? FromKilojoulePerMole(double? KilojoulePerMole)
 /// Get MolarEnergy from MegajoulePerMole.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegajoulePerMole))]
 public static MolarEnergy? FromMegajoulePerMole(double? MegajoulePerMole)
 {
     if (MegajoulePerMole is null)

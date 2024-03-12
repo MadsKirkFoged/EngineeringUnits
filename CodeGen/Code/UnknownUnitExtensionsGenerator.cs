@@ -16,7 +16,7 @@ internal static class UnknownUnitExtensionsGenerator
         {
             var functions = $$"""
                               if (toCast == [Variable]Unit.SI.Unit)                               
-                              return ([Variable])toCast;                                    
+                              return ([Variable]?)toCast;                                    
                               """.Replace("[Variable]", $"{item}");
 
             _=conditionals.AppendLine(functions);
@@ -33,7 +33,7 @@ internal static class UnknownUnitExtensionsGenerator
                          public static class UnknownUnitExtensions
                          {
 
-                            public static BaseUnit IntelligentCast(this UnknownUnit toCast)
+                            public static BaseUnit? IntelligentCast(this UnknownUnit toCast)
                             {            
                             [InsertFunctions]
 

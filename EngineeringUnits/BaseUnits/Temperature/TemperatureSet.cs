@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Temperature
 /// Get Temperature from Kelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kelvin))]
 public static Temperature? FromKelvin(double? Kelvin)
 {
     if (Kelvin is null)
@@ -21,6 +23,7 @@ public static Temperature? FromKelvin(double? Kelvin)
 /// Get Temperature from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Temperature? FromSI(double? SI)
 {
     if (SI is null)
@@ -32,6 +35,7 @@ public static Temperature? FromSI(double? SI)
 /// Get Temperature from DegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeCelsius))]
 public static Temperature? FromDegreeCelsius(double? DegreeCelsius)
 {
     if (DegreeCelsius is null)
@@ -43,6 +47,7 @@ public static Temperature? FromDegreeCelsius(double? DegreeCelsius)
 /// Get Temperature from DegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeFahrenheit))]
 public static Temperature? FromDegreeFahrenheit(double? DegreeFahrenheit)
 {
     if (DegreeFahrenheit is null)
@@ -54,6 +59,7 @@ public static Temperature? FromDegreeFahrenheit(double? DegreeFahrenheit)
 /// Get Temperature from DegreeRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeRankine))]
 public static Temperature? FromDegreeRankine(double? DegreeRankine)
 {
     if (DegreeRankine is null)

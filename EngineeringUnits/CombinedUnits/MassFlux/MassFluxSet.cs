@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MassFlux
 /// Get MassFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MassFlux? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MassFlux? FromSI(double? SI)
 /// Get MassFlux from KilogramPerSecondPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerSecondPerSquareMeter))]
 public static MassFlux? FromKilogramPerSecondPerSquareMeter(double? KilogramPerSecondPerSquareMeter)
 {
     if (KilogramPerSecondPerSquareMeter is null)
@@ -32,6 +35,7 @@ public static MassFlux? FromKilogramPerSecondPerSquareMeter(double? KilogramPerS
 /// Get MassFlux from GramPerHourPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerHourPerSquareCentimeter))]
 public static MassFlux? FromGramPerHourPerSquareCentimeter(double? GramPerHourPerSquareCentimeter)
 {
     if (GramPerHourPerSquareCentimeter is null)
@@ -43,6 +47,7 @@ public static MassFlux? FromGramPerHourPerSquareCentimeter(double? GramPerHourPe
 /// Get MassFlux from GramPerHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerHourPerSquareMeter))]
 public static MassFlux? FromGramPerHourPerSquareMeter(double? GramPerHourPerSquareMeter)
 {
     if (GramPerHourPerSquareMeter is null)
@@ -54,6 +59,7 @@ public static MassFlux? FromGramPerHourPerSquareMeter(double? GramPerHourPerSqua
 /// Get MassFlux from GramPerHourPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerHourPerSquareMillimeter))]
 public static MassFlux? FromGramPerHourPerSquareMillimeter(double? GramPerHourPerSquareMillimeter)
 {
     if (GramPerHourPerSquareMillimeter is null)
@@ -65,6 +71,7 @@ public static MassFlux? FromGramPerHourPerSquareMillimeter(double? GramPerHourPe
 /// Get MassFlux from GramPerSecondPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerSecondPerSquareCentimeter))]
 public static MassFlux? FromGramPerSecondPerSquareCentimeter(double? GramPerSecondPerSquareCentimeter)
 {
     if (GramPerSecondPerSquareCentimeter is null)
@@ -76,6 +83,7 @@ public static MassFlux? FromGramPerSecondPerSquareCentimeter(double? GramPerSeco
 /// Get MassFlux from GramPerSecondPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerSecondPerSquareMeter))]
 public static MassFlux? FromGramPerSecondPerSquareMeter(double? GramPerSecondPerSquareMeter)
 {
     if (GramPerSecondPerSquareMeter is null)
@@ -87,6 +95,7 @@ public static MassFlux? FromGramPerSecondPerSquareMeter(double? GramPerSecondPer
 /// Get MassFlux from GramPerSecondPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerSecondPerSquareMillimeter))]
 public static MassFlux? FromGramPerSecondPerSquareMillimeter(double? GramPerSecondPerSquareMillimeter)
 {
     if (GramPerSecondPerSquareMillimeter is null)
@@ -98,6 +107,7 @@ public static MassFlux? FromGramPerSecondPerSquareMillimeter(double? GramPerSeco
 /// Get MassFlux from KilogramPerHourPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerHourPerSquareCentimeter))]
 public static MassFlux? FromKilogramPerHourPerSquareCentimeter(double? KilogramPerHourPerSquareCentimeter)
 {
     if (KilogramPerHourPerSquareCentimeter is null)
@@ -109,6 +119,7 @@ public static MassFlux? FromKilogramPerHourPerSquareCentimeter(double? KilogramP
 /// Get MassFlux from KilogramPerHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerHourPerSquareMeter))]
 public static MassFlux? FromKilogramPerHourPerSquareMeter(double? KilogramPerHourPerSquareMeter)
 {
     if (KilogramPerHourPerSquareMeter is null)
@@ -120,6 +131,7 @@ public static MassFlux? FromKilogramPerHourPerSquareMeter(double? KilogramPerHou
 /// Get MassFlux from KilogramPerHourPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerHourPerSquareMillimeter))]
 public static MassFlux? FromKilogramPerHourPerSquareMillimeter(double? KilogramPerHourPerSquareMillimeter)
 {
     if (KilogramPerHourPerSquareMillimeter is null)
@@ -131,6 +143,7 @@ public static MassFlux? FromKilogramPerHourPerSquareMillimeter(double? KilogramP
 /// Get MassFlux from KilogramPerSecondPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerSecondPerSquareCentimeter))]
 public static MassFlux? FromKilogramPerSecondPerSquareCentimeter(double? KilogramPerSecondPerSquareCentimeter)
 {
     if (KilogramPerSecondPerSquareCentimeter is null)
@@ -142,6 +155,7 @@ public static MassFlux? FromKilogramPerSecondPerSquareCentimeter(double? Kilogra
 /// Get MassFlux from KilogramPerSecondPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerSecondPerSquareMillimeter))]
 public static MassFlux? FromKilogramPerSecondPerSquareMillimeter(double? KilogramPerSecondPerSquareMillimeter)
 {
     if (KilogramPerSecondPerSquareMillimeter is null)

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class SpecificEntropy
 /// Get SpecificEntropy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static SpecificEntropy? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static SpecificEntropy? FromSI(double? SI)
 /// Get SpecificEntropy from JoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerKilogramKelvin))]
 public static SpecificEntropy? FromJoulePerKilogramKelvin(double? JoulePerKilogramKelvin)
 {
     if (JoulePerKilogramKelvin is null)
@@ -32,6 +35,7 @@ public static SpecificEntropy? FromJoulePerKilogramKelvin(double? JoulePerKilogr
 /// Get SpecificEntropy from JoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerKilogramDegreeCelsius))]
 public static SpecificEntropy? FromJoulePerKilogramDegreeCelsius(double? JoulePerKilogramDegreeCelsius)
 {
     if (JoulePerKilogramDegreeCelsius is null)
@@ -43,6 +47,7 @@ public static SpecificEntropy? FromJoulePerKilogramDegreeCelsius(double? JoulePe
 /// Get SpecificEntropy from KilojoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerKilogramDegreeCelsius))]
 public static SpecificEntropy? FromKilojoulePerKilogramDegreeCelsius(double? KilojoulePerKilogramDegreeCelsius)
 {
     if (KilojoulePerKilogramDegreeCelsius is null)
@@ -54,6 +59,7 @@ public static SpecificEntropy? FromKilojoulePerKilogramDegreeCelsius(double? Kil
 /// Get SpecificEntropy from KilojoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerKilogramKelvin))]
 public static SpecificEntropy? FromKilojoulePerKilogramKelvin(double? KilojoulePerKilogramKelvin)
 {
     if (KilojoulePerKilogramKelvin is null)
@@ -65,6 +71,7 @@ public static SpecificEntropy? FromKilojoulePerKilogramKelvin(double? KilojouleP
 /// Get SpecificEntropy from MegajoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegajoulePerKilogramDegreeCelsius))]
 public static SpecificEntropy? FromMegajoulePerKilogramDegreeCelsius(double? MegajoulePerKilogramDegreeCelsius)
 {
     if (MegajoulePerKilogramDegreeCelsius is null)
@@ -76,6 +83,7 @@ public static SpecificEntropy? FromMegajoulePerKilogramDegreeCelsius(double? Meg
 /// Get SpecificEntropy from MegajoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegajoulePerKilogramKelvin))]
 public static SpecificEntropy? FromMegajoulePerKilogramKelvin(double? MegajoulePerKilogramKelvin)
 {
     if (MegajoulePerKilogramKelvin is null)
@@ -87,6 +95,7 @@ public static SpecificEntropy? FromMegajoulePerKilogramKelvin(double? MegajouleP
 /// Get SpecificEntropy from JoulePerKilogramRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerKilogramRankine))]
 public static SpecificEntropy? FromJoulePerKilogramRankine(double? JoulePerKilogramRankine)
 {
     if (JoulePerKilogramRankine is null)
@@ -98,6 +107,7 @@ public static SpecificEntropy? FromJoulePerKilogramRankine(double? JoulePerKilog
 /// Get SpecificEntropy from CaloriePerGramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CaloriePerGramKelvin))]
 public static SpecificEntropy? FromCaloriePerGramKelvin(double? CaloriePerGramKelvin)
 {
     if (CaloriePerGramKelvin is null)
@@ -109,6 +119,7 @@ public static SpecificEntropy? FromCaloriePerGramKelvin(double? CaloriePerGramKe
 /// Get SpecificEntropy from KilocaloriePerGramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilocaloriePerGramKelvin))]
 public static SpecificEntropy? FromKilocaloriePerGramKelvin(double? KilocaloriePerGramKelvin)
 {
     if (KilocaloriePerGramKelvin is null)
@@ -120,6 +131,7 @@ public static SpecificEntropy? FromKilocaloriePerGramKelvin(double? KilocalorieP
 /// Get SpecificEntropy from BtuPerPoundKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerPoundKelvin))]
 public static SpecificEntropy? FromBtuPerPoundKelvin(double? BtuPerPoundKelvin)
 {
     if (BtuPerPoundKelvin is null)
@@ -131,6 +143,7 @@ public static SpecificEntropy? FromBtuPerPoundKelvin(double? BtuPerPoundKelvin)
 /// Get SpecificEntropy from BtuPerPoundRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerPoundRankine))]
 public static SpecificEntropy? FromBtuPerPoundRankine(double? BtuPerPoundRankine)
 {
     if (BtuPerPoundRankine is null)
@@ -142,6 +155,7 @@ public static SpecificEntropy? FromBtuPerPoundRankine(double? BtuPerPoundRankine
 /// Get SpecificEntropy from BtuPerPoundFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerPoundFahrenheit))]
 public static SpecificEntropy? FromBtuPerPoundFahrenheit(double? BtuPerPoundFahrenheit)
 {
     if (BtuPerPoundFahrenheit is null)

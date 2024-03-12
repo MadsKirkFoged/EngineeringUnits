@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Molarity
 /// Get Molarity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Molarity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Molarity? FromSI(double? SI)
 /// Get Molarity from MolesPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MolesPerCubicMeter))]
 public static Molarity? FromMolesPerCubicMeter(double? MolesPerCubicMeter)
 {
     if (MolesPerCubicMeter is null)
@@ -32,6 +35,7 @@ public static Molarity? FromMolesPerCubicMeter(double? MolesPerCubicMeter)
 /// Get Molarity from MolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MolesPerLiter))]
 public static Molarity? FromMolesPerLiter(double? MolesPerLiter)
 {
     if (MolesPerLiter is null)
@@ -43,6 +47,7 @@ public static Molarity? FromMolesPerLiter(double? MolesPerLiter)
 /// Get Molarity from NanomolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanomolesPerLiter))]
 public static Molarity? FromNanomolesPerLiter(double? NanomolesPerLiter)
 {
     if (NanomolesPerLiter is null)
@@ -54,6 +59,7 @@ public static Molarity? FromNanomolesPerLiter(double? NanomolesPerLiter)
 /// Get Molarity from PicomolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PicomolesPerLiter))]
 public static Molarity? FromPicomolesPerLiter(double? PicomolesPerLiter)
 {
     if (PicomolesPerLiter is null)
@@ -65,6 +71,7 @@ public static Molarity? FromPicomolesPerLiter(double? PicomolesPerLiter)
 /// Get Molarity from CentimolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentimolesPerLiter))]
 public static Molarity? FromCentimolesPerLiter(double? CentimolesPerLiter)
 {
     if (CentimolesPerLiter is null)
@@ -76,6 +83,7 @@ public static Molarity? FromCentimolesPerLiter(double? CentimolesPerLiter)
 /// Get Molarity from DecimolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecimolesPerLiter))]
 public static Molarity? FromDecimolesPerLiter(double? DecimolesPerLiter)
 {
     if (DecimolesPerLiter is null)
@@ -87,6 +95,7 @@ public static Molarity? FromDecimolesPerLiter(double? DecimolesPerLiter)
 /// Get Molarity from MicromolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicromolesPerLiter))]
 public static Molarity? FromMicromolesPerLiter(double? MicromolesPerLiter)
 {
     if (MicromolesPerLiter is null)
@@ -98,6 +107,7 @@ public static Molarity? FromMicromolesPerLiter(double? MicromolesPerLiter)
 /// Get Molarity from MillimolesPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillimolesPerLiter))]
 public static Molarity? FromMillimolesPerLiter(double? MillimolesPerLiter)
 {
     if (MillimolesPerLiter is null)

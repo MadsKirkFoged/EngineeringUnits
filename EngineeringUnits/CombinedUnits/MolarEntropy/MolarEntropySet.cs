@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MolarEntropy
 /// Get MolarEntropy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MolarEntropy? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MolarEntropy? FromSI(double? SI)
 /// Get MolarEntropy from JoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerMoleKelvin))]
 public static MolarEntropy? FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
 {
     if (JoulePerMoleKelvin is null)
@@ -32,6 +35,7 @@ public static MolarEntropy? FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
 /// Get MolarEntropy from KilojoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerMoleKelvin))]
 public static MolarEntropy? FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKelvin)
 {
     if (KilojoulePerMoleKelvin is null)
@@ -43,6 +47,7 @@ public static MolarEntropy? FromKilojoulePerMoleKelvin(double? KilojoulePerMoleK
 /// Get MolarEntropy from MegajoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegajoulePerMoleKelvin))]
 public static MolarEntropy? FromMegajoulePerMoleKelvin(double? MegajoulePerMoleKelvin)
 {
     if (MegajoulePerMoleKelvin is null)

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class SpecificVolume
 /// Get SpecificVolume from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static SpecificVolume? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static SpecificVolume? FromSI(double? SI)
 /// Get SpecificVolume from CubicMeterPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CubicMeterPerKilogram))]
 public static SpecificVolume? FromCubicMeterPerKilogram(double? CubicMeterPerKilogram)
 {
     if (CubicMeterPerKilogram is null)

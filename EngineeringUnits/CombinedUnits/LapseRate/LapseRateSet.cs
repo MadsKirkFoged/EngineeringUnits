@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class LapseRate
 /// Get LapseRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static LapseRate? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static LapseRate? FromSI(double? SI)
 /// Get LapseRate from DegreeCelsiusPerKilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeCelsiusPerKilometer))]
 public static LapseRate? FromDegreeCelsiusPerKilometer(double? DegreeCelsiusPerKilometer)
 {
     if (DegreeCelsiusPerKilometer is null)

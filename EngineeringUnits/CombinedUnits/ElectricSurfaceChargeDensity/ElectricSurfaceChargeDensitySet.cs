@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricSurfaceChargeDensity
 /// Get ElectricSurfaceChargeDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricSurfaceChargeDensity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricSurfaceChargeDensity? FromSI(double? SI)
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CoulombPerSquareMeter))]
 public static ElectricSurfaceChargeDensity? FromCoulombPerSquareMeter(double? CoulombPerSquareMeter)
 {
     if (CoulombPerSquareMeter is null)
@@ -32,6 +35,7 @@ public static ElectricSurfaceChargeDensity? FromCoulombPerSquareMeter(double? Co
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CoulombPerSquareCentimeter))]
 public static ElectricSurfaceChargeDensity? FromCoulombPerSquareCentimeter(double? CoulombPerSquareCentimeter)
 {
     if (CoulombPerSquareCentimeter is null)
@@ -43,6 +47,7 @@ public static ElectricSurfaceChargeDensity? FromCoulombPerSquareCentimeter(doubl
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CoulombPerSquareInch))]
 public static ElectricSurfaceChargeDensity? FromCoulombPerSquareInch(double? CoulombPerSquareInch)
 {
     if (CoulombPerSquareInch is null)

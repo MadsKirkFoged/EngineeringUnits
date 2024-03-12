@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class RotationalSpeed
 /// Get RotationalSpeed from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static RotationalSpeed? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static RotationalSpeed? FromSI(double? SI)
 /// Get RotationalSpeed from RadianPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(RadianPerSecond))]
 public static RotationalSpeed? FromRadianPerSecond(double? RadianPerSecond)
 {
     if (RadianPerSecond is null)
@@ -32,6 +35,7 @@ public static RotationalSpeed? FromRadianPerSecond(double? RadianPerSecond)
 /// Get RotationalSpeed from Hertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Hertz))]
 public static RotationalSpeed? FromHertz(double? Hertz)
 {
     if (Hertz is null)
@@ -43,6 +47,7 @@ public static RotationalSpeed? FromHertz(double? Hertz)
 /// Get RotationalSpeed from Kilohertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilohertz))]
 public static RotationalSpeed? FromKilohertz(double? Kilohertz)
 {
     if (Kilohertz is null)
@@ -54,6 +59,7 @@ public static RotationalSpeed? FromKilohertz(double? Kilohertz)
 /// Get RotationalSpeed from Megahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megahertz))]
 public static RotationalSpeed? FromMegahertz(double? Megahertz)
 {
     if (Megahertz is null)
@@ -65,6 +71,7 @@ public static RotationalSpeed? FromMegahertz(double? Megahertz)
 /// Get RotationalSpeed from Gigahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Gigahertz))]
 public static RotationalSpeed? FromGigahertz(double? Gigahertz)
 {
     if (Gigahertz is null)
@@ -76,6 +83,7 @@ public static RotationalSpeed? FromGigahertz(double? Gigahertz)
 /// Get RotationalSpeed from Terahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Terahertz))]
 public static RotationalSpeed? FromTerahertz(double? Terahertz)
 {
     if (Terahertz is null)
@@ -87,6 +95,7 @@ public static RotationalSpeed? FromTerahertz(double? Terahertz)
 /// Get RotationalSpeed from PerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PerSecond))]
 public static RotationalSpeed? FromPerSecond(double? PerSecond)
 {
     if (PerSecond is null)
@@ -98,6 +107,7 @@ public static RotationalSpeed? FromPerSecond(double? PerSecond)
 /// Get RotationalSpeed from BeatPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BeatPerMinute))]
 public static RotationalSpeed? FromBeatPerMinute(double? BeatPerMinute)
 {
     if (BeatPerMinute is null)
@@ -109,6 +119,7 @@ public static RotationalSpeed? FromBeatPerMinute(double? BeatPerMinute)
 /// Get RotationalSpeed from CyclePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CyclePerHour))]
 public static RotationalSpeed? FromCyclePerHour(double? CyclePerHour)
 {
     if (CyclePerHour is null)
@@ -120,6 +131,7 @@ public static RotationalSpeed? FromCyclePerHour(double? CyclePerHour)
 /// Get RotationalSpeed from CyclePerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CyclePerMinute))]
 public static RotationalSpeed? FromCyclePerMinute(double? CyclePerMinute)
 {
     if (CyclePerMinute is null)

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Energy
 /// Get Energy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Energy? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Energy? FromSI(double? SI)
 /// Get Energy from Millijoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millijoule))]
 public static Energy? FromMillijoule(double? Millijoule)
 {
     if (Millijoule is null)
@@ -32,6 +35,7 @@ public static Energy? FromMillijoule(double? Millijoule)
 /// Get Energy from Joule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Joule))]
 public static Energy? FromJoule(double? Joule)
 {
     if (Joule is null)
@@ -43,6 +47,7 @@ public static Energy? FromJoule(double? Joule)
 /// Get Energy from Kilojoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilojoule))]
 public static Energy? FromKilojoule(double? Kilojoule)
 {
     if (Kilojoule is null)
@@ -54,6 +59,7 @@ public static Energy? FromKilojoule(double? Kilojoule)
 /// Get Energy from Megajoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megajoule))]
 public static Energy? FromMegajoule(double? Megajoule)
 {
     if (Megajoule is null)
@@ -65,6 +71,7 @@ public static Energy? FromMegajoule(double? Megajoule)
 /// Get Energy from Gigajoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Gigajoule))]
 public static Energy? FromGigajoule(double? Gigajoule)
 {
     if (Gigajoule is null)
@@ -76,6 +83,7 @@ public static Energy? FromGigajoule(double? Gigajoule)
 /// Get Energy from Terajoule.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Terajoule))]
 public static Energy? FromTerajoule(double? Terajoule)
 {
     if (Terajoule is null)
@@ -87,6 +95,7 @@ public static Energy? FromTerajoule(double? Terajoule)
 /// Get Energy from BritishThermalUnit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BritishThermalUnit))]
 public static Energy? FromBritishThermalUnit(double? BritishThermalUnit)
 {
     if (BritishThermalUnit is null)
@@ -98,6 +107,7 @@ public static Energy? FromBritishThermalUnit(double? BritishThermalUnit)
 /// Get Energy from KilobritishThermalUnit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilobritishThermalUnit))]
 public static Energy? FromKilobritishThermalUnit(double? KilobritishThermalUnit)
 {
     if (KilobritishThermalUnit is null)
@@ -109,6 +119,7 @@ public static Energy? FromKilobritishThermalUnit(double? KilobritishThermalUnit)
 /// Get Energy from MegabritishThermalUnit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegabritishThermalUnit))]
 public static Energy? FromMegabritishThermalUnit(double? MegabritishThermalUnit)
 {
     if (MegabritishThermalUnit is null)
@@ -120,6 +131,7 @@ public static Energy? FromMegabritishThermalUnit(double? MegabritishThermalUnit)
 /// Get Energy from GigabritishThermalUnit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigabritishThermalUnit))]
 public static Energy? FromGigabritishThermalUnit(double? GigabritishThermalUnit)
 {
     if (GigabritishThermalUnit is null)
@@ -131,6 +143,7 @@ public static Energy? FromGigabritishThermalUnit(double? GigabritishThermalUnit)
 /// Get Energy from ElectronVolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ElectronVolt))]
 public static Energy? FromElectronVolt(double? ElectronVolt)
 {
     if (ElectronVolt is null)
@@ -142,6 +155,7 @@ public static Energy? FromElectronVolt(double? ElectronVolt)
 /// Get Energy from KiloelectronVolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KiloelectronVolt))]
 public static Energy? FromKiloelectronVolt(double? KiloelectronVolt)
 {
     if (KiloelectronVolt is null)
@@ -153,6 +167,7 @@ public static Energy? FromKiloelectronVolt(double? KiloelectronVolt)
 /// Get Energy from MegaelectronVolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegaelectronVolt))]
 public static Energy? FromMegaelectronVolt(double? MegaelectronVolt)
 {
     if (MegaelectronVolt is null)
@@ -164,6 +179,7 @@ public static Energy? FromMegaelectronVolt(double? MegaelectronVolt)
 /// Get Energy from GigaelectronVolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigaelectronVolt))]
 public static Energy? FromGigaelectronVolt(double? GigaelectronVolt)
 {
     if (GigaelectronVolt is null)
@@ -175,6 +191,7 @@ public static Energy? FromGigaelectronVolt(double? GigaelectronVolt)
 /// Get Energy from TeraelectronVolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TeraelectronVolt))]
 public static Energy? FromTeraelectronVolt(double? TeraelectronVolt)
 {
     if (TeraelectronVolt is null)
@@ -186,6 +203,7 @@ public static Energy? FromTeraelectronVolt(double? TeraelectronVolt)
 /// Get Energy from Calorie.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Calorie))]
 public static Energy? FromCalorie(double? Calorie)
 {
     if (Calorie is null)
@@ -197,6 +215,7 @@ public static Energy? FromCalorie(double? Calorie)
 /// Get Energy from Kilocalorie.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilocalorie))]
 public static Energy? FromKilocalorie(double? Kilocalorie)
 {
     if (Kilocalorie is null)
@@ -208,6 +227,7 @@ public static Energy? FromKilocalorie(double? Kilocalorie)
 /// Get Energy from Megacalorie.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megacalorie))]
 public static Energy? FromMegacalorie(double? Megacalorie)
 {
     if (Megacalorie is null)
@@ -219,6 +239,7 @@ public static Energy? FromMegacalorie(double? Megacalorie)
 /// Get Energy from WattDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattDay))]
 public static Energy? FromWattDay(double? WattDay)
 {
     if (WattDay is null)
@@ -230,6 +251,7 @@ public static Energy? FromWattDay(double? WattDay)
 /// Get Energy from KilowattDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilowattDay))]
 public static Energy? FromKilowattDay(double? KilowattDay)
 {
     if (KilowattDay is null)
@@ -241,6 +263,7 @@ public static Energy? FromKilowattDay(double? KilowattDay)
 /// Get Energy from MegawattDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegawattDay))]
 public static Energy? FromMegawattDay(double? MegawattDay)
 {
     if (MegawattDay is null)
@@ -252,6 +275,7 @@ public static Energy? FromMegawattDay(double? MegawattDay)
 /// Get Energy from GigawattDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigawattDay))]
 public static Energy? FromGigawattDay(double? GigawattDay)
 {
     if (GigawattDay is null)
@@ -263,6 +287,7 @@ public static Energy? FromGigawattDay(double? GigawattDay)
 /// Get Energy from TerawattDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TerawattDay))]
 public static Energy? FromTerawattDay(double? TerawattDay)
 {
     if (TerawattDay is null)
@@ -274,6 +299,7 @@ public static Energy? FromTerawattDay(double? TerawattDay)
 /// Get Energy from WattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattHour))]
 public static Energy? FromWattHour(double? WattHour)
 {
     if (WattHour is null)
@@ -285,6 +311,7 @@ public static Energy? FromWattHour(double? WattHour)
 /// Get Energy from KilowattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilowattHour))]
 public static Energy? FromKilowattHour(double? KilowattHour)
 {
     if (KilowattHour is null)
@@ -296,6 +323,7 @@ public static Energy? FromKilowattHour(double? KilowattHour)
 /// Get Energy from MegawattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegawattHour))]
 public static Energy? FromMegawattHour(double? MegawattHour)
 {
     if (MegawattHour is null)
@@ -307,6 +335,7 @@ public static Energy? FromMegawattHour(double? MegawattHour)
 /// Get Energy from GigawattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GigawattHour))]
 public static Energy? FromGigawattHour(double? GigawattHour)
 {
     if (GigawattHour is null)
@@ -318,6 +347,7 @@ public static Energy? FromGigawattHour(double? GigawattHour)
 /// Get Energy from TerawattHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TerawattHour))]
 public static Energy? FromTerawattHour(double? TerawattHour)
 {
     if (TerawattHour is null)
@@ -329,6 +359,7 @@ public static Energy? FromTerawattHour(double? TerawattHour)
 /// Get Energy from FootPound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(FootPound))]
 public static Energy? FromFootPound(double? FootPound)
 {
     if (FootPound is null)
@@ -340,6 +371,7 @@ public static Energy? FromFootPound(double? FootPound)
 /// Get Energy from DecathermEc.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecathermEc))]
 public static Energy? FromDecathermEc(double? DecathermEc)
 {
     if (DecathermEc is null)
@@ -351,6 +383,7 @@ public static Energy? FromDecathermEc(double? DecathermEc)
 /// Get Energy from DecathermImperial.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecathermImperial))]
 public static Energy? FromDecathermImperial(double? DecathermImperial)
 {
     if (DecathermImperial is null)
@@ -362,6 +395,7 @@ public static Energy? FromDecathermImperial(double? DecathermImperial)
 /// Get Energy from DecathermUs.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecathermUs))]
 public static Energy? FromDecathermUs(double? DecathermUs)
 {
     if (DecathermUs is null)
@@ -373,6 +407,7 @@ public static Energy? FromDecathermUs(double? DecathermUs)
 /// Get Energy from ThermEc.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ThermEc))]
 public static Energy? FromThermEc(double? ThermEc)
 {
     if (ThermEc is null)
@@ -384,6 +419,7 @@ public static Energy? FromThermEc(double? ThermEc)
 /// Get Energy from ThermImperial.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ThermImperial))]
 public static Energy? FromThermImperial(double? ThermImperial)
 {
     if (ThermImperial is null)
@@ -395,6 +431,7 @@ public static Energy? FromThermImperial(double? ThermImperial)
 /// Get Energy from ThermUs.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(ThermUs))]
 public static Energy? FromThermUs(double? ThermUs)
 {
     if (ThermUs is null)
@@ -406,6 +443,7 @@ public static Energy? FromThermUs(double? ThermUs)
 /// Get Energy from Erg.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Erg))]
 public static Energy? FromErg(double? Erg)
 {
     if (Erg is null)
@@ -417,6 +455,7 @@ public static Energy? FromErg(double? Erg)
 /// Get Energy from HorsepowerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HorsepowerHour))]
 public static Energy? FromHorsepowerHour(double? HorsepowerHour)
 {
     if (HorsepowerHour is null)

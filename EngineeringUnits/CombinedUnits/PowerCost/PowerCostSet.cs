@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class PowerCost
 /// Get PowerCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static PowerCost? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static PowerCost? FromSI(double? SI)
 /// Get PowerCost from USDollarPerKilowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerKilowatt))]
 public static PowerCost? FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
 {
     if (USDollarPerKilowatt is null)
@@ -32,6 +35,7 @@ public static PowerCost? FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
 /// Get PowerCost from USDollarPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerWatt))]
 public static PowerCost? FromUSDollarPerWatt(double? USDollarPerWatt)
 {
     if (USDollarPerWatt is null)

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ForceChangeRate
 /// Get ForceChangeRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ForceChangeRate? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ForceChangeRate? FromSI(double? SI)
 /// Get ForceChangeRate from NewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonPerSecond))]
 public static ForceChangeRate? FromNewtonPerSecond(double? NewtonPerSecond)
 {
     if (NewtonPerSecond is null)
@@ -32,6 +35,7 @@ public static ForceChangeRate? FromNewtonPerSecond(double? NewtonPerSecond)
 /// Get ForceChangeRate from NewtonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonPerMinute))]
 public static ForceChangeRate? FromNewtonPerMinute(double? NewtonPerMinute)
 {
     if (NewtonPerMinute is null)
@@ -43,6 +47,7 @@ public static ForceChangeRate? FromNewtonPerMinute(double? NewtonPerMinute)
 /// Get ForceChangeRate from PoundForcePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerSecond))]
 public static ForceChangeRate? FromPoundForcePerSecond(double? PoundForcePerSecond)
 {
     if (PoundForcePerSecond is null)
@@ -54,6 +59,7 @@ public static ForceChangeRate? FromPoundForcePerSecond(double? PoundForcePerSeco
 /// Get ForceChangeRate from PoundForcePerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerMinute))]
 public static ForceChangeRate? FromPoundForcePerMinute(double? PoundForcePerMinute)
 {
     if (PoundForcePerMinute is null)
@@ -65,6 +71,7 @@ public static ForceChangeRate? FromPoundForcePerMinute(double? PoundForcePerMinu
 /// Get ForceChangeRate from KilopoundForcePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundForcePerSecond))]
 public static ForceChangeRate? FromKilopoundForcePerSecond(double? KilopoundForcePerSecond)
 {
     if (KilopoundForcePerSecond is null)
@@ -76,6 +83,7 @@ public static ForceChangeRate? FromKilopoundForcePerSecond(double? KilopoundForc
 /// Get ForceChangeRate from KilopoundForcePerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundForcePerMinute))]
 public static ForceChangeRate? FromKilopoundForcePerMinute(double? KilopoundForcePerMinute)
 {
     if (KilopoundForcePerMinute is null)
@@ -87,6 +95,7 @@ public static ForceChangeRate? FromKilopoundForcePerMinute(double? KilopoundForc
 /// Get ForceChangeRate from NanonewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanonewtonPerSecond))]
 public static ForceChangeRate? FromNanonewtonPerSecond(double? NanonewtonPerSecond)
 {
     if (NanonewtonPerSecond is null)
@@ -98,6 +107,7 @@ public static ForceChangeRate? FromNanonewtonPerSecond(double? NanonewtonPerSeco
 /// Get ForceChangeRate from MillinewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillinewtonPerSecond))]
 public static ForceChangeRate? FromMillinewtonPerSecond(double? MillinewtonPerSecond)
 {
     if (MillinewtonPerSecond is null)
@@ -109,6 +119,7 @@ public static ForceChangeRate? FromMillinewtonPerSecond(double? MillinewtonPerSe
 /// Get ForceChangeRate from MicronewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicronewtonPerSecond))]
 public static ForceChangeRate? FromMicronewtonPerSecond(double? MicronewtonPerSecond)
 {
     if (MicronewtonPerSecond is null)
@@ -120,6 +131,7 @@ public static ForceChangeRate? FromMicronewtonPerSecond(double? MicronewtonPerSe
 /// Get ForceChangeRate from CentinewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentinewtonPerSecond))]
 public static ForceChangeRate? FromCentinewtonPerSecond(double? CentinewtonPerSecond)
 {
     if (CentinewtonPerSecond is null)
@@ -131,6 +143,7 @@ public static ForceChangeRate? FromCentinewtonPerSecond(double? CentinewtonPerSe
 /// Get ForceChangeRate from DecanewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecanewtonPerSecond))]
 public static ForceChangeRate? FromDecanewtonPerSecond(double? DecanewtonPerSecond)
 {
     if (DecanewtonPerSecond is null)
@@ -142,6 +155,7 @@ public static ForceChangeRate? FromDecanewtonPerSecond(double? DecanewtonPerSeco
 /// Get ForceChangeRate from DecinewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecinewtonPerSecond))]
 public static ForceChangeRate? FromDecinewtonPerSecond(double? DecinewtonPerSecond)
 {
     if (DecinewtonPerSecond is null)
@@ -153,6 +167,7 @@ public static ForceChangeRate? FromDecinewtonPerSecond(double? DecinewtonPerSeco
 /// Get ForceChangeRate from KilonewtonPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilonewtonPerSecond))]
 public static ForceChangeRate? FromKilonewtonPerSecond(double? KilonewtonPerSecond)
 {
     if (KilonewtonPerSecond is null)
@@ -164,6 +179,7 @@ public static ForceChangeRate? FromKilonewtonPerSecond(double? KilonewtonPerSeco
 /// Get ForceChangeRate from DecanewtonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecanewtonPerMinute))]
 public static ForceChangeRate? FromDecanewtonPerMinute(double? DecanewtonPerMinute)
 {
     if (DecanewtonPerMinute is null)
@@ -175,6 +191,7 @@ public static ForceChangeRate? FromDecanewtonPerMinute(double? DecanewtonPerMinu
 /// Get ForceChangeRate from KilonewtonPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilonewtonPerMinute))]
 public static ForceChangeRate? FromKilonewtonPerMinute(double? KilonewtonPerMinute)
 {
     if (KilonewtonPerMinute is null)

@@ -13,7 +13,7 @@ public partial record KinematicViscosityUnit : UnitTypebase
     public static readonly KinematicViscosityUnit Millistokes = new(PreFix.milli, Stokes);
     public static readonly KinematicViscosityUnit Nanostokes = new(PreFix.nano, Stokes);
 
-    public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string NewSymbol = null)
+    public KinematicViscosityUnit(AreaUnit Length, DurationUnit duration, string? NewSymbol = null)
     {
         Unit = new UnitSystem(Length / duration, NewSymbol);
     }

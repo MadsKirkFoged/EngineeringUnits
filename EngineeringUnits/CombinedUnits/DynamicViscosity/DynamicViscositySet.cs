@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class DynamicViscosity
 /// Get DynamicViscosity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static DynamicViscosity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static DynamicViscosity? FromSI(double? SI)
 /// Get DynamicViscosity from PascalSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PascalSecond))]
 public static DynamicViscosity? FromPascalSecond(double? PascalSecond)
 {
     if (PascalSecond is null)
@@ -32,6 +35,7 @@ public static DynamicViscosity? FromPascalSecond(double? PascalSecond)
 /// Get DynamicViscosity from MicropascalSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicropascalSecond))]
 public static DynamicViscosity? FromMicropascalSecond(double? MicropascalSecond)
 {
     if (MicropascalSecond is null)
@@ -43,6 +47,7 @@ public static DynamicViscosity? FromMicropascalSecond(double? MicropascalSecond)
 /// Get DynamicViscosity from MillipascalSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillipascalSecond))]
 public static DynamicViscosity? FromMillipascalSecond(double? MillipascalSecond)
 {
     if (MillipascalSecond is null)
@@ -54,6 +59,7 @@ public static DynamicViscosity? FromMillipascalSecond(double? MillipascalSecond)
 /// Get DynamicViscosity from PoundPerFootSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundPerFootSecond))]
 public static DynamicViscosity? FromPoundPerFootSecond(double? PoundPerFootSecond)
 {
     if (PoundPerFootSecond is null)
@@ -65,6 +71,7 @@ public static DynamicViscosity? FromPoundPerFootSecond(double? PoundPerFootSecon
 /// Get DynamicViscosity from Poise.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Poise))]
 public static DynamicViscosity? FromPoise(double? Poise)
 {
     if (Poise is null)
@@ -76,6 +83,7 @@ public static DynamicViscosity? FromPoise(double? Poise)
 /// Get DynamicViscosity from Centipoise.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Centipoise))]
 public static DynamicViscosity? FromCentipoise(double? Centipoise)
 {
     if (Centipoise is null)
@@ -87,6 +95,7 @@ public static DynamicViscosity? FromCentipoise(double? Centipoise)
 /// Get DynamicViscosity from NewtonSecondPerMeterSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonSecondPerMeterSquared))]
 public static DynamicViscosity? FromNewtonSecondPerMeterSquared(double? NewtonSecondPerMeterSquared)
 {
     if (NewtonSecondPerMeterSquared is null)
@@ -98,6 +107,7 @@ public static DynamicViscosity? FromNewtonSecondPerMeterSquared(double? NewtonSe
 /// Get DynamicViscosity from PoundForceSecondPerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForceSecondPerSquareFoot))]
 public static DynamicViscosity? FromPoundForceSecondPerSquareFoot(double? PoundForceSecondPerSquareFoot)
 {
     if (PoundForceSecondPerSquareFoot is null)
@@ -109,6 +119,7 @@ public static DynamicViscosity? FromPoundForceSecondPerSquareFoot(double? PoundF
 /// Get DynamicViscosity from PoundForceSecondPerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForceSecondPerSquareInch))]
 public static DynamicViscosity? FromPoundForceSecondPerSquareInch(double? PoundForceSecondPerSquareInch)
 {
     if (PoundForceSecondPerSquareInch is null)
@@ -120,6 +131,7 @@ public static DynamicViscosity? FromPoundForceSecondPerSquareInch(double? PoundF
 /// Get DynamicViscosity from Reyn.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Reyn))]
 public static DynamicViscosity? FromReyn(double? Reyn)
 {
     if (Reyn is null)

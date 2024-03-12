@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricField
 /// Get ElectricField from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricField? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricField? FromSI(double? SI)
 /// Get ElectricField from VoltPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(VoltPerMeter))]
 public static ElectricField? FromVoltPerMeter(double? VoltPerMeter)
 {
     if (VoltPerMeter is null)

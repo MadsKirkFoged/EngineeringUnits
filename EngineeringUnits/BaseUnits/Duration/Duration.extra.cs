@@ -37,7 +37,7 @@ public partial class Duration : BaseUnit
     }
 
     /// <summary>Explicitly cast <see cref="TimeSpan"/> to <see cref="Duration"/>.</summary>
-    public static explicit operator Duration(TimeSpan duration)
+    public static explicit operator Duration?(TimeSpan duration)
     {
         return FromSecond(duration.TotalSeconds);
     }

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricCurrent
 /// Get ElectricCurrent from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricCurrent? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricCurrent? FromSI(double? SI)
 /// Get ElectricCurrent from Ampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Ampere))]
 public static ElectricCurrent? FromAmpere(double? Ampere)
 {
     if (Ampere is null)
@@ -32,6 +35,7 @@ public static ElectricCurrent? FromAmpere(double? Ampere)
 /// Get ElectricCurrent from Centiampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Centiampere))]
 public static ElectricCurrent? FromCentiampere(double? Centiampere)
 {
     if (Centiampere is null)
@@ -43,6 +47,7 @@ public static ElectricCurrent? FromCentiampere(double? Centiampere)
 /// Get ElectricCurrent from Kiloampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kiloampere))]
 public static ElectricCurrent? FromKiloampere(double? Kiloampere)
 {
     if (Kiloampere is null)
@@ -54,6 +59,7 @@ public static ElectricCurrent? FromKiloampere(double? Kiloampere)
 /// Get ElectricCurrent from Megaampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megaampere))]
 public static ElectricCurrent? FromMegaampere(double? Megaampere)
 {
     if (Megaampere is null)
@@ -65,6 +71,7 @@ public static ElectricCurrent? FromMegaampere(double? Megaampere)
 /// Get ElectricCurrent from Microampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Microampere))]
 public static ElectricCurrent? FromMicroampere(double? Microampere)
 {
     if (Microampere is null)
@@ -76,6 +83,7 @@ public static ElectricCurrent? FromMicroampere(double? Microampere)
 /// Get ElectricCurrent from Milliampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Milliampere))]
 public static ElectricCurrent? FromMilliampere(double? Milliampere)
 {
     if (Milliampere is null)
@@ -87,6 +95,7 @@ public static ElectricCurrent? FromMilliampere(double? Milliampere)
 /// Get ElectricCurrent from Nanoampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Nanoampere))]
 public static ElectricCurrent? FromNanoampere(double? Nanoampere)
 {
     if (Nanoampere is null)
@@ -98,6 +107,7 @@ public static ElectricCurrent? FromNanoampere(double? Nanoampere)
 /// Get ElectricCurrent from Picoampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Picoampere))]
 public static ElectricCurrent? FromPicoampere(double? Picoampere)
 {
     if (Picoampere is null)

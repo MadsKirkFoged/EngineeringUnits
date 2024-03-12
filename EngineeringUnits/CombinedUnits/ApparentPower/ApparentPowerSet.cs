@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ApparentPower
 /// Get ApparentPower from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ApparentPower? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ApparentPower? FromSI(double? SI)
 /// Get ApparentPower from Voltampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Voltampere))]
 public static ApparentPower? FromVoltampere(double? Voltampere)
 {
     if (Voltampere is null)
@@ -32,6 +35,7 @@ public static ApparentPower? FromVoltampere(double? Voltampere)
 /// Get ApparentPower from Megavoltampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megavoltampere))]
 public static ApparentPower? FromMegavoltampere(double? Megavoltampere)
 {
     if (Megavoltampere is null)
@@ -43,6 +47,7 @@ public static ApparentPower? FromMegavoltampere(double? Megavoltampere)
 /// Get ApparentPower from Kilovoltampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilovoltampere))]
 public static ApparentPower? FromKilovoltampere(double? Kilovoltampere)
 {
     if (Kilovoltampere is null)
@@ -54,6 +59,7 @@ public static ApparentPower? FromKilovoltampere(double? Kilovoltampere)
 /// Get ApparentPower from Gigavoltampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Gigavoltampere))]
 public static ApparentPower? FromGigavoltampere(double? Gigavoltampere)
 {
     if (Gigavoltampere is null)

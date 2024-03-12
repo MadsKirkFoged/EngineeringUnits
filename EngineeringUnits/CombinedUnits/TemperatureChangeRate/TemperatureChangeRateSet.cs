@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class TemperatureChangeRate
 /// Get TemperatureChangeRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static TemperatureChangeRate? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static TemperatureChangeRate? FromSI(double? SI)
 /// Get TemperatureChangeRate from DegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromDegreeCelsiusPerSecond(double? DegreeCelsiusPerSecond)
 {
     if (DegreeCelsiusPerSecond is null)
@@ -32,6 +35,7 @@ public static TemperatureChangeRate? FromDegreeCelsiusPerSecond(double? DegreeCe
 /// Get TemperatureChangeRate from DegreeCelsiusPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DegreeCelsiusPerMinute))]
 public static TemperatureChangeRate? FromDegreeCelsiusPerMinute(double? DegreeCelsiusPerMinute)
 {
     if (DegreeCelsiusPerMinute is null)
@@ -43,6 +47,7 @@ public static TemperatureChangeRate? FromDegreeCelsiusPerMinute(double? DegreeCe
 /// Get TemperatureChangeRate from CentidegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentidegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromCentidegreeCelsiusPerSecond(double? CentidegreeCelsiusPerSecond)
 {
     if (CentidegreeCelsiusPerSecond is null)
@@ -54,6 +59,7 @@ public static TemperatureChangeRate? FromCentidegreeCelsiusPerSecond(double? Cen
 /// Get TemperatureChangeRate from DecadegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecadegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromDecadegreeCelsiusPerSecond(double? DecadegreeCelsiusPerSecond)
 {
     if (DecadegreeCelsiusPerSecond is null)
@@ -65,6 +71,7 @@ public static TemperatureChangeRate? FromDecadegreeCelsiusPerSecond(double? Deca
 /// Get TemperatureChangeRate from DecidegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecidegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromDecidegreeCelsiusPerSecond(double? DecidegreeCelsiusPerSecond)
 {
     if (DecidegreeCelsiusPerSecond is null)
@@ -76,6 +83,7 @@ public static TemperatureChangeRate? FromDecidegreeCelsiusPerSecond(double? Deci
 /// Get TemperatureChangeRate from HectodegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HectodegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromHectodegreeCelsiusPerSecond(double? HectodegreeCelsiusPerSecond)
 {
     if (HectodegreeCelsiusPerSecond is null)
@@ -87,6 +95,7 @@ public static TemperatureChangeRate? FromHectodegreeCelsiusPerSecond(double? Hec
 /// Get TemperatureChangeRate from KilodegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilodegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromKilodegreeCelsiusPerSecond(double? KilodegreeCelsiusPerSecond)
 {
     if (KilodegreeCelsiusPerSecond is null)
@@ -98,6 +107,7 @@ public static TemperatureChangeRate? FromKilodegreeCelsiusPerSecond(double? Kilo
 /// Get TemperatureChangeRate from MicrodegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrodegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromMicrodegreeCelsiusPerSecond(double? MicrodegreeCelsiusPerSecond)
 {
     if (MicrodegreeCelsiusPerSecond is null)
@@ -109,6 +119,7 @@ public static TemperatureChangeRate? FromMicrodegreeCelsiusPerSecond(double? Mic
 /// Get TemperatureChangeRate from MillidegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillidegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromMillidegreeCelsiusPerSecond(double? MillidegreeCelsiusPerSecond)
 {
     if (MillidegreeCelsiusPerSecond is null)
@@ -120,6 +131,7 @@ public static TemperatureChangeRate? FromMillidegreeCelsiusPerSecond(double? Mil
 /// Get TemperatureChangeRate from NanodegreeCelsiusPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanodegreeCelsiusPerSecond))]
 public static TemperatureChangeRate? FromNanodegreeCelsiusPerSecond(double? NanodegreeCelsiusPerSecond)
 {
     if (NanodegreeCelsiusPerSecond is null)

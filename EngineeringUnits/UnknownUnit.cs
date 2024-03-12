@@ -45,7 +45,7 @@ public class UnknownUnit : BaseUnit
 
         return this.IntelligentCast().ToString(format);
     }
-    public override string ToString(string format, IFormatProvider provider)
+    public override string ToString(string? format, IFormatProvider? provider)
     {
         BaseUnit CastingUnit = this.IntelligentCast();
 

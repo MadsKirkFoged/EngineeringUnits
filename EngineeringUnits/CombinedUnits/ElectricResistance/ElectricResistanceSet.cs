@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricResistance
 /// Get ElectricResistance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricResistance? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricResistance? FromSI(double? SI)
 /// Get ElectricResistance from Ohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Ohm))]
 public static ElectricResistance? FromOhm(double? Ohm)
 {
     if (Ohm is null)
@@ -32,6 +35,7 @@ public static ElectricResistance? FromOhm(double? Ohm)
 /// Get ElectricResistance from Gigaohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Gigaohm))]
 public static ElectricResistance? FromGigaohm(double? Gigaohm)
 {
     if (Gigaohm is null)
@@ -43,6 +47,7 @@ public static ElectricResistance? FromGigaohm(double? Gigaohm)
 /// Get ElectricResistance from Kiloohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kiloohm))]
 public static ElectricResistance? FromKiloohm(double? Kiloohm)
 {
     if (Kiloohm is null)
@@ -54,6 +59,7 @@ public static ElectricResistance? FromKiloohm(double? Kiloohm)
 /// Get ElectricResistance from Megaohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megaohm))]
 public static ElectricResistance? FromMegaohm(double? Megaohm)
 {
     if (Megaohm is null)
@@ -65,6 +71,7 @@ public static ElectricResistance? FromMegaohm(double? Megaohm)
 /// Get ElectricResistance from Microohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Microohm))]
 public static ElectricResistance? FromMicroohm(double? Microohm)
 {
     if (Microohm is null)
@@ -76,6 +83,7 @@ public static ElectricResistance? FromMicroohm(double? Microohm)
 /// Get ElectricResistance from Milliohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Milliohm))]
 public static ElectricResistance? FromMilliohm(double? Milliohm)
 {
     if (Milliohm is null)

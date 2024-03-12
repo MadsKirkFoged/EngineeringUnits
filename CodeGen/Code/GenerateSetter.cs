@@ -68,8 +68,9 @@ internal class GenerateSetter
         }
 
         var test = $$"""
-                     using EngineeringUnits.Units;                     
-                     
+                     using EngineeringUnits.Units; 
+                     using System.Diagnostics.CodeAnalysis;
+
                      namespace EngineeringUnits;
                      
                      //This class is auto-generated, changes to the file will be overwritten!
@@ -90,6 +91,7 @@ internal class GenerateSetter
                      /// Get Variable from UnitEnum.
                      /// </summary>
                      /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+                     [return: NotNullIfNotNull(nameof(UnitEnum))]
                      public static Variable? FromUnitEnum(double? UnitEnum)
                      {
                          if (UnitEnum is null)

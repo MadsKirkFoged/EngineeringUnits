@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricChargeDensity
 /// Get ElectricChargeDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricChargeDensity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricChargeDensity? FromSI(double? SI)
 /// Get ElectricChargeDensity from CoulombPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CoulombPerCubicMeter))]
 public static ElectricChargeDensity? FromCoulombPerCubicMeter(double? CoulombPerCubicMeter)
 {
     if (CoulombPerCubicMeter is null)

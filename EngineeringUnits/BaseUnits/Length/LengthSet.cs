@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Length
 /// Get Length from Kilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilometer))]
 public static Length? FromKilometer(double? Kilometer)
 {
     if (Kilometer is null)
@@ -21,6 +23,7 @@ public static Length? FromKilometer(double? Kilometer)
 /// Get Length from Hectometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Hectometer))]
 public static Length? FromHectometer(double? Hectometer)
 {
     if (Hectometer is null)
@@ -32,6 +35,7 @@ public static Length? FromHectometer(double? Hectometer)
 /// Get Length from Meter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Meter))]
 public static Length? FromMeter(double? Meter)
 {
     if (Meter is null)
@@ -43,6 +47,7 @@ public static Length? FromMeter(double? Meter)
 /// Get Length from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Length? FromSI(double? SI)
 {
     if (SI is null)
@@ -54,6 +59,7 @@ public static Length? FromSI(double? SI)
 /// Get Length from Decimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Decimeter))]
 public static Length? FromDecimeter(double? Decimeter)
 {
     if (Decimeter is null)
@@ -65,6 +71,7 @@ public static Length? FromDecimeter(double? Decimeter)
 /// Get Length from Centimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Centimeter))]
 public static Length? FromCentimeter(double? Centimeter)
 {
     if (Centimeter is null)
@@ -76,6 +83,7 @@ public static Length? FromCentimeter(double? Centimeter)
 /// Get Length from Millimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millimeter))]
 public static Length? FromMillimeter(double? Millimeter)
 {
     if (Millimeter is null)
@@ -87,6 +95,7 @@ public static Length? FromMillimeter(double? Millimeter)
 /// Get Length from Micrometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Micrometer))]
 public static Length? FromMicrometer(double? Micrometer)
 {
     if (Micrometer is null)
@@ -98,6 +107,7 @@ public static Length? FromMicrometer(double? Micrometer)
 /// Get Length from Nanometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Nanometer))]
 public static Length? FromNanometer(double? Nanometer)
 {
     if (Nanometer is null)
@@ -109,6 +119,7 @@ public static Length? FromNanometer(double? Nanometer)
 /// Get Length from Microinch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Microinch))]
 public static Length? FromMicroinch(double? Microinch)
 {
     if (Microinch is null)
@@ -120,6 +131,7 @@ public static Length? FromMicroinch(double? Microinch)
 /// Get Length from Twip.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Twip))]
 public static Length? FromTwip(double? Twip)
 {
     if (Twip is null)
@@ -131,6 +143,7 @@ public static Length? FromTwip(double? Twip)
 /// Get Length from Mil.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Mil))]
 public static Length? FromMil(double? Mil)
 {
     if (Mil is null)
@@ -142,6 +155,7 @@ public static Length? FromMil(double? Mil)
 /// Get Length from DtpPoint.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DtpPoint))]
 public static Length? FromDtpPoint(double? DtpPoint)
 {
     if (DtpPoint is null)
@@ -153,6 +167,7 @@ public static Length? FromDtpPoint(double? DtpPoint)
 /// Get Length from DtpPica.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DtpPica))]
 public static Length? FromDtpPica(double? DtpPica)
 {
     if (DtpPica is null)
@@ -164,6 +179,7 @@ public static Length? FromDtpPica(double? DtpPica)
 /// Get Length from Inch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Inch))]
 public static Length? FromInch(double? Inch)
 {
     if (Inch is null)
@@ -175,6 +191,7 @@ public static Length? FromInch(double? Inch)
 /// Get Length from Hand.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Hand))]
 public static Length? FromHand(double? Hand)
 {
     if (Hand is null)
@@ -186,6 +203,7 @@ public static Length? FromHand(double? Hand)
 /// Get Length from Foot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Foot))]
 public static Length? FromFoot(double? Foot)
 {
     if (Foot is null)
@@ -197,6 +215,7 @@ public static Length? FromFoot(double? Foot)
 /// Get Length from Yard.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Yard))]
 public static Length? FromYard(double? Yard)
 {
     if (Yard is null)
@@ -208,6 +227,7 @@ public static Length? FromYard(double? Yard)
 /// Get Length from Fathom.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Fathom))]
 public static Length? FromFathom(double? Fathom)
 {
     if (Fathom is null)
@@ -219,6 +239,7 @@ public static Length? FromFathom(double? Fathom)
 /// Get Length from Chain.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Chain))]
 public static Length? FromChain(double? Chain)
 {
     if (Chain is null)
@@ -230,6 +251,7 @@ public static Length? FromChain(double? Chain)
 /// Get Length from Shackle.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Shackle))]
 public static Length? FromShackle(double? Shackle)
 {
     if (Shackle is null)
@@ -241,6 +263,7 @@ public static Length? FromShackle(double? Shackle)
 /// Get Length from Mile.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Mile))]
 public static Length? FromMile(double? Mile)
 {
     if (Mile is null)
@@ -252,6 +275,7 @@ public static Length? FromMile(double? Mile)
 /// Get Length from NauticalMile.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NauticalMile))]
 public static Length? FromNauticalMile(double? NauticalMile)
 {
     if (NauticalMile is null)
@@ -263,6 +287,7 @@ public static Length? FromNauticalMile(double? NauticalMile)
 /// Get Length from UsSurveyFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(UsSurveyFoot))]
 public static Length? FromUsSurveyFoot(double? UsSurveyFoot)
 {
     if (UsSurveyFoot is null)
@@ -274,6 +299,7 @@ public static Length? FromUsSurveyFoot(double? UsSurveyFoot)
 /// Get Length from LightYear.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LightYear))]
 public static Length? FromLightYear(double? LightYear)
 {
     if (LightYear is null)
@@ -285,6 +311,7 @@ public static Length? FromLightYear(double? LightYear)
 /// Get Length from KilolightYear.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilolightYear))]
 public static Length? FromKilolightYear(double? KilolightYear)
 {
     if (KilolightYear is null)
@@ -296,6 +323,7 @@ public static Length? FromKilolightYear(double? KilolightYear)
 /// Get Length from MegalightYear.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegalightYear))]
 public static Length? FromMegalightYear(double? MegalightYear)
 {
     if (MegalightYear is null)
@@ -307,6 +335,7 @@ public static Length? FromMegalightYear(double? MegalightYear)
 /// Get Length from SolarRadius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SolarRadius))]
 public static Length? FromSolarRadius(double? SolarRadius)
 {
     if (SolarRadius is null)
@@ -318,6 +347,7 @@ public static Length? FromSolarRadius(double? SolarRadius)
 /// Get Length from AstronomicalUnit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AstronomicalUnit))]
 public static Length? FromAstronomicalUnit(double? AstronomicalUnit)
 {
     if (AstronomicalUnit is null)
@@ -329,6 +359,7 @@ public static Length? FromAstronomicalUnit(double? AstronomicalUnit)
 /// Get Length from Parsec.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Parsec))]
 public static Length? FromParsec(double? Parsec)
 {
     if (Parsec is null)
@@ -340,6 +371,7 @@ public static Length? FromParsec(double? Parsec)
 /// Get Length from Kiloparsec.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kiloparsec))]
 public static Length? FromKiloparsec(double? Kiloparsec)
 {
     if (Kiloparsec is null)
@@ -351,6 +383,7 @@ public static Length? FromKiloparsec(double? Kiloparsec)
 /// Get Length from Megaparsec.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megaparsec))]
 public static Length? FromMegaparsec(double? Megaparsec)
 {
     if (Megaparsec is null)

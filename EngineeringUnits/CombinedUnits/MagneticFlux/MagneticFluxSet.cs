@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MagneticFlux
 /// Get MagneticFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MagneticFlux? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MagneticFlux? FromSI(double? SI)
 /// Get MagneticFlux from Weber.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Weber))]
 public static MagneticFlux? FromWeber(double? Weber)
 {
     if (Weber is null)

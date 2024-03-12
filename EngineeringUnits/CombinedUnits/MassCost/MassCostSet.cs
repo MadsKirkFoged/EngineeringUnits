@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MassCost
 /// Get MassCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MassCost? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MassCost? FromSI(double? SI)
 /// Get MassCost from EuroPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(EuroPerKilogram))]
 public static MassCost? FromEuroPerKilogram(double? EuroPerKilogram)
 {
     if (EuroPerKilogram is null)
@@ -32,6 +35,7 @@ public static MassCost? FromEuroPerKilogram(double? EuroPerKilogram)
 /// Get MassCost from USDollarPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerKilogram))]
 public static MassCost? FromUSDollarPerKilogram(double? USDollarPerKilogram)
 {
     if (USDollarPerKilogram is null)
@@ -43,6 +47,7 @@ public static MassCost? FromUSDollarPerKilogram(double? USDollarPerKilogram)
 /// Get MassCost from USDollarPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerTonne))]
 public static MassCost? FromUSDollarPerTonne(double? USDollarPerTonne)
 {
     if (USDollarPerTonne is null)
@@ -54,6 +59,7 @@ public static MassCost? FromUSDollarPerTonne(double? USDollarPerTonne)
 /// Get MassCost from MillionUSDollarPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillionUSDollarPerTonne))]
 public static MassCost? FromMillionUSDollarPerTonne(double? MillionUSDollarPerTonne)
 {
     if (MillionUSDollarPerTonne is null)

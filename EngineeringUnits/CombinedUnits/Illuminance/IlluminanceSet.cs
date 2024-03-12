@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Illuminance
 /// Get Illuminance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Illuminance? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Illuminance? FromSI(double? SI)
 /// Get Illuminance from Lux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Lux))]
 public static Illuminance? FromLux(double? Lux)
 {
     if (Lux is null)
@@ -32,6 +35,7 @@ public static Illuminance? FromLux(double? Lux)
 /// Get Illuminance from Kilolux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilolux))]
 public static Illuminance? FromKilolux(double? Kilolux)
 {
     if (Kilolux is null)
@@ -43,6 +47,7 @@ public static Illuminance? FromKilolux(double? Kilolux)
 /// Get Illuminance from Megalux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Megalux))]
 public static Illuminance? FromMegalux(double? Megalux)
 {
     if (Megalux is null)
@@ -54,6 +59,7 @@ public static Illuminance? FromMegalux(double? Megalux)
 /// Get Illuminance from Millilux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millilux))]
 public static Illuminance? FromMillilux(double? Millilux)
 {
     if (Millilux is null)

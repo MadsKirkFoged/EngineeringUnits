@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class MagneticField
 /// Get MagneticField from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static MagneticField? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static MagneticField? FromSI(double? SI)
 /// Get MagneticField from Tesla.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Tesla))]
 public static MagneticField? FromTesla(double? Tesla)
 {
     if (Tesla is null)
@@ -32,6 +35,7 @@ public static MagneticField? FromTesla(double? Tesla)
 /// Get MagneticField from Gauss.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Gauss))]
 public static MagneticField? FromGauss(double? Gauss)
 {
     if (Gauss is null)
@@ -43,6 +47,7 @@ public static MagneticField? FromGauss(double? Gauss)
 /// Get MagneticField from Milligauss.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Milligauss))]
 public static MagneticField? FromMilligauss(double? Milligauss)
 {
     if (Milligauss is null)
@@ -54,6 +59,7 @@ public static MagneticField? FromMilligauss(double? Milligauss)
 /// Get MagneticField from Microtesla.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Microtesla))]
 public static MagneticField? FromMicrotesla(double? Microtesla)
 {
     if (Microtesla is null)
@@ -65,6 +71,7 @@ public static MagneticField? FromMicrotesla(double? Microtesla)
 /// Get MagneticField from Millitesla.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millitesla))]
 public static MagneticField? FromMillitesla(double? Millitesla)
 {
     if (Millitesla is null)
@@ -76,6 +83,7 @@ public static MagneticField? FromMillitesla(double? Millitesla)
 /// Get MagneticField from Nanotesla.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Nanotesla))]
 public static MagneticField? FromNanotesla(double? Nanotesla)
 {
     if (Nanotesla is null)

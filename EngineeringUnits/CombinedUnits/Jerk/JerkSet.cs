@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Jerk
 /// Get Jerk from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Jerk? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Jerk? FromSI(double? SI)
 /// Get Jerk from KilometerPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilometerPerSecondCubed))]
 public static Jerk? FromKilometerPerSecondCubed(double? KilometerPerSecondCubed)
 {
     if (KilometerPerSecondCubed is null)
@@ -32,6 +35,7 @@ public static Jerk? FromKilometerPerSecondCubed(double? KilometerPerSecondCubed)
 /// Get Jerk from MeterPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MeterPerSecondCubed))]
 public static Jerk? FromMeterPerSecondCubed(double? MeterPerSecondCubed)
 {
     if (MeterPerSecondCubed is null)
@@ -43,6 +47,7 @@ public static Jerk? FromMeterPerSecondCubed(double? MeterPerSecondCubed)
 /// Get Jerk from DecimeterPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecimeterPerSecondCubed))]
 public static Jerk? FromDecimeterPerSecondCubed(double? DecimeterPerSecondCubed)
 {
     if (DecimeterPerSecondCubed is null)
@@ -54,6 +59,7 @@ public static Jerk? FromDecimeterPerSecondCubed(double? DecimeterPerSecondCubed)
 /// Get Jerk from CentimeterPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentimeterPerSecondCubed))]
 public static Jerk? FromCentimeterPerSecondCubed(double? CentimeterPerSecondCubed)
 {
     if (CentimeterPerSecondCubed is null)
@@ -65,6 +71,7 @@ public static Jerk? FromCentimeterPerSecondCubed(double? CentimeterPerSecondCube
 /// Get Jerk from MicrometerPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrometerPerSecondCubed))]
 public static Jerk? FromMicrometerPerSecondCubed(double? MicrometerPerSecondCubed)
 {
     if (MicrometerPerSecondCubed is null)
@@ -76,6 +83,7 @@ public static Jerk? FromMicrometerPerSecondCubed(double? MicrometerPerSecondCube
 /// Get Jerk from MillimeterPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillimeterPerSecondCubed))]
 public static Jerk? FromMillimeterPerSecondCubed(double? MillimeterPerSecondCubed)
 {
     if (MillimeterPerSecondCubed is null)
@@ -87,6 +95,7 @@ public static Jerk? FromMillimeterPerSecondCubed(double? MillimeterPerSecondCube
 /// Get Jerk from NanometerPerSecondCubed.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanometerPerSecondCubed))]
 public static Jerk? FromNanometerPerSecondCubed(double? NanometerPerSecondCubed)
 {
     if (NanometerPerSecondCubed is null)

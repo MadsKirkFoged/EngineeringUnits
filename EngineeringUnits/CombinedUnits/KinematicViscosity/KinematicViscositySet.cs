@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class KinematicViscosity
 /// Get KinematicViscosity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static KinematicViscosity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static KinematicViscosity? FromSI(double? SI)
 /// Get KinematicViscosity from SquareMeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SquareMeterPerSecond))]
 public static KinematicViscosity? FromSquareMeterPerSecond(double? SquareMeterPerSecond)
 {
     if (SquareMeterPerSecond is null)
@@ -32,6 +35,7 @@ public static KinematicViscosity? FromSquareMeterPerSecond(double? SquareMeterPe
 /// Get KinematicViscosity from Stokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Stokes))]
 public static KinematicViscosity? FromStokes(double? Stokes)
 {
     if (Stokes is null)
@@ -43,6 +47,7 @@ public static KinematicViscosity? FromStokes(double? Stokes)
 /// Get KinematicViscosity from Centistokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Centistokes))]
 public static KinematicViscosity? FromCentistokes(double? Centistokes)
 {
     if (Centistokes is null)
@@ -54,6 +59,7 @@ public static KinematicViscosity? FromCentistokes(double? Centistokes)
 /// Get KinematicViscosity from Decistokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Decistokes))]
 public static KinematicViscosity? FromDecistokes(double? Decistokes)
 {
     if (Decistokes is null)
@@ -65,6 +71,7 @@ public static KinematicViscosity? FromDecistokes(double? Decistokes)
 /// Get KinematicViscosity from Kilostokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Kilostokes))]
 public static KinematicViscosity? FromKilostokes(double? Kilostokes)
 {
     if (Kilostokes is null)
@@ -76,6 +83,7 @@ public static KinematicViscosity? FromKilostokes(double? Kilostokes)
 /// Get KinematicViscosity from Microstokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Microstokes))]
 public static KinematicViscosity? FromMicrostokes(double? Microstokes)
 {
     if (Microstokes is null)
@@ -87,6 +95,7 @@ public static KinematicViscosity? FromMicrostokes(double? Microstokes)
 /// Get KinematicViscosity from Millistokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Millistokes))]
 public static KinematicViscosity? FromMillistokes(double? Millistokes)
 {
     if (Millistokes is null)
@@ -98,6 +107,7 @@ public static KinematicViscosity? FromMillistokes(double? Millistokes)
 /// Get KinematicViscosity from Nanostokes.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Nanostokes))]
 public static KinematicViscosity? FromNanostokes(double? Nanostokes)
 {
     if (Nanostokes is null)

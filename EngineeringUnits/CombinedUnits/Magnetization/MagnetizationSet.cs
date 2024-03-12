@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Magnetization
 /// Get Magnetization from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Magnetization? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Magnetization? FromSI(double? SI)
 /// Get Magnetization from AmperePerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerMeter))]
 public static Magnetization? FromAmperePerMeter(double? AmperePerMeter)
 {
     if (AmperePerMeter is null)

@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Ratio
 /// Get Ratio from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Ratio? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Ratio? FromSI(double? SI)
 /// Get Ratio from DecimalFraction.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecimalFraction))]
 public static Ratio? FromDecimalFraction(double? DecimalFraction)
 {
     if (DecimalFraction is null)
@@ -32,6 +35,7 @@ public static Ratio? FromDecimalFraction(double? DecimalFraction)
 /// Get Ratio from PartPerBillion.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PartPerBillion))]
 public static Ratio? FromPartPerBillion(double? PartPerBillion)
 {
     if (PartPerBillion is null)
@@ -43,6 +47,7 @@ public static Ratio? FromPartPerBillion(double? PartPerBillion)
 /// Get Ratio from PartPerMillion.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PartPerMillion))]
 public static Ratio? FromPartPerMillion(double? PartPerMillion)
 {
     if (PartPerMillion is null)
@@ -54,6 +59,7 @@ public static Ratio? FromPartPerMillion(double? PartPerMillion)
 /// Get Ratio from PartPerThousand.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PartPerThousand))]
 public static Ratio? FromPartPerThousand(double? PartPerThousand)
 {
     if (PartPerThousand is null)
@@ -65,6 +71,7 @@ public static Ratio? FromPartPerThousand(double? PartPerThousand)
 /// Get Ratio from PartPerTrillion.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PartPerTrillion))]
 public static Ratio? FromPartPerTrillion(double? PartPerTrillion)
 {
     if (PartPerTrillion is null)
@@ -76,6 +83,7 @@ public static Ratio? FromPartPerTrillion(double? PartPerTrillion)
 /// Get Ratio from Percent.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Percent))]
 public static Ratio? FromPercent(double? Percent)
 {
     if (Percent is null)
@@ -87,6 +95,7 @@ public static Ratio? FromPercent(double? Percent)
 /// Get Ratio from CentigramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentigramPerGram))]
 public static Ratio? FromCentigramPerGram(double? CentigramPerGram)
 {
     if (CentigramPerGram is null)
@@ -98,6 +107,7 @@ public static Ratio? FromCentigramPerGram(double? CentigramPerGram)
 /// Get Ratio from CentigramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentigramPerKilogram))]
 public static Ratio? FromCentigramPerKilogram(double? CentigramPerKilogram)
 {
     if (CentigramPerKilogram is null)
@@ -109,6 +119,7 @@ public static Ratio? FromCentigramPerKilogram(double? CentigramPerKilogram)
 /// Get Ratio from DecagramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecagramPerGram))]
 public static Ratio? FromDecagramPerGram(double? DecagramPerGram)
 {
     if (DecagramPerGram is null)
@@ -120,6 +131,7 @@ public static Ratio? FromDecagramPerGram(double? DecagramPerGram)
 /// Get Ratio from DecagramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecagramPerKilogram))]
 public static Ratio? FromDecagramPerKilogram(double? DecagramPerKilogram)
 {
     if (DecagramPerKilogram is null)
@@ -131,6 +143,7 @@ public static Ratio? FromDecagramPerKilogram(double? DecagramPerKilogram)
 /// Get Ratio from DecigramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecigramPerGram))]
 public static Ratio? FromDecigramPerGram(double? DecigramPerGram)
 {
     if (DecigramPerGram is null)
@@ -142,6 +155,7 @@ public static Ratio? FromDecigramPerGram(double? DecigramPerGram)
 /// Get Ratio from DecigramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecigramPerKilogram))]
 public static Ratio? FromDecigramPerKilogram(double? DecigramPerKilogram)
 {
     if (DecigramPerKilogram is null)
@@ -153,6 +167,7 @@ public static Ratio? FromDecigramPerKilogram(double? DecigramPerKilogram)
 /// Get Ratio from GramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerGram))]
 public static Ratio? FromGramPerGram(double? GramPerGram)
 {
     if (GramPerGram is null)
@@ -164,6 +179,7 @@ public static Ratio? FromGramPerGram(double? GramPerGram)
 /// Get Ratio from GramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(GramPerKilogram))]
 public static Ratio? FromGramPerKilogram(double? GramPerKilogram)
 {
     if (GramPerKilogram is null)
@@ -175,6 +191,7 @@ public static Ratio? FromGramPerKilogram(double? GramPerKilogram)
 /// Get Ratio from HectogramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HectogramPerGram))]
 public static Ratio? FromHectogramPerGram(double? HectogramPerGram)
 {
     if (HectogramPerGram is null)
@@ -186,6 +203,7 @@ public static Ratio? FromHectogramPerGram(double? HectogramPerGram)
 /// Get Ratio from HectogramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HectogramPerKilogram))]
 public static Ratio? FromHectogramPerKilogram(double? HectogramPerKilogram)
 {
     if (HectogramPerKilogram is null)
@@ -197,6 +215,7 @@ public static Ratio? FromHectogramPerKilogram(double? HectogramPerKilogram)
 /// Get Ratio from KilogramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerGram))]
 public static Ratio? FromKilogramPerGram(double? KilogramPerGram)
 {
     if (KilogramPerGram is null)
@@ -208,6 +227,7 @@ public static Ratio? FromKilogramPerGram(double? KilogramPerGram)
 /// Get Ratio from KilogramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramPerKilogram))]
 public static Ratio? FromKilogramPerKilogram(double? KilogramPerKilogram)
 {
     if (KilogramPerKilogram is null)
@@ -219,6 +239,7 @@ public static Ratio? FromKilogramPerKilogram(double? KilogramPerKilogram)
 /// Get Ratio from MicrogramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrogramPerGram))]
 public static Ratio? FromMicrogramPerGram(double? MicrogramPerGram)
 {
     if (MicrogramPerGram is null)
@@ -230,6 +251,7 @@ public static Ratio? FromMicrogramPerGram(double? MicrogramPerGram)
 /// Get Ratio from MicrogramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrogramPerKilogram))]
 public static Ratio? FromMicrogramPerKilogram(double? MicrogramPerKilogram)
 {
     if (MicrogramPerKilogram is null)
@@ -241,6 +263,7 @@ public static Ratio? FromMicrogramPerKilogram(double? MicrogramPerKilogram)
 /// Get Ratio from MilligramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilligramPerGram))]
 public static Ratio? FromMilligramPerGram(double? MilligramPerGram)
 {
     if (MilligramPerGram is null)
@@ -252,6 +275,7 @@ public static Ratio? FromMilligramPerGram(double? MilligramPerGram)
 /// Get Ratio from MilligramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilligramPerKilogram))]
 public static Ratio? FromMilligramPerKilogram(double? MilligramPerKilogram)
 {
     if (MilligramPerKilogram is null)
@@ -263,6 +287,7 @@ public static Ratio? FromMilligramPerKilogram(double? MilligramPerKilogram)
 /// Get Ratio from NanogramPerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanogramPerGram))]
 public static Ratio? FromNanogramPerGram(double? NanogramPerGram)
 {
     if (NanogramPerGram is null)
@@ -274,6 +299,7 @@ public static Ratio? FromNanogramPerGram(double? NanogramPerGram)
 /// Get Ratio from NanogramPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanogramPerKilogram))]
 public static Ratio? FromNanogramPerKilogram(double? NanogramPerKilogram)
 {
     if (NanogramPerKilogram is null)
@@ -285,6 +311,7 @@ public static Ratio? FromNanogramPerKilogram(double? NanogramPerKilogram)
 /// Get Ratio from CentilitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentilitersPerLiter))]
 public static Ratio? FromCentilitersPerLiter(double? CentilitersPerLiter)
 {
     if (CentilitersPerLiter is null)
@@ -296,6 +323,7 @@ public static Ratio? FromCentilitersPerLiter(double? CentilitersPerLiter)
 /// Get Ratio from CentilitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentilitersPerMililiter))]
 public static Ratio? FromCentilitersPerMililiter(double? CentilitersPerMililiter)
 {
     if (CentilitersPerMililiter is null)
@@ -307,6 +335,7 @@ public static Ratio? FromCentilitersPerMililiter(double? CentilitersPerMililiter
 /// Get Ratio from DecilitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecilitersPerLiter))]
 public static Ratio? FromDecilitersPerLiter(double? DecilitersPerLiter)
 {
     if (DecilitersPerLiter is null)
@@ -318,6 +347,7 @@ public static Ratio? FromDecilitersPerLiter(double? DecilitersPerLiter)
 /// Get Ratio from DecilitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecilitersPerMililiter))]
 public static Ratio? FromDecilitersPerMililiter(double? DecilitersPerMililiter)
 {
     if (DecilitersPerMililiter is null)
@@ -329,6 +359,7 @@ public static Ratio? FromDecilitersPerMililiter(double? DecilitersPerMililiter)
 /// Get Ratio from LitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LitersPerLiter))]
 public static Ratio? FromLitersPerLiter(double? LitersPerLiter)
 {
     if (LitersPerLiter is null)
@@ -340,6 +371,7 @@ public static Ratio? FromLitersPerLiter(double? LitersPerLiter)
 /// Get Ratio from LitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(LitersPerMililiter))]
 public static Ratio? FromLitersPerMililiter(double? LitersPerMililiter)
 {
     if (LitersPerMililiter is null)
@@ -351,6 +383,7 @@ public static Ratio? FromLitersPerMililiter(double? LitersPerMililiter)
 /// Get Ratio from MicrolitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrolitersPerLiter))]
 public static Ratio? FromMicrolitersPerLiter(double? MicrolitersPerLiter)
 {
     if (MicrolitersPerLiter is null)
@@ -362,6 +395,7 @@ public static Ratio? FromMicrolitersPerLiter(double? MicrolitersPerLiter)
 /// Get Ratio from MicrolitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrolitersPerMililiter))]
 public static Ratio? FromMicrolitersPerMililiter(double? MicrolitersPerMililiter)
 {
     if (MicrolitersPerMililiter is null)
@@ -373,6 +407,7 @@ public static Ratio? FromMicrolitersPerMililiter(double? MicrolitersPerMililiter
 /// Get Ratio from MillilitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillilitersPerLiter))]
 public static Ratio? FromMillilitersPerLiter(double? MillilitersPerLiter)
 {
     if (MillilitersPerLiter is null)
@@ -384,6 +419,7 @@ public static Ratio? FromMillilitersPerLiter(double? MillilitersPerLiter)
 /// Get Ratio from MillilitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillilitersPerMililiter))]
 public static Ratio? FromMillilitersPerMililiter(double? MillilitersPerMililiter)
 {
     if (MillilitersPerMililiter is null)
@@ -395,6 +431,7 @@ public static Ratio? FromMillilitersPerMililiter(double? MillilitersPerMililiter
 /// Get Ratio from NanolitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanolitersPerLiter))]
 public static Ratio? FromNanolitersPerLiter(double? NanolitersPerLiter)
 {
     if (NanolitersPerLiter is null)
@@ -406,6 +443,7 @@ public static Ratio? FromNanolitersPerLiter(double? NanolitersPerLiter)
 /// Get Ratio from NanolitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanolitersPerMililiter))]
 public static Ratio? FromNanolitersPerMililiter(double? NanolitersPerMililiter)
 {
     if (NanolitersPerMililiter is null)
@@ -417,6 +455,7 @@ public static Ratio? FromNanolitersPerMililiter(double? NanolitersPerMililiter)
 /// Get Ratio from PicolitersPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PicolitersPerLiter))]
 public static Ratio? FromPicolitersPerLiter(double? PicolitersPerLiter)
 {
     if (PicolitersPerLiter is null)
@@ -428,6 +467,7 @@ public static Ratio? FromPicolitersPerLiter(double? PicolitersPerLiter)
 /// Get Ratio from PicolitersPerMililiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PicolitersPerMililiter))]
 public static Ratio? FromPicolitersPerMililiter(double? PicolitersPerMililiter)
 {
     if (PicolitersPerMililiter is null)

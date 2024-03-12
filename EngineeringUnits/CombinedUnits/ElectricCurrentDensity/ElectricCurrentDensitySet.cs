@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricCurrentDensity
 /// Get ElectricCurrentDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricCurrentDensity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricCurrentDensity? FromSI(double? SI)
 /// Get ElectricCurrentDensity from AmperePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerSquareMeter))]
 public static ElectricCurrentDensity? FromAmperePerSquareMeter(double? AmperePerSquareMeter)
 {
     if (AmperePerSquareMeter is null)
@@ -32,6 +35,7 @@ public static ElectricCurrentDensity? FromAmperePerSquareMeter(double? AmperePer
 /// Get ElectricCurrentDensity from AmperePerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerSquareInch))]
 public static ElectricCurrentDensity? FromAmperePerSquareInch(double? AmperePerSquareInch)
 {
     if (AmperePerSquareInch is null)
@@ -43,6 +47,7 @@ public static ElectricCurrentDensity? FromAmperePerSquareInch(double? AmperePerS
 /// Get ElectricCurrentDensity from AmperePerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerSquareFoot))]
 public static ElectricCurrentDensity? FromAmperePerSquareFoot(double? AmperePerSquareFoot)
 {
     if (AmperePerSquareFoot is null)

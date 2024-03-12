@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Acceleration
 /// Get Acceleration from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Acceleration? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Acceleration? FromSI(double? SI)
 /// Get Acceleration from KilometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilometerPerSecondSquared))]
 public static Acceleration? FromKilometerPerSecondSquared(double? KilometerPerSecondSquared)
 {
     if (KilometerPerSecondSquared is null)
@@ -32,6 +35,7 @@ public static Acceleration? FromKilometerPerSecondSquared(double? KilometerPerSe
 /// Get Acceleration from MeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MeterPerSecondSquared))]
 public static Acceleration? FromMeterPerSecondSquared(double? MeterPerSecondSquared)
 {
     if (MeterPerSecondSquared is null)
@@ -43,6 +47,7 @@ public static Acceleration? FromMeterPerSecondSquared(double? MeterPerSecondSqua
 /// Get Acceleration from DecimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecimeterPerSecondSquared))]
 public static Acceleration? FromDecimeterPerSecondSquared(double? DecimeterPerSecondSquared)
 {
     if (DecimeterPerSecondSquared is null)
@@ -54,6 +59,7 @@ public static Acceleration? FromDecimeterPerSecondSquared(double? DecimeterPerSe
 /// Get Acceleration from CentimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentimeterPerSecondSquared))]
 public static Acceleration? FromCentimeterPerSecondSquared(double? CentimeterPerSecondSquared)
 {
     if (CentimeterPerSecondSquared is null)
@@ -65,6 +71,7 @@ public static Acceleration? FromCentimeterPerSecondSquared(double? CentimeterPer
 /// Get Acceleration from MicrometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrometerPerSecondSquared))]
 public static Acceleration? FromMicrometerPerSecondSquared(double? MicrometerPerSecondSquared)
 {
     if (MicrometerPerSecondSquared is null)
@@ -76,6 +83,7 @@ public static Acceleration? FromMicrometerPerSecondSquared(double? MicrometerPer
 /// Get Acceleration from MillimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillimeterPerSecondSquared))]
 public static Acceleration? FromMillimeterPerSecondSquared(double? MillimeterPerSecondSquared)
 {
     if (MillimeterPerSecondSquared is null)
@@ -87,6 +95,7 @@ public static Acceleration? FromMillimeterPerSecondSquared(double? MillimeterPer
 /// Get Acceleration from NanometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanometerPerSecondSquared))]
 public static Acceleration? FromNanometerPerSecondSquared(double? NanometerPerSecondSquared)
 {
     if (NanometerPerSecondSquared is null)
@@ -98,6 +107,7 @@ public static Acceleration? FromNanometerPerSecondSquared(double? NanometerPerSe
 /// Get Acceleration from InchPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(InchPerSecondSquared))]
 public static Acceleration? FromInchPerSecondSquared(double? InchPerSecondSquared)
 {
     if (InchPerSecondSquared is null)
@@ -109,6 +119,7 @@ public static Acceleration? FromInchPerSecondSquared(double? InchPerSecondSquare
 /// Get Acceleration from FootPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(FootPerSecondSquared))]
 public static Acceleration? FromFootPerSecondSquared(double? FootPerSecondSquared)
 {
     if (FootPerSecondSquared is null)
@@ -120,6 +131,7 @@ public static Acceleration? FromFootPerSecondSquared(double? FootPerSecondSquare
 /// Get Acceleration from KnotPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KnotPerSecond))]
 public static Acceleration? FromKnotPerSecond(double? KnotPerSecond)
 {
     if (KnotPerSecond is null)
@@ -131,6 +143,7 @@ public static Acceleration? FromKnotPerSecond(double? KnotPerSecond)
 /// Get Acceleration from KnotPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KnotPerMinute))]
 public static Acceleration? FromKnotPerMinute(double? KnotPerMinute)
 {
     if (KnotPerMinute is null)
@@ -142,6 +155,7 @@ public static Acceleration? FromKnotPerMinute(double? KnotPerMinute)
 /// Get Acceleration from KnotPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KnotPerHour))]
 public static Acceleration? FromKnotPerHour(double? KnotPerHour)
 {
     if (KnotPerHour is null)
@@ -153,6 +167,7 @@ public static Acceleration? FromKnotPerHour(double? KnotPerHour)
 /// Get Acceleration from StandardGravity.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(StandardGravity))]
 public static Acceleration? FromStandardGravity(double? StandardGravity)
 {
     if (StandardGravity is null)
@@ -164,6 +179,7 @@ public static Acceleration? FromStandardGravity(double? StandardGravity)
 /// Get Acceleration from MillistandardGravity.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillistandardGravity))]
 public static Acceleration? FromMillistandardGravity(double? MillistandardGravity)
 {
     if (MillistandardGravity is null)

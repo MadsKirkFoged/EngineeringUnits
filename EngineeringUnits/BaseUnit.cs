@@ -241,7 +241,10 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     //[return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator *(BaseUnit? left, BaseUnit? right)
     {
-        if (left is null || right is null)
+        if (left is null)
+            return null;
+
+        if (right is null)
             return null;
 
         if (left.IsNaN() || right.IsNaN())
@@ -279,11 +282,11 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                 //return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
             }
 
-            return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
+            return new UnknownUnit(left!.NEWValue * right!.NEWValue, left.Unit * right.Unit);
         }
         catch (OverflowException)
         {
-            return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
+            return new UnknownUnit(double.PositiveInfinity, left!.Unit * right!.Unit);
         }
     }
 
@@ -357,15 +360,15 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                 }
             }
 
-            return new UnknownUnit(left.NEWValue / right.NEWValue, left.Unit / right.Unit);
+            return new UnknownUnit(left!.NEWValue / right!.NEWValue, left.Unit / right.Unit);
         }
         catch (OverflowException)
         {
-            return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            return new UnknownUnit(double.PositiveInfinity, left!.Unit / right!.Unit);
         }
         catch (DivideByZeroException)
         {
-            return new UnknownUnit(double.PositiveInfinity, left.Unit / right.Unit);
+            return new UnknownUnit(double.PositiveInfinity, left!.Unit / right!.Unit);
         }
     }
 

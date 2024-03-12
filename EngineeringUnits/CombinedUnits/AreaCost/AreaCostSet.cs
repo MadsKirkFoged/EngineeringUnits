@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class AreaCost
 /// Get AreaCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static AreaCost? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static AreaCost? FromSI(double? SI)
 /// Get AreaCost from USDollarPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollarPerSquareMeter))]
 public static AreaCost? FromUSDollarPerSquareMeter(double? USDollarPerSquareMeter)
 {
     if (USDollarPerSquareMeter is null)
@@ -32,6 +35,7 @@ public static AreaCost? FromUSDollarPerSquareMeter(double? USDollarPerSquareMete
 /// Get AreaCost from MillionUSDollarPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillionUSDollarPerSquareMeter))]
 public static AreaCost? FromMillionUSDollarPerSquareMeter(double? MillionUSDollarPerSquareMeter)
 {
     if (MillionUSDollarPerSquareMeter is null)
@@ -43,6 +47,7 @@ public static AreaCost? FromMillionUSDollarPerSquareMeter(double? MillionUSDolla
 /// Get AreaCost from EuroPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(EuroPerSquareMeter))]
 public static AreaCost? FromEuroPerSquareMeter(double? EuroPerSquareMeter)
 {
     if (EuroPerSquareMeter is null)

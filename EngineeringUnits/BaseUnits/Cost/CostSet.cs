@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Cost
 /// Get Cost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Cost? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Cost? FromSI(double? SI)
 /// Get Cost from USDollar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(USDollar))]
 public static Cost? FromUSDollar(double? USDollar)
 {
     if (USDollar is null)
@@ -32,6 +35,7 @@ public static Cost? FromUSDollar(double? USDollar)
 /// Get Cost from MillionUSDollar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillionUSDollar))]
 public static Cost? FromMillionUSDollar(double? MillionUSDollar)
 {
     if (MillionUSDollar is null)
@@ -43,6 +47,7 @@ public static Cost? FromMillionUSDollar(double? MillionUSDollar)
 /// Get Cost from Euro.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Euro))]
 public static Cost? FromEuro(double? Euro)
 {
     if (Euro is null)
@@ -54,6 +59,7 @@ public static Cost? FromEuro(double? Euro)
 /// Get Cost from BritishPound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BritishPound))]
 public static Cost? FromBritishPound(double? BritishPound)
 {
     if (BritishPound is null)

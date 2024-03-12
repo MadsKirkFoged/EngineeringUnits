@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricCharge
 /// Get ElectricCharge from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricCharge? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricCharge? FromSI(double? SI)
 /// Get ElectricCharge from Coulomb.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Coulomb))]
 public static ElectricCharge? FromCoulomb(double? Coulomb)
 {
     if (Coulomb is null)
@@ -32,6 +35,7 @@ public static ElectricCharge? FromCoulomb(double? Coulomb)
 /// Get ElectricCharge from AmpereHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmpereHour))]
 public static ElectricCharge? FromAmpereHour(double? AmpereHour)
 {
     if (AmpereHour is null)
@@ -43,6 +47,7 @@ public static ElectricCharge? FromAmpereHour(double? AmpereHour)
 /// Get ElectricCharge from KiloampereHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KiloampereHour))]
 public static ElectricCharge? FromKiloampereHour(double? KiloampereHour)
 {
     if (KiloampereHour is null)
@@ -54,6 +59,7 @@ public static ElectricCharge? FromKiloampereHour(double? KiloampereHour)
 /// Get ElectricCharge from MegaampereHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegaampereHour))]
 public static ElectricCharge? FromMegaampereHour(double? MegaampereHour)
 {
     if (MegaampereHour is null)
@@ -65,6 +71,7 @@ public static ElectricCharge? FromMegaampereHour(double? MegaampereHour)
 /// Get ElectricCharge from MilliampereHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilliampereHour))]
 public static ElectricCharge? FromMilliampereHour(double? MilliampereHour)
 {
     if (MilliampereHour is null)

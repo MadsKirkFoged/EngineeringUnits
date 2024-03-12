@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ThermalResistance
 /// Get ThermalResistance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ThermalResistance? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ThermalResistance? FromSI(double? SI)
 /// Get ThermalResistance from SquareMeterDegreeCelsiusPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SquareMeterDegreeCelsiusPerWatt))]
 public static ThermalResistance? FromSquareMeterDegreeCelsiusPerWatt(double? SquareMeterDegreeCelsiusPerWatt)
 {
     if (SquareMeterDegreeCelsiusPerWatt is null)
@@ -32,6 +35,7 @@ public static ThermalResistance? FromSquareMeterDegreeCelsiusPerWatt(double? Squ
 /// Get ThermalResistance from SquareMeterKelvinPerKilowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SquareMeterKelvinPerKilowatt))]
 public static ThermalResistance? FromSquareMeterKelvinPerKilowatt(double? SquareMeterKelvinPerKilowatt)
 {
     if (SquareMeterKelvinPerKilowatt is null)
@@ -43,6 +47,7 @@ public static ThermalResistance? FromSquareMeterKelvinPerKilowatt(double? Square
 /// Get ThermalResistance from SquareCentimeterKelvinPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SquareCentimeterKelvinPerWatt))]
 public static ThermalResistance? FromSquareCentimeterKelvinPerWatt(double? SquareCentimeterKelvinPerWatt)
 {
     if (SquareCentimeterKelvinPerWatt is null)
@@ -54,6 +59,7 @@ public static ThermalResistance? FromSquareCentimeterKelvinPerWatt(double? Squar
 /// Get ThermalResistance from SquareCentimeterHourDegreeCelsiusPerKilocalorie.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SquareCentimeterHourDegreeCelsiusPerKilocalorie))]
 public static ThermalResistance? FromSquareCentimeterHourDegreeCelsiusPerKilocalorie(double? SquareCentimeterHourDegreeCelsiusPerKilocalorie)
 {
     if (SquareCentimeterHourDegreeCelsiusPerKilocalorie is null)
@@ -65,6 +71,7 @@ public static ThermalResistance? FromSquareCentimeterHourDegreeCelsiusPerKilocal
 /// Get ThermalResistance from HourSquareFeetDegreeFahrenheitPerBtu.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(HourSquareFeetDegreeFahrenheitPerBtu))]
 public static ThermalResistance? FromHourSquareFeetDegreeFahrenheitPerBtu(double? HourSquareFeetDegreeFahrenheitPerBtu)
 {
     if (HourSquareFeetDegreeFahrenheitPerBtu is null)

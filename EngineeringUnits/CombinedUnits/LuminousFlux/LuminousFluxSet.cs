@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class LuminousFlux
 /// Get LuminousFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static LuminousFlux? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static LuminousFlux? FromSI(double? SI)
 /// Get LuminousFlux from Lumen.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(Lumen))]
 public static LuminousFlux? FromLumen(double? Lumen)
 {
     if (Lumen is null)

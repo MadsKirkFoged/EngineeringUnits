@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricCurrentGradient
 /// Get ElectricCurrentGradient from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricCurrentGradient? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricCurrentGradient? FromSI(double? SI)
 /// Get ElectricCurrentGradient from AmperePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerSecond))]
 public static ElectricCurrentGradient? FromAmperePerSecond(double? AmperePerSecond)
 {
     if (AmperePerSecond is null)
@@ -32,6 +35,7 @@ public static ElectricCurrentGradient? FromAmperePerSecond(double? AmperePerSeco
 /// Get ElectricCurrentGradient from AmperePerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerMicrosecond))]
 public static ElectricCurrentGradient? FromAmperePerMicrosecond(double? AmperePerMicrosecond)
 {
     if (AmperePerMicrosecond is null)
@@ -43,6 +47,7 @@ public static ElectricCurrentGradient? FromAmperePerMicrosecond(double? AmperePe
 /// Get ElectricCurrentGradient from AmperePerMillisecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerMillisecond))]
 public static ElectricCurrentGradient? FromAmperePerMillisecond(double? AmperePerMillisecond)
 {
     if (AmperePerMillisecond is null)
@@ -54,6 +59,7 @@ public static ElectricCurrentGradient? FromAmperePerMillisecond(double? AmperePe
 /// Get ElectricCurrentGradient from AmperePerNanosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(AmperePerNanosecond))]
 public static ElectricCurrentGradient? FromAmperePerNanosecond(double? AmperePerNanosecond)
 {
     if (AmperePerNanosecond is null)

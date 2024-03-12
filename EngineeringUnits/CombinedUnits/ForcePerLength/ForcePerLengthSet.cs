@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ForcePerLength
 /// Get ForcePerLength from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ForcePerLength? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ForcePerLength? FromSI(double? SI)
 /// Get ForcePerLength from NewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonPerMeter))]
 public static ForcePerLength? FromNewtonPerMeter(double? NewtonPerMeter)
 {
     if (NewtonPerMeter is null)
@@ -32,6 +35,7 @@ public static ForcePerLength? FromNewtonPerMeter(double? NewtonPerMeter)
 /// Get ForcePerLength from NewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonPerCentimeter))]
 public static ForcePerLength? FromNewtonPerCentimeter(double? NewtonPerCentimeter)
 {
     if (NewtonPerCentimeter is null)
@@ -43,6 +47,7 @@ public static ForcePerLength? FromNewtonPerCentimeter(double? NewtonPerCentimete
 /// Get ForcePerLength from NewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NewtonPerMillimeter))]
 public static ForcePerLength? FromNewtonPerMillimeter(double? NewtonPerMillimeter)
 {
     if (NewtonPerMillimeter is null)
@@ -54,6 +59,7 @@ public static ForcePerLength? FromNewtonPerMillimeter(double? NewtonPerMillimete
 /// Get ForcePerLength from KilogramForcePerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramForcePerCentimeter))]
 public static ForcePerLength? FromKilogramForcePerCentimeter(double? KilogramForcePerCentimeter)
 {
     if (KilogramForcePerCentimeter is null)
@@ -65,6 +71,7 @@ public static ForcePerLength? FromKilogramForcePerCentimeter(double? KilogramFor
 /// Get ForcePerLength from KilogramForcePerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramForcePerMeter))]
 public static ForcePerLength? FromKilogramForcePerMeter(double? KilogramForcePerMeter)
 {
     if (KilogramForcePerMeter is null)
@@ -76,6 +83,7 @@ public static ForcePerLength? FromKilogramForcePerMeter(double? KilogramForcePer
 /// Get ForcePerLength from KilogramForcePerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilogramForcePerMillimeter))]
 public static ForcePerLength? FromKilogramForcePerMillimeter(double? KilogramForcePerMillimeter)
 {
     if (KilogramForcePerMillimeter is null)
@@ -87,6 +95,7 @@ public static ForcePerLength? FromKilogramForcePerMillimeter(double? KilogramFor
 /// Get ForcePerLength from KilonewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilonewtonPerCentimeter))]
 public static ForcePerLength? FromKilonewtonPerCentimeter(double? KilonewtonPerCentimeter)
 {
     if (KilonewtonPerCentimeter is null)
@@ -98,6 +107,7 @@ public static ForcePerLength? FromKilonewtonPerCentimeter(double? KilonewtonPerC
 /// Get ForcePerLength from KilonewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilonewtonPerMeter))]
 public static ForcePerLength? FromKilonewtonPerMeter(double? KilonewtonPerMeter)
 {
     if (KilonewtonPerMeter is null)
@@ -109,6 +119,7 @@ public static ForcePerLength? FromKilonewtonPerMeter(double? KilonewtonPerMeter)
 /// Get ForcePerLength from KilonewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilonewtonPerMillimeter))]
 public static ForcePerLength? FromKilonewtonPerMillimeter(double? KilonewtonPerMillimeter)
 {
     if (KilonewtonPerMillimeter is null)
@@ -120,6 +131,7 @@ public static ForcePerLength? FromKilonewtonPerMillimeter(double? KilonewtonPerM
 /// Get ForcePerLength from KilopoundForcePerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundForcePerFoot))]
 public static ForcePerLength? FromKilopoundForcePerFoot(double? KilopoundForcePerFoot)
 {
     if (KilopoundForcePerFoot is null)
@@ -131,6 +143,7 @@ public static ForcePerLength? FromKilopoundForcePerFoot(double? KilopoundForcePe
 /// Get ForcePerLength from KilopoundForcePerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilopoundForcePerInch))]
 public static ForcePerLength? FromKilopoundForcePerInch(double? KilopoundForcePerInch)
 {
     if (KilopoundForcePerInch is null)
@@ -142,6 +155,7 @@ public static ForcePerLength? FromKilopoundForcePerInch(double? KilopoundForcePe
 /// Get ForcePerLength from MeganewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MeganewtonPerCentimeter))]
 public static ForcePerLength? FromMeganewtonPerCentimeter(double? MeganewtonPerCentimeter)
 {
     if (MeganewtonPerCentimeter is null)
@@ -153,6 +167,7 @@ public static ForcePerLength? FromMeganewtonPerCentimeter(double? MeganewtonPerC
 /// Get ForcePerLength from MeganewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MeganewtonPerMeter))]
 public static ForcePerLength? FromMeganewtonPerMeter(double? MeganewtonPerMeter)
 {
     if (MeganewtonPerMeter is null)
@@ -164,6 +179,7 @@ public static ForcePerLength? FromMeganewtonPerMeter(double? MeganewtonPerMeter)
 /// Get ForcePerLength from MeganewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MeganewtonPerMillimeter))]
 public static ForcePerLength? FromMeganewtonPerMillimeter(double? MeganewtonPerMillimeter)
 {
     if (MeganewtonPerMillimeter is null)
@@ -175,6 +191,7 @@ public static ForcePerLength? FromMeganewtonPerMillimeter(double? MeganewtonPerM
 /// Get ForcePerLength from MicronewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicronewtonPerCentimeter))]
 public static ForcePerLength? FromMicronewtonPerCentimeter(double? MicronewtonPerCentimeter)
 {
     if (MicronewtonPerCentimeter is null)
@@ -186,6 +203,7 @@ public static ForcePerLength? FromMicronewtonPerCentimeter(double? MicronewtonPe
 /// Get ForcePerLength from MicronewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicronewtonPerMeter))]
 public static ForcePerLength? FromMicronewtonPerMeter(double? MicronewtonPerMeter)
 {
     if (MicronewtonPerMeter is null)
@@ -197,6 +215,7 @@ public static ForcePerLength? FromMicronewtonPerMeter(double? MicronewtonPerMete
 /// Get ForcePerLength from MicronewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicronewtonPerMillimeter))]
 public static ForcePerLength? FromMicronewtonPerMillimeter(double? MicronewtonPerMillimeter)
 {
     if (MicronewtonPerMillimeter is null)
@@ -208,6 +227,7 @@ public static ForcePerLength? FromMicronewtonPerMillimeter(double? MicronewtonPe
 /// Get ForcePerLength from MillinewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillinewtonPerCentimeter))]
 public static ForcePerLength? FromMillinewtonPerCentimeter(double? MillinewtonPerCentimeter)
 {
     if (MillinewtonPerCentimeter is null)
@@ -219,6 +239,7 @@ public static ForcePerLength? FromMillinewtonPerCentimeter(double? MillinewtonPe
 /// Get ForcePerLength from MillinewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillinewtonPerMeter))]
 public static ForcePerLength? FromMillinewtonPerMeter(double? MillinewtonPerMeter)
 {
     if (MillinewtonPerMeter is null)
@@ -230,6 +251,7 @@ public static ForcePerLength? FromMillinewtonPerMeter(double? MillinewtonPerMete
 /// Get ForcePerLength from MillinewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillinewtonPerMillimeter))]
 public static ForcePerLength? FromMillinewtonPerMillimeter(double? MillinewtonPerMillimeter)
 {
     if (MillinewtonPerMillimeter is null)
@@ -241,6 +263,7 @@ public static ForcePerLength? FromMillinewtonPerMillimeter(double? MillinewtonPe
 /// Get ForcePerLength from PoundForcePerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerFoot))]
 public static ForcePerLength? FromPoundForcePerFoot(double? PoundForcePerFoot)
 {
     if (PoundForcePerFoot is null)
@@ -252,6 +275,7 @@ public static ForcePerLength? FromPoundForcePerFoot(double? PoundForcePerFoot)
 /// Get ForcePerLength from PoundForcePerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerInch))]
 public static ForcePerLength? FromPoundForcePerInch(double? PoundForcePerInch)
 {
     if (PoundForcePerInch is null)
@@ -263,6 +287,7 @@ public static ForcePerLength? FromPoundForcePerInch(double? PoundForcePerInch)
 /// Get ForcePerLength from PoundForcePerYard.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(PoundForcePerYard))]
 public static ForcePerLength? FromPoundForcePerYard(double? PoundForcePerYard)
 {
     if (PoundForcePerYard is null)
@@ -274,6 +299,7 @@ public static ForcePerLength? FromPoundForcePerYard(double? PoundForcePerYard)
 /// Get ForcePerLength from TonneForcePerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TonneForcePerCentimeter))]
 public static ForcePerLength? FromTonneForcePerCentimeter(double? TonneForcePerCentimeter)
 {
     if (TonneForcePerCentimeter is null)
@@ -285,6 +311,7 @@ public static ForcePerLength? FromTonneForcePerCentimeter(double? TonneForcePerC
 /// Get ForcePerLength from TonneForcePerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TonneForcePerMeter))]
 public static ForcePerLength? FromTonneForcePerMeter(double? TonneForcePerMeter)
 {
     if (TonneForcePerMeter is null)
@@ -296,6 +323,7 @@ public static ForcePerLength? FromTonneForcePerMeter(double? TonneForcePerMeter)
 /// Get ForcePerLength from TonneForcePerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(TonneForcePerMillimeter))]
 public static ForcePerLength? FromTonneForcePerMillimeter(double? TonneForcePerMillimeter)
 {
     if (TonneForcePerMillimeter is null)
@@ -307,6 +335,7 @@ public static ForcePerLength? FromTonneForcePerMillimeter(double? TonneForcePerM
 /// Get ForcePerLength from NanonewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanonewtonPerCentimeter))]
 public static ForcePerLength? FromNanonewtonPerCentimeter(double? NanonewtonPerCentimeter)
 {
     if (NanonewtonPerCentimeter is null)
@@ -318,6 +347,7 @@ public static ForcePerLength? FromNanonewtonPerCentimeter(double? NanonewtonPerC
 /// Get ForcePerLength from NanonewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanonewtonPerMeter))]
 public static ForcePerLength? FromNanonewtonPerMeter(double? NanonewtonPerMeter)
 {
     if (NanonewtonPerMeter is null)
@@ -329,6 +359,7 @@ public static ForcePerLength? FromNanonewtonPerMeter(double? NanonewtonPerMeter)
 /// Get ForcePerLength from NanonewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(NanonewtonPerMillimeter))]
 public static ForcePerLength? FromNanonewtonPerMillimeter(double? NanonewtonPerMillimeter)
 {
     if (NanonewtonPerMillimeter is null)
@@ -340,6 +371,7 @@ public static ForcePerLength? FromNanonewtonPerMillimeter(double? NanonewtonPerM
 /// Get ForcePerLength from CentinewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentinewtonPerCentimeter))]
 public static ForcePerLength? FromCentinewtonPerCentimeter(double? CentinewtonPerCentimeter)
 {
     if (CentinewtonPerCentimeter is null)
@@ -351,6 +383,7 @@ public static ForcePerLength? FromCentinewtonPerCentimeter(double? CentinewtonPe
 /// Get ForcePerLength from CentinewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentinewtonPerMeter))]
 public static ForcePerLength? FromCentinewtonPerMeter(double? CentinewtonPerMeter)
 {
     if (CentinewtonPerMeter is null)
@@ -362,6 +395,7 @@ public static ForcePerLength? FromCentinewtonPerMeter(double? CentinewtonPerMete
 /// Get ForcePerLength from CentinewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CentinewtonPerMillimeter))]
 public static ForcePerLength? FromCentinewtonPerMillimeter(double? CentinewtonPerMillimeter)
 {
     if (CentinewtonPerMillimeter is null)
@@ -373,6 +407,7 @@ public static ForcePerLength? FromCentinewtonPerMillimeter(double? CentinewtonPe
 /// Get ForcePerLength from DecanewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecanewtonPerCentimeter))]
 public static ForcePerLength? FromDecanewtonPerCentimeter(double? DecanewtonPerCentimeter)
 {
     if (DecanewtonPerCentimeter is null)
@@ -384,6 +419,7 @@ public static ForcePerLength? FromDecanewtonPerCentimeter(double? DecanewtonPerC
 /// Get ForcePerLength from DecanewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecanewtonPerMeter))]
 public static ForcePerLength? FromDecanewtonPerMeter(double? DecanewtonPerMeter)
 {
     if (DecanewtonPerMeter is null)
@@ -395,6 +431,7 @@ public static ForcePerLength? FromDecanewtonPerMeter(double? DecanewtonPerMeter)
 /// Get ForcePerLength from DecanewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecanewtonPerMillimeter))]
 public static ForcePerLength? FromDecanewtonPerMillimeter(double? DecanewtonPerMillimeter)
 {
     if (DecanewtonPerMillimeter is null)
@@ -406,6 +443,7 @@ public static ForcePerLength? FromDecanewtonPerMillimeter(double? DecanewtonPerM
 /// Get ForcePerLength from DecinewtonPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecinewtonPerCentimeter))]
 public static ForcePerLength? FromDecinewtonPerCentimeter(double? DecinewtonPerCentimeter)
 {
     if (DecinewtonPerCentimeter is null)
@@ -417,6 +455,7 @@ public static ForcePerLength? FromDecinewtonPerCentimeter(double? DecinewtonPerC
 /// Get ForcePerLength from DecinewtonPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecinewtonPerMeter))]
 public static ForcePerLength? FromDecinewtonPerMeter(double? DecinewtonPerMeter)
 {
     if (DecinewtonPerMeter is null)
@@ -428,6 +467,7 @@ public static ForcePerLength? FromDecinewtonPerMeter(double? DecinewtonPerMeter)
 /// Get ForcePerLength from DecinewtonPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(DecinewtonPerMillimeter))]
 public static ForcePerLength? FromDecinewtonPerMillimeter(double? DecinewtonPerMillimeter)
 {
     if (DecinewtonPerMillimeter is null)

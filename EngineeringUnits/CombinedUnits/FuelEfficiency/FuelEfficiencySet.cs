@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class FuelEfficiency
 /// Get FuelEfficiency from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static FuelEfficiency? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static FuelEfficiency? FromSI(double? SI)
 /// Get FuelEfficiency from KilometerPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilometerPerLiter))]
 public static FuelEfficiency? FromKilometerPerLiter(double? KilometerPerLiter)
 {
     if (KilometerPerLiter is null)
@@ -32,6 +35,7 @@ public static FuelEfficiency? FromKilometerPerLiter(double? KilometerPerLiter)
 /// Get FuelEfficiency from MilePerUkGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilePerUkGallon))]
 public static FuelEfficiency? FromMilePerUkGallon(double? MilePerUkGallon)
 {
     if (MilePerUkGallon is null)
@@ -43,6 +47,7 @@ public static FuelEfficiency? FromMilePerUkGallon(double? MilePerUkGallon)
 /// Get FuelEfficiency from MilePerUsGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MilePerUsGallon))]
 public static FuelEfficiency? FromMilePerUsGallon(double? MilePerUsGallon)
 {
     if (MilePerUsGallon is null)

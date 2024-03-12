@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ThermalConductivity
 /// Get ThermalConductivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ThermalConductivity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ThermalConductivity? FromSI(double? SI)
 /// Get ThermalConductivity from WattPerMeterKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerMeterKelvin))]
 public static ThermalConductivity? FromWattPerMeterKelvin(double? WattPerMeterKelvin)
 {
     if (WattPerMeterKelvin is null)
@@ -32,6 +35,7 @@ public static ThermalConductivity? FromWattPerMeterKelvin(double? WattPerMeterKe
 /// Get ThermalConductivity from BtuPerHourFootFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerHourFootFahrenheit))]
 public static ThermalConductivity? FromBtuPerHourFootFahrenheit(double? BtuPerHourFootFahrenheit)
 {
     if (BtuPerHourFootFahrenheit is null)

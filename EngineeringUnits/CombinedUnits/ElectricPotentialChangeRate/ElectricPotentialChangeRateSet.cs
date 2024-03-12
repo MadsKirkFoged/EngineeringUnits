@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class ElectricPotentialChangeRate
 /// Get ElectricPotentialChangeRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static ElectricPotentialChangeRate? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static ElectricPotentialChangeRate? FromSI(double? SI)
 /// Get ElectricPotentialChangeRate from VoltPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(VoltPerSecond))]
 public static ElectricPotentialChangeRate? FromVoltPerSecond(double? VoltPerSecond)
 {
     if (VoltPerSecond is null)
@@ -32,6 +35,7 @@ public static ElectricPotentialChangeRate? FromVoltPerSecond(double? VoltPerSeco
 /// Get ElectricPotentialChangeRate from VoltPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(VoltPerMinute))]
 public static ElectricPotentialChangeRate? FromVoltPerMinute(double? VoltPerMinute)
 {
     if (VoltPerMinute is null)
@@ -43,6 +47,7 @@ public static ElectricPotentialChangeRate? FromVoltPerMinute(double? VoltPerMinu
 /// Get ElectricPotentialChangeRate from VoltPerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(VoltPerMicrosecond))]
 public static ElectricPotentialChangeRate? FromVoltPerMicrosecond(double? VoltPerMicrosecond)
 {
     if (VoltPerMicrosecond is null)
@@ -54,6 +59,7 @@ public static ElectricPotentialChangeRate? FromVoltPerMicrosecond(double? VoltPe
 /// Get ElectricPotentialChangeRate from VoltPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(VoltPerHour))]
 public static ElectricPotentialChangeRate? FromVoltPerHour(double? VoltPerHour)
 {
     if (VoltPerHour is null)
@@ -65,6 +71,7 @@ public static ElectricPotentialChangeRate? FromVoltPerHour(double? VoltPerHour)
 /// Get ElectricPotentialChangeRate from MillivoltPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillivoltPerSecond))]
 public static ElectricPotentialChangeRate? FromMillivoltPerSecond(double? MillivoltPerSecond)
 {
     if (MillivoltPerSecond is null)
@@ -76,6 +83,7 @@ public static ElectricPotentialChangeRate? FromMillivoltPerSecond(double? Milliv
 /// Get ElectricPotentialChangeRate from MillivoltPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillivoltPerMinute))]
 public static ElectricPotentialChangeRate? FromMillivoltPerMinute(double? MillivoltPerMinute)
 {
     if (MillivoltPerMinute is null)
@@ -87,6 +95,7 @@ public static ElectricPotentialChangeRate? FromMillivoltPerMinute(double? Milliv
 /// Get ElectricPotentialChangeRate from MillivoltPerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillivoltPerMicrosecond))]
 public static ElectricPotentialChangeRate? FromMillivoltPerMicrosecond(double? MillivoltPerMicrosecond)
 {
     if (MillivoltPerMicrosecond is null)
@@ -98,6 +107,7 @@ public static ElectricPotentialChangeRate? FromMillivoltPerMicrosecond(double? M
 /// Get ElectricPotentialChangeRate from MillivoltPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MillivoltPerHour))]
 public static ElectricPotentialChangeRate? FromMillivoltPerHour(double? MillivoltPerHour)
 {
     if (MillivoltPerHour is null)
@@ -109,6 +119,7 @@ public static ElectricPotentialChangeRate? FromMillivoltPerHour(double? Millivol
 /// Get ElectricPotentialChangeRate from MicrovoltPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrovoltPerSecond))]
 public static ElectricPotentialChangeRate? FromMicrovoltPerSecond(double? MicrovoltPerSecond)
 {
     if (MicrovoltPerSecond is null)
@@ -120,6 +131,7 @@ public static ElectricPotentialChangeRate? FromMicrovoltPerSecond(double? Microv
 /// Get ElectricPotentialChangeRate from MicrovoltPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrovoltPerMinute))]
 public static ElectricPotentialChangeRate? FromMicrovoltPerMinute(double? MicrovoltPerMinute)
 {
     if (MicrovoltPerMinute is null)
@@ -131,6 +143,7 @@ public static ElectricPotentialChangeRate? FromMicrovoltPerMinute(double? Microv
 /// Get ElectricPotentialChangeRate from MicrovoltPerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrovoltPerMicrosecond))]
 public static ElectricPotentialChangeRate? FromMicrovoltPerMicrosecond(double? MicrovoltPerMicrosecond)
 {
     if (MicrovoltPerMicrosecond is null)
@@ -142,6 +155,7 @@ public static ElectricPotentialChangeRate? FromMicrovoltPerMicrosecond(double? M
 /// Get ElectricPotentialChangeRate from MicrovoltPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MicrovoltPerHour))]
 public static ElectricPotentialChangeRate? FromMicrovoltPerHour(double? MicrovoltPerHour)
 {
     if (MicrovoltPerHour is null)
@@ -153,6 +167,7 @@ public static ElectricPotentialChangeRate? FromMicrovoltPerHour(double? Microvol
 /// Get ElectricPotentialChangeRate from MegavoltPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegavoltPerSecond))]
 public static ElectricPotentialChangeRate? FromMegavoltPerSecond(double? MegavoltPerSecond)
 {
     if (MegavoltPerSecond is null)
@@ -164,6 +179,7 @@ public static ElectricPotentialChangeRate? FromMegavoltPerSecond(double? Megavol
 /// Get ElectricPotentialChangeRate from MegavoltPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegavoltPerMinute))]
 public static ElectricPotentialChangeRate? FromMegavoltPerMinute(double? MegavoltPerMinute)
 {
     if (MegavoltPerMinute is null)
@@ -175,6 +191,7 @@ public static ElectricPotentialChangeRate? FromMegavoltPerMinute(double? Megavol
 /// Get ElectricPotentialChangeRate from MegavoltPerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegavoltPerMicrosecond))]
 public static ElectricPotentialChangeRate? FromMegavoltPerMicrosecond(double? MegavoltPerMicrosecond)
 {
     if (MegavoltPerMicrosecond is null)
@@ -186,6 +203,7 @@ public static ElectricPotentialChangeRate? FromMegavoltPerMicrosecond(double? Me
 /// Get ElectricPotentialChangeRate from MegavoltPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegavoltPerHour))]
 public static ElectricPotentialChangeRate? FromMegavoltPerHour(double? MegavoltPerHour)
 {
     if (MegavoltPerHour is null)
@@ -197,6 +215,7 @@ public static ElectricPotentialChangeRate? FromMegavoltPerHour(double? MegavoltP
 /// Get ElectricPotentialChangeRate from KilovoltPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilovoltPerSecond))]
 public static ElectricPotentialChangeRate? FromKilovoltPerSecond(double? KilovoltPerSecond)
 {
     if (KilovoltPerSecond is null)
@@ -208,6 +227,7 @@ public static ElectricPotentialChangeRate? FromKilovoltPerSecond(double? Kilovol
 /// Get ElectricPotentialChangeRate from KilovoltPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilovoltPerMinute))]
 public static ElectricPotentialChangeRate? FromKilovoltPerMinute(double? KilovoltPerMinute)
 {
     if (KilovoltPerMinute is null)
@@ -219,6 +239,7 @@ public static ElectricPotentialChangeRate? FromKilovoltPerMinute(double? Kilovol
 /// Get ElectricPotentialChangeRate from KilovoltPerMicrosecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilovoltPerMicrosecond))]
 public static ElectricPotentialChangeRate? FromKilovoltPerMicrosecond(double? KilovoltPerMicrosecond)
 {
     if (KilovoltPerMicrosecond is null)
@@ -230,6 +251,7 @@ public static ElectricPotentialChangeRate? FromKilovoltPerMicrosecond(double? Ki
 /// Get ElectricPotentialChangeRate from KilovoltPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilovoltPerHour))]
 public static ElectricPotentialChangeRate? FromKilovoltPerHour(double? KilovoltPerHour)
 {
     if (KilovoltPerHour is null)

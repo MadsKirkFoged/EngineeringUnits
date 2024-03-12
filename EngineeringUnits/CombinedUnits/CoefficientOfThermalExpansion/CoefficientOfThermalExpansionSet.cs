@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class CoefficientOfThermalExpansion
 /// Get CoefficientOfThermalExpansion from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static CoefficientOfThermalExpansion? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static CoefficientOfThermalExpansion? FromSI(double? SI)
 /// Get CoefficientOfThermalExpansion from InverseKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(InverseKelvin))]
 public static CoefficientOfThermalExpansion? FromInverseKelvin(double? InverseKelvin)
 {
     if (InverseKelvin is null)
@@ -32,6 +35,7 @@ public static CoefficientOfThermalExpansion? FromInverseKelvin(double? InverseKe
 /// Get CoefficientOfThermalExpansion from InverseDegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(InverseDegreeFahrenheit))]
 public static CoefficientOfThermalExpansion? FromInverseDegreeFahrenheit(double? InverseDegreeFahrenheit)
 {
     if (InverseDegreeFahrenheit is null)
@@ -43,6 +47,7 @@ public static CoefficientOfThermalExpansion? FromInverseDegreeFahrenheit(double?
 /// Get CoefficientOfThermalExpansion from InverseDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(InverseDegreeCelsius))]
 public static CoefficientOfThermalExpansion? FromInverseDegreeCelsius(double? InverseDegreeCelsius)
 {
     if (InverseDegreeCelsius is null)

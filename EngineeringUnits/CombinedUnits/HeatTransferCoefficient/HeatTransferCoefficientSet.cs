@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class HeatTransferCoefficient
 /// Get HeatTransferCoefficient from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static HeatTransferCoefficient? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static HeatTransferCoefficient? FromSI(double? SI)
 /// Get HeatTransferCoefficient from WattPerSquareMeterKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerSquareMeterKelvin))]
 public static HeatTransferCoefficient? FromWattPerSquareMeterKelvin(double? WattPerSquareMeterKelvin)
 {
     if (WattPerSquareMeterKelvin is null)
@@ -32,6 +35,7 @@ public static HeatTransferCoefficient? FromWattPerSquareMeterKelvin(double? Watt
 /// Get HeatTransferCoefficient from WattPerSquareMeterCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(WattPerSquareMeterCelsius))]
 public static HeatTransferCoefficient? FromWattPerSquareMeterCelsius(double? WattPerSquareMeterCelsius)
 {
     if (WattPerSquareMeterCelsius is null)
@@ -43,6 +47,7 @@ public static HeatTransferCoefficient? FromWattPerSquareMeterCelsius(double? Wat
 /// Get HeatTransferCoefficient from BtuPerSquareFootDegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(BtuPerSquareFootDegreeFahrenheit))]
 public static HeatTransferCoefficient? FromBtuPerSquareFootDegreeFahrenheit(double? BtuPerSquareFootDegreeFahrenheit)
 {
     if (BtuPerSquareFootDegreeFahrenheit is null)

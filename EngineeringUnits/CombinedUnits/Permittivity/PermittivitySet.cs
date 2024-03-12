@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Permittivity
 /// Get Permittivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Permittivity? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Permittivity? FromSI(double? SI)
 /// Get Permittivity from FaradPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(FaradPerMeter))]
 public static Permittivity? FromFaradPerMeter(double? FaradPerMeter)
 {
     if (FaradPerMeter is null)

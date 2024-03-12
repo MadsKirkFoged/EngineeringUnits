@@ -1,4 +1,5 @@
-using EngineeringUnits.Units;                     
+using EngineeringUnits.Units; 
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
@@ -10,6 +11,7 @@ public partial class Entropy
 /// Get Entropy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(SI))]
 public static Entropy? FromSI(double? SI)
 {
     if (SI is null)
@@ -21,6 +23,7 @@ public static Entropy? FromSI(double? SI)
 /// Get Entropy from JoulePerKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerKelvin))]
 public static Entropy? FromJoulePerKelvin(double? JoulePerKelvin)
 {
     if (JoulePerKelvin is null)
@@ -32,6 +35,7 @@ public static Entropy? FromJoulePerKelvin(double? JoulePerKelvin)
 /// Get Entropy from CaloriePerKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(CaloriePerKelvin))]
 public static Entropy? FromCaloriePerKelvin(double? CaloriePerKelvin)
 {
     if (CaloriePerKelvin is null)
@@ -43,6 +47,7 @@ public static Entropy? FromCaloriePerKelvin(double? CaloriePerKelvin)
 /// Get Entropy from JoulePerDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(JoulePerDegreeCelsius))]
 public static Entropy? FromJoulePerDegreeCelsius(double? JoulePerDegreeCelsius)
 {
     if (JoulePerDegreeCelsius is null)
@@ -54,6 +59,7 @@ public static Entropy? FromJoulePerDegreeCelsius(double? JoulePerDegreeCelsius)
 /// Get Entropy from KilocaloriePerKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilocaloriePerKelvin))]
 public static Entropy? FromKilocaloriePerKelvin(double? KilocaloriePerKelvin)
 {
     if (KilocaloriePerKelvin is null)
@@ -65,6 +71,7 @@ public static Entropy? FromKilocaloriePerKelvin(double? KilocaloriePerKelvin)
 /// Get Entropy from KilojoulePerDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerDegreeCelsius))]
 public static Entropy? FromKilojoulePerDegreeCelsius(double? KilojoulePerDegreeCelsius)
 {
     if (KilojoulePerDegreeCelsius is null)
@@ -76,6 +83,7 @@ public static Entropy? FromKilojoulePerDegreeCelsius(double? KilojoulePerDegreeC
 /// Get Entropy from KilojoulePerKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(KilojoulePerKelvin))]
 public static Entropy? FromKilojoulePerKelvin(double? KilojoulePerKelvin)
 {
     if (KilojoulePerKelvin is null)
@@ -87,6 +95,7 @@ public static Entropy? FromKilojoulePerKelvin(double? KilojoulePerKelvin)
 /// Get Entropy from MegajoulePerKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+[return: NotNullIfNotNull(nameof(MegajoulePerKelvin))]
 public static Entropy? FromMegajoulePerKelvin(double? MegajoulePerKelvin)
 {
     if (MegajoulePerKelvin is null)
