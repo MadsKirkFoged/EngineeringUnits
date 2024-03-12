@@ -13,7 +13,7 @@ public partial class SpecificEntropy : BaseUnit
 
     public static SpecificEntropy From(double value, SpecificEntropyUnit unit) => new(value, unit);
 
-    public static SpecificEntropy From(double? value, SpecificEntropyUnit unit)
+    public static SpecificEntropy? From(double? value, SpecificEntropyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class SpecificEntropy : BaseUnit
     public static SpecificEntropy Zero => new(0, SpecificEntropyUnit.SI);
     public static SpecificEntropy NaN => new(double.NaN, SpecificEntropyUnit.SI);
 
-    public static implicit operator SpecificEntropy(UnknownUnit Unit)
+    public static implicit operator SpecificEntropy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class SpecificEntropy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(SpecificEntropy Unit)
+    public static implicit operator UnknownUnit?(SpecificEntropy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class SpecificEntropy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEntropyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEntropyUnit>(_unit);    
 }

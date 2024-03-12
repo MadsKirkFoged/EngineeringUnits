@@ -10,7 +10,7 @@ public partial class SpecificHeatCapacity
 /// Get SpecificHeatCapacity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromSI(double? SI)
+public static SpecificHeatCapacity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static SpecificHeatCapacity FromSI(double? SI)
 /// Get SpecificHeatCapacity from JoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromJoulePerKilogramKelvin(double? JoulePerKilogramKelvin)
+public static SpecificHeatCapacity? FromJoulePerKilogramKelvin(double? JoulePerKilogramKelvin)
 {
     if (JoulePerKilogramKelvin is null)
         return null;
@@ -32,7 +32,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramKelvin(double? JoulePerKi
 /// Get SpecificHeatCapacity from JoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromJoulePerKilogramDegreeCelsius(double? JoulePerKilogramDegreeCelsius)
+public static SpecificHeatCapacity? FromJoulePerKilogramDegreeCelsius(double? JoulePerKilogramDegreeCelsius)
 {
     if (JoulePerKilogramDegreeCelsius is null)
         return null;
@@ -43,7 +43,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramDegreeCelsius(double? Jou
 /// Get SpecificHeatCapacity from KilojoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromKilojoulePerKilogramDegreeCelsius(double? KilojoulePerKilogramDegreeCelsius)
+public static SpecificHeatCapacity? FromKilojoulePerKilogramDegreeCelsius(double? KilojoulePerKilogramDegreeCelsius)
 {
     if (KilojoulePerKilogramDegreeCelsius is null)
         return null;
@@ -54,7 +54,7 @@ public static SpecificHeatCapacity FromKilojoulePerKilogramDegreeCelsius(double?
 /// Get SpecificHeatCapacity from KilojoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromKilojoulePerKilogramKelvin(double? KilojoulePerKilogramKelvin)
+public static SpecificHeatCapacity? FromKilojoulePerKilogramKelvin(double? KilojoulePerKilogramKelvin)
 {
     if (KilojoulePerKilogramKelvin is null)
         return null;
@@ -65,7 +65,7 @@ public static SpecificHeatCapacity FromKilojoulePerKilogramKelvin(double? Kilojo
 /// Get SpecificHeatCapacity from MegajoulePerKilogramDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromMegajoulePerKilogramDegreeCelsius(double? MegajoulePerKilogramDegreeCelsius)
+public static SpecificHeatCapacity? FromMegajoulePerKilogramDegreeCelsius(double? MegajoulePerKilogramDegreeCelsius)
 {
     if (MegajoulePerKilogramDegreeCelsius is null)
         return null;
@@ -76,7 +76,7 @@ public static SpecificHeatCapacity FromMegajoulePerKilogramDegreeCelsius(double?
 /// Get SpecificHeatCapacity from MegajoulePerKilogramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromMegajoulePerKilogramKelvin(double? MegajoulePerKilogramKelvin)
+public static SpecificHeatCapacity? FromMegajoulePerKilogramKelvin(double? MegajoulePerKilogramKelvin)
 {
     if (MegajoulePerKilogramKelvin is null)
         return null;
@@ -87,7 +87,7 @@ public static SpecificHeatCapacity FromMegajoulePerKilogramKelvin(double? Megajo
 /// Get SpecificHeatCapacity from JoulePerKilogramRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromJoulePerKilogramRankine(double? JoulePerKilogramRankine)
+public static SpecificHeatCapacity? FromJoulePerKilogramRankine(double? JoulePerKilogramRankine)
 {
     if (JoulePerKilogramRankine is null)
         return null;
@@ -98,7 +98,7 @@ public static SpecificHeatCapacity FromJoulePerKilogramRankine(double? JoulePerK
 /// Get SpecificHeatCapacity from CaloriePerGramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromCaloriePerGramKelvin(double? CaloriePerGramKelvin)
+public static SpecificHeatCapacity? FromCaloriePerGramKelvin(double? CaloriePerGramKelvin)
 {
     if (CaloriePerGramKelvin is null)
         return null;
@@ -109,7 +109,7 @@ public static SpecificHeatCapacity FromCaloriePerGramKelvin(double? CaloriePerGr
 /// Get SpecificHeatCapacity from KilocaloriePerGramKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromKilocaloriePerGramKelvin(double? KilocaloriePerGramKelvin)
+public static SpecificHeatCapacity? FromKilocaloriePerGramKelvin(double? KilocaloriePerGramKelvin)
 {
     if (KilocaloriePerGramKelvin is null)
         return null;
@@ -120,7 +120,7 @@ public static SpecificHeatCapacity FromKilocaloriePerGramKelvin(double? Kilocalo
 /// Get SpecificHeatCapacity from BtuPerPoundKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromBtuPerPoundKelvin(double? BtuPerPoundKelvin)
+public static SpecificHeatCapacity? FromBtuPerPoundKelvin(double? BtuPerPoundKelvin)
 {
     if (BtuPerPoundKelvin is null)
         return null;
@@ -131,7 +131,7 @@ public static SpecificHeatCapacity FromBtuPerPoundKelvin(double? BtuPerPoundKelv
 /// Get SpecificHeatCapacity from BtuPerPoundRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromBtuPerPoundRankine(double? BtuPerPoundRankine)
+public static SpecificHeatCapacity? FromBtuPerPoundRankine(double? BtuPerPoundRankine)
 {
     if (BtuPerPoundRankine is null)
         return null;
@@ -142,7 +142,7 @@ public static SpecificHeatCapacity FromBtuPerPoundRankine(double? BtuPerPoundRan
 /// Get SpecificHeatCapacity from BtuPerPoundFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificHeatCapacity FromBtuPerPoundFahrenheit(double? BtuPerPoundFahrenheit)
+public static SpecificHeatCapacity? FromBtuPerPoundFahrenheit(double? BtuPerPoundFahrenheit)
 {
     if (BtuPerPoundFahrenheit is null)
         return null;

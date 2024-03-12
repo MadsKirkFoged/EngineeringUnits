@@ -13,7 +13,7 @@ public partial class LuminousIntensity : BaseUnit
 
     public static LuminousIntensity From(double value, LuminousIntensityUnit unit) => new(value, unit);
 
-    public static LuminousIntensity From(double? value, LuminousIntensityUnit unit)
+    public static LuminousIntensity? From(double? value, LuminousIntensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class LuminousIntensity : BaseUnit
     public static LuminousIntensity Zero => new(0, LuminousIntensityUnit.SI);
     public static LuminousIntensity NaN => new(double.NaN, LuminousIntensityUnit.SI);
 
-    public static implicit operator LuminousIntensity(UnknownUnit Unit)
+    public static implicit operator LuminousIntensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class LuminousIntensity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(LuminousIntensity Unit)
+    public static implicit operator UnknownUnit?(LuminousIntensity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class LuminousIntensity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);    
 }

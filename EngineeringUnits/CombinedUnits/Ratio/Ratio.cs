@@ -13,7 +13,7 @@ public partial class Ratio : BaseUnit
 
     public static Ratio From(double value, RatioUnit unit) => new(value, unit);
 
-    public static Ratio From(double? value, RatioUnit unit)
+    public static Ratio? From(double? value, RatioUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Ratio : BaseUnit
     public static Ratio Zero => new(0, RatioUnit.SI);
     public static Ratio NaN => new(double.NaN, RatioUnit.SI);
 
-    public static implicit operator Ratio(UnknownUnit Unit)
+    public static implicit operator Ratio?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Ratio : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Ratio Unit)
+    public static implicit operator UnknownUnit?(Ratio? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Ratio : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);    
 }

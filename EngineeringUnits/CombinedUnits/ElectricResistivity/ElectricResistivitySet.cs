@@ -10,7 +10,7 @@ public partial class ElectricResistivity
 /// Get ElectricResistivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromSI(double? SI)
+public static ElectricResistivity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricResistivity FromSI(double? SI)
 /// Get ElectricResistivity from OhmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromOhmMeter(double? OhmMeter)
+public static ElectricResistivity? FromOhmMeter(double? OhmMeter)
 {
     if (OhmMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricResistivity FromOhmMeter(double? OhmMeter)
 /// Get ElectricResistivity from OhmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromOhmCentimeter(double? OhmCentimeter)
+public static ElectricResistivity? FromOhmCentimeter(double? OhmCentimeter)
 {
     if (OhmCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricResistivity FromOhmCentimeter(double? OhmCentimeter)
 /// Get ElectricResistivity from KiloohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromKiloohmCentimeter(double? KiloohmCentimeter)
+public static ElectricResistivity? FromKiloohmCentimeter(double? KiloohmCentimeter)
 {
     if (KiloohmCentimeter is null)
         return null;
@@ -54,7 +54,7 @@ public static ElectricResistivity FromKiloohmCentimeter(double? KiloohmCentimete
 /// Get ElectricResistivity from MegaohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMegaohmCentimeter(double? MegaohmCentimeter)
+public static ElectricResistivity? FromMegaohmCentimeter(double? MegaohmCentimeter)
 {
     if (MegaohmCentimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static ElectricResistivity FromMegaohmCentimeter(double? MegaohmCentimete
 /// Get ElectricResistivity from MicroohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMicroohmCentimeter(double? MicroohmCentimeter)
+public static ElectricResistivity? FromMicroohmCentimeter(double? MicroohmCentimeter)
 {
     if (MicroohmCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static ElectricResistivity FromMicroohmCentimeter(double? MicroohmCentime
 /// Get ElectricResistivity from MilliohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMilliohmCentimeter(double? MilliohmCentimeter)
+public static ElectricResistivity? FromMilliohmCentimeter(double? MilliohmCentimeter)
 {
     if (MilliohmCentimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static ElectricResistivity FromMilliohmCentimeter(double? MilliohmCentime
 /// Get ElectricResistivity from NanoohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromNanoohmCentimeter(double? NanoohmCentimeter)
+public static ElectricResistivity? FromNanoohmCentimeter(double? NanoohmCentimeter)
 {
     if (NanoohmCentimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static ElectricResistivity FromNanoohmCentimeter(double? NanoohmCentimete
 /// Get ElectricResistivity from PicoohmCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromPicoohmCentimeter(double? PicoohmCentimeter)
+public static ElectricResistivity? FromPicoohmCentimeter(double? PicoohmCentimeter)
 {
     if (PicoohmCentimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static ElectricResistivity FromPicoohmCentimeter(double? PicoohmCentimete
 /// Get ElectricResistivity from KiloohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromKiloohmMeter(double? KiloohmMeter)
+public static ElectricResistivity? FromKiloohmMeter(double? KiloohmMeter)
 {
     if (KiloohmMeter is null)
         return null;
@@ -120,7 +120,7 @@ public static ElectricResistivity FromKiloohmMeter(double? KiloohmMeter)
 /// Get ElectricResistivity from MegaohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMegaohmMeter(double? MegaohmMeter)
+public static ElectricResistivity? FromMegaohmMeter(double? MegaohmMeter)
 {
     if (MegaohmMeter is null)
         return null;
@@ -131,7 +131,7 @@ public static ElectricResistivity FromMegaohmMeter(double? MegaohmMeter)
 /// Get ElectricResistivity from MicroohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMicroohmMeter(double? MicroohmMeter)
+public static ElectricResistivity? FromMicroohmMeter(double? MicroohmMeter)
 {
     if (MicroohmMeter is null)
         return null;
@@ -142,7 +142,7 @@ public static ElectricResistivity FromMicroohmMeter(double? MicroohmMeter)
 /// Get ElectricResistivity from MilliohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromMilliohmMeter(double? MilliohmMeter)
+public static ElectricResistivity? FromMilliohmMeter(double? MilliohmMeter)
 {
     if (MilliohmMeter is null)
         return null;
@@ -153,7 +153,7 @@ public static ElectricResistivity FromMilliohmMeter(double? MilliohmMeter)
 /// Get ElectricResistivity from NanoohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromNanoohmMeter(double? NanoohmMeter)
+public static ElectricResistivity? FromNanoohmMeter(double? NanoohmMeter)
 {
     if (NanoohmMeter is null)
         return null;
@@ -164,7 +164,7 @@ public static ElectricResistivity FromNanoohmMeter(double? NanoohmMeter)
 /// Get ElectricResistivity from PicoohmMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistivity FromPicoohmMeter(double? PicoohmMeter)
+public static ElectricResistivity? FromPicoohmMeter(double? PicoohmMeter)
 {
     if (PicoohmMeter is null)
         return null;

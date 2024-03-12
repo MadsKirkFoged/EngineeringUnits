@@ -10,7 +10,7 @@ public partial class Cost
 /// Get Cost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Cost FromSI(double? SI)
+public static Cost? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Cost FromSI(double? SI)
 /// Get Cost from USDollar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Cost FromUSDollar(double? USDollar)
+public static Cost? FromUSDollar(double? USDollar)
 {
     if (USDollar is null)
         return null;
@@ -32,7 +32,7 @@ public static Cost FromUSDollar(double? USDollar)
 /// Get Cost from MillionUSDollar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Cost FromMillionUSDollar(double? MillionUSDollar)
+public static Cost? FromMillionUSDollar(double? MillionUSDollar)
 {
     if (MillionUSDollar is null)
         return null;
@@ -43,7 +43,7 @@ public static Cost FromMillionUSDollar(double? MillionUSDollar)
 /// Get Cost from Euro.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Cost FromEuro(double? Euro)
+public static Cost? FromEuro(double? Euro)
 {
     if (Euro is null)
         return null;
@@ -54,7 +54,7 @@ public static Cost FromEuro(double? Euro)
 /// Get Cost from BritishPound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Cost FromBritishPound(double? BritishPound)
+public static Cost? FromBritishPound(double? BritishPound)
 {
     if (BritishPound is null)
         return null;

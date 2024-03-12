@@ -10,7 +10,7 @@ public partial class VolumeCost
 /// Get VolumeCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumeCost FromSI(double? SI)
+public static VolumeCost? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static VolumeCost FromSI(double? SI)
 /// Get VolumeCost from USDollarPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumeCost FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter)
+public static VolumeCost? FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter)
 {
     if (USDollarPerCubicMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static VolumeCost FromUSDollarPerCubicMeter(double? USDollarPerCubicMeter
 /// Get VolumeCost from EuroPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumeCost FromEuroPerCubicMeter(double? EuroPerCubicMeter)
+public static VolumeCost? FromEuroPerCubicMeter(double? EuroPerCubicMeter)
 {
     if (EuroPerCubicMeter is null)
         return null;

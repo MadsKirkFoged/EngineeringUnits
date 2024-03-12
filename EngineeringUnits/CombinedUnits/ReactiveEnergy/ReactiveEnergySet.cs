@@ -10,7 +10,7 @@ public partial class ReactiveEnergy
 /// Get ReactiveEnergy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactiveEnergy FromSI(double? SI)
+public static ReactiveEnergy? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ReactiveEnergy FromSI(double? SI)
 /// Get ReactiveEnergy from VoltampereReactiveHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactiveEnergy FromVoltampereReactiveHour(double? VoltampereReactiveHour)
+public static ReactiveEnergy? FromVoltampereReactiveHour(double? VoltampereReactiveHour)
 {
     if (VoltampereReactiveHour is null)
         return null;
@@ -32,7 +32,7 @@ public static ReactiveEnergy FromVoltampereReactiveHour(double? VoltampereReacti
 /// Get ReactiveEnergy from MegavoltampereReactiveHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactiveEnergy FromMegavoltampereReactiveHour(double? MegavoltampereReactiveHour)
+public static ReactiveEnergy? FromMegavoltampereReactiveHour(double? MegavoltampereReactiveHour)
 {
     if (MegavoltampereReactiveHour is null)
         return null;
@@ -43,7 +43,7 @@ public static ReactiveEnergy FromMegavoltampereReactiveHour(double? Megavoltampe
 /// Get ReactiveEnergy from KilovoltampereReactiveHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactiveEnergy FromKilovoltampereReactiveHour(double? KilovoltampereReactiveHour)
+public static ReactiveEnergy? FromKilovoltampereReactiveHour(double? KilovoltampereReactiveHour)
 {
     if (KilovoltampereReactiveHour is null)
         return null;

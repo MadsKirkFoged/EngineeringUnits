@@ -10,7 +10,7 @@ public partial class Information
 /// Get Information from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromSI(double? SI)
+public static Information? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Information FromSI(double? SI)
 /// Get Information from Byte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromByte(double? Byte)
+public static Information? FromByte(double? Byte)
 {
     if (Byte is null)
         return null;
@@ -32,7 +32,7 @@ public static Information FromByte(double? Byte)
 /// Get Information from Bit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromBit(double? Bit)
+public static Information? FromBit(double? Bit)
 {
     if (Bit is null)
         return null;
@@ -43,7 +43,7 @@ public static Information FromBit(double? Bit)
 /// Get Information from Kibibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromKibibit(double? Kibibit)
+public static Information? FromKibibit(double? Kibibit)
 {
     if (Kibibit is null)
         return null;
@@ -54,7 +54,7 @@ public static Information FromKibibit(double? Kibibit)
 /// Get Information from Mebibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromMebibit(double? Mebibit)
+public static Information? FromMebibit(double? Mebibit)
 {
     if (Mebibit is null)
         return null;
@@ -65,7 +65,7 @@ public static Information FromMebibit(double? Mebibit)
 /// Get Information from Gibibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromGibibit(double? Gibibit)
+public static Information? FromGibibit(double? Gibibit)
 {
     if (Gibibit is null)
         return null;
@@ -76,7 +76,7 @@ public static Information FromGibibit(double? Gibibit)
 /// Get Information from Tebibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromTebibit(double? Tebibit)
+public static Information? FromTebibit(double? Tebibit)
 {
     if (Tebibit is null)
         return null;
@@ -87,7 +87,7 @@ public static Information FromTebibit(double? Tebibit)
 /// Get Information from Pebibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromPebibit(double? Pebibit)
+public static Information? FromPebibit(double? Pebibit)
 {
     if (Pebibit is null)
         return null;
@@ -98,7 +98,7 @@ public static Information FromPebibit(double? Pebibit)
 /// Get Information from Exbibit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromExbibit(double? Exbibit)
+public static Information? FromExbibit(double? Exbibit)
 {
     if (Exbibit is null)
         return null;
@@ -109,7 +109,7 @@ public static Information FromExbibit(double? Exbibit)
 /// Get Information from Kibibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromKibibyte(double? Kibibyte)
+public static Information? FromKibibyte(double? Kibibyte)
 {
     if (Kibibyte is null)
         return null;
@@ -120,7 +120,7 @@ public static Information FromKibibyte(double? Kibibyte)
 /// Get Information from Mebibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromMebibyte(double? Mebibyte)
+public static Information? FromMebibyte(double? Mebibyte)
 {
     if (Mebibyte is null)
         return null;
@@ -131,7 +131,7 @@ public static Information FromMebibyte(double? Mebibyte)
 /// Get Information from Gibibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromGibibyte(double? Gibibyte)
+public static Information? FromGibibyte(double? Gibibyte)
 {
     if (Gibibyte is null)
         return null;
@@ -142,7 +142,7 @@ public static Information FromGibibyte(double? Gibibyte)
 /// Get Information from Tebibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromTebibyte(double? Tebibyte)
+public static Information? FromTebibyte(double? Tebibyte)
 {
     if (Tebibyte is null)
         return null;
@@ -153,7 +153,7 @@ public static Information FromTebibyte(double? Tebibyte)
 /// Get Information from Pebibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromPebibyte(double? Pebibyte)
+public static Information? FromPebibyte(double? Pebibyte)
 {
     if (Pebibyte is null)
         return null;
@@ -164,7 +164,7 @@ public static Information FromPebibyte(double? Pebibyte)
 /// Get Information from Exbibyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromExbibyte(double? Exbibyte)
+public static Information? FromExbibyte(double? Exbibyte)
 {
     if (Exbibyte is null)
         return null;
@@ -175,7 +175,7 @@ public static Information FromExbibyte(double? Exbibyte)
 /// Get Information from Kilobyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromKilobyte(double? Kilobyte)
+public static Information? FromKilobyte(double? Kilobyte)
 {
     if (Kilobyte is null)
         return null;
@@ -186,7 +186,7 @@ public static Information FromKilobyte(double? Kilobyte)
 /// Get Information from Megabyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromMegabyte(double? Megabyte)
+public static Information? FromMegabyte(double? Megabyte)
 {
     if (Megabyte is null)
         return null;
@@ -197,7 +197,7 @@ public static Information FromMegabyte(double? Megabyte)
 /// Get Information from Gigabyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromGigabyte(double? Gigabyte)
+public static Information? FromGigabyte(double? Gigabyte)
 {
     if (Gigabyte is null)
         return null;
@@ -208,7 +208,7 @@ public static Information FromGigabyte(double? Gigabyte)
 /// Get Information from Terabyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromTerabyte(double? Terabyte)
+public static Information? FromTerabyte(double? Terabyte)
 {
     if (Terabyte is null)
         return null;
@@ -219,7 +219,7 @@ public static Information FromTerabyte(double? Terabyte)
 /// Get Information from Petabyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromPetabyte(double? Petabyte)
+public static Information? FromPetabyte(double? Petabyte)
 {
     if (Petabyte is null)
         return null;
@@ -230,7 +230,7 @@ public static Information FromPetabyte(double? Petabyte)
 /// Get Information from Exabyte.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromExabyte(double? Exabyte)
+public static Information? FromExabyte(double? Exabyte)
 {
     if (Exabyte is null)
         return null;
@@ -241,7 +241,7 @@ public static Information FromExabyte(double? Exabyte)
 /// Get Information from Kilobit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromKilobit(double? Kilobit)
+public static Information? FromKilobit(double? Kilobit)
 {
     if (Kilobit is null)
         return null;
@@ -252,7 +252,7 @@ public static Information FromKilobit(double? Kilobit)
 /// Get Information from Megabit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromMegabit(double? Megabit)
+public static Information? FromMegabit(double? Megabit)
 {
     if (Megabit is null)
         return null;
@@ -263,7 +263,7 @@ public static Information FromMegabit(double? Megabit)
 /// Get Information from Gigabit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromGigabit(double? Gigabit)
+public static Information? FromGigabit(double? Gigabit)
 {
     if (Gigabit is null)
         return null;
@@ -274,7 +274,7 @@ public static Information FromGigabit(double? Gigabit)
 /// Get Information from Terabit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromTerabit(double? Terabit)
+public static Information? FromTerabit(double? Terabit)
 {
     if (Terabit is null)
         return null;
@@ -285,7 +285,7 @@ public static Information FromTerabit(double? Terabit)
 /// Get Information from Petabit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromPetabit(double? Petabit)
+public static Information? FromPetabit(double? Petabit)
 {
     if (Petabit is null)
         return null;
@@ -296,7 +296,7 @@ public static Information FromPetabit(double? Petabit)
 /// Get Information from Exabit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Information FromExabit(double? Exabit)
+public static Information? FromExabit(double? Exabit)
 {
     if (Exabit is null)
         return null;

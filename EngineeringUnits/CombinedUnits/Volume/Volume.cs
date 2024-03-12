@@ -13,7 +13,7 @@ public partial class Volume : BaseUnit
 
     public static Volume From(double value, VolumeUnit unit) => new(value, unit);
 
-    public static Volume From(double? value, VolumeUnit unit)
+    public static Volume? From(double? value, VolumeUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Volume : BaseUnit
     public static Volume Zero => new(0, VolumeUnit.SI);
     public static Volume NaN => new(double.NaN, VolumeUnit.SI);
 
-    public static implicit operator Volume(UnknownUnit Unit)
+    public static implicit operator Volume?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Volume : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Volume Unit)
+    public static implicit operator UnknownUnit?(Volume? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Volume : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeUnit>(_unit);    
 }

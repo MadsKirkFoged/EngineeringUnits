@@ -10,7 +10,7 @@ public partial class Mass
 /// Get Mass from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromSI(double? SI)
+public static Mass? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Mass FromSI(double? SI)
 /// Get Mass from Kilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromKilogram(double? Kilogram)
+public static Mass? FromKilogram(double? Kilogram)
 {
     if (Kilogram is null)
         return null;
@@ -32,7 +32,7 @@ public static Mass FromKilogram(double? Kilogram)
 /// Get Mass from Picogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromPicogram(double? Picogram)
+public static Mass? FromPicogram(double? Picogram)
 {
     if (Picogram is null)
         return null;
@@ -43,7 +43,7 @@ public static Mass FromPicogram(double? Picogram)
 /// Get Mass from Centigram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromCentigram(double? Centigram)
+public static Mass? FromCentigram(double? Centigram)
 {
     if (Centigram is null)
         return null;
@@ -54,7 +54,7 @@ public static Mass FromCentigram(double? Centigram)
 /// Get Mass from Decagram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromDecagram(double? Decagram)
+public static Mass? FromDecagram(double? Decagram)
 {
     if (Decagram is null)
         return null;
@@ -65,7 +65,7 @@ public static Mass FromDecagram(double? Decagram)
 /// Get Mass from Decigram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromDecigram(double? Decigram)
+public static Mass? FromDecigram(double? Decigram)
 {
     if (Decigram is null)
         return null;
@@ -76,7 +76,7 @@ public static Mass FromDecigram(double? Decigram)
 /// Get Mass from Gram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromGram(double? Gram)
+public static Mass? FromGram(double? Gram)
 {
     if (Gram is null)
         return null;
@@ -87,7 +87,7 @@ public static Mass FromGram(double? Gram)
 /// Get Mass from Hectogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromHectogram(double? Hectogram)
+public static Mass? FromHectogram(double? Hectogram)
 {
     if (Hectogram is null)
         return null;
@@ -98,7 +98,7 @@ public static Mass FromHectogram(double? Hectogram)
 /// Get Mass from Microgram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromMicrogram(double? Microgram)
+public static Mass? FromMicrogram(double? Microgram)
 {
     if (Microgram is null)
         return null;
@@ -109,7 +109,7 @@ public static Mass FromMicrogram(double? Microgram)
 /// Get Mass from Milligram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromMilligram(double? Milligram)
+public static Mass? FromMilligram(double? Milligram)
 {
     if (Milligram is null)
         return null;
@@ -120,7 +120,7 @@ public static Mass FromMilligram(double? Milligram)
 /// Get Mass from Nanogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromNanogram(double? Nanogram)
+public static Mass? FromNanogram(double? Nanogram)
 {
     if (Nanogram is null)
         return null;
@@ -131,7 +131,7 @@ public static Mass FromNanogram(double? Nanogram)
 /// Get Mass from Tonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromTonne(double? Tonne)
+public static Mass? FromTonne(double? Tonne)
 {
     if (Tonne is null)
         return null;
@@ -142,7 +142,7 @@ public static Mass FromTonne(double? Tonne)
 /// Get Mass from Kilotonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromKilotonne(double? Kilotonne)
+public static Mass? FromKilotonne(double? Kilotonne)
 {
     if (Kilotonne is null)
         return null;
@@ -153,7 +153,7 @@ public static Mass FromKilotonne(double? Kilotonne)
 /// Get Mass from Megatonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromMegatonne(double? Megatonne)
+public static Mass? FromMegatonne(double? Megatonne)
 {
     if (Megatonne is null)
         return null;
@@ -164,7 +164,7 @@ public static Mass FromMegatonne(double? Megatonne)
 /// Get Mass from EarthMass.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromEarthMass(double? EarthMass)
+public static Mass? FromEarthMass(double? EarthMass)
 {
     if (EarthMass is null)
         return null;
@@ -175,7 +175,7 @@ public static Mass FromEarthMass(double? EarthMass)
 /// Get Mass from Ounce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromOunce(double? Ounce)
+public static Mass? FromOunce(double? Ounce)
 {
     if (Ounce is null)
         return null;
@@ -186,7 +186,7 @@ public static Mass FromOunce(double? Ounce)
 /// Get Mass from Pound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromPound(double? Pound)
+public static Mass? FromPound(double? Pound)
 {
     if (Pound is null)
         return null;
@@ -197,7 +197,7 @@ public static Mass FromPound(double? Pound)
 /// Get Mass from Stone.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromStone(double? Stone)
+public static Mass? FromStone(double? Stone)
 {
     if (Stone is null)
         return null;
@@ -208,7 +208,7 @@ public static Mass FromStone(double? Stone)
 /// Get Mass from Slug.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromSlug(double? Slug)
+public static Mass? FromSlug(double? Slug)
 {
     if (Slug is null)
         return null;
@@ -219,7 +219,7 @@ public static Mass FromSlug(double? Slug)
 /// Get Mass from ShortHundredweight.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromShortHundredweight(double? ShortHundredweight)
+public static Mass? FromShortHundredweight(double? ShortHundredweight)
 {
     if (ShortHundredweight is null)
         return null;
@@ -230,7 +230,7 @@ public static Mass FromShortHundredweight(double? ShortHundredweight)
 /// Get Mass from LongHundredweight.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromLongHundredweight(double? LongHundredweight)
+public static Mass? FromLongHundredweight(double? LongHundredweight)
 {
     if (LongHundredweight is null)
         return null;
@@ -241,7 +241,7 @@ public static Mass FromLongHundredweight(double? LongHundredweight)
 /// Get Mass from Kilopound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromKilopound(double? Kilopound)
+public static Mass? FromKilopound(double? Kilopound)
 {
     if (Kilopound is null)
         return null;
@@ -252,7 +252,7 @@ public static Mass FromKilopound(double? Kilopound)
 /// Get Mass from ShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromShortTon(double? ShortTon)
+public static Mass? FromShortTon(double? ShortTon)
 {
     if (ShortTon is null)
         return null;
@@ -263,7 +263,7 @@ public static Mass FromShortTon(double? ShortTon)
 /// Get Mass from LongTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromLongTon(double? LongTon)
+public static Mass? FromLongTon(double? LongTon)
 {
     if (LongTon is null)
         return null;
@@ -274,7 +274,7 @@ public static Mass FromLongTon(double? LongTon)
 /// Get Mass from Megapound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromMegapound(double? Megapound)
+public static Mass? FromMegapound(double? Megapound)
 {
     if (Megapound is null)
         return null;
@@ -285,7 +285,7 @@ public static Mass FromMegapound(double? Megapound)
 /// Get Mass from Grain.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Mass FromGrain(double? Grain)
+public static Mass? FromGrain(double? Grain)
 {
     if (Grain is null)
         return null;

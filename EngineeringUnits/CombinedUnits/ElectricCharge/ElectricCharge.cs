@@ -13,7 +13,7 @@ public partial class ElectricCharge : BaseUnit
 
     public static ElectricCharge From(double value, ElectricChargeUnit unit) => new(value, unit);
 
-    public static ElectricCharge From(double? value, ElectricChargeUnit unit)
+    public static ElectricCharge? From(double? value, ElectricChargeUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricCharge : BaseUnit
     public static ElectricCharge Zero => new(0, ElectricChargeUnit.SI);
     public static ElectricCharge NaN => new(double.NaN, ElectricChargeUnit.SI);
 
-    public static implicit operator ElectricCharge(UnknownUnit Unit)
+    public static implicit operator ElectricCharge?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricCharge : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricCharge Unit)
+    public static implicit operator UnknownUnit?(ElectricCharge? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricCharge : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeUnit>(_unit);    
 }

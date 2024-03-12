@@ -13,7 +13,7 @@ public partial class ElectricInductance : BaseUnit
 
     public static ElectricInductance From(double value, ElectricInductanceUnit unit) => new(value, unit);
 
-    public static ElectricInductance From(double? value, ElectricInductanceUnit unit)
+    public static ElectricInductance? From(double? value, ElectricInductanceUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricInductance : BaseUnit
     public static ElectricInductance Zero => new(0, ElectricInductanceUnit.SI);
     public static ElectricInductance NaN => new(double.NaN, ElectricInductanceUnit.SI);
 
-    public static implicit operator ElectricInductance(UnknownUnit Unit)
+    public static implicit operator ElectricInductance?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricInductance : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricInductance Unit)
+    public static implicit operator UnknownUnit?(ElectricInductance? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricInductance : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricInductanceUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricInductanceUnit>(_unit);    
 }

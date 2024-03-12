@@ -10,7 +10,7 @@ public partial class Density
 /// Get Density from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromSI(double? SI)
+public static Density? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Density FromSI(double? SI)
 /// Get Density from CentigramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromCentigramPerDeciliter(double? CentigramPerDeciliter)
+public static Density? FromCentigramPerDeciliter(double? CentigramPerDeciliter)
 {
     if (CentigramPerDeciliter is null)
         return null;
@@ -32,7 +32,7 @@ public static Density FromCentigramPerDeciliter(double? CentigramPerDeciliter)
 /// Get Density from CentigramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromCentigramPerLiter(double? CentigramPerLiter)
+public static Density? FromCentigramPerLiter(double? CentigramPerLiter)
 {
     if (CentigramPerLiter is null)
         return null;
@@ -43,7 +43,7 @@ public static Density FromCentigramPerLiter(double? CentigramPerLiter)
 /// Get Density from CentigramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromCentigramPerMilliliter(double? CentigramPerMilliliter)
+public static Density? FromCentigramPerMilliliter(double? CentigramPerMilliliter)
 {
     if (CentigramPerMilliliter is null)
         return null;
@@ -54,7 +54,7 @@ public static Density FromCentigramPerMilliliter(double? CentigramPerMilliliter)
 /// Get Density from DecigramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromDecigramPerDeciliter(double? DecigramPerDeciliter)
+public static Density? FromDecigramPerDeciliter(double? DecigramPerDeciliter)
 {
     if (DecigramPerDeciliter is null)
         return null;
@@ -65,7 +65,7 @@ public static Density FromDecigramPerDeciliter(double? DecigramPerDeciliter)
 /// Get Density from DecigramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromDecigramPerLiter(double? DecigramPerLiter)
+public static Density? FromDecigramPerLiter(double? DecigramPerLiter)
 {
     if (DecigramPerLiter is null)
         return null;
@@ -76,7 +76,7 @@ public static Density FromDecigramPerLiter(double? DecigramPerLiter)
 /// Get Density from DecigramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromDecigramPerMilliliter(double? DecigramPerMilliliter)
+public static Density? FromDecigramPerMilliliter(double? DecigramPerMilliliter)
 {
     if (DecigramPerMilliliter is null)
         return null;
@@ -87,7 +87,7 @@ public static Density FromDecigramPerMilliliter(double? DecigramPerMilliliter)
 /// Get Density from DecigramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromDecigramPerMicroliter(double? DecigramPerMicroliter)
+public static Density? FromDecigramPerMicroliter(double? DecigramPerMicroliter)
 {
     if (DecigramPerMicroliter is null)
         return null;
@@ -98,7 +98,7 @@ public static Density FromDecigramPerMicroliter(double? DecigramPerMicroliter)
 /// Get Density from GramPerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerCubicCentimeter(double? GramPerCubicCentimeter)
+public static Density? FromGramPerCubicCentimeter(double? GramPerCubicCentimeter)
 {
     if (GramPerCubicCentimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static Density FromGramPerCubicCentimeter(double? GramPerCubicCentimeter)
 /// Get Density from GramPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerCubicMeter(double? GramPerCubicMeter)
+public static Density? FromGramPerCubicMeter(double? GramPerCubicMeter)
 {
     if (GramPerCubicMeter is null)
         return null;
@@ -120,7 +120,7 @@ public static Density FromGramPerCubicMeter(double? GramPerCubicMeter)
 /// Get Density from GramPerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerCubicMillimeter(double? GramPerCubicMillimeter)
+public static Density? FromGramPerCubicMillimeter(double? GramPerCubicMillimeter)
 {
     if (GramPerCubicMillimeter is null)
         return null;
@@ -131,7 +131,7 @@ public static Density FromGramPerCubicMillimeter(double? GramPerCubicMillimeter)
 /// Get Density from GramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerDeciliter(double? GramPerDeciliter)
+public static Density? FromGramPerDeciliter(double? GramPerDeciliter)
 {
     if (GramPerDeciliter is null)
         return null;
@@ -142,7 +142,7 @@ public static Density FromGramPerDeciliter(double? GramPerDeciliter)
 /// Get Density from GramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerLiter(double? GramPerLiter)
+public static Density? FromGramPerLiter(double? GramPerLiter)
 {
     if (GramPerLiter is null)
         return null;
@@ -153,7 +153,7 @@ public static Density FromGramPerLiter(double? GramPerLiter)
 /// Get Density from GramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerMilliliter(double? GramPerMilliliter)
+public static Density? FromGramPerMilliliter(double? GramPerMilliliter)
 {
     if (GramPerMilliliter is null)
         return null;
@@ -164,7 +164,7 @@ public static Density FromGramPerMilliliter(double? GramPerMilliliter)
 /// Get Density from GramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromGramPerMicroliter(double? GramPerMicroliter)
+public static Density? FromGramPerMicroliter(double? GramPerMicroliter)
 {
     if (GramPerMicroliter is null)
         return null;
@@ -175,7 +175,7 @@ public static Density FromGramPerMicroliter(double? GramPerMicroliter)
 /// Get Density from KilogramPerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilogramPerCubicCentimeter(double? KilogramPerCubicCentimeter)
+public static Density? FromKilogramPerCubicCentimeter(double? KilogramPerCubicCentimeter)
 {
     if (KilogramPerCubicCentimeter is null)
         return null;
@@ -186,7 +186,7 @@ public static Density FromKilogramPerCubicCentimeter(double? KilogramPerCubicCen
 /// Get Density from KilogramPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilogramPerCubicMeter(double? KilogramPerCubicMeter)
+public static Density? FromKilogramPerCubicMeter(double? KilogramPerCubicMeter)
 {
     if (KilogramPerCubicMeter is null)
         return null;
@@ -197,7 +197,7 @@ public static Density FromKilogramPerCubicMeter(double? KilogramPerCubicMeter)
 /// Get Density from KilogramPerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilogramPerCubicMillimeter(double? KilogramPerCubicMillimeter)
+public static Density? FromKilogramPerCubicMillimeter(double? KilogramPerCubicMillimeter)
 {
     if (KilogramPerCubicMillimeter is null)
         return null;
@@ -208,7 +208,7 @@ public static Density FromKilogramPerCubicMillimeter(double? KilogramPerCubicMil
 /// Get Density from KilogramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilogramPerLiter(double? KilogramPerLiter)
+public static Density? FromKilogramPerLiter(double? KilogramPerLiter)
 {
     if (KilogramPerLiter is null)
         return null;
@@ -219,7 +219,7 @@ public static Density FromKilogramPerLiter(double? KilogramPerLiter)
 /// Get Density from KilopoundPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilopoundPerCubicFoot(double? KilopoundPerCubicFoot)
+public static Density? FromKilopoundPerCubicFoot(double? KilopoundPerCubicFoot)
 {
     if (KilopoundPerCubicFoot is null)
         return null;
@@ -230,7 +230,7 @@ public static Density FromKilopoundPerCubicFoot(double? KilopoundPerCubicFoot)
 /// Get Density from KilopoundPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromKilopoundPerCubicInch(double? KilopoundPerCubicInch)
+public static Density? FromKilopoundPerCubicInch(double? KilopoundPerCubicInch)
 {
     if (KilopoundPerCubicInch is null)
         return null;
@@ -241,7 +241,7 @@ public static Density FromKilopoundPerCubicInch(double? KilopoundPerCubicInch)
 /// Get Density from MicrogramPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMicrogramPerCubicMeter(double? MicrogramPerCubicMeter)
+public static Density? FromMicrogramPerCubicMeter(double? MicrogramPerCubicMeter)
 {
     if (MicrogramPerCubicMeter is null)
         return null;
@@ -252,7 +252,7 @@ public static Density FromMicrogramPerCubicMeter(double? MicrogramPerCubicMeter)
 /// Get Density from MicrogramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMicrogramPerDeciliter(double? MicrogramPerDeciliter)
+public static Density? FromMicrogramPerDeciliter(double? MicrogramPerDeciliter)
 {
     if (MicrogramPerDeciliter is null)
         return null;
@@ -263,7 +263,7 @@ public static Density FromMicrogramPerDeciliter(double? MicrogramPerDeciliter)
 /// Get Density from MicrogramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMicrogramPerLiter(double? MicrogramPerLiter)
+public static Density? FromMicrogramPerLiter(double? MicrogramPerLiter)
 {
     if (MicrogramPerLiter is null)
         return null;
@@ -274,7 +274,7 @@ public static Density FromMicrogramPerLiter(double? MicrogramPerLiter)
 /// Get Density from MicrogramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMicrogramPerMilliliter(double? MicrogramPerMilliliter)
+public static Density? FromMicrogramPerMilliliter(double? MicrogramPerMilliliter)
 {
     if (MicrogramPerMilliliter is null)
         return null;
@@ -285,7 +285,7 @@ public static Density FromMicrogramPerMilliliter(double? MicrogramPerMilliliter)
 /// Get Density from MicrogramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMicrogramPerMicroliter(double? MicrogramPerMicroliter)
+public static Density? FromMicrogramPerMicroliter(double? MicrogramPerMicroliter)
 {
     if (MicrogramPerMicroliter is null)
         return null;
@@ -296,7 +296,7 @@ public static Density FromMicrogramPerMicroliter(double? MicrogramPerMicroliter)
 /// Get Density from MilligramPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMilligramPerCubicMeter(double? MilligramPerCubicMeter)
+public static Density? FromMilligramPerCubicMeter(double? MilligramPerCubicMeter)
 {
     if (MilligramPerCubicMeter is null)
         return null;
@@ -307,7 +307,7 @@ public static Density FromMilligramPerCubicMeter(double? MilligramPerCubicMeter)
 /// Get Density from MilligramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMilligramPerDeciliter(double? MilligramPerDeciliter)
+public static Density? FromMilligramPerDeciliter(double? MilligramPerDeciliter)
 {
     if (MilligramPerDeciliter is null)
         return null;
@@ -318,7 +318,7 @@ public static Density FromMilligramPerDeciliter(double? MilligramPerDeciliter)
 /// Get Density from MilligramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMilligramPerLiter(double? MilligramPerLiter)
+public static Density? FromMilligramPerLiter(double? MilligramPerLiter)
 {
     if (MilligramPerLiter is null)
         return null;
@@ -329,7 +329,7 @@ public static Density FromMilligramPerLiter(double? MilligramPerLiter)
 /// Get Density from MilligramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMilligramPerMilliliter(double? MilligramPerMilliliter)
+public static Density? FromMilligramPerMilliliter(double? MilligramPerMilliliter)
 {
     if (MilligramPerMilliliter is null)
         return null;
@@ -340,7 +340,7 @@ public static Density FromMilligramPerMilliliter(double? MilligramPerMilliliter)
 /// Get Density from MilligramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromMilligramPerMicroliter(double? MilligramPerMicroliter)
+public static Density? FromMilligramPerMicroliter(double? MilligramPerMicroliter)
 {
     if (MilligramPerMicroliter is null)
         return null;
@@ -351,7 +351,7 @@ public static Density FromMilligramPerMicroliter(double? MilligramPerMicroliter)
 /// Get Density from NanogramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromNanogramPerDeciliter(double? NanogramPerDeciliter)
+public static Density? FromNanogramPerDeciliter(double? NanogramPerDeciliter)
 {
     if (NanogramPerDeciliter is null)
         return null;
@@ -362,7 +362,7 @@ public static Density FromNanogramPerDeciliter(double? NanogramPerDeciliter)
 /// Get Density from NanogramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromNanogramPerLiter(double? NanogramPerLiter)
+public static Density? FromNanogramPerLiter(double? NanogramPerLiter)
 {
     if (NanogramPerLiter is null)
         return null;
@@ -373,7 +373,7 @@ public static Density FromNanogramPerLiter(double? NanogramPerLiter)
 /// Get Density from NanogramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromNanogramPerMilliliter(double? NanogramPerMilliliter)
+public static Density? FromNanogramPerMilliliter(double? NanogramPerMilliliter)
 {
     if (NanogramPerMilliliter is null)
         return null;
@@ -384,7 +384,7 @@ public static Density FromNanogramPerMilliliter(double? NanogramPerMilliliter)
 /// Get Density from NanogramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromNanogramPerMicroliter(double? NanogramPerMicroliter)
+public static Density? FromNanogramPerMicroliter(double? NanogramPerMicroliter)
 {
     if (NanogramPerMicroliter is null)
         return null;
@@ -395,7 +395,7 @@ public static Density FromNanogramPerMicroliter(double? NanogramPerMicroliter)
 /// Get Density from PicogramPerDeciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPicogramPerDeciliter(double? PicogramPerDeciliter)
+public static Density? FromPicogramPerDeciliter(double? PicogramPerDeciliter)
 {
     if (PicogramPerDeciliter is null)
         return null;
@@ -406,7 +406,7 @@ public static Density FromPicogramPerDeciliter(double? PicogramPerDeciliter)
 /// Get Density from PicogramPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPicogramPerLiter(double? PicogramPerLiter)
+public static Density? FromPicogramPerLiter(double? PicogramPerLiter)
 {
     if (PicogramPerLiter is null)
         return null;
@@ -417,7 +417,7 @@ public static Density FromPicogramPerLiter(double? PicogramPerLiter)
 /// Get Density from PicogramPerMilliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPicogramPerMilliliter(double? PicogramPerMilliliter)
+public static Density? FromPicogramPerMilliliter(double? PicogramPerMilliliter)
 {
     if (PicogramPerMilliliter is null)
         return null;
@@ -428,7 +428,7 @@ public static Density FromPicogramPerMilliliter(double? PicogramPerMilliliter)
 /// Get Density from PicogramPerMicroliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPicogramPerMicroliter(double? PicogramPerMicroliter)
+public static Density? FromPicogramPerMicroliter(double? PicogramPerMicroliter)
 {
     if (PicogramPerMicroliter is null)
         return null;
@@ -439,7 +439,7 @@ public static Density FromPicogramPerMicroliter(double? PicogramPerMicroliter)
 /// Get Density from PoundPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPoundPerCubicFoot(double? PoundPerCubicFoot)
+public static Density? FromPoundPerCubicFoot(double? PoundPerCubicFoot)
 {
     if (PoundPerCubicFoot is null)
         return null;
@@ -450,7 +450,7 @@ public static Density FromPoundPerCubicFoot(double? PoundPerCubicFoot)
 /// Get Density from PoundPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPoundPerCubicInch(double? PoundPerCubicInch)
+public static Density? FromPoundPerCubicInch(double? PoundPerCubicInch)
 {
     if (PoundPerCubicInch is null)
         return null;
@@ -461,7 +461,7 @@ public static Density FromPoundPerCubicInch(double? PoundPerCubicInch)
 /// Get Density from PoundPerImperialGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPoundPerImperialGallon(double? PoundPerImperialGallon)
+public static Density? FromPoundPerImperialGallon(double? PoundPerImperialGallon)
 {
     if (PoundPerImperialGallon is null)
         return null;
@@ -472,7 +472,7 @@ public static Density FromPoundPerImperialGallon(double? PoundPerImperialGallon)
 /// Get Density from PoundPerUSGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromPoundPerUSGallon(double? PoundPerUSGallon)
+public static Density? FromPoundPerUSGallon(double? PoundPerUSGallon)
 {
     if (PoundPerUSGallon is null)
         return null;
@@ -483,7 +483,7 @@ public static Density FromPoundPerUSGallon(double? PoundPerUSGallon)
 /// Get Density from SlugPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromSlugPerCubicFoot(double? SlugPerCubicFoot)
+public static Density? FromSlugPerCubicFoot(double? SlugPerCubicFoot)
 {
     if (SlugPerCubicFoot is null)
         return null;
@@ -494,7 +494,7 @@ public static Density FromSlugPerCubicFoot(double? SlugPerCubicFoot)
 /// Get Density from TonnePerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromTonnePerCubicCentimeter(double? TonnePerCubicCentimeter)
+public static Density? FromTonnePerCubicCentimeter(double? TonnePerCubicCentimeter)
 {
     if (TonnePerCubicCentimeter is null)
         return null;
@@ -505,7 +505,7 @@ public static Density FromTonnePerCubicCentimeter(double? TonnePerCubicCentimete
 /// Get Density from TonnePerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromTonnePerCubicMeter(double? TonnePerCubicMeter)
+public static Density? FromTonnePerCubicMeter(double? TonnePerCubicMeter)
 {
     if (TonnePerCubicMeter is null)
         return null;
@@ -516,7 +516,7 @@ public static Density FromTonnePerCubicMeter(double? TonnePerCubicMeter)
 /// Get Density from TonnePerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Density FromTonnePerCubicMillimeter(double? TonnePerCubicMillimeter)
+public static Density? FromTonnePerCubicMillimeter(double? TonnePerCubicMillimeter)
 {
     if (TonnePerCubicMillimeter is null)
         return null;

@@ -13,7 +13,7 @@ public partial class ElectricPotential : BaseUnit
 
     public static ElectricPotential From(double value, ElectricPotentialUnit unit) => new(value, unit);
 
-    public static ElectricPotential From(double? value, ElectricPotentialUnit unit)
+    public static ElectricPotential? From(double? value, ElectricPotentialUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricPotential : BaseUnit
     public static ElectricPotential Zero => new(0, ElectricPotentialUnit.SI);
     public static ElectricPotential NaN => new(double.NaN, ElectricPotentialUnit.SI);
 
-    public static implicit operator ElectricPotential(UnknownUnit Unit)
+    public static implicit operator ElectricPotential?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricPotential : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricPotential Unit)
+    public static implicit operator UnknownUnit?(ElectricPotential? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricPotential : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialUnit>(_unit);    
 }

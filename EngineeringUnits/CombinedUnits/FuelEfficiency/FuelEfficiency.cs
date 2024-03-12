@@ -13,7 +13,7 @@ public partial class FuelEfficiency : BaseUnit
 
     public static FuelEfficiency From(double value, FuelEfficiencyUnit unit) => new(value, unit);
 
-    public static FuelEfficiency From(double? value, FuelEfficiencyUnit unit)
+    public static FuelEfficiency? From(double? value, FuelEfficiencyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class FuelEfficiency : BaseUnit
     public static FuelEfficiency Zero => new(0, FuelEfficiencyUnit.SI);
     public static FuelEfficiency NaN => new(double.NaN, FuelEfficiencyUnit.SI);
 
-    public static implicit operator FuelEfficiency(UnknownUnit Unit)
+    public static implicit operator FuelEfficiency?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class FuelEfficiency : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(FuelEfficiency Unit)
+    public static implicit operator UnknownUnit?(FuelEfficiency? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class FuelEfficiency : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FuelEfficiencyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FuelEfficiencyUnit>(_unit);    
 }

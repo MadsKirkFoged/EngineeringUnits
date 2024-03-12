@@ -90,7 +90,7 @@ internal class GenerateSetter
                      /// Get Variable from UnitEnum.
                      /// </summary>
                      /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-                     public static Variable FromUnitEnum(double? UnitEnum)
+                     public static Variable? FromUnitEnum(double? UnitEnum)
                      {
                          if (UnitEnum is null)
                              return null;

@@ -10,7 +10,7 @@ public partial class Area
 /// Get Area from Acre.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromAcre(double? Acre)
+public static Area? FromAcre(double? Acre)
 {
     if (Acre is null)
         return null;
@@ -21,7 +21,7 @@ public static Area FromAcre(double? Acre)
 /// Get Area from Hectare.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromHectare(double? Hectare)
+public static Area? FromHectare(double? Hectare)
 {
     if (Hectare is null)
         return null;
@@ -32,7 +32,7 @@ public static Area FromHectare(double? Hectare)
 /// Get Area from SquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareCentimeter(double? SquareCentimeter)
+public static Area? FromSquareCentimeter(double? SquareCentimeter)
 {
     if (SquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static Area FromSquareCentimeter(double? SquareCentimeter)
 /// Get Area from SquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareDecimeter(double? SquareDecimeter)
+public static Area? FromSquareDecimeter(double? SquareDecimeter)
 {
     if (SquareDecimeter is null)
         return null;
@@ -54,7 +54,7 @@ public static Area FromSquareDecimeter(double? SquareDecimeter)
 /// Get Area from SquareKilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareKilometer(double? SquareKilometer)
+public static Area? FromSquareKilometer(double? SquareKilometer)
 {
     if (SquareKilometer is null)
         return null;
@@ -65,7 +65,7 @@ public static Area FromSquareKilometer(double? SquareKilometer)
 /// Get Area from SquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareMeter(double? SquareMeter)
+public static Area? FromSquareMeter(double? SquareMeter)
 {
     if (SquareMeter is null)
         return null;
@@ -76,7 +76,7 @@ public static Area FromSquareMeter(double? SquareMeter)
 /// Get Area from SquareMicrometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareMicrometer(double? SquareMicrometer)
+public static Area? FromSquareMicrometer(double? SquareMicrometer)
 {
     if (SquareMicrometer is null)
         return null;
@@ -87,7 +87,7 @@ public static Area FromSquareMicrometer(double? SquareMicrometer)
 /// Get Area from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSI(double? SI)
+public static Area? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -98,7 +98,7 @@ public static Area FromSI(double? SI)
 /// Get Area from SquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareMillimeter(double? SquareMillimeter)
+public static Area? FromSquareMillimeter(double? SquareMillimeter)
 {
     if (SquareMillimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static Area FromSquareMillimeter(double? SquareMillimeter)
 /// Get Area from SquareNanometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareNanometer(double? SquareNanometer)
+public static Area? FromSquareNanometer(double? SquareNanometer)
 {
     if (SquareNanometer is null)
         return null;
@@ -120,7 +120,7 @@ public static Area FromSquareNanometer(double? SquareNanometer)
 /// Get Area from SquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareInch(double? SquareInch)
+public static Area? FromSquareInch(double? SquareInch)
 {
     if (SquareInch is null)
         return null;
@@ -131,7 +131,7 @@ public static Area FromSquareInch(double? SquareInch)
 /// Get Area from SquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareFoot(double? SquareFoot)
+public static Area? FromSquareFoot(double? SquareFoot)
 {
     if (SquareFoot is null)
         return null;
@@ -142,7 +142,7 @@ public static Area FromSquareFoot(double? SquareFoot)
 /// Get Area from SquareYard.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareYard(double? SquareYard)
+public static Area? FromSquareYard(double? SquareYard)
 {
     if (SquareYard is null)
         return null;
@@ -153,7 +153,7 @@ public static Area FromSquareYard(double? SquareYard)
 /// Get Area from SquareMile.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareMile(double? SquareMile)
+public static Area? FromSquareMile(double? SquareMile)
 {
     if (SquareMile is null)
         return null;
@@ -164,7 +164,7 @@ public static Area FromSquareMile(double? SquareMile)
 /// Get Area from SquareNauticalMile.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareNauticalMile(double? SquareNauticalMile)
+public static Area? FromSquareNauticalMile(double? SquareNauticalMile)
 {
     if (SquareNauticalMile is null)
         return null;
@@ -175,7 +175,7 @@ public static Area FromSquareNauticalMile(double? SquareNauticalMile)
 /// Get Area from SquareChain.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Area FromSquareChain(double? SquareChain)
+public static Area? FromSquareChain(double? SquareChain)
 {
     if (SquareChain is null)
         return null;

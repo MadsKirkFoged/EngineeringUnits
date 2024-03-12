@@ -10,7 +10,7 @@ public partial class SpecificVolume
 /// Get SpecificVolume from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificVolume FromSI(double? SI)
+public static SpecificVolume? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static SpecificVolume FromSI(double? SI)
 /// Get SpecificVolume from CubicMeterPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificVolume FromCubicMeterPerKilogram(double? CubicMeterPerKilogram)
+public static SpecificVolume? FromCubicMeterPerKilogram(double? CubicMeterPerKilogram)
 {
     if (CubicMeterPerKilogram is null)
         return null;

@@ -13,7 +13,7 @@ public partial class DynamicViscosity : BaseUnit
 
     public static DynamicViscosity From(double value, DynamicViscosityUnit unit) => new(value, unit);
 
-    public static DynamicViscosity From(double? value, DynamicViscosityUnit unit)
+    public static DynamicViscosity? From(double? value, DynamicViscosityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class DynamicViscosity : BaseUnit
     public static DynamicViscosity Zero => new(0, DynamicViscosityUnit.SI);
     public static DynamicViscosity NaN => new(double.NaN, DynamicViscosityUnit.SI);
 
-    public static implicit operator DynamicViscosity(UnknownUnit Unit)
+    public static implicit operator DynamicViscosity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class DynamicViscosity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(DynamicViscosity Unit)
+    public static implicit operator UnknownUnit?(DynamicViscosity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class DynamicViscosity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);    
 }

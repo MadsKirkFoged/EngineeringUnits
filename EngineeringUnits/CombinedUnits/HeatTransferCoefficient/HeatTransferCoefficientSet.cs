@@ -10,7 +10,7 @@ public partial class HeatTransferCoefficient
 /// Get HeatTransferCoefficient from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static HeatTransferCoefficient FromSI(double? SI)
+public static HeatTransferCoefficient? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static HeatTransferCoefficient FromSI(double? SI)
 /// Get HeatTransferCoefficient from WattPerSquareMeterKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static HeatTransferCoefficient FromWattPerSquareMeterKelvin(double? WattPerSquareMeterKelvin)
+public static HeatTransferCoefficient? FromWattPerSquareMeterKelvin(double? WattPerSquareMeterKelvin)
 {
     if (WattPerSquareMeterKelvin is null)
         return null;
@@ -32,7 +32,7 @@ public static HeatTransferCoefficient FromWattPerSquareMeterKelvin(double? WattP
 /// Get HeatTransferCoefficient from WattPerSquareMeterCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static HeatTransferCoefficient FromWattPerSquareMeterCelsius(double? WattPerSquareMeterCelsius)
+public static HeatTransferCoefficient? FromWattPerSquareMeterCelsius(double? WattPerSquareMeterCelsius)
 {
     if (WattPerSquareMeterCelsius is null)
         return null;
@@ -43,7 +43,7 @@ public static HeatTransferCoefficient FromWattPerSquareMeterCelsius(double? Watt
 /// Get HeatTransferCoefficient from BtuPerSquareFootDegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static HeatTransferCoefficient FromBtuPerSquareFootDegreeFahrenheit(double? BtuPerSquareFootDegreeFahrenheit)
+public static HeatTransferCoefficient? FromBtuPerSquareFootDegreeFahrenheit(double? BtuPerSquareFootDegreeFahrenheit)
 {
     if (BtuPerSquareFootDegreeFahrenheit is null)
         return null;

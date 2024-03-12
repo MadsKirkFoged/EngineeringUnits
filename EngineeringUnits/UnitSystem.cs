@@ -14,7 +14,7 @@ namespace EngineeringUnits;
 
 public class UnitSystem
 {
-    public string Symbol { get; init; }
+    public string? Symbol { get; init; }
 
     //[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
     public ImmutableList<RawUnit> ListOfUnits { get; init; }
@@ -24,7 +24,7 @@ public class UnitSystem
         ListOfUnits = [];
     }
 
-    public UnitSystem(List<RawUnit> LocalUnitList, string symbol = null)
+    public UnitSystem(List<RawUnit> LocalUnitList, string? symbol = null)
     {
         ListOfUnits = LocalUnitList.ReduceUnits().ToImmutableList();
         Symbol = symbol;
@@ -46,7 +46,7 @@ public class UnitSystem
         ListOfUnits = [dimensionless];
     }
 
-    public UnitSystem(UnitSystem unit, string symbol)
+    public UnitSystem(UnitSystem unit, string? symbol)
     {
         ListOfUnits = new List<RawUnit>(unit.ListOfUnits).ToImmutableList();
         Symbol = symbol;
@@ -61,10 +61,10 @@ public class UnitSystem
         return !(a == b);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         //Check for null and compare run-time types.
-        if ((obj == null) || !GetType().Equals(obj.GetType()))
+        if ((obj is null) || !GetType().Equals(obj.GetType()))
             return false;
         else
             return this == (UnitSystem)obj;

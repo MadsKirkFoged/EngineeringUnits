@@ -10,7 +10,7 @@ public partial class ElectricInductance
 /// Get ElectricInductance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricInductance FromSI(double? SI)
+public static ElectricInductance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricInductance FromSI(double? SI)
 /// Get ElectricInductance from Henry.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricInductance FromHenry(double? Henry)
+public static ElectricInductance? FromHenry(double? Henry)
 {
     if (Henry is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricInductance FromHenry(double? Henry)
 /// Get ElectricInductance from Microhenry.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricInductance FromMicrohenry(double? Microhenry)
+public static ElectricInductance? FromMicrohenry(double? Microhenry)
 {
     if (Microhenry is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricInductance FromMicrohenry(double? Microhenry)
 /// Get ElectricInductance from Millihenry.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricInductance FromMillihenry(double? Millihenry)
+public static ElectricInductance? FromMillihenry(double? Millihenry)
 {
     if (Millihenry is null)
         return null;
@@ -54,7 +54,7 @@ public static ElectricInductance FromMillihenry(double? Millihenry)
 /// Get ElectricInductance from Nanohenry.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricInductance FromNanohenry(double? Nanohenry)
+public static ElectricInductance? FromNanohenry(double? Nanohenry)
 {
     if (Nanohenry is null)
         return null;

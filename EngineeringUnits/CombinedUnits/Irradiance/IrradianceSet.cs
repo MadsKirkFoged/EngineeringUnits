@@ -10,7 +10,7 @@ public partial class Irradiance
 /// Get Irradiance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromSI(double? SI)
+public static Irradiance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Irradiance FromSI(double? SI)
 /// Get Irradiance from WattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromWattPerSquareMeter(double? WattPerSquareMeter)
+public static Irradiance? FromWattPerSquareMeter(double? WattPerSquareMeter)
 {
     if (WattPerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static Irradiance FromWattPerSquareMeter(double? WattPerSquareMeter)
 /// Get Irradiance from WattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromWattPerSquareCentimeter(double? WattPerSquareCentimeter)
+public static Irradiance? FromWattPerSquareCentimeter(double? WattPerSquareCentimeter)
 {
     if (WattPerSquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static Irradiance FromWattPerSquareCentimeter(double? WattPerSquareCentim
 /// Get Irradiance from KilowattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromKilowattPerSquareCentimeter(double? KilowattPerSquareCentimeter)
+public static Irradiance? FromKilowattPerSquareCentimeter(double? KilowattPerSquareCentimeter)
 {
     if (KilowattPerSquareCentimeter is null)
         return null;
@@ -54,7 +54,7 @@ public static Irradiance FromKilowattPerSquareCentimeter(double? KilowattPerSqua
 /// Get Irradiance from MegawattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMegawattPerSquareCentimeter(double? MegawattPerSquareCentimeter)
+public static Irradiance? FromMegawattPerSquareCentimeter(double? MegawattPerSquareCentimeter)
 {
     if (MegawattPerSquareCentimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static Irradiance FromMegawattPerSquareCentimeter(double? MegawattPerSqua
 /// Get Irradiance from MicrowattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMicrowattPerSquareCentimeter(double? MicrowattPerSquareCentimeter)
+public static Irradiance? FromMicrowattPerSquareCentimeter(double? MicrowattPerSquareCentimeter)
 {
     if (MicrowattPerSquareCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static Irradiance FromMicrowattPerSquareCentimeter(double? MicrowattPerSq
 /// Get Irradiance from MilliwattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMilliwattPerSquareCentimeter(double? MilliwattPerSquareCentimeter)
+public static Irradiance? FromMilliwattPerSquareCentimeter(double? MilliwattPerSquareCentimeter)
 {
     if (MilliwattPerSquareCentimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static Irradiance FromMilliwattPerSquareCentimeter(double? MilliwattPerSq
 /// Get Irradiance from NanowattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromNanowattPerSquareCentimeter(double? NanowattPerSquareCentimeter)
+public static Irradiance? FromNanowattPerSquareCentimeter(double? NanowattPerSquareCentimeter)
 {
     if (NanowattPerSquareCentimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static Irradiance FromNanowattPerSquareCentimeter(double? NanowattPerSqua
 /// Get Irradiance from PicowattPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromPicowattPerSquareCentimeter(double? PicowattPerSquareCentimeter)
+public static Irradiance? FromPicowattPerSquareCentimeter(double? PicowattPerSquareCentimeter)
 {
     if (PicowattPerSquareCentimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static Irradiance FromPicowattPerSquareCentimeter(double? PicowattPerSqua
 /// Get Irradiance from KilowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromKilowattPerSquareMeter(double? KilowattPerSquareMeter)
+public static Irradiance? FromKilowattPerSquareMeter(double? KilowattPerSquareMeter)
 {
     if (KilowattPerSquareMeter is null)
         return null;
@@ -120,7 +120,7 @@ public static Irradiance FromKilowattPerSquareMeter(double? KilowattPerSquareMet
 /// Get Irradiance from MegawattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMegawattPerSquareMeter(double? MegawattPerSquareMeter)
+public static Irradiance? FromMegawattPerSquareMeter(double? MegawattPerSquareMeter)
 {
     if (MegawattPerSquareMeter is null)
         return null;
@@ -131,7 +131,7 @@ public static Irradiance FromMegawattPerSquareMeter(double? MegawattPerSquareMet
 /// Get Irradiance from MicrowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMicrowattPerSquareMeter(double? MicrowattPerSquareMeter)
+public static Irradiance? FromMicrowattPerSquareMeter(double? MicrowattPerSquareMeter)
 {
     if (MicrowattPerSquareMeter is null)
         return null;
@@ -142,7 +142,7 @@ public static Irradiance FromMicrowattPerSquareMeter(double? MicrowattPerSquareM
 /// Get Irradiance from MilliwattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromMilliwattPerSquareMeter(double? MilliwattPerSquareMeter)
+public static Irradiance? FromMilliwattPerSquareMeter(double? MilliwattPerSquareMeter)
 {
     if (MilliwattPerSquareMeter is null)
         return null;
@@ -153,7 +153,7 @@ public static Irradiance FromMilliwattPerSquareMeter(double? MilliwattPerSquareM
 /// Get Irradiance from NanowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromNanowattPerSquareMeter(double? NanowattPerSquareMeter)
+public static Irradiance? FromNanowattPerSquareMeter(double? NanowattPerSquareMeter)
 {
     if (NanowattPerSquareMeter is null)
         return null;
@@ -164,7 +164,7 @@ public static Irradiance FromNanowattPerSquareMeter(double? NanowattPerSquareMet
 /// Get Irradiance from PicowattPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiance FromPicowattPerSquareMeter(double? PicowattPerSquareMeter)
+public static Irradiance? FromPicowattPerSquareMeter(double? PicowattPerSquareMeter)
 {
     if (PicowattPerSquareMeter is null)
         return null;

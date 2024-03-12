@@ -13,7 +13,7 @@ public partial class Cost : BaseUnit
 
     public static Cost From(double value, CostUnit unit) => new(value, unit);
 
-    public static Cost From(double? value, CostUnit unit)
+    public static Cost? From(double? value, CostUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Cost : BaseUnit
     public static Cost Zero => new(0, CostUnit.SI);
     public static Cost NaN => new(double.NaN, CostUnit.SI);
 
-    public static implicit operator Cost(UnknownUnit Unit)
+    public static implicit operator Cost?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Cost : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Cost Unit)
+    public static implicit operator UnknownUnit?(Cost? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Cost : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CostUnit>(_unit);    
 }

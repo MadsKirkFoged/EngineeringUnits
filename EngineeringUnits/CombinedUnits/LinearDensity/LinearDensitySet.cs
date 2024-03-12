@@ -10,7 +10,7 @@ public partial class LinearDensity
 /// Get LinearDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromSI(double? SI)
+public static LinearDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static LinearDensity FromSI(double? SI)
 /// Get LinearDensity from KilogramPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromKilogramPerMeter(double? KilogramPerMeter)
+public static LinearDensity? FromKilogramPerMeter(double? KilogramPerMeter)
 {
     if (KilogramPerMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static LinearDensity FromKilogramPerMeter(double? KilogramPerMeter)
 /// Get LinearDensity from GramPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromGramPerCentimeter(double? GramPerCentimeter)
+public static LinearDensity? FromGramPerCentimeter(double? GramPerCentimeter)
 {
     if (GramPerCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static LinearDensity FromGramPerCentimeter(double? GramPerCentimeter)
 /// Get LinearDensity from GramPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromGramPerMeter(double? GramPerMeter)
+public static LinearDensity? FromGramPerMeter(double? GramPerMeter)
 {
     if (GramPerMeter is null)
         return null;
@@ -54,7 +54,7 @@ public static LinearDensity FromGramPerMeter(double? GramPerMeter)
 /// Get LinearDensity from GramPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromGramPerMillimeter(double? GramPerMillimeter)
+public static LinearDensity? FromGramPerMillimeter(double? GramPerMillimeter)
 {
     if (GramPerMillimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static LinearDensity FromGramPerMillimeter(double? GramPerMillimeter)
 /// Get LinearDensity from KilogramPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromKilogramPerCentimeter(double? KilogramPerCentimeter)
+public static LinearDensity? FromKilogramPerCentimeter(double? KilogramPerCentimeter)
 {
     if (KilogramPerCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static LinearDensity FromKilogramPerCentimeter(double? KilogramPerCentime
 /// Get LinearDensity from KilogramPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromKilogramPerMillimeter(double? KilogramPerMillimeter)
+public static LinearDensity? FromKilogramPerMillimeter(double? KilogramPerMillimeter)
 {
     if (KilogramPerMillimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static LinearDensity FromKilogramPerMillimeter(double? KilogramPerMillime
 /// Get LinearDensity from MicrogramPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMicrogramPerCentimeter(double? MicrogramPerCentimeter)
+public static LinearDensity? FromMicrogramPerCentimeter(double? MicrogramPerCentimeter)
 {
     if (MicrogramPerCentimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static LinearDensity FromMicrogramPerCentimeter(double? MicrogramPerCenti
 /// Get LinearDensity from MicrogramPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMicrogramPerMeter(double? MicrogramPerMeter)
+public static LinearDensity? FromMicrogramPerMeter(double? MicrogramPerMeter)
 {
     if (MicrogramPerMeter is null)
         return null;
@@ -109,7 +109,7 @@ public static LinearDensity FromMicrogramPerMeter(double? MicrogramPerMeter)
 /// Get LinearDensity from MicrogramPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMicrogramPerMillimeter(double? MicrogramPerMillimeter)
+public static LinearDensity? FromMicrogramPerMillimeter(double? MicrogramPerMillimeter)
 {
     if (MicrogramPerMillimeter is null)
         return null;
@@ -120,7 +120,7 @@ public static LinearDensity FromMicrogramPerMillimeter(double? MicrogramPerMilli
 /// Get LinearDensity from MilligramPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMilligramPerCentimeter(double? MilligramPerCentimeter)
+public static LinearDensity? FromMilligramPerCentimeter(double? MilligramPerCentimeter)
 {
     if (MilligramPerCentimeter is null)
         return null;
@@ -131,7 +131,7 @@ public static LinearDensity FromMilligramPerCentimeter(double? MilligramPerCenti
 /// Get LinearDensity from MilligramPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMilligramPerMeter(double? MilligramPerMeter)
+public static LinearDensity? FromMilligramPerMeter(double? MilligramPerMeter)
 {
     if (MilligramPerMeter is null)
         return null;
@@ -142,7 +142,7 @@ public static LinearDensity FromMilligramPerMeter(double? MilligramPerMeter)
 /// Get LinearDensity from MilligramPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromMilligramPerMillimeter(double? MilligramPerMillimeter)
+public static LinearDensity? FromMilligramPerMillimeter(double? MilligramPerMillimeter)
 {
     if (MilligramPerMillimeter is null)
         return null;
@@ -153,7 +153,7 @@ public static LinearDensity FromMilligramPerMillimeter(double? MilligramPerMilli
 /// Get LinearDensity from PoundPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromPoundPerFoot(double? PoundPerFoot)
+public static LinearDensity? FromPoundPerFoot(double? PoundPerFoot)
 {
     if (PoundPerFoot is null)
         return null;
@@ -164,7 +164,7 @@ public static LinearDensity FromPoundPerFoot(double? PoundPerFoot)
 /// Get LinearDensity from PoundPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearDensity FromPoundPerInch(double? PoundPerInch)
+public static LinearDensity? FromPoundPerInch(double? PoundPerInch)
 {
     if (PoundPerInch is null)
         return null;

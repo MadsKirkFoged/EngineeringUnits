@@ -13,7 +13,7 @@ public partial class ElectricField : BaseUnit
 
     public static ElectricField From(double value, ElectricFieldUnit unit) => new(value, unit);
 
-    public static ElectricField From(double? value, ElectricFieldUnit unit)
+    public static ElectricField? From(double? value, ElectricFieldUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricField : BaseUnit
     public static ElectricField Zero => new(0, ElectricFieldUnit.SI);
     public static ElectricField NaN => new(double.NaN, ElectricFieldUnit.SI);
 
-    public static implicit operator ElectricField(UnknownUnit Unit)
+    public static implicit operator ElectricField?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricField : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricField Unit)
+    public static implicit operator UnknownUnit?(ElectricField? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricField : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricFieldUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricFieldUnit>(_unit);    
 }

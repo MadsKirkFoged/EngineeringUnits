@@ -13,7 +13,7 @@ public partial class KinematicViscosity : BaseUnit
 
     public static KinematicViscosity From(double value, KinematicViscosityUnit unit) => new(value, unit);
 
-    public static KinematicViscosity From(double? value, KinematicViscosityUnit unit)
+    public static KinematicViscosity? From(double? value, KinematicViscosityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class KinematicViscosity : BaseUnit
     public static KinematicViscosity Zero => new(0, KinematicViscosityUnit.SI);
     public static KinematicViscosity NaN => new(double.NaN, KinematicViscosityUnit.SI);
 
-    public static implicit operator KinematicViscosity(UnknownUnit Unit)
+    public static implicit operator KinematicViscosity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class KinematicViscosity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(KinematicViscosity Unit)
+    public static implicit operator UnknownUnit?(KinematicViscosity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class KinematicViscosity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<KinematicViscosityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<KinematicViscosityUnit>(_unit);    
 }

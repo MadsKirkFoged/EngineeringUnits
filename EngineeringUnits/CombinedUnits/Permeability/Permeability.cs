@@ -13,7 +13,7 @@ public partial class Permeability : BaseUnit
 
     public static Permeability From(double value, PermeabilityUnit unit) => new(value, unit);
 
-    public static Permeability From(double? value, PermeabilityUnit unit)
+    public static Permeability? From(double? value, PermeabilityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Permeability : BaseUnit
     public static Permeability Zero => new(0, PermeabilityUnit.SI);
     public static Permeability NaN => new(double.NaN, PermeabilityUnit.SI);
 
-    public static implicit operator Permeability(UnknownUnit Unit)
+    public static implicit operator Permeability?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Permeability : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Permeability Unit)
+    public static implicit operator UnknownUnit?(Permeability? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Permeability : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermeabilityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermeabilityUnit>(_unit);    
 }

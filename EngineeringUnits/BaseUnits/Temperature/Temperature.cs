@@ -13,7 +13,7 @@ public partial class Temperature : BaseUnit
 
     public static Temperature From(double value, TemperatureUnit unit) => new(value, unit);
 
-    public static Temperature From(double? value, TemperatureUnit unit)
+    public static Temperature? From(double? value, TemperatureUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Temperature : BaseUnit
     public static Temperature Zero => new(0, TemperatureUnit.SI);
     public static Temperature NaN => new(double.NaN, TemperatureUnit.SI);
 
-    public static implicit operator Temperature(UnknownUnit Unit)
+    public static implicit operator Temperature?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Temperature : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Temperature Unit)
+    public static implicit operator UnknownUnit?(Temperature? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Temperature : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);    
 }

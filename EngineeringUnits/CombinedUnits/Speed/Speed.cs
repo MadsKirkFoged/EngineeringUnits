@@ -13,7 +13,7 @@ public partial class Speed : BaseUnit
 
     public static Speed From(double value, SpeedUnit unit) => new(value, unit);
 
-    public static Speed From(double? value, SpeedUnit unit)
+    public static Speed? From(double? value, SpeedUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Speed : BaseUnit
     public static Speed Zero => new(0, SpeedUnit.SI);
     public static Speed NaN => new(double.NaN, SpeedUnit.SI);
 
-    public static implicit operator Speed(UnknownUnit Unit)
+    public static implicit operator Speed?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Speed : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Speed Unit)
+    public static implicit operator UnknownUnit?(Speed? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Speed : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpeedUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpeedUnit>(_unit);    
 }

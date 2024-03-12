@@ -13,7 +13,7 @@ public partial class Pressure : BaseUnit
 
     public static Pressure From(double value, PressureUnit unit) => new(value, unit);
 
-    public static Pressure From(double? value, PressureUnit unit)
+    public static Pressure? From(double? value, PressureUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Pressure : BaseUnit
     public static Pressure Zero => new(0, PressureUnit.SI);
     public static Pressure NaN => new(double.NaN, PressureUnit.SI);
 
-    public static implicit operator Pressure(UnknownUnit Unit)
+    public static implicit operator Pressure?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Pressure : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Pressure Unit)
+    public static implicit operator UnknownUnit?(Pressure? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Pressure : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);    
 }

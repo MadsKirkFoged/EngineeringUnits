@@ -13,7 +13,7 @@ public partial class Jerk : BaseUnit
 
     public static Jerk From(double value, JerkUnit unit) => new(value, unit);
 
-    public static Jerk From(double? value, JerkUnit unit)
+    public static Jerk? From(double? value, JerkUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Jerk : BaseUnit
     public static Jerk Zero => new(0, JerkUnit.SI);
     public static Jerk NaN => new(double.NaN, JerkUnit.SI);
 
-    public static implicit operator Jerk(UnknownUnit Unit)
+    public static implicit operator Jerk?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Jerk : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Jerk Unit)
+    public static implicit operator UnknownUnit?(Jerk? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Jerk : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<JerkUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<JerkUnit>(_unit);    
 }

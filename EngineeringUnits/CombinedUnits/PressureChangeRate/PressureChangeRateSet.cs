@@ -10,7 +10,7 @@ public partial class PressureChangeRate
 /// Get PressureChangeRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromSI(double? SI)
+public static PressureChangeRate? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static PressureChangeRate FromSI(double? SI)
 /// Get PressureChangeRate from PascalPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromPascalPerSecond(double? PascalPerSecond)
+public static PressureChangeRate? FromPascalPerSecond(double? PascalPerSecond)
 {
     if (PascalPerSecond is null)
         return null;
@@ -32,7 +32,7 @@ public static PressureChangeRate FromPascalPerSecond(double? PascalPerSecond)
 /// Get PressureChangeRate from PascalPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromPascalPerMinute(double? PascalPerMinute)
+public static PressureChangeRate? FromPascalPerMinute(double? PascalPerMinute)
 {
     if (PascalPerMinute is null)
         return null;
@@ -43,7 +43,7 @@ public static PressureChangeRate FromPascalPerMinute(double? PascalPerMinute)
 /// Get PressureChangeRate from MegapascalPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromMegapascalPerSecond(double? MegapascalPerSecond)
+public static PressureChangeRate? FromMegapascalPerSecond(double? MegapascalPerSecond)
 {
     if (MegapascalPerSecond is null)
         return null;
@@ -54,7 +54,7 @@ public static PressureChangeRate FromMegapascalPerSecond(double? MegapascalPerSe
 /// Get PressureChangeRate from MegapascalPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromMegapascalPerMinute(double? MegapascalPerMinute)
+public static PressureChangeRate? FromMegapascalPerMinute(double? MegapascalPerMinute)
 {
     if (MegapascalPerMinute is null)
         return null;
@@ -65,7 +65,7 @@ public static PressureChangeRate FromMegapascalPerMinute(double? MegapascalPerMi
 /// Get PressureChangeRate from KilopoundForcePerSquareInchPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromKilopoundForcePerSquareInchPerSecond(double? KilopoundForcePerSquareInchPerSecond)
+public static PressureChangeRate? FromKilopoundForcePerSquareInchPerSecond(double? KilopoundForcePerSquareInchPerSecond)
 {
     if (KilopoundForcePerSquareInchPerSecond is null)
         return null;
@@ -76,7 +76,7 @@ public static PressureChangeRate FromKilopoundForcePerSquareInchPerSecond(double
 /// Get PressureChangeRate from KilopoundForcePerSquareInchPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromKilopoundForcePerSquareInchPerMinute(double? KilopoundForcePerSquareInchPerMinute)
+public static PressureChangeRate? FromKilopoundForcePerSquareInchPerMinute(double? KilopoundForcePerSquareInchPerMinute)
 {
     if (KilopoundForcePerSquareInchPerMinute is null)
         return null;
@@ -87,7 +87,7 @@ public static PressureChangeRate FromKilopoundForcePerSquareInchPerMinute(double
 /// Get PressureChangeRate from KilopascalPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromKilopascalPerSecond(double? KilopascalPerSecond)
+public static PressureChangeRate? FromKilopascalPerSecond(double? KilopascalPerSecond)
 {
     if (KilopascalPerSecond is null)
         return null;
@@ -98,7 +98,7 @@ public static PressureChangeRate FromKilopascalPerSecond(double? KilopascalPerSe
 /// Get PressureChangeRate from KilopascalPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromKilopascalPerMinute(double? KilopascalPerMinute)
+public static PressureChangeRate? FromKilopascalPerMinute(double? KilopascalPerMinute)
 {
     if (KilopascalPerMinute is null)
         return null;
@@ -109,7 +109,7 @@ public static PressureChangeRate FromKilopascalPerMinute(double? KilopascalPerMi
 /// Get PressureChangeRate from AtmospherePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromAtmospherePerSecond(double? AtmospherePerSecond)
+public static PressureChangeRate? FromAtmospherePerSecond(double? AtmospherePerSecond)
 {
     if (AtmospherePerSecond is null)
         return null;
@@ -120,7 +120,7 @@ public static PressureChangeRate FromAtmospherePerSecond(double? AtmospherePerSe
 /// Get PressureChangeRate from PoundForcePerSquareInchPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromPoundForcePerSquareInchPerMinute(double? PoundForcePerSquareInchPerMinute)
+public static PressureChangeRate? FromPoundForcePerSquareInchPerMinute(double? PoundForcePerSquareInchPerMinute)
 {
     if (PoundForcePerSquareInchPerMinute is null)
         return null;
@@ -131,7 +131,7 @@ public static PressureChangeRate FromPoundForcePerSquareInchPerMinute(double? Po
 /// Get PressureChangeRate from PoundForcePerSquareInchPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromPoundForcePerSquareInchPerSecond(double? PoundForcePerSquareInchPerSecond)
+public static PressureChangeRate? FromPoundForcePerSquareInchPerSecond(double? PoundForcePerSquareInchPerSecond)
 {
     if (PoundForcePerSquareInchPerSecond is null)
         return null;
@@ -142,7 +142,7 @@ public static PressureChangeRate FromPoundForcePerSquareInchPerSecond(double? Po
 /// Get PressureChangeRate from MegapoundForcePerSquareInchPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromMegapoundForcePerSquareInchPerSecond(double? MegapoundForcePerSquareInchPerSecond)
+public static PressureChangeRate? FromMegapoundForcePerSquareInchPerSecond(double? MegapoundForcePerSquareInchPerSecond)
 {
     if (MegapoundForcePerSquareInchPerSecond is null)
         return null;
@@ -153,7 +153,7 @@ public static PressureChangeRate FromMegapoundForcePerSquareInchPerSecond(double
 /// Get PressureChangeRate from MegapoundForcePerSquareInchPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PressureChangeRate FromMegapoundForcePerSquareInchPerMinute(double? MegapoundForcePerSquareInchPerMinute)
+public static PressureChangeRate? FromMegapoundForcePerSquareInchPerMinute(double? MegapoundForcePerSquareInchPerMinute)
 {
     if (MegapoundForcePerSquareInchPerMinute is null)
         return null;

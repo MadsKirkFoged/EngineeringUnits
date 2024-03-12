@@ -13,7 +13,7 @@ public partial class Magnetization : BaseUnit
 
     public static Magnetization From(double value, MagnetizationUnit unit) => new(value, unit);
 
-    public static Magnetization From(double? value, MagnetizationUnit unit)
+    public static Magnetization? From(double? value, MagnetizationUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Magnetization : BaseUnit
     public static Magnetization Zero => new(0, MagnetizationUnit.SI);
     public static Magnetization NaN => new(double.NaN, MagnetizationUnit.SI);
 
-    public static implicit operator Magnetization(UnknownUnit Unit)
+    public static implicit operator Magnetization?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Magnetization : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Magnetization Unit)
+    public static implicit operator UnknownUnit?(Magnetization? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Magnetization : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagnetizationUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagnetizationUnit>(_unit);    
 }

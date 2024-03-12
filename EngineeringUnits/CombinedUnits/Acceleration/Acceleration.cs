@@ -13,7 +13,7 @@ public partial class Acceleration : BaseUnit
 
     public static Acceleration From(double value, AccelerationUnit unit) => new(value, unit);
 
-    public static Acceleration From(double? value, AccelerationUnit unit)
+    public static Acceleration? From(double? value, AccelerationUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Acceleration : BaseUnit
     public static Acceleration Zero => new(0, AccelerationUnit.SI);
     public static Acceleration NaN => new(double.NaN, AccelerationUnit.SI);
 
-    public static implicit operator Acceleration(UnknownUnit Unit)
+    public static implicit operator Acceleration?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Acceleration : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Acceleration Unit)
+    public static implicit operator UnknownUnit?(Acceleration? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Acceleration : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AccelerationUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AccelerationUnit>(_unit);    
 }

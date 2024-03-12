@@ -13,7 +13,7 @@ public partial class MassFlow : BaseUnit
 
     public static MassFlow From(double value, MassFlowUnit unit) => new(value, unit);
 
-    public static MassFlow From(double? value, MassFlowUnit unit)
+    public static MassFlow? From(double? value, MassFlowUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MassFlow : BaseUnit
     public static MassFlow Zero => new(0, MassFlowUnit.SI);
     public static MassFlow NaN => new(double.NaN, MassFlowUnit.SI);
 
-    public static implicit operator MassFlow(UnknownUnit Unit)
+    public static implicit operator MassFlow?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MassFlow : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MassFlow Unit)
+    public static implicit operator UnknownUnit?(MassFlow? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MassFlow : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassFlowUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassFlowUnit>(_unit);    
 }

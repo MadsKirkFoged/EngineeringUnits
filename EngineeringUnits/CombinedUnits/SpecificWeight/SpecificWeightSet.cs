@@ -10,7 +10,7 @@ public partial class SpecificWeight
 /// Get SpecificWeight from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromSI(double? SI)
+public static SpecificWeight? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static SpecificWeight FromSI(double? SI)
 /// Get SpecificWeight from NewtonPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromNewtonPerCubicMeter(double? NewtonPerCubicMeter)
+public static SpecificWeight? FromNewtonPerCubicMeter(double? NewtonPerCubicMeter)
 {
     if (NewtonPerCubicMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static SpecificWeight FromNewtonPerCubicMeter(double? NewtonPerCubicMeter
 /// Get SpecificWeight from KilogramForcePerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilogramForcePerCubicCentimeter(double? KilogramForcePerCubicCentimeter)
+public static SpecificWeight? FromKilogramForcePerCubicCentimeter(double? KilogramForcePerCubicCentimeter)
 {
     if (KilogramForcePerCubicCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static SpecificWeight FromKilogramForcePerCubicCentimeter(double? Kilogra
 /// Get SpecificWeight from KilogramForcePerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilogramForcePerCubicMeter(double? KilogramForcePerCubicMeter)
+public static SpecificWeight? FromKilogramForcePerCubicMeter(double? KilogramForcePerCubicMeter)
 {
     if (KilogramForcePerCubicMeter is null)
         return null;
@@ -54,7 +54,7 @@ public static SpecificWeight FromKilogramForcePerCubicMeter(double? KilogramForc
 /// Get SpecificWeight from KilogramForcePerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilogramForcePerCubicMillimeter(double? KilogramForcePerCubicMillimeter)
+public static SpecificWeight? FromKilogramForcePerCubicMillimeter(double? KilogramForcePerCubicMillimeter)
 {
     if (KilogramForcePerCubicMillimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static SpecificWeight FromKilogramForcePerCubicMillimeter(double? Kilogra
 /// Get SpecificWeight from KilonewtonPerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilonewtonPerCubicCentimeter(double? KilonewtonPerCubicCentimeter)
+public static SpecificWeight? FromKilonewtonPerCubicCentimeter(double? KilonewtonPerCubicCentimeter)
 {
     if (KilonewtonPerCubicCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static SpecificWeight FromKilonewtonPerCubicCentimeter(double? Kilonewton
 /// Get SpecificWeight from KilonewtonPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilonewtonPerCubicMeter(double? KilonewtonPerCubicMeter)
+public static SpecificWeight? FromKilonewtonPerCubicMeter(double? KilonewtonPerCubicMeter)
 {
     if (KilonewtonPerCubicMeter is null)
         return null;
@@ -87,7 +87,7 @@ public static SpecificWeight FromKilonewtonPerCubicMeter(double? KilonewtonPerCu
 /// Get SpecificWeight from KilonewtonPerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilonewtonPerCubicMillimeter(double? KilonewtonPerCubicMillimeter)
+public static SpecificWeight? FromKilonewtonPerCubicMillimeter(double? KilonewtonPerCubicMillimeter)
 {
     if (KilonewtonPerCubicMillimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static SpecificWeight FromKilonewtonPerCubicMillimeter(double? Kilonewton
 /// Get SpecificWeight from KilopoundForcePerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilopoundForcePerCubicFoot(double? KilopoundForcePerCubicFoot)
+public static SpecificWeight? FromKilopoundForcePerCubicFoot(double? KilopoundForcePerCubicFoot)
 {
     if (KilopoundForcePerCubicFoot is null)
         return null;
@@ -109,7 +109,7 @@ public static SpecificWeight FromKilopoundForcePerCubicFoot(double? KilopoundFor
 /// Get SpecificWeight from KilopoundForcePerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromKilopoundForcePerCubicInch(double? KilopoundForcePerCubicInch)
+public static SpecificWeight? FromKilopoundForcePerCubicInch(double? KilopoundForcePerCubicInch)
 {
     if (KilopoundForcePerCubicInch is null)
         return null;
@@ -120,7 +120,7 @@ public static SpecificWeight FromKilopoundForcePerCubicInch(double? KilopoundFor
 /// Get SpecificWeight from MeganewtonPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromMeganewtonPerCubicMeter(double? MeganewtonPerCubicMeter)
+public static SpecificWeight? FromMeganewtonPerCubicMeter(double? MeganewtonPerCubicMeter)
 {
     if (MeganewtonPerCubicMeter is null)
         return null;
@@ -131,7 +131,7 @@ public static SpecificWeight FromMeganewtonPerCubicMeter(double? MeganewtonPerCu
 /// Get SpecificWeight from NewtonPerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromNewtonPerCubicCentimeter(double? NewtonPerCubicCentimeter)
+public static SpecificWeight? FromNewtonPerCubicCentimeter(double? NewtonPerCubicCentimeter)
 {
     if (NewtonPerCubicCentimeter is null)
         return null;
@@ -142,7 +142,7 @@ public static SpecificWeight FromNewtonPerCubicCentimeter(double? NewtonPerCubic
 /// Get SpecificWeight from NewtonPerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromNewtonPerCubicMillimeter(double? NewtonPerCubicMillimeter)
+public static SpecificWeight? FromNewtonPerCubicMillimeter(double? NewtonPerCubicMillimeter)
 {
     if (NewtonPerCubicMillimeter is null)
         return null;
@@ -153,7 +153,7 @@ public static SpecificWeight FromNewtonPerCubicMillimeter(double? NewtonPerCubic
 /// Get SpecificWeight from PoundForcePerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromPoundForcePerCubicFoot(double? PoundForcePerCubicFoot)
+public static SpecificWeight? FromPoundForcePerCubicFoot(double? PoundForcePerCubicFoot)
 {
     if (PoundForcePerCubicFoot is null)
         return null;
@@ -164,7 +164,7 @@ public static SpecificWeight FromPoundForcePerCubicFoot(double? PoundForcePerCub
 /// Get SpecificWeight from PoundForcePerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromPoundForcePerCubicInch(double? PoundForcePerCubicInch)
+public static SpecificWeight? FromPoundForcePerCubicInch(double? PoundForcePerCubicInch)
 {
     if (PoundForcePerCubicInch is null)
         return null;
@@ -175,7 +175,7 @@ public static SpecificWeight FromPoundForcePerCubicInch(double? PoundForcePerCub
 /// Get SpecificWeight from TonneForcePerCubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromTonneForcePerCubicCentimeter(double? TonneForcePerCubicCentimeter)
+public static SpecificWeight? FromTonneForcePerCubicCentimeter(double? TonneForcePerCubicCentimeter)
 {
     if (TonneForcePerCubicCentimeter is null)
         return null;
@@ -186,7 +186,7 @@ public static SpecificWeight FromTonneForcePerCubicCentimeter(double? TonneForce
 /// Get SpecificWeight from TonneForcePerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromTonneForcePerCubicMeter(double? TonneForcePerCubicMeter)
+public static SpecificWeight? FromTonneForcePerCubicMeter(double? TonneForcePerCubicMeter)
 {
     if (TonneForcePerCubicMeter is null)
         return null;
@@ -197,7 +197,7 @@ public static SpecificWeight FromTonneForcePerCubicMeter(double? TonneForcePerCu
 /// Get SpecificWeight from TonneForcePerCubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificWeight FromTonneForcePerCubicMillimeter(double? TonneForcePerCubicMillimeter)
+public static SpecificWeight? FromTonneForcePerCubicMillimeter(double? TonneForcePerCubicMillimeter)
 {
     if (TonneForcePerCubicMillimeter is null)
         return null;

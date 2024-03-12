@@ -19,7 +19,7 @@ internal static class AbsExtensionsGenerator
                                  /// <summary>
                                  /// Returns the absolute value
                                  /// </summary>
-                                 public static Variable Abs(this Variable a)
+                                 public static Variable? Abs(this Variable? a)
                                  {
                                      if (a is null)
                                          return null;
@@ -27,7 +27,7 @@ internal static class AbsExtensionsGenerator
                                      if (a.GetBaseValue() > 0)
                                          return a;
 
-                                     return -a;
+                                     return (-a)!;
                                  }
                                """.Replace("Variable", $"{item}");
 

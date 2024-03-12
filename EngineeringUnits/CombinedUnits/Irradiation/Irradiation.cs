@@ -13,7 +13,7 @@ public partial class Irradiation : BaseUnit
 
     public static Irradiation From(double value, IrradiationUnit unit) => new(value, unit);
 
-    public static Irradiation From(double? value, IrradiationUnit unit)
+    public static Irradiation? From(double? value, IrradiationUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Irradiation : BaseUnit
     public static Irradiation Zero => new(0, IrradiationUnit.SI);
     public static Irradiation NaN => new(double.NaN, IrradiationUnit.SI);
 
-    public static implicit operator Irradiation(UnknownUnit Unit)
+    public static implicit operator Irradiation?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Irradiation : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Irradiation Unit)
+    public static implicit operator UnknownUnit?(Irradiation? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Irradiation : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IrradiationUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IrradiationUnit>(_unit);    
 }

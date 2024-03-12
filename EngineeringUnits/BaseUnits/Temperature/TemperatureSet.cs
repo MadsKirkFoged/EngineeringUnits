@@ -10,7 +10,7 @@ public partial class Temperature
 /// Get Temperature from Kelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Temperature FromKelvin(double? Kelvin)
+public static Temperature? FromKelvin(double? Kelvin)
 {
     if (Kelvin is null)
         return null;
@@ -21,7 +21,7 @@ public static Temperature FromKelvin(double? Kelvin)
 /// Get Temperature from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Temperature FromSI(double? SI)
+public static Temperature? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -32,7 +32,7 @@ public static Temperature FromSI(double? SI)
 /// Get Temperature from DegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Temperature FromDegreeCelsius(double? DegreeCelsius)
+public static Temperature? FromDegreeCelsius(double? DegreeCelsius)
 {
     if (DegreeCelsius is null)
         return null;
@@ -43,7 +43,7 @@ public static Temperature FromDegreeCelsius(double? DegreeCelsius)
 /// Get Temperature from DegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Temperature FromDegreeFahrenheit(double? DegreeFahrenheit)
+public static Temperature? FromDegreeFahrenheit(double? DegreeFahrenheit)
 {
     if (DegreeFahrenheit is null)
         return null;
@@ -54,7 +54,7 @@ public static Temperature FromDegreeFahrenheit(double? DegreeFahrenheit)
 /// Get Temperature from DegreeRankine.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Temperature FromDegreeRankine(double? DegreeRankine)
+public static Temperature? FromDegreeRankine(double? DegreeRankine)
 {
     if (DegreeRankine is null)
         return null;

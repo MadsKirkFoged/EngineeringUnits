@@ -20,7 +20,7 @@ public record RawUnit
 
     [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
     [DefaultValue("")]
-    public string Symbol { get; init; }
+    public string? Symbol { get; init; }
 
     public Fraction A { get; init; }
 

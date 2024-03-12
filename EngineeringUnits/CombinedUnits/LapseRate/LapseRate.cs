@@ -13,7 +13,7 @@ public partial class LapseRate : BaseUnit
 
     public static LapseRate From(double value, LapseRateUnit unit) => new(value, unit);
 
-    public static LapseRate From(double? value, LapseRateUnit unit)
+    public static LapseRate? From(double? value, LapseRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class LapseRate : BaseUnit
     public static LapseRate Zero => new(0, LapseRateUnit.SI);
     public static LapseRate NaN => new(double.NaN, LapseRateUnit.SI);
 
-    public static implicit operator LapseRate(UnknownUnit Unit)
+    public static implicit operator LapseRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class LapseRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(LapseRate Unit)
+    public static implicit operator UnknownUnit?(LapseRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class LapseRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);    
 }

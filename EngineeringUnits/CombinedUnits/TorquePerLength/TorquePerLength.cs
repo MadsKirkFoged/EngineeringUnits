@@ -13,7 +13,7 @@ public partial class TorquePerLength : BaseUnit
 
     public static TorquePerLength From(double value, TorquePerLengthUnit unit) => new(value, unit);
 
-    public static TorquePerLength From(double? value, TorquePerLengthUnit unit)
+    public static TorquePerLength? From(double? value, TorquePerLengthUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class TorquePerLength : BaseUnit
     public static TorquePerLength Zero => new(0, TorquePerLengthUnit.SI);
     public static TorquePerLength NaN => new(double.NaN, TorquePerLengthUnit.SI);
 
-    public static implicit operator TorquePerLength(UnknownUnit Unit)
+    public static implicit operator TorquePerLength?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class TorquePerLength : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(TorquePerLength Unit)
+    public static implicit operator UnknownUnit?(TorquePerLength? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class TorquePerLength : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorquePerLengthUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorquePerLengthUnit>(_unit);    
 }

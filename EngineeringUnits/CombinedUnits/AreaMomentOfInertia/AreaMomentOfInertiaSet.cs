@@ -10,7 +10,7 @@ public partial class AreaMomentOfInertia
 /// Get AreaMomentOfInertia from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromSI(double? SI)
+public static AreaMomentOfInertia? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static AreaMomentOfInertia FromSI(double? SI)
 /// Get AreaMomentOfInertia from MeterToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromMeterToTheFourth(double? MeterToTheFourth)
+public static AreaMomentOfInertia? FromMeterToTheFourth(double? MeterToTheFourth)
 {
     if (MeterToTheFourth is null)
         return null;
@@ -32,7 +32,7 @@ public static AreaMomentOfInertia FromMeterToTheFourth(double? MeterToTheFourth)
 /// Get AreaMomentOfInertia from CentimeterToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromCentimeterToTheFourth(double? CentimeterToTheFourth)
+public static AreaMomentOfInertia? FromCentimeterToTheFourth(double? CentimeterToTheFourth)
 {
     if (CentimeterToTheFourth is null)
         return null;
@@ -43,7 +43,7 @@ public static AreaMomentOfInertia FromCentimeterToTheFourth(double? CentimeterTo
 /// Get AreaMomentOfInertia from DecimeterToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromDecimeterToTheFourth(double? DecimeterToTheFourth)
+public static AreaMomentOfInertia? FromDecimeterToTheFourth(double? DecimeterToTheFourth)
 {
     if (DecimeterToTheFourth is null)
         return null;
@@ -54,7 +54,7 @@ public static AreaMomentOfInertia FromDecimeterToTheFourth(double? DecimeterToTh
 /// Get AreaMomentOfInertia from MillimeterToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromMillimeterToTheFourth(double? MillimeterToTheFourth)
+public static AreaMomentOfInertia? FromMillimeterToTheFourth(double? MillimeterToTheFourth)
 {
     if (MillimeterToTheFourth is null)
         return null;
@@ -65,7 +65,7 @@ public static AreaMomentOfInertia FromMillimeterToTheFourth(double? MillimeterTo
 /// Get AreaMomentOfInertia from InchToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromInchToTheFourth(double? InchToTheFourth)
+public static AreaMomentOfInertia? FromInchToTheFourth(double? InchToTheFourth)
 {
     if (InchToTheFourth is null)
         return null;
@@ -76,7 +76,7 @@ public static AreaMomentOfInertia FromInchToTheFourth(double? InchToTheFourth)
 /// Get AreaMomentOfInertia from FootToTheFourth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaMomentOfInertia FromFootToTheFourth(double? FootToTheFourth)
+public static AreaMomentOfInertia? FromFootToTheFourth(double? FootToTheFourth)
 {
     if (FootToTheFourth is null)
         return null;

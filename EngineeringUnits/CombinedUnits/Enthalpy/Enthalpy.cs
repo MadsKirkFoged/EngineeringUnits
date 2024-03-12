@@ -13,7 +13,7 @@ public partial class Enthalpy : BaseUnit
 
     public static Enthalpy From(double value, EnthalpyUnit unit) => new(value, unit);
 
-    public static Enthalpy From(double? value, EnthalpyUnit unit)
+    public static Enthalpy? From(double? value, EnthalpyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Enthalpy : BaseUnit
     public static Enthalpy Zero => new(0, EnthalpyUnit.SI);
     public static Enthalpy NaN => new(double.NaN, EnthalpyUnit.SI);
 
-    public static implicit operator Enthalpy(UnknownUnit Unit)
+    public static implicit operator Enthalpy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Enthalpy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Enthalpy Unit)
+    public static implicit operator UnknownUnit?(Enthalpy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Enthalpy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnthalpyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnthalpyUnit>(_unit);    
 }

@@ -13,7 +13,7 @@ public partial class SpecificThermalResistance : BaseUnit
 
     public static SpecificThermalResistance From(double value, SpecificThermalResistanceUnit unit) => new(value, unit);
 
-    public static SpecificThermalResistance From(double? value, SpecificThermalResistanceUnit unit)
+    public static SpecificThermalResistance? From(double? value, SpecificThermalResistanceUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class SpecificThermalResistance : BaseUnit
     public static SpecificThermalResistance Zero => new(0, SpecificThermalResistanceUnit.SI);
     public static SpecificThermalResistance NaN => new(double.NaN, SpecificThermalResistanceUnit.SI);
 
-    public static implicit operator SpecificThermalResistance(UnknownUnit Unit)
+    public static implicit operator SpecificThermalResistance?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class SpecificThermalResistance : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(SpecificThermalResistance Unit)
+    public static implicit operator UnknownUnit?(SpecificThermalResistance? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class SpecificThermalResistance : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificThermalResistanceUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificThermalResistanceUnit>(_unit);    
 }

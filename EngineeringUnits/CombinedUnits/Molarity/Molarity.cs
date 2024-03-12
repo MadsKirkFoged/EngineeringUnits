@@ -13,7 +13,7 @@ public partial class Molarity : BaseUnit
 
     public static Molarity From(double value, MolarityUnit unit) => new(value, unit);
 
-    public static Molarity From(double? value, MolarityUnit unit)
+    public static Molarity? From(double? value, MolarityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Molarity : BaseUnit
     public static Molarity Zero => new(0, MolarityUnit.SI);
     public static Molarity NaN => new(double.NaN, MolarityUnit.SI);
 
-    public static implicit operator Molarity(UnknownUnit Unit)
+    public static implicit operator Molarity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Molarity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Molarity Unit)
+    public static implicit operator UnknownUnit?(Molarity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Molarity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarityUnit>(_unit);    
 }

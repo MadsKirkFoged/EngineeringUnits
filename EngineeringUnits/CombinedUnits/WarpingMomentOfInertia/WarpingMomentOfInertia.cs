@@ -13,7 +13,7 @@ public partial class WarpingMomentOfInertia : BaseUnit
 
     public static WarpingMomentOfInertia From(double value, WarpingMomentOfInertiaUnit unit) => new(value, unit);
 
-    public static WarpingMomentOfInertia From(double? value, WarpingMomentOfInertiaUnit unit)
+    public static WarpingMomentOfInertia? From(double? value, WarpingMomentOfInertiaUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class WarpingMomentOfInertia : BaseUnit
     public static WarpingMomentOfInertia Zero => new(0, WarpingMomentOfInertiaUnit.SI);
     public static WarpingMomentOfInertia NaN => new(double.NaN, WarpingMomentOfInertiaUnit.SI);
 
-    public static implicit operator WarpingMomentOfInertia(UnknownUnit Unit)
+    public static implicit operator WarpingMomentOfInertia?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class WarpingMomentOfInertia : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(WarpingMomentOfInertia Unit)
+    public static implicit operator UnknownUnit?(WarpingMomentOfInertia? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class WarpingMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);    
 }

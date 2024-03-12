@@ -13,7 +13,7 @@ public partial class LengthCost : BaseUnit
 
     public static LengthCost From(double value, LengthCostUnit unit) => new(value, unit);
 
-    public static LengthCost From(double? value, LengthCostUnit unit)
+    public static LengthCost? From(double? value, LengthCostUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class LengthCost : BaseUnit
     public static LengthCost Zero => new(0, LengthCostUnit.SI);
     public static LengthCost NaN => new(double.NaN, LengthCostUnit.SI);
 
-    public static implicit operator LengthCost(UnknownUnit Unit)
+    public static implicit operator LengthCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class LengthCost : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(LengthCost Unit)
+    public static implicit operator UnknownUnit?(LengthCost? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class LengthCost : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);    
 }

@@ -13,7 +13,7 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
 
     public static BrakeSpecificFuelConsumption From(double value, BrakeSpecificFuelConsumptionUnit unit) => new(value, unit);
 
-    public static BrakeSpecificFuelConsumption From(double? value, BrakeSpecificFuelConsumptionUnit unit)
+    public static BrakeSpecificFuelConsumption? From(double? value, BrakeSpecificFuelConsumptionUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
     public static BrakeSpecificFuelConsumption Zero => new(0, BrakeSpecificFuelConsumptionUnit.SI);
     public static BrakeSpecificFuelConsumption NaN => new(double.NaN, BrakeSpecificFuelConsumptionUnit.SI);
 
-    public static implicit operator BrakeSpecificFuelConsumption(UnknownUnit Unit)
+    public static implicit operator BrakeSpecificFuelConsumption?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(BrakeSpecificFuelConsumption Unit)
+    public static implicit operator UnknownUnit?(BrakeSpecificFuelConsumption? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BrakeSpecificFuelConsumptionUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BrakeSpecificFuelConsumptionUnit>(_unit);    
 }

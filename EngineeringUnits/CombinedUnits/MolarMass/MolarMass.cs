@@ -13,7 +13,7 @@ public partial class MolarMass : BaseUnit
 
     public static MolarMass From(double value, MolarMassUnit unit) => new(value, unit);
 
-    public static MolarMass From(double? value, MolarMassUnit unit)
+    public static MolarMass? From(double? value, MolarMassUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MolarMass : BaseUnit
     public static MolarMass Zero => new(0, MolarMassUnit.SI);
     public static MolarMass NaN => new(double.NaN, MolarMassUnit.SI);
 
-    public static implicit operator MolarMass(UnknownUnit Unit)
+    public static implicit operator MolarMass?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MolarMass : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MolarMass Unit)
+    public static implicit operator UnknownUnit?(MolarMass? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MolarMass : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);    
 }

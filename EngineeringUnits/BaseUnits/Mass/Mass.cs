@@ -13,7 +13,7 @@ public partial class Mass : BaseUnit
 
     public static Mass From(double value, MassUnit unit) => new(value, unit);
 
-    public static Mass From(double? value, MassUnit unit)
+    public static Mass? From(double? value, MassUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Mass : BaseUnit
     public static Mass Zero => new(0, MassUnit.SI);
     public static Mass NaN => new(double.NaN, MassUnit.SI);
 
-    public static implicit operator Mass(UnknownUnit Unit)
+    public static implicit operator Mass?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Mass : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Mass Unit)
+    public static implicit operator UnknownUnit?(Mass? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Mass : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);    
 }

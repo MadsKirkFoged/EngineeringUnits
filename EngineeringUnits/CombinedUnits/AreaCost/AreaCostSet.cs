@@ -10,7 +10,7 @@ public partial class AreaCost
 /// Get AreaCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaCost FromSI(double? SI)
+public static AreaCost? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static AreaCost FromSI(double? SI)
 /// Get AreaCost from USDollarPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaCost FromUSDollarPerSquareMeter(double? USDollarPerSquareMeter)
+public static AreaCost? FromUSDollarPerSquareMeter(double? USDollarPerSquareMeter)
 {
     if (USDollarPerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static AreaCost FromUSDollarPerSquareMeter(double? USDollarPerSquareMeter
 /// Get AreaCost from MillionUSDollarPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaCost FromMillionUSDollarPerSquareMeter(double? MillionUSDollarPerSquareMeter)
+public static AreaCost? FromMillionUSDollarPerSquareMeter(double? MillionUSDollarPerSquareMeter)
 {
     if (MillionUSDollarPerSquareMeter is null)
         return null;
@@ -43,7 +43,7 @@ public static AreaCost FromMillionUSDollarPerSquareMeter(double? MillionUSDollar
 /// Get AreaCost from EuroPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaCost FromEuroPerSquareMeter(double? EuroPerSquareMeter)
+public static AreaCost? FromEuroPerSquareMeter(double? EuroPerSquareMeter)
 {
     if (EuroPerSquareMeter is null)
         return null;

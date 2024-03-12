@@ -13,7 +13,7 @@ public partial class PressureChangeRate : BaseUnit
 
     public static PressureChangeRate From(double value, PressureChangeRateUnit unit) => new(value, unit);
 
-    public static PressureChangeRate From(double? value, PressureChangeRateUnit unit)
+    public static PressureChangeRate? From(double? value, PressureChangeRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class PressureChangeRate : BaseUnit
     public static PressureChangeRate Zero => new(0, PressureChangeRateUnit.SI);
     public static PressureChangeRate NaN => new(double.NaN, PressureChangeRateUnit.SI);
 
-    public static implicit operator PressureChangeRate(UnknownUnit Unit)
+    public static implicit operator PressureChangeRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class PressureChangeRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(PressureChangeRate Unit)
+    public static implicit operator UnknownUnit?(PressureChangeRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class PressureChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureChangeRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureChangeRateUnit>(_unit);    
 }

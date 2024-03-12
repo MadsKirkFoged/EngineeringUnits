@@ -13,7 +13,7 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The sum of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit Sum(this IEnumerable<BaseUnit> list)
+    public static UnknownUnit? Sum(this IEnumerable<BaseUnit> list)
     {
         if (list is null || !list.Any())
             return null;
@@ -35,7 +35,7 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The average value of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit Average(this IEnumerable<BaseUnit> list)
+    public static UnknownUnit? Average(this IEnumerable<BaseUnit> list)
     {
         if (list is null || !list.Any())
             return null;
@@ -56,7 +56,7 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The mean value of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit Mean(this IEnumerable<BaseUnit> list)
+    public static UnknownUnit? Mean(this IEnumerable<BaseUnit> list)
     {
         if (list is null || !list.Any())
             return null;
@@ -144,7 +144,7 @@ public static class UnitMath
     /// </summary>
     /// <param name="a">The <see cref="BaseUnit"/> object.</param>
     /// <returns>The absolute value of the <see cref="BaseUnit"/> object.</returns>
-    public static UnknownUnit Abs(this BaseUnit a)
+    public static UnknownUnit? Abs(this BaseUnit? a)
     {
         if (a is null)
             return null;

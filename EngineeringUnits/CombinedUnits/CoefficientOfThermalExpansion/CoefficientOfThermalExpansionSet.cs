@@ -10,7 +10,7 @@ public partial class CoefficientOfThermalExpansion
 /// Get CoefficientOfThermalExpansion from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static CoefficientOfThermalExpansion FromSI(double? SI)
+public static CoefficientOfThermalExpansion? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static CoefficientOfThermalExpansion FromSI(double? SI)
 /// Get CoefficientOfThermalExpansion from InverseKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static CoefficientOfThermalExpansion FromInverseKelvin(double? InverseKelvin)
+public static CoefficientOfThermalExpansion? FromInverseKelvin(double? InverseKelvin)
 {
     if (InverseKelvin is null)
         return null;
@@ -32,7 +32,7 @@ public static CoefficientOfThermalExpansion FromInverseKelvin(double? InverseKel
 /// Get CoefficientOfThermalExpansion from InverseDegreeFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static CoefficientOfThermalExpansion FromInverseDegreeFahrenheit(double? InverseDegreeFahrenheit)
+public static CoefficientOfThermalExpansion? FromInverseDegreeFahrenheit(double? InverseDegreeFahrenheit)
 {
     if (InverseDegreeFahrenheit is null)
         return null;
@@ -43,7 +43,7 @@ public static CoefficientOfThermalExpansion FromInverseDegreeFahrenheit(double? 
 /// Get CoefficientOfThermalExpansion from InverseDegreeCelsius.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static CoefficientOfThermalExpansion FromInverseDegreeCelsius(double? InverseDegreeCelsius)
+public static CoefficientOfThermalExpansion? FromInverseDegreeCelsius(double? InverseDegreeCelsius)
 {
     if (InverseDegreeCelsius is null)
         return null;

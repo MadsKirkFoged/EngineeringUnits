@@ -13,7 +13,7 @@ public partial class ReactivePower : BaseUnit
 
     public static ReactivePower From(double value, ReactivePowerUnit unit) => new(value, unit);
 
-    public static ReactivePower From(double? value, ReactivePowerUnit unit)
+    public static ReactivePower? From(double? value, ReactivePowerUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ReactivePower : BaseUnit
     public static ReactivePower Zero => new(0, ReactivePowerUnit.SI);
     public static ReactivePower NaN => new(double.NaN, ReactivePowerUnit.SI);
 
-    public static implicit operator ReactivePower(UnknownUnit Unit)
+    public static implicit operator ReactivePower?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ReactivePower : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ReactivePower Unit)
+    public static implicit operator UnknownUnit?(ReactivePower? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ReactivePower : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactivePowerUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactivePowerUnit>(_unit);    
 }

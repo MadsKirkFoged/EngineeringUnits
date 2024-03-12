@@ -10,7 +10,7 @@ public partial class Acceleration
 /// Get Acceleration from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromSI(double? SI)
+public static Acceleration? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Acceleration FromSI(double? SI)
 /// Get Acceleration from KilometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromKilometerPerSecondSquared(double? KilometerPerSecondSquared)
+public static Acceleration? FromKilometerPerSecondSquared(double? KilometerPerSecondSquared)
 {
     if (KilometerPerSecondSquared is null)
         return null;
@@ -32,7 +32,7 @@ public static Acceleration FromKilometerPerSecondSquared(double? KilometerPerSec
 /// Get Acceleration from MeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromMeterPerSecondSquared(double? MeterPerSecondSquared)
+public static Acceleration? FromMeterPerSecondSquared(double? MeterPerSecondSquared)
 {
     if (MeterPerSecondSquared is null)
         return null;
@@ -43,7 +43,7 @@ public static Acceleration FromMeterPerSecondSquared(double? MeterPerSecondSquar
 /// Get Acceleration from DecimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromDecimeterPerSecondSquared(double? DecimeterPerSecondSquared)
+public static Acceleration? FromDecimeterPerSecondSquared(double? DecimeterPerSecondSquared)
 {
     if (DecimeterPerSecondSquared is null)
         return null;
@@ -54,7 +54,7 @@ public static Acceleration FromDecimeterPerSecondSquared(double? DecimeterPerSec
 /// Get Acceleration from CentimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromCentimeterPerSecondSquared(double? CentimeterPerSecondSquared)
+public static Acceleration? FromCentimeterPerSecondSquared(double? CentimeterPerSecondSquared)
 {
     if (CentimeterPerSecondSquared is null)
         return null;
@@ -65,7 +65,7 @@ public static Acceleration FromCentimeterPerSecondSquared(double? CentimeterPerS
 /// Get Acceleration from MicrometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromMicrometerPerSecondSquared(double? MicrometerPerSecondSquared)
+public static Acceleration? FromMicrometerPerSecondSquared(double? MicrometerPerSecondSquared)
 {
     if (MicrometerPerSecondSquared is null)
         return null;
@@ -76,7 +76,7 @@ public static Acceleration FromMicrometerPerSecondSquared(double? MicrometerPerS
 /// Get Acceleration from MillimeterPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromMillimeterPerSecondSquared(double? MillimeterPerSecondSquared)
+public static Acceleration? FromMillimeterPerSecondSquared(double? MillimeterPerSecondSquared)
 {
     if (MillimeterPerSecondSquared is null)
         return null;
@@ -87,7 +87,7 @@ public static Acceleration FromMillimeterPerSecondSquared(double? MillimeterPerS
 /// Get Acceleration from NanometerPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromNanometerPerSecondSquared(double? NanometerPerSecondSquared)
+public static Acceleration? FromNanometerPerSecondSquared(double? NanometerPerSecondSquared)
 {
     if (NanometerPerSecondSquared is null)
         return null;
@@ -98,7 +98,7 @@ public static Acceleration FromNanometerPerSecondSquared(double? NanometerPerSec
 /// Get Acceleration from InchPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromInchPerSecondSquared(double? InchPerSecondSquared)
+public static Acceleration? FromInchPerSecondSquared(double? InchPerSecondSquared)
 {
     if (InchPerSecondSquared is null)
         return null;
@@ -109,7 +109,7 @@ public static Acceleration FromInchPerSecondSquared(double? InchPerSecondSquared
 /// Get Acceleration from FootPerSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromFootPerSecondSquared(double? FootPerSecondSquared)
+public static Acceleration? FromFootPerSecondSquared(double? FootPerSecondSquared)
 {
     if (FootPerSecondSquared is null)
         return null;
@@ -120,7 +120,7 @@ public static Acceleration FromFootPerSecondSquared(double? FootPerSecondSquared
 /// Get Acceleration from KnotPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromKnotPerSecond(double? KnotPerSecond)
+public static Acceleration? FromKnotPerSecond(double? KnotPerSecond)
 {
     if (KnotPerSecond is null)
         return null;
@@ -131,7 +131,7 @@ public static Acceleration FromKnotPerSecond(double? KnotPerSecond)
 /// Get Acceleration from KnotPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromKnotPerMinute(double? KnotPerMinute)
+public static Acceleration? FromKnotPerMinute(double? KnotPerMinute)
 {
     if (KnotPerMinute is null)
         return null;
@@ -142,7 +142,7 @@ public static Acceleration FromKnotPerMinute(double? KnotPerMinute)
 /// Get Acceleration from KnotPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromKnotPerHour(double? KnotPerHour)
+public static Acceleration? FromKnotPerHour(double? KnotPerHour)
 {
     if (KnotPerHour is null)
         return null;
@@ -153,7 +153,7 @@ public static Acceleration FromKnotPerHour(double? KnotPerHour)
 /// Get Acceleration from StandardGravity.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromStandardGravity(double? StandardGravity)
+public static Acceleration? FromStandardGravity(double? StandardGravity)
 {
     if (StandardGravity is null)
         return null;
@@ -164,7 +164,7 @@ public static Acceleration FromStandardGravity(double? StandardGravity)
 /// Get Acceleration from MillistandardGravity.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Acceleration FromMillistandardGravity(double? MillistandardGravity)
+public static Acceleration? FromMillistandardGravity(double? MillistandardGravity)
 {
     if (MillistandardGravity is null)
         return null;

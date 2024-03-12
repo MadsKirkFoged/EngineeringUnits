@@ -13,7 +13,7 @@ public partial class PowerDensity : BaseUnit
 
     public static PowerDensity From(double value, PowerDensityUnit unit) => new(value, unit);
 
-    public static PowerDensity From(double? value, PowerDensityUnit unit)
+    public static PowerDensity? From(double? value, PowerDensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class PowerDensity : BaseUnit
     public static PowerDensity Zero => new(0, PowerDensityUnit.SI);
     public static PowerDensity NaN => new(double.NaN, PowerDensityUnit.SI);
 
-    public static implicit operator PowerDensity(UnknownUnit Unit)
+    public static implicit operator PowerDensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class PowerDensity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(PowerDensity Unit)
+    public static implicit operator UnknownUnit?(PowerDensity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class PowerDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerDensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerDensityUnit>(_unit);    
 }

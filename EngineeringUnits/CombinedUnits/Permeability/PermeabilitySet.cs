@@ -10,7 +10,7 @@ public partial class Permeability
 /// Get Permeability from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Permeability FromSI(double? SI)
+public static Permeability? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Permeability FromSI(double? SI)
 /// Get Permeability from HenryPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Permeability FromHenryPerMeter(double? HenryPerMeter)
+public static Permeability? FromHenryPerMeter(double? HenryPerMeter)
 {
     if (HenryPerMeter is null)
         return null;

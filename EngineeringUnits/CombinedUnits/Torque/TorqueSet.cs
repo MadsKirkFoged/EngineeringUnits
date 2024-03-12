@@ -10,7 +10,7 @@ public partial class Torque
 /// Get Torque from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromSI(double? SI)
+public static Torque? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Torque FromSI(double? SI)
 /// Get Torque from NewtonMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromNewtonMeter(double? NewtonMeter)
+public static Torque? FromNewtonMeter(double? NewtonMeter)
 {
     if (NewtonMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static Torque FromNewtonMeter(double? NewtonMeter)
 /// Get Torque from KilonewtonMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilonewtonMeter(double? KilonewtonMeter)
+public static Torque? FromKilonewtonMeter(double? KilonewtonMeter)
 {
     if (KilonewtonMeter is null)
         return null;
@@ -43,7 +43,7 @@ public static Torque FromKilonewtonMeter(double? KilonewtonMeter)
 /// Get Torque from MeganewtonMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromMeganewtonMeter(double? MeganewtonMeter)
+public static Torque? FromMeganewtonMeter(double? MeganewtonMeter)
 {
     if (MeganewtonMeter is null)
         return null;
@@ -54,7 +54,7 @@ public static Torque FromMeganewtonMeter(double? MeganewtonMeter)
 /// Get Torque from NewtonMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromNewtonMillimeter(double? NewtonMillimeter)
+public static Torque? FromNewtonMillimeter(double? NewtonMillimeter)
 {
     if (NewtonMillimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static Torque FromNewtonMillimeter(double? NewtonMillimeter)
 /// Get Torque from KilonewtonMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilonewtonMillimeter(double? KilonewtonMillimeter)
+public static Torque? FromKilonewtonMillimeter(double? KilonewtonMillimeter)
 {
     if (KilonewtonMillimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static Torque FromKilonewtonMillimeter(double? KilonewtonMillimeter)
 /// Get Torque from MeganewtonMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromMeganewtonMillimeter(double? MeganewtonMillimeter)
+public static Torque? FromMeganewtonMillimeter(double? MeganewtonMillimeter)
 {
     if (MeganewtonMillimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static Torque FromMeganewtonMillimeter(double? MeganewtonMillimeter)
 /// Get Torque from NewtonCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromNewtonCentimeter(double? NewtonCentimeter)
+public static Torque? FromNewtonCentimeter(double? NewtonCentimeter)
 {
     if (NewtonCentimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static Torque FromNewtonCentimeter(double? NewtonCentimeter)
 /// Get Torque from MeganewtonCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromMeganewtonCentimeter(double? MeganewtonCentimeter)
+public static Torque? FromMeganewtonCentimeter(double? MeganewtonCentimeter)
 {
     if (MeganewtonCentimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static Torque FromMeganewtonCentimeter(double? MeganewtonCentimeter)
 /// Get Torque from PoundalFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromPoundalFoot(double? PoundalFoot)
+public static Torque? FromPoundalFoot(double? PoundalFoot)
 {
     if (PoundalFoot is null)
         return null;
@@ -120,7 +120,7 @@ public static Torque FromPoundalFoot(double? PoundalFoot)
 /// Get Torque from PoundForceFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromPoundForceFoot(double? PoundForceFoot)
+public static Torque? FromPoundForceFoot(double? PoundForceFoot)
 {
     if (PoundForceFoot is null)
         return null;
@@ -131,7 +131,7 @@ public static Torque FromPoundForceFoot(double? PoundForceFoot)
 /// Get Torque from PoundForceInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromPoundForceInch(double? PoundForceInch)
+public static Torque? FromPoundForceInch(double? PoundForceInch)
 {
     if (PoundForceInch is null)
         return null;
@@ -142,7 +142,7 @@ public static Torque FromPoundForceInch(double? PoundForceInch)
 /// Get Torque from TonneForceCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromTonneForceCentimeter(double? TonneForceCentimeter)
+public static Torque? FromTonneForceCentimeter(double? TonneForceCentimeter)
 {
     if (TonneForceCentimeter is null)
         return null;
@@ -153,7 +153,7 @@ public static Torque FromTonneForceCentimeter(double? TonneForceCentimeter)
 /// Get Torque from TonneForceMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromTonneForceMeter(double? TonneForceMeter)
+public static Torque? FromTonneForceMeter(double? TonneForceMeter)
 {
     if (TonneForceMeter is null)
         return null;
@@ -164,7 +164,7 @@ public static Torque FromTonneForceMeter(double? TonneForceMeter)
 /// Get Torque from TonneForceMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromTonneForceMillimeter(double? TonneForceMillimeter)
+public static Torque? FromTonneForceMillimeter(double? TonneForceMillimeter)
 {
     if (TonneForceMillimeter is null)
         return null;
@@ -175,7 +175,7 @@ public static Torque FromTonneForceMillimeter(double? TonneForceMillimeter)
 /// Get Torque from KilonewtonCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilonewtonCentimeter(double? KilonewtonCentimeter)
+public static Torque? FromKilonewtonCentimeter(double? KilonewtonCentimeter)
 {
     if (KilonewtonCentimeter is null)
         return null;
@@ -186,7 +186,7 @@ public static Torque FromKilonewtonCentimeter(double? KilonewtonCentimeter)
 /// Get Torque from KilogramForceCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilogramForceCentimeter(double? KilogramForceCentimeter)
+public static Torque? FromKilogramForceCentimeter(double? KilogramForceCentimeter)
 {
     if (KilogramForceCentimeter is null)
         return null;
@@ -197,7 +197,7 @@ public static Torque FromKilogramForceCentimeter(double? KilogramForceCentimeter
 /// Get Torque from KilogramForceMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilogramForceMeter(double? KilogramForceMeter)
+public static Torque? FromKilogramForceMeter(double? KilogramForceMeter)
 {
     if (KilogramForceMeter is null)
         return null;
@@ -208,7 +208,7 @@ public static Torque FromKilogramForceMeter(double? KilogramForceMeter)
 /// Get Torque from KilogramForceMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilogramForceMillimeter(double? KilogramForceMillimeter)
+public static Torque? FromKilogramForceMillimeter(double? KilogramForceMillimeter)
 {
     if (KilogramForceMillimeter is null)
         return null;
@@ -219,7 +219,7 @@ public static Torque FromKilogramForceMillimeter(double? KilogramForceMillimeter
 /// Get Torque from KilopoundForceFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilopoundForceFoot(double? KilopoundForceFoot)
+public static Torque? FromKilopoundForceFoot(double? KilopoundForceFoot)
 {
     if (KilopoundForceFoot is null)
         return null;
@@ -230,7 +230,7 @@ public static Torque FromKilopoundForceFoot(double? KilopoundForceFoot)
 /// Get Torque from MegapoundForceFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromMegapoundForceFoot(double? MegapoundForceFoot)
+public static Torque? FromMegapoundForceFoot(double? MegapoundForceFoot)
 {
     if (MegapoundForceFoot is null)
         return null;
@@ -241,7 +241,7 @@ public static Torque FromMegapoundForceFoot(double? MegapoundForceFoot)
 /// Get Torque from KilopoundForceInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromKilopoundForceInch(double? KilopoundForceInch)
+public static Torque? FromKilopoundForceInch(double? KilopoundForceInch)
 {
     if (KilopoundForceInch is null)
         return null;
@@ -252,7 +252,7 @@ public static Torque FromKilopoundForceInch(double? KilopoundForceInch)
 /// Get Torque from MegapoundForceInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Torque FromMegapoundForceInch(double? MegapoundForceInch)
+public static Torque? FromMegapoundForceInch(double? MegapoundForceInch)
 {
     if (MegapoundForceInch is null)
         return null;

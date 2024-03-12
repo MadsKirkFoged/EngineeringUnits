@@ -10,7 +10,7 @@ public partial class MolarFlow
 /// Get MolarFlow from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarFlow FromSI(double? SI)
+public static MolarFlow? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static MolarFlow FromSI(double? SI)
 /// Get MolarFlow from MolePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarFlow FromMolePerSecond(double? MolePerSecond)
+public static MolarFlow? FromMolePerSecond(double? MolePerSecond)
 {
     if (MolePerSecond is null)
         return null;

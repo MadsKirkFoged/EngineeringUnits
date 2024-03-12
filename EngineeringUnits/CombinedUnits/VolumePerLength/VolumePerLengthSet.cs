@@ -10,7 +10,7 @@ public partial class VolumePerLength
 /// Get VolumePerLength from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromSI(double? SI)
+public static VolumePerLength? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static VolumePerLength FromSI(double? SI)
 /// Get VolumePerLength from CubicMeterPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromCubicMeterPerMeter(double? CubicMeterPerMeter)
+public static VolumePerLength? FromCubicMeterPerMeter(double? CubicMeterPerMeter)
 {
     if (CubicMeterPerMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static VolumePerLength FromCubicMeterPerMeter(double? CubicMeterPerMeter)
 /// Get VolumePerLength from CubicYardPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromCubicYardPerFoot(double? CubicYardPerFoot)
+public static VolumePerLength? FromCubicYardPerFoot(double? CubicYardPerFoot)
 {
     if (CubicYardPerFoot is null)
         return null;
@@ -43,7 +43,7 @@ public static VolumePerLength FromCubicYardPerFoot(double? CubicYardPerFoot)
 /// Get VolumePerLength from CubicYardPerUsSurveyFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromCubicYardPerUsSurveyFoot(double? CubicYardPerUsSurveyFoot)
+public static VolumePerLength? FromCubicYardPerUsSurveyFoot(double? CubicYardPerUsSurveyFoot)
 {
     if (CubicYardPerUsSurveyFoot is null)
         return null;
@@ -54,7 +54,7 @@ public static VolumePerLength FromCubicYardPerUsSurveyFoot(double? CubicYardPerU
 /// Get VolumePerLength from LiterPerKilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromLiterPerKilometer(double? LiterPerKilometer)
+public static VolumePerLength? FromLiterPerKilometer(double? LiterPerKilometer)
 {
     if (LiterPerKilometer is null)
         return null;
@@ -65,7 +65,7 @@ public static VolumePerLength FromLiterPerKilometer(double? LiterPerKilometer)
 /// Get VolumePerLength from LiterPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromLiterPerMeter(double? LiterPerMeter)
+public static VolumePerLength? FromLiterPerMeter(double? LiterPerMeter)
 {
     if (LiterPerMeter is null)
         return null;
@@ -76,7 +76,7 @@ public static VolumePerLength FromLiterPerMeter(double? LiterPerMeter)
 /// Get VolumePerLength from LiterPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromLiterPerMillimeter(double? LiterPerMillimeter)
+public static VolumePerLength? FromLiterPerMillimeter(double? LiterPerMillimeter)
 {
     if (LiterPerMillimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static VolumePerLength FromLiterPerMillimeter(double? LiterPerMillimeter)
 /// Get VolumePerLength from OilBarrelPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static VolumePerLength FromOilBarrelPerFoot(double? OilBarrelPerFoot)
+public static VolumePerLength? FromOilBarrelPerFoot(double? OilBarrelPerFoot)
 {
     if (OilBarrelPerFoot is null)
         return null;

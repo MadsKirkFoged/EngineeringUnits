@@ -13,7 +13,7 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
 
     public static CoefficientOfThermalExpansion From(double value, CoefficientOfThermalExpansionUnit unit) => new(value, unit);
 
-    public static CoefficientOfThermalExpansion From(double? value, CoefficientOfThermalExpansionUnit unit)
+    public static CoefficientOfThermalExpansion? From(double? value, CoefficientOfThermalExpansionUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
     public static CoefficientOfThermalExpansion Zero => new(0, CoefficientOfThermalExpansionUnit.SI);
     public static CoefficientOfThermalExpansion NaN => new(double.NaN, CoefficientOfThermalExpansionUnit.SI);
 
-    public static implicit operator CoefficientOfThermalExpansion(UnknownUnit Unit)
+    public static implicit operator CoefficientOfThermalExpansion?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(CoefficientOfThermalExpansion Unit)
+    public static implicit operator UnknownUnit?(CoefficientOfThermalExpansion? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);    
 }

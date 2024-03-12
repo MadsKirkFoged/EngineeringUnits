@@ -86,7 +86,7 @@ public static class BaseUnitExtensions
     /// <param name="a">The source BaseUnit.</param>
     /// <param name="toPower">The power to raise the BaseUnit to.</param>
     /// <returns>The result of raising the BaseUnit to the specified power.</returns>
-    public static UnknownUnit Pow(this BaseUnit a, int toPower)
+    public static UnknownUnit? Pow(this BaseUnit? a, int toPower)
     {
         if (a is null)
             return null;
@@ -107,7 +107,7 @@ public static class BaseUnitExtensions
     /// <param name="Lower">The lower limit BaseUnit.</param>
     /// <param name="Upper">The upper limit BaseUnit.</param>
     /// <returns>The clamped value between lower and upper limits.</returns>
-    public static UnknownUnit Clamp(this BaseUnit Clamped, BaseUnit Lower, BaseUnit Upper)
+    public static UnknownUnit? Clamp(this BaseUnit? Clamped, BaseUnit? Lower, BaseUnit? Upper)
     {
         if (Clamped is null || Lower is null || Upper is null)
             return null;
@@ -130,14 +130,14 @@ public static class BaseUnitExtensions
     }
 
     [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
-    public static UnknownUnit InRangeOf(this BaseUnit a, BaseUnit Min, BaseUnit Max) => a.Clamp(Min, Max);
+    public static UnknownUnit? InRangeOf(this BaseUnit? a, BaseUnit? Min, BaseUnit? Max) => a.Clamp(Min, Max);
 
     /// <summary>
     /// Determines whether the specified Unit is equal to zero.
     /// </summary>
     /// <param name="a">The BaseUnit to check.</param>
     /// <returns>True if the BaseUnit is equal to zero; otherwise, false.</returns>
-    public static bool IsZero(this BaseUnit a)
+    public static bool IsZero(this BaseUnit? a)
     {
         if (a is null)
             return false;
@@ -150,7 +150,7 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="a">The BaseUnit to check.</param>
     /// <returns>True if the BaseUnit is not equal to zero; otherwise, false.</returns>
-    public static bool IsNotZero(this BaseUnit a)
+    public static bool IsNotZero(this BaseUnit? a)
     {
         if (a is null)
             return false;
@@ -163,7 +163,7 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="a">The BaseUnit to check.</param>
     /// <returns>True if the BaseUnit is above zero; otherwise, false.</returns>
-    public static bool IsAboveZero(this BaseUnit a)
+    public static bool IsAboveZero(this BaseUnit? a)
     {
         if (a is null)
             return false;
@@ -176,7 +176,7 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="a">The BaseUnit to check.</param>
     /// <returns>True if the BaseUnit is below zero; otherwise, false.</returns>
-    public static bool IsBelowZero(this BaseUnit a)
+    public static bool IsBelowZero(this BaseUnit? a)
     {
         if (a is null)
             return false;
@@ -189,7 +189,7 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="a">The BaseUnit to check.</param>
     /// <returns>True if the BaseUnit is NaN; otherwise, false.</returns>
-    public static bool IsNaN(this BaseUnit a)
+    public static bool IsNaN(this BaseUnit? a)
     {
         if (a is null)
             return false;
@@ -207,18 +207,24 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRoundedUp">The reference value.</param>
-    public static UnknownUnit RoundUpToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedUp)
+    public static UnknownUnit? RoundUpToNearest(this IEnumerable<BaseUnit?> list, BaseUnit? valueToBeRoundedUp)
     {
-        if (list is null || !list.Any())
+        if (valueToBeRoundedUp is null)
             return null;
 
-        foreach (BaseUnit item in list.OrderBy(x => x))
-        {
-            if (valueToBeRoundedUp <= item)
-                return new(item);
-        }
+        if (list.Any() is false)
+            return null;
 
-        return list.Max().ToUnknownUnit();
+        if (list.Any(x => x is null))
+            return null;
+
+        if (valueToBeRoundedUp > list.Max())
+            return list.Max().ToUnknownUnit();
+
+        return list.Where(x => x >= valueToBeRoundedUp)
+                         .OrderBy(x => x)
+                         .First()
+                         .ToUnknownUnit();
     }
 
     /// <summary>
@@ -231,19 +237,24 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRoundedDown">The reference value.</param>
-    public static UnknownUnit RoundDownToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRoundedDown)
+    public static UnknownUnit? RoundDownToNearest(this IEnumerable<BaseUnit?> list, BaseUnit? valueToBeRoundedDown)
     {
-        if (list is null || !list.Any())
+        if (valueToBeRoundedDown is null)
             return null;
 
-        foreach (BaseUnit item in list.OrderByDescending(x => x))
-        {
-            if (valueToBeRoundedDown >= item)
-                return new(item);
-        }
+        if (list.Any() is false)
+            return null;
 
-        return list.Min().ToUnknownUnit();
-        //return valueToBeRoundedUp;
+        if (list.Any(x => x is null))
+            return null;
+
+        if (valueToBeRoundedDown < list.Min())
+            return list.Min().ToUnknownUnit();
+
+        return list.Where(x => x <= valueToBeRoundedDown)
+                         .OrderByDescending(x => x)
+                         .First()
+                         .ToUnknownUnit();
     }
 
     /// <summary>
@@ -256,20 +267,33 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRounded">The reference value.</param>
-    public static UnknownUnit RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit valueToBeRounded)
+    public static UnknownUnit? RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit? valueToBeRounded)
     {
-        //Bedre name FindClosestTo?
-
-        if (list is null || !list.Any())
+        if (valueToBeRounded is null)
             return null;
 
-        return new(list.OrderBy(x => (x - valueToBeRounded).Abs()).FirstOrDefault());
+        if (list.Any() is false)
+            return null;
+
+        if (list.Any(x => x is null))
+            return null;
+
+        if (valueToBeRounded > list.Max())
+            return list.Max().ToUnknownUnit();
+
+        if (valueToBeRounded < list.Min())
+            return list.Min().ToUnknownUnit();
+
+        BaseUnit? test = list.OrderBy(x => (x - valueToBeRounded).Abs())
+                             .First();
+
+        return test.ToUnknownUnit();
     }
 
     [Obsolete("Name has changed to: LowerLimitAt")]
-    public static UnknownUnit Minimum(this BaseUnit unit, BaseUnit minimum) => unit.LowerLimitAt(minimum);
+    public static UnknownUnit? Minimum(this BaseUnit? unit, BaseUnit? minimum) => unit.LowerLimitAt(minimum);
     [Obsolete("Name has changed to: UpperLimitAt")]
-    public static UnknownUnit Maximum(this BaseUnit unit, BaseUnit maximum) => unit.UpperLimitAt(maximum);
+    public static UnknownUnit? Maximum(this BaseUnit? unit, BaseUnit? maximum) => unit.UpperLimitAt(maximum);
 
     /// <summary>
     /// Set a upper limit on a value/calculation.<br></br>
@@ -284,15 +308,15 @@ public static class BaseUnitExtensions
     /// <param name="limit">The Upper limit to be applied.</param>
     /// <returns>The lesser of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit UpperLimitAt(this BaseUnit unit, BaseUnit limit)
+    public static UnknownUnit? UpperLimitAt(this BaseUnit? unit, BaseUnit? limit)
     {
         if (unit is null || limit is null)
             return null;
 
         if (unit < limit)
-            return new(unit);
+            return unit.ToUnknownUnit();
 
-        return new(limit);
+        return limit.ToUnknownUnit();
     }
 
     /// <summary>
@@ -308,7 +332,7 @@ public static class BaseUnitExtensions
     /// <param name="limit">The lower limit to be applied.</param>
     /// <returns>The greater of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit LowerLimitAt(this BaseUnit value, BaseUnit limit)
+    public static UnknownUnit? LowerLimitAt(this BaseUnit? value, BaseUnit? limit)
     {
         if (value is null || limit is null)
             return null;
@@ -323,7 +347,7 @@ public static class BaseUnitExtensions
     /// Only use this if you are creating new extension functions!<br></br>
     /// Converting from BaseUnit => UnknownUnit
     /// </summary>
-    public static UnknownUnit ToUnknownUnit(this BaseUnit unit)
+    public static UnknownUnit? ToUnknownUnit(this BaseUnit? unit)
     {
         if (unit is null)
             return null;

@@ -10,7 +10,7 @@ public partial class Power
 /// Get Power from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromSI(double? SI)
+public static Power? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Power FromSI(double? SI)
 /// Get Power from Femtowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromFemtowatt(double? Femtowatt)
+public static Power? FromFemtowatt(double? Femtowatt)
 {
     if (Femtowatt is null)
         return null;
@@ -32,7 +32,7 @@ public static Power FromFemtowatt(double? Femtowatt)
 /// Get Power from Picowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromPicowatt(double? Picowatt)
+public static Power? FromPicowatt(double? Picowatt)
 {
     if (Picowatt is null)
         return null;
@@ -43,7 +43,7 @@ public static Power FromPicowatt(double? Picowatt)
 /// Get Power from Nanowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromNanowatt(double? Nanowatt)
+public static Power? FromNanowatt(double? Nanowatt)
 {
     if (Nanowatt is null)
         return null;
@@ -54,7 +54,7 @@ public static Power FromNanowatt(double? Nanowatt)
 /// Get Power from Microwatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMicrowatt(double? Microwatt)
+public static Power? FromMicrowatt(double? Microwatt)
 {
     if (Microwatt is null)
         return null;
@@ -65,7 +65,7 @@ public static Power FromMicrowatt(double? Microwatt)
 /// Get Power from Milliwatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMilliwatt(double? Milliwatt)
+public static Power? FromMilliwatt(double? Milliwatt)
 {
     if (Milliwatt is null)
         return null;
@@ -76,7 +76,7 @@ public static Power FromMilliwatt(double? Milliwatt)
 /// Get Power from Deciwatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromDeciwatt(double? Deciwatt)
+public static Power? FromDeciwatt(double? Deciwatt)
 {
     if (Deciwatt is null)
         return null;
@@ -87,7 +87,7 @@ public static Power FromDeciwatt(double? Deciwatt)
 /// Get Power from Watt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromWatt(double? Watt)
+public static Power? FromWatt(double? Watt)
 {
     if (Watt is null)
         return null;
@@ -98,7 +98,7 @@ public static Power FromWatt(double? Watt)
 /// Get Power from Decawatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromDecawatt(double? Decawatt)
+public static Power? FromDecawatt(double? Decawatt)
 {
     if (Decawatt is null)
         return null;
@@ -109,7 +109,7 @@ public static Power FromDecawatt(double? Decawatt)
 /// Get Power from Kilowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromKilowatt(double? Kilowatt)
+public static Power? FromKilowatt(double? Kilowatt)
 {
     if (Kilowatt is null)
         return null;
@@ -120,7 +120,7 @@ public static Power FromKilowatt(double? Kilowatt)
 /// Get Power from Megawatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMegawatt(double? Megawatt)
+public static Power? FromMegawatt(double? Megawatt)
 {
     if (Megawatt is null)
         return null;
@@ -131,7 +131,7 @@ public static Power FromMegawatt(double? Megawatt)
 /// Get Power from Gigawatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromGigawatt(double? Gigawatt)
+public static Power? FromGigawatt(double? Gigawatt)
 {
     if (Gigawatt is null)
         return null;
@@ -142,7 +142,7 @@ public static Power FromGigawatt(double? Gigawatt)
 /// Get Power from Terawatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromTerawatt(double? Terawatt)
+public static Power? FromTerawatt(double? Terawatt)
 {
     if (Terawatt is null)
         return null;
@@ -153,7 +153,7 @@ public static Power FromTerawatt(double? Terawatt)
 /// Get Power from Petawatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromPetawatt(double? Petawatt)
+public static Power? FromPetawatt(double? Petawatt)
 {
     if (Petawatt is null)
         return null;
@@ -164,7 +164,7 @@ public static Power FromPetawatt(double? Petawatt)
 /// Get Power from MillijoulePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMillijoulePerHour(double? MillijoulePerHour)
+public static Power? FromMillijoulePerHour(double? MillijoulePerHour)
 {
     if (MillijoulePerHour is null)
         return null;
@@ -175,7 +175,7 @@ public static Power FromMillijoulePerHour(double? MillijoulePerHour)
 /// Get Power from JoulePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromJoulePerHour(double? JoulePerHour)
+public static Power? FromJoulePerHour(double? JoulePerHour)
 {
     if (JoulePerHour is null)
         return null;
@@ -186,7 +186,7 @@ public static Power FromJoulePerHour(double? JoulePerHour)
 /// Get Power from KilojoulePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromKilojoulePerHour(double? KilojoulePerHour)
+public static Power? FromKilojoulePerHour(double? KilojoulePerHour)
 {
     if (KilojoulePerHour is null)
         return null;
@@ -197,7 +197,7 @@ public static Power FromKilojoulePerHour(double? KilojoulePerHour)
 /// Get Power from MegajoulePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMegajoulePerHour(double? MegajoulePerHour)
+public static Power? FromMegajoulePerHour(double? MegajoulePerHour)
 {
     if (MegajoulePerHour is null)
         return null;
@@ -208,7 +208,7 @@ public static Power FromMegajoulePerHour(double? MegajoulePerHour)
 /// Get Power from GigajoulePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromGigajoulePerHour(double? GigajoulePerHour)
+public static Power? FromGigajoulePerHour(double? GigajoulePerHour)
 {
     if (GigajoulePerHour is null)
         return null;
@@ -219,7 +219,7 @@ public static Power FromGigajoulePerHour(double? GigajoulePerHour)
 /// Get Power from BritishThermalUnitPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromBritishThermalUnitPerHour(double? BritishThermalUnitPerHour)
+public static Power? FromBritishThermalUnitPerHour(double? BritishThermalUnitPerHour)
 {
     if (BritishThermalUnitPerHour is null)
         return null;
@@ -230,7 +230,7 @@ public static Power FromBritishThermalUnitPerHour(double? BritishThermalUnitPerH
 /// Get Power from BritishThermalUnitPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromBritishThermalUnitPerMinute(double? BritishThermalUnitPerMinute)
+public static Power? FromBritishThermalUnitPerMinute(double? BritishThermalUnitPerMinute)
 {
     if (BritishThermalUnitPerMinute is null)
         return null;
@@ -241,7 +241,7 @@ public static Power FromBritishThermalUnitPerMinute(double? BritishThermalUnitPe
 /// Get Power from BritishThermalUnitPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromBritishThermalUnitPerSecond(double? BritishThermalUnitPerSecond)
+public static Power? FromBritishThermalUnitPerSecond(double? BritishThermalUnitPerSecond)
 {
     if (BritishThermalUnitPerSecond is null)
         return null;
@@ -252,7 +252,7 @@ public static Power FromBritishThermalUnitPerSecond(double? BritishThermalUnitPe
 /// Get Power from KilobritishThermalUnitPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromKilobritishThermalUnitPerHour(double? KilobritishThermalUnitPerHour)
+public static Power? FromKilobritishThermalUnitPerHour(double? KilobritishThermalUnitPerHour)
 {
     if (KilobritishThermalUnitPerHour is null)
         return null;
@@ -263,7 +263,7 @@ public static Power FromKilobritishThermalUnitPerHour(double? KilobritishThermal
 /// Get Power from BoilerHorsepower.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromBoilerHorsepower(double? BoilerHorsepower)
+public static Power? FromBoilerHorsepower(double? BoilerHorsepower)
 {
     if (BoilerHorsepower is null)
         return null;
@@ -274,7 +274,7 @@ public static Power FromBoilerHorsepower(double? BoilerHorsepower)
 /// Get Power from ElectricalHorsepower.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromElectricalHorsepower(double? ElectricalHorsepower)
+public static Power? FromElectricalHorsepower(double? ElectricalHorsepower)
 {
     if (ElectricalHorsepower is null)
         return null;
@@ -285,7 +285,7 @@ public static Power FromElectricalHorsepower(double? ElectricalHorsepower)
 /// Get Power from HydraulicHorsepower.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromHydraulicHorsepower(double? HydraulicHorsepower)
+public static Power? FromHydraulicHorsepower(double? HydraulicHorsepower)
 {
     if (HydraulicHorsepower is null)
         return null;
@@ -296,7 +296,7 @@ public static Power FromHydraulicHorsepower(double? HydraulicHorsepower)
 /// Get Power from MechanicalHorsepower.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMechanicalHorsepower(double? MechanicalHorsepower)
+public static Power? FromMechanicalHorsepower(double? MechanicalHorsepower)
 {
     if (MechanicalHorsepower is null)
         return null;
@@ -307,7 +307,7 @@ public static Power FromMechanicalHorsepower(double? MechanicalHorsepower)
 /// Get Power from MetricHorsepower.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromMetricHorsepower(double? MetricHorsepower)
+public static Power? FromMetricHorsepower(double? MetricHorsepower)
 {
     if (MetricHorsepower is null)
         return null;
@@ -318,7 +318,7 @@ public static Power FromMetricHorsepower(double? MetricHorsepower)
 /// Get Power from CaloriePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromCaloriePerSecond(double? CaloriePerSecond)
+public static Power? FromCaloriePerSecond(double? CaloriePerSecond)
 {
     if (CaloriePerSecond is null)
         return null;
@@ -329,7 +329,7 @@ public static Power FromCaloriePerSecond(double? CaloriePerSecond)
 /// Get Power from KilocaloriePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromKilocaloriePerHour(double? KilocaloriePerHour)
+public static Power? FromKilocaloriePerHour(double? KilocaloriePerHour)
 {
     if (KilocaloriePerHour is null)
         return null;
@@ -340,7 +340,7 @@ public static Power FromKilocaloriePerHour(double? KilocaloriePerHour)
 /// Get Power from KilocaloriePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromKilocaloriePerSecond(double? KilocaloriePerSecond)
+public static Power? FromKilocaloriePerSecond(double? KilocaloriePerSecond)
 {
     if (KilocaloriePerSecond is null)
         return null;
@@ -351,7 +351,7 @@ public static Power FromKilocaloriePerSecond(double? KilocaloriePerSecond)
 /// Get Power from SolarLuminosity.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Power FromSolarLuminosity(double? SolarLuminosity)
+public static Power? FromSolarLuminosity(double? SolarLuminosity)
 {
     if (SolarLuminosity is null)
         return null;

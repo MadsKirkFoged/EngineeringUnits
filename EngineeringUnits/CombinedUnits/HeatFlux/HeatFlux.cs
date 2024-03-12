@@ -13,7 +13,7 @@ public partial class HeatFlux : BaseUnit
 
     public static HeatFlux From(double value, HeatFluxUnit unit) => new(value, unit);
 
-    public static HeatFlux From(double? value, HeatFluxUnit unit)
+    public static HeatFlux? From(double? value, HeatFluxUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class HeatFlux : BaseUnit
     public static HeatFlux Zero => new(0, HeatFluxUnit.SI);
     public static HeatFlux NaN => new(double.NaN, HeatFluxUnit.SI);
 
-    public static implicit operator HeatFlux(UnknownUnit Unit)
+    public static implicit operator HeatFlux?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class HeatFlux : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(HeatFlux Unit)
+    public static implicit operator UnknownUnit?(HeatFlux? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class HeatFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);    
 }

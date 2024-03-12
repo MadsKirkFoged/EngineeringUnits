@@ -10,7 +10,7 @@ public partial class ElectricResistance
 /// Get ElectricResistance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromSI(double? SI)
+public static ElectricResistance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricResistance FromSI(double? SI)
 /// Get ElectricResistance from Ohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromOhm(double? Ohm)
+public static ElectricResistance? FromOhm(double? Ohm)
 {
     if (Ohm is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricResistance FromOhm(double? Ohm)
 /// Get ElectricResistance from Gigaohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromGigaohm(double? Gigaohm)
+public static ElectricResistance? FromGigaohm(double? Gigaohm)
 {
     if (Gigaohm is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricResistance FromGigaohm(double? Gigaohm)
 /// Get ElectricResistance from Kiloohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromKiloohm(double? Kiloohm)
+public static ElectricResistance? FromKiloohm(double? Kiloohm)
 {
     if (Kiloohm is null)
         return null;
@@ -54,7 +54,7 @@ public static ElectricResistance FromKiloohm(double? Kiloohm)
 /// Get ElectricResistance from Megaohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromMegaohm(double? Megaohm)
+public static ElectricResistance? FromMegaohm(double? Megaohm)
 {
     if (Megaohm is null)
         return null;
@@ -65,7 +65,7 @@ public static ElectricResistance FromMegaohm(double? Megaohm)
 /// Get ElectricResistance from Microohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromMicroohm(double? Microohm)
+public static ElectricResistance? FromMicroohm(double? Microohm)
 {
     if (Microohm is null)
         return null;
@@ -76,7 +76,7 @@ public static ElectricResistance FromMicroohm(double? Microohm)
 /// Get ElectricResistance from Milliohm.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricResistance FromMilliohm(double? Milliohm)
+public static ElectricResistance? FromMilliohm(double? Milliohm)
 {
     if (Milliohm is null)
         return null;

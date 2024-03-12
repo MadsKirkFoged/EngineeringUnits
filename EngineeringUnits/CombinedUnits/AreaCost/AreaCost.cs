@@ -13,7 +13,7 @@ public partial class AreaCost : BaseUnit
 
     public static AreaCost From(double value, AreaCostUnit unit) => new(value, unit);
 
-    public static AreaCost From(double? value, AreaCostUnit unit)
+    public static AreaCost? From(double? value, AreaCostUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class AreaCost : BaseUnit
     public static AreaCost Zero => new(0, AreaCostUnit.SI);
     public static AreaCost NaN => new(double.NaN, AreaCostUnit.SI);
 
-    public static implicit operator AreaCost(UnknownUnit Unit)
+    public static implicit operator AreaCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class AreaCost : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(AreaCost Unit)
+    public static implicit operator UnknownUnit?(AreaCost? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class AreaCost : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaCostUnit>(_unit);    
 }

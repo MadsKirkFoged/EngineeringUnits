@@ -13,7 +13,7 @@ public partial class ElectricPotentialChangeRate : BaseUnit
 
     public static ElectricPotentialChangeRate From(double value, ElectricPotentialChangeRateUnit unit) => new(value, unit);
 
-    public static ElectricPotentialChangeRate From(double? value, ElectricPotentialChangeRateUnit unit)
+    public static ElectricPotentialChangeRate? From(double? value, ElectricPotentialChangeRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricPotentialChangeRate : BaseUnit
     public static ElectricPotentialChangeRate Zero => new(0, ElectricPotentialChangeRateUnit.SI);
     public static ElectricPotentialChangeRate NaN => new(double.NaN, ElectricPotentialChangeRateUnit.SI);
 
-    public static implicit operator ElectricPotentialChangeRate(UnknownUnit Unit)
+    public static implicit operator ElectricPotentialChangeRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricPotentialChangeRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricPotentialChangeRate Unit)
+    public static implicit operator UnknownUnit?(ElectricPotentialChangeRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricPotentialChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit);    
 }

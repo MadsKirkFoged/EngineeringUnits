@@ -13,7 +13,7 @@ public partial class RotationalSpeed : BaseUnit
 
     public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new(value, unit);
 
-    public static RotationalSpeed From(double? value, RotationalSpeedUnit unit)
+    public static RotationalSpeed? From(double? value, RotationalSpeedUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class RotationalSpeed : BaseUnit
     public static RotationalSpeed Zero => new(0, RotationalSpeedUnit.SI);
     public static RotationalSpeed NaN => new(double.NaN, RotationalSpeedUnit.SI);
 
-    public static implicit operator RotationalSpeed(UnknownUnit Unit)
+    public static implicit operator RotationalSpeed?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class RotationalSpeed : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(RotationalSpeed Unit)
+    public static implicit operator UnknownUnit?(RotationalSpeed? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class RotationalSpeed : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);    
 }

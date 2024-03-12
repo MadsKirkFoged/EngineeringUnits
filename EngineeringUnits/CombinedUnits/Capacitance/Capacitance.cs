@@ -13,7 +13,7 @@ public partial class Capacitance : BaseUnit
 
     public static Capacitance From(double value, CapacitanceUnit unit) => new(value, unit);
 
-    public static Capacitance From(double? value, CapacitanceUnit unit)
+    public static Capacitance? From(double? value, CapacitanceUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Capacitance : BaseUnit
     public static Capacitance Zero => new(0, CapacitanceUnit.SI);
     public static Capacitance NaN => new(double.NaN, CapacitanceUnit.SI);
 
-    public static implicit operator Capacitance(UnknownUnit Unit)
+    public static implicit operator Capacitance?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Capacitance : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Capacitance Unit)
+    public static implicit operator UnknownUnit?(Capacitance? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Capacitance : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CapacitanceUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CapacitanceUnit>(_unit);    
 }

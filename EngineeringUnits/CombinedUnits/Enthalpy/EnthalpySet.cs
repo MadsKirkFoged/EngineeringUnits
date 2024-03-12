@@ -10,7 +10,7 @@ public partial class Enthalpy
 /// Get Enthalpy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromSI(double? SI)
+public static Enthalpy? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Enthalpy FromSI(double? SI)
 /// Get Enthalpy from JoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromJoulePerKilogram(double? JoulePerKilogram)
+public static Enthalpy? FromJoulePerKilogram(double? JoulePerKilogram)
 {
     if (JoulePerKilogram is null)
         return null;
@@ -32,7 +32,7 @@ public static Enthalpy FromJoulePerKilogram(double? JoulePerKilogram)
 /// Get Enthalpy from KilojoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilojoulePerKilogram(double? KilojoulePerKilogram)
+public static Enthalpy? FromKilojoulePerKilogram(double? KilojoulePerKilogram)
 {
     if (KilojoulePerKilogram is null)
         return null;
@@ -43,7 +43,7 @@ public static Enthalpy FromKilojoulePerKilogram(double? KilojoulePerKilogram)
 /// Get Enthalpy from MegajoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromMegajoulePerKilogram(double? MegajoulePerKilogram)
+public static Enthalpy? FromMegajoulePerKilogram(double? MegajoulePerKilogram)
 {
     if (MegajoulePerKilogram is null)
         return null;
@@ -54,7 +54,7 @@ public static Enthalpy FromMegajoulePerKilogram(double? MegajoulePerKilogram)
 /// Get Enthalpy from BtuPerPound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromBtuPerPound(double? BtuPerPound)
+public static Enthalpy? FromBtuPerPound(double? BtuPerPound)
 {
     if (BtuPerPound is null)
         return null;
@@ -65,7 +65,7 @@ public static Enthalpy FromBtuPerPound(double? BtuPerPound)
 /// Get Enthalpy from CaloriePerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromCaloriePerGram(double? CaloriePerGram)
+public static Enthalpy? FromCaloriePerGram(double? CaloriePerGram)
 {
     if (CaloriePerGram is null)
         return null;
@@ -76,7 +76,7 @@ public static Enthalpy FromCaloriePerGram(double? CaloriePerGram)
 /// Get Enthalpy from KilocaloriePerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilocaloriePerGram(double? KilocaloriePerGram)
+public static Enthalpy? FromKilocaloriePerGram(double? KilocaloriePerGram)
 {
     if (KilocaloriePerGram is null)
         return null;
@@ -87,7 +87,7 @@ public static Enthalpy FromKilocaloriePerGram(double? KilocaloriePerGram)
 /// Get Enthalpy from WattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromWattDayPerKilogram(double? WattDayPerKilogram)
+public static Enthalpy? FromWattDayPerKilogram(double? WattDayPerKilogram)
 {
     if (WattDayPerKilogram is null)
         return null;
@@ -98,7 +98,7 @@ public static Enthalpy FromWattDayPerKilogram(double? WattDayPerKilogram)
 /// Get Enthalpy from KilowattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilowattDayPerKilogram(double? KilowattDayPerKilogram)
+public static Enthalpy? FromKilowattDayPerKilogram(double? KilowattDayPerKilogram)
 {
     if (KilowattDayPerKilogram is null)
         return null;
@@ -109,7 +109,7 @@ public static Enthalpy FromKilowattDayPerKilogram(double? KilowattDayPerKilogram
 /// Get Enthalpy from MegawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromMegawattDayPerKilogram(double? MegawattDayPerKilogram)
+public static Enthalpy? FromMegawattDayPerKilogram(double? MegawattDayPerKilogram)
 {
     if (MegawattDayPerKilogram is null)
         return null;
@@ -120,7 +120,7 @@ public static Enthalpy FromMegawattDayPerKilogram(double? MegawattDayPerKilogram
 /// Get Enthalpy from GigawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromGigawattDayPerKilogram(double? GigawattDayPerKilogram)
+public static Enthalpy? FromGigawattDayPerKilogram(double? GigawattDayPerKilogram)
 {
     if (GigawattDayPerKilogram is null)
         return null;
@@ -131,7 +131,7 @@ public static Enthalpy FromGigawattDayPerKilogram(double? GigawattDayPerKilogram
 /// Get Enthalpy from TerawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromTerawattDayPerKilogram(double? TerawattDayPerKilogram)
+public static Enthalpy? FromTerawattDayPerKilogram(double? TerawattDayPerKilogram)
 {
     if (TerawattDayPerKilogram is null)
         return null;
@@ -142,7 +142,7 @@ public static Enthalpy FromTerawattDayPerKilogram(double? TerawattDayPerKilogram
 /// Get Enthalpy from WattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromWattHourPerKilogram(double? WattHourPerKilogram)
+public static Enthalpy? FromWattHourPerKilogram(double? WattHourPerKilogram)
 {
     if (WattHourPerKilogram is null)
         return null;
@@ -153,7 +153,7 @@ public static Enthalpy FromWattHourPerKilogram(double? WattHourPerKilogram)
 /// Get Enthalpy from KilowattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilowattHourPerKilogram(double? KilowattHourPerKilogram)
+public static Enthalpy? FromKilowattHourPerKilogram(double? KilowattHourPerKilogram)
 {
     if (KilowattHourPerKilogram is null)
         return null;
@@ -164,7 +164,7 @@ public static Enthalpy FromKilowattHourPerKilogram(double? KilowattHourPerKilogr
 /// Get Enthalpy from MegawattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromMegawattHourPerKilogram(double? MegawattHourPerKilogram)
+public static Enthalpy? FromMegawattHourPerKilogram(double? MegawattHourPerKilogram)
 {
     if (MegawattHourPerKilogram is null)
         return null;
@@ -175,7 +175,7 @@ public static Enthalpy FromMegawattHourPerKilogram(double? MegawattHourPerKilogr
 /// Get Enthalpy from GigawattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromGigawattHourPerKilogram(double? GigawattHourPerKilogram)
+public static Enthalpy? FromGigawattHourPerKilogram(double? GigawattHourPerKilogram)
 {
     if (GigawattHourPerKilogram is null)
         return null;
@@ -186,7 +186,7 @@ public static Enthalpy FromGigawattHourPerKilogram(double? GigawattHourPerKilogr
 /// Get Enthalpy from WattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromWattDayPerTonne(double? WattDayPerTonne)
+public static Enthalpy? FromWattDayPerTonne(double? WattDayPerTonne)
 {
     if (WattDayPerTonne is null)
         return null;
@@ -197,7 +197,7 @@ public static Enthalpy FromWattDayPerTonne(double? WattDayPerTonne)
 /// Get Enthalpy from KilowattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilowattDayPerTonne(double? KilowattDayPerTonne)
+public static Enthalpy? FromKilowattDayPerTonne(double? KilowattDayPerTonne)
 {
     if (KilowattDayPerTonne is null)
         return null;
@@ -208,7 +208,7 @@ public static Enthalpy FromKilowattDayPerTonne(double? KilowattDayPerTonne)
 /// Get Enthalpy from MegawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromMegawattDayPerTonne(double? MegawattDayPerTonne)
+public static Enthalpy? FromMegawattDayPerTonne(double? MegawattDayPerTonne)
 {
     if (MegawattDayPerTonne is null)
         return null;
@@ -219,7 +219,7 @@ public static Enthalpy FromMegawattDayPerTonne(double? MegawattDayPerTonne)
 /// Get Enthalpy from GigawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromGigawattDayPerTonne(double? GigawattDayPerTonne)
+public static Enthalpy? FromGigawattDayPerTonne(double? GigawattDayPerTonne)
 {
     if (GigawattDayPerTonne is null)
         return null;
@@ -230,7 +230,7 @@ public static Enthalpy FromGigawattDayPerTonne(double? GigawattDayPerTonne)
 /// Get Enthalpy from TerawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromTerawattDayPerTonne(double? TerawattDayPerTonne)
+public static Enthalpy? FromTerawattDayPerTonne(double? TerawattDayPerTonne)
 {
     if (TerawattDayPerTonne is null)
         return null;
@@ -241,7 +241,7 @@ public static Enthalpy FromTerawattDayPerTonne(double? TerawattDayPerTonne)
 /// Get Enthalpy from WattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromWattDayPerShortTon(double? WattDayPerShortTon)
+public static Enthalpy? FromWattDayPerShortTon(double? WattDayPerShortTon)
 {
     if (WattDayPerShortTon is null)
         return null;
@@ -252,7 +252,7 @@ public static Enthalpy FromWattDayPerShortTon(double? WattDayPerShortTon)
 /// Get Enthalpy from KilowattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromKilowattDayPerShortTon(double? KilowattDayPerShortTon)
+public static Enthalpy? FromKilowattDayPerShortTon(double? KilowattDayPerShortTon)
 {
     if (KilowattDayPerShortTon is null)
         return null;
@@ -263,7 +263,7 @@ public static Enthalpy FromKilowattDayPerShortTon(double? KilowattDayPerShortTon
 /// Get Enthalpy from MegawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromMegawattDayPerShortTon(double? MegawattDayPerShortTon)
+public static Enthalpy? FromMegawattDayPerShortTon(double? MegawattDayPerShortTon)
 {
     if (MegawattDayPerShortTon is null)
         return null;
@@ -274,7 +274,7 @@ public static Enthalpy FromMegawattDayPerShortTon(double? MegawattDayPerShortTon
 /// Get Enthalpy from GigawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromGigawattDayPerShortTon(double? GigawattDayPerShortTon)
+public static Enthalpy? FromGigawattDayPerShortTon(double? GigawattDayPerShortTon)
 {
     if (GigawattDayPerShortTon is null)
         return null;
@@ -285,7 +285,7 @@ public static Enthalpy FromGigawattDayPerShortTon(double? GigawattDayPerShortTon
 /// Get Enthalpy from TerawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Enthalpy FromTerawattDayPerShortTon(double? TerawattDayPerShortTon)
+public static Enthalpy? FromTerawattDayPerShortTon(double? TerawattDayPerShortTon)
 {
     if (TerawattDayPerShortTon is null)
         return null;

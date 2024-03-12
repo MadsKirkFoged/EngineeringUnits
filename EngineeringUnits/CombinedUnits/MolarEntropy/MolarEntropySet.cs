@@ -10,7 +10,7 @@ public partial class MolarEntropy
 /// Get MolarEntropy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarEntropy FromSI(double? SI)
+public static MolarEntropy? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static MolarEntropy FromSI(double? SI)
 /// Get MolarEntropy from JoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarEntropy FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
+public static MolarEntropy? FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
 {
     if (JoulePerMoleKelvin is null)
         return null;
@@ -32,7 +32,7 @@ public static MolarEntropy FromJoulePerMoleKelvin(double? JoulePerMoleKelvin)
 /// Get MolarEntropy from KilojoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarEntropy FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKelvin)
+public static MolarEntropy? FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKelvin)
 {
     if (KilojoulePerMoleKelvin is null)
         return null;
@@ -43,7 +43,7 @@ public static MolarEntropy FromKilojoulePerMoleKelvin(double? KilojoulePerMoleKe
 /// Get MolarEntropy from MegajoulePerMoleKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MolarEntropy FromMegajoulePerMoleKelvin(double? MegajoulePerMoleKelvin)
+public static MolarEntropy? FromMegajoulePerMoleKelvin(double? MegajoulePerMoleKelvin)
 {
     if (MegajoulePerMoleKelvin is null)
         return null;

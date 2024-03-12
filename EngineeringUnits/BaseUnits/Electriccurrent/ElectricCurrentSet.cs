@@ -10,7 +10,7 @@ public partial class ElectricCurrent
 /// Get ElectricCurrent from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromSI(double? SI)
+public static ElectricCurrent? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricCurrent FromSI(double? SI)
 /// Get ElectricCurrent from Ampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromAmpere(double? Ampere)
+public static ElectricCurrent? FromAmpere(double? Ampere)
 {
     if (Ampere is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricCurrent FromAmpere(double? Ampere)
 /// Get ElectricCurrent from Centiampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromCentiampere(double? Centiampere)
+public static ElectricCurrent? FromCentiampere(double? Centiampere)
 {
     if (Centiampere is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricCurrent FromCentiampere(double? Centiampere)
 /// Get ElectricCurrent from Kiloampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromKiloampere(double? Kiloampere)
+public static ElectricCurrent? FromKiloampere(double? Kiloampere)
 {
     if (Kiloampere is null)
         return null;
@@ -54,7 +54,7 @@ public static ElectricCurrent FromKiloampere(double? Kiloampere)
 /// Get ElectricCurrent from Megaampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromMegaampere(double? Megaampere)
+public static ElectricCurrent? FromMegaampere(double? Megaampere)
 {
     if (Megaampere is null)
         return null;
@@ -65,7 +65,7 @@ public static ElectricCurrent FromMegaampere(double? Megaampere)
 /// Get ElectricCurrent from Microampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromMicroampere(double? Microampere)
+public static ElectricCurrent? FromMicroampere(double? Microampere)
 {
     if (Microampere is null)
         return null;
@@ -76,7 +76,7 @@ public static ElectricCurrent FromMicroampere(double? Microampere)
 /// Get ElectricCurrent from Milliampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromMilliampere(double? Milliampere)
+public static ElectricCurrent? FromMilliampere(double? Milliampere)
 {
     if (Milliampere is null)
         return null;
@@ -87,7 +87,7 @@ public static ElectricCurrent FromMilliampere(double? Milliampere)
 /// Get ElectricCurrent from Nanoampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromNanoampere(double? Nanoampere)
+public static ElectricCurrent? FromNanoampere(double? Nanoampere)
 {
     if (Nanoampere is null)
         return null;
@@ -98,7 +98,7 @@ public static ElectricCurrent FromNanoampere(double? Nanoampere)
 /// Get ElectricCurrent from Picoampere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrent FromPicoampere(double? Picoampere)
+public static ElectricCurrent? FromPicoampere(double? Picoampere)
 {
     if (Picoampere is null)
         return null;

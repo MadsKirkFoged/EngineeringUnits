@@ -13,7 +13,7 @@ public partial class Information : BaseUnit
 
     public static Information From(double value, InformationUnit unit) => new(value, unit);
 
-    public static Information From(double? value, InformationUnit unit)
+    public static Information? From(double? value, InformationUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Information : BaseUnit
     public static Information Zero => new(0, InformationUnit.SI);
     public static Information NaN => new(double.NaN, InformationUnit.SI);
 
-    public static implicit operator Information(UnknownUnit Unit)
+    public static implicit operator Information?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Information : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Information Unit)
+    public static implicit operator UnknownUnit?(Information? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Information : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<InformationUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<InformationUnit>(_unit);    
 }

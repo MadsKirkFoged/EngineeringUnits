@@ -13,7 +13,7 @@ public partial class MagneticField : BaseUnit
 
     public static MagneticField From(double value, MagneticFieldUnit unit) => new(value, unit);
 
-    public static MagneticField From(double? value, MagneticFieldUnit unit)
+    public static MagneticField? From(double? value, MagneticFieldUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MagneticField : BaseUnit
     public static MagneticField Zero => new(0, MagneticFieldUnit.SI);
     public static MagneticField NaN => new(double.NaN, MagneticFieldUnit.SI);
 
-    public static implicit operator MagneticField(UnknownUnit Unit)
+    public static implicit operator MagneticField?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MagneticField : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MagneticField Unit)
+    public static implicit operator UnknownUnit?(MagneticField? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MagneticField : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFieldUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFieldUnit>(_unit);    
 }

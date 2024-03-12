@@ -13,7 +13,7 @@ public partial class ElectricConductivity : BaseUnit
 
     public static ElectricConductivity From(double value, ElectricConductivityUnit unit) => new(value, unit);
 
-    public static ElectricConductivity From(double? value, ElectricConductivityUnit unit)
+    public static ElectricConductivity? From(double? value, ElectricConductivityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricConductivity : BaseUnit
     public static ElectricConductivity Zero => new(0, ElectricConductivityUnit.SI);
     public static ElectricConductivity NaN => new(double.NaN, ElectricConductivityUnit.SI);
 
-    public static implicit operator ElectricConductivity(UnknownUnit Unit)
+    public static implicit operator ElectricConductivity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricConductivity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricConductivity Unit)
+    public static implicit operator UnknownUnit?(ElectricConductivity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricConductivity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricConductivityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricConductivityUnit>(_unit);    
 }

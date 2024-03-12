@@ -13,7 +13,7 @@ public partial class ElectricCurrentDensity : BaseUnit
 
     public static ElectricCurrentDensity From(double value, ElectricCurrentDensityUnit unit) => new(value, unit);
 
-    public static ElectricCurrentDensity From(double? value, ElectricCurrentDensityUnit unit)
+    public static ElectricCurrentDensity? From(double? value, ElectricCurrentDensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricCurrentDensity : BaseUnit
     public static ElectricCurrentDensity Zero => new(0, ElectricCurrentDensityUnit.SI);
     public static ElectricCurrentDensity NaN => new(double.NaN, ElectricCurrentDensityUnit.SI);
 
-    public static implicit operator ElectricCurrentDensity(UnknownUnit Unit)
+    public static implicit operator ElectricCurrentDensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricCurrentDensity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricCurrentDensity Unit)
+    public static implicit operator UnknownUnit?(ElectricCurrentDensity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricCurrentDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentDensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentDensityUnit>(_unit);    
 }

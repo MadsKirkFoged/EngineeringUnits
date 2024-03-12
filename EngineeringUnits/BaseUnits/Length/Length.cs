@@ -13,7 +13,7 @@ public partial class Length : BaseUnit
 
     public static Length From(double value, LengthUnit unit) => new(value, unit);
 
-    public static Length From(double? value, LengthUnit unit)
+    public static Length? From(double? value, LengthUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Length : BaseUnit
     public static Length Zero => new(0, LengthUnit.SI);
     public static Length NaN => new(double.NaN, LengthUnit.SI);
 
-    public static implicit operator Length(UnknownUnit Unit)
+    public static implicit operator Length?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Length : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Length Unit)
+    public static implicit operator UnknownUnit?(Length? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Length : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthUnit>(_unit);    
 }

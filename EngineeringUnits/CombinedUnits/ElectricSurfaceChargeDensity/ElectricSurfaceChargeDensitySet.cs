@@ -10,7 +10,7 @@ public partial class ElectricSurfaceChargeDensity
 /// Get ElectricSurfaceChargeDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricSurfaceChargeDensity FromSI(double? SI)
+public static ElectricSurfaceChargeDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricSurfaceChargeDensity FromSI(double? SI)
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricSurfaceChargeDensity FromCoulombPerSquareMeter(double? CoulombPerSquareMeter)
+public static ElectricSurfaceChargeDensity? FromCoulombPerSquareMeter(double? CoulombPerSquareMeter)
 {
     if (CoulombPerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricSurfaceChargeDensity FromCoulombPerSquareMeter(double? Cou
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricSurfaceChargeDensity FromCoulombPerSquareCentimeter(double? CoulombPerSquareCentimeter)
+public static ElectricSurfaceChargeDensity? FromCoulombPerSquareCentimeter(double? CoulombPerSquareCentimeter)
 {
     if (CoulombPerSquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricSurfaceChargeDensity FromCoulombPerSquareCentimeter(double
 /// Get ElectricSurfaceChargeDensity from CoulombPerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricSurfaceChargeDensity FromCoulombPerSquareInch(double? CoulombPerSquareInch)
+public static ElectricSurfaceChargeDensity? FromCoulombPerSquareInch(double? CoulombPerSquareInch)
 {
     if (CoulombPerSquareInch is null)
         return null;

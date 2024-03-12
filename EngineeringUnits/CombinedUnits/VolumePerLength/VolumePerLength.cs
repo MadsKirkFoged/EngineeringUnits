@@ -13,7 +13,7 @@ public partial class VolumePerLength : BaseUnit
 
     public static VolumePerLength From(double value, VolumePerLengthUnit unit) => new(value, unit);
 
-    public static VolumePerLength From(double? value, VolumePerLengthUnit unit)
+    public static VolumePerLength? From(double? value, VolumePerLengthUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class VolumePerLength : BaseUnit
     public static VolumePerLength Zero => new(0, VolumePerLengthUnit.SI);
     public static VolumePerLength NaN => new(double.NaN, VolumePerLengthUnit.SI);
 
-    public static implicit operator VolumePerLength(UnknownUnit Unit)
+    public static implicit operator VolumePerLength?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class VolumePerLength : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(VolumePerLength Unit)
+    public static implicit operator UnknownUnit?(VolumePerLength? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class VolumePerLength : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);    
 }

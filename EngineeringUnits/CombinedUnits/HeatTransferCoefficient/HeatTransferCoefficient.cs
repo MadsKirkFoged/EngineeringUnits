@@ -13,7 +13,7 @@ public partial class HeatTransferCoefficient : BaseUnit
 
     public static HeatTransferCoefficient From(double value, HeatTransferCoefficientUnit unit) => new(value, unit);
 
-    public static HeatTransferCoefficient From(double? value, HeatTransferCoefficientUnit unit)
+    public static HeatTransferCoefficient? From(double? value, HeatTransferCoefficientUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class HeatTransferCoefficient : BaseUnit
     public static HeatTransferCoefficient Zero => new(0, HeatTransferCoefficientUnit.SI);
     public static HeatTransferCoefficient NaN => new(double.NaN, HeatTransferCoefficientUnit.SI);
 
-    public static implicit operator HeatTransferCoefficient(UnknownUnit Unit)
+    public static implicit operator HeatTransferCoefficient?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class HeatTransferCoefficient : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(HeatTransferCoefficient Unit)
+    public static implicit operator UnknownUnit?(HeatTransferCoefficient? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class HeatTransferCoefficient : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatTransferCoefficientUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatTransferCoefficientUnit>(_unit);    
 }

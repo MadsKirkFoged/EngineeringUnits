@@ -3,7 +3,7 @@ namespace EngineeringUnits;
  
 public partial class SpecificHeatCapacity : BaseUnit
 {
-    public static implicit operator SpecificHeatCapacity(SpecificEntropy Unit)
+    public static implicit operator SpecificHeatCapacity?(SpecificEntropy? Unit)
     {
         if (Unit is null)
             return null;           
@@ -11,7 +11,7 @@ public partial class SpecificHeatCapacity : BaseUnit
         return new(Unit);
     }
 
-    public static implicit operator SpecificEntropy(SpecificHeatCapacity Unit)
+    public static implicit operator SpecificEntropy?(SpecificHeatCapacity? Unit)
     {
         if (Unit is null)
             return null;           

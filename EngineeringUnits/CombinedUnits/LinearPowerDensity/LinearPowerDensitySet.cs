@@ -10,7 +10,7 @@ public partial class LinearPowerDensity
 /// Get LinearPowerDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromSI(double? SI)
+public static LinearPowerDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static LinearPowerDensity FromSI(double? SI)
 /// Get LinearPowerDensity from WattPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromWattPerMeter(double? WattPerMeter)
+public static LinearPowerDensity? FromWattPerMeter(double? WattPerMeter)
 {
     if (WattPerMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static LinearPowerDensity FromWattPerMeter(double? WattPerMeter)
 /// Get LinearPowerDensity from WattPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromWattPerMillimeter(double? WattPerMillimeter)
+public static LinearPowerDensity? FromWattPerMillimeter(double? WattPerMillimeter)
 {
     if (WattPerMillimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static LinearPowerDensity FromWattPerMillimeter(double? WattPerMillimeter
 /// Get LinearPowerDensity from WattPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromWattPerInch(double? WattPerInch)
+public static LinearPowerDensity? FromWattPerInch(double? WattPerInch)
 {
     if (WattPerInch is null)
         return null;
@@ -54,7 +54,7 @@ public static LinearPowerDensity FromWattPerInch(double? WattPerInch)
 /// Get LinearPowerDensity from WattPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromWattPerFoot(double? WattPerFoot)
+public static LinearPowerDensity? FromWattPerFoot(double? WattPerFoot)
 {
     if (WattPerFoot is null)
         return null;
@@ -65,7 +65,7 @@ public static LinearPowerDensity FromWattPerFoot(double? WattPerFoot)
 /// Get LinearPowerDensity from WattPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromWattPerCentimeter(double? WattPerCentimeter)
+public static LinearPowerDensity? FromWattPerCentimeter(double? WattPerCentimeter)
 {
     if (WattPerCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static LinearPowerDensity FromWattPerCentimeter(double? WattPerCentimeter
 /// Get LinearPowerDensity from MilliwattPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMilliwattPerMillimeter(double? MilliwattPerMillimeter)
+public static LinearPowerDensity? FromMilliwattPerMillimeter(double? MilliwattPerMillimeter)
 {
     if (MilliwattPerMillimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static LinearPowerDensity FromMilliwattPerMillimeter(double? MilliwattPer
 /// Get LinearPowerDensity from MilliwattPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMilliwattPerMeter(double? MilliwattPerMeter)
+public static LinearPowerDensity? FromMilliwattPerMeter(double? MilliwattPerMeter)
 {
     if (MilliwattPerMeter is null)
         return null;
@@ -98,7 +98,7 @@ public static LinearPowerDensity FromMilliwattPerMeter(double? MilliwattPerMeter
 /// Get LinearPowerDensity from MilliwattPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMilliwattPerInch(double? MilliwattPerInch)
+public static LinearPowerDensity? FromMilliwattPerInch(double? MilliwattPerInch)
 {
     if (MilliwattPerInch is null)
         return null;
@@ -109,7 +109,7 @@ public static LinearPowerDensity FromMilliwattPerInch(double? MilliwattPerInch)
 /// Get LinearPowerDensity from MilliwattPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMilliwattPerFoot(double? MilliwattPerFoot)
+public static LinearPowerDensity? FromMilliwattPerFoot(double? MilliwattPerFoot)
 {
     if (MilliwattPerFoot is null)
         return null;
@@ -120,7 +120,7 @@ public static LinearPowerDensity FromMilliwattPerFoot(double? MilliwattPerFoot)
 /// Get LinearPowerDensity from MilliwattPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMilliwattPerCentimeter(double? MilliwattPerCentimeter)
+public static LinearPowerDensity? FromMilliwattPerCentimeter(double? MilliwattPerCentimeter)
 {
     if (MilliwattPerCentimeter is null)
         return null;
@@ -131,7 +131,7 @@ public static LinearPowerDensity FromMilliwattPerCentimeter(double? MilliwattPer
 /// Get LinearPowerDensity from MegawattPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMegawattPerMillimeter(double? MegawattPerMillimeter)
+public static LinearPowerDensity? FromMegawattPerMillimeter(double? MegawattPerMillimeter)
 {
     if (MegawattPerMillimeter is null)
         return null;
@@ -142,7 +142,7 @@ public static LinearPowerDensity FromMegawattPerMillimeter(double? MegawattPerMi
 /// Get LinearPowerDensity from MegawattPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMegawattPerMeter(double? MegawattPerMeter)
+public static LinearPowerDensity? FromMegawattPerMeter(double? MegawattPerMeter)
 {
     if (MegawattPerMeter is null)
         return null;
@@ -153,7 +153,7 @@ public static LinearPowerDensity FromMegawattPerMeter(double? MegawattPerMeter)
 /// Get LinearPowerDensity from MegawattPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMegawattPerInch(double? MegawattPerInch)
+public static LinearPowerDensity? FromMegawattPerInch(double? MegawattPerInch)
 {
     if (MegawattPerInch is null)
         return null;
@@ -164,7 +164,7 @@ public static LinearPowerDensity FromMegawattPerInch(double? MegawattPerInch)
 /// Get LinearPowerDensity from MegawattPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMegawattPerFoot(double? MegawattPerFoot)
+public static LinearPowerDensity? FromMegawattPerFoot(double? MegawattPerFoot)
 {
     if (MegawattPerFoot is null)
         return null;
@@ -175,7 +175,7 @@ public static LinearPowerDensity FromMegawattPerFoot(double? MegawattPerFoot)
 /// Get LinearPowerDensity from MegawattPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromMegawattPerCentimeter(double? MegawattPerCentimeter)
+public static LinearPowerDensity? FromMegawattPerCentimeter(double? MegawattPerCentimeter)
 {
     if (MegawattPerCentimeter is null)
         return null;
@@ -186,7 +186,7 @@ public static LinearPowerDensity FromMegawattPerCentimeter(double? MegawattPerCe
 /// Get LinearPowerDensity from KilowattPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromKilowattPerMillimeter(double? KilowattPerMillimeter)
+public static LinearPowerDensity? FromKilowattPerMillimeter(double? KilowattPerMillimeter)
 {
     if (KilowattPerMillimeter is null)
         return null;
@@ -197,7 +197,7 @@ public static LinearPowerDensity FromKilowattPerMillimeter(double? KilowattPerMi
 /// Get LinearPowerDensity from KilowattPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromKilowattPerMeter(double? KilowattPerMeter)
+public static LinearPowerDensity? FromKilowattPerMeter(double? KilowattPerMeter)
 {
     if (KilowattPerMeter is null)
         return null;
@@ -208,7 +208,7 @@ public static LinearPowerDensity FromKilowattPerMeter(double? KilowattPerMeter)
 /// Get LinearPowerDensity from KilowattPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromKilowattPerInch(double? KilowattPerInch)
+public static LinearPowerDensity? FromKilowattPerInch(double? KilowattPerInch)
 {
     if (KilowattPerInch is null)
         return null;
@@ -219,7 +219,7 @@ public static LinearPowerDensity FromKilowattPerInch(double? KilowattPerInch)
 /// Get LinearPowerDensity from KilowattPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromKilowattPerFoot(double? KilowattPerFoot)
+public static LinearPowerDensity? FromKilowattPerFoot(double? KilowattPerFoot)
 {
     if (KilowattPerFoot is null)
         return null;
@@ -230,7 +230,7 @@ public static LinearPowerDensity FromKilowattPerFoot(double? KilowattPerFoot)
 /// Get LinearPowerDensity from KilowattPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromKilowattPerCentimeter(double? KilowattPerCentimeter)
+public static LinearPowerDensity? FromKilowattPerCentimeter(double? KilowattPerCentimeter)
 {
     if (KilowattPerCentimeter is null)
         return null;
@@ -241,7 +241,7 @@ public static LinearPowerDensity FromKilowattPerCentimeter(double? KilowattPerCe
 /// Get LinearPowerDensity from GigawattPerMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromGigawattPerMillimeter(double? GigawattPerMillimeter)
+public static LinearPowerDensity? FromGigawattPerMillimeter(double? GigawattPerMillimeter)
 {
     if (GigawattPerMillimeter is null)
         return null;
@@ -252,7 +252,7 @@ public static LinearPowerDensity FromGigawattPerMillimeter(double? GigawattPerMi
 /// Get LinearPowerDensity from GigawattPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromGigawattPerMeter(double? GigawattPerMeter)
+public static LinearPowerDensity? FromGigawattPerMeter(double? GigawattPerMeter)
 {
     if (GigawattPerMeter is null)
         return null;
@@ -263,7 +263,7 @@ public static LinearPowerDensity FromGigawattPerMeter(double? GigawattPerMeter)
 /// Get LinearPowerDensity from GigawattPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromGigawattPerInch(double? GigawattPerInch)
+public static LinearPowerDensity? FromGigawattPerInch(double? GigawattPerInch)
 {
     if (GigawattPerInch is null)
         return null;
@@ -274,7 +274,7 @@ public static LinearPowerDensity FromGigawattPerInch(double? GigawattPerInch)
 /// Get LinearPowerDensity from GigawattPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromGigawattPerFoot(double? GigawattPerFoot)
+public static LinearPowerDensity? FromGigawattPerFoot(double? GigawattPerFoot)
 {
     if (GigawattPerFoot is null)
         return null;
@@ -285,7 +285,7 @@ public static LinearPowerDensity FromGigawattPerFoot(double? GigawattPerFoot)
 /// Get LinearPowerDensity from GigawattPerCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LinearPowerDensity FromGigawattPerCentimeter(double? GigawattPerCentimeter)
+public static LinearPowerDensity? FromGigawattPerCentimeter(double? GigawattPerCentimeter)
 {
     if (GigawattPerCentimeter is null)
         return null;

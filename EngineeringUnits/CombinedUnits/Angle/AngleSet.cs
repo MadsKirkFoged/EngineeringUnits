@@ -10,7 +10,7 @@ public partial class Angle
 /// Get Angle from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromSI(double? SI)
+public static Angle? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Angle FromSI(double? SI)
 /// Get Angle from Arcminute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromArcminute(double? Arcminute)
+public static Angle? FromArcminute(double? Arcminute)
 {
     if (Arcminute is null)
         return null;
@@ -32,7 +32,7 @@ public static Angle FromArcminute(double? Arcminute)
 /// Get Angle from Arcsecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromArcsecond(double? Arcsecond)
+public static Angle? FromArcsecond(double? Arcsecond)
 {
     if (Arcsecond is null)
         return null;
@@ -43,7 +43,7 @@ public static Angle FromArcsecond(double? Arcsecond)
 /// Get Angle from Gradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromGradian(double? Gradian)
+public static Angle? FromGradian(double? Gradian)
 {
     if (Gradian is null)
         return null;
@@ -54,7 +54,7 @@ public static Angle FromGradian(double? Gradian)
 /// Get Angle from Radian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromRadian(double? Radian)
+public static Angle? FromRadian(double? Radian)
 {
     if (Radian is null)
         return null;
@@ -65,7 +65,7 @@ public static Angle FromRadian(double? Radian)
 /// Get Angle from Centiradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromCentiradian(double? Centiradian)
+public static Angle? FromCentiradian(double? Centiradian)
 {
     if (Centiradian is null)
         return null;
@@ -76,7 +76,7 @@ public static Angle FromCentiradian(double? Centiradian)
 /// Get Angle from Deciradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromDeciradian(double? Deciradian)
+public static Angle? FromDeciradian(double? Deciradian)
 {
     if (Deciradian is null)
         return null;
@@ -87,7 +87,7 @@ public static Angle FromDeciradian(double? Deciradian)
 /// Get Angle from Microradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromMicroradian(double? Microradian)
+public static Angle? FromMicroradian(double? Microradian)
 {
     if (Microradian is null)
         return null;
@@ -98,7 +98,7 @@ public static Angle FromMicroradian(double? Microradian)
 /// Get Angle from Milliradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromMilliradian(double? Milliradian)
+public static Angle? FromMilliradian(double? Milliradian)
 {
     if (Milliradian is null)
         return null;
@@ -109,7 +109,7 @@ public static Angle FromMilliradian(double? Milliradian)
 /// Get Angle from Nanoradian.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromNanoradian(double? Nanoradian)
+public static Angle? FromNanoradian(double? Nanoradian)
 {
     if (Nanoradian is null)
         return null;
@@ -120,7 +120,7 @@ public static Angle FromNanoradian(double? Nanoradian)
 /// Get Angle from Degree.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromDegree(double? Degree)
+public static Angle? FromDegree(double? Degree)
 {
     if (Degree is null)
         return null;
@@ -131,7 +131,7 @@ public static Angle FromDegree(double? Degree)
 /// Get Angle from Microdegree.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromMicrodegree(double? Microdegree)
+public static Angle? FromMicrodegree(double? Microdegree)
 {
     if (Microdegree is null)
         return null;
@@ -142,7 +142,7 @@ public static Angle FromMicrodegree(double? Microdegree)
 /// Get Angle from Millidegree.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromMillidegree(double? Millidegree)
+public static Angle? FromMillidegree(double? Millidegree)
 {
     if (Millidegree is null)
         return null;
@@ -153,7 +153,7 @@ public static Angle FromMillidegree(double? Millidegree)
 /// Get Angle from Nanodegree.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromNanodegree(double? Nanodegree)
+public static Angle? FromNanodegree(double? Nanodegree)
 {
     if (Nanodegree is null)
         return null;
@@ -164,7 +164,7 @@ public static Angle FromNanodegree(double? Nanodegree)
 /// Get Angle from Revolution.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Angle FromRevolution(double? Revolution)
+public static Angle? FromRevolution(double? Revolution)
 {
     if (Revolution is null)
         return null;

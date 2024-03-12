@@ -13,7 +13,7 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
 
     public static VolumetricHeatTransferCoefficient From(double value, VolumetricHeatTransferCoefficientUnit unit) => new(value, unit);
 
-    public static VolumetricHeatTransferCoefficient From(double? value, VolumetricHeatTransferCoefficientUnit unit)
+    public static VolumetricHeatTransferCoefficient? From(double? value, VolumetricHeatTransferCoefficientUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
     public static VolumetricHeatTransferCoefficient Zero => new(0, VolumetricHeatTransferCoefficientUnit.SI);
     public static VolumetricHeatTransferCoefficient NaN => new(double.NaN, VolumetricHeatTransferCoefficientUnit.SI);
 
-    public static implicit operator VolumetricHeatTransferCoefficient(UnknownUnit Unit)
+    public static implicit operator VolumetricHeatTransferCoefficient?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(VolumetricHeatTransferCoefficient Unit)
+    public static implicit operator UnknownUnit?(VolumetricHeatTransferCoefficient? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);    
 }

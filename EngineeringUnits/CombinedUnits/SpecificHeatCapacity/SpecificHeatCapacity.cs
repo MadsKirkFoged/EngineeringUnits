@@ -13,7 +13,7 @@ public partial class SpecificHeatCapacity : BaseUnit
 
     public static SpecificHeatCapacity From(double value, SpecificHeatCapacityUnit unit) => new(value, unit);
 
-    public static SpecificHeatCapacity From(double? value, SpecificHeatCapacityUnit unit)
+    public static SpecificHeatCapacity? From(double? value, SpecificHeatCapacityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class SpecificHeatCapacity : BaseUnit
     public static SpecificHeatCapacity Zero => new(0, SpecificHeatCapacityUnit.SI);
     public static SpecificHeatCapacity NaN => new(double.NaN, SpecificHeatCapacityUnit.SI);
 
-    public static implicit operator SpecificHeatCapacity(UnknownUnit Unit)
+    public static implicit operator SpecificHeatCapacity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class SpecificHeatCapacity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(SpecificHeatCapacity Unit)
+    public static implicit operator UnknownUnit?(SpecificHeatCapacity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class SpecificHeatCapacity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit);    
 }

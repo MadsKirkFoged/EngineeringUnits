@@ -10,7 +10,7 @@ public partial class MassFlow
 /// Get MassFlow from CentigramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromCentigramPerDay(double? CentigramPerDay)
+public static MassFlow? FromCentigramPerDay(double? CentigramPerDay)
 {
     if (CentigramPerDay is null)
         return null;
@@ -21,7 +21,7 @@ public static MassFlow FromCentigramPerDay(double? CentigramPerDay)
 /// Get MassFlow from CentigramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromCentigramPerSecond(double? CentigramPerSecond)
+public static MassFlow? FromCentigramPerSecond(double? CentigramPerSecond)
 {
     if (CentigramPerSecond is null)
         return null;
@@ -32,7 +32,7 @@ public static MassFlow FromCentigramPerSecond(double? CentigramPerSecond)
 /// Get MassFlow from DecagramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromDecagramPerDay(double? DecagramPerDay)
+public static MassFlow? FromDecagramPerDay(double? DecagramPerDay)
 {
     if (DecagramPerDay is null)
         return null;
@@ -43,7 +43,7 @@ public static MassFlow FromDecagramPerDay(double? DecagramPerDay)
 /// Get MassFlow from DecagramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromDecagramPerSecond(double? DecagramPerSecond)
+public static MassFlow? FromDecagramPerSecond(double? DecagramPerSecond)
 {
     if (DecagramPerSecond is null)
         return null;
@@ -54,7 +54,7 @@ public static MassFlow FromDecagramPerSecond(double? DecagramPerSecond)
 /// Get MassFlow from DecigramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromDecigramPerDay(double? DecigramPerDay)
+public static MassFlow? FromDecigramPerDay(double? DecigramPerDay)
 {
     if (DecigramPerDay is null)
         return null;
@@ -65,7 +65,7 @@ public static MassFlow FromDecigramPerDay(double? DecigramPerDay)
 /// Get MassFlow from DecigramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromDecigramPerSecond(double? DecigramPerSecond)
+public static MassFlow? FromDecigramPerSecond(double? DecigramPerSecond)
 {
     if (DecigramPerSecond is null)
         return null;
@@ -76,7 +76,7 @@ public static MassFlow FromDecigramPerSecond(double? DecigramPerSecond)
 /// Get MassFlow from GramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromGramPerDay(double? GramPerDay)
+public static MassFlow? FromGramPerDay(double? GramPerDay)
 {
     if (GramPerDay is null)
         return null;
@@ -87,7 +87,7 @@ public static MassFlow FromGramPerDay(double? GramPerDay)
 /// Get MassFlow from GramPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromGramPerHour(double? GramPerHour)
+public static MassFlow? FromGramPerHour(double? GramPerHour)
 {
     if (GramPerHour is null)
         return null;
@@ -98,7 +98,7 @@ public static MassFlow FromGramPerHour(double? GramPerHour)
 /// Get MassFlow from GramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromGramPerSecond(double? GramPerSecond)
+public static MassFlow? FromGramPerSecond(double? GramPerSecond)
 {
     if (GramPerSecond is null)
         return null;
@@ -109,7 +109,7 @@ public static MassFlow FromGramPerSecond(double? GramPerSecond)
 /// Get MassFlow from MegagramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMegagramPerDay(double? MegagramPerDay)
+public static MassFlow? FromMegagramPerDay(double? MegagramPerDay)
 {
     if (MegagramPerDay is null)
         return null;
@@ -120,7 +120,7 @@ public static MassFlow FromMegagramPerDay(double? MegagramPerDay)
 /// Get MassFlow from MicrogramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMicrogramPerSecond(double? MicrogramPerSecond)
+public static MassFlow? FromMicrogramPerSecond(double? MicrogramPerSecond)
 {
     if (MicrogramPerSecond is null)
         return null;
@@ -131,7 +131,7 @@ public static MassFlow FromMicrogramPerSecond(double? MicrogramPerSecond)
 /// Get MassFlow from MicrogramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMicrogramPerDay(double? MicrogramPerDay)
+public static MassFlow? FromMicrogramPerDay(double? MicrogramPerDay)
 {
     if (MicrogramPerDay is null)
         return null;
@@ -142,7 +142,7 @@ public static MassFlow FromMicrogramPerDay(double? MicrogramPerDay)
 /// Get MassFlow from MilligramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMilligramPerSecond(double? MilligramPerSecond)
+public static MassFlow? FromMilligramPerSecond(double? MilligramPerSecond)
 {
     if (MilligramPerSecond is null)
         return null;
@@ -153,7 +153,7 @@ public static MassFlow FromMilligramPerSecond(double? MilligramPerSecond)
 /// Get MassFlow from MilligramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMilligramPerDay(double? MilligramPerDay)
+public static MassFlow? FromMilligramPerDay(double? MilligramPerDay)
 {
     if (MilligramPerDay is null)
         return null;
@@ -164,7 +164,7 @@ public static MassFlow FromMilligramPerDay(double? MilligramPerDay)
 /// Get MassFlow from NanogramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromNanogramPerSecond(double? NanogramPerSecond)
+public static MassFlow? FromNanogramPerSecond(double? NanogramPerSecond)
 {
     if (NanogramPerSecond is null)
         return null;
@@ -175,7 +175,7 @@ public static MassFlow FromNanogramPerSecond(double? NanogramPerSecond)
 /// Get MassFlow from NanogramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromNanogramPerDay(double? NanogramPerDay)
+public static MassFlow? FromNanogramPerDay(double? NanogramPerDay)
 {
     if (NanogramPerDay is null)
         return null;
@@ -186,7 +186,7 @@ public static MassFlow FromNanogramPerDay(double? NanogramPerDay)
 /// Get MassFlow from HectogramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromHectogramPerDay(double? HectogramPerDay)
+public static MassFlow? FromHectogramPerDay(double? HectogramPerDay)
 {
     if (HectogramPerDay is null)
         return null;
@@ -197,7 +197,7 @@ public static MassFlow FromHectogramPerDay(double? HectogramPerDay)
 /// Get MassFlow from HectogramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromHectogramPerSecond(double? HectogramPerSecond)
+public static MassFlow? FromHectogramPerSecond(double? HectogramPerSecond)
 {
     if (HectogramPerSecond is null)
         return null;
@@ -208,7 +208,7 @@ public static MassFlow FromHectogramPerSecond(double? HectogramPerSecond)
 /// Get MassFlow from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromSI(double? SI)
+public static MassFlow? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -219,7 +219,7 @@ public static MassFlow FromSI(double? SI)
 /// Get MassFlow from KilogramPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromKilogramPerSecond(double? KilogramPerSecond)
+public static MassFlow? FromKilogramPerSecond(double? KilogramPerSecond)
 {
     if (KilogramPerSecond is null)
         return null;
@@ -230,7 +230,7 @@ public static MassFlow FromKilogramPerSecond(double? KilogramPerSecond)
 /// Get MassFlow from KilogramPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromKilogramPerMinute(double? KilogramPerMinute)
+public static MassFlow? FromKilogramPerMinute(double? KilogramPerMinute)
 {
     if (KilogramPerMinute is null)
         return null;
@@ -241,7 +241,7 @@ public static MassFlow FromKilogramPerMinute(double? KilogramPerMinute)
 /// Get MassFlow from KilogramPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromKilogramPerHour(double? KilogramPerHour)
+public static MassFlow? FromKilogramPerHour(double? KilogramPerHour)
 {
     if (KilogramPerHour is null)
         return null;
@@ -252,7 +252,7 @@ public static MassFlow FromKilogramPerHour(double? KilogramPerHour)
 /// Get MassFlow from KilogramPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromKilogramPerDay(double? KilogramPerDay)
+public static MassFlow? FromKilogramPerDay(double? KilogramPerDay)
 {
     if (KilogramPerDay is null)
         return null;
@@ -263,7 +263,7 @@ public static MassFlow FromKilogramPerDay(double? KilogramPerDay)
 /// Get MassFlow from PoundPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromPoundPerSecond(double? PoundPerSecond)
+public static MassFlow? FromPoundPerSecond(double? PoundPerSecond)
 {
     if (PoundPerSecond is null)
         return null;
@@ -274,7 +274,7 @@ public static MassFlow FromPoundPerSecond(double? PoundPerSecond)
 /// Get MassFlow from PoundPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromPoundPerMinute(double? PoundPerMinute)
+public static MassFlow? FromPoundPerMinute(double? PoundPerMinute)
 {
     if (PoundPerMinute is null)
         return null;
@@ -285,7 +285,7 @@ public static MassFlow FromPoundPerMinute(double? PoundPerMinute)
 /// Get MassFlow from PoundPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromPoundPerHour(double? PoundPerHour)
+public static MassFlow? FromPoundPerHour(double? PoundPerHour)
 {
     if (PoundPerHour is null)
         return null;
@@ -296,7 +296,7 @@ public static MassFlow FromPoundPerHour(double? PoundPerHour)
 /// Get MassFlow from PoundPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromPoundPerDay(double? PoundPerDay)
+public static MassFlow? FromPoundPerDay(double? PoundPerDay)
 {
     if (PoundPerDay is null)
         return null;
@@ -307,7 +307,7 @@ public static MassFlow FromPoundPerDay(double? PoundPerDay)
 /// Get MassFlow from MegapoundPerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMegapoundPerDay(double? MegapoundPerDay)
+public static MassFlow? FromMegapoundPerDay(double? MegapoundPerDay)
 {
     if (MegapoundPerDay is null)
         return null;
@@ -318,7 +318,7 @@ public static MassFlow FromMegapoundPerDay(double? MegapoundPerDay)
 /// Get MassFlow from MegapoundPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMegapoundPerHour(double? MegapoundPerHour)
+public static MassFlow? FromMegapoundPerHour(double? MegapoundPerHour)
 {
     if (MegapoundPerHour is null)
         return null;
@@ -329,7 +329,7 @@ public static MassFlow FromMegapoundPerHour(double? MegapoundPerHour)
 /// Get MassFlow from MegapoundPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMegapoundPerMinute(double? MegapoundPerMinute)
+public static MassFlow? FromMegapoundPerMinute(double? MegapoundPerMinute)
 {
     if (MegapoundPerMinute is null)
         return null;
@@ -340,7 +340,7 @@ public static MassFlow FromMegapoundPerMinute(double? MegapoundPerMinute)
 /// Get MassFlow from MegapoundPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromMegapoundPerSecond(double? MegapoundPerSecond)
+public static MassFlow? FromMegapoundPerSecond(double? MegapoundPerSecond)
 {
     if (MegapoundPerSecond is null)
         return null;
@@ -351,7 +351,7 @@ public static MassFlow FromMegapoundPerSecond(double? MegapoundPerSecond)
 /// Get MassFlow from ShortTonPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromShortTonPerHour(double? ShortTonPerHour)
+public static MassFlow? FromShortTonPerHour(double? ShortTonPerHour)
 {
     if (ShortTonPerHour is null)
         return null;
@@ -362,7 +362,7 @@ public static MassFlow FromShortTonPerHour(double? ShortTonPerHour)
 /// Get MassFlow from TonnePerDay.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromTonnePerDay(double? TonnePerDay)
+public static MassFlow? FromTonnePerDay(double? TonnePerDay)
 {
     if (TonnePerDay is null)
         return null;
@@ -373,7 +373,7 @@ public static MassFlow FromTonnePerDay(double? TonnePerDay)
 /// Get MassFlow from TonnePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlow FromTonnePerHour(double? TonnePerHour)
+public static MassFlow? FromTonnePerHour(double? TonnePerHour)
 {
     if (TonnePerHour is null)
         return null;

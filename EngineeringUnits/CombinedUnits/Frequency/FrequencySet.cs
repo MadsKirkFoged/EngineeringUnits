@@ -10,7 +10,7 @@ public partial class Frequency
 /// Get Frequency from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromSI(double? SI)
+public static Frequency? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Frequency FromSI(double? SI)
 /// Get Frequency from Hertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromHertz(double? Hertz)
+public static Frequency? FromHertz(double? Hertz)
 {
     if (Hertz is null)
         return null;
@@ -32,7 +32,7 @@ public static Frequency FromHertz(double? Hertz)
 /// Get Frequency from Kilohertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromKilohertz(double? Kilohertz)
+public static Frequency? FromKilohertz(double? Kilohertz)
 {
     if (Kilohertz is null)
         return null;
@@ -43,7 +43,7 @@ public static Frequency FromKilohertz(double? Kilohertz)
 /// Get Frequency from Megahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromMegahertz(double? Megahertz)
+public static Frequency? FromMegahertz(double? Megahertz)
 {
     if (Megahertz is null)
         return null;
@@ -54,7 +54,7 @@ public static Frequency FromMegahertz(double? Megahertz)
 /// Get Frequency from Gigahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromGigahertz(double? Gigahertz)
+public static Frequency? FromGigahertz(double? Gigahertz)
 {
     if (Gigahertz is null)
         return null;
@@ -65,7 +65,7 @@ public static Frequency FromGigahertz(double? Gigahertz)
 /// Get Frequency from Terahertz.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromTerahertz(double? Terahertz)
+public static Frequency? FromTerahertz(double? Terahertz)
 {
     if (Terahertz is null)
         return null;
@@ -76,7 +76,7 @@ public static Frequency FromTerahertz(double? Terahertz)
 /// Get Frequency from PerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromPerSecond(double? PerSecond)
+public static Frequency? FromPerSecond(double? PerSecond)
 {
     if (PerSecond is null)
         return null;
@@ -87,7 +87,7 @@ public static Frequency FromPerSecond(double? PerSecond)
 /// Get Frequency from BeatPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromBeatPerMinute(double? BeatPerMinute)
+public static Frequency? FromBeatPerMinute(double? BeatPerMinute)
 {
     if (BeatPerMinute is null)
         return null;
@@ -98,7 +98,7 @@ public static Frequency FromBeatPerMinute(double? BeatPerMinute)
 /// Get Frequency from RevolutionsPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromRevolutionsPerMinute(double? RevolutionsPerMinute)
+public static Frequency? FromRevolutionsPerMinute(double? RevolutionsPerMinute)
 {
     if (RevolutionsPerMinute is null)
         return null;
@@ -109,7 +109,7 @@ public static Frequency FromRevolutionsPerMinute(double? RevolutionsPerMinute)
 /// Get Frequency from RPM.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromRPM(double? RPM)
+public static Frequency? FromRPM(double? RPM)
 {
     if (RPM is null)
         return null;
@@ -120,7 +120,7 @@ public static Frequency FromRPM(double? RPM)
 /// Get Frequency from CyclePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromCyclePerHour(double? CyclePerHour)
+public static Frequency? FromCyclePerHour(double? CyclePerHour)
 {
     if (CyclePerHour is null)
         return null;
@@ -131,7 +131,7 @@ public static Frequency FromCyclePerHour(double? CyclePerHour)
 /// Get Frequency from CyclePerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromCyclePerMinute(double? CyclePerMinute)
+public static Frequency? FromCyclePerMinute(double? CyclePerMinute)
 {
     if (CyclePerMinute is null)
         return null;
@@ -142,7 +142,7 @@ public static Frequency FromCyclePerMinute(double? CyclePerMinute)
 /// Get Frequency from RadianPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Frequency FromRadianPerSecond(double? RadianPerSecond)
+public static Frequency? FromRadianPerSecond(double? RadianPerSecond)
 {
     if (RadianPerSecond is null)
         return null;

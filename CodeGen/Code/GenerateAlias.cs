@@ -56,7 +56,7 @@ internal class GenerateAlias
                     
                    public partial class Variable : BaseUnit
                    {
-                       public static implicit operator Variable(Original Unit)
+                       public static implicit operator Variable?(Original? Unit)
                        {
                            if (Unit is null)
                                return null;           
@@ -64,7 +64,7 @@ internal class GenerateAlias
                            return new(Unit);
                        }
                    
-                       public static implicit operator Original(Variable Unit)
+                       public static implicit operator Original?(Variable? Unit)
                        {
                            if (Unit is null)
                                return null;           

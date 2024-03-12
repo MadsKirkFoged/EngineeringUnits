@@ -13,7 +13,7 @@ public partial class ApparentPower : BaseUnit
 
     public static ApparentPower From(double value, ApparentPowerUnit unit) => new(value, unit);
 
-    public static ApparentPower From(double? value, ApparentPowerUnit unit)
+    public static ApparentPower? From(double? value, ApparentPowerUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ApparentPower : BaseUnit
     public static ApparentPower Zero => new(0, ApparentPowerUnit.SI);
     public static ApparentPower NaN => new(double.NaN, ApparentPowerUnit.SI);
 
-    public static implicit operator ApparentPower(UnknownUnit Unit)
+    public static implicit operator ApparentPower?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ApparentPower : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ApparentPower Unit)
+    public static implicit operator UnknownUnit?(ApparentPower? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ApparentPower : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ApparentPowerUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ApparentPowerUnit>(_unit);    
 }

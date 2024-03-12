@@ -10,7 +10,7 @@ public partial class Volume
 /// Get Volume from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromSI(double? SI)
+public static Volume? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Volume FromSI(double? SI)
 /// Get Volume from CubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicMeter(double? CubicMeter)
+public static Volume? FromCubicMeter(double? CubicMeter)
 {
     if (CubicMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static Volume FromCubicMeter(double? CubicMeter)
 /// Get Volume from HectocubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromHectocubicMeter(double? HectocubicMeter)
+public static Volume? FromHectocubicMeter(double? HectocubicMeter)
 {
     if (HectocubicMeter is null)
         return null;
@@ -43,7 +43,7 @@ public static Volume FromHectocubicMeter(double? HectocubicMeter)
 /// Get Volume from KilocubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromKilocubicMeter(double? KilocubicMeter)
+public static Volume? FromKilocubicMeter(double? KilocubicMeter)
 {
     if (KilocubicMeter is null)
         return null;
@@ -54,7 +54,7 @@ public static Volume FromKilocubicMeter(double? KilocubicMeter)
 /// Get Volume from CubicKilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicKilometer(double? CubicKilometer)
+public static Volume? FromCubicKilometer(double? CubicKilometer)
 {
     if (CubicKilometer is null)
         return null;
@@ -65,7 +65,7 @@ public static Volume FromCubicKilometer(double? CubicKilometer)
 /// Get Volume from CubicMicrometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicMicrometer(double? CubicMicrometer)
+public static Volume? FromCubicMicrometer(double? CubicMicrometer)
 {
     if (CubicMicrometer is null)
         return null;
@@ -76,7 +76,7 @@ public static Volume FromCubicMicrometer(double? CubicMicrometer)
 /// Get Volume from CubicMile.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicMile(double? CubicMile)
+public static Volume? FromCubicMile(double? CubicMile)
 {
     if (CubicMile is null)
         return null;
@@ -87,7 +87,7 @@ public static Volume FromCubicMile(double? CubicMile)
 /// Get Volume from CubicMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicMillimeter(double? CubicMillimeter)
+public static Volume? FromCubicMillimeter(double? CubicMillimeter)
 {
     if (CubicMillimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static Volume FromCubicMillimeter(double? CubicMillimeter)
 /// Get Volume from CubicYard.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicYard(double? CubicYard)
+public static Volume? FromCubicYard(double? CubicYard)
 {
     if (CubicYard is null)
         return null;
@@ -109,7 +109,7 @@ public static Volume FromCubicYard(double? CubicYard)
 /// Get Volume from CubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicInch(double? CubicInch)
+public static Volume? FromCubicInch(double? CubicInch)
 {
     if (CubicInch is null)
         return null;
@@ -120,7 +120,7 @@ public static Volume FromCubicInch(double? CubicInch)
 /// Get Volume from CubicHectometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicHectometer(double? CubicHectometer)
+public static Volume? FromCubicHectometer(double? CubicHectometer)
 {
     if (CubicHectometer is null)
         return null;
@@ -131,7 +131,7 @@ public static Volume FromCubicHectometer(double? CubicHectometer)
 /// Get Volume from CubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicFoot(double? CubicFoot)
+public static Volume? FromCubicFoot(double? CubicFoot)
 {
     if (CubicFoot is null)
         return null;
@@ -142,7 +142,7 @@ public static Volume FromCubicFoot(double? CubicFoot)
 /// Get Volume from HectocubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromHectocubicFoot(double? HectocubicFoot)
+public static Volume? FromHectocubicFoot(double? HectocubicFoot)
 {
     if (HectocubicFoot is null)
         return null;
@@ -153,7 +153,7 @@ public static Volume FromHectocubicFoot(double? HectocubicFoot)
 /// Get Volume from KilocubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromKilocubicFoot(double? KilocubicFoot)
+public static Volume? FromKilocubicFoot(double? KilocubicFoot)
 {
     if (KilocubicFoot is null)
         return null;
@@ -164,7 +164,7 @@ public static Volume FromKilocubicFoot(double? KilocubicFoot)
 /// Get Volume from MegacubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMegacubicFoot(double? MegacubicFoot)
+public static Volume? FromMegacubicFoot(double? MegacubicFoot)
 {
     if (MegacubicFoot is null)
         return null;
@@ -175,7 +175,7 @@ public static Volume FromMegacubicFoot(double? MegacubicFoot)
 /// Get Volume from CubicDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicDecimeter(double? CubicDecimeter)
+public static Volume? FromCubicDecimeter(double? CubicDecimeter)
 {
     if (CubicDecimeter is null)
         return null;
@@ -186,7 +186,7 @@ public static Volume FromCubicDecimeter(double? CubicDecimeter)
 /// Get Volume from CubicCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCubicCentimeter(double? CubicCentimeter)
+public static Volume? FromCubicCentimeter(double? CubicCentimeter)
 {
     if (CubicCentimeter is null)
         return null;
@@ -197,7 +197,7 @@ public static Volume FromCubicCentimeter(double? CubicCentimeter)
 /// Get Volume from Liter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromLiter(double? Liter)
+public static Volume? FromLiter(double? Liter)
 {
     if (Liter is null)
         return null;
@@ -208,7 +208,7 @@ public static Volume FromLiter(double? Liter)
 /// Get Volume from Nanoliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromNanoliter(double? Nanoliter)
+public static Volume? FromNanoliter(double? Nanoliter)
 {
     if (Nanoliter is null)
         return null;
@@ -219,7 +219,7 @@ public static Volume FromNanoliter(double? Nanoliter)
 /// Get Volume from Microliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMicroliter(double? Microliter)
+public static Volume? FromMicroliter(double? Microliter)
 {
     if (Microliter is null)
         return null;
@@ -230,7 +230,7 @@ public static Volume FromMicroliter(double? Microliter)
 /// Get Volume from Milliliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMilliliter(double? Milliliter)
+public static Volume? FromMilliliter(double? Milliliter)
 {
     if (Milliliter is null)
         return null;
@@ -241,7 +241,7 @@ public static Volume FromMilliliter(double? Milliliter)
 /// Get Volume from Deciliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromDeciliter(double? Deciliter)
+public static Volume? FromDeciliter(double? Deciliter)
 {
     if (Deciliter is null)
         return null;
@@ -252,7 +252,7 @@ public static Volume FromDeciliter(double? Deciliter)
 /// Get Volume from Centiliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromCentiliter(double? Centiliter)
+public static Volume? FromCentiliter(double? Centiliter)
 {
     if (Centiliter is null)
         return null;
@@ -263,7 +263,7 @@ public static Volume FromCentiliter(double? Centiliter)
 /// Get Volume from Hectoliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromHectoliter(double? Hectoliter)
+public static Volume? FromHectoliter(double? Hectoliter)
 {
     if (Hectoliter is null)
         return null;
@@ -274,7 +274,7 @@ public static Volume FromHectoliter(double? Hectoliter)
 /// Get Volume from Kiloliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromKiloliter(double? Kiloliter)
+public static Volume? FromKiloliter(double? Kiloliter)
 {
     if (Kiloliter is null)
         return null;
@@ -285,7 +285,7 @@ public static Volume FromKiloliter(double? Kiloliter)
 /// Get Volume from Megaliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMegaliter(double? Megaliter)
+public static Volume? FromMegaliter(double? Megaliter)
 {
     if (Megaliter is null)
         return null;
@@ -296,7 +296,7 @@ public static Volume FromMegaliter(double? Megaliter)
 /// Get Volume from Picoliter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromPicoliter(double? Picoliter)
+public static Volume? FromPicoliter(double? Picoliter)
 {
     if (Picoliter is null)
         return null;
@@ -307,7 +307,7 @@ public static Volume FromPicoliter(double? Picoliter)
 /// Get Volume from AcreFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromAcreFoot(double? AcreFoot)
+public static Volume? FromAcreFoot(double? AcreFoot)
 {
     if (AcreFoot is null)
         return null;
@@ -318,7 +318,7 @@ public static Volume FromAcreFoot(double? AcreFoot)
 /// Get Volume from BoardFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromBoardFoot(double? BoardFoot)
+public static Volume? FromBoardFoot(double? BoardFoot)
 {
     if (BoardFoot is null)
         return null;
@@ -329,7 +329,7 @@ public static Volume FromBoardFoot(double? BoardFoot)
 /// Get Volume from AuTablespoon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromAuTablespoon(double? AuTablespoon)
+public static Volume? FromAuTablespoon(double? AuTablespoon)
 {
     if (AuTablespoon is null)
         return null;
@@ -340,7 +340,7 @@ public static Volume FromAuTablespoon(double? AuTablespoon)
 /// Get Volume from ImperialBeerBarrel.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromImperialBeerBarrel(double? ImperialBeerBarrel)
+public static Volume? FromImperialBeerBarrel(double? ImperialBeerBarrel)
 {
     if (ImperialBeerBarrel is null)
         return null;
@@ -351,7 +351,7 @@ public static Volume FromImperialBeerBarrel(double? ImperialBeerBarrel)
 /// Get Volume from MetricTeaspoon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMetricTeaspoon(double? MetricTeaspoon)
+public static Volume? FromMetricTeaspoon(double? MetricTeaspoon)
 {
     if (MetricTeaspoon is null)
         return null;
@@ -362,7 +362,7 @@ public static Volume FromMetricTeaspoon(double? MetricTeaspoon)
 /// Get Volume from MetricCup.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMetricCup(double? MetricCup)
+public static Volume? FromMetricCup(double? MetricCup)
 {
     if (MetricCup is null)
         return null;
@@ -373,7 +373,7 @@ public static Volume FromMetricCup(double? MetricCup)
 /// Get Volume from ImperialGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromImperialGallon(double? ImperialGallon)
+public static Volume? FromImperialGallon(double? ImperialGallon)
 {
     if (ImperialGallon is null)
         return null;
@@ -384,7 +384,7 @@ public static Volume FromImperialGallon(double? ImperialGallon)
 /// Get Volume from KiloimperialGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromKiloimperialGallon(double? KiloimperialGallon)
+public static Volume? FromKiloimperialGallon(double? KiloimperialGallon)
 {
     if (KiloimperialGallon is null)
         return null;
@@ -395,7 +395,7 @@ public static Volume FromKiloimperialGallon(double? KiloimperialGallon)
 /// Get Volume from MegaimperialGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMegaimperialGallon(double? MegaimperialGallon)
+public static Volume? FromMegaimperialGallon(double? MegaimperialGallon)
 {
     if (MegaimperialGallon is null)
         return null;
@@ -406,7 +406,7 @@ public static Volume FromMegaimperialGallon(double? MegaimperialGallon)
 /// Get Volume from ImperialOunce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromImperialOunce(double? ImperialOunce)
+public static Volume? FromImperialOunce(double? ImperialOunce)
 {
     if (ImperialOunce is null)
         return null;
@@ -417,7 +417,7 @@ public static Volume FromImperialOunce(double? ImperialOunce)
 /// Get Volume from ImperialPint.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromImperialPint(double? ImperialPint)
+public static Volume? FromImperialPint(double? ImperialPint)
 {
     if (ImperialPint is null)
         return null;
@@ -428,7 +428,7 @@ public static Volume FromImperialPint(double? ImperialPint)
 /// Get Volume from UsCustomaryCup.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsCustomaryCup(double? UsCustomaryCup)
+public static Volume? FromUsCustomaryCup(double? UsCustomaryCup)
 {
     if (UsCustomaryCup is null)
         return null;
@@ -439,7 +439,7 @@ public static Volume FromUsCustomaryCup(double? UsCustomaryCup)
 /// Get Volume from UsBeerBarrel.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsBeerBarrel(double? UsBeerBarrel)
+public static Volume? FromUsBeerBarrel(double? UsBeerBarrel)
 {
     if (UsBeerBarrel is null)
         return null;
@@ -450,7 +450,7 @@ public static Volume FromUsBeerBarrel(double? UsBeerBarrel)
 /// Get Volume from UkTablespoon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUkTablespoon(double? UkTablespoon)
+public static Volume? FromUkTablespoon(double? UkTablespoon)
 {
     if (UkTablespoon is null)
         return null;
@@ -461,7 +461,7 @@ public static Volume FromUkTablespoon(double? UkTablespoon)
 /// Get Volume from UsOunce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsOunce(double? UsOunce)
+public static Volume? FromUsOunce(double? UsOunce)
 {
     if (UsOunce is null)
         return null;
@@ -472,7 +472,7 @@ public static Volume FromUsOunce(double? UsOunce)
 /// Get Volume from UsGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsGallon(double? UsGallon)
+public static Volume? FromUsGallon(double? UsGallon)
 {
     if (UsGallon is null)
         return null;
@@ -483,7 +483,7 @@ public static Volume FromUsGallon(double? UsGallon)
 /// Get Volume from KilousGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromKilousGallon(double? KilousGallon)
+public static Volume? FromKilousGallon(double? KilousGallon)
 {
     if (KilousGallon is null)
         return null;
@@ -494,7 +494,7 @@ public static Volume FromKilousGallon(double? KilousGallon)
 /// Get Volume from MegausGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromMegausGallon(double? MegausGallon)
+public static Volume? FromMegausGallon(double? MegausGallon)
 {
     if (MegausGallon is null)
         return null;
@@ -505,7 +505,7 @@ public static Volume FromMegausGallon(double? MegausGallon)
 /// Get Volume from DecausGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromDecausGallon(double? DecausGallon)
+public static Volume? FromDecausGallon(double? DecausGallon)
 {
     if (DecausGallon is null)
         return null;
@@ -516,7 +516,7 @@ public static Volume FromDecausGallon(double? DecausGallon)
 /// Get Volume from DeciusGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromDeciusGallon(double? DeciusGallon)
+public static Volume? FromDeciusGallon(double? DeciusGallon)
 {
     if (DeciusGallon is null)
         return null;
@@ -527,7 +527,7 @@ public static Volume FromDeciusGallon(double? DeciusGallon)
 /// Get Volume from HectousGallon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromHectousGallon(double? HectousGallon)
+public static Volume? FromHectousGallon(double? HectousGallon)
 {
     if (HectousGallon is null)
         return null;
@@ -538,7 +538,7 @@ public static Volume FromHectousGallon(double? HectousGallon)
 /// Get Volume from OilBarrel.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromOilBarrel(double? OilBarrel)
+public static Volume? FromOilBarrel(double? OilBarrel)
 {
     if (OilBarrel is null)
         return null;
@@ -549,7 +549,7 @@ public static Volume FromOilBarrel(double? OilBarrel)
 /// Get Volume from UsLegalCup.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsLegalCup(double? UsLegalCup)
+public static Volume? FromUsLegalCup(double? UsLegalCup)
 {
     if (UsLegalCup is null)
         return null;
@@ -560,7 +560,7 @@ public static Volume FromUsLegalCup(double? UsLegalCup)
 /// Get Volume from UsPint.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsPint(double? UsPint)
+public static Volume? FromUsPint(double? UsPint)
 {
     if (UsPint is null)
         return null;
@@ -571,7 +571,7 @@ public static Volume FromUsPint(double? UsPint)
 /// Get Volume from UsQuart.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsQuart(double? UsQuart)
+public static Volume? FromUsQuart(double? UsQuart)
 {
     if (UsQuart is null)
         return null;
@@ -582,7 +582,7 @@ public static Volume FromUsQuart(double? UsQuart)
 /// Get Volume from UsTablespoon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsTablespoon(double? UsTablespoon)
+public static Volume? FromUsTablespoon(double? UsTablespoon)
 {
     if (UsTablespoon is null)
         return null;
@@ -593,7 +593,7 @@ public static Volume FromUsTablespoon(double? UsTablespoon)
 /// Get Volume from UsTeaspoon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Volume FromUsTeaspoon(double? UsTeaspoon)
+public static Volume? FromUsTeaspoon(double? UsTeaspoon)
 {
     if (UsTeaspoon is null)
         return null;

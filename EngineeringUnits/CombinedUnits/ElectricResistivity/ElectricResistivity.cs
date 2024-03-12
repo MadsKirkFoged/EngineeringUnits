@@ -13,7 +13,7 @@ public partial class ElectricResistivity : BaseUnit
 
     public static ElectricResistivity From(double value, ElectricResistivityUnit unit) => new(value, unit);
 
-    public static ElectricResistivity From(double? value, ElectricResistivityUnit unit)
+    public static ElectricResistivity? From(double? value, ElectricResistivityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricResistivity : BaseUnit
     public static ElectricResistivity Zero => new(0, ElectricResistivityUnit.SI);
     public static ElectricResistivity NaN => new(double.NaN, ElectricResistivityUnit.SI);
 
-    public static implicit operator ElectricResistivity(UnknownUnit Unit)
+    public static implicit operator ElectricResistivity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricResistivity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricResistivity Unit)
+    public static implicit operator UnknownUnit?(ElectricResistivity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricResistivity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricResistivityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricResistivityUnit>(_unit);    
 }

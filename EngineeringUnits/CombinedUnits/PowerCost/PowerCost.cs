@@ -13,7 +13,7 @@ public partial class PowerCost : BaseUnit
 
     public static PowerCost From(double value, PowerCostUnit unit) => new(value, unit);
 
-    public static PowerCost From(double? value, PowerCostUnit unit)
+    public static PowerCost? From(double? value, PowerCostUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class PowerCost : BaseUnit
     public static PowerCost Zero => new(0, PowerCostUnit.SI);
     public static PowerCost NaN => new(double.NaN, PowerCostUnit.SI);
 
-    public static implicit operator PowerCost(UnknownUnit Unit)
+    public static implicit operator PowerCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class PowerCost : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(PowerCost Unit)
+    public static implicit operator UnknownUnit?(PowerCost? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class PowerCost : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerCostUnit>(_unit);    
 }

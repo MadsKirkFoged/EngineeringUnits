@@ -13,7 +13,7 @@ public partial class MolarEnergy : BaseUnit
 
     public static MolarEnergy From(double value, MolarEnergyUnit unit) => new(value, unit);
 
-    public static MolarEnergy From(double? value, MolarEnergyUnit unit)
+    public static MolarEnergy? From(double? value, MolarEnergyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MolarEnergy : BaseUnit
     public static MolarEnergy Zero => new(0, MolarEnergyUnit.SI);
     public static MolarEnergy NaN => new(double.NaN, MolarEnergyUnit.SI);
 
-    public static implicit operator MolarEnergy(UnknownUnit Unit)
+    public static implicit operator MolarEnergy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MolarEnergy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MolarEnergy Unit)
+    public static implicit operator UnknownUnit?(MolarEnergy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MolarEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);    
 }

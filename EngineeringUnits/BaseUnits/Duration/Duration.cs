@@ -13,7 +13,7 @@ public partial class Duration : BaseUnit
 
     public static Duration From(double value, DurationUnit unit) => new(value, unit);
 
-    public static Duration From(double? value, DurationUnit unit)
+    public static Duration? From(double? value, DurationUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Duration : BaseUnit
     public static Duration Zero => new(0, DurationUnit.SI);
     public static Duration NaN => new(double.NaN, DurationUnit.SI);
 
-    public static implicit operator Duration(UnknownUnit Unit)
+    public static implicit operator Duration?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Duration : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Duration Unit)
+    public static implicit operator UnknownUnit?(Duration? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Duration : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DurationUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DurationUnit>(_unit);    
 }

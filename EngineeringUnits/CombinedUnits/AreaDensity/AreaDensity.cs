@@ -13,7 +13,7 @@ public partial class AreaDensity : BaseUnit
 
     public static AreaDensity From(double value, AreaDensityUnit unit) => new(value, unit);
 
-    public static AreaDensity From(double? value, AreaDensityUnit unit)
+    public static AreaDensity? From(double? value, AreaDensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class AreaDensity : BaseUnit
     public static AreaDensity Zero => new(0, AreaDensityUnit.SI);
     public static AreaDensity NaN => new(double.NaN, AreaDensityUnit.SI);
 
-    public static implicit operator AreaDensity(UnknownUnit Unit)
+    public static implicit operator AreaDensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class AreaDensity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(AreaDensity Unit)
+    public static implicit operator UnknownUnit?(AreaDensity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class AreaDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaDensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaDensityUnit>(_unit);    
 }

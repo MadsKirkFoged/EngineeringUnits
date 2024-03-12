@@ -9,7 +9,7 @@ public partial record ApparentPowerUnit : UnitTypebase
     public static readonly ApparentPowerUnit Kilovoltampere = new(PreFix.kilo, Voltampere);
     public static readonly ApparentPowerUnit Gigavoltampere = new(PreFix.giga, Voltampere);
 
-    public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string NewSymbol = null)
+    public ApparentPowerUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, string? NewSymbol = null)
     {
         Unit = new UnitSystem(electricPotential * electricCurrentUnit, NewSymbol);
     }

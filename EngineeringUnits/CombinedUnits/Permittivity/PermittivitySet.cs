@@ -10,7 +10,7 @@ public partial class Permittivity
 /// Get Permittivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Permittivity FromSI(double? SI)
+public static Permittivity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Permittivity FromSI(double? SI)
 /// Get Permittivity from FaradPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Permittivity FromFaradPerMeter(double? FaradPerMeter)
+public static Permittivity? FromFaradPerMeter(double? FaradPerMeter)
 {
     if (FaradPerMeter is null)
         return null;

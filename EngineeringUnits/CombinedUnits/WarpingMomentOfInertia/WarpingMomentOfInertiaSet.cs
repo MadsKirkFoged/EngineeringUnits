@@ -10,7 +10,7 @@ public partial class WarpingMomentOfInertia
 /// Get WarpingMomentOfInertia from MeterToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromMeterToTheSixth(double? MeterToTheSixth)
+public static WarpingMomentOfInertia? FromMeterToTheSixth(double? MeterToTheSixth)
 {
     if (MeterToTheSixth is null)
         return null;
@@ -21,7 +21,7 @@ public static WarpingMomentOfInertia FromMeterToTheSixth(double? MeterToTheSixth
 /// Get WarpingMomentOfInertia from MillimeterToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromMillimeterToTheSixth(double? MillimeterToTheSixth)
+public static WarpingMomentOfInertia? FromMillimeterToTheSixth(double? MillimeterToTheSixth)
 {
     if (MillimeterToTheSixth is null)
         return null;
@@ -32,7 +32,7 @@ public static WarpingMomentOfInertia FromMillimeterToTheSixth(double? Millimeter
 /// Get WarpingMomentOfInertia from InchToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromInchToTheSixth(double? InchToTheSixth)
+public static WarpingMomentOfInertia? FromInchToTheSixth(double? InchToTheSixth)
 {
     if (InchToTheSixth is null)
         return null;
@@ -43,7 +43,7 @@ public static WarpingMomentOfInertia FromInchToTheSixth(double? InchToTheSixth)
 /// Get WarpingMomentOfInertia from FootToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromFootToTheSixth(double? FootToTheSixth)
+public static WarpingMomentOfInertia? FromFootToTheSixth(double? FootToTheSixth)
 {
     if (FootToTheSixth is null)
         return null;
@@ -54,7 +54,7 @@ public static WarpingMomentOfInertia FromFootToTheSixth(double? FootToTheSixth)
 /// Get WarpingMomentOfInertia from DecimeterToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromDecimeterToTheSixth(double? DecimeterToTheSixth)
+public static WarpingMomentOfInertia? FromDecimeterToTheSixth(double? DecimeterToTheSixth)
 {
     if (DecimeterToTheSixth is null)
         return null;
@@ -65,7 +65,7 @@ public static WarpingMomentOfInertia FromDecimeterToTheSixth(double? DecimeterTo
 /// Get WarpingMomentOfInertia from CentimeterToTheSixth.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromCentimeterToTheSixth(double? CentimeterToTheSixth)
+public static WarpingMomentOfInertia? FromCentimeterToTheSixth(double? CentimeterToTheSixth)
 {
     if (CentimeterToTheSixth is null)
         return null;
@@ -76,7 +76,7 @@ public static WarpingMomentOfInertia FromCentimeterToTheSixth(double? Centimeter
 /// Get WarpingMomentOfInertia from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static WarpingMomentOfInertia FromSI(double? SI)
+public static WarpingMomentOfInertia? FromSI(double? SI)
 {
     if (SI is null)
         return null;

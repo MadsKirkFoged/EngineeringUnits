@@ -13,7 +13,7 @@ public partial class Force : BaseUnit
 
     public static Force From(double value, ForceUnit unit) => new(value, unit);
 
-    public static Force From(double? value, ForceUnit unit)
+    public static Force? From(double? value, ForceUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Force : BaseUnit
     public static Force Zero => new(0, ForceUnit.SI);
     public static Force NaN => new(double.NaN, ForceUnit.SI);
 
-    public static implicit operator Force(UnknownUnit Unit)
+    public static implicit operator Force?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Force : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Force Unit)
+    public static implicit operator UnknownUnit?(Force? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Force : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceUnit>(_unit);    
 }

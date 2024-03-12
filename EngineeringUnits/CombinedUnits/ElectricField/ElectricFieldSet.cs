@@ -10,7 +10,7 @@ public partial class ElectricField
 /// Get ElectricField from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricField FromSI(double? SI)
+public static ElectricField? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricField FromSI(double? SI)
 /// Get ElectricField from VoltPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricField FromVoltPerMeter(double? VoltPerMeter)
+public static ElectricField? FromVoltPerMeter(double? VoltPerMeter)
 {
     if (VoltPerMeter is null)
         return null;

@@ -61,6 +61,70 @@ public class RoundToNearest
     }
 
     [TestMethod]
+    public void RoundUpWithNull()
+    {
+
+        var MyList = new List<Length>
+        {
+            Length.FromMeter(1),
+            Length.FromMeter(5),
+            null,
+            Length.FromMeter(44)
+        };
+
+        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+
+        Assert.IsNull(L1);
+
+    }
+
+    [TestMethod]
+    public void RoundUpWithNull2()
+    {
+
+        var MyList = new List<Length>
+        {
+            Length.FromMeter(1),
+            Length.FromMeter(5),
+            Length.FromMeter(44)
+        };
+
+        Length L1 = MyList.RoundUpToNearest(null); //44m
+
+        Assert.IsNull(L1);
+
+    }
+
+    [TestMethod]
+    public void RoundUpWithEmptyList()
+    {
+
+        List<Length> MyList = [];
+
+        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+
+        Assert.IsNull(L1);
+
+    }
+
+    [TestMethod]
+    public void RoundUpHigherThanMax()
+    {
+
+        var MyList = new List<Length>
+        {
+            Length.FromMeter(1),
+            Length.FromMeter(5),
+            Length.FromMeter(44)
+        };
+
+        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(50)); //44m
+
+        Assert.AreEqual(Length.FromMeter(44), L1);
+
+    }
+
+    [TestMethod]
     [ExpectedException(typeof(WrongUnitException))]
     public void RoundUpWithWrongUnit()
     {

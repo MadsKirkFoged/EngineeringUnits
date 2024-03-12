@@ -10,7 +10,7 @@ public partial class LapseRate
 /// Get LapseRate from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LapseRate FromSI(double? SI)
+public static LapseRate? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static LapseRate FromSI(double? SI)
 /// Get LapseRate from DegreeCelsiusPerKilometer.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LapseRate FromDegreeCelsiusPerKilometer(double? DegreeCelsiusPerKilometer)
+public static LapseRate? FromDegreeCelsiusPerKilometer(double? DegreeCelsiusPerKilometer)
 {
     if (DegreeCelsiusPerKilometer is null)
         return null;

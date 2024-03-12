@@ -21,7 +21,7 @@ public partial record AreaUnit : UnitTypebase
 
     public static readonly AreaUnit SquareChain = new(LengthUnit.Chain);
 
-    public AreaUnit(LengthUnit Length, string NewSymbol = null, decimal correction = 1)
+    public AreaUnit(LengthUnit Length, string? NewSymbol = null, decimal correction = 1)
     {
         Unit = new UnitSystem(Length.Pow(2) * correction, NewSymbol);
     }

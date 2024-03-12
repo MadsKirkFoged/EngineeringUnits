@@ -13,7 +13,7 @@ public partial class Torque : BaseUnit
 
     public static Torque From(double value, TorqueUnit unit) => new(value, unit);
 
-    public static Torque From(double? value, TorqueUnit unit)
+    public static Torque? From(double? value, TorqueUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Torque : BaseUnit
     public static Torque Zero => new(0, TorqueUnit.SI);
     public static Torque NaN => new(double.NaN, TorqueUnit.SI);
 
-    public static implicit operator Torque(UnknownUnit Unit)
+    public static implicit operator Torque?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Torque : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Torque Unit)
+    public static implicit operator UnknownUnit?(Torque? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Torque : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);    
 }

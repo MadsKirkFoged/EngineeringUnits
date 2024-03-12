@@ -18,7 +18,11 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
     public double Value => (double)this.GetBaseValue();
 
-    public BaseUnit() { }
+    public BaseUnit()
+    {
+        Unit = new UnitSystem();
+        NEWValue = 0;
+    }
     public BaseUnit(decimal value, UnitSystem unitSystem)
     {
         Unit = unitSystem;
@@ -56,7 +60,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         NEWValue = unit.NEWValue;
     }
 
-    public static UnknownUnit operator +(BaseUnit left, BaseUnit right)
+    public static UnknownUnit? operator +(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return null;
@@ -112,37 +116,37 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return new(local);
     }
 
-    public static UnknownUnit operator +(int left, BaseUnit right)
+    public static UnknownUnit? operator +(int left, BaseUnit? right)
     {
         return new BaseUnit(left) + right;
     }
 
-    public static UnknownUnit operator +(BaseUnit left, int right)
+    public static UnknownUnit? operator +(BaseUnit? left, int right)
     {
         return left + new BaseUnit(right);
     }
 
-    public static UnknownUnit operator +(double left, BaseUnit right)
+    public static UnknownUnit? operator +(double left, BaseUnit? right)
     {
         return new BaseUnit(left) + right;
     }
 
-    public static UnknownUnit operator +(BaseUnit left, double right)
+    public static UnknownUnit? operator +(BaseUnit? left, double right)
     {
         return left + new BaseUnit(right);
     }
 
-    public static UnknownUnit operator +(decimal left, BaseUnit right)
+    public static UnknownUnit? operator +(decimal left, BaseUnit? right)
     {
         return new BaseUnit(left) + right;
     }
 
-    public static UnknownUnit operator +(BaseUnit left, decimal right)
+    public static UnknownUnit? operator +(BaseUnit? left, decimal right)
     {
         return left + new BaseUnit(right);
     }
 
-    public static UnknownUnit operator -(BaseUnit left, BaseUnit right)
+    public static UnknownUnit? operator -(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return null;
@@ -195,7 +199,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         }
     }
 
-    public static UnknownUnit operator -(BaseUnit local)
+    public static UnknownUnit? operator -(BaseUnit? local)
     {
         if (local is null)
             return null;
@@ -203,37 +207,39 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return local * -1;
     }
 
-    public static UnknownUnit operator -(int left, BaseUnit right)
+    public static UnknownUnit? operator -(int left, BaseUnit? right)
     {
         return new BaseUnit(left) - right;
     }
 
-    public static UnknownUnit operator -(BaseUnit left, int right)
+    public static UnknownUnit? operator -(BaseUnit? left, int right)
     {
         return left - new BaseUnit(right);
     }
 
-    public static UnknownUnit operator -(double left, BaseUnit right)
+    public static UnknownUnit? operator -(double left, BaseUnit? right)
     {
         return new BaseUnit(left) - right;
     }
 
-    public static UnknownUnit operator -(BaseUnit left, double right)
+    public static UnknownUnit? operator -(BaseUnit? left, double right)
     {
         return left - new BaseUnit(right);
     }
 
-    public static UnknownUnit operator -(decimal left, BaseUnit right)
+    public static UnknownUnit? operator -(decimal left, BaseUnit? right)
     {
         return new BaseUnit(left) - right;
     }
 
-    public static UnknownUnit operator -(BaseUnit left, decimal right)
+    public static UnknownUnit? operator -(BaseUnit? left, decimal right)
     {
         return left - new BaseUnit(right);
     }
 
-    public static UnknownUnit operator *(BaseUnit left, BaseUnit right)
+    //[return: NotNullIfNotNull(nameof(left))]
+    //[return: NotNullIfNotNull(nameof(right))]
+    public static UnknownUnit? operator *(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return null;
@@ -280,35 +286,39 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
             return new UnknownUnit(double.PositiveInfinity, left.Unit * right.Unit);
         }
     }
-    public static UnknownUnit operator *(BaseUnit left, int right)
+
+    public static UnknownUnit? operator *(BaseUnit? left, int right)
     {
+        if (left is null)
+            return null;
+
         if (left.IsNaN())
             return new UnknownUnit(double.NaN, left.Unit);
 
+        return (left * new BaseUnit(right))!;
+    }
+    public static UnknownUnit? operator *(int left, BaseUnit? right)
+    {
+        return new BaseUnit(left) * right;
+    }
+    public static UnknownUnit? operator *(BaseUnit? left, double right)
+    {
         return left * new BaseUnit(right);
     }
-    public static UnknownUnit operator *(int left, BaseUnit right)
+    public static UnknownUnit? operator *(double left, BaseUnit? right)
     {
         return new BaseUnit(left) * right;
     }
-    public static UnknownUnit operator *(BaseUnit left, double right)
-    {
-        return left * new BaseUnit(right);
-    }
-    public static UnknownUnit operator *(double left, BaseUnit right)
+    public static UnknownUnit? operator *(decimal left, BaseUnit? right)
     {
         return new BaseUnit(left) * right;
     }
-    public static UnknownUnit operator *(decimal left, BaseUnit right)
-    {
-        return new BaseUnit(left) * right;
-    }
-    public static UnknownUnit operator *(BaseUnit left, decimal right)
+    public static UnknownUnit? operator *(BaseUnit? left, decimal right)
     {
         return left * new BaseUnit(right);
     }
 
-    public static UnknownUnit operator /(BaseUnit left, BaseUnit right)
+    public static UnknownUnit? operator /(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return null;
@@ -359,32 +369,32 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         }
     }
 
-    public static UnknownUnit operator /(BaseUnit left, int right)
+    public static UnknownUnit? operator /(BaseUnit? left, int right)
     {
         return left / new BaseUnit(right);
     }
-    public static UnknownUnit operator /(int left, BaseUnit right)
+    public static UnknownUnit? operator /(int left, BaseUnit? right)
     {
         return new BaseUnit(left) / right;
     }
-    public static UnknownUnit operator /(BaseUnit left, double right)
+    public static UnknownUnit? operator /(BaseUnit? left, double right)
     {
         return left / new BaseUnit(right);
     }
-    public static UnknownUnit operator /(double left, BaseUnit right)
+    public static UnknownUnit? operator /(double left, BaseUnit? right)
     {
         return new BaseUnit(left) / right;
     }
-    public static UnknownUnit operator /(BaseUnit left, decimal right)
+    public static UnknownUnit? operator /(BaseUnit? left, decimal right)
     {
         return left / new BaseUnit(right);
     }
-    public static UnknownUnit operator /(decimal left, BaseUnit right)
+    public static UnknownUnit? operator /(decimal left, BaseUnit? right)
     {
         return new BaseUnit(left) / right;
     }
 
-    public static bool operator ==(BaseUnit left, BaseUnit right)
+    public static bool operator ==(BaseUnit? left, BaseUnit? right)
     {
         if (left is null && right is null)
             return true;
@@ -399,7 +409,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return left.NEWValue == right.GetValueAs(left.Unit);
     }
-    public static bool operator !=(BaseUnit left, BaseUnit right)
+    public static bool operator !=(BaseUnit? left, BaseUnit? right)
     {
         if (left is null && right is null)
             return false;
@@ -414,7 +424,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return left.NEWValue != right.GetValueAs(left.Unit);
     }
-    public static bool operator <=(BaseUnit left, BaseUnit right)
+    public static bool operator <=(BaseUnit? left, BaseUnit? right)
     {
         if (left is null && right is null)
             return true;
@@ -429,7 +439,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return left.NEWValue <= right.GetValueAs(left.Unit);
     }
-    public static bool operator >=(BaseUnit left, BaseUnit right)
+    public static bool operator >=(BaseUnit? left, BaseUnit? right)
     {
         if (left is null && right is null)
             return true;
@@ -444,7 +454,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return left.NEWValue >= right.GetValueAs(left.Unit);
     }
-    public static bool operator <(BaseUnit left, BaseUnit right)
+    public static bool operator <(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return false;
@@ -457,7 +467,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return left.NEWValue < right.GetValueAs(left.Unit);
     }
-    public static bool operator >(BaseUnit left, BaseUnit right)
+    public static bool operator >(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return false;
@@ -521,7 +531,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     /// <param name="format">The format string.</param>
     /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.CurrentUICulture" /> if null.</param>
     /// <returns>The string representation.</returns>
-    public virtual string ToString(string format, IFormatProvider provider)
+    public virtual string ToString(string? format, IFormatProvider? provider)
     {
         if (format is null)
             format = "S4";
@@ -579,7 +589,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return hashCode.ToHashCode();
     }
 
-    public static string GetStandardSymbol<T>(UnitSystem _unit)
+    public static string? GetStandardSymbol<T>(UnitSystem _unit)
         where T : UnitTypebase
     {
         //This check the list of Predefined unit and if it finds a match it returns that Symbol
@@ -588,9 +598,9 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                        x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
             .Unit.ToString();
     }
-    public virtual string GetStandardSymbol(UnitSystem _unit) => $"{_unit}";
+    public virtual string? GetStandardSymbol(UnitSystem _unit) => $"{_unit}";
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         //Check for null and compare run-time types.
         if ((obj == null) || !GetType().Equals(obj.GetType()))
@@ -598,7 +608,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         else
             return this == (BaseUnit)obj;
     }
-    public bool Equals(BaseUnit other) => this == other;
+    public bool Equals(BaseUnit? other) => this == other;
 
     public int CompareTo(object obj)
     {
@@ -606,13 +616,15 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return CompareTo(local);
     }
-    public int CompareTo(BaseUnit other)
+    public int CompareTo(BaseUnit? other)
     {
+        if (other is null)
+            throw new NullReferenceException();
 
         if (Unit != other.Unit)
             throw new WrongUnitException($"Cant do CompareTo on two differnt units!");
 
-        return (this - other).AsSI switch
+        return (this - other)!.AsSI switch
         {
             0m => 0,
             <0m => -1,

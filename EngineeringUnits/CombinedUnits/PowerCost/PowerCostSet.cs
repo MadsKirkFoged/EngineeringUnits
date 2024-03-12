@@ -10,7 +10,7 @@ public partial class PowerCost
 /// Get PowerCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerCost FromSI(double? SI)
+public static PowerCost? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static PowerCost FromSI(double? SI)
 /// Get PowerCost from USDollarPerKilowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerCost FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
+public static PowerCost? FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
 {
     if (USDollarPerKilowatt is null)
         return null;
@@ -32,7 +32,7 @@ public static PowerCost FromUSDollarPerKilowatt(double? USDollarPerKilowatt)
 /// Get PowerCost from USDollarPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerCost FromUSDollarPerWatt(double? USDollarPerWatt)
+public static PowerCost? FromUSDollarPerWatt(double? USDollarPerWatt)
 {
     if (USDollarPerWatt is null)
         return null;

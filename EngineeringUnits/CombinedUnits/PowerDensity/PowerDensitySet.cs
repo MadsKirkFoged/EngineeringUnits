@@ -10,7 +10,7 @@ public partial class PowerDensity
 /// Get PowerDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromSI(double? SI)
+public static PowerDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static PowerDensity FromSI(double? SI)
 /// Get PowerDensity from WattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromWattPerCubicMeter(double? WattPerCubicMeter)
+public static PowerDensity? FromWattPerCubicMeter(double? WattPerCubicMeter)
 {
     if (WattPerCubicMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static PowerDensity FromWattPerCubicMeter(double? WattPerCubicMeter)
 /// Get PowerDensity from WattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromWattPerLiter(double? WattPerLiter)
+public static PowerDensity? FromWattPerLiter(double? WattPerLiter)
 {
     if (WattPerLiter is null)
         return null;
@@ -43,7 +43,7 @@ public static PowerDensity FromWattPerLiter(double? WattPerLiter)
 /// Get PowerDensity from WattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromWattPerCubicInch(double? WattPerCubicInch)
+public static PowerDensity? FromWattPerCubicInch(double? WattPerCubicInch)
 {
     if (WattPerCubicInch is null)
         return null;
@@ -54,7 +54,7 @@ public static PowerDensity FromWattPerCubicInch(double? WattPerCubicInch)
 /// Get PowerDensity from WattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromWattPerCubicFoot(double? WattPerCubicFoot)
+public static PowerDensity? FromWattPerCubicFoot(double? WattPerCubicFoot)
 {
     if (WattPerCubicFoot is null)
         return null;
@@ -65,7 +65,7 @@ public static PowerDensity FromWattPerCubicFoot(double? WattPerCubicFoot)
 /// Get PowerDensity from TerawattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromTerawattPerLiter(double? TerawattPerLiter)
+public static PowerDensity? FromTerawattPerLiter(double? TerawattPerLiter)
 {
     if (TerawattPerLiter is null)
         return null;
@@ -76,7 +76,7 @@ public static PowerDensity FromTerawattPerLiter(double? TerawattPerLiter)
 /// Get PowerDensity from TerawattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromTerawattPerCubicMeter(double? TerawattPerCubicMeter)
+public static PowerDensity? FromTerawattPerCubicMeter(double? TerawattPerCubicMeter)
 {
     if (TerawattPerCubicMeter is null)
         return null;
@@ -87,7 +87,7 @@ public static PowerDensity FromTerawattPerCubicMeter(double? TerawattPerCubicMet
 /// Get PowerDensity from TerawattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromTerawattPerCubicInch(double? TerawattPerCubicInch)
+public static PowerDensity? FromTerawattPerCubicInch(double? TerawattPerCubicInch)
 {
     if (TerawattPerCubicInch is null)
         return null;
@@ -98,7 +98,7 @@ public static PowerDensity FromTerawattPerCubicInch(double? TerawattPerCubicInch
 /// Get PowerDensity from TerawattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromTerawattPerCubicFoot(double? TerawattPerCubicFoot)
+public static PowerDensity? FromTerawattPerCubicFoot(double? TerawattPerCubicFoot)
 {
     if (TerawattPerCubicFoot is null)
         return null;
@@ -109,7 +109,7 @@ public static PowerDensity FromTerawattPerCubicFoot(double? TerawattPerCubicFoot
 /// Get PowerDensity from PicowattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromPicowattPerLiter(double? PicowattPerLiter)
+public static PowerDensity? FromPicowattPerLiter(double? PicowattPerLiter)
 {
     if (PicowattPerLiter is null)
         return null;
@@ -120,7 +120,7 @@ public static PowerDensity FromPicowattPerLiter(double? PicowattPerLiter)
 /// Get PowerDensity from PicowattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromPicowattPerCubicMeter(double? PicowattPerCubicMeter)
+public static PowerDensity? FromPicowattPerCubicMeter(double? PicowattPerCubicMeter)
 {
     if (PicowattPerCubicMeter is null)
         return null;
@@ -131,7 +131,7 @@ public static PowerDensity FromPicowattPerCubicMeter(double? PicowattPerCubicMet
 /// Get PowerDensity from PicowattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromPicowattPerCubicInch(double? PicowattPerCubicInch)
+public static PowerDensity? FromPicowattPerCubicInch(double? PicowattPerCubicInch)
 {
     if (PicowattPerCubicInch is null)
         return null;
@@ -142,7 +142,7 @@ public static PowerDensity FromPicowattPerCubicInch(double? PicowattPerCubicInch
 /// Get PowerDensity from PicowattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromPicowattPerCubicFoot(double? PicowattPerCubicFoot)
+public static PowerDensity? FromPicowattPerCubicFoot(double? PicowattPerCubicFoot)
 {
     if (PicowattPerCubicFoot is null)
         return null;
@@ -153,7 +153,7 @@ public static PowerDensity FromPicowattPerCubicFoot(double? PicowattPerCubicFoot
 /// Get PowerDensity from NanowattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromNanowattPerLiter(double? NanowattPerLiter)
+public static PowerDensity? FromNanowattPerLiter(double? NanowattPerLiter)
 {
     if (NanowattPerLiter is null)
         return null;
@@ -164,7 +164,7 @@ public static PowerDensity FromNanowattPerLiter(double? NanowattPerLiter)
 /// Get PowerDensity from NanowattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromNanowattPerCubicMeter(double? NanowattPerCubicMeter)
+public static PowerDensity? FromNanowattPerCubicMeter(double? NanowattPerCubicMeter)
 {
     if (NanowattPerCubicMeter is null)
         return null;
@@ -175,7 +175,7 @@ public static PowerDensity FromNanowattPerCubicMeter(double? NanowattPerCubicMet
 /// Get PowerDensity from NanowattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromNanowattPerCubicInch(double? NanowattPerCubicInch)
+public static PowerDensity? FromNanowattPerCubicInch(double? NanowattPerCubicInch)
 {
     if (NanowattPerCubicInch is null)
         return null;
@@ -186,7 +186,7 @@ public static PowerDensity FromNanowattPerCubicInch(double? NanowattPerCubicInch
 /// Get PowerDensity from NanowattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromNanowattPerCubicFoot(double? NanowattPerCubicFoot)
+public static PowerDensity? FromNanowattPerCubicFoot(double? NanowattPerCubicFoot)
 {
     if (NanowattPerCubicFoot is null)
         return null;
@@ -197,7 +197,7 @@ public static PowerDensity FromNanowattPerCubicFoot(double? NanowattPerCubicFoot
 /// Get PowerDensity from MilliwattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMilliwattPerLiter(double? MilliwattPerLiter)
+public static PowerDensity? FromMilliwattPerLiter(double? MilliwattPerLiter)
 {
     if (MilliwattPerLiter is null)
         return null;
@@ -208,7 +208,7 @@ public static PowerDensity FromMilliwattPerLiter(double? MilliwattPerLiter)
 /// Get PowerDensity from MilliwattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMilliwattPerCubicMeter(double? MilliwattPerCubicMeter)
+public static PowerDensity? FromMilliwattPerCubicMeter(double? MilliwattPerCubicMeter)
 {
     if (MilliwattPerCubicMeter is null)
         return null;
@@ -219,7 +219,7 @@ public static PowerDensity FromMilliwattPerCubicMeter(double? MilliwattPerCubicM
 /// Get PowerDensity from MilliwattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMilliwattPerCubicInch(double? MilliwattPerCubicInch)
+public static PowerDensity? FromMilliwattPerCubicInch(double? MilliwattPerCubicInch)
 {
     if (MilliwattPerCubicInch is null)
         return null;
@@ -230,7 +230,7 @@ public static PowerDensity FromMilliwattPerCubicInch(double? MilliwattPerCubicIn
 /// Get PowerDensity from MilliwattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMilliwattPerCubicFoot(double? MilliwattPerCubicFoot)
+public static PowerDensity? FromMilliwattPerCubicFoot(double? MilliwattPerCubicFoot)
 {
     if (MilliwattPerCubicFoot is null)
         return null;
@@ -241,7 +241,7 @@ public static PowerDensity FromMilliwattPerCubicFoot(double? MilliwattPerCubicFo
 /// Get PowerDensity from MicrowattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMicrowattPerLiter(double? MicrowattPerLiter)
+public static PowerDensity? FromMicrowattPerLiter(double? MicrowattPerLiter)
 {
     if (MicrowattPerLiter is null)
         return null;
@@ -252,7 +252,7 @@ public static PowerDensity FromMicrowattPerLiter(double? MicrowattPerLiter)
 /// Get PowerDensity from MicrowattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMicrowattPerCubicMeter(double? MicrowattPerCubicMeter)
+public static PowerDensity? FromMicrowattPerCubicMeter(double? MicrowattPerCubicMeter)
 {
     if (MicrowattPerCubicMeter is null)
         return null;
@@ -263,7 +263,7 @@ public static PowerDensity FromMicrowattPerCubicMeter(double? MicrowattPerCubicM
 /// Get PowerDensity from MicrowattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMicrowattPerCubicInch(double? MicrowattPerCubicInch)
+public static PowerDensity? FromMicrowattPerCubicInch(double? MicrowattPerCubicInch)
 {
     if (MicrowattPerCubicInch is null)
         return null;
@@ -274,7 +274,7 @@ public static PowerDensity FromMicrowattPerCubicInch(double? MicrowattPerCubicIn
 /// Get PowerDensity from MicrowattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMicrowattPerCubicFoot(double? MicrowattPerCubicFoot)
+public static PowerDensity? FromMicrowattPerCubicFoot(double? MicrowattPerCubicFoot)
 {
     if (MicrowattPerCubicFoot is null)
         return null;
@@ -285,7 +285,7 @@ public static PowerDensity FromMicrowattPerCubicFoot(double? MicrowattPerCubicFo
 /// Get PowerDensity from MegawattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMegawattPerLiter(double? MegawattPerLiter)
+public static PowerDensity? FromMegawattPerLiter(double? MegawattPerLiter)
 {
     if (MegawattPerLiter is null)
         return null;
@@ -296,7 +296,7 @@ public static PowerDensity FromMegawattPerLiter(double? MegawattPerLiter)
 /// Get PowerDensity from MegawattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMegawattPerCubicMeter(double? MegawattPerCubicMeter)
+public static PowerDensity? FromMegawattPerCubicMeter(double? MegawattPerCubicMeter)
 {
     if (MegawattPerCubicMeter is null)
         return null;
@@ -307,7 +307,7 @@ public static PowerDensity FromMegawattPerCubicMeter(double? MegawattPerCubicMet
 /// Get PowerDensity from MegawattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMegawattPerCubicInch(double? MegawattPerCubicInch)
+public static PowerDensity? FromMegawattPerCubicInch(double? MegawattPerCubicInch)
 {
     if (MegawattPerCubicInch is null)
         return null;
@@ -318,7 +318,7 @@ public static PowerDensity FromMegawattPerCubicInch(double? MegawattPerCubicInch
 /// Get PowerDensity from MegawattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromMegawattPerCubicFoot(double? MegawattPerCubicFoot)
+public static PowerDensity? FromMegawattPerCubicFoot(double? MegawattPerCubicFoot)
 {
     if (MegawattPerCubicFoot is null)
         return null;
@@ -329,7 +329,7 @@ public static PowerDensity FromMegawattPerCubicFoot(double? MegawattPerCubicFoot
 /// Get PowerDensity from KilowattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromKilowattPerLiter(double? KilowattPerLiter)
+public static PowerDensity? FromKilowattPerLiter(double? KilowattPerLiter)
 {
     if (KilowattPerLiter is null)
         return null;
@@ -340,7 +340,7 @@ public static PowerDensity FromKilowattPerLiter(double? KilowattPerLiter)
 /// Get PowerDensity from KilowattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromKilowattPerCubicMeter(double? KilowattPerCubicMeter)
+public static PowerDensity? FromKilowattPerCubicMeter(double? KilowattPerCubicMeter)
 {
     if (KilowattPerCubicMeter is null)
         return null;
@@ -351,7 +351,7 @@ public static PowerDensity FromKilowattPerCubicMeter(double? KilowattPerCubicMet
 /// Get PowerDensity from KilowattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromKilowattPerCubicInch(double? KilowattPerCubicInch)
+public static PowerDensity? FromKilowattPerCubicInch(double? KilowattPerCubicInch)
 {
     if (KilowattPerCubicInch is null)
         return null;
@@ -362,7 +362,7 @@ public static PowerDensity FromKilowattPerCubicInch(double? KilowattPerCubicInch
 /// Get PowerDensity from KilowattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromKilowattPerCubicFoot(double? KilowattPerCubicFoot)
+public static PowerDensity? FromKilowattPerCubicFoot(double? KilowattPerCubicFoot)
 {
     if (KilowattPerCubicFoot is null)
         return null;
@@ -373,7 +373,7 @@ public static PowerDensity FromKilowattPerCubicFoot(double? KilowattPerCubicFoot
 /// Get PowerDensity from GigawattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromGigawattPerLiter(double? GigawattPerLiter)
+public static PowerDensity? FromGigawattPerLiter(double? GigawattPerLiter)
 {
     if (GigawattPerLiter is null)
         return null;
@@ -384,7 +384,7 @@ public static PowerDensity FromGigawattPerLiter(double? GigawattPerLiter)
 /// Get PowerDensity from GigawattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromGigawattPerCubicMeter(double? GigawattPerCubicMeter)
+public static PowerDensity? FromGigawattPerCubicMeter(double? GigawattPerCubicMeter)
 {
     if (GigawattPerCubicMeter is null)
         return null;
@@ -395,7 +395,7 @@ public static PowerDensity FromGigawattPerCubicMeter(double? GigawattPerCubicMet
 /// Get PowerDensity from GigawattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromGigawattPerCubicInch(double? GigawattPerCubicInch)
+public static PowerDensity? FromGigawattPerCubicInch(double? GigawattPerCubicInch)
 {
     if (GigawattPerCubicInch is null)
         return null;
@@ -406,7 +406,7 @@ public static PowerDensity FromGigawattPerCubicInch(double? GigawattPerCubicInch
 /// Get PowerDensity from GigawattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromGigawattPerCubicFoot(double? GigawattPerCubicFoot)
+public static PowerDensity? FromGigawattPerCubicFoot(double? GigawattPerCubicFoot)
 {
     if (GigawattPerCubicFoot is null)
         return null;
@@ -417,7 +417,7 @@ public static PowerDensity FromGigawattPerCubicFoot(double? GigawattPerCubicFoot
 /// Get PowerDensity from DeciwattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDeciwattPerLiter(double? DeciwattPerLiter)
+public static PowerDensity? FromDeciwattPerLiter(double? DeciwattPerLiter)
 {
     if (DeciwattPerLiter is null)
         return null;
@@ -428,7 +428,7 @@ public static PowerDensity FromDeciwattPerLiter(double? DeciwattPerLiter)
 /// Get PowerDensity from DeciwattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDeciwattPerCubicMeter(double? DeciwattPerCubicMeter)
+public static PowerDensity? FromDeciwattPerCubicMeter(double? DeciwattPerCubicMeter)
 {
     if (DeciwattPerCubicMeter is null)
         return null;
@@ -439,7 +439,7 @@ public static PowerDensity FromDeciwattPerCubicMeter(double? DeciwattPerCubicMet
 /// Get PowerDensity from DeciwattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDeciwattPerCubicInch(double? DeciwattPerCubicInch)
+public static PowerDensity? FromDeciwattPerCubicInch(double? DeciwattPerCubicInch)
 {
     if (DeciwattPerCubicInch is null)
         return null;
@@ -450,7 +450,7 @@ public static PowerDensity FromDeciwattPerCubicInch(double? DeciwattPerCubicInch
 /// Get PowerDensity from DeciwattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDeciwattPerCubicFoot(double? DeciwattPerCubicFoot)
+public static PowerDensity? FromDeciwattPerCubicFoot(double? DeciwattPerCubicFoot)
 {
     if (DeciwattPerCubicFoot is null)
         return null;
@@ -461,7 +461,7 @@ public static PowerDensity FromDeciwattPerCubicFoot(double? DeciwattPerCubicFoot
 /// Get PowerDensity from DecawattPerLiter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDecawattPerLiter(double? DecawattPerLiter)
+public static PowerDensity? FromDecawattPerLiter(double? DecawattPerLiter)
 {
     if (DecawattPerLiter is null)
         return null;
@@ -472,7 +472,7 @@ public static PowerDensity FromDecawattPerLiter(double? DecawattPerLiter)
 /// Get PowerDensity from DecawattPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDecawattPerCubicMeter(double? DecawattPerCubicMeter)
+public static PowerDensity? FromDecawattPerCubicMeter(double? DecawattPerCubicMeter)
 {
     if (DecawattPerCubicMeter is null)
         return null;
@@ -483,7 +483,7 @@ public static PowerDensity FromDecawattPerCubicMeter(double? DecawattPerCubicMet
 /// Get PowerDensity from DecawattPerCubicInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDecawattPerCubicInch(double? DecawattPerCubicInch)
+public static PowerDensity? FromDecawattPerCubicInch(double? DecawattPerCubicInch)
 {
     if (DecawattPerCubicInch is null)
         return null;
@@ -494,7 +494,7 @@ public static PowerDensity FromDecawattPerCubicInch(double? DecawattPerCubicInch
 /// Get PowerDensity from DecawattPerCubicFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static PowerDensity FromDecawattPerCubicFoot(double? DecawattPerCubicFoot)
+public static PowerDensity? FromDecawattPerCubicFoot(double? DecawattPerCubicFoot)
 {
     if (DecawattPerCubicFoot is null)
         return null;

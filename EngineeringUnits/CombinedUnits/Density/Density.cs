@@ -13,7 +13,7 @@ public partial class Density : BaseUnit
 
     public static Density From(double value, DensityUnit unit) => new(value, unit);
 
-    public static Density From(double? value, DensityUnit unit)
+    public static Density? From(double? value, DensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Density : BaseUnit
     public static Density Zero => new(0, DensityUnit.SI);
     public static Density NaN => new(double.NaN, DensityUnit.SI);
 
-    public static implicit operator Density(UnknownUnit Unit)
+    public static implicit operator Density?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Density : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Density Unit)
+    public static implicit operator UnknownUnit?(Density? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Density : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DensityUnit>(_unit);    
 }

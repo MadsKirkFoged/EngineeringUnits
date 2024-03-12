@@ -13,7 +13,7 @@ public partial class TemperatureChangeRate : BaseUnit
 
     public static TemperatureChangeRate From(double value, TemperatureChangeRateUnit unit) => new(value, unit);
 
-    public static TemperatureChangeRate From(double? value, TemperatureChangeRateUnit unit)
+    public static TemperatureChangeRate? From(double? value, TemperatureChangeRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class TemperatureChangeRate : BaseUnit
     public static TemperatureChangeRate Zero => new(0, TemperatureChangeRateUnit.SI);
     public static TemperatureChangeRate NaN => new(double.NaN, TemperatureChangeRateUnit.SI);
 
-    public static implicit operator TemperatureChangeRate(UnknownUnit Unit)
+    public static implicit operator TemperatureChangeRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class TemperatureChangeRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(TemperatureChangeRate Unit)
+    public static implicit operator UnknownUnit?(TemperatureChangeRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class TemperatureChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureChangeRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureChangeRateUnit>(_unit);    
 }

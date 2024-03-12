@@ -10,7 +10,7 @@ public partial class Force
 /// Get Force from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromSI(double? SI)
+public static Force? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Force FromSI(double? SI)
 /// Get Force from Newton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromNewton(double? Newton)
+public static Force? FromNewton(double? Newton)
 {
     if (Newton is null)
         return null;
@@ -32,7 +32,7 @@ public static Force FromNewton(double? Newton)
 /// Get Force from Micronewton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromMicronewton(double? Micronewton)
+public static Force? FromMicronewton(double? Micronewton)
 {
     if (Micronewton is null)
         return null;
@@ -43,7 +43,7 @@ public static Force FromMicronewton(double? Micronewton)
 /// Get Force from Millinewton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromMillinewton(double? Millinewton)
+public static Force? FromMillinewton(double? Millinewton)
 {
     if (Millinewton is null)
         return null;
@@ -54,7 +54,7 @@ public static Force FromMillinewton(double? Millinewton)
 /// Get Force from Decanewton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromDecanewton(double? Decanewton)
+public static Force? FromDecanewton(double? Decanewton)
 {
     if (Decanewton is null)
         return null;
@@ -65,7 +65,7 @@ public static Force FromDecanewton(double? Decanewton)
 /// Get Force from Kilonewton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromKilonewton(double? Kilonewton)
+public static Force? FromKilonewton(double? Kilonewton)
 {
     if (Kilonewton is null)
         return null;
@@ -76,7 +76,7 @@ public static Force FromKilonewton(double? Kilonewton)
 /// Get Force from Meganewton.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromMeganewton(double? Meganewton)
+public static Force? FromMeganewton(double? Meganewton)
 {
     if (Meganewton is null)
         return null;
@@ -87,7 +87,7 @@ public static Force FromMeganewton(double? Meganewton)
 /// Get Force from Dyn.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromDyn(double? Dyn)
+public static Force? FromDyn(double? Dyn)
 {
     if (Dyn is null)
         return null;
@@ -98,7 +98,7 @@ public static Force FromDyn(double? Dyn)
 /// Get Force from TonneForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromTonneForce(double? TonneForce)
+public static Force? FromTonneForce(double? TonneForce)
 {
     if (TonneForce is null)
         return null;
@@ -109,7 +109,7 @@ public static Force FromTonneForce(double? TonneForce)
 /// Get Force from ShortTonForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromShortTonForce(double? ShortTonForce)
+public static Force? FromShortTonForce(double? ShortTonForce)
 {
     if (ShortTonForce is null)
         return null;
@@ -120,7 +120,7 @@ public static Force FromShortTonForce(double? ShortTonForce)
 /// Get Force from PoundForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromPoundForce(double? PoundForce)
+public static Force? FromPoundForce(double? PoundForce)
 {
     if (PoundForce is null)
         return null;
@@ -131,7 +131,7 @@ public static Force FromPoundForce(double? PoundForce)
 /// Get Force from KilogramForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromKilogramForce(double? KilogramForce)
+public static Force? FromKilogramForce(double? KilogramForce)
 {
     if (KilogramForce is null)
         return null;
@@ -142,7 +142,7 @@ public static Force FromKilogramForce(double? KilogramForce)
 /// Get Force from OunceForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromOunceForce(double? OunceForce)
+public static Force? FromOunceForce(double? OunceForce)
 {
     if (OunceForce is null)
         return null;
@@ -153,7 +153,7 @@ public static Force FromOunceForce(double? OunceForce)
 /// Get Force from KiloPond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromKiloPond(double? KiloPond)
+public static Force? FromKiloPond(double? KiloPond)
 {
     if (KiloPond is null)
         return null;
@@ -164,7 +164,7 @@ public static Force FromKiloPond(double? KiloPond)
 /// Get Force from KilopoundForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromKilopoundForce(double? KilopoundForce)
+public static Force? FromKilopoundForce(double? KilopoundForce)
 {
     if (KilopoundForce is null)
         return null;
@@ -175,7 +175,7 @@ public static Force FromKilopoundForce(double? KilopoundForce)
 /// Get Force from MegapoundForce.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromMegapoundForce(double? MegapoundForce)
+public static Force? FromMegapoundForce(double? MegapoundForce)
 {
     if (MegapoundForce is null)
         return null;
@@ -186,7 +186,7 @@ public static Force FromMegapoundForce(double? MegapoundForce)
 /// Get Force from Poundal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Force FromPoundal(double? Poundal)
+public static Force? FromPoundal(double? Poundal)
 {
     if (Poundal is null)
         return null;

@@ -10,7 +10,7 @@ public partial class ElectricPotential
 /// Get ElectricPotential from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromSI(double? SI)
+public static ElectricPotential? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricPotential FromSI(double? SI)
 /// Get ElectricPotential from Volt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromVolt(double? Volt)
+public static ElectricPotential? FromVolt(double? Volt)
 {
     if (Volt is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricPotential FromVolt(double? Volt)
 /// Get ElectricPotential from Kilovolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromKilovolt(double? Kilovolt)
+public static ElectricPotential? FromKilovolt(double? Kilovolt)
 {
     if (Kilovolt is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricPotential FromKilovolt(double? Kilovolt)
 /// Get ElectricPotential from Megavolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromMegavolt(double? Megavolt)
+public static ElectricPotential? FromMegavolt(double? Megavolt)
 {
     if (Megavolt is null)
         return null;
@@ -54,7 +54,7 @@ public static ElectricPotential FromMegavolt(double? Megavolt)
 /// Get ElectricPotential from Gigavolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromGigavolt(double? Gigavolt)
+public static ElectricPotential? FromGigavolt(double? Gigavolt)
 {
     if (Gigavolt is null)
         return null;
@@ -65,7 +65,7 @@ public static ElectricPotential FromGigavolt(double? Gigavolt)
 /// Get ElectricPotential from Microvolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromMicrovolt(double? Microvolt)
+public static ElectricPotential? FromMicrovolt(double? Microvolt)
 {
     if (Microvolt is null)
         return null;
@@ -76,7 +76,7 @@ public static ElectricPotential FromMicrovolt(double? Microvolt)
 /// Get ElectricPotential from Millivolt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricPotential FromMillivolt(double? Millivolt)
+public static ElectricPotential? FromMillivolt(double? Millivolt)
 {
     if (Millivolt is null)
         return null;

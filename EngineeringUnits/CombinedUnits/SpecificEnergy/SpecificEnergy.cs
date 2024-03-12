@@ -13,7 +13,7 @@ public partial class SpecificEnergy : BaseUnit
 
     public static SpecificEnergy From(double value, SpecificEnergyUnit unit) => new(value, unit);
 
-    public static SpecificEnergy From(double? value, SpecificEnergyUnit unit)
+    public static SpecificEnergy? From(double? value, SpecificEnergyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class SpecificEnergy : BaseUnit
     public static SpecificEnergy Zero => new(0, SpecificEnergyUnit.SI);
     public static SpecificEnergy NaN => new(double.NaN, SpecificEnergyUnit.SI);
 
-    public static implicit operator SpecificEnergy(UnknownUnit Unit)
+    public static implicit operator SpecificEnergy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class SpecificEnergy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(SpecificEnergy Unit)
+    public static implicit operator UnknownUnit?(SpecificEnergy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class SpecificEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEnergyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEnergyUnit>(_unit);    
 }

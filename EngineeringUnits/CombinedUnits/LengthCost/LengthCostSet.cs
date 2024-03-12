@@ -10,7 +10,7 @@ public partial class LengthCost
 /// Get LengthCost from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LengthCost FromSI(double? SI)
+public static LengthCost? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static LengthCost FromSI(double? SI)
 /// Get LengthCost from DollarPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LengthCost FromDollarPerMeter(double? DollarPerMeter)
+public static LengthCost? FromDollarPerMeter(double? DollarPerMeter)
 {
     if (DollarPerMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static LengthCost FromDollarPerMeter(double? DollarPerMeter)
 /// Get LengthCost from EuroPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LengthCost FromEuroPerMeter(double? EuroPerMeter)
+public static LengthCost? FromEuroPerMeter(double? EuroPerMeter)
 {
     if (EuroPerMeter is null)
         return null;

@@ -10,7 +10,7 @@ public partial class MassFlux
 /// Get MassFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromSI(double? SI)
+public static MassFlux? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static MassFlux FromSI(double? SI)
 /// Get MassFlux from KilogramPerSecondPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerSecondPerSquareMeter(double? KilogramPerSecondPerSquareMeter)
+public static MassFlux? FromKilogramPerSecondPerSquareMeter(double? KilogramPerSecondPerSquareMeter)
 {
     if (KilogramPerSecondPerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static MassFlux FromKilogramPerSecondPerSquareMeter(double? KilogramPerSe
 /// Get MassFlux from GramPerHourPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerHourPerSquareCentimeter(double? GramPerHourPerSquareCentimeter)
+public static MassFlux? FromGramPerHourPerSquareCentimeter(double? GramPerHourPerSquareCentimeter)
 {
     if (GramPerHourPerSquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static MassFlux FromGramPerHourPerSquareCentimeter(double? GramPerHourPer
 /// Get MassFlux from GramPerHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerHourPerSquareMeter(double? GramPerHourPerSquareMeter)
+public static MassFlux? FromGramPerHourPerSquareMeter(double? GramPerHourPerSquareMeter)
 {
     if (GramPerHourPerSquareMeter is null)
         return null;
@@ -54,7 +54,7 @@ public static MassFlux FromGramPerHourPerSquareMeter(double? GramPerHourPerSquar
 /// Get MassFlux from GramPerHourPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerHourPerSquareMillimeter(double? GramPerHourPerSquareMillimeter)
+public static MassFlux? FromGramPerHourPerSquareMillimeter(double? GramPerHourPerSquareMillimeter)
 {
     if (GramPerHourPerSquareMillimeter is null)
         return null;
@@ -65,7 +65,7 @@ public static MassFlux FromGramPerHourPerSquareMillimeter(double? GramPerHourPer
 /// Get MassFlux from GramPerSecondPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerSecondPerSquareCentimeter(double? GramPerSecondPerSquareCentimeter)
+public static MassFlux? FromGramPerSecondPerSquareCentimeter(double? GramPerSecondPerSquareCentimeter)
 {
     if (GramPerSecondPerSquareCentimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static MassFlux FromGramPerSecondPerSquareCentimeter(double? GramPerSecon
 /// Get MassFlux from GramPerSecondPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerSecondPerSquareMeter(double? GramPerSecondPerSquareMeter)
+public static MassFlux? FromGramPerSecondPerSquareMeter(double? GramPerSecondPerSquareMeter)
 {
     if (GramPerSecondPerSquareMeter is null)
         return null;
@@ -87,7 +87,7 @@ public static MassFlux FromGramPerSecondPerSquareMeter(double? GramPerSecondPerS
 /// Get MassFlux from GramPerSecondPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromGramPerSecondPerSquareMillimeter(double? GramPerSecondPerSquareMillimeter)
+public static MassFlux? FromGramPerSecondPerSquareMillimeter(double? GramPerSecondPerSquareMillimeter)
 {
     if (GramPerSecondPerSquareMillimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static MassFlux FromGramPerSecondPerSquareMillimeter(double? GramPerSecon
 /// Get MassFlux from KilogramPerHourPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerHourPerSquareCentimeter(double? KilogramPerHourPerSquareCentimeter)
+public static MassFlux? FromKilogramPerHourPerSquareCentimeter(double? KilogramPerHourPerSquareCentimeter)
 {
     if (KilogramPerHourPerSquareCentimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static MassFlux FromKilogramPerHourPerSquareCentimeter(double? KilogramPe
 /// Get MassFlux from KilogramPerHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerHourPerSquareMeter(double? KilogramPerHourPerSquareMeter)
+public static MassFlux? FromKilogramPerHourPerSquareMeter(double? KilogramPerHourPerSquareMeter)
 {
     if (KilogramPerHourPerSquareMeter is null)
         return null;
@@ -120,7 +120,7 @@ public static MassFlux FromKilogramPerHourPerSquareMeter(double? KilogramPerHour
 /// Get MassFlux from KilogramPerHourPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerHourPerSquareMillimeter(double? KilogramPerHourPerSquareMillimeter)
+public static MassFlux? FromKilogramPerHourPerSquareMillimeter(double? KilogramPerHourPerSquareMillimeter)
 {
     if (KilogramPerHourPerSquareMillimeter is null)
         return null;
@@ -131,7 +131,7 @@ public static MassFlux FromKilogramPerHourPerSquareMillimeter(double? KilogramPe
 /// Get MassFlux from KilogramPerSecondPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerSecondPerSquareCentimeter(double? KilogramPerSecondPerSquareCentimeter)
+public static MassFlux? FromKilogramPerSecondPerSquareCentimeter(double? KilogramPerSecondPerSquareCentimeter)
 {
     if (KilogramPerSecondPerSquareCentimeter is null)
         return null;
@@ -142,7 +142,7 @@ public static MassFlux FromKilogramPerSecondPerSquareCentimeter(double? Kilogram
 /// Get MassFlux from KilogramPerSecondPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassFlux FromKilogramPerSecondPerSquareMillimeter(double? KilogramPerSecondPerSquareMillimeter)
+public static MassFlux? FromKilogramPerSecondPerSquareMillimeter(double? KilogramPerSecondPerSquareMillimeter)
 {
     if (KilogramPerSecondPerSquareMillimeter is null)
         return null;

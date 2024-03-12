@@ -13,7 +13,7 @@ public partial class VolumeCost : BaseUnit
 
     public static VolumeCost From(double value, VolumeCostUnit unit) => new(value, unit);
 
-    public static VolumeCost From(double? value, VolumeCostUnit unit)
+    public static VolumeCost? From(double? value, VolumeCostUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class VolumeCost : BaseUnit
     public static VolumeCost Zero => new(0, VolumeCostUnit.SI);
     public static VolumeCost NaN => new(double.NaN, VolumeCostUnit.SI);
 
-    public static implicit operator VolumeCost(UnknownUnit Unit)
+    public static implicit operator VolumeCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class VolumeCost : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(VolumeCost Unit)
+    public static implicit operator UnknownUnit?(VolumeCost? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class VolumeCost : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeCostUnit>(_unit);    
 }

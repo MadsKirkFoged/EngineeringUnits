@@ -13,7 +13,7 @@ public partial class LuminousFlux : BaseUnit
 
     public static LuminousFlux From(double value, LuminousFluxUnit unit) => new(value, unit);
 
-    public static LuminousFlux From(double? value, LuminousFluxUnit unit)
+    public static LuminousFlux? From(double? value, LuminousFluxUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class LuminousFlux : BaseUnit
     public static LuminousFlux Zero => new(0, LuminousFluxUnit.SI);
     public static LuminousFlux NaN => new(double.NaN, LuminousFluxUnit.SI);
 
-    public static implicit operator LuminousFlux(UnknownUnit Unit)
+    public static implicit operator LuminousFlux?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class LuminousFlux : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(LuminousFlux Unit)
+    public static implicit operator UnknownUnit?(LuminousFlux? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class LuminousFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousFluxUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousFluxUnit>(_unit);    
 }

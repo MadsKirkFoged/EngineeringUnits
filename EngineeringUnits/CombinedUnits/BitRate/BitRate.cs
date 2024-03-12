@@ -13,7 +13,7 @@ public partial class BitRate : BaseUnit
 
     public static BitRate From(double value, BitRateUnit unit) => new(value, unit);
 
-    public static BitRate From(double? value, BitRateUnit unit)
+    public static BitRate? From(double? value, BitRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class BitRate : BaseUnit
     public static BitRate Zero => new(0, BitRateUnit.SI);
     public static BitRate NaN => new(double.NaN, BitRateUnit.SI);
 
-    public static implicit operator BitRate(UnknownUnit Unit)
+    public static implicit operator BitRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class BitRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(BitRate Unit)
+    public static implicit operator UnknownUnit?(BitRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class BitRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BitRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BitRateUnit>(_unit);    
 }

@@ -13,7 +13,7 @@ public partial class MolarEntropy : BaseUnit
 
     public static MolarEntropy From(double value, MolarEntropyUnit unit) => new(value, unit);
 
-    public static MolarEntropy From(double? value, MolarEntropyUnit unit)
+    public static MolarEntropy? From(double? value, MolarEntropyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MolarEntropy : BaseUnit
     public static MolarEntropy Zero => new(0, MolarEntropyUnit.SI);
     public static MolarEntropy NaN => new(double.NaN, MolarEntropyUnit.SI);
 
-    public static implicit operator MolarEntropy(UnknownUnit Unit)
+    public static implicit operator MolarEntropy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MolarEntropy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MolarEntropy Unit)
+    public static implicit operator UnknownUnit?(MolarEntropy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MolarEntropy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEntropyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEntropyUnit>(_unit);    
 }

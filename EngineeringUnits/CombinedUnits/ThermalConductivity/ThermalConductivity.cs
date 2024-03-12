@@ -13,7 +13,7 @@ public partial class ThermalConductivity : BaseUnit
 
     public static ThermalConductivity From(double value, ThermalConductivityUnit unit) => new(value, unit);
 
-    public static ThermalConductivity From(double? value, ThermalConductivityUnit unit)
+    public static ThermalConductivity? From(double? value, ThermalConductivityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ThermalConductivity : BaseUnit
     public static ThermalConductivity Zero => new(0, ThermalConductivityUnit.SI);
     public static ThermalConductivity NaN => new(double.NaN, ThermalConductivityUnit.SI);
 
-    public static implicit operator ThermalConductivity(UnknownUnit Unit)
+    public static implicit operator ThermalConductivity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ThermalConductivity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ThermalConductivity Unit)
+    public static implicit operator UnknownUnit?(ThermalConductivity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ThermalConductivity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ThermalConductivityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ThermalConductivityUnit>(_unit);    
 }

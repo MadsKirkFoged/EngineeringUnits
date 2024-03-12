@@ -10,7 +10,7 @@ public partial class Pressure
 /// Get Pressure from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromSI(double? SI)
+public static Pressure? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Pressure FromSI(double? SI)
 /// Get Pressure from Pascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromPascal(double? Pascal)
+public static Pressure? FromPascal(double? Pascal)
 {
     if (Pascal is null)
         return null;
@@ -32,7 +32,7 @@ public static Pressure FromPascal(double? Pascal)
 /// Get Pressure from Micropascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMicropascal(double? Micropascal)
+public static Pressure? FromMicropascal(double? Micropascal)
 {
     if (Micropascal is null)
         return null;
@@ -43,7 +43,7 @@ public static Pressure FromMicropascal(double? Micropascal)
 /// Get Pressure from Millipascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMillipascal(double? Millipascal)
+public static Pressure? FromMillipascal(double? Millipascal)
 {
     if (Millipascal is null)
         return null;
@@ -54,7 +54,7 @@ public static Pressure FromMillipascal(double? Millipascal)
 /// Get Pressure from Decapascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromDecapascal(double? Decapascal)
+public static Pressure? FromDecapascal(double? Decapascal)
 {
     if (Decapascal is null)
         return null;
@@ -65,7 +65,7 @@ public static Pressure FromDecapascal(double? Decapascal)
 /// Get Pressure from Hectopascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromHectopascal(double? Hectopascal)
+public static Pressure? FromHectopascal(double? Hectopascal)
 {
     if (Hectopascal is null)
         return null;
@@ -76,7 +76,7 @@ public static Pressure FromHectopascal(double? Hectopascal)
 /// Get Pressure from Kilopascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilopascal(double? Kilopascal)
+public static Pressure? FromKilopascal(double? Kilopascal)
 {
     if (Kilopascal is null)
         return null;
@@ -87,7 +87,7 @@ public static Pressure FromKilopascal(double? Kilopascal)
 /// Get Pressure from Megapascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMegapascal(double? Megapascal)
+public static Pressure? FromMegapascal(double? Megapascal)
 {
     if (Megapascal is null)
         return null;
@@ -98,7 +98,7 @@ public static Pressure FromMegapascal(double? Megapascal)
 /// Get Pressure from Gigapascal.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromGigapascal(double? Gigapascal)
+public static Pressure? FromGigapascal(double? Gigapascal)
 {
     if (Gigapascal is null)
         return null;
@@ -109,7 +109,7 @@ public static Pressure FromGigapascal(double? Gigapascal)
 /// Get Pressure from Atmosphere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromAtmosphere(double? Atmosphere)
+public static Pressure? FromAtmosphere(double? Atmosphere)
 {
     if (Atmosphere is null)
         return null;
@@ -120,7 +120,7 @@ public static Pressure FromAtmosphere(double? Atmosphere)
 /// Get Pressure from FootOfHead.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromFootOfHead(double? FootOfHead)
+public static Pressure? FromFootOfHead(double? FootOfHead)
 {
     if (FootOfHead is null)
         return null;
@@ -131,7 +131,7 @@ public static Pressure FromFootOfHead(double? FootOfHead)
 /// Get Pressure from InchOfMercury.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromInchOfMercury(double? InchOfMercury)
+public static Pressure? FromInchOfMercury(double? InchOfMercury)
 {
     if (InchOfMercury is null)
         return null;
@@ -142,7 +142,7 @@ public static Pressure FromInchOfMercury(double? InchOfMercury)
 /// Get Pressure from InchOfWaterColumn.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromInchOfWaterColumn(double? InchOfWaterColumn)
+public static Pressure? FromInchOfWaterColumn(double? InchOfWaterColumn)
 {
     if (InchOfWaterColumn is null)
         return null;
@@ -153,7 +153,7 @@ public static Pressure FromInchOfWaterColumn(double? InchOfWaterColumn)
 /// Get Pressure from MeterOfHead.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMeterOfHead(double? MeterOfHead)
+public static Pressure? FromMeterOfHead(double? MeterOfHead)
 {
     if (MeterOfHead is null)
         return null;
@@ -164,7 +164,7 @@ public static Pressure FromMeterOfHead(double? MeterOfHead)
 /// Get Pressure from MillimeterOfMercury.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMillimeterOfMercury(double? MillimeterOfMercury)
+public static Pressure? FromMillimeterOfMercury(double? MillimeterOfMercury)
 {
     if (MillimeterOfMercury is null)
         return null;
@@ -175,7 +175,7 @@ public static Pressure FromMillimeterOfMercury(double? MillimeterOfMercury)
 /// Get Pressure from TechnicalAtmosphere.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromTechnicalAtmosphere(double? TechnicalAtmosphere)
+public static Pressure? FromTechnicalAtmosphere(double? TechnicalAtmosphere)
 {
     if (TechnicalAtmosphere is null)
         return null;
@@ -186,7 +186,7 @@ public static Pressure FromTechnicalAtmosphere(double? TechnicalAtmosphere)
 /// Get Pressure from Torr.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromTorr(double? Torr)
+public static Pressure? FromTorr(double? Torr)
 {
     if (Torr is null)
         return null;
@@ -197,7 +197,7 @@ public static Pressure FromTorr(double? Torr)
 /// Get Pressure from Bar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromBar(double? Bar)
+public static Pressure? FromBar(double? Bar)
 {
     if (Bar is null)
         return null;
@@ -208,7 +208,7 @@ public static Pressure FromBar(double? Bar)
 /// Get Pressure from Microbar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMicrobar(double? Microbar)
+public static Pressure? FromMicrobar(double? Microbar)
 {
     if (Microbar is null)
         return null;
@@ -219,7 +219,7 @@ public static Pressure FromMicrobar(double? Microbar)
 /// Get Pressure from Millibar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMillibar(double? Millibar)
+public static Pressure? FromMillibar(double? Millibar)
 {
     if (Millibar is null)
         return null;
@@ -230,7 +230,7 @@ public static Pressure FromMillibar(double? Millibar)
 /// Get Pressure from Centibar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromCentibar(double? Centibar)
+public static Pressure? FromCentibar(double? Centibar)
 {
     if (Centibar is null)
         return null;
@@ -241,7 +241,7 @@ public static Pressure FromCentibar(double? Centibar)
 /// Get Pressure from Decibar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromDecibar(double? Decibar)
+public static Pressure? FromDecibar(double? Decibar)
 {
     if (Decibar is null)
         return null;
@@ -252,7 +252,7 @@ public static Pressure FromDecibar(double? Decibar)
 /// Get Pressure from Kilobar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilobar(double? Kilobar)
+public static Pressure? FromKilobar(double? Kilobar)
 {
     if (Kilobar is null)
         return null;
@@ -263,7 +263,7 @@ public static Pressure FromKilobar(double? Kilobar)
 /// Get Pressure from Megabar.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMegabar(double? Megabar)
+public static Pressure? FromMegabar(double? Megabar)
 {
     if (Megabar is null)
         return null;
@@ -274,7 +274,7 @@ public static Pressure FromMegabar(double? Megabar)
 /// Get Pressure from DynePerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromDynePerSquareCentimeter(double? DynePerSquareCentimeter)
+public static Pressure? FromDynePerSquareCentimeter(double? DynePerSquareCentimeter)
 {
     if (DynePerSquareCentimeter is null)
         return null;
@@ -285,7 +285,7 @@ public static Pressure FromDynePerSquareCentimeter(double? DynePerSquareCentimet
 /// Get Pressure from KilogramForcePerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilogramForcePerSquareCentimeter(double? KilogramForcePerSquareCentimeter)
+public static Pressure? FromKilogramForcePerSquareCentimeter(double? KilogramForcePerSquareCentimeter)
 {
     if (KilogramForcePerSquareCentimeter is null)
         return null;
@@ -296,7 +296,7 @@ public static Pressure FromKilogramForcePerSquareCentimeter(double? KilogramForc
 /// Get Pressure from KilogramForcePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilogramForcePerSquareMeter(double? KilogramForcePerSquareMeter)
+public static Pressure? FromKilogramForcePerSquareMeter(double? KilogramForcePerSquareMeter)
 {
     if (KilogramForcePerSquareMeter is null)
         return null;
@@ -307,7 +307,7 @@ public static Pressure FromKilogramForcePerSquareMeter(double? KilogramForcePerS
 /// Get Pressure from KilogramForcePerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilogramForcePerSquareMillimeter(double? KilogramForcePerSquareMillimeter)
+public static Pressure? FromKilogramForcePerSquareMillimeter(double? KilogramForcePerSquareMillimeter)
 {
     if (KilogramForcePerSquareMillimeter is null)
         return null;
@@ -318,7 +318,7 @@ public static Pressure FromKilogramForcePerSquareMillimeter(double? KilogramForc
 /// Get Pressure from KilonewtonPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilonewtonPerSquareCentimeter(double? KilonewtonPerSquareCentimeter)
+public static Pressure? FromKilonewtonPerSquareCentimeter(double? KilonewtonPerSquareCentimeter)
 {
     if (KilonewtonPerSquareCentimeter is null)
         return null;
@@ -329,7 +329,7 @@ public static Pressure FromKilonewtonPerSquareCentimeter(double? KilonewtonPerSq
 /// Get Pressure from KilonewtonPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilonewtonPerSquareMeter(double? KilonewtonPerSquareMeter)
+public static Pressure? FromKilonewtonPerSquareMeter(double? KilonewtonPerSquareMeter)
 {
     if (KilonewtonPerSquareMeter is null)
         return null;
@@ -340,7 +340,7 @@ public static Pressure FromKilonewtonPerSquareMeter(double? KilonewtonPerSquareM
 /// Get Pressure from KilonewtonPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilonewtonPerSquareMillimeter(double? KilonewtonPerSquareMillimeter)
+public static Pressure? FromKilonewtonPerSquareMillimeter(double? KilonewtonPerSquareMillimeter)
 {
     if (KilonewtonPerSquareMillimeter is null)
         return null;
@@ -351,7 +351,7 @@ public static Pressure FromKilonewtonPerSquareMillimeter(double? KilonewtonPerSq
 /// Get Pressure from MeganewtonPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromMeganewtonPerSquareMeter(double? MeganewtonPerSquareMeter)
+public static Pressure? FromMeganewtonPerSquareMeter(double? MeganewtonPerSquareMeter)
 {
     if (MeganewtonPerSquareMeter is null)
         return null;
@@ -362,7 +362,7 @@ public static Pressure FromMeganewtonPerSquareMeter(double? MeganewtonPerSquareM
 /// Get Pressure from TonneForcePerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromTonneForcePerSquareCentimeter(double? TonneForcePerSquareCentimeter)
+public static Pressure? FromTonneForcePerSquareCentimeter(double? TonneForcePerSquareCentimeter)
 {
     if (TonneForcePerSquareCentimeter is null)
         return null;
@@ -373,7 +373,7 @@ public static Pressure FromTonneForcePerSquareCentimeter(double? TonneForcePerSq
 /// Get Pressure from TonneForcePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromTonneForcePerSquareMeter(double? TonneForcePerSquareMeter)
+public static Pressure? FromTonneForcePerSquareMeter(double? TonneForcePerSquareMeter)
 {
     if (TonneForcePerSquareMeter is null)
         return null;
@@ -384,7 +384,7 @@ public static Pressure FromTonneForcePerSquareMeter(double? TonneForcePerSquareM
 /// Get Pressure from TonneForcePerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromTonneForcePerSquareMillimeter(double? TonneForcePerSquareMillimeter)
+public static Pressure? FromTonneForcePerSquareMillimeter(double? TonneForcePerSquareMillimeter)
 {
     if (TonneForcePerSquareMillimeter is null)
         return null;
@@ -395,7 +395,7 @@ public static Pressure FromTonneForcePerSquareMillimeter(double? TonneForcePerSq
 /// Get Pressure from NewtonPerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromNewtonPerSquareMillimeter(double? NewtonPerSquareMillimeter)
+public static Pressure? FromNewtonPerSquareMillimeter(double? NewtonPerSquareMillimeter)
 {
     if (NewtonPerSquareMillimeter is null)
         return null;
@@ -406,7 +406,7 @@ public static Pressure FromNewtonPerSquareMillimeter(double? NewtonPerSquareMill
 /// Get Pressure from NewtonPerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromNewtonPerSquareCentimeter(double? NewtonPerSquareCentimeter)
+public static Pressure? FromNewtonPerSquareCentimeter(double? NewtonPerSquareCentimeter)
 {
     if (NewtonPerSquareCentimeter is null)
         return null;
@@ -417,7 +417,7 @@ public static Pressure FromNewtonPerSquareCentimeter(double? NewtonPerSquareCent
 /// Get Pressure from NewtonPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromNewtonPerSquareMeter(double? NewtonPerSquareMeter)
+public static Pressure? FromNewtonPerSquareMeter(double? NewtonPerSquareMeter)
 {
     if (NewtonPerSquareMeter is null)
         return null;
@@ -428,7 +428,7 @@ public static Pressure FromNewtonPerSquareMeter(double? NewtonPerSquareMeter)
 /// Get Pressure from KilopoundForcePerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilopoundForcePerSquareFoot(double? KilopoundForcePerSquareFoot)
+public static Pressure? FromKilopoundForcePerSquareFoot(double? KilopoundForcePerSquareFoot)
 {
     if (KilopoundForcePerSquareFoot is null)
         return null;
@@ -439,7 +439,7 @@ public static Pressure FromKilopoundForcePerSquareFoot(double? KilopoundForcePer
 /// Get Pressure from KilopoundForcePerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromKilopoundForcePerSquareInch(double? KilopoundForcePerSquareInch)
+public static Pressure? FromKilopoundForcePerSquareInch(double? KilopoundForcePerSquareInch)
 {
     if (KilopoundForcePerSquareInch is null)
         return null;
@@ -450,7 +450,7 @@ public static Pressure FromKilopoundForcePerSquareInch(double? KilopoundForcePer
 /// Get Pressure from PoundForcePerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromPoundForcePerSquareFoot(double? PoundForcePerSquareFoot)
+public static Pressure? FromPoundForcePerSquareFoot(double? PoundForcePerSquareFoot)
 {
     if (PoundForcePerSquareFoot is null)
         return null;
@@ -461,7 +461,7 @@ public static Pressure FromPoundForcePerSquareFoot(double? PoundForcePerSquareFo
 /// Get Pressure from PoundForcePerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromPoundForcePerSquareInch(double? PoundForcePerSquareInch)
+public static Pressure? FromPoundForcePerSquareInch(double? PoundForcePerSquareInch)
 {
     if (PoundForcePerSquareInch is null)
         return null;
@@ -472,7 +472,7 @@ public static Pressure FromPoundForcePerSquareInch(double? PoundForcePerSquareIn
 /// Get Pressure from PoundPerInchSecondSquared.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromPoundPerInchSecondSquared(double? PoundPerInchSecondSquared)
+public static Pressure? FromPoundPerInchSecondSquared(double? PoundPerInchSecondSquared)
 {
     if (PoundPerInchSecondSquared is null)
         return null;
@@ -483,7 +483,7 @@ public static Pressure FromPoundPerInchSecondSquared(double? PoundPerInchSecondS
 /// Get Pressure from BarA.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromBarA(double? BarA)
+public static Pressure? FromBarA(double? BarA)
 {
     if (BarA is null)
         return null;
@@ -494,7 +494,7 @@ public static Pressure FromBarA(double? BarA)
 /// Get Pressure from BarG.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Pressure FromBarG(double? BarG)
+public static Pressure? FromBarG(double? BarG)
 {
     if (BarG is null)
         return null;

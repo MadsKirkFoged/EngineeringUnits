@@ -10,7 +10,7 @@ public partial class Speed
 /// Get Speed from CentimeterPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromCentimeterPerHour(double? CentimeterPerHour)
+public static Speed? FromCentimeterPerHour(double? CentimeterPerHour)
 {
     if (CentimeterPerHour is null)
         return null;
@@ -21,7 +21,7 @@ public static Speed FromCentimeterPerHour(double? CentimeterPerHour)
 /// Get Speed from CentimeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromCentimeterPerMinute(double? CentimeterPerMinute)
+public static Speed? FromCentimeterPerMinute(double? CentimeterPerMinute)
 {
     if (CentimeterPerMinute is null)
         return null;
@@ -32,7 +32,7 @@ public static Speed FromCentimeterPerMinute(double? CentimeterPerMinute)
 /// Get Speed from CentimeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromCentimeterPerSecond(double? CentimeterPerSecond)
+public static Speed? FromCentimeterPerSecond(double? CentimeterPerSecond)
 {
     if (CentimeterPerSecond is null)
         return null;
@@ -43,7 +43,7 @@ public static Speed FromCentimeterPerSecond(double? CentimeterPerSecond)
 /// Get Speed from DecimeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromDecimeterPerMinute(double? DecimeterPerMinute)
+public static Speed? FromDecimeterPerMinute(double? DecimeterPerMinute)
 {
     if (DecimeterPerMinute is null)
         return null;
@@ -54,7 +54,7 @@ public static Speed FromDecimeterPerMinute(double? DecimeterPerMinute)
 /// Get Speed from DecimeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromDecimeterPerSecond(double? DecimeterPerSecond)
+public static Speed? FromDecimeterPerSecond(double? DecimeterPerSecond)
 {
     if (DecimeterPerSecond is null)
         return null;
@@ -65,7 +65,7 @@ public static Speed FromDecimeterPerSecond(double? DecimeterPerSecond)
 /// Get Speed from FootPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromFootPerHour(double? FootPerHour)
+public static Speed? FromFootPerHour(double? FootPerHour)
 {
     if (FootPerHour is null)
         return null;
@@ -76,7 +76,7 @@ public static Speed FromFootPerHour(double? FootPerHour)
 /// Get Speed from FootPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromFootPerMinute(double? FootPerMinute)
+public static Speed? FromFootPerMinute(double? FootPerMinute)
 {
     if (FootPerMinute is null)
         return null;
@@ -87,7 +87,7 @@ public static Speed FromFootPerMinute(double? FootPerMinute)
 /// Get Speed from FootPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromFootPerSecond(double? FootPerSecond)
+public static Speed? FromFootPerSecond(double? FootPerSecond)
 {
     if (FootPerSecond is null)
         return null;
@@ -98,7 +98,7 @@ public static Speed FromFootPerSecond(double? FootPerSecond)
 /// Get Speed from InchPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromInchPerHour(double? InchPerHour)
+public static Speed? FromInchPerHour(double? InchPerHour)
 {
     if (InchPerHour is null)
         return null;
@@ -109,7 +109,7 @@ public static Speed FromInchPerHour(double? InchPerHour)
 /// Get Speed from InchPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromInchPerMinute(double? InchPerMinute)
+public static Speed? FromInchPerMinute(double? InchPerMinute)
 {
     if (InchPerMinute is null)
         return null;
@@ -120,7 +120,7 @@ public static Speed FromInchPerMinute(double? InchPerMinute)
 /// Get Speed from InchPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromInchPerSecond(double? InchPerSecond)
+public static Speed? FromInchPerSecond(double? InchPerSecond)
 {
     if (InchPerSecond is null)
         return null;
@@ -131,7 +131,7 @@ public static Speed FromInchPerSecond(double? InchPerSecond)
 /// Get Speed from KilometerPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromKilometerPerHour(double? KilometerPerHour)
+public static Speed? FromKilometerPerHour(double? KilometerPerHour)
 {
     if (KilometerPerHour is null)
         return null;
@@ -142,7 +142,7 @@ public static Speed FromKilometerPerHour(double? KilometerPerHour)
 /// Get Speed from KilometerPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromKilometerPerMinute(double? KilometerPerMinute)
+public static Speed? FromKilometerPerMinute(double? KilometerPerMinute)
 {
     if (KilometerPerMinute is null)
         return null;
@@ -153,7 +153,7 @@ public static Speed FromKilometerPerMinute(double? KilometerPerMinute)
 /// Get Speed from KilometerPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromKilometerPerSecond(double? KilometerPerSecond)
+public static Speed? FromKilometerPerSecond(double? KilometerPerSecond)
 {
     if (KilometerPerSecond is null)
         return null;
@@ -164,7 +164,7 @@ public static Speed FromKilometerPerSecond(double? KilometerPerSecond)
 /// Get Speed from Knot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromKnot(double? Knot)
+public static Speed? FromKnot(double? Knot)
 {
     if (Knot is null)
         return null;
@@ -175,7 +175,7 @@ public static Speed FromKnot(double? Knot)
 /// Get Speed from MeterPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMeterPerHour(double? MeterPerHour)
+public static Speed? FromMeterPerHour(double? MeterPerHour)
 {
     if (MeterPerHour is null)
         return null;
@@ -186,7 +186,7 @@ public static Speed FromMeterPerHour(double? MeterPerHour)
 /// Get Speed from MeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMeterPerMinute(double? MeterPerMinute)
+public static Speed? FromMeterPerMinute(double? MeterPerMinute)
 {
     if (MeterPerMinute is null)
         return null;
@@ -197,7 +197,7 @@ public static Speed FromMeterPerMinute(double? MeterPerMinute)
 /// Get Speed from MeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMeterPerSecond(double? MeterPerSecond)
+public static Speed? FromMeterPerSecond(double? MeterPerSecond)
 {
     if (MeterPerSecond is null)
         return null;
@@ -208,7 +208,7 @@ public static Speed FromMeterPerSecond(double? MeterPerSecond)
 /// Get Speed from MicrometerPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMicrometerPerMinute(double? MicrometerPerMinute)
+public static Speed? FromMicrometerPerMinute(double? MicrometerPerMinute)
 {
     if (MicrometerPerMinute is null)
         return null;
@@ -219,7 +219,7 @@ public static Speed FromMicrometerPerMinute(double? MicrometerPerMinute)
 /// Get Speed from MicrometerPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMicrometerPerSecond(double? MicrometerPerSecond)
+public static Speed? FromMicrometerPerSecond(double? MicrometerPerSecond)
 {
     if (MicrometerPerSecond is null)
         return null;
@@ -230,7 +230,7 @@ public static Speed FromMicrometerPerSecond(double? MicrometerPerSecond)
 /// Get Speed from MilePerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMilePerHour(double? MilePerHour)
+public static Speed? FromMilePerHour(double? MilePerHour)
 {
     if (MilePerHour is null)
         return null;
@@ -241,7 +241,7 @@ public static Speed FromMilePerHour(double? MilePerHour)
 /// Get Speed from MillimeterPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMillimeterPerHour(double? MillimeterPerHour)
+public static Speed? FromMillimeterPerHour(double? MillimeterPerHour)
 {
     if (MillimeterPerHour is null)
         return null;
@@ -252,7 +252,7 @@ public static Speed FromMillimeterPerHour(double? MillimeterPerHour)
 /// Get Speed from MillimeterPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMillimeterPerMinute(double? MillimeterPerMinute)
+public static Speed? FromMillimeterPerMinute(double? MillimeterPerMinute)
 {
     if (MillimeterPerMinute is null)
         return null;
@@ -263,7 +263,7 @@ public static Speed FromMillimeterPerMinute(double? MillimeterPerMinute)
 /// Get Speed from MillimeterPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMillimeterPerSecond(double? MillimeterPerSecond)
+public static Speed? FromMillimeterPerSecond(double? MillimeterPerSecond)
 {
     if (MillimeterPerSecond is null)
         return null;
@@ -274,7 +274,7 @@ public static Speed FromMillimeterPerSecond(double? MillimeterPerSecond)
 /// Get Speed from NanometerPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromNanometerPerMinute(double? NanometerPerMinute)
+public static Speed? FromNanometerPerMinute(double? NanometerPerMinute)
 {
     if (NanometerPerMinute is null)
         return null;
@@ -285,7 +285,7 @@ public static Speed FromNanometerPerMinute(double? NanometerPerMinute)
 /// Get Speed from NanometerPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromNanometerPerSecond(double? NanometerPerSecond)
+public static Speed? FromNanometerPerSecond(double? NanometerPerSecond)
 {
     if (NanometerPerSecond is null)
         return null;
@@ -296,7 +296,7 @@ public static Speed FromNanometerPerSecond(double? NanometerPerSecond)
 /// Get Speed from UsSurveyFootPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromUsSurveyFootPerHour(double? UsSurveyFootPerHour)
+public static Speed? FromUsSurveyFootPerHour(double? UsSurveyFootPerHour)
 {
     if (UsSurveyFootPerHour is null)
         return null;
@@ -307,7 +307,7 @@ public static Speed FromUsSurveyFootPerHour(double? UsSurveyFootPerHour)
 /// Get Speed from UsSurveyFootPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromUsSurveyFootPerMinute(double? UsSurveyFootPerMinute)
+public static Speed? FromUsSurveyFootPerMinute(double? UsSurveyFootPerMinute)
 {
     if (UsSurveyFootPerMinute is null)
         return null;
@@ -318,7 +318,7 @@ public static Speed FromUsSurveyFootPerMinute(double? UsSurveyFootPerMinute)
 /// Get Speed from UsSurveyFootPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromUsSurveyFootPerSecond(double? UsSurveyFootPerSecond)
+public static Speed? FromUsSurveyFootPerSecond(double? UsSurveyFootPerSecond)
 {
     if (UsSurveyFootPerSecond is null)
         return null;
@@ -329,7 +329,7 @@ public static Speed FromUsSurveyFootPerSecond(double? UsSurveyFootPerSecond)
 /// Get Speed from YardPerHour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromYardPerHour(double? YardPerHour)
+public static Speed? FromYardPerHour(double? YardPerHour)
 {
     if (YardPerHour is null)
         return null;
@@ -340,7 +340,7 @@ public static Speed FromYardPerHour(double? YardPerHour)
 /// Get Speed from YardPerMinute.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromYardPerMinute(double? YardPerMinute)
+public static Speed? FromYardPerMinute(double? YardPerMinute)
 {
     if (YardPerMinute is null)
         return null;
@@ -351,7 +351,7 @@ public static Speed FromYardPerMinute(double? YardPerMinute)
 /// Get Speed from YardPerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromYardPerSecond(double? YardPerSecond)
+public static Speed? FromYardPerSecond(double? YardPerSecond)
 {
     if (YardPerSecond is null)
         return null;
@@ -362,7 +362,7 @@ public static Speed FromYardPerSecond(double? YardPerSecond)
 /// Get Speed from KilometerPerhour.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromKilometerPerhour(double? KilometerPerhour)
+public static Speed? FromKilometerPerhour(double? KilometerPerhour)
 {
     if (KilometerPerhour is null)
         return null;
@@ -373,7 +373,7 @@ public static Speed FromKilometerPerhour(double? KilometerPerhour)
 /// Get Speed from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromSI(double? SI)
+public static Speed? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -384,7 +384,7 @@ public static Speed FromSI(double? SI)
 /// Get Speed from MilePerSecond.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Speed FromMilePerSecond(double? MilePerSecond)
+public static Speed? FromMilePerSecond(double? MilePerSecond)
 {
     if (MilePerSecond is null)
         return null;

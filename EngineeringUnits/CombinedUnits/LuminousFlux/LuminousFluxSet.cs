@@ -10,7 +10,7 @@ public partial class LuminousFlux
 /// Get LuminousFlux from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LuminousFlux FromSI(double? SI)
+public static LuminousFlux? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static LuminousFlux FromSI(double? SI)
 /// Get LuminousFlux from Lumen.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static LuminousFlux FromLumen(double? Lumen)
+public static LuminousFlux? FromLumen(double? Lumen)
 {
     if (Lumen is null)
         return null;

@@ -13,7 +13,7 @@ public partial class SpecificWeight : BaseUnit
 
     public static SpecificWeight From(double value, SpecificWeightUnit unit) => new(value, unit);
 
-    public static SpecificWeight From(double? value, SpecificWeightUnit unit)
+    public static SpecificWeight? From(double? value, SpecificWeightUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class SpecificWeight : BaseUnit
     public static SpecificWeight Zero => new(0, SpecificWeightUnit.SI);
     public static SpecificWeight NaN => new(double.NaN, SpecificWeightUnit.SI);
 
-    public static implicit operator SpecificWeight(UnknownUnit Unit)
+    public static implicit operator SpecificWeight?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class SpecificWeight : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(SpecificWeight Unit)
+    public static implicit operator UnknownUnit?(SpecificWeight? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class SpecificWeight : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);    
 }

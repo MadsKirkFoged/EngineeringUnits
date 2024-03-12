@@ -10,7 +10,7 @@ public partial class Illuminance
 /// Get Illuminance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Illuminance FromSI(double? SI)
+public static Illuminance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Illuminance FromSI(double? SI)
 /// Get Illuminance from Lux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Illuminance FromLux(double? Lux)
+public static Illuminance? FromLux(double? Lux)
 {
     if (Lux is null)
         return null;
@@ -32,7 +32,7 @@ public static Illuminance FromLux(double? Lux)
 /// Get Illuminance from Kilolux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Illuminance FromKilolux(double? Kilolux)
+public static Illuminance? FromKilolux(double? Kilolux)
 {
     if (Kilolux is null)
         return null;
@@ -43,7 +43,7 @@ public static Illuminance FromKilolux(double? Kilolux)
 /// Get Illuminance from Megalux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Illuminance FromMegalux(double? Megalux)
+public static Illuminance? FromMegalux(double? Megalux)
 {
     if (Megalux is null)
         return null;
@@ -54,7 +54,7 @@ public static Illuminance FromMegalux(double? Megalux)
 /// Get Illuminance from Millilux.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Illuminance FromMillilux(double? Millilux)
+public static Illuminance? FromMillilux(double? Millilux)
 {
     if (Millilux is null)
         return null;

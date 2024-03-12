@@ -13,7 +13,7 @@ public partial class MolarFlow : BaseUnit
 
     public static MolarFlow From(double value, MolarFlowUnit unit) => new(value, unit);
 
-    public static MolarFlow From(double? value, MolarFlowUnit unit)
+    public static MolarFlow? From(double? value, MolarFlowUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MolarFlow : BaseUnit
     public static MolarFlow Zero => new(0, MolarFlowUnit.SI);
     public static MolarFlow NaN => new(double.NaN, MolarFlowUnit.SI);
 
-    public static implicit operator MolarFlow(UnknownUnit Unit)
+    public static implicit operator MolarFlow?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MolarFlow : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MolarFlow Unit)
+    public static implicit operator UnknownUnit?(MolarFlow? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MolarFlow : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarFlowUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarFlowUnit>(_unit);    
 }

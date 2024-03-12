@@ -13,7 +13,7 @@ public partial class Frequency : BaseUnit
 
     public static Frequency From(double value, FrequencyUnit unit) => new(value, unit);
 
-    public static Frequency From(double? value, FrequencyUnit unit)
+    public static Frequency? From(double? value, FrequencyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Frequency : BaseUnit
     public static Frequency Zero => new(0, FrequencyUnit.SI);
     public static Frequency NaN => new(double.NaN, FrequencyUnit.SI);
 
-    public static implicit operator Frequency(UnknownUnit Unit)
+    public static implicit operator Frequency?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Frequency : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Frequency Unit)
+    public static implicit operator UnknownUnit?(Frequency? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Frequency : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);    
 }

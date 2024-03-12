@@ -3,7 +3,7 @@ namespace EngineeringUnits;
  
 public partial class Enthalpy : BaseUnit
 {
-    public static implicit operator Enthalpy(SpecificEnergy Unit)
+    public static implicit operator Enthalpy?(SpecificEnergy? Unit)
     {
         if (Unit is null)
             return null;           
@@ -11,7 +11,7 @@ public partial class Enthalpy : BaseUnit
         return new(Unit);
     }
 
-    public static implicit operator SpecificEnergy(Enthalpy Unit)
+    public static implicit operator SpecificEnergy?(Enthalpy? Unit)
     {
         if (Unit is null)
             return null;           

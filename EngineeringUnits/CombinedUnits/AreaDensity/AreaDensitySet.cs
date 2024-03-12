@@ -10,7 +10,7 @@ public partial class AreaDensity
 /// Get AreaDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaDensity FromSI(double? SI)
+public static AreaDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static AreaDensity FromSI(double? SI)
 /// Get AreaDensity from KilogramPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static AreaDensity FromKilogramPerSquareMeter(double? KilogramPerSquareMeter)
+public static AreaDensity? FromKilogramPerSquareMeter(double? KilogramPerSquareMeter)
 {
     if (KilogramPerSquareMeter is null)
         return null;

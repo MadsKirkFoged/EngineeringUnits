@@ -13,7 +13,7 @@ public partial class MassMomentOfInertia : BaseUnit
 
     public static MassMomentOfInertia From(double value, MassMomentOfInertiaUnit unit) => new(value, unit);
 
-    public static MassMomentOfInertia From(double? value, MassMomentOfInertiaUnit unit)
+    public static MassMomentOfInertia? From(double? value, MassMomentOfInertiaUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MassMomentOfInertia : BaseUnit
     public static MassMomentOfInertia Zero => new(0, MassMomentOfInertiaUnit.SI);
     public static MassMomentOfInertia NaN => new(double.NaN, MassMomentOfInertiaUnit.SI);
 
-    public static implicit operator MassMomentOfInertia(UnknownUnit Unit)
+    public static implicit operator MassMomentOfInertia?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MassMomentOfInertia : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MassMomentOfInertia Unit)
+    public static implicit operator UnknownUnit?(MassMomentOfInertia? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MassMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);    
 }

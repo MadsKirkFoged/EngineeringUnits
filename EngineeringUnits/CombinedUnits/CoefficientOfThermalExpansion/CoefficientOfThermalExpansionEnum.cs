@@ -8,7 +8,7 @@ public partial record CoefficientOfThermalExpansionUnit : UnitTypebase
     public static readonly CoefficientOfThermalExpansionUnit InverseDegreeFahrenheit = new(TemperatureUnit.DegreeFahrenheit);
     public static readonly CoefficientOfThermalExpansionUnit InverseDegreeCelsius = new(TemperatureUnit.DegreeCelsius);
 
-    public CoefficientOfThermalExpansionUnit(TemperatureUnit temperature, string NewSymbol = null)
+    public CoefficientOfThermalExpansionUnit(TemperatureUnit temperature, string? NewSymbol = null)
     {
         Unit = new UnitSystem(temperature.Pow(-1), NewSymbol);
     }

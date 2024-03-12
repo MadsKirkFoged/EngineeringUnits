@@ -10,7 +10,7 @@ public partial class ReactivePower
 /// Get ReactivePower from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactivePower FromSI(double? SI)
+public static ReactivePower? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ReactivePower FromSI(double? SI)
 /// Get ReactivePower from VoltampereReactive.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactivePower FromVoltampereReactive(double? VoltampereReactive)
+public static ReactivePower? FromVoltampereReactive(double? VoltampereReactive)
 {
     if (VoltampereReactive is null)
         return null;
@@ -32,7 +32,7 @@ public static ReactivePower FromVoltampereReactive(double? VoltampereReactive)
 /// Get ReactivePower from MegavoltampereReactive.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactivePower FromMegavoltampereReactive(double? MegavoltampereReactive)
+public static ReactivePower? FromMegavoltampereReactive(double? MegavoltampereReactive)
 {
     if (MegavoltampereReactive is null)
         return null;
@@ -43,7 +43,7 @@ public static ReactivePower FromMegavoltampereReactive(double? MegavoltampereRea
 /// Get ReactivePower from KilovoltampereReactive.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactivePower FromKilovoltampereReactive(double? KilovoltampereReactive)
+public static ReactivePower? FromKilovoltampereReactive(double? KilovoltampereReactive)
 {
     if (KilovoltampereReactive is null)
         return null;
@@ -54,7 +54,7 @@ public static ReactivePower FromKilovoltampereReactive(double? KilovoltampereRea
 /// Get ReactivePower from GigavoltampereReactive.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ReactivePower FromGigavoltampereReactive(double? GigavoltampereReactive)
+public static ReactivePower? FromGigavoltampereReactive(double? GigavoltampereReactive)
 {
     if (GigavoltampereReactive is null)
         return null;

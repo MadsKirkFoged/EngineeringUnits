@@ -10,7 +10,7 @@ public partial class ElectricChargeDensity
 /// Get ElectricChargeDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricChargeDensity FromSI(double? SI)
+public static ElectricChargeDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricChargeDensity FromSI(double? SI)
 /// Get ElectricChargeDensity from CoulombPerCubicMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricChargeDensity FromCoulombPerCubicMeter(double? CoulombPerCubicMeter)
+public static ElectricChargeDensity? FromCoulombPerCubicMeter(double? CoulombPerCubicMeter)
 {
     if (CoulombPerCubicMeter is null)
         return null;

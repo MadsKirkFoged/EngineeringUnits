@@ -13,7 +13,7 @@ public partial class ReactiveEnergy : BaseUnit
 
     public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new(value, unit);
 
-    public static ReactiveEnergy From(double? value, ReactiveEnergyUnit unit)
+    public static ReactiveEnergy? From(double? value, ReactiveEnergyUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ReactiveEnergy : BaseUnit
     public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
     public static ReactiveEnergy NaN => new(double.NaN, ReactiveEnergyUnit.SI);
 
-    public static implicit operator ReactiveEnergy(UnknownUnit Unit)
+    public static implicit operator ReactiveEnergy?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ReactiveEnergy : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ReactiveEnergy Unit)
+    public static implicit operator UnknownUnit?(ReactiveEnergy? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ReactiveEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);    
 }

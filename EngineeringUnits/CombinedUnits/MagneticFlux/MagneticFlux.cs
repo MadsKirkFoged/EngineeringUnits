@@ -13,7 +13,7 @@ public partial class MagneticFlux : BaseUnit
 
     public static MagneticFlux From(double value, MagneticFluxUnit unit) => new(value, unit);
 
-    public static MagneticFlux From(double? value, MagneticFluxUnit unit)
+    public static MagneticFlux? From(double? value, MagneticFluxUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class MagneticFlux : BaseUnit
     public static MagneticFlux Zero => new(0, MagneticFluxUnit.SI);
     public static MagneticFlux NaN => new(double.NaN, MagneticFluxUnit.SI);
 
-    public static implicit operator MagneticFlux(UnknownUnit Unit)
+    public static implicit operator MagneticFlux?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class MagneticFlux : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(MagneticFlux Unit)
+    public static implicit operator UnknownUnit?(MagneticFlux? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class MagneticFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFluxUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFluxUnit>(_unit);    
 }

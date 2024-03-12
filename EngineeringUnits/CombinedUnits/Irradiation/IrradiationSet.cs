@@ -10,7 +10,7 @@ public partial class Irradiation
 /// Get Irradiation from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromSI(double? SI)
+public static Irradiation? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Irradiation FromSI(double? SI)
 /// Get Irradiation from JoulePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromJoulePerSquareMeter(double? JoulePerSquareMeter)
+public static Irradiation? FromJoulePerSquareMeter(double? JoulePerSquareMeter)
 {
     if (JoulePerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static Irradiation FromJoulePerSquareMeter(double? JoulePerSquareMeter)
 /// Get Irradiation from JoulePerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromJoulePerSquareCentimeter(double? JoulePerSquareCentimeter)
+public static Irradiation? FromJoulePerSquareCentimeter(double? JoulePerSquareCentimeter)
 {
     if (JoulePerSquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static Irradiation FromJoulePerSquareCentimeter(double? JoulePerSquareCen
 /// Get Irradiation from JoulePerSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromJoulePerSquareMillimeter(double? JoulePerSquareMillimeter)
+public static Irradiation? FromJoulePerSquareMillimeter(double? JoulePerSquareMillimeter)
 {
     if (JoulePerSquareMillimeter is null)
         return null;
@@ -54,7 +54,7 @@ public static Irradiation FromJoulePerSquareMillimeter(double? JoulePerSquareMil
 /// Get Irradiation from KilojoulePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromKilojoulePerSquareMeter(double? KilojoulePerSquareMeter)
+public static Irradiation? FromKilojoulePerSquareMeter(double? KilojoulePerSquareMeter)
 {
     if (KilojoulePerSquareMeter is null)
         return null;
@@ -65,7 +65,7 @@ public static Irradiation FromKilojoulePerSquareMeter(double? KilojoulePerSquare
 /// Get Irradiation from KilowattHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromKilowattHourPerSquareMeter(double? KilowattHourPerSquareMeter)
+public static Irradiation? FromKilowattHourPerSquareMeter(double? KilowattHourPerSquareMeter)
 {
     if (KilowattHourPerSquareMeter is null)
         return null;
@@ -76,7 +76,7 @@ public static Irradiation FromKilowattHourPerSquareMeter(double? KilowattHourPer
 /// Get Irradiation from MillijoulePerSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromMillijoulePerSquareCentimeter(double? MillijoulePerSquareCentimeter)
+public static Irradiation? FromMillijoulePerSquareCentimeter(double? MillijoulePerSquareCentimeter)
 {
     if (MillijoulePerSquareCentimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static Irradiation FromMillijoulePerSquareCentimeter(double? MillijoulePe
 /// Get Irradiation from WattHourPerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Irradiation FromWattHourPerSquareMeter(double? WattHourPerSquareMeter)
+public static Irradiation? FromWattHourPerSquareMeter(double? WattHourPerSquareMeter)
 {
     if (WattHourPerSquareMeter is null)
         return null;

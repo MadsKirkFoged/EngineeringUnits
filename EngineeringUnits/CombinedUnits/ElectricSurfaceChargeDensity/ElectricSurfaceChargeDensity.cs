@@ -13,7 +13,7 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
 
     public static ElectricSurfaceChargeDensity From(double value, ElectricSurfaceChargeDensityUnit unit) => new(value, unit);
 
-    public static ElectricSurfaceChargeDensity From(double? value, ElectricSurfaceChargeDensityUnit unit)
+    public static ElectricSurfaceChargeDensity? From(double? value, ElectricSurfaceChargeDensityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
     public static ElectricSurfaceChargeDensity Zero => new(0, ElectricSurfaceChargeDensityUnit.SI);
     public static ElectricSurfaceChargeDensity NaN => new(double.NaN, ElectricSurfaceChargeDensityUnit.SI);
 
-    public static implicit operator ElectricSurfaceChargeDensity(UnknownUnit Unit)
+    public static implicit operator ElectricSurfaceChargeDensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricSurfaceChargeDensity Unit)
+    public static implicit operator UnknownUnit?(ElectricSurfaceChargeDensity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);    
 }

@@ -10,7 +10,7 @@ public partial class MassMomentOfInertia
 /// Get MassMomentOfInertia from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromSI(double? SI)
+public static MassMomentOfInertia? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static MassMomentOfInertia FromSI(double? SI)
 /// Get MassMomentOfInertia from KilogramSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilogramSquareMeter(double? KilogramSquareMeter)
+public static MassMomentOfInertia? FromKilogramSquareMeter(double? KilogramSquareMeter)
 {
     if (KilogramSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static MassMomentOfInertia FromKilogramSquareMeter(double? KilogramSquare
 /// Get MassMomentOfInertia from GramSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromGramSquareCentimeter(double? GramSquareCentimeter)
+public static MassMomentOfInertia? FromGramSquareCentimeter(double? GramSquareCentimeter)
 {
     if (GramSquareCentimeter is null)
         return null;
@@ -43,7 +43,7 @@ public static MassMomentOfInertia FromGramSquareCentimeter(double? GramSquareCen
 /// Get MassMomentOfInertia from GramSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromGramSquareDecimeter(double? GramSquareDecimeter)
+public static MassMomentOfInertia? FromGramSquareDecimeter(double? GramSquareDecimeter)
 {
     if (GramSquareDecimeter is null)
         return null;
@@ -54,7 +54,7 @@ public static MassMomentOfInertia FromGramSquareDecimeter(double? GramSquareDeci
 /// Get MassMomentOfInertia from GramSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromGramSquareMeter(double? GramSquareMeter)
+public static MassMomentOfInertia? FromGramSquareMeter(double? GramSquareMeter)
 {
     if (GramSquareMeter is null)
         return null;
@@ -65,7 +65,7 @@ public static MassMomentOfInertia FromGramSquareMeter(double? GramSquareMeter)
 /// Get MassMomentOfInertia from GramSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromGramSquareMillimeter(double? GramSquareMillimeter)
+public static MassMomentOfInertia? FromGramSquareMillimeter(double? GramSquareMillimeter)
 {
     if (GramSquareMillimeter is null)
         return null;
@@ -76,7 +76,7 @@ public static MassMomentOfInertia FromGramSquareMillimeter(double? GramSquareMil
 /// Get MassMomentOfInertia from KilogramSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilogramSquareCentimeter(double? KilogramSquareCentimeter)
+public static MassMomentOfInertia? FromKilogramSquareCentimeter(double? KilogramSquareCentimeter)
 {
     if (KilogramSquareCentimeter is null)
         return null;
@@ -87,7 +87,7 @@ public static MassMomentOfInertia FromKilogramSquareCentimeter(double? KilogramS
 /// Get MassMomentOfInertia from KilogramSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilogramSquareDecimeter(double? KilogramSquareDecimeter)
+public static MassMomentOfInertia? FromKilogramSquareDecimeter(double? KilogramSquareDecimeter)
 {
     if (KilogramSquareDecimeter is null)
         return null;
@@ -98,7 +98,7 @@ public static MassMomentOfInertia FromKilogramSquareDecimeter(double? KilogramSq
 /// Get MassMomentOfInertia from KilogramSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilogramSquareMillimeter(double? KilogramSquareMillimeter)
+public static MassMomentOfInertia? FromKilogramSquareMillimeter(double? KilogramSquareMillimeter)
 {
     if (KilogramSquareMillimeter is null)
         return null;
@@ -109,7 +109,7 @@ public static MassMomentOfInertia FromKilogramSquareMillimeter(double? KilogramS
 /// Get MassMomentOfInertia from KilotonneSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilotonneSquareCentimeter(double? KilotonneSquareCentimeter)
+public static MassMomentOfInertia? FromKilotonneSquareCentimeter(double? KilotonneSquareCentimeter)
 {
     if (KilotonneSquareCentimeter is null)
         return null;
@@ -120,7 +120,7 @@ public static MassMomentOfInertia FromKilotonneSquareCentimeter(double? Kilotonn
 /// Get MassMomentOfInertia from KilotonneSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilotonneSquareDecimeter(double? KilotonneSquareDecimeter)
+public static MassMomentOfInertia? FromKilotonneSquareDecimeter(double? KilotonneSquareDecimeter)
 {
     if (KilotonneSquareDecimeter is null)
         return null;
@@ -131,7 +131,7 @@ public static MassMomentOfInertia FromKilotonneSquareDecimeter(double? Kilotonne
 /// Get MassMomentOfInertia from KilotonneSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilotonneSquareMeter(double? KilotonneSquareMeter)
+public static MassMomentOfInertia? FromKilotonneSquareMeter(double? KilotonneSquareMeter)
 {
     if (KilotonneSquareMeter is null)
         return null;
@@ -142,7 +142,7 @@ public static MassMomentOfInertia FromKilotonneSquareMeter(double? KilotonneSqua
 /// Get MassMomentOfInertia from KilotonneSquareMilimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromKilotonneSquareMilimeter(double? KilotonneSquareMilimeter)
+public static MassMomentOfInertia? FromKilotonneSquareMilimeter(double? KilotonneSquareMilimeter)
 {
     if (KilotonneSquareMilimeter is null)
         return null;
@@ -153,7 +153,7 @@ public static MassMomentOfInertia FromKilotonneSquareMilimeter(double? Kilotonne
 /// Get MassMomentOfInertia from MegatonneSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMegatonneSquareCentimeter(double? MegatonneSquareCentimeter)
+public static MassMomentOfInertia? FromMegatonneSquareCentimeter(double? MegatonneSquareCentimeter)
 {
     if (MegatonneSquareCentimeter is null)
         return null;
@@ -164,7 +164,7 @@ public static MassMomentOfInertia FromMegatonneSquareCentimeter(double? Megatonn
 /// Get MassMomentOfInertia from MegatonneSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMegatonneSquareDecimeter(double? MegatonneSquareDecimeter)
+public static MassMomentOfInertia? FromMegatonneSquareDecimeter(double? MegatonneSquareDecimeter)
 {
     if (MegatonneSquareDecimeter is null)
         return null;
@@ -175,7 +175,7 @@ public static MassMomentOfInertia FromMegatonneSquareDecimeter(double? Megatonne
 /// Get MassMomentOfInertia from MegatonneSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMegatonneSquareMeter(double? MegatonneSquareMeter)
+public static MassMomentOfInertia? FromMegatonneSquareMeter(double? MegatonneSquareMeter)
 {
     if (MegatonneSquareMeter is null)
         return null;
@@ -186,7 +186,7 @@ public static MassMomentOfInertia FromMegatonneSquareMeter(double? MegatonneSqua
 /// Get MassMomentOfInertia from MegatonneSquareMilimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMegatonneSquareMilimeter(double? MegatonneSquareMilimeter)
+public static MassMomentOfInertia? FromMegatonneSquareMilimeter(double? MegatonneSquareMilimeter)
 {
     if (MegatonneSquareMilimeter is null)
         return null;
@@ -197,7 +197,7 @@ public static MassMomentOfInertia FromMegatonneSquareMilimeter(double? Megatonne
 /// Get MassMomentOfInertia from MilligramSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMilligramSquareCentimeter(double? MilligramSquareCentimeter)
+public static MassMomentOfInertia? FromMilligramSquareCentimeter(double? MilligramSquareCentimeter)
 {
     if (MilligramSquareCentimeter is null)
         return null;
@@ -208,7 +208,7 @@ public static MassMomentOfInertia FromMilligramSquareCentimeter(double? Milligra
 /// Get MassMomentOfInertia from MilligramSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMilligramSquareDecimeter(double? MilligramSquareDecimeter)
+public static MassMomentOfInertia? FromMilligramSquareDecimeter(double? MilligramSquareDecimeter)
 {
     if (MilligramSquareDecimeter is null)
         return null;
@@ -219,7 +219,7 @@ public static MassMomentOfInertia FromMilligramSquareDecimeter(double? Milligram
 /// Get MassMomentOfInertia from MilligramSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMilligramSquareMeter(double? MilligramSquareMeter)
+public static MassMomentOfInertia? FromMilligramSquareMeter(double? MilligramSquareMeter)
 {
     if (MilligramSquareMeter is null)
         return null;
@@ -230,7 +230,7 @@ public static MassMomentOfInertia FromMilligramSquareMeter(double? MilligramSqua
 /// Get MassMomentOfInertia from MilligramSquareMillimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromMilligramSquareMillimeter(double? MilligramSquareMillimeter)
+public static MassMomentOfInertia? FromMilligramSquareMillimeter(double? MilligramSquareMillimeter)
 {
     if (MilligramSquareMillimeter is null)
         return null;
@@ -241,7 +241,7 @@ public static MassMomentOfInertia FromMilligramSquareMillimeter(double? Milligra
 /// Get MassMomentOfInertia from PoundSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromPoundSquareFoot(double? PoundSquareFoot)
+public static MassMomentOfInertia? FromPoundSquareFoot(double? PoundSquareFoot)
 {
     if (PoundSquareFoot is null)
         return null;
@@ -252,7 +252,7 @@ public static MassMomentOfInertia FromPoundSquareFoot(double? PoundSquareFoot)
 /// Get MassMomentOfInertia from PoundSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromPoundSquareInch(double? PoundSquareInch)
+public static MassMomentOfInertia? FromPoundSquareInch(double? PoundSquareInch)
 {
     if (PoundSquareInch is null)
         return null;
@@ -263,7 +263,7 @@ public static MassMomentOfInertia FromPoundSquareInch(double? PoundSquareInch)
 /// Get MassMomentOfInertia from SlugSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromSlugSquareFoot(double? SlugSquareFoot)
+public static MassMomentOfInertia? FromSlugSquareFoot(double? SlugSquareFoot)
 {
     if (SlugSquareFoot is null)
         return null;
@@ -274,7 +274,7 @@ public static MassMomentOfInertia FromSlugSquareFoot(double? SlugSquareFoot)
 /// Get MassMomentOfInertia from SlugSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromSlugSquareInch(double? SlugSquareInch)
+public static MassMomentOfInertia? FromSlugSquareInch(double? SlugSquareInch)
 {
     if (SlugSquareInch is null)
         return null;
@@ -285,7 +285,7 @@ public static MassMomentOfInertia FromSlugSquareInch(double? SlugSquareInch)
 /// Get MassMomentOfInertia from TonneSquareCentimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromTonneSquareCentimeter(double? TonneSquareCentimeter)
+public static MassMomentOfInertia? FromTonneSquareCentimeter(double? TonneSquareCentimeter)
 {
     if (TonneSquareCentimeter is null)
         return null;
@@ -296,7 +296,7 @@ public static MassMomentOfInertia FromTonneSquareCentimeter(double? TonneSquareC
 /// Get MassMomentOfInertia from TonneSquareDecimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromTonneSquareDecimeter(double? TonneSquareDecimeter)
+public static MassMomentOfInertia? FromTonneSquareDecimeter(double? TonneSquareDecimeter)
 {
     if (TonneSquareDecimeter is null)
         return null;
@@ -307,7 +307,7 @@ public static MassMomentOfInertia FromTonneSquareDecimeter(double? TonneSquareDe
 /// Get MassMomentOfInertia from TonneSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromTonneSquareMeter(double? TonneSquareMeter)
+public static MassMomentOfInertia? FromTonneSquareMeter(double? TonneSquareMeter)
 {
     if (TonneSquareMeter is null)
         return null;
@@ -318,7 +318,7 @@ public static MassMomentOfInertia FromTonneSquareMeter(double? TonneSquareMeter)
 /// Get MassMomentOfInertia from TonneSquareMilimeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static MassMomentOfInertia FromTonneSquareMilimeter(double? TonneSquareMilimeter)
+public static MassMomentOfInertia? FromTonneSquareMilimeter(double? TonneSquareMilimeter)
 {
     if (TonneSquareMilimeter is null)
         return null;

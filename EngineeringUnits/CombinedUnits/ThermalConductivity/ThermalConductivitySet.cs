@@ -10,7 +10,7 @@ public partial class ThermalConductivity
 /// Get ThermalConductivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ThermalConductivity FromSI(double? SI)
+public static ThermalConductivity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ThermalConductivity FromSI(double? SI)
 /// Get ThermalConductivity from WattPerMeterKelvin.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ThermalConductivity FromWattPerMeterKelvin(double? WattPerMeterKelvin)
+public static ThermalConductivity? FromWattPerMeterKelvin(double? WattPerMeterKelvin)
 {
     if (WattPerMeterKelvin is null)
         return null;
@@ -32,7 +32,7 @@ public static ThermalConductivity FromWattPerMeterKelvin(double? WattPerMeterKel
 /// Get ThermalConductivity from BtuPerHourFootFahrenheit.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ThermalConductivity FromBtuPerHourFootFahrenheit(double? BtuPerHourFootFahrenheit)
+public static ThermalConductivity? FromBtuPerHourFootFahrenheit(double? BtuPerHourFootFahrenheit)
 {
     if (BtuPerHourFootFahrenheit is null)
         return null;

@@ -13,7 +13,7 @@ public partial class Permittivity : BaseUnit
 
     public static Permittivity From(double value, PermittivityUnit unit) => new(value, unit);
 
-    public static Permittivity From(double? value, PermittivityUnit unit)
+    public static Permittivity? From(double? value, PermittivityUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Permittivity : BaseUnit
     public static Permittivity Zero => new(0, PermittivityUnit.SI);
     public static Permittivity NaN => new(double.NaN, PermittivityUnit.SI);
 
-    public static implicit operator Permittivity(UnknownUnit Unit)
+    public static implicit operator Permittivity?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Permittivity : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Permittivity Unit)
+    public static implicit operator UnknownUnit?(Permittivity? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Permittivity : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermittivityUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermittivityUnit>(_unit);    
 }

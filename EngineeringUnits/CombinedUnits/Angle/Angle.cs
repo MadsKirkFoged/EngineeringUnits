@@ -13,7 +13,7 @@ public partial class Angle : BaseUnit
 
     public static Angle From(double value, AngleUnit unit) => new(value, unit);
 
-    public static Angle From(double? value, AngleUnit unit)
+    public static Angle? From(double? value, AngleUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class Angle : BaseUnit
     public static Angle Zero => new(0, AngleUnit.SI);
     public static Angle NaN => new(double.NaN, AngleUnit.SI);
 
-    public static implicit operator Angle(UnknownUnit Unit)
+    public static implicit operator Angle?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class Angle : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(Angle Unit)
+    public static implicit operator UnknownUnit?(Angle? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class Angle : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AngleUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AngleUnit>(_unit);    
 }

@@ -10,7 +10,7 @@ public partial class Capacitance
 /// Get Capacitance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromSI(double? SI)
+public static Capacitance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Capacitance FromSI(double? SI)
 /// Get Capacitance from Farad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromFarad(double? Farad)
+public static Capacitance? FromFarad(double? Farad)
 {
     if (Farad is null)
         return null;
@@ -32,7 +32,7 @@ public static Capacitance FromFarad(double? Farad)
 /// Get Capacitance from Kilofarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromKilofarad(double? Kilofarad)
+public static Capacitance? FromKilofarad(double? Kilofarad)
 {
     if (Kilofarad is null)
         return null;
@@ -43,7 +43,7 @@ public static Capacitance FromKilofarad(double? Kilofarad)
 /// Get Capacitance from Megafarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromMegafarad(double? Megafarad)
+public static Capacitance? FromMegafarad(double? Megafarad)
 {
     if (Megafarad is null)
         return null;
@@ -54,7 +54,7 @@ public static Capacitance FromMegafarad(double? Megafarad)
 /// Get Capacitance from Microfarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromMicrofarad(double? Microfarad)
+public static Capacitance? FromMicrofarad(double? Microfarad)
 {
     if (Microfarad is null)
         return null;
@@ -65,7 +65,7 @@ public static Capacitance FromMicrofarad(double? Microfarad)
 /// Get Capacitance from Millifarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromMillifarad(double? Millifarad)
+public static Capacitance? FromMillifarad(double? Millifarad)
 {
     if (Millifarad is null)
         return null;
@@ -76,7 +76,7 @@ public static Capacitance FromMillifarad(double? Millifarad)
 /// Get Capacitance from Nanofarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromNanofarad(double? Nanofarad)
+public static Capacitance? FromNanofarad(double? Nanofarad)
 {
     if (Nanofarad is null)
         return null;
@@ -87,7 +87,7 @@ public static Capacitance FromNanofarad(double? Nanofarad)
 /// Get Capacitance from Picofarad.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Capacitance FromPicofarad(double? Picofarad)
+public static Capacitance? FromPicofarad(double? Picofarad)
 {
     if (Picofarad is null)
         return null;

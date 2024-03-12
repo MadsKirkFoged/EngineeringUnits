@@ -10,7 +10,7 @@ public partial class Magnetization
 /// Get Magnetization from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Magnetization FromSI(double? SI)
+public static Magnetization? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static Magnetization FromSI(double? SI)
 /// Get Magnetization from AmperePerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static Magnetization FromAmperePerMeter(double? AmperePerMeter)
+public static Magnetization? FromAmperePerMeter(double? AmperePerMeter)
 {
     if (AmperePerMeter is null)
         return null;

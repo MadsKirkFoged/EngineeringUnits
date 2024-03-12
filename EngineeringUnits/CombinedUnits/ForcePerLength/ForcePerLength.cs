@@ -13,7 +13,7 @@ public partial class ForcePerLength : BaseUnit
 
     public static ForcePerLength From(double value, ForcePerLengthUnit unit) => new(value, unit);
 
-    public static ForcePerLength From(double? value, ForcePerLengthUnit unit)
+    public static ForcePerLength? From(double? value, ForcePerLengthUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ForcePerLength : BaseUnit
     public static ForcePerLength Zero => new(0, ForcePerLengthUnit.SI);
     public static ForcePerLength NaN => new(double.NaN, ForcePerLengthUnit.SI);
 
-    public static implicit operator ForcePerLength(UnknownUnit Unit)
+    public static implicit operator ForcePerLength?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ForcePerLength : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ForcePerLength Unit)
+    public static implicit operator UnknownUnit?(ForcePerLength? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ForcePerLength : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForcePerLengthUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForcePerLengthUnit>(_unit);    
 }

@@ -10,7 +10,7 @@ public partial class SpecificEnergy
 /// Get SpecificEnergy from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromSI(double? SI)
+public static SpecificEnergy? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static SpecificEnergy FromSI(double? SI)
 /// Get SpecificEnergy from JoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromJoulePerKilogram(double? JoulePerKilogram)
+public static SpecificEnergy? FromJoulePerKilogram(double? JoulePerKilogram)
 {
     if (JoulePerKilogram is null)
         return null;
@@ -32,7 +32,7 @@ public static SpecificEnergy FromJoulePerKilogram(double? JoulePerKilogram)
 /// Get SpecificEnergy from KilojoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilojoulePerKilogram(double? KilojoulePerKilogram)
+public static SpecificEnergy? FromKilojoulePerKilogram(double? KilojoulePerKilogram)
 {
     if (KilojoulePerKilogram is null)
         return null;
@@ -43,7 +43,7 @@ public static SpecificEnergy FromKilojoulePerKilogram(double? KilojoulePerKilogr
 /// Get SpecificEnergy from MegajoulePerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromMegajoulePerKilogram(double? MegajoulePerKilogram)
+public static SpecificEnergy? FromMegajoulePerKilogram(double? MegajoulePerKilogram)
 {
     if (MegajoulePerKilogram is null)
         return null;
@@ -54,7 +54,7 @@ public static SpecificEnergy FromMegajoulePerKilogram(double? MegajoulePerKilogr
 /// Get SpecificEnergy from BtuPerPound.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromBtuPerPound(double? BtuPerPound)
+public static SpecificEnergy? FromBtuPerPound(double? BtuPerPound)
 {
     if (BtuPerPound is null)
         return null;
@@ -65,7 +65,7 @@ public static SpecificEnergy FromBtuPerPound(double? BtuPerPound)
 /// Get SpecificEnergy from CaloriePerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromCaloriePerGram(double? CaloriePerGram)
+public static SpecificEnergy? FromCaloriePerGram(double? CaloriePerGram)
 {
     if (CaloriePerGram is null)
         return null;
@@ -76,7 +76,7 @@ public static SpecificEnergy FromCaloriePerGram(double? CaloriePerGram)
 /// Get SpecificEnergy from KilocaloriePerGram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilocaloriePerGram(double? KilocaloriePerGram)
+public static SpecificEnergy? FromKilocaloriePerGram(double? KilocaloriePerGram)
 {
     if (KilocaloriePerGram is null)
         return null;
@@ -87,7 +87,7 @@ public static SpecificEnergy FromKilocaloriePerGram(double? KilocaloriePerGram)
 /// Get SpecificEnergy from WattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromWattDayPerKilogram(double? WattDayPerKilogram)
+public static SpecificEnergy? FromWattDayPerKilogram(double? WattDayPerKilogram)
 {
     if (WattDayPerKilogram is null)
         return null;
@@ -98,7 +98,7 @@ public static SpecificEnergy FromWattDayPerKilogram(double? WattDayPerKilogram)
 /// Get SpecificEnergy from KilowattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilowattDayPerKilogram(double? KilowattDayPerKilogram)
+public static SpecificEnergy? FromKilowattDayPerKilogram(double? KilowattDayPerKilogram)
 {
     if (KilowattDayPerKilogram is null)
         return null;
@@ -109,7 +109,7 @@ public static SpecificEnergy FromKilowattDayPerKilogram(double? KilowattDayPerKi
 /// Get SpecificEnergy from MegawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromMegawattDayPerKilogram(double? MegawattDayPerKilogram)
+public static SpecificEnergy? FromMegawattDayPerKilogram(double? MegawattDayPerKilogram)
 {
     if (MegawattDayPerKilogram is null)
         return null;
@@ -120,7 +120,7 @@ public static SpecificEnergy FromMegawattDayPerKilogram(double? MegawattDayPerKi
 /// Get SpecificEnergy from GigawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromGigawattDayPerKilogram(double? GigawattDayPerKilogram)
+public static SpecificEnergy? FromGigawattDayPerKilogram(double? GigawattDayPerKilogram)
 {
     if (GigawattDayPerKilogram is null)
         return null;
@@ -131,7 +131,7 @@ public static SpecificEnergy FromGigawattDayPerKilogram(double? GigawattDayPerKi
 /// Get SpecificEnergy from TerawattDayPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromTerawattDayPerKilogram(double? TerawattDayPerKilogram)
+public static SpecificEnergy? FromTerawattDayPerKilogram(double? TerawattDayPerKilogram)
 {
     if (TerawattDayPerKilogram is null)
         return null;
@@ -142,7 +142,7 @@ public static SpecificEnergy FromTerawattDayPerKilogram(double? TerawattDayPerKi
 /// Get SpecificEnergy from WattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromWattHourPerKilogram(double? WattHourPerKilogram)
+public static SpecificEnergy? FromWattHourPerKilogram(double? WattHourPerKilogram)
 {
     if (WattHourPerKilogram is null)
         return null;
@@ -153,7 +153,7 @@ public static SpecificEnergy FromWattHourPerKilogram(double? WattHourPerKilogram
 /// Get SpecificEnergy from KilowattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilowattHourPerKilogram(double? KilowattHourPerKilogram)
+public static SpecificEnergy? FromKilowattHourPerKilogram(double? KilowattHourPerKilogram)
 {
     if (KilowattHourPerKilogram is null)
         return null;
@@ -164,7 +164,7 @@ public static SpecificEnergy FromKilowattHourPerKilogram(double? KilowattHourPer
 /// Get SpecificEnergy from MegawattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromMegawattHourPerKilogram(double? MegawattHourPerKilogram)
+public static SpecificEnergy? FromMegawattHourPerKilogram(double? MegawattHourPerKilogram)
 {
     if (MegawattHourPerKilogram is null)
         return null;
@@ -175,7 +175,7 @@ public static SpecificEnergy FromMegawattHourPerKilogram(double? MegawattHourPer
 /// Get SpecificEnergy from GigawattHourPerKilogram.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromGigawattHourPerKilogram(double? GigawattHourPerKilogram)
+public static SpecificEnergy? FromGigawattHourPerKilogram(double? GigawattHourPerKilogram)
 {
     if (GigawattHourPerKilogram is null)
         return null;
@@ -186,7 +186,7 @@ public static SpecificEnergy FromGigawattHourPerKilogram(double? GigawattHourPer
 /// Get SpecificEnergy from WattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromWattDayPerTonne(double? WattDayPerTonne)
+public static SpecificEnergy? FromWattDayPerTonne(double? WattDayPerTonne)
 {
     if (WattDayPerTonne is null)
         return null;
@@ -197,7 +197,7 @@ public static SpecificEnergy FromWattDayPerTonne(double? WattDayPerTonne)
 /// Get SpecificEnergy from KilowattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilowattDayPerTonne(double? KilowattDayPerTonne)
+public static SpecificEnergy? FromKilowattDayPerTonne(double? KilowattDayPerTonne)
 {
     if (KilowattDayPerTonne is null)
         return null;
@@ -208,7 +208,7 @@ public static SpecificEnergy FromKilowattDayPerTonne(double? KilowattDayPerTonne
 /// Get SpecificEnergy from MegawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromMegawattDayPerTonne(double? MegawattDayPerTonne)
+public static SpecificEnergy? FromMegawattDayPerTonne(double? MegawattDayPerTonne)
 {
     if (MegawattDayPerTonne is null)
         return null;
@@ -219,7 +219,7 @@ public static SpecificEnergy FromMegawattDayPerTonne(double? MegawattDayPerTonne
 /// Get SpecificEnergy from GigawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromGigawattDayPerTonne(double? GigawattDayPerTonne)
+public static SpecificEnergy? FromGigawattDayPerTonne(double? GigawattDayPerTonne)
 {
     if (GigawattDayPerTonne is null)
         return null;
@@ -230,7 +230,7 @@ public static SpecificEnergy FromGigawattDayPerTonne(double? GigawattDayPerTonne
 /// Get SpecificEnergy from TerawattDayPerTonne.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromTerawattDayPerTonne(double? TerawattDayPerTonne)
+public static SpecificEnergy? FromTerawattDayPerTonne(double? TerawattDayPerTonne)
 {
     if (TerawattDayPerTonne is null)
         return null;
@@ -241,7 +241,7 @@ public static SpecificEnergy FromTerawattDayPerTonne(double? TerawattDayPerTonne
 /// Get SpecificEnergy from WattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromWattDayPerShortTon(double? WattDayPerShortTon)
+public static SpecificEnergy? FromWattDayPerShortTon(double? WattDayPerShortTon)
 {
     if (WattDayPerShortTon is null)
         return null;
@@ -252,7 +252,7 @@ public static SpecificEnergy FromWattDayPerShortTon(double? WattDayPerShortTon)
 /// Get SpecificEnergy from KilowattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromKilowattDayPerShortTon(double? KilowattDayPerShortTon)
+public static SpecificEnergy? FromKilowattDayPerShortTon(double? KilowattDayPerShortTon)
 {
     if (KilowattDayPerShortTon is null)
         return null;
@@ -263,7 +263,7 @@ public static SpecificEnergy FromKilowattDayPerShortTon(double? KilowattDayPerSh
 /// Get SpecificEnergy from MegawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromMegawattDayPerShortTon(double? MegawattDayPerShortTon)
+public static SpecificEnergy? FromMegawattDayPerShortTon(double? MegawattDayPerShortTon)
 {
     if (MegawattDayPerShortTon is null)
         return null;
@@ -274,7 +274,7 @@ public static SpecificEnergy FromMegawattDayPerShortTon(double? MegawattDayPerSh
 /// Get SpecificEnergy from GigawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromGigawattDayPerShortTon(double? GigawattDayPerShortTon)
+public static SpecificEnergy? FromGigawattDayPerShortTon(double? GigawattDayPerShortTon)
 {
     if (GigawattDayPerShortTon is null)
         return null;
@@ -285,7 +285,7 @@ public static SpecificEnergy FromGigawattDayPerShortTon(double? GigawattDayPerSh
 /// Get SpecificEnergy from TerawattDayPerShortTon.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificEnergy FromTerawattDayPerShortTon(double? TerawattDayPerShortTon)
+public static SpecificEnergy? FromTerawattDayPerShortTon(double? TerawattDayPerShortTon)
 {
     if (TerawattDayPerShortTon is null)
         return null;

@@ -10,7 +10,7 @@ public partial class ElectricConductivity
 /// Get ElectricConductivity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricConductivity FromSI(double? SI)
+public static ElectricConductivity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricConductivity FromSI(double? SI)
 /// Get ElectricConductivity from SiemensPerMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricConductivity FromSiemensPerMeter(double? SiemensPerMeter)
+public static ElectricConductivity? FromSiemensPerMeter(double? SiemensPerMeter)
 {
     if (SiemensPerMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricConductivity FromSiemensPerMeter(double? SiemensPerMeter)
 /// Get ElectricConductivity from SiemensPerInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricConductivity FromSiemensPerInch(double? SiemensPerInch)
+public static ElectricConductivity? FromSiemensPerInch(double? SiemensPerInch)
 {
     if (SiemensPerInch is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricConductivity FromSiemensPerInch(double? SiemensPerInch)
 /// Get ElectricConductivity from SiemensPerFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricConductivity FromSiemensPerFoot(double? SiemensPerFoot)
+public static ElectricConductivity? FromSiemensPerFoot(double? SiemensPerFoot)
 {
     if (SiemensPerFoot is null)
         return null;

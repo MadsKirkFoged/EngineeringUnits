@@ -31,6 +31,6 @@ public partial class AmountOfSubstance : BaseUnit
     }
 
     /// <summary>Get <see cref="AmountOfSubstance" /> from <see cref="Mass" /> and a given <see cref="MolarMass" />.</summary>
-    public static AmountOfSubstance FromMass(Mass mass, MolarMass molarMass) => mass / molarMass;
+    public static AmountOfSubstance? FromMass(Mass? mass, MolarMass? molarMass) => mass / molarMass;
 
 }

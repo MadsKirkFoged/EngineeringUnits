@@ -10,7 +10,7 @@ public partial class ElectricCurrentDensity
 /// Get ElectricCurrentDensity from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrentDensity FromSI(double? SI)
+public static ElectricCurrentDensity? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static ElectricCurrentDensity FromSI(double? SI)
 /// Get ElectricCurrentDensity from AmperePerSquareMeter.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrentDensity FromAmperePerSquareMeter(double? AmperePerSquareMeter)
+public static ElectricCurrentDensity? FromAmperePerSquareMeter(double? AmperePerSquareMeter)
 {
     if (AmperePerSquareMeter is null)
         return null;
@@ -32,7 +32,7 @@ public static ElectricCurrentDensity FromAmperePerSquareMeter(double? AmperePerS
 /// Get ElectricCurrentDensity from AmperePerSquareInch.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrentDensity FromAmperePerSquareInch(double? AmperePerSquareInch)
+public static ElectricCurrentDensity? FromAmperePerSquareInch(double? AmperePerSquareInch)
 {
     if (AmperePerSquareInch is null)
         return null;
@@ -43,7 +43,7 @@ public static ElectricCurrentDensity FromAmperePerSquareInch(double? AmperePerSq
 /// Get ElectricCurrentDensity from AmperePerSquareFoot.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static ElectricCurrentDensity FromAmperePerSquareFoot(double? AmperePerSquareFoot)
+public static ElectricCurrentDensity? FromAmperePerSquareFoot(double? AmperePerSquareFoot)
 {
     if (AmperePerSquareFoot is null)
         return null;

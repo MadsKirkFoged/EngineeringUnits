@@ -13,7 +13,7 @@ public partial class ForceChangeRate : BaseUnit
 
     public static ForceChangeRate From(double value, ForceChangeRateUnit unit) => new(value, unit);
 
-    public static ForceChangeRate From(double? value, ForceChangeRateUnit unit)
+    public static ForceChangeRate? From(double? value, ForceChangeRateUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ForceChangeRate : BaseUnit
     public static ForceChangeRate Zero => new(0, ForceChangeRateUnit.SI);
     public static ForceChangeRate NaN => new(double.NaN, ForceChangeRateUnit.SI);
 
-    public static implicit operator ForceChangeRate(UnknownUnit Unit)
+    public static implicit operator ForceChangeRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ForceChangeRate : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ForceChangeRate Unit)
+    public static implicit operator UnknownUnit?(ForceChangeRate? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ForceChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceChangeRateUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceChangeRateUnit>(_unit);    
 }

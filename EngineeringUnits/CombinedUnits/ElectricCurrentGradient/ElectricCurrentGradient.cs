@@ -13,7 +13,7 @@ public partial class ElectricCurrentGradient : BaseUnit
 
     public static ElectricCurrentGradient From(double value, ElectricCurrentGradientUnit unit) => new(value, unit);
 
-    public static ElectricCurrentGradient From(double? value, ElectricCurrentGradientUnit unit)
+    public static ElectricCurrentGradient? From(double? value, ElectricCurrentGradientUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class ElectricCurrentGradient : BaseUnit
     public static ElectricCurrentGradient Zero => new(0, ElectricCurrentGradientUnit.SI);
     public static ElectricCurrentGradient NaN => new(double.NaN, ElectricCurrentGradientUnit.SI);
 
-    public static implicit operator ElectricCurrentGradient(UnknownUnit Unit)
+    public static implicit operator ElectricCurrentGradient?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class ElectricCurrentGradient : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(ElectricCurrentGradient Unit)
+    public static implicit operator UnknownUnit?(ElectricCurrentGradient? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class ElectricCurrentGradient : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentGradientUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentGradientUnit>(_unit);    
 }

@@ -13,7 +13,7 @@ public partial class AreaMomentOfInertia : BaseUnit
 
     public static AreaMomentOfInertia From(double value, AreaMomentOfInertiaUnit unit) => new(value, unit);
 
-    public static AreaMomentOfInertia From(double? value, AreaMomentOfInertiaUnit unit)
+    public static AreaMomentOfInertia? From(double? value, AreaMomentOfInertiaUnit? unit)
     {
         if (value is null || unit is null)
         {
@@ -27,7 +27,7 @@ public partial class AreaMomentOfInertia : BaseUnit
     public static AreaMomentOfInertia Zero => new(0, AreaMomentOfInertiaUnit.SI);
     public static AreaMomentOfInertia NaN => new(double.NaN, AreaMomentOfInertiaUnit.SI);
 
-    public static implicit operator AreaMomentOfInertia(UnknownUnit Unit)
+    public static implicit operator AreaMomentOfInertia?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null; 
@@ -36,7 +36,7 @@ public partial class AreaMomentOfInertia : BaseUnit
         return new(Unit);        
     }
 
-    public static implicit operator UnknownUnit(AreaMomentOfInertia Unit)
+    public static implicit operator UnknownUnit?(AreaMomentOfInertia? Unit)
     {            
         if (Unit is null)
             return null;
@@ -44,5 +44,5 @@ public partial class AreaMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaMomentOfInertiaUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaMomentOfInertiaUnit>(_unit);    
 }

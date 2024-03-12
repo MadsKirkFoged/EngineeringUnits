@@ -10,7 +10,7 @@ public partial class SpecificThermalResistance
 /// Get SpecificThermalResistance from SI.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificThermalResistance FromSI(double? SI)
+public static SpecificThermalResistance? FromSI(double? SI)
 {
     if (SI is null)
         return null;
@@ -21,7 +21,7 @@ public static SpecificThermalResistance FromSI(double? SI)
 /// Get SpecificThermalResistance from MeterDegreeCelsiusPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificThermalResistance FromMeterDegreeCelsiusPerWatt(double? MeterDegreeCelsiusPerWatt)
+public static SpecificThermalResistance? FromMeterDegreeCelsiusPerWatt(double? MeterDegreeCelsiusPerWatt)
 {
     if (MeterDegreeCelsiusPerWatt is null)
         return null;
@@ -32,7 +32,7 @@ public static SpecificThermalResistance FromMeterDegreeCelsiusPerWatt(double? Me
 /// Get SpecificThermalResistance from MeterKelvinPerKilowatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificThermalResistance FromMeterKelvinPerKilowatt(double? MeterKelvinPerKilowatt)
+public static SpecificThermalResistance? FromMeterKelvinPerKilowatt(double? MeterKelvinPerKilowatt)
 {
     if (MeterKelvinPerKilowatt is null)
         return null;
@@ -43,7 +43,7 @@ public static SpecificThermalResistance FromMeterKelvinPerKilowatt(double? Meter
 /// Get SpecificThermalResistance from CentimeterKelvinPerWatt.
 /// </summary>
 /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-public static SpecificThermalResistance FromCentimeterKelvinPerWatt(double? CentimeterKelvinPerWatt)
+public static SpecificThermalResistance? FromCentimeterKelvinPerWatt(double? CentimeterKelvinPerWatt)
 {
     if (CentimeterKelvinPerWatt is null)
         return null;

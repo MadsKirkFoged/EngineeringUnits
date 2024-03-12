@@ -9,7 +9,7 @@ public partial record ApparentEnergyUnit : UnitTypebase
     public static readonly ApparentEnergyUnit MegavoltampereHour = new(PreFix.mega, VoltampereHour);
     public static readonly ApparentEnergyUnit KilovoltampereHour = new(PreFix.kilo, VoltampereHour);
 
-    public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string NewSymbol = null)
+    public ApparentEnergyUnit(ElectricPotentialUnit electricPotential, ElectricCurrentUnit electricCurrentUnit, DurationUnit durationUnit, string? NewSymbol = null)
     {
         Unit = new UnitSystem(electricPotential * electricCurrentUnit * durationUnit, NewSymbol);
     }
