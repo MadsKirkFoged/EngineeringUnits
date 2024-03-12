@@ -4,7 +4,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class VolumetricHeatTransferCoefficient : BaseUnit
-{                   
+{
     public VolumetricHeatTransferCoefficient() { }
     public VolumetricHeatTransferCoefficient(decimal value, VolumetricHeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public VolumetricHeatTransferCoefficient(double value, VolumetricHeatTransferCoefficientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -30,19 +30,19 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
     public static implicit operator VolumetricHeatTransferCoefficient?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, VolumetricHeatTransferCoefficientUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit?(VolumetricHeatTransferCoefficient? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);
 }

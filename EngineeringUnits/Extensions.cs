@@ -26,7 +26,7 @@ public static class Extensions
     /// </summary>
     /// <param name="a">Source value</param>
     /// <exception cref="WrongUnitException">gg</exception>
-    public static UnknownUnit Sqrt(this BaseUnit a)
+    public static UnknownUnit? Sqrt(this BaseUnit a)
     {
         if (a is null || a.IsBelowZero())
             return null;
@@ -160,7 +160,7 @@ public static class Extensions
         return new UnknownUnit(value, unit);
     }
 
-    public static UnknownUnit AddUnit<T>(this double? value, string UnitOfMeasure) where T : UnitTypebase
+    public static UnknownUnit? AddUnit<T>(this double? value, string UnitOfMeasure) where T : UnitTypebase
     {
         if (value is null)
             return null;

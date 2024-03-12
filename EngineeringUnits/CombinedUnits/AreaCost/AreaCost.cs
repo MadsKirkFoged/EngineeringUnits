@@ -4,7 +4,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class AreaCost : BaseUnit
-{                   
+{
     public AreaCost() { }
     public AreaCost(decimal value, AreaCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public AreaCost(double value, AreaCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -30,19 +30,19 @@ public partial class AreaCost : BaseUnit
     public static implicit operator AreaCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, AreaCostUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     public static implicit operator UnknownUnit?(AreaCost? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaCostUnit>(_unit);
 }

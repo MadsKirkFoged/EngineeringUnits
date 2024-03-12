@@ -15,7 +15,7 @@ public partial class Dimensionless : BaseUnit
 
     public static Dimensionless From(double value, DimensionlessUnit unit) => new(value, unit);
 
-    public static Dimensionless From(double? value, DimensionlessUnit unit)
+    public static Dimensionless? From(double? value, DimensionlessUnit unit)
     {
         if (value is null || unit is null)
         {
@@ -29,7 +29,7 @@ public partial class Dimensionless : BaseUnit
     public static Dimensionless Zero => new(0, DimensionlessUnit.SI);
     public static Dimensionless NaN => new(double.NaN, DimensionlessUnit.SI);
 
-    public static implicit operator Dimensionless(UnknownUnit Unit)
+    public static implicit operator Dimensionless?(UnknownUnit? Unit)
     {
         if (Unit is null)
             return null;
@@ -43,6 +43,6 @@ public partial class Dimensionless : BaseUnit
         return new(Unit);
     }
 
-    public override string GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DimensionlessUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DimensionlessUnit>(_unit);
 }
 

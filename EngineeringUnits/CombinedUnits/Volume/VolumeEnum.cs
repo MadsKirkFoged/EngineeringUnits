@@ -59,7 +59,7 @@ public partial record VolumeUnit : UnitTypebase
     public static readonly VolumeUnit UsTeaspoon = new(UsOunce, "", 1/6m);
     //public static VolumeUnit UsLegalCup =         new VolumeUnit(UsOunce, "", 8m);
 
-    public VolumeUnit(LengthUnit Length, string NewSymbol = null, decimal correction = 1)
+    public VolumeUnit(LengthUnit Length, string? NewSymbol = null, decimal correction = 1)
     {
         Unit = new UnitSystem(Length.Pow(3) * correction, NewSymbol);
     }
