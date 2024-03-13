@@ -1,7 +1,6 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using System.Diagnostics;
 using UnitTests.JSON;
 
 namespace UnitTests;
@@ -26,22 +25,22 @@ public class ClassWithUnitsTest
         //var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         UnitSystem unitSystem1 = test.Massflow;
-        UnitSystem? unitSystem = JSON.Massflow;
+        UnitSystem? unitSystem = JSON?.Massflow;
 
-        foreach (RawUnit item in unitSystem.ListOfUnits)
-        {
-            Debug.Print($"{item.GetType()}");
-        }
+        //foreach (RawUnit item in unitSystem?.ListOfUnits)
+        //{
+        //    Debug.Print($"{item.GetType()}");
+        //}
 
-        foreach (RawUnit item in unitSystem.ListOfUnits)
-        {
-            Debug.Print($"{item.GetType()}");
-        }
+        //foreach (RawUnit item in unitSystem.ListOfUnits)
+        //{
+        //    Debug.Print($"{item.GetType()}");
+        //}
 
-        Debug.WriteLine($"{JSON.Massflow}");
-        Debug.WriteLine($"List count: {unitSystem.ListOfUnits.Count}");
+        //Debug.WriteLine($"{JSON.Massflow}");
+        //Debug.WriteLine($"List count: {unitSystem.ListOfUnits.Count}");
 
-        Assert.AreEqual(unitSystem.ListOfUnits.Count, unitSystem1.ListOfUnits.Count);
+        Assert.AreEqual(unitSystem?.ListOfUnits.Count, unitSystem1.ListOfUnits.Count);
 
     }
 }

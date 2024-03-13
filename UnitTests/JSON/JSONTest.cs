@@ -22,7 +22,7 @@ public class JSONTest
         Area A1 = L1 * L2;
 
         var jsonString1 = JsonConvert.SerializeObject(A1);
-        Area JSON = JsonConvert.DeserializeObject<Area>(jsonString1);
+        Area? JSON = JsonConvert.DeserializeObject<Area>(jsonString1);
         var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         Assert.AreEqual(1, A1.As(AreaUnit.SquareMeter));
@@ -30,6 +30,7 @@ public class JSONTest
         Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.SquareYard));
 
         //JSON
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(1, JSON.As(AreaUnit.SquareMeter));
         Assert.AreEqual(10000, JSON.As(AreaUnit.SquareCentimeter));
         Assert.AreEqual(1.195990046301080256481500558, JSON.As(AreaUnit.SquareYard));
@@ -47,7 +48,7 @@ public class JSONTest
         List<Area> LocalList = [L1, L2];
 
         var jsonString1 = JsonConvert.SerializeObject(LocalList);
-        List<Area> JSON = JsonConvert.DeserializeObject<List<Area>>(jsonString1);
+        List<Area>? JSON = JsonConvert.DeserializeObject<List<Area>>(jsonString1);
         var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         Assert.AreEqual(jsonString1, jsonString2);
@@ -62,7 +63,7 @@ public class JSONTest
         List<Power> LocalList = [L1, L2];
 
         var jsonString1 = JsonConvert.SerializeObject(LocalList);
-        List<Power> JSON = JsonConvert.DeserializeObject<List<Power>>(jsonString1);
+        List<Power>? JSON = JsonConvert.DeserializeObject<List<Power>>(jsonString1);
         var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         Assert.AreEqual(jsonString1, jsonString2);
@@ -79,12 +80,12 @@ public class JSONTest
         Power f5 = f4 + f3;
 
         var jsonString1 = JsonConvert.SerializeObject(f1);
-        Power f6 = JsonConvert.DeserializeObject<Power>(jsonString1);
+        Power? f6 = JsonConvert.DeserializeObject<Power>(jsonString1);
 
-        List<Power> locallist = [f1, f1, f2, f3, f4, f5, f6];
+        List<Power?> locallist = [f1, f1, f2, f3, f4, f5, f6];
 
         var jsonString2 = JsonConvert.SerializeObject(locallist);
-        List<Power> locallist2 = JsonConvert.DeserializeObject<List<Power>>(jsonString2);
+        List<Power>? locallist2 = JsonConvert.DeserializeObject<List<Power>>(jsonString2);
 
         var jsonString3 = JsonConvert.SerializeObject(locallist2);
 
@@ -97,7 +98,7 @@ public class JSONTest
         var ResultEvapTemperature = new Temperature(10, TemperatureUnit.DegreeCelsius);
 
         var jsonString1 = JsonConvert.SerializeObject(ResultEvapTemperature);
-        Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonString1);
+        Temperature? JSON = JsonConvert.DeserializeObject<Temperature>(jsonString1);
 
         Assert.AreEqual($"{ResultEvapTemperature}", $"{JSON}");
     }

@@ -119,7 +119,7 @@ public record UnitTypebase
         {
             ListToUser.Add(field.Name);
             if (field.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase))
-                return (T)field.GetValue(field);
+                return (T)field.GetValue(field)!;
         }
 
         throw new ArgumentException($"Could not find a unit with a name of '{name}'\n The available options are: {string.Join(", ", ListToUser)}");
@@ -131,10 +131,13 @@ public record UnitTypebase
 
         foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
         {
-            var localunit = (T)field.GetValue(field);
-            localunit.QuantityName = field.Name;
+            var localunit = (T)field.GetValue(field)!;
 
-            local.Add(localunit);
+            if (localunit is not null)
+            {
+                localunit.QuantityName = field.Name;
+                local.Add(localunit);
+            }
         }
 
         return local;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 
@@ -26,6 +27,7 @@ public static class Extensions
     /// </summary>
     /// <param name="a">Source value</param>
     /// <exception cref="WrongUnitException">gg</exception>
+    [return: NotNullIfNotNull(nameof(a))]
     public static UnknownUnit? Sqrt(this BaseUnit a)
     {
         if (a is null || a.IsBelowZero())
@@ -160,6 +162,7 @@ public static class Extensions
         return new UnknownUnit(value, unit);
     }
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static UnknownUnit? AddUnit<T>(this double? value, string UnitOfMeasure) where T : UnitTypebase
     {
         if (value is null)
@@ -168,10 +171,10 @@ public static class Extensions
         return ((double)value).AddUnit<T>(UnitOfMeasure);
     }
 
-    public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2];
-    public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
-    public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
-    public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5];
-    public static List<BaseUnit> ToList(this (BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit, BaseUnit) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5, tuple.Item6];
+    public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2];
+    public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
+    public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
+    public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5];
+    public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5, tuple.Item6];
 
 }

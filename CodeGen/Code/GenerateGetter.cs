@@ -54,7 +54,7 @@ internal class GenerateGetter
         }
     }
 
-    public static string Getter(string className)
+    public static string? Getter(string className)
     {
         var t = Type.GetType("EngineeringUnits.Units." + className + "Unit, EngineeringUnits");
         var sb = new StringBuilder();

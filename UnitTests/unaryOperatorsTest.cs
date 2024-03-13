@@ -36,7 +36,7 @@ public class UnaryOperatorsTest
     {
         Length length = new(1, LengthUnit.Meter);
 
-        Length length2 = -length;
+        Length? length2 = -length;
 
         Assert.AreEqual(Length.FromMeter(-1), length2);
         Assert.AreNotEqual(length, length2);
@@ -48,7 +48,7 @@ public class UnaryOperatorsTest
     {
         UnknownUnit unknownUnit = new(1d, new UnitSystem());
 
-        UnknownUnit unknownUnit2 = -unknownUnit;
+        UnknownUnit? unknownUnit2 = -unknownUnit;
 
         Assert.AreEqual(new UnknownUnit(-1d, new UnitSystem()), unknownUnit2);
         Assert.AreNotEqual(unknownUnit, unknownUnit2);

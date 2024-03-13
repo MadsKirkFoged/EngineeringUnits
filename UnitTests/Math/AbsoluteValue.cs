@@ -123,8 +123,8 @@ public class AbsoluteValue
     [TestMethod]
     public void NullAbs()
     {
-        Power f1 = null;
-        Power f2 = f1.Abs();
+        Power? f1 = null;
+        Power? f2 = f1.Abs();
 
         Assert.IsNull(f1);
         Assert.IsNull(f2);

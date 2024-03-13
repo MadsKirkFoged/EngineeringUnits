@@ -39,7 +39,7 @@ internal class UnitListGenerator
 
         foreach (var assemblyName in assembly)
         {
-            var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
+            Type t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits")!;
             PrintOut += "\n"+assemblyName+":";
             foreach (FieldInfo item in t.GetFields(BindingFlags.Static | BindingFlags.Public))
 

@@ -87,6 +87,7 @@ public static class BaseUnitExtensions
     /// <param name="a">The source BaseUnit.</param>
     /// <param name="toPower">The power to raise the BaseUnit to.</param>
     /// <returns>The result of raising the BaseUnit to the specified power.</returns>
+    [return: NotNullIfNotNull(nameof(a))]
     public static UnknownUnit? Pow(this BaseUnit? a, int toPower)
     {
         if (a is null)
@@ -108,6 +109,7 @@ public static class BaseUnitExtensions
     /// <param name="Lower">The lower limit BaseUnit.</param>
     /// <param name="Upper">The upper limit BaseUnit.</param>
     /// <returns>The clamped value between lower and upper limits.</returns>
+    [return: NotNullIfNotNull(nameof(Clamped))]
     public static UnknownUnit? Clamp(this BaseUnit? Clamped, BaseUnit? Lower, BaseUnit? Upper)
     {
         if (Clamped is null || Lower is null || Upper is null)
@@ -310,7 +312,6 @@ public static class BaseUnitExtensions
     /// <returns>The lesser of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
     [return: NotNullIfNotNull(nameof(unit))]
-    //[return: NotNullIfNotNull(nameof(limit))]
     public static UnknownUnit? UpperLimitAt(this BaseUnit? unit, BaseUnit? limit)
     {
         if (unit is null || limit is null)
@@ -337,7 +338,6 @@ public static class BaseUnitExtensions
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
 
     [return: NotNullIfNotNull(nameof(value))]
-    //[return: NotNullIfNotNull(nameof(limit))]
     public static UnknownUnit? LowerLimitAt(this BaseUnit? value, BaseUnit? limit)
     {
         if (value is null || limit is null)

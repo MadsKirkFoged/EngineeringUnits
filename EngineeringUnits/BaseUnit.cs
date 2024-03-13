@@ -218,7 +218,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (local is null)
             return null;
 
-        return local * -1;
+        return (local * -1)!;
     }
 
     [return: NotNullIfNotNull(nameof(right))]

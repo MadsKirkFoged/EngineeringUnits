@@ -56,7 +56,7 @@ internal class GenerateSetter
         }
     }
 
-    public static string Setter(string className)
+    public static string? Setter(string className)
     {
 
         var name = "EngineeringUnits.Units." + className + "Unit, EngineeringUnits";

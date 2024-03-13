@@ -172,8 +172,9 @@ public class ComparToUnitNet
         EngineeringUnits.Duration A2 = new(6544444.743, DurationUnit.Minute);
 
         var jsonString = JsonConvert.SerializeObject(A2);
-        EngineeringUnits.Duration JSON = JsonConvert.DeserializeObject<EngineeringUnits.Duration>(jsonString);
+        EngineeringUnits.Duration? JSON = JsonConvert.DeserializeObject<EngineeringUnits.Duration>(jsonString);
 
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(0, JSON.As(DurationUnit.Day) - A1.As(UnitsNet.Units.DurationUnit.Day), 0);
         Assert.AreEqual(0, JSON.As(DurationUnit.Hour) - A1.As(UnitsNet.Units.DurationUnit.Hour), 0);
         Assert.AreEqual(0, JSON.As(DurationUnit.Microsecond) - A1.As(UnitsNet.Units.DurationUnit.Microsecond), 0);
@@ -577,9 +578,10 @@ public class ComparToUnitNet
         EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.Kelvin);
 
         var jsonString = JsonConvert.SerializeObject(L2);
-        EngineeringUnits.Temperature JSON = JsonConvert.DeserializeObject<EngineeringUnits.Temperature>(jsonString);
+        EngineeringUnits.Temperature? JSON = JsonConvert.DeserializeObject<EngineeringUnits.Temperature>(jsonString);
 
         //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(0, JSON.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
         Assert.AreEqual(0, JSON.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 1.2E-13);
         Assert.AreEqual(0, JSON.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);

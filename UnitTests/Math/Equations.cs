@@ -90,7 +90,7 @@ public class Equations
                                                 q1.As(UnitsNet.Units.PowerUnit.Watt)), 0.00013);
 
         var jsonString1 = JsonConvert.SerializeObject(Q1);
-        EngineeringUnits.Power JSON = JsonConvert.DeserializeObject<EngineeringUnits.Power>(jsonString1);
+        EngineeringUnits.Power? JSON = JsonConvert.DeserializeObject<EngineeringUnits.Power>(jsonString1);
         var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         Assert.AreEqual(jsonString1, jsonString2);

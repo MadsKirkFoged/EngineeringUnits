@@ -64,7 +64,7 @@ public class RoundToNearest
     public void RoundUpWithNull()
     {
 
-        var MyList = new List<Length>
+        var MyList = new List<Length?>
         {
             Length.FromMeter(1),
             Length.FromMeter(5),

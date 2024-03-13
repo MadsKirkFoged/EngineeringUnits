@@ -34,16 +34,16 @@ public class Program
     public static void Main()
     {
 
-        var myratio = new Ratio(10, RatioUnit.Percent);
+        //var myratio = new Ratio(10, RatioUnit.Percent);
 
-        UnknownUnit localUnit = myratio.ToUnit(RatioUnit.Percent);
-        _ = localUnit.ToString();
+        //UnknownUnit localUnit = myratio.ToUnit(RatioUnit.Percent);
+        //_ = localUnit.ToString();
 
-        var pp1 = new Power(10, PowerUnit.Kilowatt);
-        var ee1 = new Enthalpy(10, EnthalpyUnit.SI);
+        //var pp1 = new Power(10, PowerUnit.Kilowatt);
+        //var ee1 = new Enthalpy(10, EnthalpyUnit.SI);
 
-        MassFlow massFlow = pp1 / ee1;
-        _ = massFlow.ToString();
+        //MassFlow massFlow = pp1 / ee1;
+        //_ = massFlow.ToString();
 
         //Pressure P11 = new Pressure(10, PressureUnit.Bar);
         //Pressure P2 = P11.ToUnit(PressureUnit.BarA);

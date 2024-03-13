@@ -13,7 +13,7 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        var assemblyDir = Assembly.GetAssembly(typeof(Program)).Location;
+        var assemblyDir = Assembly.GetAssembly(typeof(Program))!.Location;
         var solutionDir = assemblyDir[..assemblyDir.IndexOf(GENERATOR_NAME)];
         var libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
@@ -24,7 +24,7 @@ internal class Program
         //GenerateGetter.GenerateGetterClasses(libraryDir);
         //GenerateAlias.AliasClass(libraryDir);
 
-        //AbsExtensionsGenerator.Generate(libraryDir);
+        AbsExtensionsGenerator.Generate(libraryDir);
         //UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
         //_=UnitListGenerator.ShowUnittypes();
