@@ -14,12 +14,11 @@ public partial class AreaMomentOfInertia : BaseUnit
 
     public static AreaMomentOfInertia From(double value, AreaMomentOfInertiaUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static AreaMomentOfInertia? From(double? value, AreaMomentOfInertiaUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

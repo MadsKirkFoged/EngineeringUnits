@@ -14,12 +14,11 @@ public partial class Capacitance : BaseUnit
 
     public static Capacitance From(double value, CapacitanceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Capacitance? From(double? value, CapacitanceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

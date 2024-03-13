@@ -14,12 +14,11 @@ public partial class LapseRate : BaseUnit
 
     public static LapseRate From(double value, LapseRateUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static LapseRate? From(double? value, LapseRateUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

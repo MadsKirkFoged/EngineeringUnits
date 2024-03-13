@@ -14,12 +14,11 @@ public partial class DynamicViscosity : BaseUnit
 
     public static DynamicViscosity From(double value, DynamicViscosityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static DynamicViscosity? From(double? value, DynamicViscosityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

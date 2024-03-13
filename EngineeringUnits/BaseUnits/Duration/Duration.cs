@@ -14,12 +14,11 @@ public partial class Duration : BaseUnit
 
     public static Duration From(double value, DurationUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Duration? From(double? value, DurationUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

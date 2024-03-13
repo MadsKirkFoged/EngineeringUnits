@@ -14,12 +14,11 @@ public partial class Acceleration : BaseUnit
 
     public static Acceleration From(double value, AccelerationUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Acceleration? From(double? value, AccelerationUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

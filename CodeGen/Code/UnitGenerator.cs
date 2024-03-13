@@ -63,12 +63,11 @@ internal class UnitGenerator
                    
                        public static Variable From(double value, VariableUnit unit) => new(value, unit);
                    
+                       [return: NotNullIfNotNull(nameof(value))]
                        public static Variable? From(double? value, VariableUnit? unit)
                        {
-                           if (value is null || unit is null)
-                           {
-                               return null;
-                           }
+                           if (value is null || unit is null)                           
+                               return null;                           
                    
                            return From((double)value, unit);
                        }

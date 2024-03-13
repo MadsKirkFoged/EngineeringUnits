@@ -14,12 +14,11 @@ public partial class LengthCost : BaseUnit
 
     public static LengthCost From(double value, LengthCostUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static LengthCost? From(double? value, LengthCostUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

@@ -14,12 +14,11 @@ public partial class Illuminance : BaseUnit
 
     public static Illuminance From(double value, IlluminanceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Illuminance? From(double? value, IlluminanceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

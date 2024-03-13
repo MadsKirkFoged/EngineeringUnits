@@ -14,12 +14,11 @@ public partial class RotationalSpeed : BaseUnit
 
     public static RotationalSpeed From(double value, RotationalSpeedUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static RotationalSpeed? From(double? value, RotationalSpeedUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

@@ -14,12 +14,11 @@ public partial class MolarFlow : BaseUnit
 
     public static MolarFlow From(double value, MolarFlowUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MolarFlow? From(double? value, MolarFlowUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

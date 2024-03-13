@@ -14,12 +14,11 @@ public partial class SpecificThermalResistance : BaseUnit
 
     public static SpecificThermalResistance From(double value, SpecificThermalResistanceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static SpecificThermalResistance? From(double? value, SpecificThermalResistanceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

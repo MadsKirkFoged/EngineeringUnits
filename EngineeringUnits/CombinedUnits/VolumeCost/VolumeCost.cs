@@ -14,12 +14,11 @@ public partial class VolumeCost : BaseUnit
 
     public static VolumeCost From(double value, VolumeCostUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static VolumeCost? From(double? value, VolumeCostUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

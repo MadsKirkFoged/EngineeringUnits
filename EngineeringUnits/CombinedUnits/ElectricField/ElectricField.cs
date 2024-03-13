@@ -14,12 +14,11 @@ public partial class ElectricField : BaseUnit
 
     public static ElectricField From(double value, ElectricFieldUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ElectricField? From(double? value, ElectricFieldUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

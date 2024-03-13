@@ -14,12 +14,11 @@ public partial class Length : BaseUnit
 
     public static Length From(double value, LengthUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Length? From(double? value, LengthUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

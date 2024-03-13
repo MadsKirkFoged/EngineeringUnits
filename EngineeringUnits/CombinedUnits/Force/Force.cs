@@ -14,12 +14,11 @@ public partial class Force : BaseUnit
 
     public static Force From(double value, ForceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Force? From(double? value, ForceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

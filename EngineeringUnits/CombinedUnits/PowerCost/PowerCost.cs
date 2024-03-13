@@ -14,12 +14,11 @@ public partial class PowerCost : BaseUnit
 
     public static PowerCost From(double value, PowerCostUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static PowerCost? From(double? value, PowerCostUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

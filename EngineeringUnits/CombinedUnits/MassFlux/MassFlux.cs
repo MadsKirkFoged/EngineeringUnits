@@ -14,12 +14,11 @@ public partial class MassFlux : BaseUnit
 
     public static MassFlux From(double value, MassFluxUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MassFlux? From(double? value, MassFluxUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

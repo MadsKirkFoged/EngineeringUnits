@@ -14,12 +14,11 @@ public partial class MassMomentOfInertia : BaseUnit
 
     public static MassMomentOfInertia From(double value, MassMomentOfInertiaUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MassMomentOfInertia? From(double? value, MassMomentOfInertiaUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

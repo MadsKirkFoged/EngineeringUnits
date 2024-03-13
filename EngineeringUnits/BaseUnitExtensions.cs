@@ -74,8 +74,12 @@ public static class BaseUnitExtensions
     /// <param name="From">The source BaseUnit.</param>
     /// <param name="selectedUnit">The target UnitSystem.</param>
     /// <returns>The orginal unit converted into a new.</returns>
-    public static UnknownUnit ToUnit(this BaseUnit From, UnitSystem selectedUnit)
+    [return: NotNullIfNotNull(nameof(From))]
+    public static UnknownUnit? ToUnit(this BaseUnit? From, UnitSystem selectedUnit)
     {
+        if (From is null)
+            return null;
+
         GuardAgainst.DifferentUnits(From, selectedUnit);
 
         return new UnknownUnit(From.GetValueAs(selectedUnit), selectedUnit);

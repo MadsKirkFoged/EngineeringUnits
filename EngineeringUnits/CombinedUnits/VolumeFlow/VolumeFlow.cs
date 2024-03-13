@@ -14,12 +14,11 @@ public partial class VolumeFlow : BaseUnit
 
     public static VolumeFlow From(double value, VolumeFlowUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static VolumeFlow? From(double? value, VolumeFlowUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

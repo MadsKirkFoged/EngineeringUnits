@@ -14,12 +14,11 @@ public partial class ForcePerLength : BaseUnit
 
     public static ForcePerLength From(double value, ForcePerLengthUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ForcePerLength? From(double? value, ForcePerLengthUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

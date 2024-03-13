@@ -14,12 +14,11 @@ public partial class Torque : BaseUnit
 
     public static Torque From(double value, TorqueUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Torque? From(double? value, TorqueUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

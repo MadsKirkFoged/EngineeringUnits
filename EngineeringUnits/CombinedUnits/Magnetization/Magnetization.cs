@@ -14,12 +14,11 @@ public partial class Magnetization : BaseUnit
 
     public static Magnetization From(double value, MagnetizationUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Magnetization? From(double? value, MagnetizationUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

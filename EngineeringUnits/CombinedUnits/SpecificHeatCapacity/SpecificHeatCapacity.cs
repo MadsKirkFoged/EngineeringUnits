@@ -14,12 +14,11 @@ public partial class SpecificHeatCapacity : BaseUnit
 
     public static SpecificHeatCapacity From(double value, SpecificHeatCapacityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static SpecificHeatCapacity? From(double? value, SpecificHeatCapacityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

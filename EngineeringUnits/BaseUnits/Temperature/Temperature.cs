@@ -14,12 +14,11 @@ public partial class Temperature : BaseUnit
 
     public static Temperature From(double value, TemperatureUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Temperature? From(double? value, TemperatureUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

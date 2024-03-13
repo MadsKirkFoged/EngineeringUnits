@@ -14,12 +14,11 @@ public partial class Speed : BaseUnit
 
     public static Speed From(double value, SpeedUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Speed? From(double? value, SpeedUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

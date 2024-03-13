@@ -14,12 +14,11 @@ public partial class LuminousFlux : BaseUnit
 
     public static LuminousFlux From(double value, LuminousFluxUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static LuminousFlux? From(double? value, LuminousFluxUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

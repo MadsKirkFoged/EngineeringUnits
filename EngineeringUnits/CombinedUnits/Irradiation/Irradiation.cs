@@ -14,12 +14,11 @@ public partial class Irradiation : BaseUnit
 
     public static Irradiation From(double value, IrradiationUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Irradiation? From(double? value, IrradiationUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

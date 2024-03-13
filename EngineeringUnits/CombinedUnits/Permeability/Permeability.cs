@@ -14,12 +14,11 @@ public partial class Permeability : BaseUnit
 
     public static Permeability From(double value, PermeabilityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Permeability? From(double? value, PermeabilityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

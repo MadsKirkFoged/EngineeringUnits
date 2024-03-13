@@ -14,12 +14,11 @@ public partial class VolumePerLength : BaseUnit
 
     public static VolumePerLength From(double value, VolumePerLengthUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static VolumePerLength? From(double? value, VolumePerLengthUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

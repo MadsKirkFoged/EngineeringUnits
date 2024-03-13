@@ -14,12 +14,11 @@ public partial class ThermalConductivity : BaseUnit
 
     public static ThermalConductivity From(double value, ThermalConductivityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ThermalConductivity? From(double? value, ThermalConductivityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

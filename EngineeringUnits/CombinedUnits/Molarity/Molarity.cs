@@ -14,12 +14,11 @@ public partial class Molarity : BaseUnit
 
     public static Molarity From(double value, MolarityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Molarity? From(double? value, MolarityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

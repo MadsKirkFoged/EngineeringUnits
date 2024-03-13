@@ -14,12 +14,11 @@ public partial class TorquePerLength : BaseUnit
 
     public static TorquePerLength From(double value, TorquePerLengthUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static TorquePerLength? From(double? value, TorquePerLengthUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

@@ -14,12 +14,11 @@ public partial class Entropy : BaseUnit
 
     public static Entropy From(double value, EntropyUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Entropy? From(double? value, EntropyUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

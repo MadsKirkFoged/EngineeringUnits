@@ -14,12 +14,11 @@ public partial class FuelEfficiency : BaseUnit
 
     public static FuelEfficiency From(double value, FuelEfficiencyUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static FuelEfficiency? From(double? value, FuelEfficiencyUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

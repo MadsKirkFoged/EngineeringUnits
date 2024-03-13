@@ -14,12 +14,11 @@ public partial class ElectricResistance : BaseUnit
 
     public static ElectricResistance From(double value, ElectricResistanceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ElectricResistance? From(double? value, ElectricResistanceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

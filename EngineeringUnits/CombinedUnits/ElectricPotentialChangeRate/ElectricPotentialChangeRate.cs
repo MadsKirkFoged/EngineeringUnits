@@ -14,12 +14,11 @@ public partial class ElectricPotentialChangeRate : BaseUnit
 
     public static ElectricPotentialChangeRate From(double value, ElectricPotentialChangeRateUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ElectricPotentialChangeRate? From(double? value, ElectricPotentialChangeRateUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

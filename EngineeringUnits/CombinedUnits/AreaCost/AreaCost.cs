@@ -14,12 +14,11 @@ public partial class AreaCost : BaseUnit
 
     public static AreaCost From(double value, AreaCostUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static AreaCost? From(double? value, AreaCostUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

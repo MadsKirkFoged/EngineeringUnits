@@ -14,12 +14,11 @@ public partial class MassFlow : BaseUnit
 
     public static MassFlow From(double value, MassFlowUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MassFlow? From(double? value, MassFlowUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

@@ -14,12 +14,11 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
 
     public static CoefficientOfThermalExpansion From(double value, CoefficientOfThermalExpansionUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static CoefficientOfThermalExpansion? From(double? value, CoefficientOfThermalExpansionUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

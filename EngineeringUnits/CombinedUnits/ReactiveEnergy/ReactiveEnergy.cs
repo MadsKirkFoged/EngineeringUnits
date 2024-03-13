@@ -14,12 +14,11 @@ public partial class ReactiveEnergy : BaseUnit
 
     public static ReactiveEnergy From(double value, ReactiveEnergyUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ReactiveEnergy? From(double? value, ReactiveEnergyUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

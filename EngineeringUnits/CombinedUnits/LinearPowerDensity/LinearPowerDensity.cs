@@ -14,12 +14,11 @@ public partial class LinearPowerDensity : BaseUnit
 
     public static LinearPowerDensity From(double value, LinearPowerDensityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static LinearPowerDensity? From(double? value, LinearPowerDensityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

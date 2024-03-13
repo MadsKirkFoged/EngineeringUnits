@@ -14,12 +14,11 @@ public partial class MassCost : BaseUnit
 
     public static MassCost From(double value, MassCostUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MassCost? From(double? value, MassCostUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

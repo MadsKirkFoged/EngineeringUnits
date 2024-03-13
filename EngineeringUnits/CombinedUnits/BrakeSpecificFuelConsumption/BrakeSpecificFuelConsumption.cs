@@ -14,12 +14,11 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
 
     public static BrakeSpecificFuelConsumption From(double value, BrakeSpecificFuelConsumptionUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static BrakeSpecificFuelConsumption? From(double? value, BrakeSpecificFuelConsumptionUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

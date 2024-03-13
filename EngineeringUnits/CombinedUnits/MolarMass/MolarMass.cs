@@ -14,12 +14,11 @@ public partial class MolarMass : BaseUnit
 
     public static MolarMass From(double value, MolarMassUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static MolarMass? From(double? value, MolarMassUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

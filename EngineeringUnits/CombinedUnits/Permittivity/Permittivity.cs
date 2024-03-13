@@ -14,12 +14,11 @@ public partial class Permittivity : BaseUnit
 
     public static Permittivity From(double value, PermittivityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Permittivity? From(double? value, PermittivityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

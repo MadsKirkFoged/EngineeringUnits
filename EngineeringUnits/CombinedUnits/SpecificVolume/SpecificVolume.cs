@@ -14,12 +14,11 @@ public partial class SpecificVolume : BaseUnit
 
     public static SpecificVolume From(double value, SpecificVolumeUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static SpecificVolume? From(double? value, SpecificVolumeUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

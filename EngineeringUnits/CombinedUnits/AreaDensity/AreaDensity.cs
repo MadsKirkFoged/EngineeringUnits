@@ -14,12 +14,11 @@ public partial class AreaDensity : BaseUnit
 
     public static AreaDensity From(double value, AreaDensityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static AreaDensity? From(double? value, AreaDensityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

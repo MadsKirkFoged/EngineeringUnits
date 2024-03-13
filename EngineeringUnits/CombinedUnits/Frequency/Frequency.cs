@@ -14,12 +14,11 @@ public partial class Frequency : BaseUnit
 
     public static Frequency From(double value, FrequencyUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Frequency? From(double? value, FrequencyUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

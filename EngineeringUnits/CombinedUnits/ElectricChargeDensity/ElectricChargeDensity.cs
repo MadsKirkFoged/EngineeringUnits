@@ -14,12 +14,11 @@ public partial class ElectricChargeDensity : BaseUnit
 
     public static ElectricChargeDensity From(double value, ElectricChargeDensityUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ElectricChargeDensity? From(double? value, ElectricChargeDensityUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

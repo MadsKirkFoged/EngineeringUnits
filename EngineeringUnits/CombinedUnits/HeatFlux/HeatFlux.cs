@@ -14,12 +14,11 @@ public partial class HeatFlux : BaseUnit
 
     public static HeatFlux From(double value, HeatFluxUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static HeatFlux? From(double? value, HeatFluxUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

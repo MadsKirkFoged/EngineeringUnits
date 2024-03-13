@@ -14,12 +14,11 @@ public partial class Angle : BaseUnit
 
     public static Angle From(double value, AngleUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static Angle? From(double? value, AngleUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }

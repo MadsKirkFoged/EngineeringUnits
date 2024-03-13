@@ -14,12 +14,11 @@ public partial class ElectricInductance : BaseUnit
 
     public static ElectricInductance From(double value, ElectricInductanceUnit unit) => new(value, unit);
 
+    [return: NotNullIfNotNull(nameof(value))]
     public static ElectricInductance? From(double? value, ElectricInductanceUnit? unit)
     {
-        if (value is null || unit is null)
-        {
-            return null;
-        }
+        if (value is null || unit is null)                           
+            return null;                           
 
         return From((double)value, unit);
     }
