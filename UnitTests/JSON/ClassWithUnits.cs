@@ -5,7 +5,7 @@ namespace UnitTests.JSON;
 public class ClassWithUnits
 {
 
-    public MassFlow Massflow { get; set; }
+    public MassFlow? Massflow { get; set; }
 
     //public ClassWithUnits()
     //{

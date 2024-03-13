@@ -48,6 +48,7 @@ internal class UnitGenerator
 
         return $$"""
                    using EngineeringUnits.Units;
+                   using System.Diagnostics.CodeAnalysis;
                    
                    namespace EngineeringUnits;
                    
@@ -76,6 +77,7 @@ internal class UnitGenerator
                        public static Variable Zero => new(0, VariableUnit.SI);
                        public static Variable NaN => new(double.NaN, VariableUnit.SI);
                    
+                       [return: NotNullIfNotNull(nameof(Unit))]
                        public static implicit operator Variable?(UnknownUnit? Unit)
                        {
                            if (Unit is null)
@@ -85,6 +87,7 @@ internal class UnitGenerator
                            return new(Unit);        
                        }
                    
+                       [return: NotNullIfNotNull(nameof(Unit))]
                        public static implicit operator UnknownUnit?(Variable? Unit)
                        {            
                            if (Unit is null)

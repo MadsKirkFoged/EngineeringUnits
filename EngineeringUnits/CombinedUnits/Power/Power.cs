@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Power : BaseUnit
-{
+{                   
     public Power() { }
     public Power(decimal value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Power(double value, PowerUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Power : BaseUnit
     public static Power Zero => new(0, PowerUnit.SI);
     public static Power NaN => new(double.NaN, PowerUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Power?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, PowerUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Power? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerUnit>(_unit);    
 }

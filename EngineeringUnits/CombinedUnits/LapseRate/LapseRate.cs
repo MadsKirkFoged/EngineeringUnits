@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class LapseRate : BaseUnit
-{
+{                   
     public LapseRate() { }
     public LapseRate(decimal value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LapseRate(double value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class LapseRate : BaseUnit
     public static LapseRate Zero => new(0, LapseRateUnit.SI);
     public static LapseRate NaN => new(double.NaN, LapseRateUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator LapseRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, LapseRateUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(LapseRate? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);    
 }

@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Irradiation : BaseUnit
-{
+{                   
     public Irradiation() { }
     public Irradiation(decimal value, IrradiationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Irradiation(double value, IrradiationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Irradiation : BaseUnit
     public static Irradiation Zero => new(0, IrradiationUnit.SI);
     public static Irradiation NaN => new(double.NaN, IrradiationUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Irradiation?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, IrradiationUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Irradiation? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IrradiationUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IrradiationUnit>(_unit);    
 }

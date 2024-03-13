@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Ratio : BaseUnit
-{
+{                   
     public Ratio() { }
     public Ratio(decimal value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Ratio(double value, RatioUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Ratio : BaseUnit
     public static Ratio Zero => new(0, RatioUnit.SI);
     public static Ratio NaN => new(double.NaN, RatioUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Ratio?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, RatioUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Ratio? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);    
 }

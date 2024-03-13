@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class WarpingMomentOfInertia : BaseUnit
-{
+{                   
     public WarpingMomentOfInertia() { }
     public WarpingMomentOfInertia(decimal value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public WarpingMomentOfInertia(double value, WarpingMomentOfInertiaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class WarpingMomentOfInertia : BaseUnit
     public static WarpingMomentOfInertia Zero => new(0, WarpingMomentOfInertiaUnit.SI);
     public static WarpingMomentOfInertia NaN => new(double.NaN, WarpingMomentOfInertiaUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator WarpingMomentOfInertia?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, WarpingMomentOfInertiaUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(WarpingMomentOfInertia? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);    
 }

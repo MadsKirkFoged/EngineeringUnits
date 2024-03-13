@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class LuminousIntensity : BaseUnit
-{
+{                   
     public LuminousIntensity() { }
     public LuminousIntensity(decimal value, LuminousIntensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LuminousIntensity(double value, LuminousIntensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class LuminousIntensity : BaseUnit
     public static LuminousIntensity Zero => new(0, LuminousIntensityUnit.SI);
     public static LuminousIntensity NaN => new(double.NaN, LuminousIntensityUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator LuminousIntensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, LuminousIntensityUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(LuminousIntensity? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);    
 }

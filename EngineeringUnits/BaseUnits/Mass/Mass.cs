@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Mass : BaseUnit
-{
+{                   
     public Mass() { }
     public Mass(decimal value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Mass(double value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Mass : BaseUnit
     public static Mass Zero => new(0, MassUnit.SI);
     public static Mass NaN => new(double.NaN, MassUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Mass?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, MassUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Mass? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);    
 }

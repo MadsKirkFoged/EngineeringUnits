@@ -77,8 +77,9 @@ public class Extensiontest
 
         List<Length> list = [SI, SI2, SI3];
 
-        Length Mean = list.Mean();
+        Length? Mean = list.Mean();
 
+        Assert.IsNotNull(Mean);
         Assert.AreEqual("2 m", Mean.ToString("G5"));
     }
 
@@ -93,8 +94,9 @@ public class Extensiontest
 
         List<Length> list = [SI, SI2, SI3, SI4];
 
-        Length Mean = list.Mean();
+        Length? Mean = list.Mean();
 
+        Assert.IsNotNull(Mean);
         Assert.AreEqual("3 m", Mean.ToString("G5"));
     }
 
@@ -104,7 +106,7 @@ public class Extensiontest
     {
         List<Length> list = [];
 
-        Length Sum = list.Sum();
+        Length? Sum = list.Sum();
 
         Assert.IsNull(Sum);
     }
@@ -117,8 +119,9 @@ public class Extensiontest
 
         List<Length> list = [SI];
 
-        Length Sum = list.Sum();
+        Length? Sum = list.Sum();
 
+        Assert.IsNotNull(Sum);
         Assert.AreEqual("1 m", Sum.ToString("G5"));
     }
 }

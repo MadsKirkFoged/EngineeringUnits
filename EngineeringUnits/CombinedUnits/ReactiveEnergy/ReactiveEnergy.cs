@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class ReactiveEnergy : BaseUnit
-{
+{                   
     public ReactiveEnergy() { }
     public ReactiveEnergy(decimal value, ReactiveEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ReactiveEnergy(double value, ReactiveEnergyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class ReactiveEnergy : BaseUnit
     public static ReactiveEnergy Zero => new(0, ReactiveEnergyUnit.SI);
     public static ReactiveEnergy NaN => new(double.NaN, ReactiveEnergyUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator ReactiveEnergy?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, ReactiveEnergyUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(ReactiveEnergy? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);    
 }

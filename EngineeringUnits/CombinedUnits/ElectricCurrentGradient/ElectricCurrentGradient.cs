@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class ElectricCurrentGradient : BaseUnit
-{
+{                   
     public ElectricCurrentGradient() { }
     public ElectricCurrentGradient(decimal value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricCurrentGradient(double value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class ElectricCurrentGradient : BaseUnit
     public static ElectricCurrentGradient Zero => new(0, ElectricCurrentGradientUnit.SI);
     public static ElectricCurrentGradient NaN => new(double.NaN, ElectricCurrentGradientUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator ElectricCurrentGradient?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, ElectricCurrentGradientUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(ElectricCurrentGradient? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentGradientUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentGradientUnit>(_unit);    
 }

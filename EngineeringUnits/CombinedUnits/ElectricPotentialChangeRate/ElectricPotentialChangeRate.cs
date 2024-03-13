@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class ElectricPotentialChangeRate : BaseUnit
-{
+{                   
     public ElectricPotentialChangeRate() { }
     public ElectricPotentialChangeRate(decimal value, ElectricPotentialChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricPotentialChangeRate(double value, ElectricPotentialChangeRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class ElectricPotentialChangeRate : BaseUnit
     public static ElectricPotentialChangeRate Zero => new(0, ElectricPotentialChangeRateUnit.SI);
     public static ElectricPotentialChangeRate NaN => new(double.NaN, ElectricPotentialChangeRateUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator ElectricPotentialChangeRate?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, ElectricPotentialChangeRateUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(ElectricPotentialChangeRate? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit);    
 }

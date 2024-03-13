@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class ElectricInductance : BaseUnit
-{
+{                   
     public ElectricInductance() { }
     public ElectricInductance(decimal value, ElectricInductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricInductance(double value, ElectricInductanceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class ElectricInductance : BaseUnit
     public static ElectricInductance Zero => new(0, ElectricInductanceUnit.SI);
     public static ElectricInductance NaN => new(double.NaN, ElectricInductanceUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator ElectricInductance?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, ElectricInductanceUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(ElectricInductance? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricInductanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricInductanceUnit>(_unit);    
 }

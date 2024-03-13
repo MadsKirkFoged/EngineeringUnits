@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Area : BaseUnit
-{
+{                   
     public Area() { }
     public Area(decimal value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Area(double value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Area : BaseUnit
     public static Area Zero => new(0, AreaUnit.SI);
     public static Area NaN => new(double.NaN, AreaUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Area?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, AreaUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Area? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaUnit>(_unit);    
 }

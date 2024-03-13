@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class LinearPowerDensity : BaseUnit
-{
+{                   
     public LinearPowerDensity() { }
     public LinearPowerDensity(decimal value, LinearPowerDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LinearPowerDensity(double value, LinearPowerDensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class LinearPowerDensity : BaseUnit
     public static LinearPowerDensity Zero => new(0, LinearPowerDensityUnit.SI);
     public static LinearPowerDensity NaN => new(double.NaN, LinearPowerDensityUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator LinearPowerDensity?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, LinearPowerDensityUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(LinearPowerDensity? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LinearPowerDensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LinearPowerDensityUnit>(_unit);    
 }

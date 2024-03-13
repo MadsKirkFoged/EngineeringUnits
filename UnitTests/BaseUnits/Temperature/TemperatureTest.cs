@@ -484,8 +484,9 @@ public class TemperatureTest
         Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
 
         var jsonstring = JsonConvert.SerializeObject(T1);
-        Temperature JSON = JsonConvert.DeserializeObject<Temperature>(jsonstring);
+        Temperature? JSON = JsonConvert.DeserializeObject<Temperature>(jsonstring);
 
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(293.15, JSON.As(TemperatureUnit.Kelvin));
         Assert.AreEqual(20, JSON.As(TemperatureUnit.DegreeCelsius));
         Assert.AreEqual(68, (double)JSON.As(TemperatureUnit.DegreeFahrenheit), 0.000001);

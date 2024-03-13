@@ -19,7 +19,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L2 = MyList.RoundToNearest(Length.FromMeter(4)); //20m
+        Length? L2 = MyList.RoundToNearest(Length.FromMeter(4)); //20m
 
         Assert.AreEqual(Length.FromMeter(5), L2);
 
@@ -37,7 +37,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L2 = MyList.RoundDownToNearest(Length.FromMeter(30)); //20m
+        Length? L2 = MyList.RoundDownToNearest(Length.FromMeter(30)); //20m
 
         Assert.AreEqual(Length.FromMeter(20), L2);
 
@@ -54,7 +54,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+        Length? L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
 
         Assert.AreEqual(Length.FromMeter(44), L1);
 
@@ -72,7 +72,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+        Length? L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
 
         Assert.IsNull(L1);
 
@@ -89,7 +89,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundUpToNearest(null); //44m
+        Length? L1 = MyList.RoundUpToNearest(null); //44m
 
         Assert.IsNull(L1);
 
@@ -101,7 +101,7 @@ public class RoundToNearest
 
         List<Length> MyList = [];
 
-        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
+        Length? L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
 
         Assert.IsNull(L1);
 
@@ -118,7 +118,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundUpToNearest(Length.FromMeter(50)); //44m
+        Length? L1 = MyList.RoundUpToNearest(Length.FromMeter(50)); //44m
 
         Assert.AreEqual(Length.FromMeter(44), L1);
 
@@ -136,7 +136,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundUpToNearest(Mass.FromKilogram(30));
+        Length? L1 = MyList.RoundUpToNearest(Mass.FromKilogram(30));
 
         Assert.AreEqual(L1, L1);
     }
@@ -153,7 +153,7 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length L1 = MyList.RoundDownToNearest(Mass.FromKilogram(30));
+        Length? L1 = MyList.RoundDownToNearest(Mass.FromKilogram(30));
         Assert.AreEqual(L1, L1);
     }
 

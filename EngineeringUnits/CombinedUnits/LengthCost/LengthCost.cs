@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class LengthCost : BaseUnit
-{
+{                   
     public LengthCost() { }
     public LengthCost(decimal value, LengthCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LengthCost(double value, LengthCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class LengthCost : BaseUnit
     public static LengthCost Zero => new(0, LengthCostUnit.SI);
     public static LengthCost NaN => new(double.NaN, LengthCostUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator LengthCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, LengthCostUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(LengthCost? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);    
 }

@@ -43,13 +43,13 @@ public class IsNaN
     public void NaNWithOperators()
     {
         var lengthNotNan = Length.FromMeter(2);
-        Length lengthNan = Length.NaN;
+        Length? lengthNan = Length.NaN;
 
         Length lengthSumShouldBeNan = lengthNotNan + lengthNan;
         Length lengthPlusShouldBeNan = +lengthNan;
         Length lengthDiffShouldBeNan1 = lengthNotNan - lengthNan;
         Length lengthDiffShouldBeNan2 = lengthNan - lengthNotNan;
-        Length lengthMinusShouldBeNan = -lengthNan;
+        Length? lengthMinusShouldBeNan = -lengthNan;
         Area areaProdShouldBeNan1 = lengthNotNan * lengthNan;
         Area areaProdShouldBeNan2 = lengthNan * lengthNotNan;
         Ratio ratioDivShouldBeNan1 = lengthNotNan / lengthNan;

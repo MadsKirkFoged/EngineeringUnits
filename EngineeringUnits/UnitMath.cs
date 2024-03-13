@@ -62,6 +62,7 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The mean value of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+
     public static UnknownUnit? Mean(this IEnumerable<BaseUnit?> list)
     {
         if (list.Any() is false)
@@ -70,9 +71,7 @@ public static class UnitMath
         if (list.Any(x => x is null))
             return null;
 
-        return new(list.OrderBy(x => x)
-                   .ToList()
-                    [list.Count() / 2]!);
+        return new(list.OrderBy(x => x).ToList()[list.Count() / 2]!);
     }
 
     public static UnknownUnit? Mean(params BaseUnit[] x) => x.Mean();

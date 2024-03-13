@@ -81,8 +81,8 @@ public class MinMax
     //[Obsolete]
     public void MaximumWithNull()
     {
-        Length L1 = null;
-        Length L2 = L1.UpperLimitAt(Length.FromMeter(5));
+        Length? L1 = null;
+        Length? L2 = L1.UpperLimitAt(Length.FromMeter(5));
 
         Assert.IsNull(L1);
         Assert.IsNull(L2);
@@ -102,8 +102,8 @@ public class MinMax
     //[Obsolete]
     public void MinimumWithNull()
     {
-        Length L1 = null;
-        Length L2 = L1.LowerLimitAt(Length.FromMeter(5));
+        Length? L1 = null;
+        Length? L2 = L1.LowerLimitAt(Length.FromMeter(5));
 
         Assert.IsNull(L1);
         Assert.IsNull(L2);
@@ -114,7 +114,7 @@ public class MinMax
     public void MinimumWithNull2()
     {
         Length L1 = new(10d, LengthUnit.Meter);
-        Length L2 = L1.LowerLimitAt(null);
+        Length? L2 = L1.LowerLimitAt(null);
 
         Assert.IsNull(L2);
     }

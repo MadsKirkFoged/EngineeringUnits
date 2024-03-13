@@ -283,7 +283,7 @@ public class LenghtTest
         object test = L3;
         Assert.IsTrue(L1.Equals(test));
 
-        object nullObj = null;
+        object? nullObj = null;
         Assert.IsFalse(L1.Equals(nullObj));
 
     }
@@ -352,8 +352,10 @@ public class LenghtTest
         Length L1 = new(1, LengthUnit.Mile);
 
         var jsonstring = JsonConvert.SerializeObject(L1);
-        Length JSON = JsonConvert.DeserializeObject<Length>(jsonstring);
 
+        Length? JSON = JsonConvert.DeserializeObject<Length>(jsonstring);
+
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(160934.4, JSON.As(LengthUnit.Centimeter));
         Assert.AreEqual(1609344, JSON.As(LengthUnit.Millimeter));
         Assert.AreEqual(1609.344, JSON.As(LengthUnit.Meter));

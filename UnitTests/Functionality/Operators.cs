@@ -12,8 +12,8 @@ public class Operators
     public void LengthOperators()
     {
         Length L1 = new(5, LengthUnit.Meter);
-        Length L2 = null;
-        Length L3 = null;
+        Length? L2 = null;
+        Length? L3 = null;
 
         Assert.IsTrue(L1 != L2);
         Assert.IsTrue(L2 != L1);
@@ -47,8 +47,8 @@ public class Operators
 
         //UnknownUnit U1 = L1 * L1;
 
-        UnknownUnit L2 = null;
-        UnknownUnit L3 = null;
+        UnknownUnit? L2 = null;
+        UnknownUnit? L3 = null;
 
         Assert.IsTrue(L1 != L2);
         Assert.IsTrue(L2 != L1);
@@ -80,10 +80,10 @@ public class Operators
     public void OperatorsWithNull()
     {
         Length L1 = new(5, LengthUnit.Meter);
-        UnknownUnit L2 = null;
+        UnknownUnit? L2 = null;
 
         UnknownUnit L3 = L1 * L1;
-        Length L4 = null;
+        Length? L4 = null;
 
         Assert.IsNull(L1 / L2);
         Assert.IsNull(L2 / L1);

@@ -66,7 +66,7 @@ public class SpecificEnergyTest
         EngineeringUnits.SpecificEnergy EngineeringUnits2 = new(10, SpecificEnergyUnit.JoulePerKilogram);
 
         var jsonstring = JsonConvert.SerializeObject(EngineeringUnits2);
-        EngineeringUnits.SpecificEnergy JSON = JsonConvert.DeserializeObject<EngineeringUnits.SpecificEnergy>(jsonstring);
+        EngineeringUnits.SpecificEnergy? JSON = JsonConvert.DeserializeObject<EngineeringUnits.SpecificEnergy>(jsonstring);
 
         UnitsNet.SpecificEnergy UnitNet3 = UnitNet1 - UnitNet2;
         EngineeringUnits.SpecificEnergy EngineeringUnits3 = EngineeringUnits1 - JSON;

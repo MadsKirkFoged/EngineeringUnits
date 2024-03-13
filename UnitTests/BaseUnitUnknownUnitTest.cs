@@ -9,10 +9,10 @@ public class BaseUnitUnknownUnitTest
     public void PressureToUnknownNUll()
     {
         //Arrange
-        Pressure p1 = null;
+        Pressure? p1 = null;
 
         // Act
-        UnknownUnit p2 = p1;
+        UnknownUnit? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);
@@ -24,10 +24,10 @@ public class BaseUnitUnknownUnitTest
     public void LengthToUnknownNUll()
     {
         //Arrange
-        Length p1 = null;
+        Length? p1 = null;
 
         // Act
-        UnknownUnit p2 = p1;
+        UnknownUnit? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);
@@ -39,10 +39,10 @@ public class BaseUnitUnknownUnitTest
     public void TemperatureToUnknownNUll()
     {
         //Arrange
-        Temperature p1 = null;
+        Temperature? p1 = null;
 
         // Act
-        UnknownUnit p2 = p1;
+        UnknownUnit? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);
@@ -54,10 +54,10 @@ public class BaseUnitUnknownUnitTest
     public void UnknownToPressureNUll()
     {
         //Arrange
-        UnknownUnit p1 = null;
+        UnknownUnit? p1 = null;
 
         // Act
-        Pressure p2 = p1;
+        Pressure? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);
@@ -69,10 +69,10 @@ public class BaseUnitUnknownUnitTest
     public void UnknownToLengthNUll()
     {
         //Arrange
-        UnknownUnit p1 = null;
+        UnknownUnit? p1 = null;
 
         // Act
-        Length p2 = p1;
+        Length? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);
@@ -84,10 +84,10 @@ public class BaseUnitUnknownUnitTest
     public void UnknownToTemperatureNUll()
     {
         //Arrange
-        UnknownUnit p1 = null;
+        UnknownUnit? p1 = null;
 
         // Act
-        Temperature p2 = p1;
+        Temperature? p2 = p1;
 
         // Assert
         Assert.IsNull(p1);

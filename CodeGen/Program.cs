@@ -17,7 +17,7 @@ internal class Program
         var solutionDir = assemblyDir[..assemblyDir.IndexOf(GENERATOR_NAME)];
         var libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
-        //UnitGenerator.GenerateClasses(libraryDir);
+        UnitGenerator.GenerateClasses(libraryDir);
         //GenerateUnitEnum.GenerateClasses(libraryDir);
         //GenerateAlias.GenerateEnums(libraryDir);
         //GenerateSetter.GenerateSetterClasses(libraryDir);
@@ -25,7 +25,7 @@ internal class Program
         //GenerateAlias.AliasClass(libraryDir);
 
         //AbsExtensionsGenerator.Generate(libraryDir);
-        UnknownUnitExtensionsGenerator.Generate(libraryDir);
+        //UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
         //_=UnitListGenerator.ShowUnittypes();
         //_=UnitListGenerator.ShowUnitNames();

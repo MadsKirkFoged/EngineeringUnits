@@ -1,6 +1,7 @@
 ﻿using Fractions;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace EngineeringUnits;
@@ -308,6 +309,8 @@ public static class BaseUnitExtensions
     /// <param name="limit">The Upper limit to be applied.</param>
     /// <returns>The lesser of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+    [return: NotNullIfNotNull(nameof(unit))]
+    //[return: NotNullIfNotNull(nameof(limit))]
     public static UnknownUnit? UpperLimitAt(this BaseUnit? unit, BaseUnit? limit)
     {
         if (unit is null || limit is null)
@@ -332,6 +335,9 @@ public static class BaseUnitExtensions
     /// <param name="limit">The lower limit to be applied.</param>
     /// <returns>The greater of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
+
+    [return: NotNullIfNotNull(nameof(value))]
+    //[return: NotNullIfNotNull(nameof(limit))]
     public static UnknownUnit? LowerLimitAt(this BaseUnit? value, BaseUnit? limit)
     {
         if (value is null || limit is null)
@@ -347,6 +353,7 @@ public static class BaseUnitExtensions
     /// Only use this if you are creating new extension functions!<br></br>
     /// Converting from BaseUnit => UnknownUnit
     /// </summary>
+    [return: NotNullIfNotNull(nameof(unit))]
     public static UnknownUnit? ToUnknownUnit(this BaseUnit? unit)
     {
         if (unit is null)

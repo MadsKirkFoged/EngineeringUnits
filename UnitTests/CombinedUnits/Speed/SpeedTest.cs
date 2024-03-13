@@ -15,16 +15,17 @@ public class SpeedTest
         Duration D1 = new(10, DurationUnit.Second);
 
         var jsonString = JsonConvert.SerializeObject(L1);
-        Length L1JSON = JsonConvert.DeserializeObject<Length>(jsonString);
+        Length? L1JSON = JsonConvert.DeserializeObject<Length>(jsonString);
 
         var jsonString2 = JsonConvert.SerializeObject(D1);
-        Length D1JSON = JsonConvert.DeserializeObject<Length>(jsonString2);
+        Length? D1JSON = JsonConvert.DeserializeObject<Length>(jsonString2);
 
-        Speed S1 = L1JSON / D1JSON;
+        Speed? S1 = L1JSON / D1JSON;
 
         var jsonString3 = JsonConvert.SerializeObject(S1);
-        Speed S1JSON = JsonConvert.DeserializeObject<Speed>(jsonString3);
+        Speed? S1JSON = JsonConvert.DeserializeObject<Speed>(jsonString3);
 
+        Assert.IsNotNull(S1JSON);
         Assert.AreEqual(10, (double)S1JSON.As(SpeedUnit.MeterPerSecond));
         Assert.AreEqual(36, (double)S1JSON.As(SpeedUnit.KilometerPerhour));
         Assert.AreEqual(10.936132983377078, (double)S1JSON.As(SpeedUnit.YardPerSecond));

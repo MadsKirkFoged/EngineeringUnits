@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <OutputPath>bin\</OutputPath>
+	  <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />

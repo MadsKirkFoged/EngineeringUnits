@@ -12,7 +12,7 @@ public class BaseUnitAlias
         var test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
 
         // Act
-        SpecificEntropy test2 = test;
+        SpecificEntropy test2 = test!;
 
         // Assert
         Assert.AreEqual(test.SI, test2.SI);
@@ -22,10 +22,10 @@ public class BaseUnitAlias
     public void SwitchBetweenAlias2()
     {
         //Arrange
-        SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567);
+        SpecificEntropy test = SpecificHeatCapacity.FromBtuPerPoundRankine(0.51387988198709567)!;
 
         // Act
-        SpecificHeatCapacity test2 = test;
+        SpecificHeatCapacity test2 = test!;
 
         // Assert
         Assert.AreEqual(test.SI, test2.SI);
@@ -38,7 +38,7 @@ public class BaseUnitAlias
         var test = SpecificEntropy.FromBtuPerPoundRankine(0.51387988198709567);
 
         // Act
-        SpecificHeatCapacity test2 = test;
+        SpecificHeatCapacity test2 = test!;
 
         // Assert
         Assert.AreEqual(test.SI, test2.SI);

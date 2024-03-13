@@ -13,9 +13,9 @@ public class IsChecks
     {
         Length L0 = new(0, LengthUnit.Meter);
         Length L1 = new(5, LengthUnit.Meter);
-        Length L2 = null;
+        Length? L2 = null;
         UnknownUnit L3 = L1 * L1;
-        UnknownUnit L4 = null;
+        UnknownUnit? L4 = null;
 
         Assert.IsTrue(L0.IsZero());
         Assert.IsFalse(L0.IsNotZero());

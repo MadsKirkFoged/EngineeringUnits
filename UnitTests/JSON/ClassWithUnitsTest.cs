@@ -22,11 +22,11 @@ public class ClassWithUnitsTest
         //Debug.WriteLine($"List count: {test.massflow.Unit.ListOfUnits.Count}");
 
         var jsonString1 = JsonConvert.SerializeObject(test);
-        ClassWithUnits JSON = JsonConvert.DeserializeObject<ClassWithUnits>(jsonString1);
+        ClassWithUnits? JSON = JsonConvert.DeserializeObject<ClassWithUnits>(jsonString1);
         //var jsonString2 = JsonConvert.SerializeObject(JSON);
 
         UnitSystem unitSystem1 = test.Massflow;
-        UnitSystem unitSystem = JSON.Massflow;
+        UnitSystem? unitSystem = JSON.Massflow;
 
         foreach (RawUnit item in unitSystem.ListOfUnits)
         {

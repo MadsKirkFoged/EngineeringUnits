@@ -21,8 +21,9 @@ public class AreaTest
         Area A1 = L1 * L2;
 
         var jsonString = JsonConvert.SerializeObject(A1);
-        Area JSON = JsonConvert.DeserializeObject<Area>(jsonString);
+        Area? JSON = JsonConvert.DeserializeObject<Area>(jsonString);
 
+        Assert.IsNotNull(JSON);
         Assert.AreEqual(1, A1.As(AreaUnit.SquareMeter));
         Assert.AreEqual(10000, A1.As(AreaUnit.SquareCentimeter));
         Assert.AreEqual(1.195990046301080256481500558, A1.As(AreaUnit.SquareYard));

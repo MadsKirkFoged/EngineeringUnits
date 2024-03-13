@@ -1,10 +1,11 @@
 using EngineeringUnits.Units;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Enthalpy : BaseUnit
-{
+{                   
     public Enthalpy() { }
     public Enthalpy(decimal value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Enthalpy(double value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -27,22 +28,24 @@ public partial class Enthalpy : BaseUnit
     public static Enthalpy Zero => new(0, EnthalpyUnit.SI);
     public static Enthalpy NaN => new(double.NaN, EnthalpyUnit.SI);
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator Enthalpy?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null;
+            return null; 
 
         GuardAgainst.DifferentUnits(Unit, EnthalpyUnit.SI);
-        return new(Unit);
+        return new(Unit);        
     }
 
+    [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Enthalpy? Unit)
-    {
+    {            
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnthalpyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnthalpyUnit>(_unit);    
 }

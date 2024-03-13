@@ -10,10 +10,10 @@ public class Nullchecks
     [TestMethod]
     public void ConvertFromNull()
     {
-        MassFlow massFlow = null;
+        MassFlow? massFlow = null;
         var nulltest = massFlow.ToUnknownUnit();
 
-        MassFlow massFlow2 = nulltest;
+        MassFlow? massFlow2 = nulltest;
 
         Assert.IsNull(nulltest);
         Assert.IsNull(massFlow2);
