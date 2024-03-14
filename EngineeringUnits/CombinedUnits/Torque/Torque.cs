@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Torque : BaseUnit
-{                   
+{
     public Torque() { }
     public Torque(decimal value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Torque(double value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class Torque : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static Torque? From(double? value, TorqueUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class Torque : BaseUnit
     public static implicit operator Torque?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, TorqueUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Torque? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);
 }

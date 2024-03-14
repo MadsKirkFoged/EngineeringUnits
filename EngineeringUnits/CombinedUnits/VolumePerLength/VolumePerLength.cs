@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class VolumePerLength : BaseUnit
-{                   
+{
     public VolumePerLength() { }
     public VolumePerLength(decimal value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public VolumePerLength(double value, VolumePerLengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class VolumePerLength : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static VolumePerLength? From(double? value, VolumePerLengthUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class VolumePerLength : BaseUnit
     public static implicit operator VolumePerLength?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, VolumePerLengthUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(VolumePerLength? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);
 }

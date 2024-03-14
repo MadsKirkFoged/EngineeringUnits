@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class EnergyCost : BaseUnit
-{                   
+{
     public EnergyCost() { }
     public EnergyCost(decimal value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public EnergyCost(double value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class EnergyCost : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static EnergyCost? From(double? value, EnergyCostUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class EnergyCost : BaseUnit
     public static implicit operator EnergyCost?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, EnergyCostUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(EnergyCost? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyCostUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyCostUnit>(_unit);
 }

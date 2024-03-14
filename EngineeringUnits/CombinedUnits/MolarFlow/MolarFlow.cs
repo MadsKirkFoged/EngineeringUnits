@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class MolarFlow : BaseUnit
-{                   
+{
     public MolarFlow() { }
     public MolarFlow(decimal value, MolarFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public MolarFlow(double value, MolarFlowUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class MolarFlow : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static MolarFlow? From(double? value, MolarFlowUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class MolarFlow : BaseUnit
     public static implicit operator MolarFlow?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, MolarFlowUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(MolarFlow? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarFlowUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarFlowUnit>(_unit);
 }

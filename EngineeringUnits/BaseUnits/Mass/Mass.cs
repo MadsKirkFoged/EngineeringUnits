@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class Mass : BaseUnit
-{                   
+{
     public Mass() { }
     public Mass(decimal value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Mass(double value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class Mass : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static Mass? From(double? value, MassUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class Mass : BaseUnit
     public static implicit operator Mass?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, MassUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(Mass? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);
 }

@@ -5,7 +5,7 @@ namespace EngineeringUnits;
 
 //This class is auto-generated, changes to the file will be overwritten!
 public partial class CoefficientOfThermalExpansion : BaseUnit
-{                   
+{
     public CoefficientOfThermalExpansion() { }
     public CoefficientOfThermalExpansion(decimal value, CoefficientOfThermalExpansionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public CoefficientOfThermalExpansion(double value, CoefficientOfThermalExpansionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -17,8 +17,8 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
     [return: NotNullIfNotNull(nameof(value))]
     public static CoefficientOfThermalExpansion? From(double? value, CoefficientOfThermalExpansionUnit? unit)
     {
-        if (value is null || unit is null)                           
-            return null;                           
+        if (value is null || unit is null)
+            return null;
 
         return From((double)value, unit);
     }
@@ -31,20 +31,20 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
     public static implicit operator CoefficientOfThermalExpansion?(UnknownUnit? Unit)
     {
         if (Unit is null)
-            return null; 
+            return null;
 
         GuardAgainst.DifferentUnits(Unit, CoefficientOfThermalExpansionUnit.SI);
-        return new(Unit);        
+        return new(Unit);
     }
 
     [return: NotNullIfNotNull(nameof(Unit))]
     public static implicit operator UnknownUnit?(CoefficientOfThermalExpansion? Unit)
-    {            
+    {
         if (Unit is null)
             return null;
 
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);    
+    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);
 }
