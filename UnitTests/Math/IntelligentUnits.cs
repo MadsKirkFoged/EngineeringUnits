@@ -15,10 +15,10 @@ public class IntelligentUnits
 
         Power power1 = voltage1 * current1; // 15 microwatts
         UnknownUnit power2 = voltage1 * current1;
-        dynamic power3 = voltage1 * current1;
+        UnknownUnit power3 = voltage1 * current1;
         UnknownUnit power4 = voltage1 * current1;
 
-        Assert.IsTrue(power1.ToString().Contains('W')); // needs to be in watts, not kg * m2 / s3
+        Assert.IsTrue(power1.ToString().Contains("W")); // needs to be in watts, not kg * m2 / s3
         Assert.AreEqual(power1.ToString(), power2.ToString());
         Assert.AreEqual(power1.ToString(), power3.ToString());
         Assert.AreEqual(power1.ToString(), power4.ToString());
@@ -32,7 +32,7 @@ public class IntelligentUnits
 
         Frequency freq1 = repetitions / minute; // 2 Hertz
         UnknownUnit freq2 = repetitions / minute;
-        dynamic freq3 = repetitions / minute;
+        UnknownUnit freq3 = repetitions / minute;
         UnknownUnit freq4 = repetitions / minute;
 
         Assert.IsTrue(freq1.ToString().Contains("Hz")); // needs to be in Hertz, not 1 / s
@@ -51,10 +51,10 @@ public class IntelligentUnits
 
         Power Q1 = M1 * P1 * (T2 - T1);
         UnknownUnit Q2 = M1 * P1 * (T2 - T1);
-        dynamic Q3 = M1 * P1 * (T2 - T1);
+        UnknownUnit Q3 = M1 * P1 * (T2 - T1);
         UnknownUnit Q4 = M1 * P1 * (T2 - T1);
 
-        Assert.IsTrue(Q1.ToString().Contains('W')); // needs to be in watts, not kg * m2 / s3
+        Assert.IsTrue(Q1.ToString().Contains("W")); // needs to be in watts, not kg * m2 / s3
         Assert.AreEqual(Q1.ToString(), Q2.ToString());
         Assert.AreEqual(Q1.ToString(), Q3.ToString());
         Assert.AreEqual(Q1.ToString(), Q4.ToString());
@@ -69,11 +69,11 @@ public class IntelligentUnits
 
         Permittivity p1 = charge / voltage / length;
         UnknownUnit p2 = charge / voltage / length;
-        dynamic p3 = charge / voltage / length;
+        UnknownUnit p3 = charge / voltage / length;
         UnknownUnit p4 = charge / voltage / length;
 
-        Assert.IsTrue(p1.ToString().Contains('F')); // needs to be in Farads per meter
-        Assert.IsTrue(p1.ToString().Contains('m'));
+        Assert.IsTrue(p1.ToString().Contains("F")); // needs to be in Farads per meter
+        Assert.IsTrue(p1.ToString().Contains("m"));
         Assert.AreEqual(p1.ToString(), p2.ToString());
         Assert.AreEqual(p1.ToString(), p3.ToString());
         Assert.AreEqual(p1.ToString(), p4.ToString());
