@@ -28,7 +28,7 @@ public static class Extensions
     /// <param name="a">Source value</param>
     /// <exception cref="WrongUnitException">gg</exception>
     [return: NotNullIfNotNull(nameof(a))]
-    public static UnknownUnit? Sqrt(this BaseUnit a)
+    public static UnknownUnit? Sqrt(this BaseUnit? a)
     {
         if (a is null || a.IsBelowZero())
             return null;
