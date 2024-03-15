@@ -1,6 +1,7 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using System.Linq;
 using UnitTests.JSON;
 
 namespace UnitTests;
@@ -40,7 +41,7 @@ public class ClassWithUnitsTest
         //Debug.WriteLine($"{JSON.Massflow}");
         //Debug.WriteLine($"List count: {unitSystem.ListOfUnits.Count}");
 
-        Assert.AreEqual(unitSystem?.ListOfUnits.Count, unitSystem1.ListOfUnits.Count);
+        Assert.AreEqual(unitSystem?.ListOfUnits.Count(), unitSystem1.ListOfUnits.Count());
 
     }
 }

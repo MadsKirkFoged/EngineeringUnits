@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 
 namespace EngineeringUnits;
@@ -17,7 +16,7 @@ public class UnitSystem
     public string? Symbol { get; init; }
 
     //[JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
-    public ImmutableList<RawUnit> ListOfUnits { get; init; }
+    public IEnumerable<RawUnit> ListOfUnits { get; init; }
 
     public UnitSystem()
     {
@@ -26,7 +25,7 @@ public class UnitSystem
 
     public UnitSystem(List<RawUnit> LocalUnitList, string? symbol = null)
     {
-        ListOfUnits = LocalUnitList.ReduceUnits().ToImmutableList();
+        ListOfUnits = LocalUnitList.ReduceUnits();
         Symbol = symbol;
     }
 
@@ -48,7 +47,7 @@ public class UnitSystem
 
     public UnitSystem(UnitSystem unit, string? symbol)
     {
-        ListOfUnits = new List<RawUnit>(unit.ListOfUnits).ToImmutableList();
+        ListOfUnits = new List<RawUnit>(unit.ListOfUnits);
         Symbol = symbol;
     }
 

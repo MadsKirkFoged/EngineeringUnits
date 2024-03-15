@@ -1,5 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
+using System.Diagnostics;
 
 //using UnitsNet;
 
@@ -33,6 +34,9 @@ public class Program
 
     public static void Main()
     {
+        Power test = Power.Zero;
+
+        Debug.Print($"{test}");
 
         //var myratio = new Ratio(10, RatioUnit.Percent);
 

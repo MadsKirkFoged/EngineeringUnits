@@ -35,9 +35,9 @@ public class Extensiontest
 
         UnitSystem unitSystem = area;
 
-        Assert.AreEqual(2, unitSystem.ListOfUnits.Count);
-        Assert.AreEqual(2, unitSystem.ReduceUnits().ListOfUnits.Count);
-        Assert.AreEqual(1, unitSystem.ReduceUnitsHard().ListOfUnits.Count);
+        Assert.AreEqual(2, unitSystem.ListOfUnits.Count());
+        Assert.AreEqual(2, unitSystem.ReduceUnits().ListOfUnits.Count());
+        Assert.AreEqual(1, unitSystem.ReduceUnitsHard().ListOfUnits.Count());
     }
 
     //Create test for ToUnit

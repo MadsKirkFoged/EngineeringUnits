@@ -1,6 +1,6 @@
 ﻿using Fractions;
 using System;
-using System.Collections.Immutable;
+using System.Linq;
 
 namespace EngineeringUnits.Units;
 
@@ -58,7 +58,7 @@ public partial record PressureUnit : UnitTypebase
     public PressureUnit(PressureUnit pressureunit, PressureReference Reference)
     {
         this.Reference = Reference;
-        ImmutableList<RawUnit> ListOfUnits = pressureunit.Unit.ListOfUnits;
+        System.Collections.Generic.IEnumerable<RawUnit> ListOfUnits = pressureunit.Unit.ListOfUnits;
 
         var NewSymbol = Reference switch
         {
@@ -78,7 +78,10 @@ public partial record PressureUnit : UnitTypebase
                 Count = 1,
             };
 
-            ListOfUnits = ListOfUnits.Add(dimensionless);
+            var test = ListOfUnits.ToList();
+            test.Add(dimensionless);
+
+            ListOfUnits = test.AsEnumerable();
         }
 
         Unit = new UnitSystem([.. ListOfUnits], NewSymbol);
