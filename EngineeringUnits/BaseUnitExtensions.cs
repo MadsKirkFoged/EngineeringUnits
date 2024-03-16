@@ -371,7 +371,7 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="unit">The Unit to check.</param>
     /// <returns>True if the BaseUnit has a value; false if null, inf or NaN.</returns>
-    public static bool HasValue(this BaseUnit? unit)
+    public static bool HasValue([NotNullWhen(true)] this BaseUnit? unit)
     {
         if (unit is null)
             return false;
@@ -384,5 +384,5 @@ public static class BaseUnitExtensions
     /// </summary>
     /// <param name="unit">The Unit to check.</param>
     /// <returns>False if the BaseUnit has a value; True if null, inf or NaN.</returns>
-    public static bool HasNoValue(this BaseUnit? unit) => !unit.HasValue();
+    public static bool HasNoValue([NotNullWhen(false)] this BaseUnit? unit) => !unit.HasValue();
 }
