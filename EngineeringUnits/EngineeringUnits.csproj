@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
     <Title>EngineeringUnits</Title>
     <PackageId>EngineeringUnits</PackageId>
     <Authors>Mads Kirk Foged</Authors>
@@ -13,6 +13,8 @@
     <IsPackable>true</IsPackable>
     <LangVersion>12.0</LangVersion>
 	<Nullable>enable</Nullable>
+	<IncludeSymbols>True</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>

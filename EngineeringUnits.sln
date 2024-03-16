@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmark", "Benchmark\Benc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Sandbox\Sandbox.csproj", "{4250EA03-6D15-4E6E-AD63-8486598B49DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testing", "testing\testing.csproj", "{37E45E11-2D4F-401E-AD53-A9A3F8DB4313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{4250EA03-6D15-4E6E-AD63-8486598B49DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4250EA03-6D15-4E6E-AD63-8486598B49DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4250EA03-6D15-4E6E-AD63-8486598B49DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E45E11-2D4F-401E-AD53-A9A3F8DB4313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E45E11-2D4F-401E-AD53-A9A3F8DB4313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E45E11-2D4F-401E-AD53-A9A3F8DB4313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E45E11-2D4F-401E-AD53-A9A3F8DB4313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
