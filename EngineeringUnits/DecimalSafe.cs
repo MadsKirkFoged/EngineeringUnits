@@ -146,7 +146,7 @@ public record DecimalSafe
         return Value is 0m;
     }
 
-    public bool IsAValue()
+    public bool HasValue()
     {
         if (IsNaN || IsInf)
             return false;
@@ -154,6 +154,6 @@ public record DecimalSafe
         return true;
     }
 
-    public bool IsNotAValue() => !IsAValue();
+    public bool IsNotAValue() => !HasValue();
 
 }

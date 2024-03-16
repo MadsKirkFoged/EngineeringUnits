@@ -365,4 +365,17 @@ public static class BaseUnitExtensions
 
         return new(unit);
     }
+
+    /// <summary>
+    /// Checks if the Unit has a value.
+    /// </summary>
+    /// <param name="unit">The Unit to check.</param>
+    /// <returns>True if the BaseUnit has a value; false if null, inf or NaN.</returns>
+    public static bool HasValue(this BaseUnit? unit)
+    {
+        if (unit is null)
+            return false;
+
+        return unit.NEWValue.HasValue();
+    }
 }
