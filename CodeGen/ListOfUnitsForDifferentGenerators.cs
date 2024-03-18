@@ -8,6 +8,7 @@ public class ListOfUnitsForDifferentGenerators
     public static List<string> GetListOfCombinedUnits() => [        
         "Acceleration",
         "Angle",
+        // NOTE: missing ApparentEnergy
         "ApparentPower",
         "Area",
         "AreaCost",
@@ -18,9 +19,12 @@ public class ListOfUnitsForDifferentGenerators
         "Capacitance",
         "CoefficientOfThermalExpansion",
         "Density",
+        // NOTE: missing: Dimensionless
         "DynamicViscosity",
+        // NOTE: missing: ElectricAdmittance
         "ElectricCharge",
         "ElectricChargeDensity",
+        // NOTE: missing: ElectricConductance
         "ElectricConductivity",        
         "ElectricCurrentDensity",
         "ElectricCurrentGradient",
@@ -76,7 +80,12 @@ public class ListOfUnitsForDifferentGenerators
         "Ratio",
         "ReactiveEnergy",
         "ReactivePower",
+        // NOTE: missing: RotatinalAcceleration
         "RotationalSpeed",
+        // NOTE: missing: RotatinalStiffness
+        // NOTE: missing: RotatinalStiffnessPerLength
+        // NOTE: missing: Scalar
+        // NOTE: missing: SolidAngle
         "SpecificEnergy",
         "SpecificEntropy",
         "SpecificHeatCapacity",
