@@ -2,22 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 public static class AbsExtensions
 {
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static Ratio? Abs(this Ratio? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
+    
     /// <summary>
     /// Returns the absolute value
     /// </summary>
@@ -37,7 +22,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static AreaDensity? Abs(this AreaDensity? a)
+    public static Angle? Abs(this Angle? a)
     {
         if (a is null)
             return null;
@@ -52,7 +37,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static AreaMomentOfInertia? Abs(this AreaMomentOfInertia? a)
+    public static ApparentPower? Abs(this ApparentPower? a)
     {
         if (a is null)
             return null;
@@ -83,6 +68,36 @@ public static class AbsExtensions
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
     public static AreaCost? Abs(this AreaCost? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static AreaDensity? Abs(this AreaDensity? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static AreaMomentOfInertia? Abs(this AreaMomentOfInertia? a)
     {
         if (a is null)
             return null;
@@ -187,7 +202,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static ElectricChargeDensity? Abs(this ElectricChargeDensity? a)
+    public static ElectricCharge? Abs(this ElectricCharge? a)
     {
         if (a is null)
             return null;
@@ -202,7 +217,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static ElectricCharge? Abs(this ElectricCharge? a)
+    public static ElectricChargeDensity? Abs(this ElectricChargeDensity? a)
     {
         if (a is null)
             return null;
@@ -292,21 +307,6 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static ElectricPotentialChangeRate? Abs(this ElectricPotentialChangeRate? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
     public static ElectricPotential? Abs(this ElectricPotential? a)
     {
         if (a is null)
@@ -322,7 +322,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static MolarMass? Abs(this MolarMass? a)
+    public static ElectricPotentialChangeRate? Abs(this ElectricPotentialChangeRate? a)
     {
         if (a is null)
             return null;
@@ -412,7 +412,37 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static Enthalpy? Abs(this Enthalpy? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static Entropy? Abs(this Entropy? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static Force? Abs(this Force? a)
     {
         if (a is null)
             return null;
@@ -443,21 +473,6 @@ public static class AbsExtensions
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
     public static ForcePerLength? Abs(this ForcePerLength? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static Force? Abs(this Force? a)
     {
         if (a is null)
             return null;
@@ -578,6 +593,21 @@ public static class AbsExtensions
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
     public static Irradiation? Abs(this Irradiation? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static Jerk? Abs(this Jerk? a)
     {
         if (a is null)
             return null;
@@ -817,7 +847,37 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static MolarFlow? Abs(this MolarFlow? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static Molarity? Abs(this Molarity? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static MolarMass? Abs(this MolarMass? a)
     {
         if (a is null)
             return null;
@@ -862,21 +922,6 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static PowerDensity? Abs(this PowerDensity? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
     public static Power? Abs(this Power? a)
     {
         if (a is null)
@@ -907,6 +952,21 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static PowerDensity? Abs(this PowerDensity? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static Pressure? Abs(this Pressure? a)
     {
         if (a is null)
@@ -923,6 +983,21 @@ public static class AbsExtensions
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
     public static PressureChangeRate? Abs(this PressureChangeRate? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static Ratio? Abs(this Ratio? a)
     {
         if (a is null)
             return null;
@@ -1012,6 +1087,51 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static SpecificHeatCapacity? Abs(this SpecificHeatCapacity? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static SpecificThermalResistance? Abs(this SpecificThermalResistance? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static SpecificVolume? Abs(this SpecificVolume? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static SpecificWeight? Abs(this SpecificWeight? a)
     {
         if (a is null)
@@ -1087,21 +1207,6 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static TorquePerLength? Abs(this TorquePerLength? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
     public static Torque? Abs(this Torque? a)
     {
         if (a is null)
@@ -1117,22 +1222,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static VolumeFlow? Abs(this VolumeFlow? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static VolumePerLength? Abs(this VolumePerLength? a)
+    public static TorquePerLength? Abs(this TorquePerLength? a)
     {
         if (a is null)
             return null;
@@ -1177,7 +1267,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static WarpingMomentOfInertia? Abs(this WarpingMomentOfInertia? a)
+    public static VolumeFlow? Abs(this VolumeFlow? a)
     {
         if (a is null)
             return null;
@@ -1192,97 +1282,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static SpecificThermalResistance? Abs(this SpecificThermalResistance? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static ApparentPower? Abs(this ApparentPower? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static Enthalpy? Abs(this Enthalpy? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static SpecificHeatCapacity? Abs(this SpecificHeatCapacity? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static Angle? Abs(this Angle? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static MolarFlow? Abs(this MolarFlow? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
-
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static SpecificVolume? Abs(this SpecificVolume? a)
+    public static VolumePerLength? Abs(this VolumePerLength? a)
     {
         if (a is null)
             return null;
@@ -1312,7 +1312,7 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static Jerk? Abs(this Jerk? a)
+    public static WarpingMomentOfInertia? Abs(this WarpingMomentOfInertia? a)
     {
         if (a is null)
             return null;
@@ -1328,6 +1328,21 @@ public static class AbsExtensions
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
     public static AmountOfSubstance? Abs(this AmountOfSubstance? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static Cost? Abs(this Cost? a)
     {
         if (a is null)
             return null;
@@ -1428,18 +1443,4 @@ public static class AbsExtensions
         return (-a)!;
     }
 
-    /// <summary>
-    /// Returns the absolute value
-    /// </summary>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static Cost? Abs(this Cost? a)
-    {
-        if (a is null)
-            return null;
-
-        if (a.GetBaseValue() > 0)
-            return a;
-
-        return (-a)!;
-    }
 }
