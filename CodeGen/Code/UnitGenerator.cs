@@ -54,7 +54,7 @@ internal class UnitGenerator
                    
                    //This class is auto-generated, changes to the file will be overwritten!
                    public partial class Variable : BaseUnit
-                   {                   
+                   {
                        public Variable() { }
                        public Variable(decimal value, VariableUnit selectedUnit) : base(value, selectedUnit.Unit) { }
                        public Variable(double value, VariableUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -66,8 +66,8 @@ internal class UnitGenerator
                        [return: NotNullIfNotNull(nameof(value))]
                        public static Variable? From(double? value, VariableUnit? unit)
                        {
-                           if (value is null || unit is null)                           
-                               return null;                           
+                           if (value is null || unit is null)
+                               return null;
                    
                            return From((double)value, unit);
                        }
@@ -80,22 +80,22 @@ internal class UnitGenerator
                        public static implicit operator Variable?(UnknownUnit? Unit)
                        {
                            if (Unit is null)
-                               return null; 
+                               return null;
                    
                            GuardAgainst.DifferentUnits(Unit, VariableUnit.SI);
-                           return new(Unit);        
+                           return new(Unit);
                        }
                    
                        [return: NotNullIfNotNull(nameof(Unit))]
                        public static implicit operator UnknownUnit?(Variable? Unit)
-                       {            
+                       {
                            if (Unit is null)
                                return null;
                    
                            return new(Unit);
                        }
                    
-                       public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VariableUnit>(_unit);    
+                       public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VariableUnit>(_unit);
                    }
                    
                    """;
