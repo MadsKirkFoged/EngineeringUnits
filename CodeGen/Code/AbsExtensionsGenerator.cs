@@ -16,23 +16,23 @@ internal static class AbsExtensionsGenerator
         {
             var functions = $$"""
 
-                                 /// <summary>
-                                 /// Returns the absolute value
-                                 /// </summary>
-                                 [return: NotNullIfNotNull(nameof(a))]
-                                 public static Variable? Abs(this Variable? a)
-                                 {
-                                     if (a is null)
-                                         return null;
-
-                                     if (a.GetBaseValue() > 0)
-                                         return a;
-
-                                     return (-a)!;
-                                 }
+                                   /// <summary>
+                                   /// Returns the absolute value
+                                   /// </summary>
+                                   [return: NotNullIfNotNull(nameof(a))]
+                                   public static Variable? Abs(this Variable? a)
+                                   {
+                                       if (a is null)
+                                           return null;
+                               
+                                       if (a.GetBaseValue() > 0)
+                                           return a;
+                               
+                                       return (-a)!;
+                                   }
                                """.Replace("Variable", $"{item}");
 
-            _=conditionals.AppendLine(functions);
+            _ = conditionals.AppendLine(functions);
         }
 
         var builder = $$"""

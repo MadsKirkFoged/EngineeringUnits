@@ -5,9 +5,117 @@ namespace CodeGen;
 public class ListOfUnitsForDifferentGenerators
 {
 
-    public static List<string> GetListOfCombinedUnits() => ["Ratio", "Acceleration", "AreaDensity", "AreaMomentOfInertia", "Area", "AreaCost", "BitRate", "BrakeSpecificFuelConsumption", "Capacitance", "CoefficientOfThermalExpansion", "Density", "DynamicViscosity", "ElectricChargeDensity", "ElectricCharge", "ElectricConductivity", "ElectricCurrentDensity", "ElectricCurrentGradient", "ElectricField", "ElectricInductance", "ElectricPotentialChangeRate", "ElectricPotential", "MolarMass", "ElectricResistance", "ElectricResistivity", "ElectricSurfaceChargeDensity", "Energy", "EnergyCost", "Entropy", "ForceChangeRate", "ForcePerLength", "Force", "Frequency", "FuelEfficiency", "HeatFlux", "HeatTransferCoefficient", "Illuminance", "Information", "Irradiance", "Irradiation", "KinematicViscosity", "LapseRate", "LengthCost", "LinearDensity", "LinearPowerDensity", "LuminousFlux", "MagneticField", "MagneticFlux", "Magnetization", "MassCost", "MassFlow", "MassFlux", "MassMomentOfInertia", "MolarEnergy", "MolarEntropy", "Molarity", "Permeability", "Permittivity", "PowerDensity", "Power", "PowerCost", "Pressure", "PressureChangeRate", "ReactiveEnergy", "ReactivePower", "RotationalSpeed", "SpecificEnergy", "SpecificEntropy", "SpecificWeight", "Speed", "TemperatureChangeRate", "ThermalConductivity", "ThermalResistance", "TorquePerLength", "Torque", "VolumeFlow", "VolumePerLength", "Volume", "VolumeCost", "WarpingMomentOfInertia", "SpecificThermalResistance", "ApparentPower", "Enthalpy", "SpecificHeatCapacity", "Angle", "MolarFlow", "SpecificVolume", "VolumetricHeatTransferCoefficient", "Jerk"];
+    public static List<string> GetListOfCombinedUnits() => [        
+        "Acceleration",
+        "Angle",
+        // NOTE: missing ApparentEnergy
+        "ApparentPower",
+        "Area",
+        "AreaCost",
+        "AreaDensity",
+        "AreaMomentOfInertia",
+        "BitRate",
+        "BrakeSpecificFuelConsumption",
+        "Capacitance",
+        "CoefficientOfThermalExpansion",
+        "Density",
+        // NOTE: missing: Dimensionless
+        "DynamicViscosity",
+        // NOTE: missing: ElectricAdmittance
+        "ElectricCharge",
+        "ElectricChargeDensity",
+        // NOTE: missing: ElectricConductance
+        "ElectricConductivity",        
+        "ElectricCurrentDensity",
+        "ElectricCurrentGradient",
+        "ElectricField",
+        "ElectricInductance",
+        "ElectricPotential",
+        "ElectricPotentialChangeRate",
+        "ElectricResistance",
+        "ElectricResistivity",
+        "ElectricSurfaceChargeDensity",
+        "Energy",
+        "EnergyCost",
+        "Enthalpy",
+        "Entropy",
+        "Force",
+        "ForceChangeRate",
+        "ForcePerLength",
+        "Frequency",
+        "FuelEfficiency",
+        "HeatFlux",
+        "HeatTransferCoefficient",
+        "Illuminance",
+        "Information",
+        "Irradiance",
+        "Irradiation",
+        "Jerk",
+        "KinematicViscosity",
+        "LapseRate",
+        "LengthCost",
+        // NOTE: missing: Level
+        "LinearDensity",
+        "LinearPowerDensity",
+        "LuminousFlux",
+        "MagneticField",
+        "MagneticFlux",
+        "Magnetization",
+        "MassCost",
+        "MassFlow",
+        "MassFlux",
+        "MassMomentOfInertia",
+        "MolarEnergy",
+        "MolarEntropy",
+        "MolarFlow",
+        "Molarity",
+        "MolarMass",
+        "Permeability",
+        "Permittivity",
+        "Power",
+        "PowerCost",
+        "PowerDensity",
+        "Pressure",
+        "PressureChangeRate",
+        "Ratio",
+        "ReactiveEnergy",
+        "ReactivePower",
+        // NOTE: missing: RotatinalAcceleration
+        "RotationalSpeed",
+        // NOTE: missing: RotatinalStiffness
+        // NOTE: missing: RotatinalStiffnessPerLength
+        // NOTE: missing: Scalar
+        // NOTE: missing: SolidAngle
+        "SpecificEnergy",
+        "SpecificEntropy",
+        "SpecificHeatCapacity",
+        "SpecificThermalResistance",
+        "SpecificVolume",
+        "SpecificWeight",
+        "Speed",
+        "TemperatureChangeRate",
+        "ThermalConductivity",
+        "ThermalResistance",
+        "Torque",
+        "TorquePerLength",
+        "Volume",
+        "VolumeCost",
+        "VolumeFlow",
+        "VolumePerLength",
+        "VolumetricHeatTransferCoefficient",
+        "WarpingMomentOfInertia",
+        ];
 
-    public static List<string> GetListOfBaseUnits() => ["AmountOfSubstance", "Duration", "ElectricCurrent", "Length", "LuminousIntensity", "Mass", "Temperature", "Cost"];
+    public static List<string> GetListOfBaseUnits() => [
+        "AmountOfSubstance",
+        "Cost",
+        "Duration",
+        "ElectricCurrent",
+        "Length",
+        "LuminousIntensity",
+        "Mass",
+        "Temperature"
+        ];
 
     public static List<string> GetListOFAllUnits()
     {
