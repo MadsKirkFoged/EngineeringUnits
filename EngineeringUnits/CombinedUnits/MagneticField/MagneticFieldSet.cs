@@ -16,7 +16,7 @@ public partial class MagneticField
     {
         if (SI is null)
             return null;
-
+        
         return new MagneticField((double)SI, MagneticFieldUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MagneticField
     {
         if (Tesla is null)
             return null;
-
+        
         return new MagneticField((double)Tesla, MagneticFieldUnit.Tesla);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MagneticField
     {
         if (Gauss is null)
             return null;
-
+        
         return new MagneticField((double)Gauss, MagneticFieldUnit.Gauss);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MagneticField
     {
         if (Milligauss is null)
             return null;
-
+        
         return new MagneticField((double)Milligauss, MagneticFieldUnit.Milligauss);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class MagneticField
     {
         if (Microtesla is null)
             return null;
-
+        
         return new MagneticField((double)Microtesla, MagneticFieldUnit.Microtesla);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class MagneticField
     {
         if (Millitesla is null)
             return null;
-
+        
         return new MagneticField((double)Millitesla, MagneticFieldUnit.Millitesla);
     }
     /// <summary>
@@ -88,7 +88,8 @@ public partial class MagneticField
     {
         if (Nanotesla is null)
             return null;
-
+        
         return new MagneticField((double)Nanotesla, MagneticFieldUnit.Nanotesla);
     }
+
 }

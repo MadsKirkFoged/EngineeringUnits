@@ -16,7 +16,7 @@ public partial class ElectricChargeDensity
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricChargeDensity((double)SI, ElectricChargeDensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class ElectricChargeDensity
     {
         if (CoulombPerCubicMeter is null)
             return null;
-
+        
         return new ElectricChargeDensity((double)CoulombPerCubicMeter, ElectricChargeDensityUnit.CoulombPerCubicMeter);
     }
+
 }

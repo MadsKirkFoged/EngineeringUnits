@@ -16,7 +16,7 @@ public partial class LuminousIntensity
     {
         if (SI is null)
             return null;
-
+        
         return new LuminousIntensity((double)SI, LuminousIntensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class LuminousIntensity
     {
         if (Candela is null)
             return null;
-
+        
         return new LuminousIntensity((double)Candela, LuminousIntensityUnit.Candela);
     }
+
 }

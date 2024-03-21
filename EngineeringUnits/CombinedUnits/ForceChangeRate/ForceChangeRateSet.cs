@@ -16,7 +16,7 @@ public partial class ForceChangeRate
     {
         if (SI is null)
             return null;
-
+        
         return new ForceChangeRate((double)SI, ForceChangeRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ForceChangeRate
     {
         if (NewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)NewtonPerSecond, ForceChangeRateUnit.NewtonPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ForceChangeRate
     {
         if (NewtonPerMinute is null)
             return null;
-
+        
         return new ForceChangeRate((double)NewtonPerMinute, ForceChangeRateUnit.NewtonPerMinute);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ForceChangeRate
     {
         if (PoundForcePerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)PoundForcePerSecond, ForceChangeRateUnit.PoundForcePerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ForceChangeRate
     {
         if (PoundForcePerMinute is null)
             return null;
-
+        
         return new ForceChangeRate((double)PoundForcePerMinute, ForceChangeRateUnit.PoundForcePerMinute);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ForceChangeRate
     {
         if (KilopoundForcePerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)KilopoundForcePerSecond, ForceChangeRateUnit.KilopoundForcePerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class ForceChangeRate
     {
         if (KilopoundForcePerMinute is null)
             return null;
-
+        
         return new ForceChangeRate((double)KilopoundForcePerMinute, ForceChangeRateUnit.KilopoundForcePerMinute);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class ForceChangeRate
     {
         if (NanonewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)NanonewtonPerSecond, ForceChangeRateUnit.NanonewtonPerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class ForceChangeRate
     {
         if (MillinewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)MillinewtonPerSecond, ForceChangeRateUnit.MillinewtonPerSecond);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class ForceChangeRate
     {
         if (MicronewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)MicronewtonPerSecond, ForceChangeRateUnit.MicronewtonPerSecond);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class ForceChangeRate
     {
         if (CentinewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)CentinewtonPerSecond, ForceChangeRateUnit.CentinewtonPerSecond);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class ForceChangeRate
     {
         if (DecanewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)DecanewtonPerSecond, ForceChangeRateUnit.DecanewtonPerSecond);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class ForceChangeRate
     {
         if (DecinewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)DecinewtonPerSecond, ForceChangeRateUnit.DecinewtonPerSecond);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class ForceChangeRate
     {
         if (KilonewtonPerSecond is null)
             return null;
-
+        
         return new ForceChangeRate((double)KilonewtonPerSecond, ForceChangeRateUnit.KilonewtonPerSecond);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class ForceChangeRate
     {
         if (DecanewtonPerMinute is null)
             return null;
-
+        
         return new ForceChangeRate((double)DecanewtonPerMinute, ForceChangeRateUnit.DecanewtonPerMinute);
     }
     /// <summary>
@@ -196,7 +196,8 @@ public partial class ForceChangeRate
     {
         if (KilonewtonPerMinute is null)
             return null;
-
+        
         return new ForceChangeRate((double)KilonewtonPerMinute, ForceChangeRateUnit.KilonewtonPerMinute);
     }
+
 }

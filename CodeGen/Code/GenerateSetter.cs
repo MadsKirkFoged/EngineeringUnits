@@ -68,17 +68,17 @@ internal class GenerateSetter
         }
 
         var test = $$"""
-                     using EngineeringUnits.Units; 
+                     using EngineeringUnits.Units;
                      using System.Diagnostics.CodeAnalysis;
 
                      namespace EngineeringUnits;
                      
                      //This class is auto-generated, changes to the file will be overwritten!
                      public partial class Variable
-                     {  
+                     {
                      
                      [InsertHere]
-                     }                     
+                     }
                      """;
 
         var sb = new StringBuilder();
@@ -87,18 +87,18 @@ internal class GenerateSetter
         {
 
             var test2 = $$"""
-                     /// <summary>
-                     /// Get Variable from UnitEnum.
-                     /// </summary>
-                     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-                     [return: NotNullIfNotNull(nameof(UnitEnum))]
-                     public static Variable? FromUnitEnum(double? UnitEnum)
-                     {
-                         if (UnitEnum is null)
-                             return null;
-                     
-                         return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
-                     }                     
+                         /// <summary>
+                         /// Get Variable from UnitEnum.
+                         /// </summary>
+                         /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+                         [return: NotNullIfNotNull(nameof(UnitEnum))]
+                         public static Variable? FromUnitEnum(double? UnitEnum)
+                         {
+                             if (UnitEnum is null)
+                                 return null;
+                             
+                             return new Variable((double)UnitEnum, VariableUnit.UnitEnum);
+                         }
                      """.Replace("UnitEnum", $"{i.Name}");
 
             _=sb.AppendLine(test2);

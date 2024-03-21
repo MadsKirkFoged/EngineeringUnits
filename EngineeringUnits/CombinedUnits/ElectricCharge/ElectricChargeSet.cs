@@ -16,7 +16,7 @@ public partial class ElectricCharge
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricCharge((double)SI, ElectricChargeUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricCharge
     {
         if (Coulomb is null)
             return null;
-
+        
         return new ElectricCharge((double)Coulomb, ElectricChargeUnit.Coulomb);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricCharge
     {
         if (AmpereHour is null)
             return null;
-
+        
         return new ElectricCharge((double)AmpereHour, ElectricChargeUnit.AmpereHour);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricCharge
     {
         if (KiloampereHour is null)
             return null;
-
+        
         return new ElectricCharge((double)KiloampereHour, ElectricChargeUnit.KiloampereHour);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricCharge
     {
         if (MegaampereHour is null)
             return null;
-
+        
         return new ElectricCharge((double)MegaampereHour, ElectricChargeUnit.MegaampereHour);
     }
     /// <summary>
@@ -76,7 +76,8 @@ public partial class ElectricCharge
     {
         if (MilliampereHour is null)
             return null;
-
+        
         return new ElectricCharge((double)MilliampereHour, ElectricChargeUnit.MilliampereHour);
     }
+
 }

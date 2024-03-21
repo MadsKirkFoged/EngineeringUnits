@@ -16,7 +16,7 @@ public partial class Irradiation
     {
         if (SI is null)
             return null;
-
+        
         return new Irradiation((double)SI, IrradiationUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Irradiation
     {
         if (JoulePerSquareMeter is null)
             return null;
-
+        
         return new Irradiation((double)JoulePerSquareMeter, IrradiationUnit.JoulePerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Irradiation
     {
         if (JoulePerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiation((double)JoulePerSquareCentimeter, IrradiationUnit.JoulePerSquareCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Irradiation
     {
         if (JoulePerSquareMillimeter is null)
             return null;
-
+        
         return new Irradiation((double)JoulePerSquareMillimeter, IrradiationUnit.JoulePerSquareMillimeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Irradiation
     {
         if (KilojoulePerSquareMeter is null)
             return null;
-
+        
         return new Irradiation((double)KilojoulePerSquareMeter, IrradiationUnit.KilojoulePerSquareMeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Irradiation
     {
         if (KilowattHourPerSquareMeter is null)
             return null;
-
+        
         return new Irradiation((double)KilowattHourPerSquareMeter, IrradiationUnit.KilowattHourPerSquareMeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Irradiation
     {
         if (MillijoulePerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiation((double)MillijoulePerSquareCentimeter, IrradiationUnit.MillijoulePerSquareCentimeter);
     }
     /// <summary>
@@ -100,7 +100,8 @@ public partial class Irradiation
     {
         if (WattHourPerSquareMeter is null)
             return null;
-
+        
         return new Irradiation((double)WattHourPerSquareMeter, IrradiationUnit.WattHourPerSquareMeter);
     }
+
 }

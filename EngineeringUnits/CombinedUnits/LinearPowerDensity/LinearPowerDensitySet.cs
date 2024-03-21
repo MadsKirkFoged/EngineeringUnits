@@ -16,7 +16,7 @@ public partial class LinearPowerDensity
     {
         if (SI is null)
             return null;
-
+        
         return new LinearPowerDensity((double)SI, LinearPowerDensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class LinearPowerDensity
     {
         if (WattPerMeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)WattPerMeter, LinearPowerDensityUnit.WattPerMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class LinearPowerDensity
     {
         if (WattPerMillimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)WattPerMillimeter, LinearPowerDensityUnit.WattPerMillimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class LinearPowerDensity
     {
         if (WattPerInch is null)
             return null;
-
+        
         return new LinearPowerDensity((double)WattPerInch, LinearPowerDensityUnit.WattPerInch);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class LinearPowerDensity
     {
         if (WattPerFoot is null)
             return null;
-
+        
         return new LinearPowerDensity((double)WattPerFoot, LinearPowerDensityUnit.WattPerFoot);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class LinearPowerDensity
     {
         if (WattPerCentimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)WattPerCentimeter, LinearPowerDensityUnit.WattPerCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class LinearPowerDensity
     {
         if (MilliwattPerMillimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MilliwattPerMillimeter, LinearPowerDensityUnit.MilliwattPerMillimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class LinearPowerDensity
     {
         if (MilliwattPerMeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MilliwattPerMeter, LinearPowerDensityUnit.MilliwattPerMeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class LinearPowerDensity
     {
         if (MilliwattPerInch is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MilliwattPerInch, LinearPowerDensityUnit.MilliwattPerInch);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class LinearPowerDensity
     {
         if (MilliwattPerFoot is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MilliwattPerFoot, LinearPowerDensityUnit.MilliwattPerFoot);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class LinearPowerDensity
     {
         if (MilliwattPerCentimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MilliwattPerCentimeter, LinearPowerDensityUnit.MilliwattPerCentimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class LinearPowerDensity
     {
         if (MegawattPerMillimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MegawattPerMillimeter, LinearPowerDensityUnit.MegawattPerMillimeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class LinearPowerDensity
     {
         if (MegawattPerMeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MegawattPerMeter, LinearPowerDensityUnit.MegawattPerMeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class LinearPowerDensity
     {
         if (MegawattPerInch is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MegawattPerInch, LinearPowerDensityUnit.MegawattPerInch);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class LinearPowerDensity
     {
         if (MegawattPerFoot is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MegawattPerFoot, LinearPowerDensityUnit.MegawattPerFoot);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class LinearPowerDensity
     {
         if (MegawattPerCentimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)MegawattPerCentimeter, LinearPowerDensityUnit.MegawattPerCentimeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class LinearPowerDensity
     {
         if (KilowattPerMillimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)KilowattPerMillimeter, LinearPowerDensityUnit.KilowattPerMillimeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class LinearPowerDensity
     {
         if (KilowattPerMeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)KilowattPerMeter, LinearPowerDensityUnit.KilowattPerMeter);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class LinearPowerDensity
     {
         if (KilowattPerInch is null)
             return null;
-
+        
         return new LinearPowerDensity((double)KilowattPerInch, LinearPowerDensityUnit.KilowattPerInch);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class LinearPowerDensity
     {
         if (KilowattPerFoot is null)
             return null;
-
+        
         return new LinearPowerDensity((double)KilowattPerFoot, LinearPowerDensityUnit.KilowattPerFoot);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class LinearPowerDensity
     {
         if (KilowattPerCentimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)KilowattPerCentimeter, LinearPowerDensityUnit.KilowattPerCentimeter);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class LinearPowerDensity
     {
         if (GigawattPerMillimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)GigawattPerMillimeter, LinearPowerDensityUnit.GigawattPerMillimeter);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class LinearPowerDensity
     {
         if (GigawattPerMeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)GigawattPerMeter, LinearPowerDensityUnit.GigawattPerMeter);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class LinearPowerDensity
     {
         if (GigawattPerInch is null)
             return null;
-
+        
         return new LinearPowerDensity((double)GigawattPerInch, LinearPowerDensityUnit.GigawattPerInch);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class LinearPowerDensity
     {
         if (GigawattPerFoot is null)
             return null;
-
+        
         return new LinearPowerDensity((double)GigawattPerFoot, LinearPowerDensityUnit.GigawattPerFoot);
     }
     /// <summary>
@@ -316,7 +316,8 @@ public partial class LinearPowerDensity
     {
         if (GigawattPerCentimeter is null)
             return null;
-
+        
         return new LinearPowerDensity((double)GigawattPerCentimeter, LinearPowerDensityUnit.GigawattPerCentimeter);
     }
+
 }

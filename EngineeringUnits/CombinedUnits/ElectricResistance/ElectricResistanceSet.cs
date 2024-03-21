@@ -16,7 +16,7 @@ public partial class ElectricResistance
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricResistance((double)SI, ElectricResistanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricResistance
     {
         if (Ohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Ohm, ElectricResistanceUnit.Ohm);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricResistance
     {
         if (Gigaohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Gigaohm, ElectricResistanceUnit.Gigaohm);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricResistance
     {
         if (Kiloohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Kiloohm, ElectricResistanceUnit.Kiloohm);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricResistance
     {
         if (Megaohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Megaohm, ElectricResistanceUnit.Megaohm);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ElectricResistance
     {
         if (Microohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Microohm, ElectricResistanceUnit.Microohm);
     }
     /// <summary>
@@ -88,7 +88,8 @@ public partial class ElectricResistance
     {
         if (Milliohm is null)
             return null;
-
+        
         return new ElectricResistance((double)Milliohm, ElectricResistanceUnit.Milliohm);
     }
+
 }

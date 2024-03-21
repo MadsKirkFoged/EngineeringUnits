@@ -16,7 +16,7 @@ public partial class Capacitance
     {
         if (SI is null)
             return null;
-
+        
         return new Capacitance((double)SI, CapacitanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Capacitance
     {
         if (Farad is null)
             return null;
-
+        
         return new Capacitance((double)Farad, CapacitanceUnit.Farad);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Capacitance
     {
         if (Kilofarad is null)
             return null;
-
+        
         return new Capacitance((double)Kilofarad, CapacitanceUnit.Kilofarad);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Capacitance
     {
         if (Megafarad is null)
             return null;
-
+        
         return new Capacitance((double)Megafarad, CapacitanceUnit.Megafarad);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Capacitance
     {
         if (Microfarad is null)
             return null;
-
+        
         return new Capacitance((double)Microfarad, CapacitanceUnit.Microfarad);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Capacitance
     {
         if (Millifarad is null)
             return null;
-
+        
         return new Capacitance((double)Millifarad, CapacitanceUnit.Millifarad);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Capacitance
     {
         if (Nanofarad is null)
             return null;
-
+        
         return new Capacitance((double)Nanofarad, CapacitanceUnit.Nanofarad);
     }
     /// <summary>
@@ -100,7 +100,8 @@ public partial class Capacitance
     {
         if (Picofarad is null)
             return null;
-
+        
         return new Capacitance((double)Picofarad, CapacitanceUnit.Picofarad);
     }
+
 }

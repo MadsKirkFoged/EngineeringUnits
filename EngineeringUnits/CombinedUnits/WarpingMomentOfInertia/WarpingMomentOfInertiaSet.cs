@@ -16,7 +16,7 @@ public partial class WarpingMomentOfInertia
     {
         if (MeterToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)MeterToTheSixth, WarpingMomentOfInertiaUnit.MeterToTheSixth);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class WarpingMomentOfInertia
     {
         if (MillimeterToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)MillimeterToTheSixth, WarpingMomentOfInertiaUnit.MillimeterToTheSixth);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class WarpingMomentOfInertia
     {
         if (InchToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)InchToTheSixth, WarpingMomentOfInertiaUnit.InchToTheSixth);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class WarpingMomentOfInertia
     {
         if (FootToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)FootToTheSixth, WarpingMomentOfInertiaUnit.FootToTheSixth);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class WarpingMomentOfInertia
     {
         if (DecimeterToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)DecimeterToTheSixth, WarpingMomentOfInertiaUnit.DecimeterToTheSixth);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class WarpingMomentOfInertia
     {
         if (CentimeterToTheSixth is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)CentimeterToTheSixth, WarpingMomentOfInertiaUnit.CentimeterToTheSixth);
     }
     /// <summary>
@@ -88,7 +88,8 @@ public partial class WarpingMomentOfInertia
     {
         if (SI is null)
             return null;
-
+        
         return new WarpingMomentOfInertia((double)SI, WarpingMomentOfInertiaUnit.SI);
     }
+
 }

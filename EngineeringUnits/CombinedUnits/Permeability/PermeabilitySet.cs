@@ -16,7 +16,7 @@ public partial class Permeability
     {
         if (SI is null)
             return null;
-
+        
         return new Permeability((double)SI, PermeabilityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class Permeability
     {
         if (HenryPerMeter is null)
             return null;
-
+        
         return new Permeability((double)HenryPerMeter, PermeabilityUnit.HenryPerMeter);
     }
+
 }

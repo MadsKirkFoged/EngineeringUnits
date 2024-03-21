@@ -16,7 +16,7 @@ public partial class Speed
     {
         if (CentimeterPerHour is null)
             return null;
-
+        
         return new Speed((double)CentimeterPerHour, SpeedUnit.CentimeterPerHour);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Speed
     {
         if (CentimeterPerMinute is null)
             return null;
-
+        
         return new Speed((double)CentimeterPerMinute, SpeedUnit.CentimeterPerMinute);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Speed
     {
         if (CentimeterPerSecond is null)
             return null;
-
+        
         return new Speed((double)CentimeterPerSecond, SpeedUnit.CentimeterPerSecond);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Speed
     {
         if (DecimeterPerMinute is null)
             return null;
-
+        
         return new Speed((double)DecimeterPerMinute, SpeedUnit.DecimeterPerMinute);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Speed
     {
         if (DecimeterPerSecond is null)
             return null;
-
+        
         return new Speed((double)DecimeterPerSecond, SpeedUnit.DecimeterPerSecond);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Speed
     {
         if (FootPerHour is null)
             return null;
-
+        
         return new Speed((double)FootPerHour, SpeedUnit.FootPerHour);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Speed
     {
         if (FootPerMinute is null)
             return null;
-
+        
         return new Speed((double)FootPerMinute, SpeedUnit.FootPerMinute);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Speed
     {
         if (FootPerSecond is null)
             return null;
-
+        
         return new Speed((double)FootPerSecond, SpeedUnit.FootPerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Speed
     {
         if (InchPerHour is null)
             return null;
-
+        
         return new Speed((double)InchPerHour, SpeedUnit.InchPerHour);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Speed
     {
         if (InchPerMinute is null)
             return null;
-
+        
         return new Speed((double)InchPerMinute, SpeedUnit.InchPerMinute);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Speed
     {
         if (InchPerSecond is null)
             return null;
-
+        
         return new Speed((double)InchPerSecond, SpeedUnit.InchPerSecond);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Speed
     {
         if (KilometerPerHour is null)
             return null;
-
+        
         return new Speed((double)KilometerPerHour, SpeedUnit.KilometerPerHour);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Speed
     {
         if (KilometerPerMinute is null)
             return null;
-
+        
         return new Speed((double)KilometerPerMinute, SpeedUnit.KilometerPerMinute);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Speed
     {
         if (KilometerPerSecond is null)
             return null;
-
+        
         return new Speed((double)KilometerPerSecond, SpeedUnit.KilometerPerSecond);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Speed
     {
         if (Knot is null)
             return null;
-
+        
         return new Speed((double)Knot, SpeedUnit.Knot);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Speed
     {
         if (MeterPerHour is null)
             return null;
-
+        
         return new Speed((double)MeterPerHour, SpeedUnit.MeterPerHour);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Speed
     {
         if (MeterPerMinute is null)
             return null;
-
+        
         return new Speed((double)MeterPerMinute, SpeedUnit.MeterPerMinute);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Speed
     {
         if (MeterPerSecond is null)
             return null;
-
+        
         return new Speed((double)MeterPerSecond, SpeedUnit.MeterPerSecond);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Speed
     {
         if (MicrometerPerMinute is null)
             return null;
-
+        
         return new Speed((double)MicrometerPerMinute, SpeedUnit.MicrometerPerMinute);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Speed
     {
         if (MicrometerPerSecond is null)
             return null;
-
+        
         return new Speed((double)MicrometerPerSecond, SpeedUnit.MicrometerPerSecond);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Speed
     {
         if (MilePerHour is null)
             return null;
-
+        
         return new Speed((double)MilePerHour, SpeedUnit.MilePerHour);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Speed
     {
         if (MillimeterPerHour is null)
             return null;
-
+        
         return new Speed((double)MillimeterPerHour, SpeedUnit.MillimeterPerHour);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Speed
     {
         if (MillimeterPerMinute is null)
             return null;
-
+        
         return new Speed((double)MillimeterPerMinute, SpeedUnit.MillimeterPerMinute);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Speed
     {
         if (MillimeterPerSecond is null)
             return null;
-
+        
         return new Speed((double)MillimeterPerSecond, SpeedUnit.MillimeterPerSecond);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Speed
     {
         if (NanometerPerMinute is null)
             return null;
-
+        
         return new Speed((double)NanometerPerMinute, SpeedUnit.NanometerPerMinute);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Speed
     {
         if (NanometerPerSecond is null)
             return null;
-
+        
         return new Speed((double)NanometerPerSecond, SpeedUnit.NanometerPerSecond);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class Speed
     {
         if (UsSurveyFootPerHour is null)
             return null;
-
+        
         return new Speed((double)UsSurveyFootPerHour, SpeedUnit.UsSurveyFootPerHour);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class Speed
     {
         if (UsSurveyFootPerMinute is null)
             return null;
-
+        
         return new Speed((double)UsSurveyFootPerMinute, SpeedUnit.UsSurveyFootPerMinute);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class Speed
     {
         if (UsSurveyFootPerSecond is null)
             return null;
-
+        
         return new Speed((double)UsSurveyFootPerSecond, SpeedUnit.UsSurveyFootPerSecond);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class Speed
     {
         if (YardPerHour is null)
             return null;
-
+        
         return new Speed((double)YardPerHour, SpeedUnit.YardPerHour);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class Speed
     {
         if (YardPerMinute is null)
             return null;
-
+        
         return new Speed((double)YardPerMinute, SpeedUnit.YardPerMinute);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class Speed
     {
         if (YardPerSecond is null)
             return null;
-
+        
         return new Speed((double)YardPerSecond, SpeedUnit.YardPerSecond);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class Speed
     {
         if (KilometerPerhour is null)
             return null;
-
+        
         return new Speed((double)KilometerPerhour, SpeedUnit.KilometerPerhour);
     }
     /// <summary>
@@ -412,7 +412,7 @@ public partial class Speed
     {
         if (SI is null)
             return null;
-
+        
         return new Speed((double)SI, SpeedUnit.SI);
     }
     /// <summary>
@@ -424,7 +424,8 @@ public partial class Speed
     {
         if (MilePerSecond is null)
             return null;
-
+        
         return new Speed((double)MilePerSecond, SpeedUnit.MilePerSecond);
     }
+
 }

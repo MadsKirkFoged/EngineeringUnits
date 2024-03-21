@@ -16,7 +16,7 @@ public partial class RotationalSpeed
     {
         if (SI is null)
             return null;
-
+        
         return new RotationalSpeed((double)SI, RotationalSpeedUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class RotationalSpeed
     {
         if (RadianPerSecond is null)
             return null;
-
+        
         return new RotationalSpeed((double)RadianPerSecond, RotationalSpeedUnit.RadianPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class RotationalSpeed
     {
         if (Hertz is null)
             return null;
-
+        
         return new RotationalSpeed((double)Hertz, RotationalSpeedUnit.Hertz);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class RotationalSpeed
     {
         if (Kilohertz is null)
             return null;
-
+        
         return new RotationalSpeed((double)Kilohertz, RotationalSpeedUnit.Kilohertz);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class RotationalSpeed
     {
         if (Megahertz is null)
             return null;
-
+        
         return new RotationalSpeed((double)Megahertz, RotationalSpeedUnit.Megahertz);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class RotationalSpeed
     {
         if (Gigahertz is null)
             return null;
-
+        
         return new RotationalSpeed((double)Gigahertz, RotationalSpeedUnit.Gigahertz);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class RotationalSpeed
     {
         if (Terahertz is null)
             return null;
-
+        
         return new RotationalSpeed((double)Terahertz, RotationalSpeedUnit.Terahertz);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class RotationalSpeed
     {
         if (PerSecond is null)
             return null;
-
+        
         return new RotationalSpeed((double)PerSecond, RotationalSpeedUnit.PerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class RotationalSpeed
     {
         if (BeatPerMinute is null)
             return null;
-
+        
         return new RotationalSpeed((double)BeatPerMinute, RotationalSpeedUnit.BeatPerMinute);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class RotationalSpeed
     {
         if (CyclePerHour is null)
             return null;
-
+        
         return new RotationalSpeed((double)CyclePerHour, RotationalSpeedUnit.CyclePerHour);
     }
     /// <summary>
@@ -136,7 +136,8 @@ public partial class RotationalSpeed
     {
         if (CyclePerMinute is null)
             return null;
-
+        
         return new RotationalSpeed((double)CyclePerMinute, RotationalSpeedUnit.CyclePerMinute);
     }
+
 }
