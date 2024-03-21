@@ -27,7 +27,7 @@ internal class Program
         AbsExtensionsGenerator.Generate(libraryDir);
         UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
-        //_=UnitListGenerator.ShowUnittypes();
-        //_=UnitListGenerator.ShowUnitNames();
+        // _ = UnitListGenerator.ShowUnittypes();
+        // _ = UnitListGenerator.ShowUnitNames();
     }
 }
