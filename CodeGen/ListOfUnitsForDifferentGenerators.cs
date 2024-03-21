@@ -41,6 +41,7 @@ public class ListOfUnitsForDifferentGenerators
         "Entropy",
         "Force",
         "ForceChangeRate",
+        "ForceCost",
         "ForcePerLength",
         "Frequency",
         "FuelEfficiency",

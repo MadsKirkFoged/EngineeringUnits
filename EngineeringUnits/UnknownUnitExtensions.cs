@@ -71,6 +71,8 @@ public static class UnknownUnitExtensions
             return (Force?)toCast;
         if (toCast == ForceChangeRateUnit.SI.Unit)
             return (ForceChangeRate?)toCast;
+        if (toCast == ForceCostUnit.SI.Unit)
+            return (ForceCost?)toCast;
         if (toCast == ForcePerLengthUnit.SI.Unit)
             return (ForcePerLength?)toCast;
         if (toCast == FrequencyUnit.SI.Unit)
