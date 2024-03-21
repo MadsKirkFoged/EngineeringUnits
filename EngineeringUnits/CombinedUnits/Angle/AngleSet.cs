@@ -16,7 +16,7 @@ public partial class Angle
     {
         if (SI is null)
             return null;
-
+        
         return new Angle((double)SI, AngleUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Angle
     {
         if (Arcminute is null)
             return null;
-
+        
         return new Angle((double)Arcminute, AngleUnit.Arcminute);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Angle
     {
         if (Arcsecond is null)
             return null;
-
+        
         return new Angle((double)Arcsecond, AngleUnit.Arcsecond);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Angle
     {
         if (Gradian is null)
             return null;
-
+        
         return new Angle((double)Gradian, AngleUnit.Gradian);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Angle
     {
         if (Radian is null)
             return null;
-
+        
         return new Angle((double)Radian, AngleUnit.Radian);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Angle
     {
         if (Centiradian is null)
             return null;
-
+        
         return new Angle((double)Centiradian, AngleUnit.Centiradian);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Angle
     {
         if (Deciradian is null)
             return null;
-
+        
         return new Angle((double)Deciradian, AngleUnit.Deciradian);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Angle
     {
         if (Microradian is null)
             return null;
-
+        
         return new Angle((double)Microradian, AngleUnit.Microradian);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Angle
     {
         if (Milliradian is null)
             return null;
-
+        
         return new Angle((double)Milliradian, AngleUnit.Milliradian);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Angle
     {
         if (Nanoradian is null)
             return null;
-
+        
         return new Angle((double)Nanoradian, AngleUnit.Nanoradian);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Angle
     {
         if (Degree is null)
             return null;
-
+        
         return new Angle((double)Degree, AngleUnit.Degree);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Angle
     {
         if (Microdegree is null)
             return null;
-
+        
         return new Angle((double)Microdegree, AngleUnit.Microdegree);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Angle
     {
         if (Millidegree is null)
             return null;
-
+        
         return new Angle((double)Millidegree, AngleUnit.Millidegree);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Angle
     {
         if (Nanodegree is null)
             return null;
-
+        
         return new Angle((double)Nanodegree, AngleUnit.Nanodegree);
     }
     /// <summary>
@@ -184,7 +184,8 @@ public partial class Angle
     {
         if (Revolution is null)
             return null;
-
+        
         return new Angle((double)Revolution, AngleUnit.Revolution);
     }
+
 }

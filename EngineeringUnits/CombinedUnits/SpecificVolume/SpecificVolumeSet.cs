@@ -16,7 +16,7 @@ public partial class SpecificVolume
     {
         if (SI is null)
             return null;
-
+        
         return new SpecificVolume((double)SI, SpecificVolumeUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class SpecificVolume
     {
         if (CubicMeterPerKilogram is null)
             return null;
-
+        
         return new SpecificVolume((double)CubicMeterPerKilogram, SpecificVolumeUnit.CubicMeterPerKilogram);
     }
+
 }

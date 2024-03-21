@@ -16,7 +16,7 @@ public partial class VolumePerLength
     {
         if (SI is null)
             return null;
-
+        
         return new VolumePerLength((double)SI, VolumePerLengthUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class VolumePerLength
     {
         if (CubicMeterPerMeter is null)
             return null;
-
+        
         return new VolumePerLength((double)CubicMeterPerMeter, VolumePerLengthUnit.CubicMeterPerMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class VolumePerLength
     {
         if (CubicYardPerFoot is null)
             return null;
-
+        
         return new VolumePerLength((double)CubicYardPerFoot, VolumePerLengthUnit.CubicYardPerFoot);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class VolumePerLength
     {
         if (CubicYardPerUsSurveyFoot is null)
             return null;
-
+        
         return new VolumePerLength((double)CubicYardPerUsSurveyFoot, VolumePerLengthUnit.CubicYardPerUsSurveyFoot);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class VolumePerLength
     {
         if (LiterPerKilometer is null)
             return null;
-
+        
         return new VolumePerLength((double)LiterPerKilometer, VolumePerLengthUnit.LiterPerKilometer);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class VolumePerLength
     {
         if (LiterPerMeter is null)
             return null;
-
+        
         return new VolumePerLength((double)LiterPerMeter, VolumePerLengthUnit.LiterPerMeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class VolumePerLength
     {
         if (LiterPerMillimeter is null)
             return null;
-
+        
         return new VolumePerLength((double)LiterPerMillimeter, VolumePerLengthUnit.LiterPerMillimeter);
     }
     /// <summary>
@@ -100,7 +100,8 @@ public partial class VolumePerLength
     {
         if (OilBarrelPerFoot is null)
             return null;
-
+        
         return new VolumePerLength((double)OilBarrelPerFoot, VolumePerLengthUnit.OilBarrelPerFoot);
     }
+
 }

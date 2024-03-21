@@ -16,7 +16,7 @@ public partial class VolumeFlow
     {
         if (AcreFootPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)AcreFootPerDay, VolumeFlowUnit.AcreFootPerDay);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class VolumeFlow
     {
         if (AcreFootPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)AcreFootPerHour, VolumeFlowUnit.AcreFootPerHour);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class VolumeFlow
     {
         if (AcreFootPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)AcreFootPerMinute, VolumeFlowUnit.AcreFootPerMinute);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class VolumeFlow
     {
         if (AcreFootPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)AcreFootPerSecond, VolumeFlowUnit.AcreFootPerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class VolumeFlow
     {
         if (CentiliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)CentiliterPerDay, VolumeFlowUnit.CentiliterPerDay);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class VolumeFlow
     {
         if (CentiliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CentiliterPerMinute, VolumeFlowUnit.CentiliterPerMinute);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class VolumeFlow
     {
         if (CentiliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)CentiliterPerSecond, VolumeFlowUnit.CentiliterPerSecond);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class VolumeFlow
     {
         if (CubicCentimeterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicCentimeterPerMinute, VolumeFlowUnit.CubicCentimeterPerMinute);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class VolumeFlow
     {
         if (CubicDecimeterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicDecimeterPerMinute, VolumeFlowUnit.CubicDecimeterPerMinute);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class VolumeFlow
     {
         if (CubicFootPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicFootPerHour, VolumeFlowUnit.CubicFootPerHour);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class VolumeFlow
     {
         if (CubicFootPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicFootPerMinute, VolumeFlowUnit.CubicFootPerMinute);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class VolumeFlow
     {
         if (CubicFootPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicFootPerSecond, VolumeFlowUnit.CubicFootPerSecond);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class VolumeFlow
     {
         if (CubicMeterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicMeterPerDay, VolumeFlowUnit.CubicMeterPerDay);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class VolumeFlow
     {
         if (CubicMeterPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicMeterPerHour, VolumeFlowUnit.CubicMeterPerHour);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class VolumeFlow
     {
         if (CubicMeterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicMeterPerMinute, VolumeFlowUnit.CubicMeterPerMinute);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class VolumeFlow
     {
         if (CubicMeterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicMeterPerSecond, VolumeFlowUnit.CubicMeterPerSecond);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class VolumeFlow
     {
         if (SI is null)
             return null;
-
+        
         return new VolumeFlow((double)SI, VolumeFlowUnit.SI);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class VolumeFlow
     {
         if (CubicMillimeterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicMillimeterPerSecond, VolumeFlowUnit.CubicMillimeterPerSecond);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class VolumeFlow
     {
         if (CubicYardPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicYardPerDay, VolumeFlowUnit.CubicYardPerDay);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class VolumeFlow
     {
         if (CubicYardPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicYardPerHour, VolumeFlowUnit.CubicYardPerHour);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class VolumeFlow
     {
         if (CubicYardPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicYardPerMinute, VolumeFlowUnit.CubicYardPerMinute);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class VolumeFlow
     {
         if (CubicYardPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)CubicYardPerSecond, VolumeFlowUnit.CubicYardPerSecond);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class VolumeFlow
     {
         if (DeciliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)DeciliterPerDay, VolumeFlowUnit.DeciliterPerDay);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class VolumeFlow
     {
         if (DeciliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)DeciliterPerMinute, VolumeFlowUnit.DeciliterPerMinute);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class VolumeFlow
     {
         if (DeciliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)DeciliterPerSecond, VolumeFlowUnit.DeciliterPerSecond);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class VolumeFlow
     {
         if (KiloliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)KiloliterPerDay, VolumeFlowUnit.KiloliterPerDay);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class VolumeFlow
     {
         if (KiloliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)KiloliterPerMinute, VolumeFlowUnit.KiloliterPerMinute);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class VolumeFlow
     {
         if (KiloliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)KiloliterPerSecond, VolumeFlowUnit.KiloliterPerSecond);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class VolumeFlow
     {
         if (KilousGallonPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)KilousGallonPerMinute, VolumeFlowUnit.KilousGallonPerMinute);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class VolumeFlow
     {
         if (LiterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)LiterPerDay, VolumeFlowUnit.LiterPerDay);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class VolumeFlow
     {
         if (LiterPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)LiterPerHour, VolumeFlowUnit.LiterPerHour);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class VolumeFlow
     {
         if (LiterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)LiterPerMinute, VolumeFlowUnit.LiterPerMinute);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class VolumeFlow
     {
         if (LiterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)LiterPerSecond, VolumeFlowUnit.LiterPerSecond);
     }
     /// <summary>
@@ -412,7 +412,7 @@ public partial class VolumeFlow
     {
         if (MegaliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)MegaliterPerDay, VolumeFlowUnit.MegaliterPerDay);
     }
     /// <summary>
@@ -424,7 +424,7 @@ public partial class VolumeFlow
     {
         if (MicroliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)MicroliterPerDay, VolumeFlowUnit.MicroliterPerDay);
     }
     /// <summary>
@@ -436,7 +436,7 @@ public partial class VolumeFlow
     {
         if (MicroliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)MicroliterPerMinute, VolumeFlowUnit.MicroliterPerMinute);
     }
     /// <summary>
@@ -448,7 +448,7 @@ public partial class VolumeFlow
     {
         if (MicroliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)MicroliterPerSecond, VolumeFlowUnit.MicroliterPerSecond);
     }
     /// <summary>
@@ -460,7 +460,7 @@ public partial class VolumeFlow
     {
         if (MilliliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)MilliliterPerDay, VolumeFlowUnit.MilliliterPerDay);
     }
     /// <summary>
@@ -472,7 +472,7 @@ public partial class VolumeFlow
     {
         if (MilliliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)MilliliterPerMinute, VolumeFlowUnit.MilliliterPerMinute);
     }
     /// <summary>
@@ -484,7 +484,7 @@ public partial class VolumeFlow
     {
         if (MilliliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)MilliliterPerSecond, VolumeFlowUnit.MilliliterPerSecond);
     }
     /// <summary>
@@ -496,7 +496,7 @@ public partial class VolumeFlow
     {
         if (MillionUsGallonsPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)MillionUsGallonsPerDay, VolumeFlowUnit.MillionUsGallonsPerDay);
     }
     /// <summary>
@@ -508,7 +508,7 @@ public partial class VolumeFlow
     {
         if (NanoliterPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)NanoliterPerDay, VolumeFlowUnit.NanoliterPerDay);
     }
     /// <summary>
@@ -520,7 +520,7 @@ public partial class VolumeFlow
     {
         if (NanoliterPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)NanoliterPerMinute, VolumeFlowUnit.NanoliterPerMinute);
     }
     /// <summary>
@@ -532,7 +532,7 @@ public partial class VolumeFlow
     {
         if (NanoliterPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)NanoliterPerSecond, VolumeFlowUnit.NanoliterPerSecond);
     }
     /// <summary>
@@ -544,7 +544,7 @@ public partial class VolumeFlow
     {
         if (OilBarrelPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)OilBarrelPerDay, VolumeFlowUnit.OilBarrelPerDay);
     }
     /// <summary>
@@ -556,7 +556,7 @@ public partial class VolumeFlow
     {
         if (OilBarrelPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)OilBarrelPerHour, VolumeFlowUnit.OilBarrelPerHour);
     }
     /// <summary>
@@ -568,7 +568,7 @@ public partial class VolumeFlow
     {
         if (OilBarrelPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)OilBarrelPerMinute, VolumeFlowUnit.OilBarrelPerMinute);
     }
     /// <summary>
@@ -580,7 +580,7 @@ public partial class VolumeFlow
     {
         if (OilBarrelPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)OilBarrelPerSecond, VolumeFlowUnit.OilBarrelPerSecond);
     }
     /// <summary>
@@ -592,7 +592,7 @@ public partial class VolumeFlow
     {
         if (UkGallonPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)UkGallonPerDay, VolumeFlowUnit.UkGallonPerDay);
     }
     /// <summary>
@@ -604,7 +604,7 @@ public partial class VolumeFlow
     {
         if (UkGallonPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)UkGallonPerHour, VolumeFlowUnit.UkGallonPerHour);
     }
     /// <summary>
@@ -616,7 +616,7 @@ public partial class VolumeFlow
     {
         if (UkGallonPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)UkGallonPerMinute, VolumeFlowUnit.UkGallonPerMinute);
     }
     /// <summary>
@@ -628,7 +628,7 @@ public partial class VolumeFlow
     {
         if (UkGallonPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)UkGallonPerSecond, VolumeFlowUnit.UkGallonPerSecond);
     }
     /// <summary>
@@ -640,7 +640,7 @@ public partial class VolumeFlow
     {
         if (UsGallonPerDay is null)
             return null;
-
+        
         return new VolumeFlow((double)UsGallonPerDay, VolumeFlowUnit.UsGallonPerDay);
     }
     /// <summary>
@@ -652,7 +652,7 @@ public partial class VolumeFlow
     {
         if (UsGallonPerHour is null)
             return null;
-
+        
         return new VolumeFlow((double)UsGallonPerHour, VolumeFlowUnit.UsGallonPerHour);
     }
     /// <summary>
@@ -664,7 +664,7 @@ public partial class VolumeFlow
     {
         if (UsGallonPerMinute is null)
             return null;
-
+        
         return new VolumeFlow((double)UsGallonPerMinute, VolumeFlowUnit.UsGallonPerMinute);
     }
     /// <summary>
@@ -676,7 +676,7 @@ public partial class VolumeFlow
     {
         if (UsGallonPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)UsGallonPerSecond, VolumeFlowUnit.UsGallonPerSecond);
     }
     /// <summary>
@@ -688,7 +688,8 @@ public partial class VolumeFlow
     {
         if (MegaukGallonPerSecond is null)
             return null;
-
+        
         return new VolumeFlow((double)MegaukGallonPerSecond, VolumeFlowUnit.MegaukGallonPerSecond);
     }
+
 }

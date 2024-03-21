@@ -16,7 +16,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)SI, ElectricPotentialChangeRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (VoltPerSecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)VoltPerSecond, ElectricPotentialChangeRateUnit.VoltPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (VoltPerMinute is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)VoltPerMinute, ElectricPotentialChangeRateUnit.VoltPerMinute);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (VoltPerMicrosecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)VoltPerMicrosecond, ElectricPotentialChangeRateUnit.VoltPerMicrosecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (VoltPerHour is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)VoltPerHour, ElectricPotentialChangeRateUnit.VoltPerHour);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MillivoltPerSecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MillivoltPerSecond, ElectricPotentialChangeRateUnit.MillivoltPerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MillivoltPerMinute is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MillivoltPerMinute, ElectricPotentialChangeRateUnit.MillivoltPerMinute);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MillivoltPerMicrosecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MillivoltPerMicrosecond, ElectricPotentialChangeRateUnit.MillivoltPerMicrosecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MillivoltPerHour is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MillivoltPerHour, ElectricPotentialChangeRateUnit.MillivoltPerHour);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MicrovoltPerSecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MicrovoltPerSecond, ElectricPotentialChangeRateUnit.MicrovoltPerSecond);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MicrovoltPerMinute is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MicrovoltPerMinute, ElectricPotentialChangeRateUnit.MicrovoltPerMinute);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MicrovoltPerMicrosecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MicrovoltPerMicrosecond, ElectricPotentialChangeRateUnit.MicrovoltPerMicrosecond);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MicrovoltPerHour is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MicrovoltPerHour, ElectricPotentialChangeRateUnit.MicrovoltPerHour);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MegavoltPerSecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MegavoltPerSecond, ElectricPotentialChangeRateUnit.MegavoltPerSecond);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MegavoltPerMinute is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MegavoltPerMinute, ElectricPotentialChangeRateUnit.MegavoltPerMinute);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MegavoltPerMicrosecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MegavoltPerMicrosecond, ElectricPotentialChangeRateUnit.MegavoltPerMicrosecond);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (MegavoltPerHour is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)MegavoltPerHour, ElectricPotentialChangeRateUnit.MegavoltPerHour);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (KilovoltPerSecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)KilovoltPerSecond, ElectricPotentialChangeRateUnit.KilovoltPerSecond);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (KilovoltPerMinute is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)KilovoltPerMinute, ElectricPotentialChangeRateUnit.KilovoltPerMinute);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class ElectricPotentialChangeRate
     {
         if (KilovoltPerMicrosecond is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)KilovoltPerMicrosecond, ElectricPotentialChangeRateUnit.KilovoltPerMicrosecond);
     }
     /// <summary>
@@ -256,7 +256,8 @@ public partial class ElectricPotentialChangeRate
     {
         if (KilovoltPerHour is null)
             return null;
-
+        
         return new ElectricPotentialChangeRate((double)KilovoltPerHour, ElectricPotentialChangeRateUnit.KilovoltPerHour);
     }
+
 }

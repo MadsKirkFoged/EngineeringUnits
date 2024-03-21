@@ -16,7 +16,7 @@ public partial class ElectricPotential
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricPotential((double)SI, ElectricPotentialUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricPotential
     {
         if (Volt is null)
             return null;
-
+        
         return new ElectricPotential((double)Volt, ElectricPotentialUnit.Volt);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricPotential
     {
         if (Kilovolt is null)
             return null;
-
+        
         return new ElectricPotential((double)Kilovolt, ElectricPotentialUnit.Kilovolt);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricPotential
     {
         if (Megavolt is null)
             return null;
-
+        
         return new ElectricPotential((double)Megavolt, ElectricPotentialUnit.Megavolt);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricPotential
     {
         if (Gigavolt is null)
             return null;
-
+        
         return new ElectricPotential((double)Gigavolt, ElectricPotentialUnit.Gigavolt);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ElectricPotential
     {
         if (Microvolt is null)
             return null;
-
+        
         return new ElectricPotential((double)Microvolt, ElectricPotentialUnit.Microvolt);
     }
     /// <summary>
@@ -88,7 +88,8 @@ public partial class ElectricPotential
     {
         if (Millivolt is null)
             return null;
-
+        
         return new ElectricPotential((double)Millivolt, ElectricPotentialUnit.Millivolt);
     }
+
 }

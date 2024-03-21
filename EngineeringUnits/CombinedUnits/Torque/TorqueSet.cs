@@ -16,7 +16,7 @@ public partial class Torque
     {
         if (SI is null)
             return null;
-
+        
         return new Torque((double)SI, TorqueUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Torque
     {
         if (NewtonMeter is null)
             return null;
-
+        
         return new Torque((double)NewtonMeter, TorqueUnit.NewtonMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Torque
     {
         if (KilonewtonMeter is null)
             return null;
-
+        
         return new Torque((double)KilonewtonMeter, TorqueUnit.KilonewtonMeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Torque
     {
         if (MeganewtonMeter is null)
             return null;
-
+        
         return new Torque((double)MeganewtonMeter, TorqueUnit.MeganewtonMeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Torque
     {
         if (NewtonMillimeter is null)
             return null;
-
+        
         return new Torque((double)NewtonMillimeter, TorqueUnit.NewtonMillimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Torque
     {
         if (KilonewtonMillimeter is null)
             return null;
-
+        
         return new Torque((double)KilonewtonMillimeter, TorqueUnit.KilonewtonMillimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Torque
     {
         if (MeganewtonMillimeter is null)
             return null;
-
+        
         return new Torque((double)MeganewtonMillimeter, TorqueUnit.MeganewtonMillimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Torque
     {
         if (NewtonCentimeter is null)
             return null;
-
+        
         return new Torque((double)NewtonCentimeter, TorqueUnit.NewtonCentimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Torque
     {
         if (MeganewtonCentimeter is null)
             return null;
-
+        
         return new Torque((double)MeganewtonCentimeter, TorqueUnit.MeganewtonCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Torque
     {
         if (PoundalFoot is null)
             return null;
-
+        
         return new Torque((double)PoundalFoot, TorqueUnit.PoundalFoot);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Torque
     {
         if (PoundForceFoot is null)
             return null;
-
+        
         return new Torque((double)PoundForceFoot, TorqueUnit.PoundForceFoot);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Torque
     {
         if (PoundForceInch is null)
             return null;
-
+        
         return new Torque((double)PoundForceInch, TorqueUnit.PoundForceInch);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Torque
     {
         if (TonneForceCentimeter is null)
             return null;
-
+        
         return new Torque((double)TonneForceCentimeter, TorqueUnit.TonneForceCentimeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Torque
     {
         if (TonneForceMeter is null)
             return null;
-
+        
         return new Torque((double)TonneForceMeter, TorqueUnit.TonneForceMeter);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Torque
     {
         if (TonneForceMillimeter is null)
             return null;
-
+        
         return new Torque((double)TonneForceMillimeter, TorqueUnit.TonneForceMillimeter);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Torque
     {
         if (KilonewtonCentimeter is null)
             return null;
-
+        
         return new Torque((double)KilonewtonCentimeter, TorqueUnit.KilonewtonCentimeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Torque
     {
         if (KilogramForceCentimeter is null)
             return null;
-
+        
         return new Torque((double)KilogramForceCentimeter, TorqueUnit.KilogramForceCentimeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Torque
     {
         if (KilogramForceMeter is null)
             return null;
-
+        
         return new Torque((double)KilogramForceMeter, TorqueUnit.KilogramForceMeter);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Torque
     {
         if (KilogramForceMillimeter is null)
             return null;
-
+        
         return new Torque((double)KilogramForceMillimeter, TorqueUnit.KilogramForceMillimeter);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Torque
     {
         if (KilopoundForceFoot is null)
             return null;
-
+        
         return new Torque((double)KilopoundForceFoot, TorqueUnit.KilopoundForceFoot);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Torque
     {
         if (MegapoundForceFoot is null)
             return null;
-
+        
         return new Torque((double)MegapoundForceFoot, TorqueUnit.MegapoundForceFoot);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Torque
     {
         if (KilopoundForceInch is null)
             return null;
-
+        
         return new Torque((double)KilopoundForceInch, TorqueUnit.KilopoundForceInch);
     }
     /// <summary>
@@ -280,7 +280,8 @@ public partial class Torque
     {
         if (MegapoundForceInch is null)
             return null;
-
+        
         return new Torque((double)MegapoundForceInch, TorqueUnit.MegapoundForceInch);
     }
+
 }

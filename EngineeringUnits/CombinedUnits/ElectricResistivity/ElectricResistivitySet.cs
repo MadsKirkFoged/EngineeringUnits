@@ -16,7 +16,7 @@ public partial class ElectricResistivity
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricResistivity((double)SI, ElectricResistivityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricResistivity
     {
         if (OhmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)OhmMeter, ElectricResistivityUnit.OhmMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricResistivity
     {
         if (OhmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)OhmCentimeter, ElectricResistivityUnit.OhmCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricResistivity
     {
         if (KiloohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)KiloohmCentimeter, ElectricResistivityUnit.KiloohmCentimeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricResistivity
     {
         if (MegaohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MegaohmCentimeter, ElectricResistivityUnit.MegaohmCentimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ElectricResistivity
     {
         if (MicroohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MicroohmCentimeter, ElectricResistivityUnit.MicroohmCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class ElectricResistivity
     {
         if (MilliohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MilliohmCentimeter, ElectricResistivityUnit.MilliohmCentimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class ElectricResistivity
     {
         if (NanoohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)NanoohmCentimeter, ElectricResistivityUnit.NanoohmCentimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class ElectricResistivity
     {
         if (PicoohmCentimeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)PicoohmCentimeter, ElectricResistivityUnit.PicoohmCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class ElectricResistivity
     {
         if (KiloohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)KiloohmMeter, ElectricResistivityUnit.KiloohmMeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class ElectricResistivity
     {
         if (MegaohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MegaohmMeter, ElectricResistivityUnit.MegaohmMeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class ElectricResistivity
     {
         if (MicroohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MicroohmMeter, ElectricResistivityUnit.MicroohmMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class ElectricResistivity
     {
         if (MilliohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)MilliohmMeter, ElectricResistivityUnit.MilliohmMeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class ElectricResistivity
     {
         if (NanoohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)NanoohmMeter, ElectricResistivityUnit.NanoohmMeter);
     }
     /// <summary>
@@ -184,7 +184,8 @@ public partial class ElectricResistivity
     {
         if (PicoohmMeter is null)
             return null;
-
+        
         return new ElectricResistivity((double)PicoohmMeter, ElectricResistivityUnit.PicoohmMeter);
     }
+
 }

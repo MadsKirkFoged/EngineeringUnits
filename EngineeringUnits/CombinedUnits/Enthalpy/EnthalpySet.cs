@@ -16,7 +16,7 @@ public partial class Enthalpy
     {
         if (SI is null)
             return null;
-
+        
         return new Enthalpy((double)SI, EnthalpyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Enthalpy
     {
         if (JoulePerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)JoulePerKilogram, EnthalpyUnit.JoulePerKilogram);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Enthalpy
     {
         if (KilojoulePerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)KilojoulePerKilogram, EnthalpyUnit.KilojoulePerKilogram);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Enthalpy
     {
         if (MegajoulePerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)MegajoulePerKilogram, EnthalpyUnit.MegajoulePerKilogram);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Enthalpy
     {
         if (BtuPerPound is null)
             return null;
-
+        
         return new Enthalpy((double)BtuPerPound, EnthalpyUnit.BtuPerPound);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Enthalpy
     {
         if (CaloriePerGram is null)
             return null;
-
+        
         return new Enthalpy((double)CaloriePerGram, EnthalpyUnit.CaloriePerGram);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Enthalpy
     {
         if (KilocaloriePerGram is null)
             return null;
-
+        
         return new Enthalpy((double)KilocaloriePerGram, EnthalpyUnit.KilocaloriePerGram);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Enthalpy
     {
         if (WattDayPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)WattDayPerKilogram, EnthalpyUnit.WattDayPerKilogram);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Enthalpy
     {
         if (KilowattDayPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)KilowattDayPerKilogram, EnthalpyUnit.KilowattDayPerKilogram);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Enthalpy
     {
         if (MegawattDayPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)MegawattDayPerKilogram, EnthalpyUnit.MegawattDayPerKilogram);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Enthalpy
     {
         if (GigawattDayPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)GigawattDayPerKilogram, EnthalpyUnit.GigawattDayPerKilogram);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Enthalpy
     {
         if (TerawattDayPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)TerawattDayPerKilogram, EnthalpyUnit.TerawattDayPerKilogram);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Enthalpy
     {
         if (WattHourPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)WattHourPerKilogram, EnthalpyUnit.WattHourPerKilogram);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Enthalpy
     {
         if (KilowattHourPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)KilowattHourPerKilogram, EnthalpyUnit.KilowattHourPerKilogram);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Enthalpy
     {
         if (MegawattHourPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)MegawattHourPerKilogram, EnthalpyUnit.MegawattHourPerKilogram);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Enthalpy
     {
         if (GigawattHourPerKilogram is null)
             return null;
-
+        
         return new Enthalpy((double)GigawattHourPerKilogram, EnthalpyUnit.GigawattHourPerKilogram);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Enthalpy
     {
         if (WattDayPerTonne is null)
             return null;
-
+        
         return new Enthalpy((double)WattDayPerTonne, EnthalpyUnit.WattDayPerTonne);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Enthalpy
     {
         if (KilowattDayPerTonne is null)
             return null;
-
+        
         return new Enthalpy((double)KilowattDayPerTonne, EnthalpyUnit.KilowattDayPerTonne);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Enthalpy
     {
         if (MegawattDayPerTonne is null)
             return null;
-
+        
         return new Enthalpy((double)MegawattDayPerTonne, EnthalpyUnit.MegawattDayPerTonne);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Enthalpy
     {
         if (GigawattDayPerTonne is null)
             return null;
-
+        
         return new Enthalpy((double)GigawattDayPerTonne, EnthalpyUnit.GigawattDayPerTonne);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Enthalpy
     {
         if (TerawattDayPerTonne is null)
             return null;
-
+        
         return new Enthalpy((double)TerawattDayPerTonne, EnthalpyUnit.TerawattDayPerTonne);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Enthalpy
     {
         if (WattDayPerShortTon is null)
             return null;
-
+        
         return new Enthalpy((double)WattDayPerShortTon, EnthalpyUnit.WattDayPerShortTon);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Enthalpy
     {
         if (KilowattDayPerShortTon is null)
             return null;
-
+        
         return new Enthalpy((double)KilowattDayPerShortTon, EnthalpyUnit.KilowattDayPerShortTon);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Enthalpy
     {
         if (MegawattDayPerShortTon is null)
             return null;
-
+        
         return new Enthalpy((double)MegawattDayPerShortTon, EnthalpyUnit.MegawattDayPerShortTon);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Enthalpy
     {
         if (GigawattDayPerShortTon is null)
             return null;
-
+        
         return new Enthalpy((double)GigawattDayPerShortTon, EnthalpyUnit.GigawattDayPerShortTon);
     }
     /// <summary>
@@ -316,7 +316,8 @@ public partial class Enthalpy
     {
         if (TerawattDayPerShortTon is null)
             return null;
-
+        
         return new Enthalpy((double)TerawattDayPerShortTon, EnthalpyUnit.TerawattDayPerShortTon);
     }
+
 }

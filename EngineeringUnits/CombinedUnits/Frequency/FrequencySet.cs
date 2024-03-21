@@ -16,7 +16,7 @@ public partial class Frequency
     {
         if (SI is null)
             return null;
-
+        
         return new Frequency((double)SI, FrequencyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Frequency
     {
         if (Hertz is null)
             return null;
-
+        
         return new Frequency((double)Hertz, FrequencyUnit.Hertz);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Frequency
     {
         if (Kilohertz is null)
             return null;
-
+        
         return new Frequency((double)Kilohertz, FrequencyUnit.Kilohertz);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Frequency
     {
         if (Megahertz is null)
             return null;
-
+        
         return new Frequency((double)Megahertz, FrequencyUnit.Megahertz);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Frequency
     {
         if (Gigahertz is null)
             return null;
-
+        
         return new Frequency((double)Gigahertz, FrequencyUnit.Gigahertz);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Frequency
     {
         if (Terahertz is null)
             return null;
-
+        
         return new Frequency((double)Terahertz, FrequencyUnit.Terahertz);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Frequency
     {
         if (PerSecond is null)
             return null;
-
+        
         return new Frequency((double)PerSecond, FrequencyUnit.PerSecond);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Frequency
     {
         if (BeatPerMinute is null)
             return null;
-
+        
         return new Frequency((double)BeatPerMinute, FrequencyUnit.BeatPerMinute);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Frequency
     {
         if (RevolutionsPerMinute is null)
             return null;
-
+        
         return new Frequency((double)RevolutionsPerMinute, FrequencyUnit.RevolutionsPerMinute);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Frequency
     {
         if (RPM is null)
             return null;
-
+        
         return new Frequency((double)RPM, FrequencyUnit.RPM);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Frequency
     {
         if (CyclePerHour is null)
             return null;
-
+        
         return new Frequency((double)CyclePerHour, FrequencyUnit.CyclePerHour);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Frequency
     {
         if (CyclePerMinute is null)
             return null;
-
+        
         return new Frequency((double)CyclePerMinute, FrequencyUnit.CyclePerMinute);
     }
     /// <summary>
@@ -160,7 +160,8 @@ public partial class Frequency
     {
         if (RadianPerSecond is null)
             return null;
-
+        
         return new Frequency((double)RadianPerSecond, FrequencyUnit.RadianPerSecond);
     }
+
 }

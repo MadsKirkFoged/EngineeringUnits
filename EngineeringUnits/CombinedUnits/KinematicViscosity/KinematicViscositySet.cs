@@ -16,7 +16,7 @@ public partial class KinematicViscosity
     {
         if (SI is null)
             return null;
-
+        
         return new KinematicViscosity((double)SI, KinematicViscosityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class KinematicViscosity
     {
         if (SquareMeterPerSecond is null)
             return null;
-
+        
         return new KinematicViscosity((double)SquareMeterPerSecond, KinematicViscosityUnit.SquareMeterPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class KinematicViscosity
     {
         if (Stokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Stokes, KinematicViscosityUnit.Stokes);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class KinematicViscosity
     {
         if (Centistokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Centistokes, KinematicViscosityUnit.Centistokes);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class KinematicViscosity
     {
         if (Decistokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Decistokes, KinematicViscosityUnit.Decistokes);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class KinematicViscosity
     {
         if (Kilostokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Kilostokes, KinematicViscosityUnit.Kilostokes);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class KinematicViscosity
     {
         if (Microstokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Microstokes, KinematicViscosityUnit.Microstokes);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class KinematicViscosity
     {
         if (Millistokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Millistokes, KinematicViscosityUnit.Millistokes);
     }
     /// <summary>
@@ -112,7 +112,8 @@ public partial class KinematicViscosity
     {
         if (Nanostokes is null)
             return null;
-
+        
         return new KinematicViscosity((double)Nanostokes, KinematicViscosityUnit.Nanostokes);
     }
+
 }

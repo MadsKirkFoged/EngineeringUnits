@@ -16,7 +16,7 @@ public partial class VolumeCost
     {
         if (SI is null)
             return null;
-
+        
         return new VolumeCost((double)SI, VolumeCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class VolumeCost
     {
         if (USDollarPerCubicMeter is null)
             return null;
-
+        
         return new VolumeCost((double)USDollarPerCubicMeter, VolumeCostUnit.USDollarPerCubicMeter);
     }
     /// <summary>
@@ -40,7 +40,8 @@ public partial class VolumeCost
     {
         if (EuroPerCubicMeter is null)
             return null;
-
+        
         return new VolumeCost((double)EuroPerCubicMeter, VolumeCostUnit.EuroPerCubicMeter);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class PowerCost
     {
         if (SI is null)
             return null;
-
+        
         return new PowerCost((double)SI, PowerCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class PowerCost
     {
         if (USDollarPerKilowatt is null)
             return null;
-
+        
         return new PowerCost((double)USDollarPerKilowatt, PowerCostUnit.USDollarPerKilowatt);
     }
     /// <summary>
@@ -40,7 +40,8 @@ public partial class PowerCost
     {
         if (USDollarPerWatt is null)
             return null;
-
+        
         return new PowerCost((double)USDollarPerWatt, PowerCostUnit.USDollarPerWatt);
     }
+
 }

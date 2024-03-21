@@ -16,7 +16,7 @@ public partial class ElectricInductance
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricInductance((double)SI, ElectricInductanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricInductance
     {
         if (Henry is null)
             return null;
-
+        
         return new ElectricInductance((double)Henry, ElectricInductanceUnit.Henry);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricInductance
     {
         if (Microhenry is null)
             return null;
-
+        
         return new ElectricInductance((double)Microhenry, ElectricInductanceUnit.Microhenry);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricInductance
     {
         if (Millihenry is null)
             return null;
-
+        
         return new ElectricInductance((double)Millihenry, ElectricInductanceUnit.Millihenry);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class ElectricInductance
     {
         if (Nanohenry is null)
             return null;
-
+        
         return new ElectricInductance((double)Nanohenry, ElectricInductanceUnit.Nanohenry);
     }
+
 }

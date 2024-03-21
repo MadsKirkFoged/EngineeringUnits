@@ -16,7 +16,7 @@ public partial class CoefficientOfThermalExpansion
     {
         if (SI is null)
             return null;
-
+        
         return new CoefficientOfThermalExpansion((double)SI, CoefficientOfThermalExpansionUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class CoefficientOfThermalExpansion
     {
         if (InverseKelvin is null)
             return null;
-
+        
         return new CoefficientOfThermalExpansion((double)InverseKelvin, CoefficientOfThermalExpansionUnit.InverseKelvin);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class CoefficientOfThermalExpansion
     {
         if (InverseDegreeFahrenheit is null)
             return null;
-
+        
         return new CoefficientOfThermalExpansion((double)InverseDegreeFahrenheit, CoefficientOfThermalExpansionUnit.InverseDegreeFahrenheit);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class CoefficientOfThermalExpansion
     {
         if (InverseDegreeCelsius is null)
             return null;
-
+        
         return new CoefficientOfThermalExpansion((double)InverseDegreeCelsius, CoefficientOfThermalExpansionUnit.InverseDegreeCelsius);
     }
+
 }

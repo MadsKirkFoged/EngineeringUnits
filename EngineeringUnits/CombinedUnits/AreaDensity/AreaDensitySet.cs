@@ -16,7 +16,7 @@ public partial class AreaDensity
     {
         if (SI is null)
             return null;
-
+        
         return new AreaDensity((double)SI, AreaDensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class AreaDensity
     {
         if (KilogramPerSquareMeter is null)
             return null;
-
+        
         return new AreaDensity((double)KilogramPerSquareMeter, AreaDensityUnit.KilogramPerSquareMeter);
     }
+
 }

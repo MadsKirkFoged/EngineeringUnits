@@ -16,7 +16,7 @@ public partial class HeatFlux
     {
         if (SI is null)
             return null;
-
+        
         return new HeatFlux((double)SI, HeatFluxUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class HeatFlux
     {
         if (WattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)WattPerSquareMeter, HeatFluxUnit.WattPerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class HeatFlux
     {
         if (WattPerSquareInch is null)
             return null;
-
+        
         return new HeatFlux((double)WattPerSquareInch, HeatFluxUnit.WattPerSquareInch);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class HeatFlux
     {
         if (WattPerSquareFoot is null)
             return null;
-
+        
         return new HeatFlux((double)WattPerSquareFoot, HeatFluxUnit.WattPerSquareFoot);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class HeatFlux
     {
         if (BtuPerHourSquareFoot is null)
             return null;
-
+        
         return new HeatFlux((double)BtuPerHourSquareFoot, HeatFluxUnit.BtuPerHourSquareFoot);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class HeatFlux
     {
         if (BtuPerMinuteSquareFoot is null)
             return null;
-
+        
         return new HeatFlux((double)BtuPerMinuteSquareFoot, HeatFluxUnit.BtuPerMinuteSquareFoot);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class HeatFlux
     {
         if (BtuPerSecondSquareFoot is null)
             return null;
-
+        
         return new HeatFlux((double)BtuPerSecondSquareFoot, HeatFluxUnit.BtuPerSecondSquareFoot);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class HeatFlux
     {
         if (BtuPerSecondSquareInch is null)
             return null;
-
+        
         return new HeatFlux((double)BtuPerSecondSquareInch, HeatFluxUnit.BtuPerSecondSquareInch);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class HeatFlux
     {
         if (CaloriePerSecondSquareCentimeter is null)
             return null;
-
+        
         return new HeatFlux((double)CaloriePerSecondSquareCentimeter, HeatFluxUnit.CaloriePerSecondSquareCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class HeatFlux
     {
         if (KilocaloriePerHourSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)KilocaloriePerHourSquareMeter, HeatFluxUnit.KilocaloriePerHourSquareMeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class HeatFlux
     {
         if (KilocaloriePerSecondSquareCentimeter is null)
             return null;
-
+        
         return new HeatFlux((double)KilocaloriePerSecondSquareCentimeter, HeatFluxUnit.KilocaloriePerSecondSquareCentimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class HeatFlux
     {
         if (KilowattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)KilowattPerSquareMeter, HeatFluxUnit.KilowattPerSquareMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class HeatFlux
     {
         if (MicrowattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)MicrowattPerSquareMeter, HeatFluxUnit.MicrowattPerSquareMeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class HeatFlux
     {
         if (MilliwattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)MilliwattPerSquareMeter, HeatFluxUnit.MilliwattPerSquareMeter);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class HeatFlux
     {
         if (NanowattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)NanowattPerSquareMeter, HeatFluxUnit.NanowattPerSquareMeter);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class HeatFlux
     {
         if (CentiwattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)CentiwattPerSquareMeter, HeatFluxUnit.CentiwattPerSquareMeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class HeatFlux
     {
         if (DeciwattPerSquareMeter is null)
             return null;
-
+        
         return new HeatFlux((double)DeciwattPerSquareMeter, HeatFluxUnit.DeciwattPerSquareMeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class HeatFlux
     {
         if (PoundForcePerFootSecond is null)
             return null;
-
+        
         return new HeatFlux((double)PoundForcePerFootSecond, HeatFluxUnit.PoundForcePerFootSecond);
     }
     /// <summary>
@@ -232,7 +232,8 @@ public partial class HeatFlux
     {
         if (PoundPerSecondCubed is null)
             return null;
-
+        
         return new HeatFlux((double)PoundPerSecondCubed, HeatFluxUnit.PoundPerSecondCubed);
     }
+
 }

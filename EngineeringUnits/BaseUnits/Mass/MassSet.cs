@@ -16,7 +16,7 @@ public partial class Mass
     {
         if (SI is null)
             return null;
-
+        
         return new Mass((double)SI, MassUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Mass
     {
         if (Kilogram is null)
             return null;
-
+        
         return new Mass((double)Kilogram, MassUnit.Kilogram);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Mass
     {
         if (Picogram is null)
             return null;
-
+        
         return new Mass((double)Picogram, MassUnit.Picogram);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Mass
     {
         if (Centigram is null)
             return null;
-
+        
         return new Mass((double)Centigram, MassUnit.Centigram);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Mass
     {
         if (Decagram is null)
             return null;
-
+        
         return new Mass((double)Decagram, MassUnit.Decagram);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Mass
     {
         if (Decigram is null)
             return null;
-
+        
         return new Mass((double)Decigram, MassUnit.Decigram);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Mass
     {
         if (Gram is null)
             return null;
-
+        
         return new Mass((double)Gram, MassUnit.Gram);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Mass
     {
         if (Hectogram is null)
             return null;
-
+        
         return new Mass((double)Hectogram, MassUnit.Hectogram);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Mass
     {
         if (Microgram is null)
             return null;
-
+        
         return new Mass((double)Microgram, MassUnit.Microgram);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Mass
     {
         if (Milligram is null)
             return null;
-
+        
         return new Mass((double)Milligram, MassUnit.Milligram);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Mass
     {
         if (Nanogram is null)
             return null;
-
+        
         return new Mass((double)Nanogram, MassUnit.Nanogram);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Mass
     {
         if (Tonne is null)
             return null;
-
+        
         return new Mass((double)Tonne, MassUnit.Tonne);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Mass
     {
         if (Kilotonne is null)
             return null;
-
+        
         return new Mass((double)Kilotonne, MassUnit.Kilotonne);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Mass
     {
         if (Megatonne is null)
             return null;
-
+        
         return new Mass((double)Megatonne, MassUnit.Megatonne);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Mass
     {
         if (EarthMass is null)
             return null;
-
+        
         return new Mass((double)EarthMass, MassUnit.EarthMass);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Mass
     {
         if (Ounce is null)
             return null;
-
+        
         return new Mass((double)Ounce, MassUnit.Ounce);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Mass
     {
         if (Pound is null)
             return null;
-
+        
         return new Mass((double)Pound, MassUnit.Pound);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Mass
     {
         if (Stone is null)
             return null;
-
+        
         return new Mass((double)Stone, MassUnit.Stone);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Mass
     {
         if (Slug is null)
             return null;
-
+        
         return new Mass((double)Slug, MassUnit.Slug);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Mass
     {
         if (ShortHundredweight is null)
             return null;
-
+        
         return new Mass((double)ShortHundredweight, MassUnit.ShortHundredweight);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Mass
     {
         if (LongHundredweight is null)
             return null;
-
+        
         return new Mass((double)LongHundredweight, MassUnit.LongHundredweight);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Mass
     {
         if (Kilopound is null)
             return null;
-
+        
         return new Mass((double)Kilopound, MassUnit.Kilopound);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Mass
     {
         if (ShortTon is null)
             return null;
-
+        
         return new Mass((double)ShortTon, MassUnit.ShortTon);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Mass
     {
         if (LongTon is null)
             return null;
-
+        
         return new Mass((double)LongTon, MassUnit.LongTon);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Mass
     {
         if (Megapound is null)
             return null;
-
+        
         return new Mass((double)Megapound, MassUnit.Megapound);
     }
     /// <summary>
@@ -316,7 +316,8 @@ public partial class Mass
     {
         if (Grain is null)
             return null;
-
+        
         return new Mass((double)Grain, MassUnit.Grain);
     }
+
 }

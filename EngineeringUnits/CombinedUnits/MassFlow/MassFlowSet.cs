@@ -16,7 +16,7 @@ public partial class MassFlow
     {
         if (CentigramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)CentigramPerDay, MassFlowUnit.CentigramPerDay);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MassFlow
     {
         if (CentigramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)CentigramPerSecond, MassFlowUnit.CentigramPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MassFlow
     {
         if (DecagramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)DecagramPerDay, MassFlowUnit.DecagramPerDay);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MassFlow
     {
         if (DecagramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)DecagramPerSecond, MassFlowUnit.DecagramPerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class MassFlow
     {
         if (DecigramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)DecigramPerDay, MassFlowUnit.DecigramPerDay);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class MassFlow
     {
         if (DecigramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)DecigramPerSecond, MassFlowUnit.DecigramPerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class MassFlow
     {
         if (GramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)GramPerDay, MassFlowUnit.GramPerDay);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class MassFlow
     {
         if (GramPerHour is null)
             return null;
-
+        
         return new MassFlow((double)GramPerHour, MassFlowUnit.GramPerHour);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class MassFlow
     {
         if (GramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)GramPerSecond, MassFlowUnit.GramPerSecond);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class MassFlow
     {
         if (MegagramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)MegagramPerDay, MassFlowUnit.MegagramPerDay);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class MassFlow
     {
         if (MicrogramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)MicrogramPerSecond, MassFlowUnit.MicrogramPerSecond);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class MassFlow
     {
         if (MicrogramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)MicrogramPerDay, MassFlowUnit.MicrogramPerDay);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class MassFlow
     {
         if (MilligramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)MilligramPerSecond, MassFlowUnit.MilligramPerSecond);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class MassFlow
     {
         if (MilligramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)MilligramPerDay, MassFlowUnit.MilligramPerDay);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class MassFlow
     {
         if (NanogramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)NanogramPerSecond, MassFlowUnit.NanogramPerSecond);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class MassFlow
     {
         if (NanogramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)NanogramPerDay, MassFlowUnit.NanogramPerDay);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class MassFlow
     {
         if (HectogramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)HectogramPerDay, MassFlowUnit.HectogramPerDay);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class MassFlow
     {
         if (HectogramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)HectogramPerSecond, MassFlowUnit.HectogramPerSecond);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class MassFlow
     {
         if (SI is null)
             return null;
-
+        
         return new MassFlow((double)SI, MassFlowUnit.SI);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class MassFlow
     {
         if (KilogramPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)KilogramPerSecond, MassFlowUnit.KilogramPerSecond);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class MassFlow
     {
         if (KilogramPerMinute is null)
             return null;
-
+        
         return new MassFlow((double)KilogramPerMinute, MassFlowUnit.KilogramPerMinute);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class MassFlow
     {
         if (KilogramPerHour is null)
             return null;
-
+        
         return new MassFlow((double)KilogramPerHour, MassFlowUnit.KilogramPerHour);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class MassFlow
     {
         if (KilogramPerDay is null)
             return null;
-
+        
         return new MassFlow((double)KilogramPerDay, MassFlowUnit.KilogramPerDay);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class MassFlow
     {
         if (PoundPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)PoundPerSecond, MassFlowUnit.PoundPerSecond);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class MassFlow
     {
         if (PoundPerMinute is null)
             return null;
-
+        
         return new MassFlow((double)PoundPerMinute, MassFlowUnit.PoundPerMinute);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class MassFlow
     {
         if (PoundPerHour is null)
             return null;
-
+        
         return new MassFlow((double)PoundPerHour, MassFlowUnit.PoundPerHour);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class MassFlow
     {
         if (PoundPerDay is null)
             return null;
-
+        
         return new MassFlow((double)PoundPerDay, MassFlowUnit.PoundPerDay);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class MassFlow
     {
         if (MegapoundPerDay is null)
             return null;
-
+        
         return new MassFlow((double)MegapoundPerDay, MassFlowUnit.MegapoundPerDay);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class MassFlow
     {
         if (MegapoundPerHour is null)
             return null;
-
+        
         return new MassFlow((double)MegapoundPerHour, MassFlowUnit.MegapoundPerHour);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class MassFlow
     {
         if (MegapoundPerMinute is null)
             return null;
-
+        
         return new MassFlow((double)MegapoundPerMinute, MassFlowUnit.MegapoundPerMinute);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class MassFlow
     {
         if (MegapoundPerSecond is null)
             return null;
-
+        
         return new MassFlow((double)MegapoundPerSecond, MassFlowUnit.MegapoundPerSecond);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class MassFlow
     {
         if (ShortTonPerHour is null)
             return null;
-
+        
         return new MassFlow((double)ShortTonPerHour, MassFlowUnit.ShortTonPerHour);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class MassFlow
     {
         if (TonnePerDay is null)
             return null;
-
+        
         return new MassFlow((double)TonnePerDay, MassFlowUnit.TonnePerDay);
     }
     /// <summary>
@@ -412,7 +412,8 @@ public partial class MassFlow
     {
         if (TonnePerHour is null)
             return null;
-
+        
         return new MassFlow((double)TonnePerHour, MassFlowUnit.TonnePerHour);
     }
+
 }

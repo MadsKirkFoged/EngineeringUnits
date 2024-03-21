@@ -16,7 +16,7 @@ public partial class MolarEnergy
     {
         if (SI is null)
             return null;
-
+        
         return new MolarEnergy((double)SI, MolarEnergyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MolarEnergy
     {
         if (JoulePerMole is null)
             return null;
-
+        
         return new MolarEnergy((double)JoulePerMole, MolarEnergyUnit.JoulePerMole);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MolarEnergy
     {
         if (KilojoulePerMole is null)
             return null;
-
+        
         return new MolarEnergy((double)KilojoulePerMole, MolarEnergyUnit.KilojoulePerMole);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class MolarEnergy
     {
         if (MegajoulePerMole is null)
             return null;
-
+        
         return new MolarEnergy((double)MegajoulePerMole, MolarEnergyUnit.MegajoulePerMole);
     }
+
 }

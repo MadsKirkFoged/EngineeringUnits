@@ -16,7 +16,7 @@ public partial class TemperatureChangeRate
     {
         if (SI is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)SI, TemperatureChangeRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class TemperatureChangeRate
     {
         if (DegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)DegreeCelsiusPerSecond, TemperatureChangeRateUnit.DegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class TemperatureChangeRate
     {
         if (DegreeCelsiusPerMinute is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)DegreeCelsiusPerMinute, TemperatureChangeRateUnit.DegreeCelsiusPerMinute);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class TemperatureChangeRate
     {
         if (CentidegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)CentidegreeCelsiusPerSecond, TemperatureChangeRateUnit.CentidegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class TemperatureChangeRate
     {
         if (DecadegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)DecadegreeCelsiusPerSecond, TemperatureChangeRateUnit.DecadegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class TemperatureChangeRate
     {
         if (DecidegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)DecidegreeCelsiusPerSecond, TemperatureChangeRateUnit.DecidegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class TemperatureChangeRate
     {
         if (HectodegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)HectodegreeCelsiusPerSecond, TemperatureChangeRateUnit.HectodegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class TemperatureChangeRate
     {
         if (KilodegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)KilodegreeCelsiusPerSecond, TemperatureChangeRateUnit.KilodegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class TemperatureChangeRate
     {
         if (MicrodegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)MicrodegreeCelsiusPerSecond, TemperatureChangeRateUnit.MicrodegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class TemperatureChangeRate
     {
         if (MillidegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)MillidegreeCelsiusPerSecond, TemperatureChangeRateUnit.MillidegreeCelsiusPerSecond);
     }
     /// <summary>
@@ -136,7 +136,8 @@ public partial class TemperatureChangeRate
     {
         if (NanodegreeCelsiusPerSecond is null)
             return null;
-
+        
         return new TemperatureChangeRate((double)NanodegreeCelsiusPerSecond, TemperatureChangeRateUnit.NanodegreeCelsiusPerSecond);
     }
+
 }

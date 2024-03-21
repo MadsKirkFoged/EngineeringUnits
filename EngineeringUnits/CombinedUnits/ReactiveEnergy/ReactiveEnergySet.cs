@@ -16,7 +16,7 @@ public partial class ReactiveEnergy
     {
         if (SI is null)
             return null;
-
+        
         return new ReactiveEnergy((double)SI, ReactiveEnergyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ReactiveEnergy
     {
         if (VoltampereReactiveHour is null)
             return null;
-
+        
         return new ReactiveEnergy((double)VoltampereReactiveHour, ReactiveEnergyUnit.VoltampereReactiveHour);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ReactiveEnergy
     {
         if (MegavoltampereReactiveHour is null)
             return null;
-
+        
         return new ReactiveEnergy((double)MegavoltampereReactiveHour, ReactiveEnergyUnit.MegavoltampereReactiveHour);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class ReactiveEnergy
     {
         if (KilovoltampereReactiveHour is null)
             return null;
-
+        
         return new ReactiveEnergy((double)KilovoltampereReactiveHour, ReactiveEnergyUnit.KilovoltampereReactiveHour);
     }
+
 }

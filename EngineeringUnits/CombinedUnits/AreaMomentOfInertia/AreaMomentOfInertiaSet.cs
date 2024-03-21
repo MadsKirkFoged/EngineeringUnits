@@ -16,7 +16,7 @@ public partial class AreaMomentOfInertia
     {
         if (SI is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)SI, AreaMomentOfInertiaUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class AreaMomentOfInertia
     {
         if (MeterToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)MeterToTheFourth, AreaMomentOfInertiaUnit.MeterToTheFourth);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class AreaMomentOfInertia
     {
         if (CentimeterToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)CentimeterToTheFourth, AreaMomentOfInertiaUnit.CentimeterToTheFourth);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class AreaMomentOfInertia
     {
         if (DecimeterToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)DecimeterToTheFourth, AreaMomentOfInertiaUnit.DecimeterToTheFourth);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class AreaMomentOfInertia
     {
         if (MillimeterToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)MillimeterToTheFourth, AreaMomentOfInertiaUnit.MillimeterToTheFourth);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class AreaMomentOfInertia
     {
         if (InchToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)InchToTheFourth, AreaMomentOfInertiaUnit.InchToTheFourth);
     }
     /// <summary>
@@ -88,7 +88,8 @@ public partial class AreaMomentOfInertia
     {
         if (FootToTheFourth is null)
             return null;
-
+        
         return new AreaMomentOfInertia((double)FootToTheFourth, AreaMomentOfInertiaUnit.FootToTheFourth);
     }
+
 }

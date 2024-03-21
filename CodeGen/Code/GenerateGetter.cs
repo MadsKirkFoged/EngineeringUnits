@@ -63,25 +63,25 @@ internal class GenerateGetter
             return null;
 
         var test = $$"""
-                     using EngineeringUnits.Units;                     
+                     using EngineeringUnits.Units;
                      
                      namespace EngineeringUnits;
                      
                      //This class is auto-generated, changes to the file will be overwritten!
                      public partial class Variable
-                     {  
+                     {
                      
                      [InsertHere]
-                     }                     
+                     }
                      """;
 
         foreach (System.Reflection.FieldInfo i in t.GetFields())
         {
             var test2 = $$"""
-                     /// <summary>
-                     /// Get Variable in UnitEnum.
-                     /// </summary>
-                     public double UnitEnum => As(VariableUnit.UnitEnum);                     
+                         /// <summary>
+                         /// Get Variable in UnitEnum.
+                         /// </summary>
+                         public double UnitEnum => As(VariableUnit.UnitEnum);
                      """.Replace("UnitEnum", $"{i.Name}");
 
             _=sb.AppendLine(test2);

@@ -16,7 +16,7 @@ public partial class SpecificHeatCapacity
     {
         if (SI is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)SI, SpecificHeatCapacityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class SpecificHeatCapacity
     {
         if (JoulePerKilogramKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)JoulePerKilogramKelvin, SpecificHeatCapacityUnit.JoulePerKilogramKelvin);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class SpecificHeatCapacity
     {
         if (JoulePerKilogramDegreeCelsius is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)JoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.JoulePerKilogramDegreeCelsius);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class SpecificHeatCapacity
     {
         if (KilojoulePerKilogramDegreeCelsius is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)KilojoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.KilojoulePerKilogramDegreeCelsius);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class SpecificHeatCapacity
     {
         if (KilojoulePerKilogramKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)KilojoulePerKilogramKelvin, SpecificHeatCapacityUnit.KilojoulePerKilogramKelvin);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class SpecificHeatCapacity
     {
         if (MegajoulePerKilogramDegreeCelsius is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)MegajoulePerKilogramDegreeCelsius, SpecificHeatCapacityUnit.MegajoulePerKilogramDegreeCelsius);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class SpecificHeatCapacity
     {
         if (MegajoulePerKilogramKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)MegajoulePerKilogramKelvin, SpecificHeatCapacityUnit.MegajoulePerKilogramKelvin);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class SpecificHeatCapacity
     {
         if (JoulePerKilogramRankine is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)JoulePerKilogramRankine, SpecificHeatCapacityUnit.JoulePerKilogramRankine);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class SpecificHeatCapacity
     {
         if (CaloriePerGramKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)CaloriePerGramKelvin, SpecificHeatCapacityUnit.CaloriePerGramKelvin);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class SpecificHeatCapacity
     {
         if (KilocaloriePerGramKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)KilocaloriePerGramKelvin, SpecificHeatCapacityUnit.KilocaloriePerGramKelvin);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class SpecificHeatCapacity
     {
         if (BtuPerPoundKelvin is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)BtuPerPoundKelvin, SpecificHeatCapacityUnit.BtuPerPoundKelvin);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class SpecificHeatCapacity
     {
         if (BtuPerPoundRankine is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)BtuPerPoundRankine, SpecificHeatCapacityUnit.BtuPerPoundRankine);
     }
     /// <summary>
@@ -160,7 +160,8 @@ public partial class SpecificHeatCapacity
     {
         if (BtuPerPoundFahrenheit is null)
             return null;
-
+        
         return new SpecificHeatCapacity((double)BtuPerPoundFahrenheit, SpecificHeatCapacityUnit.BtuPerPoundFahrenheit);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class AreaCost
     {
         if (SI is null)
             return null;
-
+        
         return new AreaCost((double)SI, AreaCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class AreaCost
     {
         if (USDollarPerSquareMeter is null)
             return null;
-
+        
         return new AreaCost((double)USDollarPerSquareMeter, AreaCostUnit.USDollarPerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class AreaCost
     {
         if (MillionUSDollarPerSquareMeter is null)
             return null;
-
+        
         return new AreaCost((double)MillionUSDollarPerSquareMeter, AreaCostUnit.MillionUSDollarPerSquareMeter);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class AreaCost
     {
         if (EuroPerSquareMeter is null)
             return null;
-
+        
         return new AreaCost((double)EuroPerSquareMeter, AreaCostUnit.EuroPerSquareMeter);
     }
+
 }

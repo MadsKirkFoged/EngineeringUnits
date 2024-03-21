@@ -16,7 +16,7 @@ public partial class Power
     {
         if (SI is null)
             return null;
-
+        
         return new Power((double)SI, PowerUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Power
     {
         if (Femtowatt is null)
             return null;
-
+        
         return new Power((double)Femtowatt, PowerUnit.Femtowatt);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Power
     {
         if (Picowatt is null)
             return null;
-
+        
         return new Power((double)Picowatt, PowerUnit.Picowatt);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Power
     {
         if (Nanowatt is null)
             return null;
-
+        
         return new Power((double)Nanowatt, PowerUnit.Nanowatt);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Power
     {
         if (Microwatt is null)
             return null;
-
+        
         return new Power((double)Microwatt, PowerUnit.Microwatt);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Power
     {
         if (Milliwatt is null)
             return null;
-
+        
         return new Power((double)Milliwatt, PowerUnit.Milliwatt);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Power
     {
         if (Deciwatt is null)
             return null;
-
+        
         return new Power((double)Deciwatt, PowerUnit.Deciwatt);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Power
     {
         if (Watt is null)
             return null;
-
+        
         return new Power((double)Watt, PowerUnit.Watt);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Power
     {
         if (Decawatt is null)
             return null;
-
+        
         return new Power((double)Decawatt, PowerUnit.Decawatt);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Power
     {
         if (Kilowatt is null)
             return null;
-
+        
         return new Power((double)Kilowatt, PowerUnit.Kilowatt);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Power
     {
         if (Megawatt is null)
             return null;
-
+        
         return new Power((double)Megawatt, PowerUnit.Megawatt);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Power
     {
         if (Gigawatt is null)
             return null;
-
+        
         return new Power((double)Gigawatt, PowerUnit.Gigawatt);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Power
     {
         if (Terawatt is null)
             return null;
-
+        
         return new Power((double)Terawatt, PowerUnit.Terawatt);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Power
     {
         if (Petawatt is null)
             return null;
-
+        
         return new Power((double)Petawatt, PowerUnit.Petawatt);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Power
     {
         if (MillijoulePerHour is null)
             return null;
-
+        
         return new Power((double)MillijoulePerHour, PowerUnit.MillijoulePerHour);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Power
     {
         if (JoulePerHour is null)
             return null;
-
+        
         return new Power((double)JoulePerHour, PowerUnit.JoulePerHour);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Power
     {
         if (KilojoulePerHour is null)
             return null;
-
+        
         return new Power((double)KilojoulePerHour, PowerUnit.KilojoulePerHour);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Power
     {
         if (MegajoulePerHour is null)
             return null;
-
+        
         return new Power((double)MegajoulePerHour, PowerUnit.MegajoulePerHour);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Power
     {
         if (GigajoulePerHour is null)
             return null;
-
+        
         return new Power((double)GigajoulePerHour, PowerUnit.GigajoulePerHour);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Power
     {
         if (BritishThermalUnitPerHour is null)
             return null;
-
+        
         return new Power((double)BritishThermalUnitPerHour, PowerUnit.BritishThermalUnitPerHour);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Power
     {
         if (BritishThermalUnitPerMinute is null)
             return null;
-
+        
         return new Power((double)BritishThermalUnitPerMinute, PowerUnit.BritishThermalUnitPerMinute);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Power
     {
         if (BritishThermalUnitPerSecond is null)
             return null;
-
+        
         return new Power((double)BritishThermalUnitPerSecond, PowerUnit.BritishThermalUnitPerSecond);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Power
     {
         if (KilobritishThermalUnitPerHour is null)
             return null;
-
+        
         return new Power((double)KilobritishThermalUnitPerHour, PowerUnit.KilobritishThermalUnitPerHour);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Power
     {
         if (BoilerHorsepower is null)
             return null;
-
+        
         return new Power((double)BoilerHorsepower, PowerUnit.BoilerHorsepower);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Power
     {
         if (ElectricalHorsepower is null)
             return null;
-
+        
         return new Power((double)ElectricalHorsepower, PowerUnit.ElectricalHorsepower);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Power
     {
         if (HydraulicHorsepower is null)
             return null;
-
+        
         return new Power((double)HydraulicHorsepower, PowerUnit.HydraulicHorsepower);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class Power
     {
         if (MechanicalHorsepower is null)
             return null;
-
+        
         return new Power((double)MechanicalHorsepower, PowerUnit.MechanicalHorsepower);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class Power
     {
         if (MetricHorsepower is null)
             return null;
-
+        
         return new Power((double)MetricHorsepower, PowerUnit.MetricHorsepower);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class Power
     {
         if (CaloriePerSecond is null)
             return null;
-
+        
         return new Power((double)CaloriePerSecond, PowerUnit.CaloriePerSecond);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class Power
     {
         if (KilocaloriePerHour is null)
             return null;
-
+        
         return new Power((double)KilocaloriePerHour, PowerUnit.KilocaloriePerHour);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class Power
     {
         if (KilocaloriePerSecond is null)
             return null;
-
+        
         return new Power((double)KilocaloriePerSecond, PowerUnit.KilocaloriePerSecond);
     }
     /// <summary>
@@ -388,7 +388,8 @@ public partial class Power
     {
         if (SolarLuminosity is null)
             return null;
-
+        
         return new Power((double)SolarLuminosity, PowerUnit.SolarLuminosity);
     }
+
 }

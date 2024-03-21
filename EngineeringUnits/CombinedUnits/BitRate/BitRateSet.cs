@@ -16,7 +16,7 @@ public partial class BitRate
     {
         if (SI is null)
             return null;
-
+        
         return new BitRate((double)SI, BitRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class BitRate
     {
         if (BytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)BytePerSecond, BitRateUnit.BytePerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class BitRate
     {
         if (BitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)BitPerSecond, BitRateUnit.BitPerSecond);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class BitRate
     {
         if (KibibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)KibibitPerSecond, BitRateUnit.KibibitPerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class BitRate
     {
         if (MebibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)MebibitPerSecond, BitRateUnit.MebibitPerSecond);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class BitRate
     {
         if (GibibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)GibibitPerSecond, BitRateUnit.GibibitPerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class BitRate
     {
         if (TebibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)TebibitPerSecond, BitRateUnit.TebibitPerSecond);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class BitRate
     {
         if (PebibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)PebibitPerSecond, BitRateUnit.PebibitPerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class BitRate
     {
         if (ExbibitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)ExbibitPerSecond, BitRateUnit.ExbibitPerSecond);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class BitRate
     {
         if (KibibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)KibibytePerSecond, BitRateUnit.KibibytePerSecond);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class BitRate
     {
         if (MebibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)MebibytePerSecond, BitRateUnit.MebibytePerSecond);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class BitRate
     {
         if (GibibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)GibibytePerSecond, BitRateUnit.GibibytePerSecond);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class BitRate
     {
         if (TebibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)TebibytePerSecond, BitRateUnit.TebibytePerSecond);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class BitRate
     {
         if (PebibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)PebibytePerSecond, BitRateUnit.PebibytePerSecond);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class BitRate
     {
         if (ExbibytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)ExbibytePerSecond, BitRateUnit.ExbibytePerSecond);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class BitRate
     {
         if (KilobytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)KilobytePerSecond, BitRateUnit.KilobytePerSecond);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class BitRate
     {
         if (MegabytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)MegabytePerSecond, BitRateUnit.MegabytePerSecond);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class BitRate
     {
         if (GigabytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)GigabytePerSecond, BitRateUnit.GigabytePerSecond);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class BitRate
     {
         if (TerabytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)TerabytePerSecond, BitRateUnit.TerabytePerSecond);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class BitRate
     {
         if (PetabytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)PetabytePerSecond, BitRateUnit.PetabytePerSecond);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class BitRate
     {
         if (ExabytePerSecond is null)
             return null;
-
+        
         return new BitRate((double)ExabytePerSecond, BitRateUnit.ExabytePerSecond);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class BitRate
     {
         if (KilobitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)KilobitPerSecond, BitRateUnit.KilobitPerSecond);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class BitRate
     {
         if (MegabitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)MegabitPerSecond, BitRateUnit.MegabitPerSecond);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class BitRate
     {
         if (GigabitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)GigabitPerSecond, BitRateUnit.GigabitPerSecond);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class BitRate
     {
         if (TerabitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)TerabitPerSecond, BitRateUnit.TerabitPerSecond);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class BitRate
     {
         if (PetabitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)PetabitPerSecond, BitRateUnit.PetabitPerSecond);
     }
     /// <summary>
@@ -328,7 +328,8 @@ public partial class BitRate
     {
         if (ExabitPerSecond is null)
             return null;
-
+        
         return new BitRate((double)ExabitPerSecond, BitRateUnit.ExabitPerSecond);
     }
+
 }

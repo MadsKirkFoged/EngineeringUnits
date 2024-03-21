@@ -16,7 +16,7 @@ public partial class Energy
     {
         if (SI is null)
             return null;
-
+        
         return new Energy((double)SI, EnergyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Energy
     {
         if (Millijoule is null)
             return null;
-
+        
         return new Energy((double)Millijoule, EnergyUnit.Millijoule);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Energy
     {
         if (Joule is null)
             return null;
-
+        
         return new Energy((double)Joule, EnergyUnit.Joule);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Energy
     {
         if (Kilojoule is null)
             return null;
-
+        
         return new Energy((double)Kilojoule, EnergyUnit.Kilojoule);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Energy
     {
         if (Megajoule is null)
             return null;
-
+        
         return new Energy((double)Megajoule, EnergyUnit.Megajoule);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Energy
     {
         if (Gigajoule is null)
             return null;
-
+        
         return new Energy((double)Gigajoule, EnergyUnit.Gigajoule);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Energy
     {
         if (Terajoule is null)
             return null;
-
+        
         return new Energy((double)Terajoule, EnergyUnit.Terajoule);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Energy
     {
         if (BritishThermalUnit is null)
             return null;
-
+        
         return new Energy((double)BritishThermalUnit, EnergyUnit.BritishThermalUnit);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Energy
     {
         if (KilobritishThermalUnit is null)
             return null;
-
+        
         return new Energy((double)KilobritishThermalUnit, EnergyUnit.KilobritishThermalUnit);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Energy
     {
         if (MegabritishThermalUnit is null)
             return null;
-
+        
         return new Energy((double)MegabritishThermalUnit, EnergyUnit.MegabritishThermalUnit);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Energy
     {
         if (GigabritishThermalUnit is null)
             return null;
-
+        
         return new Energy((double)GigabritishThermalUnit, EnergyUnit.GigabritishThermalUnit);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Energy
     {
         if (ElectronVolt is null)
             return null;
-
+        
         return new Energy((double)ElectronVolt, EnergyUnit.ElectronVolt);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Energy
     {
         if (KiloelectronVolt is null)
             return null;
-
+        
         return new Energy((double)KiloelectronVolt, EnergyUnit.KiloelectronVolt);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Energy
     {
         if (MegaelectronVolt is null)
             return null;
-
+        
         return new Energy((double)MegaelectronVolt, EnergyUnit.MegaelectronVolt);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Energy
     {
         if (GigaelectronVolt is null)
             return null;
-
+        
         return new Energy((double)GigaelectronVolt, EnergyUnit.GigaelectronVolt);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Energy
     {
         if (TeraelectronVolt is null)
             return null;
-
+        
         return new Energy((double)TeraelectronVolt, EnergyUnit.TeraelectronVolt);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Energy
     {
         if (Calorie is null)
             return null;
-
+        
         return new Energy((double)Calorie, EnergyUnit.Calorie);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Energy
     {
         if (Kilocalorie is null)
             return null;
-
+        
         return new Energy((double)Kilocalorie, EnergyUnit.Kilocalorie);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Energy
     {
         if (Megacalorie is null)
             return null;
-
+        
         return new Energy((double)Megacalorie, EnergyUnit.Megacalorie);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Energy
     {
         if (WattDay is null)
             return null;
-
+        
         return new Energy((double)WattDay, EnergyUnit.WattDay);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Energy
     {
         if (KilowattDay is null)
             return null;
-
+        
         return new Energy((double)KilowattDay, EnergyUnit.KilowattDay);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Energy
     {
         if (MegawattDay is null)
             return null;
-
+        
         return new Energy((double)MegawattDay, EnergyUnit.MegawattDay);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Energy
     {
         if (GigawattDay is null)
             return null;
-
+        
         return new Energy((double)GigawattDay, EnergyUnit.GigawattDay);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Energy
     {
         if (TerawattDay is null)
             return null;
-
+        
         return new Energy((double)TerawattDay, EnergyUnit.TerawattDay);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Energy
     {
         if (WattHour is null)
             return null;
-
+        
         return new Energy((double)WattHour, EnergyUnit.WattHour);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Energy
     {
         if (KilowattHour is null)
             return null;
-
+        
         return new Energy((double)KilowattHour, EnergyUnit.KilowattHour);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class Energy
     {
         if (MegawattHour is null)
             return null;
-
+        
         return new Energy((double)MegawattHour, EnergyUnit.MegawattHour);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class Energy
     {
         if (GigawattHour is null)
             return null;
-
+        
         return new Energy((double)GigawattHour, EnergyUnit.GigawattHour);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class Energy
     {
         if (TerawattHour is null)
             return null;
-
+        
         return new Energy((double)TerawattHour, EnergyUnit.TerawattHour);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class Energy
     {
         if (FootPound is null)
             return null;
-
+        
         return new Energy((double)FootPound, EnergyUnit.FootPound);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class Energy
     {
         if (DecathermEc is null)
             return null;
-
+        
         return new Energy((double)DecathermEc, EnergyUnit.DecathermEc);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class Energy
     {
         if (DecathermImperial is null)
             return null;
-
+        
         return new Energy((double)DecathermImperial, EnergyUnit.DecathermImperial);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class Energy
     {
         if (DecathermUs is null)
             return null;
-
+        
         return new Energy((double)DecathermUs, EnergyUnit.DecathermUs);
     }
     /// <summary>
@@ -412,7 +412,7 @@ public partial class Energy
     {
         if (ThermEc is null)
             return null;
-
+        
         return new Energy((double)ThermEc, EnergyUnit.ThermEc);
     }
     /// <summary>
@@ -424,7 +424,7 @@ public partial class Energy
     {
         if (ThermImperial is null)
             return null;
-
+        
         return new Energy((double)ThermImperial, EnergyUnit.ThermImperial);
     }
     /// <summary>
@@ -436,7 +436,7 @@ public partial class Energy
     {
         if (ThermUs is null)
             return null;
-
+        
         return new Energy((double)ThermUs, EnergyUnit.ThermUs);
     }
     /// <summary>
@@ -448,7 +448,7 @@ public partial class Energy
     {
         if (Erg is null)
             return null;
-
+        
         return new Energy((double)Erg, EnergyUnit.Erg);
     }
     /// <summary>
@@ -460,7 +460,8 @@ public partial class Energy
     {
         if (HorsepowerHour is null)
             return null;
-
+        
         return new Energy((double)HorsepowerHour, EnergyUnit.HorsepowerHour);
     }
+
 }

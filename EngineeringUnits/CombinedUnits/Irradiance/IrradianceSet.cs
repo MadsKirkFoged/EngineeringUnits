@@ -16,7 +16,7 @@ public partial class Irradiance
     {
         if (SI is null)
             return null;
-
+        
         return new Irradiance((double)SI, IrradianceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Irradiance
     {
         if (WattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)WattPerSquareMeter, IrradianceUnit.WattPerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Irradiance
     {
         if (WattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)WattPerSquareCentimeter, IrradianceUnit.WattPerSquareCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Irradiance
     {
         if (KilowattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)KilowattPerSquareCentimeter, IrradianceUnit.KilowattPerSquareCentimeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Irradiance
     {
         if (MegawattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)MegawattPerSquareCentimeter, IrradianceUnit.MegawattPerSquareCentimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Irradiance
     {
         if (MicrowattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)MicrowattPerSquareCentimeter, IrradianceUnit.MicrowattPerSquareCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Irradiance
     {
         if (MilliwattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)MilliwattPerSquareCentimeter, IrradianceUnit.MilliwattPerSquareCentimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Irradiance
     {
         if (NanowattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)NanowattPerSquareCentimeter, IrradianceUnit.NanowattPerSquareCentimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Irradiance
     {
         if (PicowattPerSquareCentimeter is null)
             return null;
-
+        
         return new Irradiance((double)PicowattPerSquareCentimeter, IrradianceUnit.PicowattPerSquareCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Irradiance
     {
         if (KilowattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)KilowattPerSquareMeter, IrradianceUnit.KilowattPerSquareMeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Irradiance
     {
         if (MegawattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)MegawattPerSquareMeter, IrradianceUnit.MegawattPerSquareMeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Irradiance
     {
         if (MicrowattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)MicrowattPerSquareMeter, IrradianceUnit.MicrowattPerSquareMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Irradiance
     {
         if (MilliwattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)MilliwattPerSquareMeter, IrradianceUnit.MilliwattPerSquareMeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Irradiance
     {
         if (NanowattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)NanowattPerSquareMeter, IrradianceUnit.NanowattPerSquareMeter);
     }
     /// <summary>
@@ -184,7 +184,8 @@ public partial class Irradiance
     {
         if (PicowattPerSquareMeter is null)
             return null;
-
+        
         return new Irradiance((double)PicowattPerSquareMeter, IrradianceUnit.PicowattPerSquareMeter);
     }
+
 }

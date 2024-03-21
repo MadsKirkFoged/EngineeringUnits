@@ -16,7 +16,7 @@ public partial class Jerk
     {
         if (SI is null)
             return null;
-
+        
         return new Jerk((double)SI, JerkUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Jerk
     {
         if (KilometerPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)KilometerPerSecondCubed, JerkUnit.KilometerPerSecondCubed);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Jerk
     {
         if (MeterPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)MeterPerSecondCubed, JerkUnit.MeterPerSecondCubed);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Jerk
     {
         if (DecimeterPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)DecimeterPerSecondCubed, JerkUnit.DecimeterPerSecondCubed);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Jerk
     {
         if (CentimeterPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)CentimeterPerSecondCubed, JerkUnit.CentimeterPerSecondCubed);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Jerk
     {
         if (MicrometerPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)MicrometerPerSecondCubed, JerkUnit.MicrometerPerSecondCubed);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Jerk
     {
         if (MillimeterPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)MillimeterPerSecondCubed, JerkUnit.MillimeterPerSecondCubed);
     }
     /// <summary>
@@ -100,7 +100,8 @@ public partial class Jerk
     {
         if (NanometerPerSecondCubed is null)
             return null;
-
+        
         return new Jerk((double)NanometerPerSecondCubed, JerkUnit.NanometerPerSecondCubed);
     }
+
 }

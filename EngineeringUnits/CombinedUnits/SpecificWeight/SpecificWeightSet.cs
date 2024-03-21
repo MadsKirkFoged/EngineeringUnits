@@ -16,7 +16,7 @@ public partial class SpecificWeight
     {
         if (SI is null)
             return null;
-
+        
         return new SpecificWeight((double)SI, SpecificWeightUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class SpecificWeight
     {
         if (NewtonPerCubicMeter is null)
             return null;
-
+        
         return new SpecificWeight((double)NewtonPerCubicMeter, SpecificWeightUnit.NewtonPerCubicMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class SpecificWeight
     {
         if (KilogramForcePerCubicCentimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilogramForcePerCubicCentimeter, SpecificWeightUnit.KilogramForcePerCubicCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class SpecificWeight
     {
         if (KilogramForcePerCubicMeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilogramForcePerCubicMeter, SpecificWeightUnit.KilogramForcePerCubicMeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class SpecificWeight
     {
         if (KilogramForcePerCubicMillimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilogramForcePerCubicMillimeter, SpecificWeightUnit.KilogramForcePerCubicMillimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class SpecificWeight
     {
         if (KilonewtonPerCubicCentimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilonewtonPerCubicCentimeter, SpecificWeightUnit.KilonewtonPerCubicCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class SpecificWeight
     {
         if (KilonewtonPerCubicMeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilonewtonPerCubicMeter, SpecificWeightUnit.KilonewtonPerCubicMeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class SpecificWeight
     {
         if (KilonewtonPerCubicMillimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)KilonewtonPerCubicMillimeter, SpecificWeightUnit.KilonewtonPerCubicMillimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class SpecificWeight
     {
         if (KilopoundForcePerCubicFoot is null)
             return null;
-
+        
         return new SpecificWeight((double)KilopoundForcePerCubicFoot, SpecificWeightUnit.KilopoundForcePerCubicFoot);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class SpecificWeight
     {
         if (KilopoundForcePerCubicInch is null)
             return null;
-
+        
         return new SpecificWeight((double)KilopoundForcePerCubicInch, SpecificWeightUnit.KilopoundForcePerCubicInch);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class SpecificWeight
     {
         if (MeganewtonPerCubicMeter is null)
             return null;
-
+        
         return new SpecificWeight((double)MeganewtonPerCubicMeter, SpecificWeightUnit.MeganewtonPerCubicMeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class SpecificWeight
     {
         if (NewtonPerCubicCentimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)NewtonPerCubicCentimeter, SpecificWeightUnit.NewtonPerCubicCentimeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class SpecificWeight
     {
         if (NewtonPerCubicMillimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)NewtonPerCubicMillimeter, SpecificWeightUnit.NewtonPerCubicMillimeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class SpecificWeight
     {
         if (PoundForcePerCubicFoot is null)
             return null;
-
+        
         return new SpecificWeight((double)PoundForcePerCubicFoot, SpecificWeightUnit.PoundForcePerCubicFoot);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class SpecificWeight
     {
         if (PoundForcePerCubicInch is null)
             return null;
-
+        
         return new SpecificWeight((double)PoundForcePerCubicInch, SpecificWeightUnit.PoundForcePerCubicInch);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class SpecificWeight
     {
         if (TonneForcePerCubicCentimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)TonneForcePerCubicCentimeter, SpecificWeightUnit.TonneForcePerCubicCentimeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class SpecificWeight
     {
         if (TonneForcePerCubicMeter is null)
             return null;
-
+        
         return new SpecificWeight((double)TonneForcePerCubicMeter, SpecificWeightUnit.TonneForcePerCubicMeter);
     }
     /// <summary>
@@ -220,7 +220,8 @@ public partial class SpecificWeight
     {
         if (TonneForcePerCubicMillimeter is null)
             return null;
-
+        
         return new SpecificWeight((double)TonneForcePerCubicMillimeter, SpecificWeightUnit.TonneForcePerCubicMillimeter);
     }
+
 }

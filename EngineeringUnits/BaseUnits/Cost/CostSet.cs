@@ -16,7 +16,7 @@ public partial class Cost
     {
         if (SI is null)
             return null;
-
+        
         return new Cost((double)SI, CostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Cost
     {
         if (USDollar is null)
             return null;
-
+        
         return new Cost((double)USDollar, CostUnit.USDollar);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Cost
     {
         if (MillionUSDollar is null)
             return null;
-
+        
         return new Cost((double)MillionUSDollar, CostUnit.MillionUSDollar);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Cost
     {
         if (Euro is null)
             return null;
-
+        
         return new Cost((double)Euro, CostUnit.Euro);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class Cost
     {
         if (BritishPound is null)
             return null;
-
+        
         return new Cost((double)BritishPound, CostUnit.BritishPound);
     }
+
 }

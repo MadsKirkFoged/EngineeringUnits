@@ -16,7 +16,7 @@ public partial class ThermalConductivity
     {
         if (SI is null)
             return null;
-
+        
         return new ThermalConductivity((double)SI, ThermalConductivityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ThermalConductivity
     {
         if (WattPerMeterKelvin is null)
             return null;
-
+        
         return new ThermalConductivity((double)WattPerMeterKelvin, ThermalConductivityUnit.WattPerMeterKelvin);
     }
     /// <summary>
@@ -40,7 +40,8 @@ public partial class ThermalConductivity
     {
         if (BtuPerHourFootFahrenheit is null)
             return null;
-
+        
         return new ThermalConductivity((double)BtuPerHourFootFahrenheit, ThermalConductivityUnit.BtuPerHourFootFahrenheit);
     }
+
 }

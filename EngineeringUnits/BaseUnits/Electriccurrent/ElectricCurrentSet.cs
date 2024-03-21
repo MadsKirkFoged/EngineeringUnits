@@ -16,7 +16,7 @@ public partial class ElectricCurrent
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricCurrent((double)SI, ElectricCurrentUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricCurrent
     {
         if (Ampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Ampere, ElectricCurrentUnit.Ampere);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricCurrent
     {
         if (Centiampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Centiampere, ElectricCurrentUnit.Centiampere);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ElectricCurrent
     {
         if (Kiloampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Kiloampere, ElectricCurrentUnit.Kiloampere);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ElectricCurrent
     {
         if (Megaampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Megaampere, ElectricCurrentUnit.Megaampere);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class ElectricCurrent
     {
         if (Microampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Microampere, ElectricCurrentUnit.Microampere);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class ElectricCurrent
     {
         if (Milliampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Milliampere, ElectricCurrentUnit.Milliampere);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class ElectricCurrent
     {
         if (Nanoampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Nanoampere, ElectricCurrentUnit.Nanoampere);
     }
     /// <summary>
@@ -112,7 +112,8 @@ public partial class ElectricCurrent
     {
         if (Picoampere is null)
             return null;
-
+        
         return new ElectricCurrent((double)Picoampere, ElectricCurrentUnit.Picoampere);
     }
+
 }

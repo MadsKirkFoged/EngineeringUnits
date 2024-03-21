@@ -16,7 +16,7 @@ public partial class FuelEfficiency
     {
         if (SI is null)
             return null;
-
+        
         return new FuelEfficiency((double)SI, FuelEfficiencyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class FuelEfficiency
     {
         if (KilometerPerLiter is null)
             return null;
-
+        
         return new FuelEfficiency((double)KilometerPerLiter, FuelEfficiencyUnit.KilometerPerLiter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class FuelEfficiency
     {
         if (MilePerUkGallon is null)
             return null;
-
+        
         return new FuelEfficiency((double)MilePerUkGallon, FuelEfficiencyUnit.MilePerUkGallon);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class FuelEfficiency
     {
         if (MilePerUsGallon is null)
             return null;
-
+        
         return new FuelEfficiency((double)MilePerUsGallon, FuelEfficiencyUnit.MilePerUsGallon);
     }
+
 }

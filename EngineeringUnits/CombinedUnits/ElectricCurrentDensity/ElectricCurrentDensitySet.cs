@@ -16,7 +16,7 @@ public partial class ElectricCurrentDensity
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricCurrentDensity((double)SI, ElectricCurrentDensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricCurrentDensity
     {
         if (AmperePerSquareMeter is null)
             return null;
-
+        
         return new ElectricCurrentDensity((double)AmperePerSquareMeter, ElectricCurrentDensityUnit.AmperePerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricCurrentDensity
     {
         if (AmperePerSquareInch is null)
             return null;
-
+        
         return new ElectricCurrentDensity((double)AmperePerSquareInch, ElectricCurrentDensityUnit.AmperePerSquareInch);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class ElectricCurrentDensity
     {
         if (AmperePerSquareFoot is null)
             return null;
-
+        
         return new ElectricCurrentDensity((double)AmperePerSquareFoot, ElectricCurrentDensityUnit.AmperePerSquareFoot);
     }
+
 }

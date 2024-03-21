@@ -16,7 +16,7 @@ public partial class Magnetization
     {
         if (SI is null)
             return null;
-
+        
         return new Magnetization((double)SI, MagnetizationUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class Magnetization
     {
         if (AmperePerMeter is null)
             return null;
-
+        
         return new Magnetization((double)AmperePerMeter, MagnetizationUnit.AmperePerMeter);
     }
+
 }

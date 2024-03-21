@@ -16,7 +16,7 @@ public partial class PressureChangeRate
     {
         if (SI is null)
             return null;
-
+        
         return new PressureChangeRate((double)SI, PressureChangeRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class PressureChangeRate
     {
         if (PascalPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)PascalPerSecond, PressureChangeRateUnit.PascalPerSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class PressureChangeRate
     {
         if (PascalPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)PascalPerMinute, PressureChangeRateUnit.PascalPerMinute);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class PressureChangeRate
     {
         if (MegapascalPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)MegapascalPerSecond, PressureChangeRateUnit.MegapascalPerSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class PressureChangeRate
     {
         if (MegapascalPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)MegapascalPerMinute, PressureChangeRateUnit.MegapascalPerMinute);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class PressureChangeRate
     {
         if (KilopoundForcePerSquareInchPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)KilopoundForcePerSquareInchPerSecond, PressureChangeRateUnit.KilopoundForcePerSquareInchPerSecond);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class PressureChangeRate
     {
         if (KilopoundForcePerSquareInchPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)KilopoundForcePerSquareInchPerMinute, PressureChangeRateUnit.KilopoundForcePerSquareInchPerMinute);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class PressureChangeRate
     {
         if (KilopascalPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)KilopascalPerSecond, PressureChangeRateUnit.KilopascalPerSecond);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class PressureChangeRate
     {
         if (KilopascalPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)KilopascalPerMinute, PressureChangeRateUnit.KilopascalPerMinute);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class PressureChangeRate
     {
         if (AtmospherePerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)AtmospherePerSecond, PressureChangeRateUnit.AtmospherePerSecond);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class PressureChangeRate
     {
         if (PoundForcePerSquareInchPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)PoundForcePerSquareInchPerMinute, PressureChangeRateUnit.PoundForcePerSquareInchPerMinute);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class PressureChangeRate
     {
         if (PoundForcePerSquareInchPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)PoundForcePerSquareInchPerSecond, PressureChangeRateUnit.PoundForcePerSquareInchPerSecond);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class PressureChangeRate
     {
         if (MegapoundForcePerSquareInchPerSecond is null)
             return null;
-
+        
         return new PressureChangeRate((double)MegapoundForcePerSquareInchPerSecond, PressureChangeRateUnit.MegapoundForcePerSquareInchPerSecond);
     }
     /// <summary>
@@ -172,7 +172,8 @@ public partial class PressureChangeRate
     {
         if (MegapoundForcePerSquareInchPerMinute is null)
             return null;
-
+        
         return new PressureChangeRate((double)MegapoundForcePerSquareInchPerMinute, PressureChangeRateUnit.MegapoundForcePerSquareInchPerMinute);
     }
+
 }

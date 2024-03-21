@@ -16,7 +16,7 @@ public partial class MassMomentOfInertia
     {
         if (SI is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)SI, MassMomentOfInertiaUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MassMomentOfInertia
     {
         if (KilogramSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilogramSquareMeter, MassMomentOfInertiaUnit.KilogramSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MassMomentOfInertia
     {
         if (GramSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)GramSquareCentimeter, MassMomentOfInertiaUnit.GramSquareCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MassMomentOfInertia
     {
         if (GramSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)GramSquareDecimeter, MassMomentOfInertiaUnit.GramSquareDecimeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class MassMomentOfInertia
     {
         if (GramSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)GramSquareMeter, MassMomentOfInertiaUnit.GramSquareMeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class MassMomentOfInertia
     {
         if (GramSquareMillimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)GramSquareMillimeter, MassMomentOfInertiaUnit.GramSquareMillimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class MassMomentOfInertia
     {
         if (KilogramSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilogramSquareCentimeter, MassMomentOfInertiaUnit.KilogramSquareCentimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class MassMomentOfInertia
     {
         if (KilogramSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilogramSquareDecimeter, MassMomentOfInertiaUnit.KilogramSquareDecimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class MassMomentOfInertia
     {
         if (KilogramSquareMillimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilogramSquareMillimeter, MassMomentOfInertiaUnit.KilogramSquareMillimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class MassMomentOfInertia
     {
         if (KilotonneSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilotonneSquareCentimeter, MassMomentOfInertiaUnit.KilotonneSquareCentimeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class MassMomentOfInertia
     {
         if (KilotonneSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilotonneSquareDecimeter, MassMomentOfInertiaUnit.KilotonneSquareDecimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class MassMomentOfInertia
     {
         if (KilotonneSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilotonneSquareMeter, MassMomentOfInertiaUnit.KilotonneSquareMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class MassMomentOfInertia
     {
         if (KilotonneSquareMilimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)KilotonneSquareMilimeter, MassMomentOfInertiaUnit.KilotonneSquareMilimeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class MassMomentOfInertia
     {
         if (MegatonneSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MegatonneSquareCentimeter, MassMomentOfInertiaUnit.MegatonneSquareCentimeter);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class MassMomentOfInertia
     {
         if (MegatonneSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MegatonneSquareDecimeter, MassMomentOfInertiaUnit.MegatonneSquareDecimeter);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class MassMomentOfInertia
     {
         if (MegatonneSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MegatonneSquareMeter, MassMomentOfInertiaUnit.MegatonneSquareMeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class MassMomentOfInertia
     {
         if (MegatonneSquareMilimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MegatonneSquareMilimeter, MassMomentOfInertiaUnit.MegatonneSquareMilimeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class MassMomentOfInertia
     {
         if (MilligramSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MilligramSquareCentimeter, MassMomentOfInertiaUnit.MilligramSquareCentimeter);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class MassMomentOfInertia
     {
         if (MilligramSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MilligramSquareDecimeter, MassMomentOfInertiaUnit.MilligramSquareDecimeter);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class MassMomentOfInertia
     {
         if (MilligramSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MilligramSquareMeter, MassMomentOfInertiaUnit.MilligramSquareMeter);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class MassMomentOfInertia
     {
         if (MilligramSquareMillimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)MilligramSquareMillimeter, MassMomentOfInertiaUnit.MilligramSquareMillimeter);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class MassMomentOfInertia
     {
         if (PoundSquareFoot is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)PoundSquareFoot, MassMomentOfInertiaUnit.PoundSquareFoot);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class MassMomentOfInertia
     {
         if (PoundSquareInch is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)PoundSquareInch, MassMomentOfInertiaUnit.PoundSquareInch);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class MassMomentOfInertia
     {
         if (SlugSquareFoot is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)SlugSquareFoot, MassMomentOfInertiaUnit.SlugSquareFoot);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class MassMomentOfInertia
     {
         if (SlugSquareInch is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)SlugSquareInch, MassMomentOfInertiaUnit.SlugSquareInch);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class MassMomentOfInertia
     {
         if (TonneSquareCentimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)TonneSquareCentimeter, MassMomentOfInertiaUnit.TonneSquareCentimeter);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class MassMomentOfInertia
     {
         if (TonneSquareDecimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)TonneSquareDecimeter, MassMomentOfInertiaUnit.TonneSquareDecimeter);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class MassMomentOfInertia
     {
         if (TonneSquareMeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)TonneSquareMeter, MassMomentOfInertiaUnit.TonneSquareMeter);
     }
     /// <summary>
@@ -352,7 +352,8 @@ public partial class MassMomentOfInertia
     {
         if (TonneSquareMilimeter is null)
             return null;
-
+        
         return new MassMomentOfInertia((double)TonneSquareMilimeter, MassMomentOfInertiaUnit.TonneSquareMilimeter);
     }
+
 }

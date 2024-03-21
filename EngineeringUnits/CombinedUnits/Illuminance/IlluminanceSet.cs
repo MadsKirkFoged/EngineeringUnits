@@ -16,7 +16,7 @@ public partial class Illuminance
     {
         if (SI is null)
             return null;
-
+        
         return new Illuminance((double)SI, IlluminanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Illuminance
     {
         if (Lux is null)
             return null;
-
+        
         return new Illuminance((double)Lux, IlluminanceUnit.Lux);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Illuminance
     {
         if (Kilolux is null)
             return null;
-
+        
         return new Illuminance((double)Kilolux, IlluminanceUnit.Kilolux);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Illuminance
     {
         if (Megalux is null)
             return null;
-
+        
         return new Illuminance((double)Megalux, IlluminanceUnit.Megalux);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class Illuminance
     {
         if (Millilux is null)
             return null;
-
+        
         return new Illuminance((double)Millilux, IlluminanceUnit.Millilux);
     }
+
 }

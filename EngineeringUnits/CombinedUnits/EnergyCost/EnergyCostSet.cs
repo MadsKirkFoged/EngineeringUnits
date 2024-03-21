@@ -16,7 +16,7 @@ public partial class EnergyCost
     {
         if (SI is null)
             return null;
-
+        
         return new EnergyCost((double)SI, EnergyCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class EnergyCost
     {
         if (USDollarPerJoule is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerJoule, EnergyCostUnit.USDollarPerJoule);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class EnergyCost
     {
         if (USDollarPerKilojoule is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerKilojoule, EnergyCostUnit.USDollarPerKilojoule);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class EnergyCost
     {
         if (USDollarPerMegajoule is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerMegajoule, EnergyCostUnit.USDollarPerMegajoule);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class EnergyCost
     {
         if (USDollarPerGigajoule is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerGigajoule, EnergyCostUnit.USDollarPerGigajoule);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class EnergyCost
     {
         if (USDollarPerKilowattHour is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerKilowattHour, EnergyCostUnit.USDollarPerKilowattHour);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class EnergyCost
     {
         if (USDollarPerMegawattHour is null)
             return null;
-
+        
         return new EnergyCost((double)USDollarPerMegawattHour, EnergyCostUnit.USDollarPerMegawattHour);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerJoule is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerJoule, EnergyCostUnit.MillionUSDollarPerJoule);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerKilojoule is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerKilojoule, EnergyCostUnit.MillionUSDollarPerKilojoule);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerMegajoule is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerMegajoule, EnergyCostUnit.MillionUSDollarPerMegajoule);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerGigajoule is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerGigajoule, EnergyCostUnit.MillionUSDollarPerGigajoule);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerKilowattHour is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerKilowattHour, EnergyCostUnit.MillionUSDollarPerKilowattHour);
     }
     /// <summary>
@@ -160,7 +160,8 @@ public partial class EnergyCost
     {
         if (MillionUSDollarPerMegawattHour is null)
             return null;
-
+        
         return new EnergyCost((double)MillionUSDollarPerMegawattHour, EnergyCostUnit.MillionUSDollarPerMegawattHour);
     }
+
 }
