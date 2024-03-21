@@ -21,7 +21,7 @@ internal class Program
         GenerateUnitEnum.GenerateClasses(libraryDir);
         GenerateAlias.GenerateEnums(libraryDir);
         GenerateSetter.GenerateSetterClasses(libraryDir);
-        //GenerateGetter.GenerateGetterClasses(libraryDir);
+        GenerateGetter.GenerateGetterClasses(libraryDir);
         GenerateAlias.AliasClass(libraryDir);
 
         AbsExtensionsGenerator.Generate(libraryDir);
