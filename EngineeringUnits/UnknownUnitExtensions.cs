@@ -2,24 +2,27 @@ using EngineeringUnits.Units;
 
 namespace EngineeringUnits;
 
-//This class is auto-generated, changes to the file will be overwritten!
+// This class is auto-generated, changes to the file will be overwritten!
 public static class UnknownUnitExtensions
 {
-
+    
     public static BaseUnit? IntelligentCast(this UnknownUnit toCast)
     {
-        if (toCast == RatioUnit.SI.Unit)
-            return (Ratio?)toCast;
+        
         if (toCast == AccelerationUnit.SI.Unit)
             return (Acceleration?)toCast;
-        if (toCast == AreaDensityUnit.SI.Unit)
-            return (AreaDensity?)toCast;
-        if (toCast == AreaMomentOfInertiaUnit.SI.Unit)
-            return (AreaMomentOfInertia?)toCast;
+        if (toCast == AngleUnit.SI.Unit)
+            return (Angle?)toCast;
+        if (toCast == ApparentPowerUnit.SI.Unit)
+            return (ApparentPower?)toCast;
         if (toCast == AreaUnit.SI.Unit)
             return (Area?)toCast;
         if (toCast == AreaCostUnit.SI.Unit)
             return (AreaCost?)toCast;
+        if (toCast == AreaDensityUnit.SI.Unit)
+            return (AreaDensity?)toCast;
+        if (toCast == AreaMomentOfInertiaUnit.SI.Unit)
+            return (AreaMomentOfInertia?)toCast;
         if (toCast == BitRateUnit.SI.Unit)
             return (BitRate?)toCast;
         if (toCast == BrakeSpecificFuelConsumptionUnit.SI.Unit)
@@ -32,10 +35,10 @@ public static class UnknownUnitExtensions
             return (Density?)toCast;
         if (toCast == DynamicViscosityUnit.SI.Unit)
             return (DynamicViscosity?)toCast;
-        if (toCast == ElectricChargeDensityUnit.SI.Unit)
-            return (ElectricChargeDensity?)toCast;
         if (toCast == ElectricChargeUnit.SI.Unit)
             return (ElectricCharge?)toCast;
+        if (toCast == ElectricChargeDensityUnit.SI.Unit)
+            return (ElectricChargeDensity?)toCast;
         if (toCast == ElectricConductivityUnit.SI.Unit)
             return (ElectricConductivity?)toCast;
         if (toCast == ElectricCurrentDensityUnit.SI.Unit)
@@ -46,12 +49,10 @@ public static class UnknownUnitExtensions
             return (ElectricField?)toCast;
         if (toCast == ElectricInductanceUnit.SI.Unit)
             return (ElectricInductance?)toCast;
-        if (toCast == ElectricPotentialChangeRateUnit.SI.Unit)
-            return (ElectricPotentialChangeRate?)toCast;
         if (toCast == ElectricPotentialUnit.SI.Unit)
             return (ElectricPotential?)toCast;
-        if (toCast == MolarMassUnit.SI.Unit)
-            return (MolarMass?)toCast;
+        if (toCast == ElectricPotentialChangeRateUnit.SI.Unit)
+            return (ElectricPotentialChangeRate?)toCast;
         if (toCast == ElectricResistanceUnit.SI.Unit)
             return (ElectricResistance?)toCast;
         if (toCast == ElectricResistivityUnit.SI.Unit)
@@ -62,14 +63,16 @@ public static class UnknownUnitExtensions
             return (Energy?)toCast;
         if (toCast == EnergyCostUnit.SI.Unit)
             return (EnergyCost?)toCast;
+        if (toCast == EnthalpyUnit.SI.Unit)
+            return (Enthalpy?)toCast;
         if (toCast == EntropyUnit.SI.Unit)
             return (Entropy?)toCast;
+        if (toCast == ForceUnit.SI.Unit)
+            return (Force?)toCast;
         if (toCast == ForceChangeRateUnit.SI.Unit)
             return (ForceChangeRate?)toCast;
         if (toCast == ForcePerLengthUnit.SI.Unit)
             return (ForcePerLength?)toCast;
-        if (toCast == ForceUnit.SI.Unit)
-            return (Force?)toCast;
         if (toCast == FrequencyUnit.SI.Unit)
             return (Frequency?)toCast;
         if (toCast == FuelEfficiencyUnit.SI.Unit)
@@ -86,6 +89,8 @@ public static class UnknownUnitExtensions
             return (Irradiance?)toCast;
         if (toCast == IrradiationUnit.SI.Unit)
             return (Irradiation?)toCast;
+        if (toCast == JerkUnit.SI.Unit)
+            return (Jerk?)toCast;
         if (toCast == KinematicViscosityUnit.SI.Unit)
             return (KinematicViscosity?)toCast;
         if (toCast == LapseRateUnit.SI.Unit)
@@ -116,22 +121,28 @@ public static class UnknownUnitExtensions
             return (MolarEnergy?)toCast;
         if (toCast == MolarEntropyUnit.SI.Unit)
             return (MolarEntropy?)toCast;
+        if (toCast == MolarFlowUnit.SI.Unit)
+            return (MolarFlow?)toCast;
         if (toCast == MolarityUnit.SI.Unit)
             return (Molarity?)toCast;
+        if (toCast == MolarMassUnit.SI.Unit)
+            return (MolarMass?)toCast;
         if (toCast == PermeabilityUnit.SI.Unit)
             return (Permeability?)toCast;
         if (toCast == PermittivityUnit.SI.Unit)
             return (Permittivity?)toCast;
-        if (toCast == PowerDensityUnit.SI.Unit)
-            return (PowerDensity?)toCast;
         if (toCast == PowerUnit.SI.Unit)
             return (Power?)toCast;
         if (toCast == PowerCostUnit.SI.Unit)
             return (PowerCost?)toCast;
+        if (toCast == PowerDensityUnit.SI.Unit)
+            return (PowerDensity?)toCast;
         if (toCast == PressureUnit.SI.Unit)
             return (Pressure?)toCast;
         if (toCast == PressureChangeRateUnit.SI.Unit)
             return (PressureChangeRate?)toCast;
+        if (toCast == RatioUnit.SI.Unit)
+            return (Ratio?)toCast;
         if (toCast == ReactiveEnergyUnit.SI.Unit)
             return (ReactiveEnergy?)toCast;
         if (toCast == ReactivePowerUnit.SI.Unit)
@@ -142,6 +153,12 @@ public static class UnknownUnitExtensions
             return (SpecificEnergy?)toCast;
         if (toCast == SpecificEntropyUnit.SI.Unit)
             return (SpecificEntropy?)toCast;
+        if (toCast == SpecificHeatCapacityUnit.SI.Unit)
+            return (SpecificHeatCapacity?)toCast;
+        if (toCast == SpecificThermalResistanceUnit.SI.Unit)
+            return (SpecificThermalResistance?)toCast;
+        if (toCast == SpecificVolumeUnit.SI.Unit)
+            return (SpecificVolume?)toCast;
         if (toCast == SpecificWeightUnit.SI.Unit)
             return (SpecificWeight?)toCast;
         if (toCast == SpeedUnit.SI.Unit)
@@ -152,40 +169,26 @@ public static class UnknownUnitExtensions
             return (ThermalConductivity?)toCast;
         if (toCast == ThermalResistanceUnit.SI.Unit)
             return (ThermalResistance?)toCast;
-        if (toCast == TorquePerLengthUnit.SI.Unit)
-            return (TorquePerLength?)toCast;
         if (toCast == TorqueUnit.SI.Unit)
             return (Torque?)toCast;
-        if (toCast == VolumeFlowUnit.SI.Unit)
-            return (VolumeFlow?)toCast;
-        if (toCast == VolumePerLengthUnit.SI.Unit)
-            return (VolumePerLength?)toCast;
+        if (toCast == TorquePerLengthUnit.SI.Unit)
+            return (TorquePerLength?)toCast;
         if (toCast == VolumeUnit.SI.Unit)
             return (Volume?)toCast;
         if (toCast == VolumeCostUnit.SI.Unit)
             return (VolumeCost?)toCast;
-        if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)
-            return (WarpingMomentOfInertia?)toCast;
-        if (toCast == SpecificThermalResistanceUnit.SI.Unit)
-            return (SpecificThermalResistance?)toCast;
-        if (toCast == ApparentPowerUnit.SI.Unit)
-            return (ApparentPower?)toCast;
-        if (toCast == EnthalpyUnit.SI.Unit)
-            return (Enthalpy?)toCast;
-        if (toCast == SpecificHeatCapacityUnit.SI.Unit)
-            return (SpecificHeatCapacity?)toCast;
-        if (toCast == AngleUnit.SI.Unit)
-            return (Angle?)toCast;
-        if (toCast == MolarFlowUnit.SI.Unit)
-            return (MolarFlow?)toCast;
-        if (toCast == SpecificVolumeUnit.SI.Unit)
-            return (SpecificVolume?)toCast;
+        if (toCast == VolumeFlowUnit.SI.Unit)
+            return (VolumeFlow?)toCast;
+        if (toCast == VolumePerLengthUnit.SI.Unit)
+            return (VolumePerLength?)toCast;
         if (toCast == VolumetricHeatTransferCoefficientUnit.SI.Unit)
             return (VolumetricHeatTransferCoefficient?)toCast;
-        if (toCast == JerkUnit.SI.Unit)
-            return (Jerk?)toCast;
+        if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)
+            return (WarpingMomentOfInertia?)toCast;
         if (toCast == AmountOfSubstanceUnit.SI.Unit)
             return (AmountOfSubstance?)toCast;
+        if (toCast == CostUnit.SI.Unit)
+            return (Cost?)toCast;
         if (toCast == DurationUnit.SI.Unit)
             return (Duration?)toCast;
         if (toCast == ElectricCurrentUnit.SI.Unit)
@@ -198,10 +201,7 @@ public static class UnknownUnitExtensions
             return (Mass?)toCast;
         if (toCast == TemperatureUnit.SI.Unit)
             return (Temperature?)toCast;
-        if (toCast == CostUnit.SI.Unit)
-            return (Cost?)toCast;
 
         return null;
     }
 }
-
