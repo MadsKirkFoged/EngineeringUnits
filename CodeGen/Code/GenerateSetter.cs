@@ -11,7 +11,7 @@ internal class GenerateSetter
     public static void GenerateSetterClasses(string projectPath)
     {
         List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-        //list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
+        // list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
         foreach (var item in list)
         {
@@ -73,7 +73,7 @@ internal class GenerateSetter
 
                      namespace EngineeringUnits;
                      
-                     //This class is auto-generated, changes to the file will be overwritten!
+                     // This class is auto-generated, changes to the file will be overwritten!
                      public partial class Variable
                      {
                      
