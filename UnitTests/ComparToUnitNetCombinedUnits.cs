@@ -537,8 +537,8 @@ public class Angle
                                 A1.ToUnit(UN).ToString("a")
                                 .Replace(".", "*")
                                 .Replace("C", "K")
-                                .Replace("°F", "°R")
-                                .Replace("*", "·")
+                                .Replace("Â°F", "Â°R")
+                                .Replace("*", "Â·")
                                 );
 
                 WorkingCompares++;
@@ -897,10 +897,11 @@ public class Angle
                                                         A1.As(UN)),
                                                         RelError);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-                                .Replace("Ns", "N·s")
-                                );
+                Assert.AreEqual(
+                    A2.ToUnit(EU).DisplaySymbol(),
+                    A1.ToUnit(UN).ToString("a")
+                        .Replace("Ns", "NÂ·s")
+                    );
 
                 WorkingCompares++;
 
@@ -1056,7 +1057,7 @@ public class Angle
                                 .Replace("day", "d")
                                 //.Replace("min", "m")
                                 .Replace("L", "l")
-                                .Replace("cy", "yd³")
+                                .Replace("cy", "ydÂ³")
                                 .Replace("hr", "h")
                                 );
 
@@ -1258,7 +1259,7 @@ public class Angle
                                                         RelError);
                 //All units symbol compare
                 Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("·", ""));
+                                A1.ToUnit(UN).ToString("a").Replace("Â·", ""));
 
                 WorkingCompares++;
             }
