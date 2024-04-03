@@ -537,7 +537,7 @@ public class Angle
                                 A1.ToUnit(UN).ToString("a")
                                 .Replace(".", "*")
                                 .Replace("C", "K")
-                                .Replace("°F", "°R")
+                                .Replace("'°'F", "'\u00b0'R")
                                 .Replace('*', '\u00b7')
                                 );
 
