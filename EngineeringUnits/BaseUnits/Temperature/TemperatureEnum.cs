@@ -6,12 +6,12 @@ public partial record TemperatureUnit : UnitTypebase
 {
     public static readonly TemperatureUnit Kelvin = new("K", 1m, Fraction.Zero);
     public static readonly TemperatureUnit SI = new("K", 1m, Fraction.Zero);
-    public static readonly TemperatureUnit DegreeCelsius = new("°C", 1m, Fraction.FromDecimal(273.15m));
-    //public static readonly TemperatureUnit DegreeFahrenheit =    new("°F",   5/9m,   1m,  (-273.15m*(9/5m))+ 32m);
-    //public static readonly TemperatureUnit DegreeRankine =       new("°R",    5/9m,  1m,  0m);
+    public static readonly TemperatureUnit DegreeCelsius = new("\u00b0C", 1m, Fraction.FromDecimal(273.15m));
+    //public static readonly TemperatureUnit DegreeFahrenheit =    new("\u00b0F",   5/9m,   1m,  (-273.15m*(9/5m))+ 32m);
+    //public static readonly TemperatureUnit DegreeRankine =       new("\u00b0R",    5/9m,  1m,  0m);
 
-    public static readonly TemperatureUnit DegreeFahrenheit = new("°F", new Fraction(5, 9), Fraction.FromDecimal(273.15m) - (Fraction.FromDecimal(32) * new Fraction(5, 9)));
-    public static readonly TemperatureUnit DegreeRankine = new("°R", new Fraction(5, 9), Fraction.Zero);
+    public static readonly TemperatureUnit DegreeFahrenheit = new("\u00b0F", new Fraction(5, 9), Fraction.FromDecimal(273.15m) - (Fraction.FromDecimal(32) * new Fraction(5, 9)));
+    public static readonly TemperatureUnit DegreeRankine = new("\u00b0R", new Fraction(5, 9), Fraction.Zero);
 
     public TemperatureUnit() { }
 
