@@ -11,10 +11,10 @@ public static class UnknownUnitExtensions
         
         if (toCast == AccelerationUnit.SI.Unit)
             return (Acceleration?)toCast;
-        if (toCast == AngleUnit.SI.Unit)
-            return (Angle?)toCast;
-        if (toCast == ApparentPowerUnit.SI.Unit)
-            return (ApparentPower?)toCast;
+        //if (toCast == AngleUnit.SI.Unit)
+        //    return (Angle?)toCast;
+        //if (toCast == ApparentPowerUnit.SI.Unit)
+        //    return (ApparentPower?)toCast;
         if (toCast == AreaUnit.SI.Unit)
             return (Area?)toCast;
         if (toCast == AreaCostUnit.SI.Unit)
