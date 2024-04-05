@@ -16,7 +16,7 @@ public partial class TorquePerLength
     {
         if (SI is null)
             return null;
-
+        
         return new TorquePerLength((double)SI, TorquePerLengthUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class TorquePerLength
     {
         if (NewtonMeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)NewtonMeterPerMeter, TorquePerLengthUnit.NewtonMeterPerMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class TorquePerLength
     {
         if (KilogramForceCentimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilogramForceCentimeterPerMeter, TorquePerLengthUnit.KilogramForceCentimeterPerMeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class TorquePerLength
     {
         if (KilogramForceMeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilogramForceMeterPerMeter, TorquePerLengthUnit.KilogramForceMeterPerMeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class TorquePerLength
     {
         if (KilogramForceMillimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilogramForceMillimeterPerMeter, TorquePerLengthUnit.KilogramForceMillimeterPerMeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class TorquePerLength
     {
         if (KilonewtonCentimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilonewtonCentimeterPerMeter, TorquePerLengthUnit.KilonewtonCentimeterPerMeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class TorquePerLength
     {
         if (KilonewtonMeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilonewtonMeterPerMeter, TorquePerLengthUnit.KilonewtonMeterPerMeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class TorquePerLength
     {
         if (KilonewtonMillimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)KilonewtonMillimeterPerMeter, TorquePerLengthUnit.KilonewtonMillimeterPerMeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class TorquePerLength
     {
         if (KilopoundForceFootPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)KilopoundForceFootPerFoot, TorquePerLengthUnit.KilopoundForceFootPerFoot);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class TorquePerLength
     {
         if (KilopoundForceInchPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)KilopoundForceInchPerFoot, TorquePerLengthUnit.KilopoundForceInchPerFoot);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class TorquePerLength
     {
         if (MeganewtonCentimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)MeganewtonCentimeterPerMeter, TorquePerLengthUnit.MeganewtonCentimeterPerMeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class TorquePerLength
     {
         if (MeganewtonMeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)MeganewtonMeterPerMeter, TorquePerLengthUnit.MeganewtonMeterPerMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class TorquePerLength
     {
         if (MeganewtonMillimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)MeganewtonMillimeterPerMeter, TorquePerLengthUnit.MeganewtonMillimeterPerMeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class TorquePerLength
     {
         if (MegapoundForceFootPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)MegapoundForceFootPerFoot, TorquePerLengthUnit.MegapoundForceFootPerFoot);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class TorquePerLength
     {
         if (MegapoundForceInchPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)MegapoundForceInchPerFoot, TorquePerLengthUnit.MegapoundForceInchPerFoot);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class TorquePerLength
     {
         if (NewtonCentimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)NewtonCentimeterPerMeter, TorquePerLengthUnit.NewtonCentimeterPerMeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class TorquePerLength
     {
         if (NewtonMillimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)NewtonMillimeterPerMeter, TorquePerLengthUnit.NewtonMillimeterPerMeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class TorquePerLength
     {
         if (PoundForceFootPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)PoundForceFootPerFoot, TorquePerLengthUnit.PoundForceFootPerFoot);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class TorquePerLength
     {
         if (PoundForceInchPerFoot is null)
             return null;
-
+        
         return new TorquePerLength((double)PoundForceInchPerFoot, TorquePerLengthUnit.PoundForceInchPerFoot);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class TorquePerLength
     {
         if (TonneForceCentimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)TonneForceCentimeterPerMeter, TorquePerLengthUnit.TonneForceCentimeterPerMeter);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class TorquePerLength
     {
         if (TonneForceMeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)TonneForceMeterPerMeter, TorquePerLengthUnit.TonneForceMeterPerMeter);
     }
     /// <summary>
@@ -268,7 +268,8 @@ public partial class TorquePerLength
     {
         if (TonneForceMillimeterPerMeter is null)
             return null;
-
+        
         return new TorquePerLength((double)TonneForceMillimeterPerMeter, TorquePerLengthUnit.TonneForceMillimeterPerMeter);
     }
+
 }

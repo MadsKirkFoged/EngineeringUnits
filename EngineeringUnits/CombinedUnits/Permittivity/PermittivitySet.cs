@@ -16,7 +16,7 @@ public partial class Permittivity
     {
         if (SI is null)
             return null;
-
+        
         return new Permittivity((double)SI, PermittivityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class Permittivity
     {
         if (FaradPerMeter is null)
             return null;
-
+        
         return new Permittivity((double)FaradPerMeter, PermittivityUnit.FaradPerMeter);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class VolumetricHeatTransferCoefficient
     {
         if (SI is null)
             return null;
-
+        
         return new VolumetricHeatTransferCoefficient((double)SI, VolumetricHeatTransferCoefficientUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class VolumetricHeatTransferCoefficient
     {
         if (WattPerCubicMeterKelvin is null)
             return null;
-
+        
         return new VolumetricHeatTransferCoefficient((double)WattPerCubicMeterKelvin, VolumetricHeatTransferCoefficientUnit.WattPerCubicMeterKelvin);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class Density
     {
         if (SI is null)
             return null;
-
+        
         return new Density((double)SI, DensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Density
     {
         if (CentigramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)CentigramPerDeciliter, DensityUnit.CentigramPerDeciliter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Density
     {
         if (CentigramPerLiter is null)
             return null;
-
+        
         return new Density((double)CentigramPerLiter, DensityUnit.CentigramPerLiter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Density
     {
         if (CentigramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)CentigramPerMilliliter, DensityUnit.CentigramPerMilliliter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Density
     {
         if (DecigramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)DecigramPerDeciliter, DensityUnit.DecigramPerDeciliter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Density
     {
         if (DecigramPerLiter is null)
             return null;
-
+        
         return new Density((double)DecigramPerLiter, DensityUnit.DecigramPerLiter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Density
     {
         if (DecigramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)DecigramPerMilliliter, DensityUnit.DecigramPerMilliliter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Density
     {
         if (DecigramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)DecigramPerMicroliter, DensityUnit.DecigramPerMicroliter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Density
     {
         if (GramPerCubicCentimeter is null)
             return null;
-
+        
         return new Density((double)GramPerCubicCentimeter, DensityUnit.GramPerCubicCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Density
     {
         if (GramPerCubicMeter is null)
             return null;
-
+        
         return new Density((double)GramPerCubicMeter, DensityUnit.GramPerCubicMeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Density
     {
         if (GramPerCubicMillimeter is null)
             return null;
-
+        
         return new Density((double)GramPerCubicMillimeter, DensityUnit.GramPerCubicMillimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Density
     {
         if (GramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)GramPerDeciliter, DensityUnit.GramPerDeciliter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Density
     {
         if (GramPerLiter is null)
             return null;
-
+        
         return new Density((double)GramPerLiter, DensityUnit.GramPerLiter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Density
     {
         if (GramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)GramPerMilliliter, DensityUnit.GramPerMilliliter);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Density
     {
         if (GramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)GramPerMicroliter, DensityUnit.GramPerMicroliter);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Density
     {
         if (KilogramPerCubicCentimeter is null)
             return null;
-
+        
         return new Density((double)KilogramPerCubicCentimeter, DensityUnit.KilogramPerCubicCentimeter);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Density
     {
         if (KilogramPerCubicMeter is null)
             return null;
-
+        
         return new Density((double)KilogramPerCubicMeter, DensityUnit.KilogramPerCubicMeter);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Density
     {
         if (KilogramPerCubicMillimeter is null)
             return null;
-
+        
         return new Density((double)KilogramPerCubicMillimeter, DensityUnit.KilogramPerCubicMillimeter);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Density
     {
         if (KilogramPerLiter is null)
             return null;
-
+        
         return new Density((double)KilogramPerLiter, DensityUnit.KilogramPerLiter);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Density
     {
         if (KilopoundPerCubicFoot is null)
             return null;
-
+        
         return new Density((double)KilopoundPerCubicFoot, DensityUnit.KilopoundPerCubicFoot);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Density
     {
         if (KilopoundPerCubicInch is null)
             return null;
-
+        
         return new Density((double)KilopoundPerCubicInch, DensityUnit.KilopoundPerCubicInch);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Density
     {
         if (MicrogramPerCubicMeter is null)
             return null;
-
+        
         return new Density((double)MicrogramPerCubicMeter, DensityUnit.MicrogramPerCubicMeter);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Density
     {
         if (MicrogramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)MicrogramPerDeciliter, DensityUnit.MicrogramPerDeciliter);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Density
     {
         if (MicrogramPerLiter is null)
             return null;
-
+        
         return new Density((double)MicrogramPerLiter, DensityUnit.MicrogramPerLiter);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Density
     {
         if (MicrogramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)MicrogramPerMilliliter, DensityUnit.MicrogramPerMilliliter);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Density
     {
         if (MicrogramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)MicrogramPerMicroliter, DensityUnit.MicrogramPerMicroliter);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class Density
     {
         if (MilligramPerCubicMeter is null)
             return null;
-
+        
         return new Density((double)MilligramPerCubicMeter, DensityUnit.MilligramPerCubicMeter);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class Density
     {
         if (MilligramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)MilligramPerDeciliter, DensityUnit.MilligramPerDeciliter);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class Density
     {
         if (MilligramPerLiter is null)
             return null;
-
+        
         return new Density((double)MilligramPerLiter, DensityUnit.MilligramPerLiter);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class Density
     {
         if (MilligramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)MilligramPerMilliliter, DensityUnit.MilligramPerMilliliter);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class Density
     {
         if (MilligramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)MilligramPerMicroliter, DensityUnit.MilligramPerMicroliter);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class Density
     {
         if (NanogramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)NanogramPerDeciliter, DensityUnit.NanogramPerDeciliter);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class Density
     {
         if (NanogramPerLiter is null)
             return null;
-
+        
         return new Density((double)NanogramPerLiter, DensityUnit.NanogramPerLiter);
     }
     /// <summary>
@@ -412,7 +412,7 @@ public partial class Density
     {
         if (NanogramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)NanogramPerMilliliter, DensityUnit.NanogramPerMilliliter);
     }
     /// <summary>
@@ -424,7 +424,7 @@ public partial class Density
     {
         if (NanogramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)NanogramPerMicroliter, DensityUnit.NanogramPerMicroliter);
     }
     /// <summary>
@@ -436,7 +436,7 @@ public partial class Density
     {
         if (PicogramPerDeciliter is null)
             return null;
-
+        
         return new Density((double)PicogramPerDeciliter, DensityUnit.PicogramPerDeciliter);
     }
     /// <summary>
@@ -448,7 +448,7 @@ public partial class Density
     {
         if (PicogramPerLiter is null)
             return null;
-
+        
         return new Density((double)PicogramPerLiter, DensityUnit.PicogramPerLiter);
     }
     /// <summary>
@@ -460,7 +460,7 @@ public partial class Density
     {
         if (PicogramPerMilliliter is null)
             return null;
-
+        
         return new Density((double)PicogramPerMilliliter, DensityUnit.PicogramPerMilliliter);
     }
     /// <summary>
@@ -472,7 +472,7 @@ public partial class Density
     {
         if (PicogramPerMicroliter is null)
             return null;
-
+        
         return new Density((double)PicogramPerMicroliter, DensityUnit.PicogramPerMicroliter);
     }
     /// <summary>
@@ -484,7 +484,7 @@ public partial class Density
     {
         if (PoundPerCubicFoot is null)
             return null;
-
+        
         return new Density((double)PoundPerCubicFoot, DensityUnit.PoundPerCubicFoot);
     }
     /// <summary>
@@ -496,7 +496,7 @@ public partial class Density
     {
         if (PoundPerCubicInch is null)
             return null;
-
+        
         return new Density((double)PoundPerCubicInch, DensityUnit.PoundPerCubicInch);
     }
     /// <summary>
@@ -508,7 +508,7 @@ public partial class Density
     {
         if (PoundPerImperialGallon is null)
             return null;
-
+        
         return new Density((double)PoundPerImperialGallon, DensityUnit.PoundPerImperialGallon);
     }
     /// <summary>
@@ -520,7 +520,7 @@ public partial class Density
     {
         if (PoundPerUSGallon is null)
             return null;
-
+        
         return new Density((double)PoundPerUSGallon, DensityUnit.PoundPerUSGallon);
     }
     /// <summary>
@@ -532,7 +532,7 @@ public partial class Density
     {
         if (SlugPerCubicFoot is null)
             return null;
-
+        
         return new Density((double)SlugPerCubicFoot, DensityUnit.SlugPerCubicFoot);
     }
     /// <summary>
@@ -544,7 +544,7 @@ public partial class Density
     {
         if (TonnePerCubicCentimeter is null)
             return null;
-
+        
         return new Density((double)TonnePerCubicCentimeter, DensityUnit.TonnePerCubicCentimeter);
     }
     /// <summary>
@@ -556,7 +556,7 @@ public partial class Density
     {
         if (TonnePerCubicMeter is null)
             return null;
-
+        
         return new Density((double)TonnePerCubicMeter, DensityUnit.TonnePerCubicMeter);
     }
     /// <summary>
@@ -568,7 +568,8 @@ public partial class Density
     {
         if (TonnePerCubicMillimeter is null)
             return null;
-
+        
         return new Density((double)TonnePerCubicMillimeter, DensityUnit.TonnePerCubicMillimeter);
     }
+
 }

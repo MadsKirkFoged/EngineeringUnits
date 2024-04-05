@@ -16,7 +16,7 @@ public partial class ApparentPower
     {
         if (SI is null)
             return null;
-
+        
         return new ApparentPower((double)SI, ApparentPowerUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ApparentPower
     {
         if (Voltampere is null)
             return null;
-
+        
         return new ApparentPower((double)Voltampere, ApparentPowerUnit.Voltampere);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ApparentPower
     {
         if (Megavoltampere is null)
             return null;
-
+        
         return new ApparentPower((double)Megavoltampere, ApparentPowerUnit.Megavoltampere);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ApparentPower
     {
         if (Kilovoltampere is null)
             return null;
-
+        
         return new ApparentPower((double)Kilovoltampere, ApparentPowerUnit.Kilovoltampere);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class ApparentPower
     {
         if (Gigavoltampere is null)
             return null;
-
+        
         return new ApparentPower((double)Gigavoltampere, ApparentPowerUnit.Gigavoltampere);
     }
+
 }

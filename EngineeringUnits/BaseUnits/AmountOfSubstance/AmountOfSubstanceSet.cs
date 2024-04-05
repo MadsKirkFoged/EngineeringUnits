@@ -16,7 +16,7 @@ public partial class AmountOfSubstance
     {
         if (SI is null)
             return null;
-
+        
         return new AmountOfSubstance((double)SI, AmountOfSubstanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class AmountOfSubstance
     {
         if (Mole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Mole, AmountOfSubstanceUnit.Mole);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class AmountOfSubstance
     {
         if (Centimole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Centimole, AmountOfSubstanceUnit.Centimole);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class AmountOfSubstance
     {
         if (Decimole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Decimole, AmountOfSubstanceUnit.Decimole);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class AmountOfSubstance
     {
         if (Kilomole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Kilomole, AmountOfSubstanceUnit.Kilomole);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class AmountOfSubstance
     {
         if (Megamole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Megamole, AmountOfSubstanceUnit.Megamole);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class AmountOfSubstance
     {
         if (Micromole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Micromole, AmountOfSubstanceUnit.Micromole);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class AmountOfSubstance
     {
         if (Millimole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Millimole, AmountOfSubstanceUnit.Millimole);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class AmountOfSubstance
     {
         if (Nanomole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Nanomole, AmountOfSubstanceUnit.Nanomole);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class AmountOfSubstance
     {
         if (Picomole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)Picomole, AmountOfSubstanceUnit.Picomole);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class AmountOfSubstance
     {
         if (NanopoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)NanopoundMole, AmountOfSubstanceUnit.NanopoundMole);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class AmountOfSubstance
     {
         if (MicropoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)MicropoundMole, AmountOfSubstanceUnit.MicropoundMole);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class AmountOfSubstance
     {
         if (MillipoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)MillipoundMole, AmountOfSubstanceUnit.MillipoundMole);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class AmountOfSubstance
     {
         if (PoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)PoundMole, AmountOfSubstanceUnit.PoundMole);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class AmountOfSubstance
     {
         if (KilopoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)KilopoundMole, AmountOfSubstanceUnit.KilopoundMole);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class AmountOfSubstance
     {
         if (DecipoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)DecipoundMole, AmountOfSubstanceUnit.DecipoundMole);
     }
     /// <summary>
@@ -208,7 +208,8 @@ public partial class AmountOfSubstance
     {
         if (CentipoundMole is null)
             return null;
-
+        
         return new AmountOfSubstance((double)CentipoundMole, AmountOfSubstanceUnit.CentipoundMole);
     }
+
 }

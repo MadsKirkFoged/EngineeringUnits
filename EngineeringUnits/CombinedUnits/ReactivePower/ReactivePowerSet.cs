@@ -16,7 +16,7 @@ public partial class ReactivePower
     {
         if (SI is null)
             return null;
-
+        
         return new ReactivePower((double)SI, ReactivePowerUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ReactivePower
     {
         if (VoltampereReactive is null)
             return null;
-
+        
         return new ReactivePower((double)VoltampereReactive, ReactivePowerUnit.VoltampereReactive);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ReactivePower
     {
         if (MegavoltampereReactive is null)
             return null;
-
+        
         return new ReactivePower((double)MegavoltampereReactive, ReactivePowerUnit.MegavoltampereReactive);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ReactivePower
     {
         if (KilovoltampereReactive is null)
             return null;
-
+        
         return new ReactivePower((double)KilovoltampereReactive, ReactivePowerUnit.KilovoltampereReactive);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class ReactivePower
     {
         if (GigavoltampereReactive is null)
             return null;
-
+        
         return new ReactivePower((double)GigavoltampereReactive, ReactivePowerUnit.GigavoltampereReactive);
     }
+
 }

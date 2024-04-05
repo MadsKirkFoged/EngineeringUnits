@@ -16,7 +16,7 @@ public partial class MagneticFlux
     {
         if (SI is null)
             return null;
-
+        
         return new MagneticFlux((double)SI, MagneticFluxUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class MagneticFlux
     {
         if (Weber is null)
             return null;
-
+        
         return new MagneticFlux((double)Weber, MagneticFluxUnit.Weber);
     }
+
 }

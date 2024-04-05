@@ -16,7 +16,7 @@ public partial class LengthCost
     {
         if (SI is null)
             return null;
-
+        
         return new LengthCost((double)SI, LengthCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class LengthCost
     {
         if (DollarPerMeter is null)
             return null;
-
+        
         return new LengthCost((double)DollarPerMeter, LengthCostUnit.DollarPerMeter);
     }
     /// <summary>
@@ -40,7 +40,8 @@ public partial class LengthCost
     {
         if (EuroPerMeter is null)
             return null;
-
+        
         return new LengthCost((double)EuroPerMeter, LengthCostUnit.EuroPerMeter);
     }
+
 }

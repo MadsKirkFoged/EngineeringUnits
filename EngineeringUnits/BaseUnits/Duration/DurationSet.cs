@@ -16,7 +16,7 @@ public partial class Duration
     {
         if (Nanosecond is null)
             return null;
-
+        
         return new Duration((double)Nanosecond, DurationUnit.Nanosecond);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Duration
     {
         if (Millisecond is null)
             return null;
-
+        
         return new Duration((double)Millisecond, DurationUnit.Millisecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Duration
     {
         if (Microsecond is null)
             return null;
-
+        
         return new Duration((double)Microsecond, DurationUnit.Microsecond);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Duration
     {
         if (Second is null)
             return null;
-
+        
         return new Duration((double)Second, DurationUnit.Second);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Duration
     {
         if (Minute is null)
             return null;
-
+        
         return new Duration((double)Minute, DurationUnit.Minute);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Duration
     {
         if (Hour is null)
             return null;
-
+        
         return new Duration((double)Hour, DurationUnit.Hour);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Duration
     {
         if (Day is null)
             return null;
-
+        
         return new Duration((double)Day, DurationUnit.Day);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Duration
     {
         if (Week is null)
             return null;
-
+        
         return new Duration((double)Week, DurationUnit.Week);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Duration
     {
         if (Month30 is null)
             return null;
-
+        
         return new Duration((double)Month30, DurationUnit.Month30);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Duration
     {
         if (Year365 is null)
             return null;
-
+        
         return new Duration((double)Year365, DurationUnit.Year365);
     }
     /// <summary>
@@ -136,7 +136,8 @@ public partial class Duration
     {
         if (SI is null)
             return null;
-
+        
         return new Duration((double)SI, DurationUnit.SI);
     }
+
 }

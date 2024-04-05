@@ -16,7 +16,7 @@ public partial class LinearDensity
     {
         if (SI is null)
             return null;
-
+        
         return new LinearDensity((double)SI, LinearDensityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class LinearDensity
     {
         if (KilogramPerMeter is null)
             return null;
-
+        
         return new LinearDensity((double)KilogramPerMeter, LinearDensityUnit.KilogramPerMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class LinearDensity
     {
         if (GramPerCentimeter is null)
             return null;
-
+        
         return new LinearDensity((double)GramPerCentimeter, LinearDensityUnit.GramPerCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class LinearDensity
     {
         if (GramPerMeter is null)
             return null;
-
+        
         return new LinearDensity((double)GramPerMeter, LinearDensityUnit.GramPerMeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class LinearDensity
     {
         if (GramPerMillimeter is null)
             return null;
-
+        
         return new LinearDensity((double)GramPerMillimeter, LinearDensityUnit.GramPerMillimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class LinearDensity
     {
         if (KilogramPerCentimeter is null)
             return null;
-
+        
         return new LinearDensity((double)KilogramPerCentimeter, LinearDensityUnit.KilogramPerCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class LinearDensity
     {
         if (KilogramPerMillimeter is null)
             return null;
-
+        
         return new LinearDensity((double)KilogramPerMillimeter, LinearDensityUnit.KilogramPerMillimeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class LinearDensity
     {
         if (MicrogramPerCentimeter is null)
             return null;
-
+        
         return new LinearDensity((double)MicrogramPerCentimeter, LinearDensityUnit.MicrogramPerCentimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class LinearDensity
     {
         if (MicrogramPerMeter is null)
             return null;
-
+        
         return new LinearDensity((double)MicrogramPerMeter, LinearDensityUnit.MicrogramPerMeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class LinearDensity
     {
         if (MicrogramPerMillimeter is null)
             return null;
-
+        
         return new LinearDensity((double)MicrogramPerMillimeter, LinearDensityUnit.MicrogramPerMillimeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class LinearDensity
     {
         if (MilligramPerCentimeter is null)
             return null;
-
+        
         return new LinearDensity((double)MilligramPerCentimeter, LinearDensityUnit.MilligramPerCentimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class LinearDensity
     {
         if (MilligramPerMeter is null)
             return null;
-
+        
         return new LinearDensity((double)MilligramPerMeter, LinearDensityUnit.MilligramPerMeter);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class LinearDensity
     {
         if (MilligramPerMillimeter is null)
             return null;
-
+        
         return new LinearDensity((double)MilligramPerMillimeter, LinearDensityUnit.MilligramPerMillimeter);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class LinearDensity
     {
         if (PoundPerFoot is null)
             return null;
-
+        
         return new LinearDensity((double)PoundPerFoot, LinearDensityUnit.PoundPerFoot);
     }
     /// <summary>
@@ -184,7 +184,8 @@ public partial class LinearDensity
     {
         if (PoundPerInch is null)
             return null;
-
+        
         return new LinearDensity((double)PoundPerInch, LinearDensityUnit.PoundPerInch);
     }
+
 }

@@ -51,23 +51,26 @@ internal class GenerateAlias
     {
 
         return $$"""
+                   using System.Diagnostics.CodeAnalysis;
                    namespace EngineeringUnits;
                    //This class is auto-generated, changes to the file will be overwritten!
-                    
+                   
                    public partial class Variable : BaseUnit
                    {
+                       [return: NotNullIfNotNull(nameof(Unit))]
                        public static implicit operator Variable?(Original? Unit)
                        {
                            if (Unit is null)
-                               return null;           
+                               return null;
                    
                            return new(Unit);
                        }
                    
+                       [return: NotNullIfNotNull(nameof(Unit))]
                        public static implicit operator Original?(Variable? Unit)
                        {
                            if (Unit is null)
-                               return null;           
+                               return null;
                    
                            return new(Unit);
                        }

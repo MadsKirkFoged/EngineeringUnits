@@ -16,7 +16,7 @@ public partial class MolarFlow
     {
         if (SI is null)
             return null;
-
+        
         return new MolarFlow((double)SI, MolarFlowUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class MolarFlow
     {
         if (MolePerSecond is null)
             return null;
-
+        
         return new MolarFlow((double)MolePerSecond, MolarFlowUnit.MolePerSecond);
     }
+
 }

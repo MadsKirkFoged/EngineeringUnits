@@ -16,7 +16,7 @@ public partial class Area
     {
         if (Acre is null)
             return null;
-
+        
         return new Area((double)Acre, AreaUnit.Acre);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Area
     {
         if (Hectare is null)
             return null;
-
+        
         return new Area((double)Hectare, AreaUnit.Hectare);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Area
     {
         if (SquareCentimeter is null)
             return null;
-
+        
         return new Area((double)SquareCentimeter, AreaUnit.SquareCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Area
     {
         if (SquareDecimeter is null)
             return null;
-
+        
         return new Area((double)SquareDecimeter, AreaUnit.SquareDecimeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Area
     {
         if (SquareKilometer is null)
             return null;
-
+        
         return new Area((double)SquareKilometer, AreaUnit.SquareKilometer);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Area
     {
         if (SquareMeter is null)
             return null;
-
+        
         return new Area((double)SquareMeter, AreaUnit.SquareMeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Area
     {
         if (SquareMicrometer is null)
             return null;
-
+        
         return new Area((double)SquareMicrometer, AreaUnit.SquareMicrometer);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Area
     {
         if (SI is null)
             return null;
-
+        
         return new Area((double)SI, AreaUnit.SI);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Area
     {
         if (SquareMillimeter is null)
             return null;
-
+        
         return new Area((double)SquareMillimeter, AreaUnit.SquareMillimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Area
     {
         if (SquareNanometer is null)
             return null;
-
+        
         return new Area((double)SquareNanometer, AreaUnit.SquareNanometer);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Area
     {
         if (SquareInch is null)
             return null;
-
+        
         return new Area((double)SquareInch, AreaUnit.SquareInch);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Area
     {
         if (SquareFoot is null)
             return null;
-
+        
         return new Area((double)SquareFoot, AreaUnit.SquareFoot);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Area
     {
         if (SquareYard is null)
             return null;
-
+        
         return new Area((double)SquareYard, AreaUnit.SquareYard);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Area
     {
         if (SquareMile is null)
             return null;
-
+        
         return new Area((double)SquareMile, AreaUnit.SquareMile);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Area
     {
         if (SquareNauticalMile is null)
             return null;
-
+        
         return new Area((double)SquareNauticalMile, AreaUnit.SquareNauticalMile);
     }
     /// <summary>
@@ -196,7 +196,8 @@ public partial class Area
     {
         if (SquareChain is null)
             return null;
-
+        
         return new Area((double)SquareChain, AreaUnit.SquareChain);
     }
+
 }

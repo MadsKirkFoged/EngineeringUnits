@@ -16,7 +16,7 @@ public partial class Temperature
     {
         if (Kelvin is null)
             return null;
-
+        
         return new Temperature((double)Kelvin, TemperatureUnit.Kelvin);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Temperature
     {
         if (SI is null)
             return null;
-
+        
         return new Temperature((double)SI, TemperatureUnit.SI);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Temperature
     {
         if (DegreeCelsius is null)
             return null;
-
+        
         return new Temperature((double)DegreeCelsius, TemperatureUnit.DegreeCelsius);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Temperature
     {
         if (DegreeFahrenheit is null)
             return null;
-
+        
         return new Temperature((double)DegreeFahrenheit, TemperatureUnit.DegreeFahrenheit);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class Temperature
     {
         if (DegreeRankine is null)
             return null;
-
+        
         return new Temperature((double)DegreeRankine, TemperatureUnit.DegreeRankine);
     }
+
 }

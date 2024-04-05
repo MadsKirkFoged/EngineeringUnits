@@ -16,7 +16,7 @@ public partial class SpecificThermalResistance
     {
         if (SI is null)
             return null;
-
+        
         return new SpecificThermalResistance((double)SI, SpecificThermalResistanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class SpecificThermalResistance
     {
         if (MeterDegreeCelsiusPerWatt is null)
             return null;
-
+        
         return new SpecificThermalResistance((double)MeterDegreeCelsiusPerWatt, SpecificThermalResistanceUnit.MeterDegreeCelsiusPerWatt);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class SpecificThermalResistance
     {
         if (MeterKelvinPerKilowatt is null)
             return null;
-
+        
         return new SpecificThermalResistance((double)MeterKelvinPerKilowatt, SpecificThermalResistanceUnit.MeterKelvinPerKilowatt);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class SpecificThermalResistance
     {
         if (CentimeterKelvinPerWatt is null)
             return null;
-
+        
         return new SpecificThermalResistance((double)CentimeterKelvinPerWatt, SpecificThermalResistanceUnit.CentimeterKelvinPerWatt);
     }
+
 }

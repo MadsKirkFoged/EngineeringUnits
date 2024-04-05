@@ -16,7 +16,7 @@ public partial class Entropy
     {
         if (SI is null)
             return null;
-
+        
         return new Entropy((double)SI, EntropyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Entropy
     {
         if (JoulePerKelvin is null)
             return null;
-
+        
         return new Entropy((double)JoulePerKelvin, EntropyUnit.JoulePerKelvin);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Entropy
     {
         if (CaloriePerKelvin is null)
             return null;
-
+        
         return new Entropy((double)CaloriePerKelvin, EntropyUnit.CaloriePerKelvin);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Entropy
     {
         if (JoulePerDegreeCelsius is null)
             return null;
-
+        
         return new Entropy((double)JoulePerDegreeCelsius, EntropyUnit.JoulePerDegreeCelsius);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Entropy
     {
         if (KilocaloriePerKelvin is null)
             return null;
-
+        
         return new Entropy((double)KilocaloriePerKelvin, EntropyUnit.KilocaloriePerKelvin);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Entropy
     {
         if (KilojoulePerDegreeCelsius is null)
             return null;
-
+        
         return new Entropy((double)KilojoulePerDegreeCelsius, EntropyUnit.KilojoulePerDegreeCelsius);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Entropy
     {
         if (KilojoulePerKelvin is null)
             return null;
-
+        
         return new Entropy((double)KilojoulePerKelvin, EntropyUnit.KilojoulePerKelvin);
     }
     /// <summary>
@@ -100,7 +100,8 @@ public partial class Entropy
     {
         if (MegajoulePerKelvin is null)
             return null;
-
+        
         return new Entropy((double)MegajoulePerKelvin, EntropyUnit.MegajoulePerKelvin);
     }
+
 }

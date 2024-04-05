@@ -16,7 +16,7 @@ public partial class LuminousFlux
     {
         if (SI is null)
             return null;
-
+        
         return new LuminousFlux((double)SI, LuminousFluxUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class LuminousFlux
     {
         if (Lumen is null)
             return null;
-
+        
         return new LuminousFlux((double)Lumen, LuminousFluxUnit.Lumen);
     }
+
 }

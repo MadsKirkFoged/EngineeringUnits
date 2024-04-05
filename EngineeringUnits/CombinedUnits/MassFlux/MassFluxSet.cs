@@ -16,7 +16,7 @@ public partial class MassFlux
     {
         if (SI is null)
             return null;
-
+        
         return new MassFlux((double)SI, MassFluxUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MassFlux
     {
         if (KilogramPerSecondPerSquareMeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerSecondPerSquareMeter, MassFluxUnit.KilogramPerSecondPerSquareMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MassFlux
     {
         if (GramPerHourPerSquareCentimeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerHourPerSquareCentimeter, MassFluxUnit.GramPerHourPerSquareCentimeter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MassFlux
     {
         if (GramPerHourPerSquareMeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerHourPerSquareMeter, MassFluxUnit.GramPerHourPerSquareMeter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class MassFlux
     {
         if (GramPerHourPerSquareMillimeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerHourPerSquareMillimeter, MassFluxUnit.GramPerHourPerSquareMillimeter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class MassFlux
     {
         if (GramPerSecondPerSquareCentimeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerSecondPerSquareCentimeter, MassFluxUnit.GramPerSecondPerSquareCentimeter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class MassFlux
     {
         if (GramPerSecondPerSquareMeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerSecondPerSquareMeter, MassFluxUnit.GramPerSecondPerSquareMeter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class MassFlux
     {
         if (GramPerSecondPerSquareMillimeter is null)
             return null;
-
+        
         return new MassFlux((double)GramPerSecondPerSquareMillimeter, MassFluxUnit.GramPerSecondPerSquareMillimeter);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class MassFlux
     {
         if (KilogramPerHourPerSquareCentimeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerHourPerSquareCentimeter, MassFluxUnit.KilogramPerHourPerSquareCentimeter);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class MassFlux
     {
         if (KilogramPerHourPerSquareMeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerHourPerSquareMeter, MassFluxUnit.KilogramPerHourPerSquareMeter);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class MassFlux
     {
         if (KilogramPerHourPerSquareMillimeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerHourPerSquareMillimeter, MassFluxUnit.KilogramPerHourPerSquareMillimeter);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class MassFlux
     {
         if (KilogramPerSecondPerSquareCentimeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerSecondPerSquareCentimeter, MassFluxUnit.KilogramPerSecondPerSquareCentimeter);
     }
     /// <summary>
@@ -160,7 +160,8 @@ public partial class MassFlux
     {
         if (KilogramPerSecondPerSquareMillimeter is null)
             return null;
-
+        
         return new MassFlux((double)KilogramPerSecondPerSquareMillimeter, MassFluxUnit.KilogramPerSecondPerSquareMillimeter);
     }
+
 }

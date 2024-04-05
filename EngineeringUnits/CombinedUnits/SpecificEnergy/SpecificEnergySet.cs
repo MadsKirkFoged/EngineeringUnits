@@ -16,7 +16,7 @@ public partial class SpecificEnergy
     {
         if (SI is null)
             return null;
-
+        
         return new SpecificEnergy((double)SI, SpecificEnergyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class SpecificEnergy
     {
         if (JoulePerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)JoulePerKilogram, SpecificEnergyUnit.JoulePerKilogram);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class SpecificEnergy
     {
         if (KilojoulePerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilojoulePerKilogram, SpecificEnergyUnit.KilojoulePerKilogram);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class SpecificEnergy
     {
         if (MegajoulePerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)MegajoulePerKilogram, SpecificEnergyUnit.MegajoulePerKilogram);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class SpecificEnergy
     {
         if (BtuPerPound is null)
             return null;
-
+        
         return new SpecificEnergy((double)BtuPerPound, SpecificEnergyUnit.BtuPerPound);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class SpecificEnergy
     {
         if (CaloriePerGram is null)
             return null;
-
+        
         return new SpecificEnergy((double)CaloriePerGram, SpecificEnergyUnit.CaloriePerGram);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class SpecificEnergy
     {
         if (KilocaloriePerGram is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilocaloriePerGram, SpecificEnergyUnit.KilocaloriePerGram);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class SpecificEnergy
     {
         if (WattDayPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)WattDayPerKilogram, SpecificEnergyUnit.WattDayPerKilogram);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class SpecificEnergy
     {
         if (KilowattDayPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilowattDayPerKilogram, SpecificEnergyUnit.KilowattDayPerKilogram);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class SpecificEnergy
     {
         if (MegawattDayPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)MegawattDayPerKilogram, SpecificEnergyUnit.MegawattDayPerKilogram);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class SpecificEnergy
     {
         if (GigawattDayPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)GigawattDayPerKilogram, SpecificEnergyUnit.GigawattDayPerKilogram);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class SpecificEnergy
     {
         if (TerawattDayPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)TerawattDayPerKilogram, SpecificEnergyUnit.TerawattDayPerKilogram);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class SpecificEnergy
     {
         if (WattHourPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)WattHourPerKilogram, SpecificEnergyUnit.WattHourPerKilogram);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class SpecificEnergy
     {
         if (KilowattHourPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilowattHourPerKilogram, SpecificEnergyUnit.KilowattHourPerKilogram);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class SpecificEnergy
     {
         if (MegawattHourPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)MegawattHourPerKilogram, SpecificEnergyUnit.MegawattHourPerKilogram);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class SpecificEnergy
     {
         if (GigawattHourPerKilogram is null)
             return null;
-
+        
         return new SpecificEnergy((double)GigawattHourPerKilogram, SpecificEnergyUnit.GigawattHourPerKilogram);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class SpecificEnergy
     {
         if (WattDayPerTonne is null)
             return null;
-
+        
         return new SpecificEnergy((double)WattDayPerTonne, SpecificEnergyUnit.WattDayPerTonne);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class SpecificEnergy
     {
         if (KilowattDayPerTonne is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilowattDayPerTonne, SpecificEnergyUnit.KilowattDayPerTonne);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class SpecificEnergy
     {
         if (MegawattDayPerTonne is null)
             return null;
-
+        
         return new SpecificEnergy((double)MegawattDayPerTonne, SpecificEnergyUnit.MegawattDayPerTonne);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class SpecificEnergy
     {
         if (GigawattDayPerTonne is null)
             return null;
-
+        
         return new SpecificEnergy((double)GigawattDayPerTonne, SpecificEnergyUnit.GigawattDayPerTonne);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class SpecificEnergy
     {
         if (TerawattDayPerTonne is null)
             return null;
-
+        
         return new SpecificEnergy((double)TerawattDayPerTonne, SpecificEnergyUnit.TerawattDayPerTonne);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class SpecificEnergy
     {
         if (WattDayPerShortTon is null)
             return null;
-
+        
         return new SpecificEnergy((double)WattDayPerShortTon, SpecificEnergyUnit.WattDayPerShortTon);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class SpecificEnergy
     {
         if (KilowattDayPerShortTon is null)
             return null;
-
+        
         return new SpecificEnergy((double)KilowattDayPerShortTon, SpecificEnergyUnit.KilowattDayPerShortTon);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class SpecificEnergy
     {
         if (MegawattDayPerShortTon is null)
             return null;
-
+        
         return new SpecificEnergy((double)MegawattDayPerShortTon, SpecificEnergyUnit.MegawattDayPerShortTon);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class SpecificEnergy
     {
         if (GigawattDayPerShortTon is null)
             return null;
-
+        
         return new SpecificEnergy((double)GigawattDayPerShortTon, SpecificEnergyUnit.GigawattDayPerShortTon);
     }
     /// <summary>
@@ -316,7 +316,8 @@ public partial class SpecificEnergy
     {
         if (TerawattDayPerShortTon is null)
             return null;
-
+        
         return new SpecificEnergy((double)TerawattDayPerShortTon, SpecificEnergyUnit.TerawattDayPerShortTon);
     }
+
 }

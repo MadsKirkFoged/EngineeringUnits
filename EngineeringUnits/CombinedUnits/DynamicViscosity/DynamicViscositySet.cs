@@ -16,7 +16,7 @@ public partial class DynamicViscosity
     {
         if (SI is null)
             return null;
-
+        
         return new DynamicViscosity((double)SI, DynamicViscosityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class DynamicViscosity
     {
         if (PascalSecond is null)
             return null;
-
+        
         return new DynamicViscosity((double)PascalSecond, DynamicViscosityUnit.PascalSecond);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class DynamicViscosity
     {
         if (MicropascalSecond is null)
             return null;
-
+        
         return new DynamicViscosity((double)MicropascalSecond, DynamicViscosityUnit.MicropascalSecond);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class DynamicViscosity
     {
         if (MillipascalSecond is null)
             return null;
-
+        
         return new DynamicViscosity((double)MillipascalSecond, DynamicViscosityUnit.MillipascalSecond);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class DynamicViscosity
     {
         if (PoundPerFootSecond is null)
             return null;
-
+        
         return new DynamicViscosity((double)PoundPerFootSecond, DynamicViscosityUnit.PoundPerFootSecond);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class DynamicViscosity
     {
         if (Poise is null)
             return null;
-
+        
         return new DynamicViscosity((double)Poise, DynamicViscosityUnit.Poise);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class DynamicViscosity
     {
         if (Centipoise is null)
             return null;
-
+        
         return new DynamicViscosity((double)Centipoise, DynamicViscosityUnit.Centipoise);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class DynamicViscosity
     {
         if (NewtonSecondPerMeterSquared is null)
             return null;
-
+        
         return new DynamicViscosity((double)NewtonSecondPerMeterSquared, DynamicViscosityUnit.NewtonSecondPerMeterSquared);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class DynamicViscosity
     {
         if (PoundForceSecondPerSquareFoot is null)
             return null;
-
+        
         return new DynamicViscosity((double)PoundForceSecondPerSquareFoot, DynamicViscosityUnit.PoundForceSecondPerSquareFoot);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class DynamicViscosity
     {
         if (PoundForceSecondPerSquareInch is null)
             return null;
-
+        
         return new DynamicViscosity((double)PoundForceSecondPerSquareInch, DynamicViscosityUnit.PoundForceSecondPerSquareInch);
     }
     /// <summary>
@@ -136,7 +136,8 @@ public partial class DynamicViscosity
     {
         if (Reyn is null)
             return null;
-
+        
         return new DynamicViscosity((double)Reyn, DynamicViscosityUnit.Reyn);
     }
+
 }
