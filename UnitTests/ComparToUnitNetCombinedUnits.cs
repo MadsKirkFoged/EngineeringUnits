@@ -537,8 +537,8 @@ public class Angle
                                 A1.ToUnit(UN).ToString("a")
                                 .Replace(".", "*")
                                 .Replace("C", "K")
-                                .Replace("°F", "°R")
-                                .Replace("*", "·")
+                                .Replace("\u00b0F", "\u00b0R")
+                                .Replace('*', '\u00b7')
                                 );
 
                 WorkingCompares++;
@@ -897,10 +897,11 @@ public class Angle
                                                         A1.As(UN)),
                                                         RelError);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a")
-                                .Replace("Ns", "N·s")
-                                );
+                Assert.AreEqual(
+                    A2.ToUnit(EU).DisplaySymbol(),
+                    A1.ToUnit(UN).ToString("a")
+                        .Replace("Ns", "N\u00b7s")
+                    );
 
                 WorkingCompares++;
 
@@ -1056,7 +1057,7 @@ public class Angle
                                 .Replace("day", "d")
                                 //.Replace("min", "m")
                                 .Replace("L", "l")
-                                .Replace("cy", "yd³")
+                                .Replace("cy", "yd\u00b3")
                                 .Replace("hr", "h")
                                 );
 
@@ -1257,8 +1258,11 @@ public class Angle
                                                         A1.As(UN)),
                                                         RelError);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
-                                A1.ToUnit(UN).ToString("a").Replace("·", ""));
+                Assert.AreEqual(
+                    A2.ToUnit(EU).DisplaySymbol(),
+                    A1.ToUnit(UN).ToString("a")
+                        .Replace("\u00b7", "")
+                        );
 
                 WorkingCompares++;
             }
