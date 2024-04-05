@@ -16,7 +16,7 @@ public partial class MolarEntropy
     {
         if (SI is null)
             return null;
-
+        
         return new MolarEntropy((double)SI, MolarEntropyUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MolarEntropy
     {
         if (JoulePerMoleKelvin is null)
             return null;
-
+        
         return new MolarEntropy((double)JoulePerMoleKelvin, MolarEntropyUnit.JoulePerMoleKelvin);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MolarEntropy
     {
         if (KilojoulePerMoleKelvin is null)
             return null;
-
+        
         return new MolarEntropy((double)KilojoulePerMoleKelvin, MolarEntropyUnit.KilojoulePerMoleKelvin);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class MolarEntropy
     {
         if (MegajoulePerMoleKelvin is null)
             return null;
-
+        
         return new MolarEntropy((double)MegajoulePerMoleKelvin, MolarEntropyUnit.MegajoulePerMoleKelvin);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class Information
     {
         if (SI is null)
             return null;
-
+        
         return new Information((double)SI, InformationUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Information
     {
         if (Byte is null)
             return null;
-
+        
         return new Information((double)Byte, InformationUnit.Byte);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Information
     {
         if (Bit is null)
             return null;
-
+        
         return new Information((double)Bit, InformationUnit.Bit);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Information
     {
         if (Kibibit is null)
             return null;
-
+        
         return new Information((double)Kibibit, InformationUnit.Kibibit);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Information
     {
         if (Mebibit is null)
             return null;
-
+        
         return new Information((double)Mebibit, InformationUnit.Mebibit);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Information
     {
         if (Gibibit is null)
             return null;
-
+        
         return new Information((double)Gibibit, InformationUnit.Gibibit);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Information
     {
         if (Tebibit is null)
             return null;
-
+        
         return new Information((double)Tebibit, InformationUnit.Tebibit);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Information
     {
         if (Pebibit is null)
             return null;
-
+        
         return new Information((double)Pebibit, InformationUnit.Pebibit);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Information
     {
         if (Exbibit is null)
             return null;
-
+        
         return new Information((double)Exbibit, InformationUnit.Exbibit);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Information
     {
         if (Kibibyte is null)
             return null;
-
+        
         return new Information((double)Kibibyte, InformationUnit.Kibibyte);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Information
     {
         if (Mebibyte is null)
             return null;
-
+        
         return new Information((double)Mebibyte, InformationUnit.Mebibyte);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Information
     {
         if (Gibibyte is null)
             return null;
-
+        
         return new Information((double)Gibibyte, InformationUnit.Gibibyte);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Information
     {
         if (Tebibyte is null)
             return null;
-
+        
         return new Information((double)Tebibyte, InformationUnit.Tebibyte);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Information
     {
         if (Pebibyte is null)
             return null;
-
+        
         return new Information((double)Pebibyte, InformationUnit.Pebibyte);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Information
     {
         if (Exbibyte is null)
             return null;
-
+        
         return new Information((double)Exbibyte, InformationUnit.Exbibyte);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Information
     {
         if (Kilobyte is null)
             return null;
-
+        
         return new Information((double)Kilobyte, InformationUnit.Kilobyte);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Information
     {
         if (Megabyte is null)
             return null;
-
+        
         return new Information((double)Megabyte, InformationUnit.Megabyte);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Information
     {
         if (Gigabyte is null)
             return null;
-
+        
         return new Information((double)Gigabyte, InformationUnit.Gigabyte);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Information
     {
         if (Terabyte is null)
             return null;
-
+        
         return new Information((double)Terabyte, InformationUnit.Terabyte);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Information
     {
         if (Petabyte is null)
             return null;
-
+        
         return new Information((double)Petabyte, InformationUnit.Petabyte);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Information
     {
         if (Exabyte is null)
             return null;
-
+        
         return new Information((double)Exabyte, InformationUnit.Exabyte);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Information
     {
         if (Kilobit is null)
             return null;
-
+        
         return new Information((double)Kilobit, InformationUnit.Kilobit);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Information
     {
         if (Megabit is null)
             return null;
-
+        
         return new Information((double)Megabit, InformationUnit.Megabit);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Information
     {
         if (Gigabit is null)
             return null;
-
+        
         return new Information((double)Gigabit, InformationUnit.Gigabit);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Information
     {
         if (Terabit is null)
             return null;
-
+        
         return new Information((double)Terabit, InformationUnit.Terabit);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Information
     {
         if (Petabit is null)
             return null;
-
+        
         return new Information((double)Petabit, InformationUnit.Petabit);
     }
     /// <summary>
@@ -328,7 +328,8 @@ public partial class Information
     {
         if (Exabit is null)
             return null;
-
+        
         return new Information((double)Exabit, InformationUnit.Exabit);
     }
+
 }

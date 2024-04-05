@@ -16,7 +16,7 @@ public partial class MassCost
     {
         if (SI is null)
             return null;
-
+        
         return new MassCost((double)SI, MassCostUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MassCost
     {
         if (EuroPerKilogram is null)
             return null;
-
+        
         return new MassCost((double)EuroPerKilogram, MassCostUnit.EuroPerKilogram);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MassCost
     {
         if (USDollarPerKilogram is null)
             return null;
-
+        
         return new MassCost((double)USDollarPerKilogram, MassCostUnit.USDollarPerKilogram);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MassCost
     {
         if (USDollarPerTonne is null)
             return null;
-
+        
         return new MassCost((double)USDollarPerTonne, MassCostUnit.USDollarPerTonne);
     }
     /// <summary>
@@ -64,7 +64,8 @@ public partial class MassCost
     {
         if (MillionUSDollarPerTonne is null)
             return null;
-
+        
         return new MassCost((double)MillionUSDollarPerTonne, MassCostUnit.MillionUSDollarPerTonne);
     }
+
 }

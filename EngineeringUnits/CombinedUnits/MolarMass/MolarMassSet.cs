@@ -16,7 +16,7 @@ public partial class MolarMass
     {
         if (SI is null)
             return null;
-
+        
         return new MolarMass((double)SI, MolarMassUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class MolarMass
     {
         if (KilogramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)KilogramPerMole, MolarMassUnit.KilogramPerMole);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class MolarMass
     {
         if (CentigramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)CentigramPerMole, MolarMassUnit.CentigramPerMole);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class MolarMass
     {
         if (DecagramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)DecagramPerMole, MolarMassUnit.DecagramPerMole);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class MolarMass
     {
         if (DecigramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)DecigramPerMole, MolarMassUnit.DecigramPerMole);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class MolarMass
     {
         if (GramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)GramPerMole, MolarMassUnit.GramPerMole);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class MolarMass
     {
         if (HectogramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)HectogramPerMole, MolarMassUnit.HectogramPerMole);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class MolarMass
     {
         if (KilopoundPerMole is null)
             return null;
-
+        
         return new MolarMass((double)KilopoundPerMole, MolarMassUnit.KilopoundPerMole);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class MolarMass
     {
         if (MegapoundPerMole is null)
             return null;
-
+        
         return new MolarMass((double)MegapoundPerMole, MolarMassUnit.MegapoundPerMole);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class MolarMass
     {
         if (MicrogramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)MicrogramPerMole, MolarMassUnit.MicrogramPerMole);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class MolarMass
     {
         if (MilligramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)MilligramPerMole, MolarMassUnit.MilligramPerMole);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class MolarMass
     {
         if (NanogramPerMole is null)
             return null;
-
+        
         return new MolarMass((double)NanogramPerMole, MolarMassUnit.NanogramPerMole);
     }
     /// <summary>
@@ -160,7 +160,8 @@ public partial class MolarMass
     {
         if (PoundPerMole is null)
             return null;
-
+        
         return new MolarMass((double)PoundPerMole, MolarMassUnit.PoundPerMole);
     }
+
 }

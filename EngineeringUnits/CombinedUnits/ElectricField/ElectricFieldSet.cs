@@ -16,7 +16,7 @@ public partial class ElectricField
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricField((double)SI, ElectricFieldUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class ElectricField
     {
         if (VoltPerMeter is null)
             return null;
-
+        
         return new ElectricField((double)VoltPerMeter, ElectricFieldUnit.VoltPerMeter);
     }
+
 }

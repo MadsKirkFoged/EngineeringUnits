@@ -16,7 +16,7 @@ public partial class ThermalResistance
     {
         if (SI is null)
             return null;
-
+        
         return new ThermalResistance((double)SI, ThermalResistanceUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ThermalResistance
     {
         if (SquareMeterDegreeCelsiusPerWatt is null)
             return null;
-
+        
         return new ThermalResistance((double)SquareMeterDegreeCelsiusPerWatt, ThermalResistanceUnit.SquareMeterDegreeCelsiusPerWatt);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ThermalResistance
     {
         if (SquareMeterKelvinPerKilowatt is null)
             return null;
-
+        
         return new ThermalResistance((double)SquareMeterKelvinPerKilowatt, ThermalResistanceUnit.SquareMeterKelvinPerKilowatt);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class ThermalResistance
     {
         if (SquareCentimeterKelvinPerWatt is null)
             return null;
-
+        
         return new ThermalResistance((double)SquareCentimeterKelvinPerWatt, ThermalResistanceUnit.SquareCentimeterKelvinPerWatt);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class ThermalResistance
     {
         if (SquareCentimeterHourDegreeCelsiusPerKilocalorie is null)
             return null;
-
+        
         return new ThermalResistance((double)SquareCentimeterHourDegreeCelsiusPerKilocalorie, ThermalResistanceUnit.SquareCentimeterHourDegreeCelsiusPerKilocalorie);
     }
     /// <summary>
@@ -76,7 +76,8 @@ public partial class ThermalResistance
     {
         if (HourSquareFeetDegreeFahrenheitPerBtu is null)
             return null;
-
+        
         return new ThermalResistance((double)HourSquareFeetDegreeFahrenheitPerBtu, ThermalResistanceUnit.HourSquareFeetDegreeFahrenheitPerBtu);
     }
+
 }

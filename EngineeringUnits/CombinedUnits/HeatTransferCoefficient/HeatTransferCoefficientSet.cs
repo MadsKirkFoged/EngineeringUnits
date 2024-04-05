@@ -16,7 +16,7 @@ public partial class HeatTransferCoefficient
     {
         if (SI is null)
             return null;
-
+        
         return new HeatTransferCoefficient((double)SI, HeatTransferCoefficientUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class HeatTransferCoefficient
     {
         if (WattPerSquareMeterKelvin is null)
             return null;
-
+        
         return new HeatTransferCoefficient((double)WattPerSquareMeterKelvin, HeatTransferCoefficientUnit.WattPerSquareMeterKelvin);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class HeatTransferCoefficient
     {
         if (WattPerSquareMeterCelsius is null)
             return null;
-
+        
         return new HeatTransferCoefficient((double)WattPerSquareMeterCelsius, HeatTransferCoefficientUnit.WattPerSquareMeterCelsius);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class HeatTransferCoefficient
     {
         if (BtuPerSquareFootDegreeFahrenheit is null)
             return null;
-
+        
         return new HeatTransferCoefficient((double)BtuPerSquareFootDegreeFahrenheit, HeatTransferCoefficientUnit.BtuPerSquareFootDegreeFahrenheit);
     }
+
 }

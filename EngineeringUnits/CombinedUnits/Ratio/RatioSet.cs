@@ -16,7 +16,7 @@ public partial class Ratio
     {
         if (SI is null)
             return null;
-
+        
         return new Ratio((double)SI, RatioUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Ratio
     {
         if (DecimalFraction is null)
             return null;
-
+        
         return new Ratio((double)DecimalFraction, RatioUnit.DecimalFraction);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Ratio
     {
         if (PartPerBillion is null)
             return null;
-
+        
         return new Ratio((double)PartPerBillion, RatioUnit.PartPerBillion);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Ratio
     {
         if (PartPerMillion is null)
             return null;
-
+        
         return new Ratio((double)PartPerMillion, RatioUnit.PartPerMillion);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Ratio
     {
         if (PartPerThousand is null)
             return null;
-
+        
         return new Ratio((double)PartPerThousand, RatioUnit.PartPerThousand);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Ratio
     {
         if (PartPerTrillion is null)
             return null;
-
+        
         return new Ratio((double)PartPerTrillion, RatioUnit.PartPerTrillion);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Ratio
     {
         if (Percent is null)
             return null;
-
+        
         return new Ratio((double)Percent, RatioUnit.Percent);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Ratio
     {
         if (CentigramPerGram is null)
             return null;
-
+        
         return new Ratio((double)CentigramPerGram, RatioUnit.CentigramPerGram);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Ratio
     {
         if (CentigramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)CentigramPerKilogram, RatioUnit.CentigramPerKilogram);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Ratio
     {
         if (DecagramPerGram is null)
             return null;
-
+        
         return new Ratio((double)DecagramPerGram, RatioUnit.DecagramPerGram);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Ratio
     {
         if (DecagramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)DecagramPerKilogram, RatioUnit.DecagramPerKilogram);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Ratio
     {
         if (DecigramPerGram is null)
             return null;
-
+        
         return new Ratio((double)DecigramPerGram, RatioUnit.DecigramPerGram);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Ratio
     {
         if (DecigramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)DecigramPerKilogram, RatioUnit.DecigramPerKilogram);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Ratio
     {
         if (GramPerGram is null)
             return null;
-
+        
         return new Ratio((double)GramPerGram, RatioUnit.GramPerGram);
     }
     /// <summary>
@@ -184,7 +184,7 @@ public partial class Ratio
     {
         if (GramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)GramPerKilogram, RatioUnit.GramPerKilogram);
     }
     /// <summary>
@@ -196,7 +196,7 @@ public partial class Ratio
     {
         if (HectogramPerGram is null)
             return null;
-
+        
         return new Ratio((double)HectogramPerGram, RatioUnit.HectogramPerGram);
     }
     /// <summary>
@@ -208,7 +208,7 @@ public partial class Ratio
     {
         if (HectogramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)HectogramPerKilogram, RatioUnit.HectogramPerKilogram);
     }
     /// <summary>
@@ -220,7 +220,7 @@ public partial class Ratio
     {
         if (KilogramPerGram is null)
             return null;
-
+        
         return new Ratio((double)KilogramPerGram, RatioUnit.KilogramPerGram);
     }
     /// <summary>
@@ -232,7 +232,7 @@ public partial class Ratio
     {
         if (KilogramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)KilogramPerKilogram, RatioUnit.KilogramPerKilogram);
     }
     /// <summary>
@@ -244,7 +244,7 @@ public partial class Ratio
     {
         if (MicrogramPerGram is null)
             return null;
-
+        
         return new Ratio((double)MicrogramPerGram, RatioUnit.MicrogramPerGram);
     }
     /// <summary>
@@ -256,7 +256,7 @@ public partial class Ratio
     {
         if (MicrogramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)MicrogramPerKilogram, RatioUnit.MicrogramPerKilogram);
     }
     /// <summary>
@@ -268,7 +268,7 @@ public partial class Ratio
     {
         if (MilligramPerGram is null)
             return null;
-
+        
         return new Ratio((double)MilligramPerGram, RatioUnit.MilligramPerGram);
     }
     /// <summary>
@@ -280,7 +280,7 @@ public partial class Ratio
     {
         if (MilligramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)MilligramPerKilogram, RatioUnit.MilligramPerKilogram);
     }
     /// <summary>
@@ -292,7 +292,7 @@ public partial class Ratio
     {
         if (NanogramPerGram is null)
             return null;
-
+        
         return new Ratio((double)NanogramPerGram, RatioUnit.NanogramPerGram);
     }
     /// <summary>
@@ -304,7 +304,7 @@ public partial class Ratio
     {
         if (NanogramPerKilogram is null)
             return null;
-
+        
         return new Ratio((double)NanogramPerKilogram, RatioUnit.NanogramPerKilogram);
     }
     /// <summary>
@@ -316,7 +316,7 @@ public partial class Ratio
     {
         if (CentilitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)CentilitersPerLiter, RatioUnit.CentilitersPerLiter);
     }
     /// <summary>
@@ -328,7 +328,7 @@ public partial class Ratio
     {
         if (CentilitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)CentilitersPerMililiter, RatioUnit.CentilitersPerMililiter);
     }
     /// <summary>
@@ -340,7 +340,7 @@ public partial class Ratio
     {
         if (DecilitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)DecilitersPerLiter, RatioUnit.DecilitersPerLiter);
     }
     /// <summary>
@@ -352,7 +352,7 @@ public partial class Ratio
     {
         if (DecilitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)DecilitersPerMililiter, RatioUnit.DecilitersPerMililiter);
     }
     /// <summary>
@@ -364,7 +364,7 @@ public partial class Ratio
     {
         if (LitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)LitersPerLiter, RatioUnit.LitersPerLiter);
     }
     /// <summary>
@@ -376,7 +376,7 @@ public partial class Ratio
     {
         if (LitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)LitersPerMililiter, RatioUnit.LitersPerMililiter);
     }
     /// <summary>
@@ -388,7 +388,7 @@ public partial class Ratio
     {
         if (MicrolitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)MicrolitersPerLiter, RatioUnit.MicrolitersPerLiter);
     }
     /// <summary>
@@ -400,7 +400,7 @@ public partial class Ratio
     {
         if (MicrolitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)MicrolitersPerMililiter, RatioUnit.MicrolitersPerMililiter);
     }
     /// <summary>
@@ -412,7 +412,7 @@ public partial class Ratio
     {
         if (MillilitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)MillilitersPerLiter, RatioUnit.MillilitersPerLiter);
     }
     /// <summary>
@@ -424,7 +424,7 @@ public partial class Ratio
     {
         if (MillilitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)MillilitersPerMililiter, RatioUnit.MillilitersPerMililiter);
     }
     /// <summary>
@@ -436,7 +436,7 @@ public partial class Ratio
     {
         if (NanolitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)NanolitersPerLiter, RatioUnit.NanolitersPerLiter);
     }
     /// <summary>
@@ -448,7 +448,7 @@ public partial class Ratio
     {
         if (NanolitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)NanolitersPerMililiter, RatioUnit.NanolitersPerMililiter);
     }
     /// <summary>
@@ -460,7 +460,7 @@ public partial class Ratio
     {
         if (PicolitersPerLiter is null)
             return null;
-
+        
         return new Ratio((double)PicolitersPerLiter, RatioUnit.PicolitersPerLiter);
     }
     /// <summary>
@@ -472,7 +472,8 @@ public partial class Ratio
     {
         if (PicolitersPerMililiter is null)
             return null;
-
+        
         return new Ratio((double)PicolitersPerMililiter, RatioUnit.PicolitersPerMililiter);
     }
+
 }

@@ -16,7 +16,7 @@ public partial class LapseRate
     {
         if (SI is null)
             return null;
-
+        
         return new LapseRate((double)SI, LapseRateUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,8 @@ public partial class LapseRate
     {
         if (DegreeCelsiusPerKilometer is null)
             return null;
-
+        
         return new LapseRate((double)DegreeCelsiusPerKilometer, LapseRateUnit.DegreeCelsiusPerKilometer);
     }
+
 }

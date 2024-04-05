@@ -16,7 +16,7 @@ public partial class Acceleration
     {
         if (SI is null)
             return null;
-
+        
         return new Acceleration((double)SI, AccelerationUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Acceleration
     {
         if (KilometerPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)KilometerPerSecondSquared, AccelerationUnit.KilometerPerSecondSquared);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Acceleration
     {
         if (MeterPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)MeterPerSecondSquared, AccelerationUnit.MeterPerSecondSquared);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Acceleration
     {
         if (DecimeterPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)DecimeterPerSecondSquared, AccelerationUnit.DecimeterPerSecondSquared);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Acceleration
     {
         if (CentimeterPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)CentimeterPerSecondSquared, AccelerationUnit.CentimeterPerSecondSquared);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Acceleration
     {
         if (MicrometerPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)MicrometerPerSecondSquared, AccelerationUnit.MicrometerPerSecondSquared);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Acceleration
     {
         if (MillimeterPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)MillimeterPerSecondSquared, AccelerationUnit.MillimeterPerSecondSquared);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Acceleration
     {
         if (NanometerPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)NanometerPerSecondSquared, AccelerationUnit.NanometerPerSecondSquared);
     }
     /// <summary>
@@ -112,7 +112,7 @@ public partial class Acceleration
     {
         if (InchPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)InchPerSecondSquared, AccelerationUnit.InchPerSecondSquared);
     }
     /// <summary>
@@ -124,7 +124,7 @@ public partial class Acceleration
     {
         if (FootPerSecondSquared is null)
             return null;
-
+        
         return new Acceleration((double)FootPerSecondSquared, AccelerationUnit.FootPerSecondSquared);
     }
     /// <summary>
@@ -136,7 +136,7 @@ public partial class Acceleration
     {
         if (KnotPerSecond is null)
             return null;
-
+        
         return new Acceleration((double)KnotPerSecond, AccelerationUnit.KnotPerSecond);
     }
     /// <summary>
@@ -148,7 +148,7 @@ public partial class Acceleration
     {
         if (KnotPerMinute is null)
             return null;
-
+        
         return new Acceleration((double)KnotPerMinute, AccelerationUnit.KnotPerMinute);
     }
     /// <summary>
@@ -160,7 +160,7 @@ public partial class Acceleration
     {
         if (KnotPerHour is null)
             return null;
-
+        
         return new Acceleration((double)KnotPerHour, AccelerationUnit.KnotPerHour);
     }
     /// <summary>
@@ -172,7 +172,7 @@ public partial class Acceleration
     {
         if (StandardGravity is null)
             return null;
-
+        
         return new Acceleration((double)StandardGravity, AccelerationUnit.StandardGravity);
     }
     /// <summary>
@@ -184,7 +184,8 @@ public partial class Acceleration
     {
         if (MillistandardGravity is null)
             return null;
-
+        
         return new Acceleration((double)MillistandardGravity, AccelerationUnit.MillistandardGravity);
     }
+
 }

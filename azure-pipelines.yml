@@ -38,10 +38,10 @@ steps:
      **/EngineeringUnits.csproj
      **/UnitTests.csproj
 
-#- task: DotNetCoreCLI@2
-#  inputs:
-#    command: 'test'
-#    projects: '**/UnitTests.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/UnitTests.csproj'
 
 
 - task: DotNetCoreCLI@2

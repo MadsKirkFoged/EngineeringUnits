@@ -16,7 +16,7 @@ public partial class Molarity
     {
         if (SI is null)
             return null;
-
+        
         return new Molarity((double)SI, MolarityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class Molarity
     {
         if (MolesPerCubicMeter is null)
             return null;
-
+        
         return new Molarity((double)MolesPerCubicMeter, MolarityUnit.MolesPerCubicMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class Molarity
     {
         if (MolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)MolesPerLiter, MolarityUnit.MolesPerLiter);
     }
     /// <summary>
@@ -52,7 +52,7 @@ public partial class Molarity
     {
         if (NanomolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)NanomolesPerLiter, MolarityUnit.NanomolesPerLiter);
     }
     /// <summary>
@@ -64,7 +64,7 @@ public partial class Molarity
     {
         if (PicomolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)PicomolesPerLiter, MolarityUnit.PicomolesPerLiter);
     }
     /// <summary>
@@ -76,7 +76,7 @@ public partial class Molarity
     {
         if (CentimolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)CentimolesPerLiter, MolarityUnit.CentimolesPerLiter);
     }
     /// <summary>
@@ -88,7 +88,7 @@ public partial class Molarity
     {
         if (DecimolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)DecimolesPerLiter, MolarityUnit.DecimolesPerLiter);
     }
     /// <summary>
@@ -100,7 +100,7 @@ public partial class Molarity
     {
         if (MicromolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)MicromolesPerLiter, MolarityUnit.MicromolesPerLiter);
     }
     /// <summary>
@@ -112,7 +112,8 @@ public partial class Molarity
     {
         if (MillimolesPerLiter is null)
             return null;
-
+        
         return new Molarity((double)MillimolesPerLiter, MolarityUnit.MillimolesPerLiter);
     }
+
 }

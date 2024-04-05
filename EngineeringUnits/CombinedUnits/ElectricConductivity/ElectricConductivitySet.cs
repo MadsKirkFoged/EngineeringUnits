@@ -16,7 +16,7 @@ public partial class ElectricConductivity
     {
         if (SI is null)
             return null;
-
+        
         return new ElectricConductivity((double)SI, ElectricConductivityUnit.SI);
     }
     /// <summary>
@@ -28,7 +28,7 @@ public partial class ElectricConductivity
     {
         if (SiemensPerMeter is null)
             return null;
-
+        
         return new ElectricConductivity((double)SiemensPerMeter, ElectricConductivityUnit.SiemensPerMeter);
     }
     /// <summary>
@@ -40,7 +40,7 @@ public partial class ElectricConductivity
     {
         if (SiemensPerInch is null)
             return null;
-
+        
         return new ElectricConductivity((double)SiemensPerInch, ElectricConductivityUnit.SiemensPerInch);
     }
     /// <summary>
@@ -52,7 +52,8 @@ public partial class ElectricConductivity
     {
         if (SiemensPerFoot is null)
             return null;
-
+        
         return new ElectricConductivity((double)SiemensPerFoot, ElectricConductivityUnit.SiemensPerFoot);
     }
+
 }
