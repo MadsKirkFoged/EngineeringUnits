@@ -20,12 +20,12 @@ internal class Program
     {
 
         //For finding units that are equal but with different names
-        UnknownUnit test = new WarpingMomentOfInertia(1, WarpingMomentOfInertiaUnit.SI);
-        var list = test.IntelligentCastTest().ToList();
-        foreach (var item in list)
-        {
-            Debug.WriteLine(item.GetType().Name);
-        }
+        //UnknownUnit test = new WarpingMomentOfInertia(1, WarpingMomentOfInertiaUnit.SI);
+        //var list = test.IntelligentCastTest().ToList();
+        //foreach (var item in list)
+        //{
+        //    Debug.WriteLine(item.GetType().Name);
+        //}
 
 
         var assemblyDir = Assembly.GetAssembly(typeof(Program))!.Location;
