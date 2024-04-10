@@ -5,105 +5,190 @@ namespace CodeGen;
 public class ListOfUnitsForDifferentGenerators
 {
 
+
+    //Ordering this is right now a hack.
+    //If two units have the same  units but with different names, the first one will be used.
+    //Therefore I order them in groups where the first one is the one I want to use.
+    //Maybe in the future we can make all the 'extra' units as aliases..
+
     public static List<string> GetListOfCombinedUnits() => [        
-        "Acceleration",
-        "Angle",
-        // NOTE: missing ApparentEnergy
-        "ApparentPower",
-        "Area",
-        "AreaCost",
-        "AreaDensity",
-        "AreaMomentOfInertia",
-        "BitRate",
-        "BrakeSpecificFuelConsumption",
-        "Capacitance",
-        "CoefficientOfThermalExpansion",
-        "Density",
+        
+        "Acceleration",       
+
+        "Ratio", //Same as Ratio
+        "Angle", //Same as Ratio
+        "BitRate", //Same as Ratio
+        "Information", //Same as Ratio
         // NOTE: missing: Dimensionless
-        "DynamicViscosity",
-        // NOTE: missing: ElectricAdmittance
-        "ElectricCharge",
-        "ElectricChargeDensity",
-        // NOTE: missing: ElectricConductance
-        "ElectricConductivity",        
-        "ElectricCurrentDensity",
-        "ElectricCurrentGradient",
-        "ElectricField",
-        "ElectricInductance",
-        "ElectricPotential",
-        "ElectricPotentialChangeRate",
-        "ElectricResistance",
-        "ElectricResistivity",
-        "ElectricSurfaceChargeDensity",
-        "Energy",
-        "EnergyCost",
-        "Enthalpy",
-        "Entropy",
-        "Force",
-        "ForceChangeRate",
-        "ForcePerLength",
-        "Frequency",
-        "FuelEfficiency",
-        "HeatFlux",
-        "HeatTransferCoefficient",
-        "Illuminance",
-        "Information",
-        "Irradiance",
-        "Irradiation",
-        "Jerk",
-        "KinematicViscosity",
-        "LapseRate",
-        "LengthCost",
         // NOTE: missing: Level
-        "LinearDensity",
-        "LinearPowerDensity",
-        "LuminousFlux",
-        "MagneticField",
-        "MagneticFlux",
-        "Magnetization",
-        "MassCost",
-        "MassFlow",
-        "MassFlux",
-        "MassMomentOfInertia",
-        "MolarEnergy",
-        "MolarEntropy",
-        "MolarFlow",
-        "Molarity",
-        "MolarMass",
-        "Permeability",
-        "Permittivity",
-        "Power",
-        "PowerCost",
-        "PowerDensity",
-        "Pressure",
-        "PressureChangeRate",
-        "Ratio",
-        "ReactiveEnergy",
-        "ReactivePower",
-        // NOTE: missing: RotatinalAcceleration
-        "RotationalSpeed",
-        // NOTE: missing: RotatinalStiffness
-        // NOTE: missing: RotatinalStiffnessPerLength
         // NOTE: missing: Scalar
         // NOTE: missing: SolidAngle
-        "SpecificEnergy",
-        "SpecificEntropy",
-        "SpecificHeatCapacity",
+        
+        "Power",
+        "ApparentPower", //Same as Power
+        "ReactivePower", //Same as Power
+
+        "Area", //Same as Area
+        "VolumePerLength", //Same as Area
+
+
+        "AreaCost",
+
+        "AreaDensity",
+
+        "AreaMomentOfInertia",
+        
+        "BrakeSpecificFuelConsumption",
+
+        "Capacitance",
+
+        "CoefficientOfThermalExpansion",
+        
+        "Density",
+        
+        "DynamicViscosity",
+        
+        "ElectricCharge",
+        
+        "ElectricChargeDensity",
+        
+        "ElectricConductivity",        
+        
+        "ElectricCurrentDensity",
+        
+        "ElectricCurrentGradient",
+        
+        "ElectricField",
+        
+        "ElectricInductance",
+        
+        "ElectricPotential",
+        
+        "ElectricPotentialChangeRate",
+        
+        "ElectricResistance",
+        
+        "ElectricResistivity",
+        
+        "ElectricSurfaceChargeDensity",
+        
+        "Energy", //Same as Energy
+        "Torque", //Same as Energy
+        "ReactiveEnergy", //Same as Energy
+        
+        "EnergyCost",
+        
+        
+        "SpecificEnergy", //Same as SpecificEnergy
+        "Enthalpy", //Same as SpecificEnergy
+        
+        "Entropy",
+
+        "Force", //Same as Force
+        "TorquePerLength", //Same as Force
+
+        "ForceChangeRate", //Same as ForceChangeRate
+        "LinearPowerDensity", //Same as ForceChangeRate
+
+        
+        "Irradiation", //Same as Irradiation
+        "ForcePerLength",//Same as Irradiation
+        
+        "Frequency", //Same as Frequency
+        "RotationalSpeed", //Same as Frequency
+        
+        "FuelEfficiency",
+        
+        "HeatFlux", //Same as HeatFlux
+        "Irradiance", //Same as HeatFlux
+        
+        "HeatTransferCoefficient",
+        
+        "Illuminance",
+
+        "Jerk",
+
+        "KinematicViscosity",
+
+        "LapseRate",
+
+        "LengthCost",
+
+        "LinearDensity",
+
+        "LuminousFlux", // same as LuminousIntensity
+
+        "MagneticField",
+
+        "MagneticFlux",
+
+        "Magnetization",
+
+        "MassCost",
+
+        "MassFlow",
+
+        "MassFlux",
+        
+        "MassMomentOfInertia",
+        
+        "MolarEnergy",
+        
+        "MolarEntropy",
+        
+        "MolarFlow",
+        
+        "Molarity",
+        
+        "MolarMass",
+        
+        "Permeability",
+        
+        "Permittivity",
+        
+        "PowerCost",
+
+        
+        "PowerDensity", //Same as PowerDensity
+        "PressureChangeRate", //Same as PowerDensity
+
+        "Pressure",
+
+
+        "SpecificEntropy", //Same as SpecificEntropy
+        "SpecificHeatCapacity", //Same as SpecificEntropy
+
         "SpecificThermalResistance",
+
         "SpecificVolume",
+
         "SpecificWeight",
+
         "Speed",
+
         "TemperatureChangeRate",
+
         "ThermalConductivity",
+        
         "ThermalResistance",
-        "Torque",
-        "TorquePerLength",
+        
         "Volume",
+        
         "VolumeCost",
+        
         "VolumeFlow",
-        "VolumePerLength",
+        
         "VolumetricHeatTransferCoefficient",
+        
         "WarpingMomentOfInertia",
+        
+        
+        // NOTE: missing ApparentEnergy
+        // NOTE: missing: ElectricAdmittance
+        // NOTE: missing: ElectricConductance
+        // NOTE: missing: RotatinalAcceleration
+        // NOTE: missing: RotatinalStiffness
+        // NOTE: missing: RotatinalStiffnessPerLength
         ];
 
     public static List<string> GetListOfBaseUnits() => [
@@ -121,8 +206,6 @@ public class ListOfUnitsForDifferentGenerators
     {
         List<string> list = GetListOfCombinedUnits();
         list.AddRange(GetListOfBaseUnits());
-        //list.Add("Temperature");
-        //list.Add("Pressure");
         return list;
     }
 

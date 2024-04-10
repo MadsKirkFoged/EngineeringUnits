@@ -34,11 +34,17 @@ public class Program
 
     public static void Main()
     {
-        Power test = Power.Zero;
 
-        Debug.Print($"{test}");
 
-        //var myratio = new Ratio(10, RatioUnit.Percent);
+
+
+
+
+
+
+
+
+        var myratio = new Ratio(10, RatioUnit.Percent);
 
         //UnknownUnit localUnit = myratio.ToUnit(RatioUnit.Percent);
         //_ = localUnit.ToString();
