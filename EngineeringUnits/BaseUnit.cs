@@ -122,39 +122,57 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator +(int left, BaseUnit? right)
+    public static UnknownUnit? operator +(int? left, BaseUnit? right)
     {
-        return new BaseUnit(left) + right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((double)left) + right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator +(BaseUnit? left, int right)
+    public static UnknownUnit? operator +(BaseUnit? left, int? right)
     {
-        return left + new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left + new BaseUnit((int)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator +(double left, BaseUnit? right)
+    public static UnknownUnit? operator +(double? left, BaseUnit? right)
     {
-        return new BaseUnit(left) + right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((double)left) + right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator +(BaseUnit? left, double right)
+    public static UnknownUnit? operator +(BaseUnit? left, double? right)
     {
-        return left + new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left + new BaseUnit((double)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator +(decimal left, BaseUnit? right)
+    public static UnknownUnit? operator +(decimal? left, BaseUnit? right)
     {
-        return new BaseUnit(left) + right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((decimal)left) + right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator +(BaseUnit? left, decimal right)
+    public static UnknownUnit? operator +(BaseUnit? left, decimal? right)
     {
-        return left + new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left + new BaseUnit((decimal)right);
     }
 
     [return: NotNullIfNotNull(nameof(left))]
@@ -222,39 +240,57 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator -(int left, BaseUnit? right)
+    public static UnknownUnit? operator -(int? left, BaseUnit? right)
     {
-        return new BaseUnit(left) - right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((int)left) - right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator -(BaseUnit? left, int right)
+    public static UnknownUnit? operator -(BaseUnit? left, int? right)
     {
-        return left - new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left - new BaseUnit((int)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator -(double left, BaseUnit? right)
+    public static UnknownUnit? operator -(double? left, BaseUnit? right)
     {
-        return new BaseUnit(left) - right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((double)left) - right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator -(BaseUnit? left, double right)
+    public static UnknownUnit? operator -(BaseUnit? left, double? right)
     {
-        return left - new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left - new BaseUnit((double)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator -(decimal left, BaseUnit? right)
+    public static UnknownUnit? operator -(decimal? left, BaseUnit? right)
     {
-        return new BaseUnit(left) - right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((decimal)left) - right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator -(BaseUnit? left, decimal right)
+    public static UnknownUnit? operator -(BaseUnit? left, decimal? right)
     {
-        return left - new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left - new BaseUnit((decimal)right);
     }
 
     [return: NotNullIfNotNull(nameof(left))]
@@ -308,45 +344,57 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator *(BaseUnit? left, int right)
+    public static UnknownUnit? operator *(BaseUnit? left, int? right)
     {
-        if (left is null)
+        if (left is null || right is null)
             return null;
 
-        if (left.IsNaN())
-            return new UnknownUnit(double.NaN, left.Unit);
-
-        return (left * new BaseUnit(right))!;
+        return (left * new BaseUnit((int)right))!;
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator *(int left, BaseUnit? right)
+    public static UnknownUnit? operator *(int? left, BaseUnit? right)
     {
-        return new BaseUnit(left) * right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((int)left) * right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator *(BaseUnit? left, double right)
+    public static UnknownUnit? operator *(BaseUnit? left, double? right)
     {
-        return left * new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left * new BaseUnit((double)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator *(double left, BaseUnit? right)
+    public static UnknownUnit? operator *(double? left, BaseUnit? right)
     {
-        return new BaseUnit(left) * right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((double)left) * right;
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator *(decimal left, BaseUnit? right)
+    public static UnknownUnit? operator *(decimal? left, BaseUnit? right)
     {
-        return new BaseUnit(left) * right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((decimal)left) * right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator *(BaseUnit? left, decimal right)
+    public static UnknownUnit? operator *(BaseUnit? left, decimal? right)
     {
-        return left * new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left * new BaseUnit((decimal)right);
     }
 
     [return: NotNullIfNotNull(nameof(left))]
@@ -403,39 +451,57 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator /(BaseUnit? left, int right)
+    public static UnknownUnit? operator /(BaseUnit? left, int? right)
     {
-        return left / new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left / new BaseUnit((int)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator /(int left, BaseUnit? right)
+    public static UnknownUnit? operator /(int? left, BaseUnit? right)
     {
-        return new BaseUnit(left) / right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((int)left) / right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator /(BaseUnit? left, double right)
+    public static UnknownUnit? operator /(BaseUnit? left, double? right)
     {
-        return left / new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left / new BaseUnit((double)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator /(double left, BaseUnit? right)
+    public static UnknownUnit? operator /(double? left, BaseUnit? right)
     {
-        return new BaseUnit(left) / right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((double)left) / right;
     }
 
     [return: NotNullIfNotNull(nameof(left))]
-    public static UnknownUnit? operator /(BaseUnit? left, decimal right)
+    public static UnknownUnit? operator /(BaseUnit? left, decimal? right)
     {
-        return left / new BaseUnit(right);
+        if (left is null || right is null)
+            return null;
+
+        return left / new BaseUnit((decimal)right);
     }
 
     [return: NotNullIfNotNull(nameof(right))]
-    public static UnknownUnit? operator /(decimal left, BaseUnit? right)
+    public static UnknownUnit? operator /(decimal? left, BaseUnit? right)
     {
-        return new BaseUnit(left) / right;
+        if (left is null || right is null)
+            return null;
+
+        return new BaseUnit((decimal)left) / right;
     }
 
     public static bool operator ==(BaseUnit? left, BaseUnit? right)
