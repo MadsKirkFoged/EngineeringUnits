@@ -622,6 +622,21 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static ForceCost? Abs(this ForceCost? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static Irradiation? Abs(this Irradiation? a)
     {
         if (a is null)

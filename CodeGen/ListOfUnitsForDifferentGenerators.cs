@@ -90,6 +90,7 @@ public class ListOfUnitsForDifferentGenerators
         "ForceChangeRate", //Same as ForceChangeRate
         "LinearPowerDensity", //Same as ForceChangeRate
 
+        "ForceCost",
         
         "Irradiation", //Same as Irradiation
         "ForcePerLength",//Same as Irradiation

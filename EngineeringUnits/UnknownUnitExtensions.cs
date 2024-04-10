@@ -91,6 +91,8 @@ public static class UnknownUnitExtensions
             return (ForceChangeRate?)toCast;
         if (toCast == LinearPowerDensityUnit.SI.Unit)
             return (LinearPowerDensity?)toCast;
+        if (toCast == ForceCostUnit.SI.Unit)
+            return (ForceCost?)toCast;
         if (toCast == IrradiationUnit.SI.Unit)
             return (Irradiation?)toCast;
         if (toCast == ForcePerLengthUnit.SI.Unit)
