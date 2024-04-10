@@ -11,20 +11,30 @@ public static class UnknownUnitExtensions
         
         if (toCast == AccelerationUnit.SI.Unit)
             return (Acceleration?)toCast;
-        //if (toCast == AngleUnit.SI.Unit)
-        //    return (Angle?)toCast;
-        //if (toCast == ApparentPowerUnit.SI.Unit)
-        //    return (ApparentPower?)toCast;
+        if (toCast == RatioUnit.SI.Unit)
+            return (Ratio?)toCast;
+        if (toCast == AngleUnit.SI.Unit)
+            return (Angle?)toCast;
+        if (toCast == BitRateUnit.SI.Unit)
+            return (BitRate?)toCast;
+        if (toCast == InformationUnit.SI.Unit)
+            return (Information?)toCast;
+        if (toCast == PowerUnit.SI.Unit)
+            return (Power?)toCast;
+        if (toCast == ApparentPowerUnit.SI.Unit)
+            return (ApparentPower?)toCast;
+        if (toCast == ReactivePowerUnit.SI.Unit)
+            return (ReactivePower?)toCast;
         if (toCast == AreaUnit.SI.Unit)
             return (Area?)toCast;
+        if (toCast == VolumePerLengthUnit.SI.Unit)
+            return (VolumePerLength?)toCast;
         if (toCast == AreaCostUnit.SI.Unit)
             return (AreaCost?)toCast;
         if (toCast == AreaDensityUnit.SI.Unit)
             return (AreaDensity?)toCast;
         if (toCast == AreaMomentOfInertiaUnit.SI.Unit)
             return (AreaMomentOfInertia?)toCast;
-        if (toCast == BitRateUnit.SI.Unit)
-            return (BitRate?)toCast;
         if (toCast == BrakeSpecificFuelConsumptionUnit.SI.Unit)
             return (BrakeSpecificFuelConsumption?)toCast;
         if (toCast == CapacitanceUnit.SI.Unit)
@@ -61,36 +71,44 @@ public static class UnknownUnitExtensions
             return (ElectricSurfaceChargeDensity?)toCast;
         if (toCast == EnergyUnit.SI.Unit)
             return (Energy?)toCast;
+        if (toCast == TorqueUnit.SI.Unit)
+            return (Torque?)toCast;
+        if (toCast == ReactiveEnergyUnit.SI.Unit)
+            return (ReactiveEnergy?)toCast;
         if (toCast == EnergyCostUnit.SI.Unit)
             return (EnergyCost?)toCast;
+        if (toCast == SpecificEnergyUnit.SI.Unit)
+            return (SpecificEnergy?)toCast;
         if (toCast == EnthalpyUnit.SI.Unit)
             return (Enthalpy?)toCast;
         if (toCast == EntropyUnit.SI.Unit)
             return (Entropy?)toCast;
         if (toCast == ForceUnit.SI.Unit)
             return (Force?)toCast;
+        if (toCast == TorquePerLengthUnit.SI.Unit)
+            return (TorquePerLength?)toCast;
         if (toCast == ForceChangeRateUnit.SI.Unit)
             return (ForceChangeRate?)toCast;
-        if (toCast == ForceCostUnit.SI.Unit)
-            return (ForceCost?)toCast;
+        if (toCast == LinearPowerDensityUnit.SI.Unit)
+            return (LinearPowerDensity?)toCast;
+        if (toCast == IrradiationUnit.SI.Unit)
+            return (Irradiation?)toCast;
         if (toCast == ForcePerLengthUnit.SI.Unit)
             return (ForcePerLength?)toCast;
         if (toCast == FrequencyUnit.SI.Unit)
             return (Frequency?)toCast;
+        if (toCast == RotationalSpeedUnit.SI.Unit)
+            return (RotationalSpeed?)toCast;
         if (toCast == FuelEfficiencyUnit.SI.Unit)
             return (FuelEfficiency?)toCast;
         if (toCast == HeatFluxUnit.SI.Unit)
             return (HeatFlux?)toCast;
+        if (toCast == IrradianceUnit.SI.Unit)
+            return (Irradiance?)toCast;
         if (toCast == HeatTransferCoefficientUnit.SI.Unit)
             return (HeatTransferCoefficient?)toCast;
         if (toCast == IlluminanceUnit.SI.Unit)
             return (Illuminance?)toCast;
-        if (toCast == InformationUnit.SI.Unit)
-            return (Information?)toCast;
-        if (toCast == IrradianceUnit.SI.Unit)
-            return (Irradiance?)toCast;
-        if (toCast == IrradiationUnit.SI.Unit)
-            return (Irradiation?)toCast;
         if (toCast == JerkUnit.SI.Unit)
             return (Jerk?)toCast;
         if (toCast == KinematicViscosityUnit.SI.Unit)
@@ -101,8 +119,6 @@ public static class UnknownUnitExtensions
             return (LengthCost?)toCast;
         if (toCast == LinearDensityUnit.SI.Unit)
             return (LinearDensity?)toCast;
-        if (toCast == LinearPowerDensityUnit.SI.Unit)
-            return (LinearPowerDensity?)toCast;
         if (toCast == LuminousFluxUnit.SI.Unit)
             return (LuminousFlux?)toCast;
         if (toCast == MagneticFieldUnit.SI.Unit)
@@ -133,26 +149,14 @@ public static class UnknownUnitExtensions
             return (Permeability?)toCast;
         if (toCast == PermittivityUnit.SI.Unit)
             return (Permittivity?)toCast;
-        if (toCast == PowerUnit.SI.Unit)
-            return (Power?)toCast;
         if (toCast == PowerCostUnit.SI.Unit)
             return (PowerCost?)toCast;
         if (toCast == PowerDensityUnit.SI.Unit)
             return (PowerDensity?)toCast;
-        if (toCast == PressureUnit.SI.Unit)
-            return (Pressure?)toCast;
         if (toCast == PressureChangeRateUnit.SI.Unit)
             return (PressureChangeRate?)toCast;
-        if (toCast == RatioUnit.SI.Unit)
-            return (Ratio?)toCast;
-        if (toCast == ReactiveEnergyUnit.SI.Unit)
-            return (ReactiveEnergy?)toCast;
-        if (toCast == ReactivePowerUnit.SI.Unit)
-            return (ReactivePower?)toCast;
-        if (toCast == RotationalSpeedUnit.SI.Unit)
-            return (RotationalSpeed?)toCast;
-        if (toCast == SpecificEnergyUnit.SI.Unit)
-            return (SpecificEnergy?)toCast;
+        if (toCast == PressureUnit.SI.Unit)
+            return (Pressure?)toCast;
         if (toCast == SpecificEntropyUnit.SI.Unit)
             return (SpecificEntropy?)toCast;
         if (toCast == SpecificHeatCapacityUnit.SI.Unit)
@@ -171,18 +175,12 @@ public static class UnknownUnitExtensions
             return (ThermalConductivity?)toCast;
         if (toCast == ThermalResistanceUnit.SI.Unit)
             return (ThermalResistance?)toCast;
-        if (toCast == TorqueUnit.SI.Unit)
-            return (Torque?)toCast;
-        if (toCast == TorquePerLengthUnit.SI.Unit)
-            return (TorquePerLength?)toCast;
         if (toCast == VolumeUnit.SI.Unit)
             return (Volume?)toCast;
         if (toCast == VolumeCostUnit.SI.Unit)
             return (VolumeCost?)toCast;
         if (toCast == VolumeFlowUnit.SI.Unit)
             return (VolumeFlow?)toCast;
-        if (toCast == VolumePerLengthUnit.SI.Unit)
-            return (VolumePerLength?)toCast;
         if (toCast == VolumetricHeatTransferCoefficientUnit.SI.Unit)
             return (VolumetricHeatTransferCoefficient?)toCast;
         if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)

@@ -1,5 +1,11 @@
-﻿using CodeGen.Code;
+﻿
+using CodeGen.Code;
+using EngineeringUnits;
+using EngineeringUnits.Units;
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 #pragma warning disable IDE0060
 
@@ -12,6 +18,16 @@ internal class Program
 
     private static void Main(string[] args)
     {
+
+        //For finding units that are equal but with different names
+        //UnknownUnit test = new WarpingMomentOfInertia(1, WarpingMomentOfInertiaUnit.SI);
+        //var list = test.IntelligentCastTest().ToList();
+        //foreach (var item in list)
+        //{
+        //    Debug.WriteLine(item.GetType().Name);
+        //}
+
+
         var assemblyDir = Assembly.GetAssembly(typeof(Program))!.Location;
         var solutionDir = assemblyDir[..assemblyDir.IndexOf(GENERATOR_NAME)];
         var libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
@@ -26,7 +42,7 @@ internal class Program
         AbsExtensionsGenerator.Generate(libraryDir);
         UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
-        // _ = UnitListGenerator.ShowUnittypes();
-        // _ = UnitListGenerator.ShowUnitNames();
+        _ = UnitListGenerator.ShowUnittypes();
+        _ = UnitListGenerator.ShowUnitNames();
     }
 }
