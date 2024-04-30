@@ -19,6 +19,8 @@ public static class UnknownUnitExtensions
             return (BitRate?)toCast;
         if (toCast == InformationUnit.SI.Unit)
             return (Information?)toCast;
+        if (toCast == PipeSizeUnit.SI.Unit)
+            return (PipeSize?)toCast;
         if (toCast == PowerUnit.SI.Unit)
             return (Power?)toCast;
         if (toCast == ApparentPowerUnit.SI.Unit)

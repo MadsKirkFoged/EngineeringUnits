@@ -35,12 +35,12 @@ public class Program
     public static void Main()
     {
 
+        //Length.FromMillimeter(10.3)
 
 
+        PipeSize p1 = new PipeSize(25,PipeSizeUnit.DN);
 
-
-
-
+        p1.PipeSchedule = PipeScheduleEnum.Std;
 
 
 

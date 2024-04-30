@@ -19,6 +19,7 @@ public class ListOfUnitsForDifferentGenerators
         "Angle", //Same as Ratio
         "BitRate", //Same as Ratio
         "Information", //Same as Ratio
+        "PipeSize",
         // NOTE: missing: Dimensionless
         // NOTE: missing: Level
         // NOTE: missing: Scalar

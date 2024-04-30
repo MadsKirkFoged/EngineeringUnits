@@ -82,6 +82,21 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static PipeSize? Abs(this PipeSize? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static Power? Abs(this Power? a)
     {
         if (a is null)
