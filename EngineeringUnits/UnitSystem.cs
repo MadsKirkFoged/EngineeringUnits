@@ -201,7 +201,7 @@ public class UnitSystem
         //This can tell if two units is of the same type
         //ex meter and feet is both length and would return the same hashcode
 
-        if (HashCodeForUnitCompare == 0)
+        if (HashCodeForUnitCompare is 0)
         {
 
             //Exemple of output:

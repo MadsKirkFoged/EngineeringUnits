@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 
 namespace EngineeringUnits;
-public record DecimalSafe
+public record struct DecimalSafe
 {
 
     [JsonProperty]
@@ -15,7 +15,7 @@ public record DecimalSafe
     [JsonProperty]
     internal bool IsNaN { get; init; }
 
-    private DecimalSafe()
+    public DecimalSafe()
     {
     }
 

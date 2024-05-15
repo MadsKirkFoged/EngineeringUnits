@@ -12,30 +12,30 @@ public class Program
     public static readonly Length L1 = Length.FromSI(2);
     public static readonly Temperature T1 = Temperature.FromSI(4);
 
-    //private static async Task<MassFlow> TestFucntion()
-    //{
+    public record mytest
+    {
+        public double? OilPressure { private get; init; }
+        public Pressure OilPressureEntity => OilPressure.AddUnit<PressureUnit>(OilPressure_uom);
+        public string? OilPressure_uom { private get; init; }
 
-    //    var massFlow = new MassFlow(10, MassFlowUnit.KilogramPerSecond);
-    //    MassFlow massFlow1 = (massFlow * 0.1) + massFlow;
-
-    //    var test = massFlow1.As(massFlow);
-
-    //    var m1 = new Mass(1, MassUnit.Kilogram);
-    //    var d1 = new Duration(12, DurationUnit.Second);
-
-    //    MassFlow m3 = m1 / d1;
-
-    //    massFlow1 += m3;
-
-    //    await Task.Delay(0);
-
-    //    return massFlow1;
-    //}
+    }
 
     public static void Main()
     {
 
-        //Length.FromMillimeter(10.3)
+
+        var test = new mytest 
+        { 
+            OilPressure = 15, 
+            OilPressure_uom = "Bar" 
+        };
+
+
+        Pressure pressure = Pressure.FromBar(20);
+        var test2 = test with { OilPressure = 30 };
+
+        Debug.WriteLine(test.OilPressureEntity);
+        Debug.WriteLine(test2.OilPressureEntity);
 
 
         PipeSize p1 = new PipeSize(25,PipeSizeUnit.DN);

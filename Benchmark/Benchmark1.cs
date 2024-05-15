@@ -32,11 +32,26 @@ public class Benchy
     [Benchmark]
     public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
 
-    [Benchmark]
-    public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
+    //[Benchmark]
+    //public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
 
-    [Benchmark]
-    public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
+    //[Benchmark]
+    //public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
+
+
+    //[Benchmark]
+    //public static UnknownUnit AddUnits() =>  (h2 + h1);
+
+    //[Benchmark]
+    //public static UnknownUnit SubUnits() => (h2 - h1);
+
+    //[Benchmark]
+    //public static UnknownUnit MultiplyUnits() => (h2 * h1);
+
+
+    //[Benchmark]
+    //public static UnknownUnit DivideUnits() => (h2 / h1);
+
 
     //Create a static Power 
     //static readonly Power Power1 = new(1, PowerUnit.Watt);

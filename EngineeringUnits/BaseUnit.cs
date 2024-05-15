@@ -73,9 +73,14 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         if (left.IsNaN() || right.IsNaN())
             return new UnknownUnit(double.NaN, left.Unit);
+        
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+
 
         try
         {
+
             if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
             {
 
@@ -104,8 +109,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
             }
 
-            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-                return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+
 
             return new UnknownUnit(left.NEWValue + right.ConvertValueInto(left), left.Unit);
         }
@@ -184,9 +188,13 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         if (left.Unit != right.Unit)
             throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
+        
 
         if (left.IsNaN() || right.IsNaN())
             return new UnknownUnit(double.NaN, left.Unit);
+
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
         try
         {
@@ -218,8 +226,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
             }
 
-            if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-                return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+
 
             return new UnknownUnit(left.NEWValue - right.ConvertValueInto(left), left.Unit);
 
@@ -300,12 +307,18 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
+
         if (left.IsNaN() || right.IsNaN())
             return new UnknownUnit(double.NaN, left.Unit * right.Unit);
 
-        try
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())        
+            return new UnknownUnit(left!.NEWValue * right!.NEWValue, left.Unit * right.Unit);
+        
+
+            try
         {
-            if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+            
+                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
             {
                 //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
                 //Therefore we will convert these units to their base unit
@@ -406,9 +419,16 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         if (left.IsNaN() || right.IsNaN())
             return new UnknownUnit(double.NaN, left.Unit / right.Unit);
+        
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())        
+            return new UnknownUnit(left!.NEWValue / right!.NEWValue, left.Unit / right.Unit);
+
+
+        
 
         try
         {
+
 
             if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
             {
