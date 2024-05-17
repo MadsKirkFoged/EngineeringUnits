@@ -3,20 +3,21 @@ using Newtonsoft.Json;
 using System;
 
 namespace EngineeringUnits;
-public record struct DecimalSafe
+public readonly record struct DecimalSafe
 {
 
     [JsonProperty]
-    internal decimal Value { get; init; }
+    public decimal Value { get; init; }
 
     [JsonProperty]
-    internal bool IsInf { get; init; }
+    public bool IsInf { get; init; }
 
     [JsonProperty]
-    internal bool IsNaN { get; init; }
+    public bool IsNaN { get; init; }
 
     public DecimalSafe()
     {
+        
     }
 
     public DecimalSafe(decimal value)
@@ -48,10 +49,49 @@ public record struct DecimalSafe
         Value = value;
     }
 
-    //public static DecimalSafe operator /(DecimalSafe left, DecimalSafe right)
-    //{
-    //    return new DecimalSafe(left.Value / right.Value);
-    //}
+    public static DecimalSafe operator +(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsInf || right.IsInf)        
+            return new DecimalSafe() {IsInf = true};
+
+        if (left.IsNaN || right.IsNaN)
+            return new DecimalSafe() { IsNaN = true };
+
+        return new DecimalSafe(left.Value + right.Value);
+    }
+
+    public static DecimalSafe operator -(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsInf || right.IsInf)
+            return new DecimalSafe() { IsInf = true };
+
+        if (left.IsNaN || right.IsNaN)
+            return new DecimalSafe() { IsNaN = true };
+
+        return new DecimalSafe(left.Value - right.Value);
+    }
+
+    public static DecimalSafe operator *(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsInf || right.IsInf)
+            return new DecimalSafe() { IsInf = true };
+
+        if (left.IsNaN || right.IsNaN)
+            return new DecimalSafe() { IsNaN = true };
+
+        return new DecimalSafe(left.Value * right.Value);
+    }
+
+    public static DecimalSafe operator /(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsInf || right.IsInf)
+            return new DecimalSafe() { IsInf = true };
+
+        if (left.IsNaN || right.IsNaN)
+            return new DecimalSafe() { IsNaN = true };
+
+        return new DecimalSafe(left.Value / right.Value);
+    }
 
     public static implicit operator DecimalSafe(decimal value)
     {
@@ -70,6 +110,16 @@ public record struct DecimalSafe
 
     public static implicit operator decimal(DecimalSafe value)
     {
+        if (value.IsInf)
+        {
+            throw new InvalidOperationException("Cannot convert infinite value to decimal.");
+        }
+
+        if (value.IsNaN)
+        {
+            throw new InvalidOperationException("Cannot convert NaN value to decimal.");
+        }
+
         return value.Value;
     }
 

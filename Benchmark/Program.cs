@@ -17,7 +17,7 @@ internal class Program
     {
 
 
-        //for (int i = 0; i < 200000000; i++)
+        //for (int i = 0; i < 20000; i++)
         //{
         //    var test = ((m1 * (h2 - h1)) + P2) / P3;
         //}

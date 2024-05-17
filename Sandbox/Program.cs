@@ -23,6 +23,13 @@ public class Program
     public static void Main()
     {
 
+        var lengthNotNan = Length.FromMeter(2);
+        Length? lengthNan = Length.NaN;
+
+
+        Length lengthSumShouldBeNan = lengthNotNan + lengthNan;
+
+        string output = lengthSumShouldBeNan.ToString();
 
         var test = new mytest 
         { 

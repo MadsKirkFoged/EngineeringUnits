@@ -23,20 +23,57 @@ public class Benchy
     private static readonly Power P2 = Power.FromWatt(1567.1567896541);
     private static readonly Power P3 = Power.FromWatt(1000.3487624531);
 
+
+    private static readonly int Compare1 = 650846249;
+    private static readonly int? Compare2 = 650846249;
+    private static readonly bool Compare3 = true;
+
+
+
     //| Method             | Mean        | Error     | StdDev    | Gen0   | Allocated |
     //|------------------- |------------:|----------:|----------:|-------:|----------:|
-    //| CalculationUnits   | 241.1609 ns | 4.4254 ns | 6.7581 ns | 0.0668 |     288 B |
-    //| CalculationDecimal |  92.5406 ns | 1.5551 ns | 1.4547 ns |      - |         - |
-    //| CalculationDouble  |   0.5013 ns | 0.0389 ns | 0.0650 ns |      - |         - |
+    //| CalculationUnits   | 214.6921 ns | 1.3726 ns | 1.2839 ns | 0.0443 |     192 B |
+    //| CalculationDecimal |  88.9409 ns | 0.3370 ns | 0.3152 ns |      - |         - |
+    //| CalculationDouble  |   0.4440 ns | 0.0119 ns | 0.0112 ns |      - |         - |
 
-    [Benchmark]
-    public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
+    //[Benchmark]
+    //public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
 
     //[Benchmark]
     //public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
 
     //[Benchmark]
     //public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
+
+
+    [Benchmark]
+    public static int CompareInts1()
+    {
+        if (Compare1 == 0)
+        {
+            return 0;
+        }
+
+        return Compare1;
+
+
+    }
+
+    [Benchmark]
+    public static int CompareInts2()
+    {
+        if (Compare1 is 0)
+        {
+            return 0;
+        }
+
+        return Compare1;
+
+
+    }
+
+
+
 
 
     //[Benchmark]

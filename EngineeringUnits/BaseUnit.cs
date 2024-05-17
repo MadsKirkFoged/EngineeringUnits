@@ -13,7 +13,7 @@ namespace EngineeringUnits;
 public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>, IFormattable
 {
 
-    internal UnitSystem Unit { get; init; }
+    public UnitSystem Unit { get; init; }
     internal DecimalSafe NEWValue { get; init; }
 
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
@@ -23,6 +23,11 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     {
         Unit = new UnitSystem();
         NEWValue = 0;
+    }
+    public BaseUnit(DecimalSafe value, UnitSystem unitSystem)
+    {
+        Unit = unitSystem;
+        NEWValue = value;
     }
     public BaseUnit(decimal value, UnitSystem unitSystem)
     {
@@ -71,8 +76,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit != right.Unit)
             throw new WrongUnitException($"Trying to do [{left.Unit}] + [{right.Unit}]. Can't add two different units!");
 
-        if (left.IsNaN() || right.IsNaN())
-            return new UnknownUnit(double.NaN, left.Unit);
+        //if (left.IsNaN() || right.IsNaN())
+        //    return new UnknownUnit(double.NaN, left.Unit);
         
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
@@ -190,9 +195,6 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
             throw new WrongUnitException($"Trying to do [{left.Unit}] - [{right.Unit}]. Can't subtract two different units!");
         
 
-        if (left.IsNaN() || right.IsNaN())
-            return new UnknownUnit(double.NaN, left.Unit);
-
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
 
@@ -308,8 +310,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
             return null;
 
 
-        if (left.IsNaN() || right.IsNaN())
-            return new UnknownUnit(double.NaN, left.Unit * right.Unit);
+        //if (left.IsNaN() || right.IsNaN())
+        //    return new UnknownUnit(double.NaN, left.Unit * right.Unit);
 
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())        
             return new UnknownUnit(left!.NEWValue * right!.NEWValue, left.Unit * right.Unit);
@@ -417,8 +419,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
-        if (left.IsNaN() || right.IsNaN())
-            return new UnknownUnit(double.NaN, left.Unit / right.Unit);
+        //if (left.IsNaN() || right.IsNaN())
+        //    return new UnknownUnit(double.NaN, left.Unit / right.Unit);
         
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())        
             return new UnknownUnit(left!.NEWValue / right!.NEWValue, left.Unit / right.Unit);

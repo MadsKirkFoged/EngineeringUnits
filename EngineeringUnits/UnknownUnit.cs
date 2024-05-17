@@ -16,6 +16,7 @@ public class UnknownUnit : BaseUnit
     public UnknownUnit(double valueLocalUnit) : base(valueLocalUnit) { }
     public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
     public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
+    public UnknownUnit(DecimalSafe valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
     public UnknownUnit(BaseUnit baseunit) : base(baseunit) { }
 
     public override string ToString()
