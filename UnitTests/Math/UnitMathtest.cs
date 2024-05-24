@@ -372,6 +372,43 @@ public class UnitMathTest
         Assert.AreEqual(Frequency.FromHertz(2.5), (Frequency)average4);
         Assert.AreEqual(Frequency.FromHertz(3), (Frequency)average5);
     }
+
+    [TestMethod]
+    public void Average_Temperature()
+    {
+        // Testing DegreeCelsius
+        UnknownUnit? averageDegC2 = (Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(2)).Average();
+        UnknownUnit? averageDegC3 = (Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(3)).Average();
+        UnknownUnit? averageDegC4 = (Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(3), Temperature.FromDegreeCelsius(4)).Average();
+        UnknownUnit? averageDegC5 = (Temperature.FromDegreeCelsius(1), Temperature.FromDegreeCelsius(2), Temperature.FromDegreeCelsius(3), Temperature.FromDegreeCelsius(4), Temperature.FromDegreeCelsius(5)).Average();
+
+        Assert.IsNotNull(averageDegC2);
+        Assert.IsNotNull(averageDegC3);
+        Assert.IsNotNull(averageDegC4);
+        Assert.IsNotNull(averageDegC5);
+
+        Assert.AreEqual(Temperature.FromDegreeCelsius(1.5), (Temperature)averageDegC2);
+        Assert.AreEqual(Temperature.FromDegreeCelsius(2.0), (Temperature)averageDegC3);
+        Assert.AreEqual(Temperature.FromDegreeCelsius(2.5), (Temperature)averageDegC4);
+        Assert.AreEqual(Temperature.FromDegreeCelsius(3.0), (Temperature)averageDegC5);
+
+        // Testing Kelvin
+        UnknownUnit? averageK2 = (Temperature.FromKelvin(1), Temperature.FromKelvin(2)).Average();
+        UnknownUnit? averageK3 = (Temperature.FromKelvin(1), Temperature.FromKelvin(2), Temperature.FromKelvin(3)).Average();
+        UnknownUnit? averageK4 = (Temperature.FromKelvin(1), Temperature.FromKelvin(2), Temperature.FromKelvin(3), Temperature.FromKelvin(4)).Average();
+        UnknownUnit? averageK5 = (Temperature.FromKelvin(1), Temperature.FromKelvin(2), Temperature.FromKelvin(3), Temperature.FromKelvin(4), Temperature.FromKelvin(5)).Average();
+
+        Assert.IsNotNull(averageK2);
+        Assert.IsNotNull(averageK3);
+        Assert.IsNotNull(averageK4);
+        Assert.IsNotNull(averageK5);
+
+        Assert.AreEqual(Temperature.FromKelvin(1.5), (Temperature)averageK2);
+        Assert.AreEqual(Temperature.FromKelvin(2.0), (Temperature)averageK3);
+        Assert.AreEqual(Temperature.FromKelvin(2.5), (Temperature)averageK4);
+        Assert.AreEqual(Temperature.FromKelvin(3.0), (Temperature)averageK5);
+    }
+
     [TestMethod]
     public void Mean()
     {
