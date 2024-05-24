@@ -33,6 +33,29 @@ public static class UnitMath
     public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
     public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
 
+    // Average override for Temperature - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    public static Temperature? Average(this IEnumerable<Temperature?> list)
+    {
+        if (list.Any() is false)
+            return null;
+
+        if (list.Any(x => x is null))
+            return null;
+
+        return Temperature.FromDegreeCelsius(
+            list.Select(v => v!.DegreeCelsius).Average()
+            );
+    }
+    public static Temperature? Average(params Temperature?[] x) => x.Average();
+    public static Temperature? Average(this (Temperature?, Temperature?) list) => list.ToList().Average();
+    public static Temperature? Average(this (Temperature?, Temperature?, Temperature?) list) => list.ToList().Average();
+    public static Temperature? Average(this (Temperature?, Temperature?, Temperature?, Temperature?) list) => list.ToList().Average();
+    public static Temperature? Average(this (Temperature?, Temperature?, Temperature?, Temperature?, Temperature?) list) => list.ToList().Average();
+    public static Temperature? Average(this (Temperature?, Temperature?, Temperature?, Temperature?, Temperature?, Temperature?) list) => list.ToList().Average();
+
+    // TODO: do we need the same for Sum() and others..?
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
     /// <summary>
     /// Calculates the average value of a collection of <see cref="BaseUnit"/> objects.
     /// </summary>
