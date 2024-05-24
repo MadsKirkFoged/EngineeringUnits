@@ -112,6 +112,111 @@ public class UnitMathTest
         Assert.AreEqual(Min, Min3);
 
     }
+    
+
+    [TestMethod]
+    public void Sum_Temperature() // TODO: this is testing [Sum()], Average(), Min() and Max()... should probably rename the test
+    {
+        // NOTE: Sum() only makes sense when using Kelvin
+        //       Average(), Min() and Max(), also make sense for "relative" DegreesCelsius etc
+
+        var list1 = new List<Temperature>
+        {
+            Temperature.FromKelvin(2),
+            Temperature.FromKelvin(1),
+            Temperature.FromKelvin(3),
+            Temperature.FromKelvin(4),
+            Temperature.FromKelvin(5),
+            Temperature.FromKelvin(6),
+            Temperature.FromKelvin(7),
+            Temperature.FromKelvin(8),
+            Temperature.FromKelvin(10),
+            Temperature.FromKelvin(9),
+        };
+
+        Temperature? Average = UnitMath.Average(list1);
+        Temperature? Sum = UnitMath.Sum(list1);
+        Temperature? Max = UnitMath.Max(list1);
+        Temperature? Min = UnitMath.Min(list1);
+
+        Temperature? Average2 = UnitMath.Average(
+            Temperature.FromKelvin(1),
+            Temperature.FromKelvin(2),
+            Temperature.FromKelvin(3),
+            Temperature.FromKelvin(4),
+            Temperature.FromKelvin(5),
+            Temperature.FromKelvin(6),
+            Temperature.FromKelvin(7),
+            Temperature.FromKelvin(8),
+            Temperature.FromKelvin(9),
+            Temperature.FromKelvin(10)
+            );
+
+        Temperature? Sum2 = UnitMath.Sum( // NOTE: Sum() only makes sense when using Kelvin
+            Temperature.FromKelvin(1),
+            Temperature.FromKelvin(2),
+            Temperature.FromKelvin(3),
+            Temperature.FromKelvin(4),
+            Temperature.FromKelvin(5),
+            Temperature.FromKelvin(6),
+            Temperature.FromKelvin(7),
+            Temperature.FromKelvin(8),
+            Temperature.FromKelvin(9),
+            Temperature.FromKelvin(10)
+            );
+
+        Temperature? Max2 = UnitMath.Max(
+            Temperature.FromKelvin(1),
+            Temperature.FromKelvin(2),
+            Temperature.FromKelvin(3),
+            Temperature.FromKelvin(4),
+            Temperature.FromKelvin(5),
+            Temperature.FromKelvin(6),
+            Temperature.FromKelvin(7),
+            Temperature.FromKelvin(8),
+            Temperature.FromKelvin(9),
+            Temperature.FromKelvin(10)
+            );
+
+        Temperature? Min2 = UnitMath.Min(
+                Temperature.FromKelvin(1),
+                Temperature.FromKelvin(2),
+                Temperature.FromKelvin(3),
+                Temperature.FromKelvin(4),
+                Temperature.FromKelvin(5),
+                Temperature.FromKelvin(6),
+                Temperature.FromKelvin(7),
+                Temperature.FromKelvin(8),
+                Temperature.FromKelvin(9),
+                Temperature.FromKelvin(10)
+                );
+
+        Temperature? Average3 = list1.Average();
+        Temperature? Sum3 = list1.Sum();
+        Temperature? Max3 = list1.Max();
+        Temperature? Min3 = list1.Min();
+
+        Assert.IsNotNull(Average);
+        Assert.IsNotNull(Sum);
+        Assert.IsNotNull(Max);
+        Assert.IsNotNull(Min);
+
+        Assert.AreEqual(Average.Kelvin, 5.5, 0);
+        Assert.AreEqual(Sum.Kelvin, 55, 0); // NOTE: Sum() only makes sense when using Kelvin
+        Assert.AreEqual(Max.Kelvin, 10, 0);
+        Assert.AreEqual(Min.Kelvin, 1, 0);
+
+        Assert.AreEqual(Average, Average2);
+        Assert.AreEqual(Sum, Sum2);
+        Assert.AreEqual(Max, Max2);
+        Assert.AreEqual(Min, Min2);
+
+        Assert.AreEqual(Average, Average3);
+        Assert.AreEqual(Sum, Sum3);
+        Assert.AreEqual(Max, Max3);
+        Assert.AreEqual(Min, Min3);
+
+    }
 
     //Create test
 
