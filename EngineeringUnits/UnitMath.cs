@@ -33,7 +33,7 @@ public static class UnitMath
     public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
     public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
 
-    // Average override for Temperature - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // Average overrides for Temperature - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     public static Temperature? Average(this IEnumerable<Temperature?> list)
     {
         if (list.Any() is false)
