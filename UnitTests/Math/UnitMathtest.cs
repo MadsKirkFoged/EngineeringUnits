@@ -12,7 +12,7 @@ public class UnitMathTest
 {
 
     [TestMethod]
-    public void Sum()
+    public void Sum() // TODO: this is testing Sum(), Average(), Min() and Max()... should probably rename the test
     {
 
         var list1 = new List<MassFlow>
