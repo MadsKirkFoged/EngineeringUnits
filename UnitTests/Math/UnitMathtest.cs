@@ -252,7 +252,7 @@ public class UnitMathTest
             Length.FromKilometer(1)/Duration.FromHour(1),
             Length.FromKilometer(1)/Duration.FromHour(3),
             Length.FromKilometer(1)/Duration.FromHour(5),
-             Length.FromKilometer(1)/Duration.FromHour(4)
+            Length.FromKilometer(1)/Duration.FromHour(4)
 
         };
 
@@ -262,7 +262,7 @@ public class UnitMathTest
         UnknownUnit? Min = UnitMath.Min(list1);
 
         UnknownUnit? Average2 = UnitMath.Average(
-       Length.FromKilometer(1) / Duration.FromHour(1),
+        Length.FromKilometer(1) / Duration.FromHour(1),
         Length.FromKilometer(1) / Duration.FromHour(2),
         Length.FromKilometer(1) / Duration.FromHour(3),
         Length.FromKilometer(1) / Duration.FromHour(4),
@@ -270,7 +270,7 @@ public class UnitMathTest
         );
 
         UnknownUnit? Sum2 = UnitMath.Sum(
-           Length.FromKilometer(1) / Duration.FromHour(1),
+            Length.FromKilometer(1) / Duration.FromHour(1),
             Length.FromKilometer(1) / Duration.FromHour(2),
             Length.FromKilometer(1) / Duration.FromHour(3),
             Length.FromKilometer(1) / Duration.FromHour(4),
