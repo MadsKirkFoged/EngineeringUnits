@@ -18,7 +18,7 @@ public partial record CostUnit : UnitTypebase
     {
         var unit = new RawUnit()
         {
-            Symbol=Symbol,
+            Symbol = Symbol,
             A = (Fraction)Rate,
             UnitType = BaseunitType.Cost,
             B = 0,
