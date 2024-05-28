@@ -8,7 +8,7 @@ public partial record CostUnit : UnitTypebase
 {
     public static readonly CostUnit SI = new CostUnit("USD", "$", GetRate(Currency.USDollar));
     public static readonly CostUnit USDollar = new CostUnit("USD", "$", GetRate(Currency.USDollar));
-    public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", GetRate(Currency.USDollar)/1000000m);
+    public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", GetRate(Currency.USDollar) * 1000000m);
 
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
