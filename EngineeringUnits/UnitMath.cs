@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngineeringUnits.Units;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -21,6 +22,13 @@ public static class UnitMath
 
         if (list.Any(x => x is null))
             return null;
+
+        // Fix for temperature, albeit not very elegant
+        if (list.All(u => u is Temperature))
+        {
+            return list.Aggregate(new UnknownUnit(0m, list.First()!.ToUnit(TemperatureUnit.SI)),
+                                (x, y) => (x + y)!);
+        }
 
         return list.Aggregate(new UnknownUnit(0m, list.First()!),
                             (x, y) => (x + y)!);
