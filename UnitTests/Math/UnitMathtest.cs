@@ -117,7 +117,38 @@ public class UnitMathTest
     [TestMethod]
     public void Sum_Temperature() // TODO: this is testing [Sum()], Average(), Min() and Max()... should probably rename the test
     {
-        // NOTE: Sum() only makes sense when using Kelvin
+        // TEMP -----------------------------------------------------------------------------
+            // This tests the method used by the Aggregate function in UnitMath.Sum()
+            // (1) From Kelvin
+            var T1a = Temperature.FromKelvin(10);
+            var T1b = Temperature.FromKelvin(20);
+
+            // The Aggregate() method in Sum() does this:
+            var T1_UU = new UnknownUnit(0m, T1a) + T1a + T1b;
+
+            // This is correct if temperatures constructed from Kelvin
+            Assert.AreEqual(Temperature.FromKelvin(T1a.Kelvin + T1b.Kelvin), (Temperature)T1_UU);
+
+
+            // (2) From Degrees C
+            var T2a = Temperature.FromDegreeCelsius(10);
+            var T2b = Temperature.FromDegreeCelsius(20);
+
+            // The Aggregate() method in Sum() currently does this (causes error)
+            var T2_UU = new UnknownUnit(0m, T2a) + T2a + T2b;
+            // Assert.AreEqual(Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin), (Temperature)T2_UU);
+
+            // For Temperature from DegreeCelsius, it should do this:
+            var T2_UU_fixedCelsius = new UnknownUnit(-273.15m, T2a) + T2a + T2b;
+            Assert.AreEqual(Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin), (Temperature)T2_UU_fixedCelsius);
+
+            // More generally, for all temperatues:
+            var T2_UU_fixedTemp1 = new UnknownUnit(Temperature.Zero) + T2a + T2b;
+            var T2_UU_fixedTemp2 = new UnknownUnit(0m, T2a.ToUnit(TemperatureUnit.SI)) + T2a + T2b;
+            Assert.AreEqual(Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin), (Temperature)T2_UU_fixedTemp1);
+            Assert.AreEqual(Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin), (Temperature)T2_UU_fixedTemp2);
+
+        // TEMP -----------------------------------------------------------------------------
         //       Average(), Min() and Max(), also make sense for "relative" DegreesCelsius etc
 
         var list1 = new List<Temperature>
