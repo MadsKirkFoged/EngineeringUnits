@@ -44,8 +44,10 @@ public class ListOfUnitsForDifferentGenerators
         "Capacitance",
 
         "CoefficientOfThermalExpansion",
-        
+
         "Density",
+
+        "DurationCost",
         
         "DynamicViscosity",
         
