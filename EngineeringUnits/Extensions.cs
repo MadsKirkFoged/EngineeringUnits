@@ -171,14 +171,6 @@ public static class Extensions
         return ((double)value).AddUnit<T>(UnitOfMeasure);
     }
 
-    // Overrides for temperature - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-    public static List<Temperature?> ToList(this (Temperature?, Temperature?) tuple) => [tuple.Item1, tuple.Item2];
-    public static List<Temperature?> ToList(this (Temperature?, Temperature?, Temperature?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
-    public static List<Temperature?> ToList(this (Temperature?, Temperature?, Temperature?, Temperature?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
-    public static List<Temperature?> ToList(this (Temperature?, Temperature?, Temperature?, Temperature?, Temperature?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5];
-    public static List<Temperature?> ToList(this (Temperature?, Temperature?, Temperature?, Temperature?, Temperature?, Temperature?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4, tuple.Item5, tuple.Item6];
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2];
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
