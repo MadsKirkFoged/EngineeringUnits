@@ -98,6 +98,9 @@ public class UnitSystem
             return local;
 
         var test2 = new UnitSystem(new List<RawUnit>(left.ListOfUnits.Concat(right.ListOfUnits)));
+
+        //test2 = test2.ReduceUnitsHard();
+
         _ = CacheMultiply.TryAdd(Hashes, test2);
 
         return test2;

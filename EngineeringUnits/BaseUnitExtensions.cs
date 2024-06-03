@@ -1,4 +1,5 @@
 ﻿using Fractions;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -385,4 +386,24 @@ public static class BaseUnitExtensions
     /// <param name="unit">The Unit to check.</param>
     /// <returns>False if the BaseUnit has a value; True if null, inf or NaN.</returns>
     public static bool HasNoValue([NotNullWhen(false)] this BaseUnit? unit) => !unit.HasValue();
+
+
+    [return: NotNullIfNotNull(nameof(unit))]
+    public static UnknownUnit? ConvertToSI(this BaseUnit? unit)
+    {
+        if (unit is null)
+            return null;
+
+        if (unit.Unit.IsSIUnit())
+            return unit.ToUnknownUnit();
+
+
+        var unitsystem = unit.Unit.GetSIUnitsystem();
+        var value = unit.GetBaseValue();
+
+
+        return new(value, unitsystem);
+    }
+
+
 }

@@ -29,6 +29,72 @@ public class Benchy
     private static readonly bool Compare3 = true;
 
 
+    [Benchmark]
+    public static double serial()
+    { 
+    
+        var test1 = Math.Exp(5.345d);
+
+        var test2 = Math.Exp(0.346534d);
+
+        var test3 = Math.Log(0.346534d);
+
+        var test4 = Math.Pow(0.346534, 2);
+
+        var test5 = test1 + test2 + test3 * test4;
+
+        return test5;
+
+    }
+
+    [Benchmark]
+    public static async Task<double> SerialAsync()
+    {
+        var test1Task = Task.Run(() => Math.Exp(5.345d));
+        var test2Task = Task.Run(() => Math.Exp(0.346534d));
+        var test3Task = Task.Run(() => Math.Log(0.346534d));
+        var test4Task = Task.Run(() => Math.Pow(0.346534, 2));
+
+        await Task.WhenAll(test1Task, test2Task, test3Task, test4Task);
+
+        var test5 = test1Task.Result + test2Task.Result + test3Task.Result * test4Task.Result;
+
+        return test5;
+    }
+
+    //[Benchmark]
+    //public static double Exp3() => Math.Exp(5.345d);
+
+    //[Benchmark]
+    //public static double Exp4() => Math.Exp(0.345d);
+
+    //[Benchmark]
+    //public static double Exp5() => Math.Exp(0.003d);
+
+    //[Benchmark]
+    //public static double Pow1() => Math.Pow(5.345d,2);
+
+    //[Benchmark]
+    //public static double Pow2() => 5.345d * 5.345d;
+
+    //[Benchmark]
+    //public static double Pow2() => Math.Pow(0.345d,2);
+
+    //[Benchmark]
+    //public static double Pow3() => Math.Pow(0.003d,1.4352);
+
+
+    //[Benchmark]
+    //public static float PowF3() => MathF.Pow(5.345f, 2);
+
+    //[Benchmark]
+    //public static float PowF4() => MathF.Pow(0.345f, 2);
+
+    //[Benchmark]
+    //public static float PowF5() => MathF.Pow(0.003f, 1.4352f);
+
+
+
 
     //| Method             | Mean        | Error     | StdDev    | Gen0   | Allocated |
     //|------------------- |------------:|----------:|----------:|-------:|----------:|
@@ -46,31 +112,31 @@ public class Benchy
     //public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
 
 
-    [Benchmark]
-    public static int CompareInts1()
-    {
-        if (Compare1 == 0)
-        {
-            return 0;
-        }
+    //[Benchmark]
+    //public static int CompareInts1()
+    //{
+    //    if (Compare1 == 0)
+    //    {
+    //        return 0;
+    //    }
 
-        return Compare1;
-
-
-    }
-
-    [Benchmark]
-    public static int CompareInts2()
-    {
-        if (Compare1 is 0)
-        {
-            return 0;
-        }
-
-        return Compare1;
+    //    return Compare1;
 
 
-    }
+    //}
+
+    //[Benchmark]
+    //public static int CompareInts2()
+    //{
+    //    if (Compare1 is 0)
+    //    {
+    //        return 0;
+    //    }
+
+    //    return Compare1;
+
+
+    //}
 
 
 

@@ -1,5 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
+using System;
 using System.Diagnostics;
 
 //using UnitsNet;
@@ -22,6 +23,37 @@ public class Program
 
     public static void Main()
     {
+
+        SpecificEnergy? Enthalpy = SpecificEnergy.FromBtuPerPound(250);
+
+        MassFlow? massFlow = (MassFlow.FromKilogramPerSecond(10) / MassFlow.FromPoundPerSecond(1)) * MassFlow.FromKilogramPerSecond(10);
+
+
+        massFlow = massFlow.ConvertToSI();
+
+
+        Power? power = massFlow * SpecificEnergy.FromKilojoulePerKilogram(250);
+
+                    
+        massFlow = power / Enthalpy;
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        double exp1 = Math.Exp(5.345d);
+        double exp2 = MathF.Exp(5.345f);
 
         var lengthNotNan = Length.FromMeter(2);
         Length? lengthNan = Length.NaN;
