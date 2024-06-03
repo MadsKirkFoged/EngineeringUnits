@@ -277,6 +277,21 @@ public static class AbsExtensions
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
+    public static DurationCost? Abs(this DurationCost? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
     public static DynamicViscosity? Abs(this DynamicViscosity? a)
     {
         if (a is null)

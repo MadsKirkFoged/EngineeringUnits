@@ -17,6 +17,18 @@ public class CostCombined
         Assert.AreEqual("10 $/m²", test.ToString());
     }
 
+    [TestMethod()]
+    public void DurationCost()
+    {
+        //Arrange
+        var test1 = new DurationCost(10, DurationCostUnit.SI);
+        var test2 = EngineeringUnits.DurationCost.FromMillionUSDollarPerYear365(10);
+
+        // Assert
+        Assert.AreEqual("10 $/s",   test1.ToString());
+        Assert.AreEqual("10 M$/yr", test2.ToString());
+    }
+
     //create test for EnergyCost
     [TestMethod()]
     public void EnergyCost()

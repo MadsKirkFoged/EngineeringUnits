@@ -45,6 +45,8 @@ public static class UnknownUnitExtensions
             return (CoefficientOfThermalExpansion?)toCast;
         if (toCast == DensityUnit.SI.Unit)
             return (Density?)toCast;
+        if (toCast == DurationCostUnit.SI.Unit)
+            return (DurationCost?)toCast;
         if (toCast == DynamicViscosityUnit.SI.Unit)
             return (DynamicViscosity?)toCast;
         if (toCast == ElectricChargeUnit.SI.Unit)
