@@ -28,6 +28,17 @@ public class CostTests
     }
 
     [TestMethod()]
+    public void CostMillionDollar()
+    {
+        //Arrange
+        var test1 = new Cost(1, CostUnit.MillionUSDollar);
+        var test2 = new Cost(1e6, CostUnit.USDollar);
+
+        // Assert
+        Assert.AreEqual(test1.USDollar, test2.USDollar);
+    }
+
+    [TestMethod()]
     public void CostEuro()
     {
         //Arrange
