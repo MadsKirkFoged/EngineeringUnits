@@ -140,7 +140,7 @@ public class Program
 
         //var GToNon = G.ToUnit(PressureUnit.Bar);
 
-        _ = 10.1.AddUnit<PressureUnit>("test");
+        // _ = 10.1.AddUnit<PressureUnit>("test");
 
         //var test22 = AreaCostUnit.DollarPerSquareMillimeter;
 
@@ -719,6 +719,54 @@ public class Program
 
         //    Console.WriteLine(elapsedMs.ToString());
         //    _=Console.ReadLine();
+
+
+
+
+        // This tests the method used by the Aggregate function in UnitMath.Sum()
+        // (1) From Kelvin
+        var T1a = Temperature.FromKelvin(10);
+        var T1b = Temperature.FromKelvin(20);
+
+        // The Aggregate() method in Sum() does this:
+        var T1_UU = new UnknownUnit(0m, T1a) + T1a + T1b;
+
+        // This is correct if temperatures constructed from Kelvin
+        if (Temperature.FromKelvin(T1a.Kelvin + T1b.Kelvin) != (Temperature)T1_UU)
+        {
+            throw new Exception($"{Temperature.FromKelvin(T1a.Kelvin + T1b.Kelvin)} is not equal to {(Temperature)T1_UU}");
+        }
+
+        // (2) From Degrees C
+        var T2a = Temperature.FromDegreeCelsius(10);
+        var T2b = Temperature.FromDegreeCelsius(20);
+
+        // The Aggregate() method in Sum() currently does this
+        var T2_UU = new UnknownUnit(0m, T2a) + T2a + T2b;
+        if (Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin) != (Temperature)T2_UU)
+        {
+            // This causes the original issue
+            // throw new Exception($"{Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin)} is not equal to {(Temperature)T2_UU}");
+        }
+
+        // For Temperature from DegreeCelsius, it should do this:
+        var T2_UU_fixedCelsius = new UnknownUnit(-273.15m, T2a) + T2a + T2b;
+        if (Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin) != (Temperature)T2_UU_fixedCelsius)
+        {
+            throw new Exception($"{Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin)} is not equal to {(Temperature)T2_UU_fixedCelsius}");
+        }
+
+        // More generally, for all temperatues:
+        var T2_UU_fixedTemp1 = new UnknownUnit(Temperature.Zero) + T2a + T2b;
+        var T2_UU_fixedTemp2 = new UnknownUnit(0m, T2a.ToUnit(TemperatureUnit.SI)) + T2a + T2b;
+        if (Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin) != (Temperature)T2_UU_fixedTemp1)
+        {
+            throw new Exception($"{Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin)} is not equal to {(Temperature)T2_UU_fixedTemp1}");
+        }
+        if (Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin) != (Temperature)T2_UU_fixedTemp2)
+        {
+            throw new Exception($"{Temperature.FromKelvin(T2a.Kelvin + T2b.Kelvin)} is not equal to {(Temperature)T2_UU_fixedTemp2}");
+        }
 
     }
 
