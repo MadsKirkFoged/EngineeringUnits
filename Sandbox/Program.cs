@@ -24,12 +24,12 @@ public class Program
     public static void Main()
     {
 
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(1) / MassFlow.Zero;
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(1) / Ratio.Zero;
         MassFlow Zero = MassFlow.Zero;
 
 
-        MassFlow massFlow3 = MassFlow.FromKilogramPerSecond(1) + Inf;
-        MassFlow massFlow4 = MassFlow.FromKilogramPerSecond(1) - Inf;
+        var massFlow3 = (Inf - Zero).Abs() < MassFlow.FromKilogramPerSecond(1);
+
 
 
 

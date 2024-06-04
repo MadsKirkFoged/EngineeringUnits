@@ -105,4 +105,18 @@ public class MathWithInf
         Assert.AreEqual(ShouldBeTrue2, true);
         Assert.AreEqual(ShouldBeTrue3, true);
     }
+
+    [TestMethod()]
+    public void AbsWithInf()
+    {
+        //Arrange
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
+
+        // Act
+        var result = Inf.Abs();
+
+
+        // Assert
+        Assert.AreEqual(result, Inf);
+    }
 }

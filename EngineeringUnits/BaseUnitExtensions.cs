@@ -53,7 +53,7 @@ public static class BaseUnitExtensions
 
     public static string DisplaySymbol(this BaseUnit From) => From.Unit.ReduceUnits().ToString();
 
-    internal static decimal GetBaseValue(this BaseUnit From)
+    internal static DecimalSafe GetBaseValue(this BaseUnit From)
     {
         if (From.Unit.IsSIUnit())
             return From.NEWValue;
