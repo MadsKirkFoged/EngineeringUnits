@@ -90,8 +90,94 @@ public readonly record struct DecimalSafe
         if (left.IsNaN || right.IsNaN)
             return new DecimalSafe() { IsNaN = true };
 
-        return new DecimalSafe(left.Value / right.Value);
+        try
+        {
+            return new DecimalSafe(left.Value / right.Value);
+
+        }
+        catch (Exception ex) when (ex is DivideByZeroException or OverflowException)
+        {
+            return new DecimalSafe() { IsInf = true };
+        }
+
+
+        }
+
+    public static bool operator <=(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsNaN || right.IsNaN)
+            return false;
+
+        if (left.IsInf && right.IsInf)
+            return true;
+
+        if (left.HasValue() && right.IsInf)
+            return true;
+
+        if (left.IsInf && right.HasValue())
+            return false;
+
+
+
+        return left.Value <= right.Value;
     }
+
+    public static bool operator <(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsNaN || right.IsNaN)
+            return false;
+
+        if (left.IsInf && right.IsInf)
+            return false;
+
+        if (left.HasValue() && right.IsInf)
+            return true;
+
+        if (left.IsInf && right.HasValue())
+            return false;
+
+
+        return left.Value < right.Value;
+    }
+
+
+    public static bool operator >=(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsNaN || right.IsNaN)
+            return false;
+
+        if (left.IsInf && right.IsInf)
+            return true;
+
+        if (left.HasValue() && right.IsInf)
+            return false;
+
+        if (left.IsInf && right.HasValue())
+            return true;
+
+
+
+        return left.Value >= right.Value;
+    }
+
+    public static bool operator >(DecimalSafe left, DecimalSafe right)
+    {
+        if (left.IsNaN || right.IsNaN)
+            return false;
+
+        if (left.IsInf && right.IsInf)
+            return false;
+
+        if (left.HasValue() && right.IsInf)
+            return false;
+
+        if (left.IsInf && right.HasValue())
+            return true;
+
+
+        return left.Value > right.Value;
+    }
+
 
     public static implicit operator DecimalSafe(decimal value)
     {

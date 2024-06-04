@@ -604,8 +604,12 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return false;
 
+
         if (left.Unit != right.Unit)
             throw new WrongUnitException($"Trying to do [{left.Unit}] > [{right.Unit}]. Can't compare two different units!");
+
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return left.NEWValue > right.NEWValue;
 
         return left.NEWValue > right.GetValueAs(left.Unit);
     }

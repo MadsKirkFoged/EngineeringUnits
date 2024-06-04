@@ -24,30 +24,12 @@ public class Program
     public static void Main()
     {
 
-        SpecificEnergy? Enthalpy = SpecificEnergy.FromBtuPerPound(250);
-
-        MassFlow? massFlow = (MassFlow.FromKilogramPerSecond(10) / MassFlow.FromPoundPerSecond(1)) * MassFlow.FromKilogramPerSecond(10);
-
-
-        massFlow = massFlow.ConvertToSI();
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(1) / MassFlow.Zero;
+        MassFlow Zero = MassFlow.Zero;
 
 
-        Power? power = massFlow * SpecificEnergy.FromKilojoulePerKilogram(250);
-
-                    
-        massFlow = power / Enthalpy;
-
-        
-
-
-
-
-
-
-
-
-
-
+        MassFlow massFlow3 = MassFlow.FromKilogramPerSecond(1) + Inf;
+        MassFlow massFlow4 = MassFlow.FromKilogramPerSecond(1) - Inf;
 
 
 
