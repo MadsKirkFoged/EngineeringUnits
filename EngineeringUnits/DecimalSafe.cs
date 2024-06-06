@@ -49,6 +49,18 @@ public readonly record struct DecimalSafe
         Value = value;
     }
 
+    public DecimalSafe(Fraction value)
+    {
+        try
+        {
+            Value = (decimal)value;
+        }
+        catch (OverflowException)
+        {
+            IsInf = true;
+        }
+    }
+
     public static DecimalSafe operator +(DecimalSafe left, DecimalSafe right)
     {
         if (left.IsInf || right.IsInf)        
@@ -193,6 +205,12 @@ public readonly record struct DecimalSafe
     {
         return new DecimalSafe(value);
     }
+
+    public static implicit operator DecimalSafe(Fraction value)
+    {
+        return new DecimalSafe(value);
+    }
+
 
     public static implicit operator decimal(DecimalSafe value)
     {

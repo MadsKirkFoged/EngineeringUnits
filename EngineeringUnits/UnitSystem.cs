@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fractions;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -147,6 +148,43 @@ public class UnitSystem
             LocalUnitList.Add(item.CloneAndReverseCount());
 
         var DividedUnit = new UnitSystem(LocalUnitList);
+
+        ////Normalize the unit
+        //var NewUnit = DividedUnit.ReduceUnitsHard();
+
+        ////What is the diff between DividedUnit and NewUnit?
+        //var factor = NewUnit.ConvertionFactor(DividedUnit);
+
+        //if (factor != Fraction.One)
+        //{
+
+        //    RawUnit? combinedUnit = LocalUnitList.Where(x => x.UnitType is BaseunitType.CombinedUnit)
+        //                                         .FirstOrDefault();
+
+
+        //    if (combinedUnit is null)
+        //    {
+
+        //        var dimensionless = new RawUnit()
+        //        {
+        //            Symbol=null,
+        //            A = factor,
+        //            UnitType = BaseunitType.CombinedUnit,
+        //            B = 0,
+        //            Count = 1,
+        //        };
+
+        //        LocalUnitList.Add(dimensionless);
+        //    }
+        //    else
+        //    {
+        //        combinedUnit = combinedUnit with { A = combinedUnit.A  * factor };
+        //    }
+        //}
+
+
+        //DividedUnit = new UnitSystem(LocalUnitList);
+
         _ = CacheDivide.TryAdd(Hashes, DividedUnit);
 
         return DividedUnit;

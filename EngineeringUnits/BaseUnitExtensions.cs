@@ -9,11 +9,11 @@ namespace EngineeringUnits;
 
 public static class BaseUnitExtensions
 {
-    internal static decimal ConvertValueInto(this BaseUnit To, BaseUnit From)
+    internal static DecimalSafe ConvertValueInto(this BaseUnit To, BaseUnit From)
     {
         Fraction Factor = From.Unit.ConvertionFactor(To.Unit);
 
-        return (decimal)(Factor * (Fraction)To.NEWValue);
+        return (DecimalSafe)(Factor * (Fraction)To.NEWValue);
     }
 
     public static DecimalSafe GetValueAs(this BaseUnit From, UnitSystem To)
@@ -46,7 +46,7 @@ public static class BaseUnitExtensions
 
         }
 
-        return (decimal)y2test2;
+        return (DecimalSafe)y2test2;
     }
 
     public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs(To);
@@ -58,7 +58,7 @@ public static class BaseUnitExtensions
         if (From.Unit.IsSIUnit())
             return From.NEWValue;
 
-        return (decimal)((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants());
+        return (DecimalSafe)((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants());
     }
 
     /// <summary>

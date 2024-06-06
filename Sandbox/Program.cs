@@ -24,14 +24,23 @@ public class Program
     public static void Main()
     {
 
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(1) / Ratio.Zero;
-        MassFlow Zero = MassFlow.Zero;
+        double d1 = 234234234234234234234234234234.3;
 
-
-        var massFlow3 = (Inf - Zero).Abs() < MassFlow.FromKilogramPerSecond(1);
+        DecimalSafe de1 = (DecimalSafe)d1;
 
 
 
+        MassFlow mass = MassFlow.FromKilogramPerSecond(1);
+        MassFlow mass2 = MassFlow.FromPoundPerSecond(1);
+
+
+
+        MassFlow mass3 = (mass /  mass2) * mass;
+        MassFlow mass4 = (mass3 /  mass2) * mass3;
+        MassFlow mass5 = (mass4 /  mass2) * mass4;
+        MassFlow mass6 = (mass5 /  mass2) * mass5;
+        MassFlow mass7 = (mass6 /  mass2) * mass6;
+        MassFlow mass8 = (mass7 /  mass2) * mass7;
 
 
         double exp1 = Math.Exp(5.345d);
