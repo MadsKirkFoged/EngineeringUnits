@@ -24,6 +24,12 @@ public class Program
     public static void Main()
     {
 
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(10) / Ratio.Zero;
+
+
+
+
+
         double d1 = 234234234234234234234234234234.3;
 
         DecimalSafe de1 = (DecimalSafe)d1;

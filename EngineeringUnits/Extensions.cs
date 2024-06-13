@@ -153,7 +153,22 @@ public static class Extensions
         return test3.ToString(CultureInfo.InvariantCulture);
     }
 
-    public static string DisplaySignificantDigits(this DecimalSafe local, int count) => ((decimal)local).DisplaySignificantDigits(count);
+    public static string DisplaySignificantDigits(this DecimalSafe local, int count)
+    {
+
+        if (local.IsInf)
+        {
+            return "Infinity";
+            //return double.PositiveInfinity.ToString();
+        }
+
+        if (local.IsNaN)
+        {           
+            return double.NaN.ToString();
+        }
+
+        return  ((decimal)local).DisplaySignificantDigits(count);
+    }
 
     public static UnknownUnit AddUnit<T>(this double value, string UnitOfMeasure) where T : UnitTypebase
     {
