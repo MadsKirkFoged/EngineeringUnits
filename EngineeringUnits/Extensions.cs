@@ -18,59 +18,12 @@ public static class Extensions
                 double.IsNaN(value);
     }
 
-    /// <summary>
-    /// Returns the square root your unit.<br></br>
-    /// Taking the sqrt of a Negativ number will return null.<br></br>
-    /// <example>
-    /// Exemple: The square root of an <see cref="Area"/> gives a <see cref="Length"/><br></br>
-    /// </example>
-    /// </summary>
-    /// <param name="a">Source value</param>
-    /// <exception cref="WrongUnitException">gg</exception>
-    [return: NotNullIfNotNull(nameof(a))]
-    public static UnknownUnit? Sqrt(this BaseUnit? a)
-    {
-        if (a is null || a.IsBelowZero())
-            return null;
-
-        UnitSystem NewUnitSystem = a.Unit.ReduceUnitsHard();
-        var value = (decimal)a.GetValueAs(NewUnitSystem);
-
-        return new UnknownUnit(value.Sqrt(), NewUnitSystem.Sqrt());
-    }
-
     public static IEnumerable<RawUnit> ReduceUnits(this IEnumerable<RawUnit> a)
     {
         return a.GroupBy(x => new { x.UnitType, x.A })
                           .Select(group => group.First()
                                                 .CloneWithNewCount(group.Sum(x => x.Count)));
 
-    }
-
-    /// <returns>Square root of <see langword="decimal"/>!</returns>
-    /// <param name="x">Source value</param>
-    /// <param name="epsilon">Precision of calculation</param>
-    public static decimal Sqrt(this decimal x, decimal epsilon = 0.0M)
-    {
-        // x - a number, from which we need to calculate the square root
-        // epsilon - an accuracy of calculation of the root from our number.
-        // The result of the calculations will differ from an actual value
-        // of the root on less than epslion.
-
-        if (x < 0)
-            throw new OverflowException("Cannot calculate square root from a negative number");
-
-        decimal current = (decimal)Math.Sqrt((double)x), previous;
-        do
-        {
-            previous = current;
-            if (previous == 0.0M)
-                return 0;
-
-            current = (previous + (x / previous)) / 2;
-        }
-        while (Math.Abs(previous - current) > epsilon);
-        return current;
     }
 
     /// <returns>A SuperScript of an <see langword="int"/>!</returns>

@@ -1,9 +1,11 @@
 using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using static EngineeringUnits.AngleMath;
 
 namespace UnitTests;
 
@@ -104,4 +106,49 @@ public class AngleTest
         Assert.AreEqual(1, m);
 
     }
+
+    [TestMethod]
+    public void Trigonometry()
+    {
+        var a = EngineeringUnits.Angle.FromDegree(10);
+
+        var s1 = System.Math.Sin(a.Radian);
+        var s2 = a.Sin();
+        var s3 = AngleMath.Sin(a);
+        Assert.AreEqual(s1, s2);
+        Assert.AreEqual(s1, s3);
+
+        var c1 = System.Math.Cos(a.Radian);
+        var c2 = a.Cos();
+        var c3 = AngleMath.Cos(a);
+        Assert.AreEqual(c1, c2);
+        Assert.AreEqual(c1, c3);
+
+        var t1 = System.Math.Tan(a.Radian);
+        var t2 = a.Tan();
+        var t3 = AngleMath.Tan(a);
+        Assert.AreEqual(t1, t2);
+        Assert.AreEqual(t1, t3);
+
+        var sh1 = System.Math.Sinh(a.Radian);
+        var sh2 = a.Sinh();
+        var sh3 = AngleMath.Sinh(a);
+        Assert.AreEqual(sh1, sh2);
+        Assert.AreEqual(sh1, sh3);
+
+        var ch1 = System.Math.Cosh(a.Radian);
+        var ch2 = a.Cosh();
+        var ch3 = AngleMath.Cosh(a);
+        Assert.AreEqual(ch1, ch2);
+        Assert.AreEqual(ch1, ch3);
+
+        var th1 = System.Math.Tanh(a.Radian);
+        var th2 = a.Tanh();
+        var th3 = AngleMath.Tanh(a);
+        Assert.AreEqual(th1, th2);
+        Assert.AreEqual(th1, th3);
+
+    }
+
+
 }
