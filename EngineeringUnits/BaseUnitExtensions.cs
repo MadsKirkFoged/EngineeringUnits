@@ -117,10 +117,29 @@ public static class BaseUnitExtensions
     [return: NotNullIfNotNull(nameof(Clamped))]
     public static UnknownUnit? Clamp(this BaseUnit? Clamped, BaseUnit? Lower, BaseUnit? Upper)
     {
-        if (Clamped is null || Lower is null || Upper is null)
+        if (Clamped is null)
             return null;
 
-        GuardAgainst.DifferentUnits(Clamped, Lower, Upper);
+        if (Lower is null && Upper is null)
+            return Clamped.ToUnknownUnit();
+
+        GuardAgainst.DifferentUnitsButIgnoreNull(Clamped, Lower, Upper);
+
+        if (Lower is null)
+        {
+            if (Clamped > Upper)
+                return Upper.ToUnknownUnit();
+
+            return Clamped.ToUnknownUnit();
+        }
+
+        if (Upper is null)
+        {
+            if (Clamped < Lower)
+                return Lower.ToUnknownUnit();
+
+            return Clamped.ToUnknownUnit();
+        }
 
         if (Upper < Lower)
         {

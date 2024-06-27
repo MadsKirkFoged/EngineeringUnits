@@ -12,10 +12,26 @@ public static class GuardAgainst
             throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
     }
 
+    public static void DifferentUnitsIgnoreNull(UnitSystem? a, UnitSystem? b)
+    {
+        if (a is null || b is null)        
+            return;
+        
+
+        if (a != b)
+            throw new WrongUnitException($"This is NOT a [{b}] as expected! Your Unit is a [{a}]");
+    }
+
     public static void DifferentUnits(UnitSystem a, UnitSystem b, UnitSystem c)
     {
         DifferentUnits(a, b);
         DifferentUnits(a, c);
+    }
+
+    public static void DifferentUnitsButIgnoreNull(UnitSystem? a, UnitSystem? b, UnitSystem? c)
+    {
+        DifferentUnitsIgnoreNull(a, b);
+        DifferentUnitsIgnoreNull(a, c);
     }
 
     public static void DifferentUnits(List<UnitSystem> ListOfUnitSystems)

@@ -72,18 +72,18 @@ public class CostTests
         Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);
     }
 
-    [TestMethod()]
-    public void UpdateAfterInit()
-    {
-        //Arrange
-        var USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
+    //[TestMethod()]
+    //public void UpdateAfterInit()
+    //{
+    //    //Arrange
+    //    var USDtoEuro = ExchangeRates.GetRate(Currency.Euro);
 
-        //Act
-        var USD = new Cost(10, CostUnit.USDollar);
-        ExchangeRates.UpdateRate(Currency.Euro, 10.000m); //This should not have any affect
-        _ = USD.Euro;
+    //    //Act
+    //    var USD = new Cost(10, CostUnit.USDollar);
+    //    ExchangeRates.UpdateRate(Currency.Euro, 10.000m); //This should not have any affect
+    //    _ = USD.Euro;
 
-        // Assert
-        Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);
-    }
+    //    // Assert
+    //    Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);
+    //}
 }

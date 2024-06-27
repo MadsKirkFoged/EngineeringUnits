@@ -119,4 +119,39 @@ public class InRangeOf
         Assert.AreEqual(f9, f2);
 
     }
+
+    //clamp test for length and upper is null
+    [TestMethod]
+    public void ClampTestLengthUpperNull()
+    {
+        Length local = new(19d, LengthUnit.Meter);
+        Length max = new(5d, LengthUnit.Meter);
+
+        Length f2 = local.Clamp(null, max);
+
+        Assert.AreEqual(max, f2);
+    }
+
+    [TestMethod]
+    public void ClampTestLengthLowerNull()
+    {
+        Length local = new(19d, LengthUnit.Meter);
+        Length Min = new(21d, LengthUnit.Meter);
+
+        Length f2 = local.Clamp(Min, null);
+
+        Assert.AreEqual(Min, f2);
+    }
+
+
+    [TestMethod]
+    public void ClampTestLengthNulls()
+    {
+        Length local = new(19d, LengthUnit.Meter);
+        Length Min = new(21d, LengthUnit.Meter);
+
+        Length f2 = local.Clamp(null, null);
+
+        Assert.AreEqual(local, f2);
+    }
 }
