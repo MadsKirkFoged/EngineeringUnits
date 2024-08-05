@@ -1,5 +1,4 @@
 ﻿using Fractions;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -424,5 +423,51 @@ public static class BaseUnitExtensions
         return new(value, unitsystem);
     }
 
+    /// <summary>
+    /// Round a <paramref name="value"/> to the nearest <paramref name="roundVal"/>
+    /// </summary>
+    /// <param name="value">Value to round</param>
+    /// <param name="roundVal"></param>
+    [return: NotNullIfNotNull(nameof(value))]
+    public static UnknownUnit? RoundTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    {
+        if (value is null)
+            return null;
+        if (roundVal is null)
+            return new(value);
 
+        return Math.Round((double)(Ratio)(value / roundVal)) * roundVal;
+    }
+
+    /// <summary>
+    /// Round a <paramref name="value"/> up to the nearest <paramref name="roundVal"/>
+    /// </summary>
+    /// <param name="value">Value to round</param>
+    /// <param name="roundVal"></param>
+    [return: NotNullIfNotNull(nameof(value))]
+    public static UnknownUnit? CeilingTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    {
+        if (value is null)
+            return null;
+        if (roundVal is null)
+            return new(value);
+
+        return Math.Ceiling((double)(Ratio)(value / roundVal)) * roundVal;
+    }
+
+    /// <summary>
+    /// Round a <paramref name="value"/> down to the nearest <paramref name="roundVal"/>
+    /// </summary>
+    /// <param name="value">Value to round</param>
+    /// <param name="roundVal"></param>
+    [return: NotNullIfNotNull(nameof(value))]
+    public static UnknownUnit? FloorTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    {
+        if (value is null)
+            return null;
+        if (roundVal is null)
+            return new(value);
+
+        return Math.Floor((double)(Ratio)(value / roundVal)) * roundVal;
+    }
 }

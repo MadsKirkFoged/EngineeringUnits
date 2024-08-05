@@ -124,4 +124,15 @@ public class Extensiontest
         Assert.IsNotNull(Sum);
         Assert.AreEqual("1 m", Sum.ToString("G5"));
     }
+
+    [TestMethod]
+    public void Rounding()
+    {
+        Volume v0 = Volume.FromCubicMeter(95.0);
+
+        Assert.AreEqual((Volume)v0.CeilingTo(Volume.FromCubicMeter(10)), Volume.FromCubicMeter(100));
+        Assert.AreEqual((Volume)v0.RoundTo(  Volume.FromCubicMeter(10)), Volume.FromCubicMeter(100));
+        Assert.AreEqual((Volume)v0.FloorTo(  Volume.FromCubicMeter(10)), Volume.FromCubicMeter( 90));
+
+    }
 }
