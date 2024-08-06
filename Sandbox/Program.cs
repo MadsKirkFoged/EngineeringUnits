@@ -24,6 +24,12 @@ public class Program
     public static void Main()
     {
 
+        Pressure LargeNumber = Pressure.FromBar(1000000);
+
+        string PrintOut = LargeNumber.ToString();
+        string PrintOut2 = LargeNumber.ToString("S7");
+        string PrintOut3 = LargeNumber.ToString("G7");
+
         MassFlow Inf = MassFlow.FromKilogramPerSecond(10) / Ratio.Zero;
 
 

@@ -139,6 +139,22 @@ public static class Extensions
         return ((double)value).AddUnit<T>(UnitOfMeasure);
     }
 
+    public static UnknownUnit AddUnit<T>(this int value, string UnitOfMeasure) where T : UnitTypebase
+    {
+        T unit = UnitTypebase.GetUnitByString<T>(UnitOfMeasure);
+
+        return new UnknownUnit((decimal)value, unit);
+    }
+
+    [return: NotNullIfNotNull(nameof(value))]
+    public static UnknownUnit? AddUnit<T>(this int? value, string UnitOfMeasure) where T : UnitTypebase
+    {
+        if (value is null)
+            return null;
+
+        return ((double)value).AddUnit<T>(UnitOfMeasure);
+    }
+
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2];
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3];
     public static List<BaseUnit?> ToList(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) tuple) => [tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4];
