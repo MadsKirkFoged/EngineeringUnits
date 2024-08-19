@@ -2,17 +2,17 @@ using System;
 
 namespace EngineeringUnits
 {
-    public static class MassFlowUnitExtension
+    public static class TorquePerLengthUnitExtension
     {
 
-        public static MassFlow IfNullSetToZero(this MassFlow? local)
+        public static TorquePerLength? IfNullSetToZero(this TorquePerLength? local)
         {
             if (local is not null)
             {
                 return local;
             }
 
-            return MassFlow.Zero;
+            return TorquePerLength.Zero;
         }
 
     }

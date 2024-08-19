@@ -2,17 +2,17 @@ using System;
 
 namespace EngineeringUnits
 {
-    public static class MassFlowUnitExtension
+    public static class SpecificWeightUnitExtension
     {
 
-        public static MassFlow IfNullSetToZero(this MassFlow? local)
+        public static SpecificWeight? IfNullSetToZero(this SpecificWeight? local)
         {
             if (local is not null)
             {
                 return local;
             }
 
-            return MassFlow.Zero;
+            return SpecificWeight.Zero;
         }
 
     }

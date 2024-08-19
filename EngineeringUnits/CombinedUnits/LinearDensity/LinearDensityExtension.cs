@@ -2,17 +2,17 @@ using System;
 
 namespace EngineeringUnits
 {
-    public static class MassFlowUnitExtension
+    public static class LinearDensityUnitExtension
     {
 
-        public static MassFlow IfNullSetToZero(this MassFlow? local)
+        public static LinearDensity? IfNullSetToZero(this LinearDensity? local)
         {
             if (local is not null)
             {
                 return local;
             }
 
-            return MassFlow.Zero;
+            return LinearDensity.Zero;
         }
 
     }

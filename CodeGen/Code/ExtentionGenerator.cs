@@ -58,14 +58,30 @@ namespace CodeGen.Code
                        public static class VariableUnitExtension
                        {
 
-                           public static VariableUnit? IfNullSetToZero(this VariableUnit? local)
+                           public static Variable IfNullSetToZero(this Variable? local)
                            {
                                if (local is not null)
                                {
                                    return local;
                                }
 
-                               return VariableUnit.Zero;
+                               return Variable.Zero;
+                           }
+
+
+                           /// <summary>
+                           /// Returns the absolute value
+                           /// </summary>
+                           [return: NotNullIfNotNull(nameof(a))]
+                           public static Variable? Abs(this Variable? a)
+                           {
+                               if (a is null)
+                                   return null;
+
+                               if (a.GetBaseValue() > 0)
+                                   return a;
+
+                               return (-a)!;
                            }
 
                        }

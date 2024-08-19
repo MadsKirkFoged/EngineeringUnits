@@ -2,17 +2,17 @@ using System;
 
 namespace EngineeringUnits
 {
-    public static class MassFlowUnitExtension
+    public static class ElectricPotentialUnitExtension
     {
 
-        public static MassFlow IfNullSetToZero(this MassFlow? local)
+        public static ElectricPotential? IfNullSetToZero(this ElectricPotential? local)
         {
             if (local is not null)
             {
                 return local;
             }
 
-            return MassFlow.Zero;
+            return ElectricPotential.Zero;
         }
 
     }

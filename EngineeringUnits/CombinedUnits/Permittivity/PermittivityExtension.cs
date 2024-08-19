@@ -2,17 +2,17 @@ using System;
 
 namespace EngineeringUnits
 {
-    public static class MassFlowUnitExtension
+    public static class PermittivityUnitExtension
     {
 
-        public static MassFlow IfNullSetToZero(this MassFlow? local)
+        public static Permittivity? IfNullSetToZero(this Permittivity? local)
         {
             if (local is not null)
             {
                 return local;
             }
 
-            return MassFlow.Zero;
+            return Permittivity.Zero;
         }
 
     }

@@ -41,7 +41,7 @@ internal class Program
         GenerateGetter.GenerateGetterClasses(libraryDir);
         GenerateAlias.AliasClass(libraryDir);
 
-        AbsExtensionsGenerator.Generate(libraryDir);
+        //AbsExtensionsGenerator.Generate(libraryDir);
         UnknownUnitExtensionsGenerator.Generate(libraryDir);
 
         _ = UnitListGenerator.ShowUnittypes();
