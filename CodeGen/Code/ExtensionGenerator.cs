@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CodeGen.Code
 {
-    internal class ExtentionGenerator
+    internal class ExtensionGenerator
     {
         public static void GenerateExtention(string projectPath)
         {
