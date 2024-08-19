@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class AreaMomentOfInertiaUnitExtension
     {
 
-        public static AreaMomentOfInertia? IfNullSetToZero(this AreaMomentOfInertia? local)
+        public static AreaMomentOfInertia IfNullSetToZero(this AreaMomentOfInertia? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return AreaMomentOfInertia.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static AreaMomentOfInertia? Abs(this AreaMomentOfInertia? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

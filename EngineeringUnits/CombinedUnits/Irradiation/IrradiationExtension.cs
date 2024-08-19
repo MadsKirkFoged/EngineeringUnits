@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class IrradiationUnitExtension
     {
 
-        public static Irradiation? IfNullSetToZero(this Irradiation? local)
+        public static Irradiation IfNullSetToZero(this Irradiation? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return Irradiation.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static Irradiation? Abs(this Irradiation? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

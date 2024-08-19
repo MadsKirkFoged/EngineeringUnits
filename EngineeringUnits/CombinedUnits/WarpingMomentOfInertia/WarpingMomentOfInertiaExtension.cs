@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class WarpingMomentOfInertiaUnitExtension
     {
 
-        public static WarpingMomentOfInertia? IfNullSetToZero(this WarpingMomentOfInertia? local)
+        public static WarpingMomentOfInertia IfNullSetToZero(this WarpingMomentOfInertia? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return WarpingMomentOfInertia.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static WarpingMomentOfInertia? Abs(this WarpingMomentOfInertia? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

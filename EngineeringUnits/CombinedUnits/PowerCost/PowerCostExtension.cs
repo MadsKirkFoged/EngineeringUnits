@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class PowerCostUnitExtension
     {
 
-        public static PowerCost? IfNullSetToZero(this PowerCost? local)
+        public static PowerCost IfNullSetToZero(this PowerCost? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return PowerCost.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static PowerCost? Abs(this PowerCost? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

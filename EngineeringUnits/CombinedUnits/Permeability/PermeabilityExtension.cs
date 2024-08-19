@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class PermeabilityUnitExtension
     {
 
-        public static Permeability? IfNullSetToZero(this Permeability? local)
+        public static Permeability IfNullSetToZero(this Permeability? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return Permeability.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static Permeability? Abs(this Permeability? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

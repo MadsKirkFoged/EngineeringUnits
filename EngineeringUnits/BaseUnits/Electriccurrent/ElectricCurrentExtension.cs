@@ -1,11 +1,12 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
 {
     public static class ElectricCurrentUnitExtension
     {
 
-        public static ElectricCurrent? IfNullSetToZero(this ElectricCurrent? local)
+        public static ElectricCurrent IfNullSetToZero(this ElectricCurrent? local)
         {
             if (local is not null)
             {
@@ -13,6 +14,22 @@ namespace EngineeringUnits
             }
 
             return ElectricCurrent.Zero;
+        }
+
+
+        /// <summary>
+        /// Returns the absolute value
+        /// </summary>
+        [return: NotNullIfNotNull(nameof(a))]
+        public static ElectricCurrent? Abs(this ElectricCurrent? a)
+        {
+            if (a is null)
+                return null;
+
+            if (a.GetBaseValue() > 0)
+                return a;
+
+            return (-a)!;
         }
 
     }

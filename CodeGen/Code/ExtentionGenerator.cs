@@ -52,6 +52,7 @@ namespace CodeGen.Code
 
             return $$"""
                    using System;
+                   using System.Diagnostics.CodeAnalysis;
 
                    namespace EngineeringUnits
                    {
