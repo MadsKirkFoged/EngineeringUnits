@@ -26,5 +26,9 @@ public partial class Cost
     /// Get Cost in BritishPound.
     /// </summary>
     public double BritishPound => As(CostUnit.BritishPound);
+    /// <summary>
+    /// Get Cost in DanishKrone.
+    /// </summary>
+    public double DanishKrone => As(CostUnit.DanishKrone);
 
 }

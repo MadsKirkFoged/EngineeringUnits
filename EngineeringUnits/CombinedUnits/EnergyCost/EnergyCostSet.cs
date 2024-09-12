@@ -80,6 +80,18 @@ public partial class EnergyCost
         return new EnergyCost((double)USDollarPerKilowattHour, EnergyCostUnit.USDollarPerKilowattHour);
     }
     /// <summary>
+    /// Get EnergyCost from DKKPerKilowattHour.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    [return: NotNullIfNotNull(nameof(DKKPerKilowattHour))]
+    public static EnergyCost? FromDKKPerKilowattHour(double? DKKPerKilowattHour)
+    {
+        if (DKKPerKilowattHour is null)
+            return null;
+        
+        return new EnergyCost((double)DKKPerKilowattHour, EnergyCostUnit.DKKPerKilowattHour);
+    }
+    /// <summary>
     /// Get EnergyCost from USDollarPerMegawattHour.
     /// </summary>
     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

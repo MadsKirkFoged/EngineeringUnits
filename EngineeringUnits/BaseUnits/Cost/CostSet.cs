@@ -67,5 +67,17 @@ public partial class Cost
         
         return new Cost((double)BritishPound, CostUnit.BritishPound);
     }
+    /// <summary>
+    /// Get Cost from DanishKrone.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    [return: NotNullIfNotNull(nameof(DanishKrone))]
+    public static Cost? FromDanishKrone(double? DanishKrone)
+    {
+        if (DanishKrone is null)
+            return null;
+        
+        return new Cost((double)DanishKrone, CostUnit.DanishKrone);
+    }
 
 }

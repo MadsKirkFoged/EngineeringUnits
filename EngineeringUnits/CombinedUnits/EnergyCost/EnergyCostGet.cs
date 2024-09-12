@@ -31,6 +31,10 @@ public partial class EnergyCost
     /// </summary>
     public double USDollarPerKilowattHour => As(EnergyCostUnit.USDollarPerKilowattHour);
     /// <summary>
+    /// Get EnergyCost in DKKPerKilowattHour.
+    /// </summary>
+    public double DKKPerKilowattHour => As(EnergyCostUnit.DKKPerKilowattHour);
+    /// <summary>
     /// Get EnergyCost in USDollarPerMegawattHour.
     /// </summary>
     public double USDollarPerMegawattHour => As(EnergyCostUnit.USDollarPerMegawattHour);
