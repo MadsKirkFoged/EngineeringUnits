@@ -33,8 +33,7 @@ internal class Program
         var libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
         UnitGenerator.GenerateClasses(libraryDir);
-        ExtentionGenerator.GenerateExtention(libraryDir);
-
+        ExtensionGenerator.GenerateExtention(libraryDir);
         GenerateUnitEnum.GenerateClasses(libraryDir);
         GenerateAlias.GenerateEnums(libraryDir);
         GenerateSetter.GenerateSetterClasses(libraryDir);

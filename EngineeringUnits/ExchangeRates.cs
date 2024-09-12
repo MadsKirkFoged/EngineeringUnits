@@ -9,6 +9,7 @@ public static class ExchangeRates
         USDollar,
         Euro,
         BritishPound,
+        DKK
     }
 
     private static readonly Dictionary<Currency, decimal> Rates = new Dictionary<Currency, decimal>()
@@ -16,6 +17,7 @@ public static class ExchangeRates
         { Currency.USDollar, 1 },
         { Currency.Euro, 1.08568m },
         { Currency.BritishPound, 1.2665902m },
+        { Currency.DKK, 0.15m },
     };
 
     /// <summary>

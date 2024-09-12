@@ -60,9 +60,9 @@ public class RawUnitTests
 
         };
 
-        Assert.AreEqual(-335162071, unit.GetHashCode());
-        Assert.AreEqual(301606835, unit.CloneAndReverseCount().GetHashCode());
-        Assert.AreEqual(301606835, unit.CloneWithNewCount(-1).GetHashCode());
-        Assert.AreEqual(-284829216, unit.CloneWithNewCount(2).GetHashCode());
+        Assert.AreEqual(-1939243696, unit.GetHashCode());
+        Assert.AreEqual(1939243694, unit.CloneAndReverseCount().GetHashCode());
+        Assert.AreEqual(1939243694, unit.CloneWithNewCount(-1).GetHashCode());
+        Assert.AreEqual(-1989576551, unit.CloneWithNewCount(2).GetHashCode());
     }
 }

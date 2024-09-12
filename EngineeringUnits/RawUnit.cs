@@ -20,16 +20,20 @@ public record RawUnit
 
     [JsonProperty(PropertyName = "S", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
     [DefaultValue("")]
+    [System.Text.Json.Serialization.JsonPropertyName("S")]
     public string? Symbol { get; init; }
+
 
     public Fraction A { get; init; }
 
     [JsonProperty(DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
     [DefaultValue(0d)]
+    [System.Text.Json.Serialization.JsonPropertyName("B")]
     public Fraction B { get; init; }
 
     [JsonProperty(PropertyName = "C", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
     [DefaultValue(1)]
+    [System.Text.Json.Serialization.JsonPropertyName("C")]
     public int Count { get; init; }
     public BaseunitType UnitType { get; init; }
 

@@ -8,6 +8,7 @@ public partial record EnergyCostUnit : UnitTypebase
     public static readonly EnergyCostUnit USDollarPerMegajoule = new(CostUnit.USDollar, EnergyUnit.Megajoule);
     public static readonly EnergyCostUnit USDollarPerGigajoule = new(CostUnit.USDollar, EnergyUnit.Gigajoule);
     public static readonly EnergyCostUnit USDollarPerKilowattHour = new(CostUnit.USDollar, EnergyUnit.KilowattHour);
+    public static readonly EnergyCostUnit DKKPerKilowattHour = new(CostUnit.DanishKrone, EnergyUnit.KilowattHour);
     public static readonly EnergyCostUnit USDollarPerMegawattHour = new(CostUnit.USDollar, EnergyUnit.MegawattHour);
     public static readonly EnergyCostUnit MillionUSDollarPerJoule = new(CostUnit.MillionUSDollar, EnergyUnit.Joule);
     public static readonly EnergyCostUnit MillionUSDollarPerKilojoule = new(CostUnit.MillionUSDollar, EnergyUnit.Kilojoule);

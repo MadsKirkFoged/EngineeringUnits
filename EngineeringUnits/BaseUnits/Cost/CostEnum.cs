@@ -12,6 +12,7 @@ public partial record CostUnit : UnitTypebase
 
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
+    public static readonly CostUnit DanishKrone = new CostUnit("DKK", "kr", GetRate(Currency.DKK));
 
     // The code that's violating the rule is on this line.
     public CostUnit(string code, string Symbol, decimal Rate)

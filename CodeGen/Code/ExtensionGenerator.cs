@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeGen.Code
+namespace CodeGen
 {
-    internal class ExtensionGenerator
+    public class ExtensionGenerator
     {
         public static void GenerateExtention(string projectPath)
         {

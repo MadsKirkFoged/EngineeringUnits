@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Text.Json.Serialization;
 
 namespace EngineeringUnits;
 
@@ -14,6 +15,9 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 {
 
     public UnitSystem Unit { get; init; }
+
+    [JsonProperty]
+    [JsonInclude]
     internal DecimalSafe NEWValue { get; init; }
 
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]

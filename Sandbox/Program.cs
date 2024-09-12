@@ -1,5 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
+using Fractions;
 using System;
 using System.Diagnostics;
 
@@ -23,6 +24,33 @@ public class Program
 
     public static void Main()
     {
+        Fraction f = Fraction.FromDecimal(1);
+
+        // Using System.Text.Json
+        string f_Json_DotNet = System.Text.Json.JsonSerializer.Serialize(f);
+        Fraction f_DotNet = System.Text.Json.JsonSerializer.Deserialize<Fraction>(f_Json_DotNet)!;
+        //Shows as 0
+
+        // Using Newtonsoft.Json
+        string f_Json_Newtonsoft = Newtonsoft.Json.JsonConvert.SerializeObject(f);
+        Fraction f_Newtonsoft = Newtonsoft.Json.JsonConvert.DeserializeObject<Fraction>(f_Json_Newtonsoft)!;
+        //Shows as 1
+
+
+
+        Length L = new(1d, LengthUnit.Meter);
+
+        // Using System.Text.Json
+        string L_Json_DotNet = System.Text.Json.JsonSerializer.Serialize(L);
+        Length L_Unit_DotNet = System.Text.Json.JsonSerializer.Deserialize<Length>(L_Json_DotNet)!;
+
+
+        // Using Newtonsoft.Json
+        string L_Json_Newtonsoft = Newtonsoft.Json.JsonConvert.SerializeObject(L);
+        Length L_Unit_Newtonsoft = Newtonsoft.Json.JsonConvert.DeserializeObject<Length>(L_Json_Newtonsoft)!;
+
+        string stringtest = L_Unit_DotNet.ToString();
+
 
         Pressure LargeNumber = Pressure.FromBar(1000000);
 
