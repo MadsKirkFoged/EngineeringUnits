@@ -1,37 +1,36 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace EngineeringUnits
-{                   
-    // This class is auto-generated, changes to the file will be overwritten!
-    public static class MassUnitExtension
+namespace EngineeringUnits;
+
+// This class is auto-generated, changes to the file will be overwritten!
+public static class MassUnitExtension
+{
+
+    public static Mass IfNullSetToZero(this Mass? local)
     {
-
-        public static Mass IfNullSetToZero(this Mass? local)
+        if (local is not null)
         {
-            if (local is not null)
-            {
-                return local;
-            }
-
-            return Mass.Zero;
+            return local;
         }
 
-
-        /// <summary>
-        /// Returns the absolute value
-        /// </summary>
-        [return: NotNullIfNotNull(nameof(a))]
-        public static Mass? Abs(this Mass? a)
-        {
-            if (a is null)
-                return null;
-
-            if (a.GetBaseValue() > 0)
-                return a;
-
-            return (-a)!;
-        }
-
+        return Mass.Zero;
     }
-}                   
+
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static Mass? Abs(this Mass? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+}               
