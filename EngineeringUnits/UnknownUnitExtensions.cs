@@ -163,6 +163,8 @@ public static class UnknownUnitExtensions
             return (PressureChangeRate?)toCast;
         if (toCast == PressureUnit.SI.Unit)
             return (Pressure?)toCast;
+        if (toCast == SnapUnit.SI.Unit)
+            return (Snap?)toCast;
         if (toCast == SpecificEntropyUnit.SI.Unit)
             return (SpecificEntropy?)toCast;
         if (toCast == SpecificHeatCapacityUnit.SI.Unit)
