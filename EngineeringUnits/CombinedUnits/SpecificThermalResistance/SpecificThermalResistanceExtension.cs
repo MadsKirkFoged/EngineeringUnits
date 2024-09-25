@@ -1,36 +1,35 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace EngineeringUnits
+namespace EngineeringUnits;
+
+// This class is auto-generated, changes to the file will be overwritten!
+public static class SpecificThermalResistanceUnitExtension
 {
-    public static class SpecificThermalResistanceUnitExtension
+
+    public static SpecificThermalResistance IfNullSetToZero(this SpecificThermalResistance? local)
     {
-
-        public static SpecificThermalResistance IfNullSetToZero(this SpecificThermalResistance? local)
+        if (local is not null)
         {
-            if (local is not null)
-            {
-                return local;
-            }
-
-            return SpecificThermalResistance.Zero;
+            return local;
         }
 
-
-        /// <summary>
-        /// Returns the absolute value
-        /// </summary>
-        [return: NotNullIfNotNull(nameof(a))]
-        public static SpecificThermalResistance? Abs(this SpecificThermalResistance? a)
-        {
-            if (a is null)
-                return null;
-
-            if (a.GetBaseValue() > 0)
-                return a;
-
-            return (-a)!;
-        }
-
+        return SpecificThermalResistance.Zero;
     }
-}                   
+
+
+    /// <summary>
+    /// Returns the absolute value
+    /// </summary>
+    [return: NotNullIfNotNull(nameof(a))]
+    public static SpecificThermalResistance? Abs(this SpecificThermalResistance? a)
+    {
+        if (a is null)
+            return null;
+
+        if (a.GetBaseValue() > 0)
+            return a;
+
+        return (-a)!;
+    }
+
+}               

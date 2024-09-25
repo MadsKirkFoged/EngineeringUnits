@@ -3,17 +3,17 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
-public static class EnergyUnitExtension
+public static class SnapUnitExtension
 {
 
-    public static Energy IfNullSetToZero(this Energy? local)
+    public static Snap IfNullSetToZero(this Snap? local)
     {
         if (local is not null)
         {
             return local;
         }
 
-        return Energy.Zero;
+        return Snap.Zero;
     }
 
 
@@ -21,7 +21,7 @@ public static class EnergyUnitExtension
     /// Returns the absolute value
     /// </summary>
     [return: NotNullIfNotNull(nameof(a))]
-    public static Energy? Abs(this Energy? a)
+    public static Snap? Abs(this Snap? a)
     {
         if (a is null)
             return null;

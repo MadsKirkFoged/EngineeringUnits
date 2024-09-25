@@ -159,6 +159,8 @@ public class ListOfUnitsForDifferentGenerators
         "Pressure",
 
 
+        "Snap",
+
         "SpecificEntropy", //Same as SpecificEntropy
         "SpecificHeatCapacity", //Same as SpecificEntropy
 
