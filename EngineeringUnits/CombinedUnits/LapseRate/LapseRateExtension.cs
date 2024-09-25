@@ -2,7 +2,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits
-{
+{                   
+    // This class is auto-generated, changes to the file will be overwritten!
     public static class LapseRateUnitExtension
     {
 
