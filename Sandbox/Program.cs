@@ -819,8 +819,11 @@ public class Program
 
 
         // Test Snap
-        var s = Snap.FromMeterPerSecond4(10);
-        Console.WriteLine(s.ToString());
+        var s1 = Snap.FromMeterPerSecond4(10);
+        Console.WriteLine(s1.ToString());
+
+        Snap s2 = Acceleration.FromMeterPerSecondSquared(2) / Duration.FromSecond(2).Pow(2);
+        Console.WriteLine(s2.ToString());
     }
 
     public partial record AreaCostUnit : UnitTypebase
