@@ -2,7 +2,7 @@ namespace EngineeringUnits.Units;
 public partial record LengthCostUnit : UnitTypebase
 {
     public static readonly LengthCostUnit SI = new(CostUnit.SI, LengthUnit.SI);
-    public static readonly LengthCostUnit DollarPerMeter = new(CostUnit.USDollar, LengthUnit.Meter);
+    public static readonly LengthCostUnit USDollarPerMeter = new(CostUnit.USDollar, LengthUnit.Meter);
     public static readonly LengthCostUnit EuroPerMeter = new(CostUnit.Euro, LengthUnit.Meter);
 
     public LengthCostUnit(CostUnit cost, LengthUnit length)
