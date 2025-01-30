@@ -20,16 +20,16 @@ public partial class LengthCost
         return new LengthCost((double)SI, LengthCostUnit.SI);
     }
     /// <summary>
-    /// Get LengthCost from DollarPerMeter.
+    /// Get LengthCost from USDollarPerMeter.
     /// </summary>
     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
-    [return: NotNullIfNotNull(nameof(DollarPerMeter))]
-    public static LengthCost? FromDollarPerMeter(double? DollarPerMeter)
+    [return: NotNullIfNotNull(nameof(USDollarPerMeter))]
+    public static LengthCost? FromUSDollarPerMeter(double? USDollarPerMeter)
     {
-        if (DollarPerMeter is null)
+        if (USDollarPerMeter is null)
             return null;
         
-        return new LengthCost((double)DollarPerMeter, LengthCostUnit.USDollarPerMeter);
+        return new LengthCost((double)USDollarPerMeter, LengthCostUnit.USDollarPerMeter);
     }
     /// <summary>
     /// Get LengthCost from EuroPerMeter.
