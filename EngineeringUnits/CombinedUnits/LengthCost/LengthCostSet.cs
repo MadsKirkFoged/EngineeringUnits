@@ -29,7 +29,7 @@ public partial class LengthCost
         if (DollarPerMeter is null)
             return null;
         
-        return new LengthCost((double)DollarPerMeter, LengthCostUnit.DollarPerMeter);
+        return new LengthCost((double)DollarPerMeter, LengthCostUnit.USDollarPerMeter);
     }
     /// <summary>
     /// Get LengthCost from EuroPerMeter.
