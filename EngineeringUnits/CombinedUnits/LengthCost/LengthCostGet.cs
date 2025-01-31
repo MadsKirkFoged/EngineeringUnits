@@ -11,9 +11,9 @@ public partial class LengthCost
     /// </summary>
     public double SI => As(LengthCostUnit.SI);
     /// <summary>
-    /// Get LengthCost in DollarPerMeter.
+    /// Get LengthCost in USDollarPerMeter.
     /// </summary>
-    public double DollarPerMeter => As(LengthCostUnit.DollarPerMeter);
+    public double USDollarPerMeter => As(LengthCostUnit.USDollarPerMeter);
     /// <summary>
     /// Get LengthCost in EuroPerMeter.
     /// </summary>
