@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests.BaseUnits;
 
 [TestClass]
-public class CreatingBaseUnits
+public class BaseUnitTests
 {
     [TestMethod]
     public void Decimal_Test()
