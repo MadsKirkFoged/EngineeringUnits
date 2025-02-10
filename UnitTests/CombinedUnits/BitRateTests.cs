@@ -12,7 +12,7 @@ public class BitRateTests
 {
 
     [TestMethod]
-    public void BitRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.BitRate(1, UnitsNet.Units.BitRateUnit.BitPerSecond);
         var A2 = new EngineeringUnits.BitRate(1, BitRateUnit.BitPerSecond);

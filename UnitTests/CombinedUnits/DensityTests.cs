@@ -11,7 +11,7 @@ public class DensityTests
 {
 
     [TestMethod]
-    public void DensityAdding()
+    public void Adding()
     {
         var U0 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.DecigramPerLiter);
         var U1 = new UnitsNet.Density(1, UnitsNet.Units.DensityUnit.GramPerMilliliter);
@@ -67,7 +67,7 @@ public class DensityTests
     }
 
     [TestMethod]
-    public void DensityMultiply()
+    public void Multiply()
     {
         var massU = new UnitsNet.Mass(1, UnitsNet.Units.MassUnit.Pound);
         var lengthU = new UnitsNet.Length(1, UnitsNet.Units.LengthUnit.Inch);

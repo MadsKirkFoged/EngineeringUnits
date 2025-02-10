@@ -12,7 +12,7 @@ public class BrakeSpecificFuelConsumptionTests
 {
 
     [TestMethod]
-    public void BrakeSpecificFuelConsumptionAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.BrakeSpecificFuelConsumption(1, UnitsNet.Units.BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);
         var A2 = new EngineeringUnits.BrakeSpecificFuelConsumption(1, BrakeSpecificFuelConsumptionUnit.KilogramPerJoule);

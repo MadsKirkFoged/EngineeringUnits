@@ -12,7 +12,7 @@ public class ReactivePowerTests
 {
 
     [TestMethod]
-    public void ReactivePowerAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ReactivePower(1, UnitsNet.Units.ReactivePowerUnit.KilovoltampereReactive);
         var A2 = new EngineeringUnits.ReactivePower(1, ReactivePowerUnit.KilovoltampereReactive);

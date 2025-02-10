@@ -12,7 +12,7 @@ public class MagneticFieldTests
 {
 
     [TestMethod]
-    public void MagneticFieldAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MagneticField(1, UnitsNet.Units.MagneticFieldUnit.Tesla);
         var A2 = new EngineeringUnits.MagneticField(1, MagneticFieldUnit.Tesla);

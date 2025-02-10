@@ -12,7 +12,7 @@ public class LevelTests
 {
 
     [TestMethod]
-    public void LevelAutoTest()
+    public void Test()
     {
         var A1 = new UnitsNet.Level(1, UnitsNet.Units.LevelUnit.Decibel);
         var A2 = new EngineeringUnits.Level(1, LevelUnit.Decibel);

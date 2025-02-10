@@ -7,7 +7,7 @@ public class TemperatureDeltaTests
 {
 
     [TestMethod]
-    public void TemperatureDeltaAutoTest()
+    public void AutoTest()
     {
         // var A1 = new UnitsNet.TemperatureDelta(1, UnitsNet.Units.TemperatureDeltaUnit.DegreeCelsius);
         // var A2 = new EngineeringUnits.TemperatureDelta(1, TemperatureUnit.DegreeCelsius);

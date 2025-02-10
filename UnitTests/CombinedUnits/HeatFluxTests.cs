@@ -12,7 +12,7 @@ public class HeatFluxTests
 {
 
     [TestMethod]
-    public void HeatFluxAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.HeatFlux(1, UnitsNet.Units.HeatFluxUnit.WattPerSquareMeter);
         var A2 = new EngineeringUnits.HeatFlux(1, HeatFluxUnit.WattPerSquareMeter);

@@ -12,7 +12,7 @@ public class IrradianceTests
 {
 
     [TestMethod]
-    public void IrradianceAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Irradiance(1, UnitsNet.Units.IrradianceUnit.KilowattPerSquareMeter);
         var A2 = new EngineeringUnits.Irradiance(1, IrradianceUnit.KilowattPerSquareMeter);

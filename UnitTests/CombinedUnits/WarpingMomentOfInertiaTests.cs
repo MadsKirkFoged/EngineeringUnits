@@ -12,7 +12,7 @@ public class WarpingMomentOfInertiaTests
 {
 
     [TestMethod]
-    public void WarpingMomentOfInertiaAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.WarpingMomentOfInertia(1, UnitsNet.Units.WarpingMomentOfInertiaUnit.MeterToTheSixth);
         var A2 = new EngineeringUnits.WarpingMomentOfInertia(1, WarpingMomentOfInertiaUnit.MeterToTheSixth);

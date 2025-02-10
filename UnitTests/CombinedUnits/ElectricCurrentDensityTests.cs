@@ -12,7 +12,7 @@ public class ElectricCurrentDensityTests
 {
 
     [TestMethod]
-    public void ElectricCurrentDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricCurrentDensity(1, UnitsNet.Units.ElectricCurrentDensityUnit.AmperePerSquareMeter);
         var A2 = new EngineeringUnits.ElectricCurrentDensity(1, ElectricCurrentDensityUnit.AmperePerSquareMeter);

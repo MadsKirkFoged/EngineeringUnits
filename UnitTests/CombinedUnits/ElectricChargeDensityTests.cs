@@ -12,7 +12,7 @@ public class ElectricChargeDensityTests
 {
 
     [TestMethod]
-    public void ElectricChargeDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricChargeDensity(1, UnitsNet.Units.ElectricChargeDensityUnit.CoulombPerCubicMeter);
         var A2 = new EngineeringUnits.ElectricChargeDensity(1, ElectricChargeDensityUnit.CoulombPerCubicMeter);

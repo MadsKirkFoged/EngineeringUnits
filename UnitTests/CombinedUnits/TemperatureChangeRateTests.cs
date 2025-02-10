@@ -12,7 +12,7 @@ public class TemperatureChangeRateTests
 {
 
     [TestMethod]
-    public void TemperatureChangeRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.TemperatureChangeRate(1, UnitsNet.Units.TemperatureChangeRateUnit.DegreeCelsiusPerMinute);
         var A2 = new EngineeringUnits.TemperatureChangeRate(1, TemperatureChangeRateUnit.DegreeCelsiusPerMinute);

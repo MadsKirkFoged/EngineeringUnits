@@ -13,7 +13,7 @@ namespace UnitTests.CombinedUnits;
 public class AngleTests
 {
     [TestMethod]
-    public void AngleAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Angle(1, UnitsNet.Units.AngleUnit.Degree);
         var A2 = new EngineeringUnits.Angle(1, AngleUnit.Degree);
@@ -62,7 +62,7 @@ public class AngleTests
     }
 
     [TestMethod]
-    public void AngleCanBeZero()
+    public void CanBeZero()
     {
         EngineeringUnits.Angle angle = EngineeringUnits.Angle.Zero;
         Assert.AreEqual(EngineeringUnits.Angle.Zero, angle);

@@ -12,7 +12,7 @@ public class TorquePerLengthTests
 {
 
     [TestMethod]
-    public void TorquePerLengthAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.TorquePerLength(1, UnitsNet.Units.TorquePerLengthUnit.KilonewtonMeterPerMeter);
         var A2 = new EngineeringUnits.TorquePerLength(1, TorquePerLengthUnit.KilonewtonMeterPerMeter);

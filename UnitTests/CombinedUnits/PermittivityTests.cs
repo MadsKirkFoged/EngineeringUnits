@@ -12,7 +12,7 @@ public class PermittivityTests
 {
 
     [TestMethod]
-    public void PermittivityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Permittivity(1, UnitsNet.Units.PermittivityUnit.FaradPerMeter);
         var A2 = new EngineeringUnits.Permittivity(1, PermittivityUnit.FaradPerMeter);

@@ -12,7 +12,7 @@ public class InformationTests
 {
 
     [TestMethod]
-    public void InformationAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Information(1, UnitsNet.Units.InformationUnit.Byte);
         var A2 = new EngineeringUnits.Information(1, InformationUnit.Byte);

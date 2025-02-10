@@ -11,7 +11,7 @@ namespace UnitTests.CombinedUnits;
 public class ApparentEnergyTests
 {
     [TestMethod]
-    public void ApparentEnergyAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ApparentEnergy(1, UnitsNet.Units.ApparentEnergyUnit.MegavoltampereHour);
         var A2 = new EngineeringUnits.ApparentEnergy(1, ApparentEnergyUnit.MegavoltampereHour);

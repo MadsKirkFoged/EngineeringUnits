@@ -11,7 +11,7 @@ namespace UnitTests.CombinedUnits;
 public class AccelerationTests
 {
     [TestMethod]
-    public void AccelerationAdding()
+    public void Adding()
     {
         var A1 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.FootPerSecondSquared);
         var A2 = new UnitsNet.Acceleration(1, UnitsNet.Units.AccelerationUnit.MicrometerPerSecondSquared);
@@ -62,7 +62,7 @@ public class AccelerationTests
     }
 
     [TestMethod]
-    public void AccelerationMultiply()
+    public void Multiply()
     {
         var A1 = new UnitsNet.Length(10, UnitsNet.Units.LengthUnit.Kilometer);
         var A2 = new UnitsNet.Duration(1, UnitsNet.Units.DurationUnit.Minute);
@@ -116,7 +116,7 @@ public class AccelerationTests
     }
 
     [TestMethod]
-    public void AccelerationTest()
+    public void Creation()
     {
         double? value = null;
         var a = EngineeringUnits.Acceleration.From(value, AccelerationUnit.KnotPerMinute);

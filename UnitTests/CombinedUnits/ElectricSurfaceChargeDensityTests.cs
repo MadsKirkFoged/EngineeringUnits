@@ -12,7 +12,7 @@ public class ElectricSurfaceChargeDensityTests
 {
 
     [TestMethod]
-    public void ElectricSurfaceChargeDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricSurfaceChargeDensity(1, UnitsNet.Units.ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);
         var A2 = new EngineeringUnits.ElectricSurfaceChargeDensity(1, ElectricSurfaceChargeDensityUnit.CoulombPerSquareInch);

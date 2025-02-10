@@ -9,7 +9,7 @@ namespace UnitTests.CombinedUnits;
 public class SpeedTests
 {
     [TestMethod]
-    public void SpeedSimple()
+    public void Simple()
     {
         Length L1 = new(100, LengthUnit.Meter);
         Duration D1 = new(10, DurationUnit.Second);
@@ -32,7 +32,7 @@ public class SpeedTests
     }
 
     [TestMethod]
-    public void SpeedSimple2()
+    public void Simple2()
     {
         Length L1 = new(100, LengthUnit.Yard);
         Duration D1 = new(10, DurationUnit.Hour);
@@ -46,14 +46,14 @@ public class SpeedTests
     }
 
     [TestMethod]
-    public void SpeedCanBeZero()
+    public void CanBeZero()
     {
         Speed speed = Speed.Zero;
         Assert.AreEqual(Speed.Zero, speed);
     }
 
     [TestMethod]
-    public void SpeedOperatorTest()
+    public void OperatorTest()
     {
         Speed speed = Length.FromCentimeter(255)/Duration.FromMinute(30);
         Assert.AreEqual("cm/min", speed.ToString("UnitOnly"));

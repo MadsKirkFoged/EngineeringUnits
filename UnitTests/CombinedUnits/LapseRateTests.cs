@@ -13,7 +13,7 @@ public class LapseRateTests
 
     [TestMethod]
     [System.Obsolete("..")]
-    public void LapseRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.LapseRate(1, UnitsNet.Units.LapseRateUnit.DegreeCelsiusPerKilometer);
         var A2 = new EngineeringUnits.LapseRate(1, LapseRateUnit.DegreeCelsiusPerKilometer);

@@ -9,7 +9,7 @@ public class CoefficientOfThermalExpansionTests
     //We dont agree on using Temperature and deltaTemperature..
 
     //[TestMethod]
-    //public void CoefficientOfThermalExpansionAutoTest()
+    //public void AutoTest()
     //{
     //    var A1 = new UnitsNet.CoefficientOfThermalExpansion(1, UnitsNet.Units.CoefficientOfThermalExpansionUnit.InverseKelvin);
     //    var A2 = new EngineeringUnits.CoefficientOfThermalExpansion(1, EngineeringUnits.CoefficientOfThermalExpansionUnit.InverseKelvin);

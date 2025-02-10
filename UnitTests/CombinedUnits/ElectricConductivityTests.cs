@@ -12,7 +12,7 @@ public class ElectricConductivityTests
 {
 
     [TestMethod]
-    public void ElectricConductivityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricConductivity(1, UnitsNet.Units.ElectricConductivityUnit.SiemensPerMeter);
         var A2 = new EngineeringUnits.ElectricConductivity(1, ElectricConductivityUnit.SiemensPerMeter);

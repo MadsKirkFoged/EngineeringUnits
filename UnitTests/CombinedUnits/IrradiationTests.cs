@@ -12,7 +12,7 @@ public class IrradiationTests
 {
 
     [TestMethod]
-    public void IrradiationAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Irradiation(1, UnitsNet.Units.IrradiationUnit.JoulePerSquareMeter);
         var A2 = new EngineeringUnits.Irradiation(1, IrradiationUnit.JoulePerSquareMeter);

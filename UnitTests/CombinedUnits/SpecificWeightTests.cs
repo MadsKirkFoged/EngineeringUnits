@@ -12,7 +12,7 @@ public class SpecificWeightTests
 {
 
     [TestMethod]
-    public void SpecificWeightAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.SpecificWeight(1, UnitsNet.Units.SpecificWeightUnit.KilogramForcePerCubicMillimeter);
         var A2 = new EngineeringUnits.SpecificWeight(1, SpecificWeightUnit.KilogramForcePerCubicMillimeter);

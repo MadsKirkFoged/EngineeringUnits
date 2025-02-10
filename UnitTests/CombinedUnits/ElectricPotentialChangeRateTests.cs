@@ -12,7 +12,7 @@ public class ElectricPotentialChangeRateTests
 {
 
     [TestMethod]
-    public void ElectricPotentialChangeRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricPotentialChangeRate(1, UnitsNet.Units.ElectricPotentialChangeRateUnit.KilovoltPerSecond);
         var A2 = new EngineeringUnits.ElectricPotentialChangeRate(1, ElectricPotentialChangeRateUnit.KilovoltPerSecond);

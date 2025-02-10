@@ -12,7 +12,7 @@ public class MolarEntropyTests
 {
 
     [TestMethod]
-    public void MolarEntropyAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MolarEntropy(1, UnitsNet.Units.MolarEntropyUnit.KilojoulePerMoleKelvin);
         var A2 = new EngineeringUnits.MolarEntropy(1, MolarEntropyUnit.KilojoulePerMoleKelvin);

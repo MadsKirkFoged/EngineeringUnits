@@ -12,7 +12,7 @@ public class ForceChangeRateTests
 {
 
     [TestMethod]
-    public void ForceChangeRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ForceChangeRate(1, UnitsNet.Units.ForceChangeRateUnit.DecanewtonPerSecond);
         var A2 = new EngineeringUnits.ForceChangeRate(1, ForceChangeRateUnit.DecanewtonPerSecond);

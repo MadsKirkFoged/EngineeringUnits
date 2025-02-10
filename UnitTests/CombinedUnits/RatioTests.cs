@@ -11,7 +11,7 @@ namespace UnitTests.CombinedUnits;
 public partial class RatioTests
 {
     [TestMethod]
-    public void RatioAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Ratio(1, UnitsNet.Units.RatioUnit.PartPerMillion);
         var A2 = new EngineeringUnits.Ratio(1, RatioUnit.PartPerMillion);

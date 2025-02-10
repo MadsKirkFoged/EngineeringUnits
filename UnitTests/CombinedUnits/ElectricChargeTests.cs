@@ -12,7 +12,7 @@ public class ElectricChargeTests
 {
 
     [TestMethod]
-    public void ElectricChargeAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricCharge(1, UnitsNet.Units.ElectricChargeUnit.AmpereHour);
         var A2 = new EngineeringUnits.ElectricCharge(1, ElectricChargeUnit.AmpereHour);

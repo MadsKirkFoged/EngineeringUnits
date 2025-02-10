@@ -12,7 +12,7 @@ public class MassFluxTests
 {
 
     [TestMethod]
-    public void MassFluxAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MassFlux(1, UnitsNet.Units.MassFluxUnit.GramPerSecondPerSquareMeter);
         var A2 = new EngineeringUnits.MassFlux(1, MassFluxUnit.GramPerSecondPerSquareMeter);

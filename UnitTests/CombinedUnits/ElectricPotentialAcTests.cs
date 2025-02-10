@@ -12,7 +12,7 @@ public class ElectricPotentialAcTests
 {
 
     [TestMethod]
-    public void ElectricPotentialAcAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricPotentialAc(1, UnitsNet.Units.ElectricPotentialAcUnit.MicrovoltAc);
         var A2 = new EngineeringUnits.ElectricPotentialAc(1, ElectricPotentialUnit.Microvolt);

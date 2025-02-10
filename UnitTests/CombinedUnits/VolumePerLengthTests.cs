@@ -12,7 +12,7 @@ public class VolumePerLengthTests
 {
 
     [TestMethod]
-    public void VolumePerLengthAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.VolumePerLength(1, UnitsNet.Units.VolumePerLengthUnit.CubicMeterPerMeter);
         var A2 = new EngineeringUnits.VolumePerLength(1, VolumePerLengthUnit.CubicMeterPerMeter);

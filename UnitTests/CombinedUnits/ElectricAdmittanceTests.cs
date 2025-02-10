@@ -12,7 +12,7 @@ public class ElectricAdmittanceTests
 {
 
     [TestMethod]
-    public void ElectricAdmittanceAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricAdmittance(1, UnitsNet.Units.ElectricAdmittanceUnit.Siemens);
         var A2 = new EngineeringUnits.ElectricAdmittance(1, ElectricAdmittanceUnit.Siemens);

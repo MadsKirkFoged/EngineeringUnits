@@ -12,7 +12,7 @@ public class CapacitanceTests
 {
 
     [TestMethod]
-    public void CapacitanceAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Capacitance(1, UnitsNet.Units.CapacitanceUnit.Farad);
         var A2 = new EngineeringUnits.Capacitance(1, CapacitanceUnit.Farad);

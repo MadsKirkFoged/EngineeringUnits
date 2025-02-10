@@ -12,7 +12,7 @@ public class MolarEnergyTests
 {
 
     [TestMethod]
-    public void MolarEnergyAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MolarEnergy(1, UnitsNet.Units.MolarEnergyUnit.KilojoulePerMole);
         var A2 = new EngineeringUnits.MolarEnergy(1, MolarEnergyUnit.KilojoulePerMole);

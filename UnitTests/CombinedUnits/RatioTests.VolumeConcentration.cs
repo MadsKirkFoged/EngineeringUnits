@@ -12,7 +12,7 @@ public partial class RatioTests
 {
 
     [TestMethod]
-    public void VolumeConcentrationAutoTest()
+    public void AutoTest_UnitNet_VolumeConcentration()
     {
         var A1 = new UnitsNet.VolumeConcentration(1, UnitsNet.Units.VolumeConcentrationUnit.LitersPerLiter);
         var A2 = new EngineeringUnits.Ratio(1, RatioUnit.LitersPerLiter);

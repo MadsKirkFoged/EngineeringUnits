@@ -12,7 +12,7 @@ public class ElectricCurrentGradientTests
 {
 
     [TestMethod]
-    public void ElectricCurrentGradientAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricCurrentGradient(1, UnitsNet.Units.ElectricCurrentGradientUnit.AmperePerSecond);
         var A2 = new EngineeringUnits.ElectricCurrentGradient(1, ElectricCurrentGradientUnit.AmperePerSecond);

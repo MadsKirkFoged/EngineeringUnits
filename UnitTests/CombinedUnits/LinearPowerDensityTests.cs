@@ -12,7 +12,7 @@ public class LinearPowerDensityTests
 {
 
     [TestMethod]
-    public void LinearPowerDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.LinearPowerDensity(1, UnitsNet.Units.LinearPowerDensityUnit.KilowattPerInch);
         var A2 = new EngineeringUnits.LinearPowerDensity(1, LinearPowerDensityUnit.KilowattPerInch);

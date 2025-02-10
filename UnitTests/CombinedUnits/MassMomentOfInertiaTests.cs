@@ -12,7 +12,7 @@ public class MassMomentOfInertiaTests
 {
 
     [TestMethod]
-    public void MassMomentOfInertiaAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MassMomentOfInertia(1, UnitsNet.Units.MassMomentOfInertiaUnit.KilogramSquareDecimeter);
         var A2 = new EngineeringUnits.MassMomentOfInertia(1, MassMomentOfInertiaUnit.KilogramSquareDecimeter);

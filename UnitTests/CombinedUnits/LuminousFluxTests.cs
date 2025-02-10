@@ -12,7 +12,7 @@ public class LuminousFluxTests
 {
 
     [TestMethod]
-    public void LuminousFluxAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.LuminousFlux(1, UnitsNet.Units.LuminousFluxUnit.Lumen);
         var A2 = new EngineeringUnits.LuminousFlux(1, LuminousFluxUnit.Lumen);

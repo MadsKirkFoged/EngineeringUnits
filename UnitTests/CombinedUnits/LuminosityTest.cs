@@ -12,7 +12,7 @@ public class LuminosityTests
 {
 
     [TestMethod]
-    public void LuminosityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Luminosity(1, UnitsNet.Units.LuminosityUnit.Watt);
         var A2 = new EngineeringUnits.Luminosity(1, PowerUnit.Watt);

@@ -12,7 +12,7 @@ public class MassConcentrationTests
 {
 
     [TestMethod]
-    public void MassConcentrationAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MassConcentration(1, UnitsNet.Units.MassConcentrationUnit.DecigramPerMilliliter);
         var A2 = new EngineeringUnits.MassConcentration(1, DensityUnit.DecigramPerMilliliter);

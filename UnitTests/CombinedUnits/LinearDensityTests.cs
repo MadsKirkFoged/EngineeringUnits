@@ -12,7 +12,7 @@ public class LinearDensityTests
 {
 
     [TestMethod]
-    public void LinearDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.LinearDensity(1, UnitsNet.Units.LinearDensityUnit.KilogramPerMeter);
         var A2 = new EngineeringUnits.LinearDensity(1, LinearDensityUnit.KilogramPerMeter);

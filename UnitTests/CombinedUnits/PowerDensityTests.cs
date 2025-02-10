@@ -12,7 +12,7 @@ public class PowerDensityTests
 {
 
     [TestMethod]
-    public void PowerDensityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.PowerDensity(1, UnitsNet.Units.PowerDensityUnit.DecawattPerLiter);
         var A2 = new EngineeringUnits.PowerDensity(1, PowerDensityUnit.DecawattPerLiter);

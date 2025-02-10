@@ -12,7 +12,7 @@ public class MagneticFluxTests
 {
 
     [TestMethod]
-    public void MagneticFluxAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.MagneticFlux(1, UnitsNet.Units.MagneticFluxUnit.Weber);
         var A2 = new EngineeringUnits.MagneticFlux(1, MagneticFluxUnit.Weber);

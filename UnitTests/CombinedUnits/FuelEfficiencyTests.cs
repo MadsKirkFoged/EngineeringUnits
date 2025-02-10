@@ -12,7 +12,7 @@ public class FuelEfficiencyTests
 {
 
     [TestMethod]
-    public void FuelEfficiencyAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.FuelEfficiency(1, UnitsNet.Units.FuelEfficiencyUnit.KilometerPerLiter);
         var A2 = new EngineeringUnits.FuelEfficiency(1, FuelEfficiencyUnit.KilometerPerLiter);

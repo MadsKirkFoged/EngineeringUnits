@@ -12,7 +12,7 @@ public class ElectricInductanceTests
 {
 
     [TestMethod]
-    public void ElectricInductanceAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricInductance(1, UnitsNet.Units.ElectricInductanceUnit.Henry);
         var A2 = new EngineeringUnits.ElectricInductance(1, ElectricInductanceUnit.Henry);

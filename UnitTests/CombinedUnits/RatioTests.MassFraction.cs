@@ -12,7 +12,7 @@ public partial class RatioTests
 {
 
     [TestMethod]
-    public void MassFractionAutoTest()
+    public void AutoTest_UnitsNet_MassFraction()
     {
         var A1 = new UnitsNet.MassFraction(1, UnitsNet.Units.MassFractionUnit.KilogramPerGram);
         var A2 = new EngineeringUnits.Ratio(1, RatioUnit.KilogramPerGram);

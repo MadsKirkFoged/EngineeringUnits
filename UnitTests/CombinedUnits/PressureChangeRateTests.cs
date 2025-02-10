@@ -12,7 +12,7 @@ public class PressureChangeRateTests
 {
 
     [TestMethod]
-    public void PressureChangeRateAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.PressureChangeRate(1, UnitsNet.Units.PressureChangeRateUnit.MegapascalPerMinute);
         var A2 = new EngineeringUnits.PressureChangeRate(1, PressureChangeRateUnit.MegapascalPerMinute);

@@ -9,7 +9,7 @@ public class SpecificEnergyTests
 {
 
     [TestMethod]
-    public void SpecificEnergyAdd()
+    public void Add()
     {
         UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
         UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
@@ -39,7 +39,7 @@ public class SpecificEnergyTests
     }
 
     [TestMethod]
-    public void SpecificEnergysub()
+    public void Sub()
     {
         UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
         UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);
@@ -57,7 +57,7 @@ public class SpecificEnergyTests
     }
 
     [TestMethod]
-    public void SpecificEnergysubSJON()
+    public void SubSJON()
     {
         UnitsNet.SpecificEnergy UnitNet1 = new(1, UnitsNet.Units.SpecificEnergyUnit.BtuPerPound);
         UnitsNet.SpecificEnergy UnitNet2 = new(10, UnitsNet.Units.SpecificEnergyUnit.JoulePerKilogram);

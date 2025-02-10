@@ -12,7 +12,7 @@ public class ReactiveEnergyTests
 {
 
     [TestMethod]
-    public void ReactiveEnergyAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ReactiveEnergy(1, UnitsNet.Units.ReactiveEnergyUnit.VoltampereReactiveHour);
         var A2 = new EngineeringUnits.ReactiveEnergy(1, ReactiveEnergyUnit.VoltampereReactiveHour);

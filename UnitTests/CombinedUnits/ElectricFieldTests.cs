@@ -12,7 +12,7 @@ public class ElectricFieldTests
 {
 
     [TestMethod]
-    public void ElectricFieldAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricField(1, UnitsNet.Units.ElectricFieldUnit.VoltPerMeter);
         var A2 = new EngineeringUnits.ElectricField(1, ElectricFieldUnit.VoltPerMeter);

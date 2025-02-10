@@ -12,7 +12,7 @@ public class ElectricResistivityTests
 {
 
     [TestMethod]
-    public void ElectricResistivityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricResistivity(1, UnitsNet.Units.ElectricResistivityUnit.KiloohmMeter);
         var A2 = new EngineeringUnits.ElectricResistivity(1, ElectricResistivityUnit.KiloohmMeter);

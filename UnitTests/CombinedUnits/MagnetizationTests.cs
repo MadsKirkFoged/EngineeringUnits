@@ -12,7 +12,7 @@ public class MagnetizationTests
 {
 
     [TestMethod]
-    public void MagnetizationAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Magnetization(1, UnitsNet.Units.MagnetizationUnit.AmperePerMeter);
         var A2 = new EngineeringUnits.Magnetization(1, MagnetizationUnit.AmperePerMeter);

@@ -12,7 +12,7 @@ public class IlluminanceTests
 {
 
     [TestMethod]
-    public void IlluminanceAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Illuminance(1, UnitsNet.Units.IlluminanceUnit.Lux);
         var A2 = new EngineeringUnits.Illuminance(1, IlluminanceUnit.Lux);

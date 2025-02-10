@@ -12,7 +12,7 @@ public class PermeabilityTests
 {
 
     [TestMethod]
-    public void PermeabilityAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Permeability(1, UnitsNet.Units.PermeabilityUnit.HenryPerMeter);
         var A2 = new EngineeringUnits.Permeability(1, PermeabilityUnit.HenryPerMeter);
