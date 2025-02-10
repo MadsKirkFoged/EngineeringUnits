@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UnitTests;
+namespace UnitTests.CombinedUnits;
 
 [TestClass]
 public class MathDensity

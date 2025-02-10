@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
 public class ComparToUnitNet

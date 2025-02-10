@@ -1,7 +1,7 @@
 ﻿using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Functionality;
 
 [TestClass]
 public class Nullchecks

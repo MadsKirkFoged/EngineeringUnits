@@ -2,7 +2,7 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.BaseUnits;
 
 [TestClass]
 public class DurationTest

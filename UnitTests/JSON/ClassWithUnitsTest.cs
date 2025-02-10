@@ -2,9 +2,8 @@ using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Linq;
-using UnitTests.JSON;
 
-namespace UnitTests;
+namespace UnitTests.JSON;
 
 [TestClass]
 public class ClassWithUnitsTest

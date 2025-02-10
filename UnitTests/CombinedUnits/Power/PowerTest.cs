@@ -2,7 +2,7 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.CombinedUnits;
 
 [TestClass]
 public class PowerTest

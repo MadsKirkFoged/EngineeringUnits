@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using static EngineeringUnits.AngleMath;
 
-namespace UnitTests;
+namespace UnitTests.CombinedUnits;
 
 [TestClass]
 public class AngleTest

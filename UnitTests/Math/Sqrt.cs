@@ -1,7 +1,7 @@
 using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
 public class Sqrt

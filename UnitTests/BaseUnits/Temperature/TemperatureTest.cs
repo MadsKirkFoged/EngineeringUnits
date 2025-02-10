@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
-namespace UnitTests;
+namespace UnitTests.BaseUnits;
 
 [TestClass]
 public class TemperatureTest

@@ -3,10 +3,10 @@ using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.BaseUnits;
+
 [TestClass]
 public class CreatingBaseUnits
 {
-
     [TestMethod]
     public void Decimal_Test()
     {

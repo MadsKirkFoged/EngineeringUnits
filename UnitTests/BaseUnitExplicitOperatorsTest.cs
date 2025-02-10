@@ -1,7 +1,8 @@
-﻿using EngineeringUnits.Units;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EngineeringUnits.Tests;
+namespace UnitTests;
 
 [TestClass()]
 public class BaseUnitImplicitOperatorsTest

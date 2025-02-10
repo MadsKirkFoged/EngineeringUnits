@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using EngineeringUnits;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EngineeringUnits.Tests;
+namespace UnitTests;
 
 [TestClass()]
 public class BaseUnitAlias
