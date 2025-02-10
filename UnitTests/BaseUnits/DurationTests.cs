@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests.BaseUnits;
 
 [TestClass]
-public class DurationTest
+public class DurationTests
 {
     [TestMethod]
     public void DurationConverts()
@@ -38,6 +38,7 @@ public class DurationTest
         var d2 = Duration.From(1, DurationUnit.Hour);
         Assert.AreEqual(d1, d2);
     }
+
     [TestMethod]
     public void DurationConverts4()
     {
@@ -76,6 +77,7 @@ public class DurationTest
         var e2 = ElectricCurrent.From(0.1, ElectricCurrentUnit.Ampere);
         Assert.AreEqual(e1, e2);
     }
+
     [TestMethod]
     public void FromElectricCurrent03()
     {
@@ -84,7 +86,6 @@ public class DurationTest
         var e2 = Length.From(value, null);
         Assert.IsNotNull(e);
         Assert.IsNull(e2);
-
     }
 
     [TestMethod]

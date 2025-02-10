@@ -5,9 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests.BaseUnits;
 
 [TestClass]
-public class AmountOfSubstanceTest
+public class AmountOfSubstanceTests
 {
-
     [TestMethod]
     public void AmountOfSubstance01()
     {
@@ -17,6 +16,7 @@ public class AmountOfSubstanceTest
         var a2 = AmountOfSubstance.From(1, AmountOfSubstanceUnit.Decimole);
         Assert.AreEqual(a1, a2);
     }
+
     [TestMethod]
     public void AmountOfSubstance02()
     {

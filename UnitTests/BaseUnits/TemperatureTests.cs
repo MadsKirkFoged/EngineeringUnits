@@ -7,12 +7,11 @@ using System.Diagnostics;
 namespace UnitTests.BaseUnits;
 
 [TestClass]
-public class TemperatureTest
+public class TemperatureTests
 {
     [TestMethod]
     public void CelsiusDivideFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -29,7 +28,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitDivideCelsius()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -46,7 +44,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusDivideCelsius()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -63,7 +60,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitDivideFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
@@ -80,7 +76,6 @@ public class TemperatureTest
     [TestMethod]
     public void KelvinDivideKelvin()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.Kelvin);
         Temperature T2 = new(4, TemperatureUnit.Kelvin);
@@ -92,7 +87,6 @@ public class TemperatureTest
         //Assert
         Assert.AreEqual(T3.ToString(), "6.75");
         Assert.AreEqual(K3, 6.75);
-
     }
 
     /// <summary>
@@ -102,7 +96,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusTimesFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -119,7 +112,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitTimesCelsius()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -136,7 +128,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusTimesCelsius()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -153,7 +144,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitTimesFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
@@ -170,7 +160,6 @@ public class TemperatureTest
     [TestMethod]
     public void KelvinTimesKelvin()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.Kelvin);
         Temperature T2 = new(4, TemperatureUnit.Kelvin);
@@ -192,7 +181,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusAddFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -212,7 +200,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitAddCelsius()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -232,7 +219,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusAddCelsius()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -251,7 +237,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitAddFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
@@ -270,7 +255,6 @@ public class TemperatureTest
     [TestMethod]
     public void KelvinAddKelvin()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.Kelvin);
         Temperature T2 = new(4, TemperatureUnit.Kelvin);
@@ -289,7 +273,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusMinusFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -309,7 +292,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitMinusCelsius()
     {
-
         //Arrange
         Temperature T1 = new(100, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -329,7 +311,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusMinusCelsius()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(4, TemperatureUnit.DegreeCelsius);
@@ -348,7 +329,6 @@ public class TemperatureTest
     [TestMethod]
     public void FahrenheitMinusFahrenheit()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.DegreeFahrenheit);
         Temperature T2 = new(4, TemperatureUnit.DegreeFahrenheit);
@@ -367,7 +347,6 @@ public class TemperatureTest
     [TestMethod]
     public void KelvinMinusKelvin()
     {
-
         //Arrange
         Temperature T1 = new(27, TemperatureUnit.Kelvin);
         Temperature T2 = new(4, TemperatureUnit.Kelvin);
@@ -386,7 +365,6 @@ public class TemperatureTest
     [TestMethod]
     public void CelsiusMinusKelvin()
     {
-
         //Arrange
         Temperature T1 = new(50, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(322, TemperatureUnit.Kelvin);
@@ -560,7 +538,6 @@ public class TemperatureTest
     [TestMethod]
     public void TemperatureDivideTemperature()
     {
-
         Temperature T1 = new(20, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(293.15, TemperatureUnit.Kelvin);
         Temperature T3 = new(68, TemperatureUnit.DegreeFahrenheit);
@@ -587,7 +564,6 @@ public class TemperatureTest
     [TestMethod]
     public void TemperatureDivideTemperature2()
     {
-
         Temperature T1 = new(10, TemperatureUnit.DegreeCelsius);
         Temperature T2 = new(10, TemperatureUnit.Kelvin);
         Temperature T3 = new(10, TemperatureUnit.DegreeFahrenheit);

@@ -7,7 +7,7 @@ using System.Diagnostics;
 namespace UnitTests.BaseUnits;
 
 [TestClass]
-public class LenghtTest
+public class LenghtTests
 {
 
     [TestMethod]
@@ -285,7 +285,6 @@ public class LenghtTest
 
         object? nullObj = null;
         Assert.IsFalse(L1.Equals(nullObj));
-
     }
 
     [TestMethod]
@@ -343,7 +342,6 @@ public class LenghtTest
         UnknownUnit subtract = L1 - L3;
         Assert.IsTrue(subtract == L1 - L1);
         Assert.IsFalse(add < subtract);
-
     }
 
     [TestMethod]
@@ -371,6 +369,7 @@ public class LenghtTest
         var l2 = Length.From(1, LengthUnit.Meter);
         Assert.AreEqual(l1, l2);
     }
+
     [TestMethod]
     public void FromLength2()
     {
@@ -379,6 +378,7 @@ public class LenghtTest
         Assert.IsNull(l);
 
     }
+
     [TestMethod]
     public void FromLength3()
     {
@@ -406,7 +406,6 @@ public class LenghtTest
         Assert.AreEqual(meter, Length.FromHectometer(1));
         Assert.AreEqual(meter, Length.FromDecimeter(1000));
         Assert.AreEqual(meter, Length.FromMillimeter(100000));
-
     }
 
     //add test for + operator for unknownunit and length
