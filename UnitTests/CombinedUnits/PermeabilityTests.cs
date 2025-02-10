@@ -8,7 +8,7 @@ using System.Linq;
 namespace UnitTests.CombinedUnits;
 
 [TestClass]
-public class PermeabilityTest
+public class PermeabilityTests
 {
 
     [TestMethod]

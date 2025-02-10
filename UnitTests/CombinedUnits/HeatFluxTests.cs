@@ -8,7 +8,7 @@ using System.Linq;
 namespace UnitTests.CombinedUnits;
 
 [TestClass]
-public class HeatFluxTest
+public class HeatFluxTests
 {
 
     [TestMethod]

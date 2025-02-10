@@ -8,7 +8,7 @@ using System.Linq;
 namespace UnitTests.CombinedUnits;
 
 [TestClass]
-public class MolarEntropyTest
+public class MolarEntropyTests
 {
 
     [TestMethod]
