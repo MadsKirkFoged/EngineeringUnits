@@ -16,11 +16,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BaseUnits\Amount\" />
-    <Folder Include="BaseUnits\CombinedUnits\" />
-    <Folder Include="BaseUnits\Electriccurrent\" />
-    <Folder Include="BaseUnits\LuminousIntensity\" />
-    <Folder Include="BaseUnits\Mass\" />
     <Folder Include="CombinedUnits\AmplitudeRatio\" />
     <Folder Include="CombinedUnits\AreaDensity\" />
     <Folder Include="CombinedUnits\DynamicViscosity\" />
