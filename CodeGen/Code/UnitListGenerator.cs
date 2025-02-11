@@ -11,7 +11,7 @@ internal class UnitListGenerator
     {
         var PrintOut = $"";
 
-        foreach (var assemblyName in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
+        foreach (var assemblyName in ListOfUnitsForDifferentGenerators.GetListOfAllUnits())
         {
             var t = Type.GetType("EngineeringUnits.Units." + assemblyName + "Unit, EngineeringUnits");
 
@@ -33,7 +33,7 @@ internal class UnitListGenerator
     {
         var PrintOut = $"";
 
-        List<string> assembly = ListOfUnitsForDifferentGenerators.GetListOFAllUnits();
+        List<string> assembly = ListOfUnitsForDifferentGenerators.GetListOfAllUnits();
 
         assembly.Sort();
 

@@ -3,7 +3,7 @@ using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace UnitTests;
+namespace UnitTests.Functionality;
 
 [TestClass]
 public class LoadUnitFromDatabase

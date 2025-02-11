@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  
   <PropertyGroup>
 	  <TargetFrameworks>net472;net6.0;net8.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
@@ -6,6 +7,7 @@
 	  <Nullable>enable</Nullable>
 	  <IsTestProject>true</IsTestProject>
   </PropertyGroup>
+  
   <ItemGroup>
     <PackageReference Include="Fractions" Version="8.0.4" />
     <PackageReference Include="Microsoft.Data.Edm" Version="5.8.5" />
@@ -15,45 +17,9 @@
     <PackageReference Include="UnitsNet" Version="4.121.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BaseUnits\Amount\" />
-    <Folder Include="BaseUnits\CombinedUnits\" />
-    <Folder Include="BaseUnits\Electriccurrent\" />
-    <Folder Include="BaseUnits\LuminousIntensity\" />
-    <Folder Include="BaseUnits\Mass\" />
-    <Folder Include="CombinedUnits\AmplitudeRatio\" />
-    <Folder Include="CombinedUnits\AreaDensity\" />
-    <Folder Include="CombinedUnits\DynamicViscosity\" />
-    <Folder Include="CombinedUnits\ElectricConductance\" />
-    <Folder Include="CombinedUnits\ElectricPotential\" />
-    <Folder Include="CombinedUnits\Energy\" />
-    <Folder Include="CombinedUnits\Entropy\" />
-    <Folder Include="CombinedUnits\ForcePerLength\" />
-    <Folder Include="CombinedUnits\Force\" />
-    <Folder Include="CombinedUnits\Frequency\" />
-    <Folder Include="CombinedUnits\HeatTransferCoefficient\" />
-    <Folder Include="CombinedUnits\KinematicViscosity\" />
-    <Folder Include="CombinedUnits\MassFlow\" />
-    <Folder Include="CombinedUnits\MolarMass\" />
-    <Folder Include="CombinedUnits\PowerRatio\" />
-    <Folder Include="CombinedUnits\RatioChangeRate\" />
-    <Folder Include="CombinedUnits\RelativeHumidity\" />
-    <Folder Include="CombinedUnits\RotationalAcceleration\" />
-    <Folder Include="CombinedUnits\RotationalSpeed\" />
-    <Folder Include="CombinedUnits\RotationalStiffnessPerLength\" />
-    <Folder Include="CombinedUnits\RotationalStiffness\" />
-    <Folder Include="CombinedUnits\Scalar\" />
-    <Folder Include="CombinedUnits\SolidAngle\" />
-    <Folder Include="CombinedUnits\SpecificEntropy\" />
-    <Folder Include="CombinedUnits\SpecificVolume\" />
-    <Folder Include="CombinedUnits\test\" />
-    <Folder Include="CombinedUnits\ThermalConductivity\" />
-    <Folder Include="CombinedUnits\ThermalResistance\" />
-    <Folder Include="CombinedUnits\Torque\" />
-    <Folder Include="CombinedUnits\VolumeFlow\" />
-    <Folder Include="CombinedUnits\Volume\" />
-  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>
+  
 </Project>

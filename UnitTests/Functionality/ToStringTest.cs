@@ -2,7 +2,7 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Functionality;
 
 [TestClass]
 public class ToStringTest

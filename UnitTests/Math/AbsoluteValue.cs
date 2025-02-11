@@ -3,7 +3,7 @@ using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
 public class AbsoluteValue

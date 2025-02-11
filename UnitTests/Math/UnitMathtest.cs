@@ -1,7 +1,6 @@
 using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -328,13 +327,13 @@ public class UnitMathTest
         UnknownUnit pow2 = twoMeters.Pow(2);
         UnknownUnit pow3 = twoMeters.Pow(3);
 
-        Assert.AreEqual(Math.Pow(2, -3), (double)powMinus3.AsSI);
-        Assert.AreEqual(Math.Pow(2, -2), (double)powMinus2.AsSI);
-        Assert.AreEqual(Math.Pow(2, -1), (double)powMinus1.AsSI);
-        Assert.AreEqual(Math.Pow(2, 0), (double)pow0.AsSI);
-        Assert.AreEqual(Math.Pow(2, 1), (double)pow1.AsSI);
-        Assert.AreEqual(Math.Pow(2, 2), (double)pow2.AsSI);
-        Assert.AreEqual(Math.Pow(2, 3), (double)pow3.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, -3), (double)powMinus3.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, -2), (double)powMinus2.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, -1), (double)powMinus1.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, 0), (double)pow0.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, 1), (double)pow1.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, 2), (double)pow2.AsSI);
+        Assert.AreEqual(System.Math.Pow(2, 3), (double)pow3.AsSI);
     }
 
     [TestMethod]
