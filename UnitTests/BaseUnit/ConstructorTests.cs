@@ -2,16 +2,53 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests.BaseUnits;
+namespace UnitTests.BaseUnit;
 
-[TestClass]
-public class BaseUnitTests
+[TestClass()]
+public class ConstructorTests
 {
+    [TestMethod()]
+    public void BaseUnitIntRatio()
+    {
+        // Arrange
+        var ratio = new EngineeringUnits.BaseUnit(1);
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(1, ratio.AsSI);
+    }
+
+    [TestMethod()]
+    public void BaseUnitDoubleRatio()
+    {
+        // Arrange
+        var ratio = new EngineeringUnits.BaseUnit(1d);
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(1, ratio.AsSI);
+    }
+
+    [TestMethod()]
+    public void BaseUnitDecimalRatio()
+    {
+        // Arrange
+        var ratio = new EngineeringUnits.BaseUnit(1m);
+
+        // Act
+
+        // Assert
+        Assert.AreEqual(1, ratio.AsSI);
+    }
+
+
     [TestMethod]
     public void Decimal_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1.5m, MassFlowUnit.KilogramPerSecond);
+        var unit = new EngineeringUnits.BaseUnit(1.5m, MassFlowUnit.KilogramPerSecond);
 
         // Act
         var value = unit.As(MassFlowUnit.KilogramPerSecond);
@@ -24,7 +61,7 @@ public class BaseUnitTests
     public void NegDecimal_Test()
     {
         // Arrange
-        var unit = new BaseUnit(-1.5m, MassFlowUnit.KilogramPerSecond);
+        var unit = new EngineeringUnits.BaseUnit(-1.5m, MassFlowUnit.KilogramPerSecond);
 
         // Act
         var value = unit.As(MassFlowUnit.KilogramPerSecond);
@@ -38,7 +75,7 @@ public class BaseUnitTests
     public void Int_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, TemperatureUnit.DegreeCelsius);
+        var unit = new EngineeringUnits.BaseUnit(1, TemperatureUnit.DegreeCelsius);
 
         // Act
         var value = unit.As(TemperatureUnit.DegreeCelsius);
@@ -52,7 +89,7 @@ public class BaseUnitTests
     public void Int_Test2()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var value = unit.As(PressureUnit.Pascal);
@@ -66,7 +103,7 @@ public class BaseUnitTests
     public void ImplicitOperator_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var UnknownUnit = unit.ToUnknownUnit();
@@ -81,7 +118,7 @@ public class BaseUnitTests
     public void ImplicitOperator_Test2()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var UnitSystem = (UnitSystem)unit;
@@ -95,7 +132,7 @@ public class BaseUnitTests
     public void GetStandardSymbol_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var StandardSymbol = unit.GetStandardSymbol(PressureUnit.SI);
@@ -109,8 +146,8 @@ public class BaseUnitTests
     public void Equals_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
-        var unit2 = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
+        var unit2 = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var Equals = unit.Equals(unit2);
@@ -124,8 +161,8 @@ public class BaseUnitTests
     public void Equals_Test2()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
-        var unit2 = new BaseUnit(2, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
+        var unit2 = new EngineeringUnits.BaseUnit(2, PressureUnit.Pascal);
 
         // Act
         var Equals = unit.Equals(unit2);
@@ -139,8 +176,8 @@ public class BaseUnitTests
     public void CompareTo_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
-        var unit2 = new BaseUnit(2, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
+        var unit2 = new EngineeringUnits.BaseUnit(2, PressureUnit.Pascal);
 
         // Act
         var CompareTo = unit.CompareTo(unit2);
@@ -154,8 +191,8 @@ public class BaseUnitTests
     public void CompareTo_Test2()
     {
         // Arrange
-        var unit = new BaseUnit(2, PressureUnit.Pascal);
-        var unit2 = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(2, PressureUnit.Pascal);
+        var unit2 = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var CompareTo = unit.CompareTo(unit2);
@@ -169,8 +206,8 @@ public class BaseUnitTests
     public void CompareTo_Test3()
     {
         // Arrange
-        var unit = new BaseUnit(1, PressureUnit.Pascal);
-        var unit2 = new BaseUnit(1, PressureUnit.Pascal);
+        var unit = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
+        var unit2 = new EngineeringUnits.BaseUnit(1, PressureUnit.Pascal);
 
         // Act
         var CompareTo = unit.CompareTo(unit2);
@@ -184,7 +221,7 @@ public class BaseUnitTests
     public void GetBaseValue_Test()
     {
         // Arrange
-        var unit = new BaseUnit(1, MassUnit.Gram);
+        var unit = new EngineeringUnits.BaseUnit(1, MassUnit.Gram);
 
         // Act
         var GetBaseValue = unit.AsSI;
