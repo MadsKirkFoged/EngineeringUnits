@@ -96,24 +96,43 @@ public readonly record struct DecimalSafe
 
     public static DecimalSafe operator /(DecimalSafe left, DecimalSafe right)
     {
-        if (left.IsInf || right.IsInf)
-            return new DecimalSafe() { IsInf = true };
-
+        // Cover NaN
         if (left.IsNaN || right.IsNaN)
             return new DecimalSafe() { IsNaN = true };
+
+        // Cover all cases with Infinity
+        // Inf / Inf = NaN
+        if (left.IsInf && right.IsInf) 
+            return new DecimalSafe() { IsNaN = true };
+
+        // Inf / n = Inf
+        if (left.IsInf && !right.IsInf)
+            return new DecimalSafe() { IsInf = true };
+
+        // n / Inf = 0
+        if (!left.IsInf && right.IsInf)
+            return new DecimalSafe(0.0);
 
         try
         {
             return new DecimalSafe(left.Value / right.Value);
 
         }
-        catch (Exception ex) when (ex is DivideByZeroException or OverflowException)
+        catch (DivideByZeroException)
+        {
+            // Cover cases with zero division
+            // 0 / 0 = NaN
+            if (left.Value == 0)
+                return new DecimalSafe() { IsNaN = true };
+
+            // n / 0 = Inf
+            return new DecimalSafe() { IsInf = true };
+        }
+        catch (OverflowException)
         {
             return new DecimalSafe() { IsInf = true };
         }
-
-
-        }
+    }
 
     public static bool operator <=(DecimalSafe left, DecimalSafe right)
     {
