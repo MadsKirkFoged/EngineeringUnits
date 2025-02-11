@@ -24,7 +24,7 @@ public class CreatingFunctions
         Assert.AreEqual(3, unit3.As(LengthUnit.Meter));
     }
 
-    public static UnknownUnit Adding2(BaseUnit a, BaseUnit b) => a + b;
+    public static UnknownUnit Adding2(EngineeringUnits.BaseUnit a, EngineeringUnits.BaseUnit b) => a + b;
 
     [TestMethod]
     public void AddingTest2()
@@ -40,7 +40,7 @@ public class CreatingFunctions
         Assert.AreEqual(3, unit3.As(LengthUnit.Meter));
     }
 
-    public static BaseUnit Adding3(BaseUnit a, BaseUnit b) => a + b;
+    public static EngineeringUnits.BaseUnit Adding3(EngineeringUnits.BaseUnit a, EngineeringUnits.BaseUnit b) => a + b;
 
     [TestMethod]
     public void AddingTest3()
@@ -50,13 +50,13 @@ public class CreatingFunctions
         var unit2 = new Length(2, LengthUnit.Meter);
 
         // Act
-        BaseUnit unit3 = Adding3(unit1, unit2);
+        EngineeringUnits.BaseUnit unit3 = Adding3(unit1, unit2);
 
         // Assert
         Assert.AreEqual(3, unit3.As(LengthUnit.Meter));
     }
 
-    public static BaseUnit Adding4(UnknownUnit a, UnknownUnit b) => a + b;
+    public static EngineeringUnits.BaseUnit Adding4(UnknownUnit a, UnknownUnit b) => a + b;
 
     [TestMethod]
     public void AddingTest4()
@@ -66,7 +66,7 @@ public class CreatingFunctions
         var unit2 = new Length(2, LengthUnit.Meter);
 
         // Act
-        BaseUnit unit3 = Adding4(unit1, unit2);
+        EngineeringUnits.BaseUnit unit3 = Adding4(unit1, unit2);
 
         // Assert
         Assert.AreEqual(3, unit3.As(LengthUnit.Meter));

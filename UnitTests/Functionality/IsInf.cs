@@ -11,7 +11,7 @@ public class IsInf
     public void Inf_Test()
     {
         // Arrange
-        var unit = new BaseUnit(double.PositiveInfinity, MassFlowUnit.SI);
+        var unit = new EngineeringUnits.BaseUnit(double.PositiveInfinity, MassFlowUnit.SI);
 
         // Act
         var value = unit.As(MassFlowUnit.SI);
@@ -25,7 +25,7 @@ public class IsInf
     public void NegInf_Test()
     {
         // Arrange
-        var unit = new BaseUnit(double.NegativeInfinity, MassFlowUnit.SI);
+        var unit = new EngineeringUnits.BaseUnit(double.NegativeInfinity, MassFlowUnit.SI);
 
         // Act
         var value = unit.As(MassFlowUnit.SI);

@@ -13,7 +13,7 @@ public class Constantstest
     public void GravitationalConstant_Test()
     {
         // Arrange
-        BaseUnit unit = Constants.GravitationalConstant;
+        EngineeringUnits.BaseUnit unit = Constants.GravitationalConstant;
 
         // Act
         var value = unit.As(ForceUnit.Newton);
