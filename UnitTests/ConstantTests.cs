@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests;
 
 [TestClass]
-public class Constantstest
+public class ConstantTests
 {
 
     //Create a tests for the Constants
