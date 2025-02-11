@@ -208,7 +208,7 @@ public class ListOfUnitsForDifferentGenerators
         "Temperature"
         ];
 
-    public static List<string> GetListOFAllUnits()
+    public static List<string> GetListOfAllUnits()
     {
         List<string> list = GetListOfCombinedUnits();
         list.AddRange(GetListOfBaseUnits());

@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
 public class AslotOfCalculations

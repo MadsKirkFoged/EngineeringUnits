@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace UnitTests;
+namespace UnitTests.JSON;
 
 [TestClass]
 public class JSONTest

@@ -13,7 +13,7 @@ internal static class UnknownUnitExtensionsGenerator
         var conditionals = new StringBuilder();
         _ = conditionals.AppendLine(""); // NOTE: this fixes tabbing offset for first [Variable]... there might be a better way to do this than this...
 
-        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
+        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfAllUnits())
         {
             var functions = $$"""
                                       if (toCast == [Variable]Unit.SI.Unit)

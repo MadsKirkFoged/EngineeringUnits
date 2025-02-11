@@ -2,7 +2,7 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Functionality;
 
 [TestClass]
 public class Equal
@@ -10,7 +10,7 @@ public class Equal
     [TestMethod]
     public void ConsistentEqualsOperations()
     {
-        var voltMinutes = new BaseUnit(2.0, new UnitSystem(ElectricPotentialUnit.Volt * DurationUnit.Minute, "V\u00b7min"));
+        var voltMinutes = new EngineeringUnits.BaseUnit(2.0, new UnitSystem(ElectricPotentialUnit.Volt * DurationUnit.Minute, "V\u00b7min"));
         var weber = MagneticFlux.FromWeber(2 * 60);
         Assert.IsTrue(voltMinutes == weber);
         Assert.IsTrue(weber == voltMinutes);

@@ -12,7 +12,7 @@ internal static class AbsExtensionsGenerator
         //StringBuilder staticUnits = new StringBuilder();
         var conditionals = new StringBuilder();
 
-        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOFAllUnits())
+        foreach (var item in ListOfUnitsForDifferentGenerators.GetListOfAllUnits())
         {
             var functions = $$"""
 
