@@ -61,4 +61,32 @@ public partial class RatioTests
         Assert.AreEqual(6, WorkingCompares);
 
     }
+
+    [TestMethod]
+    public void RatioMath()
+    {
+        MassFlow M1 = new(1, MassFlowUnit.KilogramPerSecond);
+        MassFlow M2 = new(4, MassFlowUnit.KilogramPerSecond);
+        Temperature T2 = new(10, TemperatureUnit.DegreeCelsius);
+        Temperature T1 = new(5, TemperatureUnit.DegreeCelsius);
+
+        Temperature F1 = new(5, TemperatureUnit.DegreeFahrenheit);
+
+        EngineeringUnits.Ratio Ratio1 = M1 / M2;
+        EngineeringUnits.Ratio Ratio2 = M2 / M1;
+
+        EngineeringUnits.Ratio Ratio3 = T2 / T2;
+        EngineeringUnits.Ratio Ratio4 = T1 / T2;
+
+        EngineeringUnits.Ratio Ratio5 = F1 / F1;
+
+        Assert.AreEqual(F1.SI / F1.SI, Ratio5.DecimalFraction);
+
+        Assert.AreEqual(1 / 4d, Ratio1.DecimalFraction);
+        Assert.AreEqual(4 / 1d, Ratio2.DecimalFraction);
+        Assert.AreEqual(1d, Ratio3.DecimalFraction);
+        Assert.AreEqual(T2.SI / T2.SI, Ratio3.DecimalFraction);
+
+        Assert.AreEqual(0.98234151509800471d, Ratio4.DecimalFraction);
+    }
 }
