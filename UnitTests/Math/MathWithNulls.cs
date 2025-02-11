@@ -1,12 +1,7 @@
 ﻿using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 
 [TestClass()]
@@ -21,7 +16,7 @@ public class MathWithNulls
         //Arrange
         Length L1 = Length.FromMeter(10);
         double? D1 = null;
-        
+
 
         // Act
         var test2 = L1 + D1;

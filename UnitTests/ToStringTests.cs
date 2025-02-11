@@ -5,7 +5,7 @@ namespace UnitTests;
 
 
 [TestClass()]
-public class ToString
+public class ToStringTests
 {
 
     [TestMethod()]

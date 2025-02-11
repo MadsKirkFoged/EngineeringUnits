@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace UnitTests;
 
 [TestClass]
-public class MultithreadingTest
+public class MultithreadingTests
 {
 
     [TestMethod]

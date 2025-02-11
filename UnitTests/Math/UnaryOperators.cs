@@ -2,10 +2,10 @@
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
-public class UnaryOperatorsTest
+public class UnaryOperators
 {
 
     //add test for + operator

@@ -1,12 +1,7 @@
 ﻿using EngineeringUnits;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 [TestClass()]
 public class MathWithInf
 {
@@ -53,7 +48,7 @@ public class MathWithInf
     public void SmallerThanInf()
     {
         //Arrange
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(double.PositiveInfinity);
 
         // Act
         bool result = Inf < MassFlow.FromKilogramPerSecond(100000000);
@@ -67,7 +62,7 @@ public class MathWithInf
     public void biggerThanInf()
     {
         //Arrange
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(double.PositiveInfinity);
 
         // Act
         bool result = Inf > MassFlow.FromKilogramPerSecond(100000000);
@@ -81,8 +76,8 @@ public class MathWithInf
     public void InfEqualInf()
     {
         //Arrange
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
-        MassFlow Inf2 = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(double.PositiveInfinity);
+        MassFlow Inf2 = MassFlow.FromKilogramPerSecond(double.PositiveInfinity);
 
         // Act
         bool ShouldBeFalse = Inf2 > Inf;
@@ -110,7 +105,7 @@ public class MathWithInf
     public void AbsWithInf()
     {
         //Arrange
-        MassFlow Inf = MassFlow.FromKilogramPerSecond(Double.PositiveInfinity);
+        MassFlow Inf = MassFlow.FromKilogramPerSecond(double.PositiveInfinity);
 
         // Act
         var result = Inf.Abs();

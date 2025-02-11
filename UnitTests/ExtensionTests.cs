@@ -7,7 +7,7 @@ using System.Linq;
 namespace UnitTests;
 
 [TestClass]
-public class Extensiontest
+public class ExtensionTests
 {
 
     //create test for Extensions.ReduceUnits
