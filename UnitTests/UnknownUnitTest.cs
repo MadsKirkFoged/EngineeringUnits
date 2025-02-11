@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests;
 
 [TestClass()]
-public class BaseUnitUnknownUnitTest
+public class UnknownUnitTest
 {
     [TestMethod()]
     public void PressureToUnknownNUll()
