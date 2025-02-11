@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests;
 
 [TestClass()]
-public class BaseUnitAlias
+public class AliasTests
 {
     [TestMethod()]
     public void SwitchBetweenAlias()
