@@ -12,7 +12,7 @@ public class ApparentPowerTests
 {
 
     [TestMethod]
-    public void PowerAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ApparentPower(1, UnitsNet.Units.ApparentPowerUnit.Megavoltampere);
         var A2 = new EngineeringUnits.ApparentPower(1, ApparentPowerUnit.Megavoltampere);

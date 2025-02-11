@@ -12,7 +12,7 @@ public class ElectricPotentialTests
 {
 
     [TestMethod]
-    public void ElectricPotentialAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.ElectricPotential(65.743, UnitsNet.Units.ElectricPotentialUnit.Megavolt);
         var A2 = new EngineeringUnits.ElectricPotential(65.743, ElectricPotentialUnit.Megavolt);

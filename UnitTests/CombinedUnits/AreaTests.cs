@@ -12,7 +12,7 @@ namespace UnitTests.CombinedUnits;
 public class AreaTests
 {
     [TestMethod]
-    public void CompareAutoTest()
+    public void AutoTest()
     {
         var A1 = new UnitsNet.Area(65.743, UnitsNet.Units.AreaUnit.SquareFoot);
         var A2 = new EngineeringUnits.Area(65.743, AreaUnit.SquareFoot);
