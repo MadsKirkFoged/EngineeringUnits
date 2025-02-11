@@ -2,13 +2,124 @@ using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace UnitTests.BaseUnits;
 
 [TestClass]
 public class TemperatureTests
 {
+
+    [TestMethod]
+    public void Compare()
+    {
+        UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.Kelvin);
+        EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.Kelvin);
+
+        var jsonString = JsonConvert.SerializeObject(L2);
+        EngineeringUnits.Temperature? JSON = JsonConvert.DeserializeObject<EngineeringUnits.Temperature>(jsonString);
+
+        //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
+        Assert.IsNotNull(JSON);
+        Assert.AreEqual(0, JSON.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
+        Assert.AreEqual(0, JSON.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 1.2E-13);
+        Assert.AreEqual(0, JSON.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+        Assert.AreEqual(0, JSON.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0);
+
+        //Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometers(435).Meters, 0);
+
+    }
+
+    [TestMethod]
+    public void Compare2()
+    {
+        UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+        EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeCelsius);
+
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 0.000001);
+
+    }
+
+    [TestMethod]
+    public void Compare3()
+    {
+        UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeFahrenheit);
+        EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeFahrenheit);
+
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 5.7E-14);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 2.3E-13);
+
+    }
+
+    [TestMethod]
+    public void Compare4()
+    {
+        UnitsNet.Temperature L1 = new(657.4, UnitsNet.Units.TemperatureUnit.DegreeRankine);
+        EngineeringUnits.Temperature L2 = new(657.4, TemperatureUnit.DegreeRankine);
+
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeCelsius) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeCelsius), 5.7E-14);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeFahrenheit) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeFahrenheit), 5.7E-14);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.Kelvin) - L1.As(UnitsNet.Units.TemperatureUnit.Kelvin), 0);
+        Assert.AreEqual(0, L2.As(TemperatureUnit.DegreeRankine) - L1.As(UnitsNet.Units.TemperatureUnit.DegreeRankine), 2.3E-13);
+
+    }
+
+    [TestMethod]
+    public void AutoTest()
+    {
+        var A1 = new UnitsNet.Temperature(65.743, UnitsNet.Units.TemperatureUnit.DegreeCelsius);
+        var A2 = new EngineeringUnits.Temperature(65.743, TemperatureUnit.DegreeCelsius);
+
+        var WorkingCompares = 0;
+
+        foreach (TemperatureUnit EU in UnitTypebase.ListOf<TemperatureUnit>())
+        {
+
+            var Error = 1E-5;
+            var RelError = 1E-5;
+
+            IEnumerable<UnitsNet.Units.TemperatureUnit> UNList = UnitsNet.Temperature.Units.Where(x => x.ToString() == EU.QuantityName);
+
+            if (UNList.Count() == 1)
+            {
+                UnitsNet.Units.TemperatureUnit UN = UNList.Single();
+
+                //if (UN == UnitsNet.Units.TemperatureUnit.SquareMicrometer) Error = 2629720.0009765625;
+
+                Debug.Print($"");
+                Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        RelError);
+                //All units symbol compare
+                //Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                //               A1.ToUnit(UN).ToString("a"));
+
+                WorkingCompares++;
+
+            }
+        }
+
+        //Number of comparables units
+        Assert.AreEqual(4, WorkingCompares);
+
+    }
+
     [TestMethod]
     public void CelsiusDivideFahrenheit()
     {

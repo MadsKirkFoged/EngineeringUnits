@@ -2,13 +2,105 @@ using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace UnitTests.BaseUnits;
 
 [TestClass]
 public class LenghtTests
 {
+
+    [TestMethod]
+    public void Compare()
+    {
+        UnitsNet.Length L1 = new(1, UnitsNet.Units.LengthUnit.Mile);
+        EngineeringUnits.Length L2 = new(1d, LengthUnit.Mile);
+
+        //UnitsNet has some small numerical-error that show off as big in small units like Nanometer
+        Assert.AreEqual(0, L2.As(LengthUnit.Kilometer) - L1.As(UnitsNet.Units.LengthUnit.Kilometer), 4.000000000115023E-06);
+        Assert.AreEqual(0, L2.As(LengthUnit.Hectometer) - L1.As(UnitsNet.Units.LengthUnit.Hectometer), 4.0000000002038405E-05);
+        Assert.AreEqual(0, L2.As(LengthUnit.Meter) - L1.As(UnitsNet.Units.LengthUnit.Meter), 0.0041);
+        Assert.AreEqual(0, L2.As(LengthUnit.Decimeter) - L1.As(UnitsNet.Units.LengthUnit.Decimeter), 0.041);
+        Assert.AreEqual(0, L2.As(LengthUnit.Centimeter) - L1.As(UnitsNet.Units.LengthUnit.Centimeter), 0.4);
+        Assert.AreEqual(0, L2.As(LengthUnit.Millimeter) - L1.As(UnitsNet.Units.LengthUnit.Millimeter), 4);
+        Assert.AreEqual(0, L2.As(LengthUnit.Micrometer) - L1.As(UnitsNet.Units.LengthUnit.Micrometer), 4000);
+        Assert.AreEqual(0, L2.As(LengthUnit.Nanometer) - L1.As(UnitsNet.Units.LengthUnit.Nanometer), 4000001);
+        Assert.AreEqual(0, L2.As(LengthUnit.Inch) - L1.As(UnitsNet.Units.LengthUnit.Inch), 0.16);
+        Assert.AreEqual(0, L2.As(LengthUnit.Hand) - L1.As(UnitsNet.Units.LengthUnit.Hand), 0.04);
+        Assert.AreEqual(0, L2.As(LengthUnit.Foot) - L1.As(UnitsNet.Units.LengthUnit.Foot), 0.014);
+        Assert.AreEqual(0, L2.As(LengthUnit.Yard) - L1.As(UnitsNet.Units.LengthUnit.Yard), 0.0044);
+        Assert.AreEqual(0, L2.As(LengthUnit.Chain) - L1.As(UnitsNet.Units.LengthUnit.Chain), 0.0002);
+        Assert.AreEqual(0, L2.As(LengthUnit.Mile) - L1.As(UnitsNet.Units.LengthUnit.Mile), 0);
+        Assert.AreEqual(0, L2.As(LengthUnit.NauticalMile) - L1.As(UnitsNet.Units.LengthUnit.NauticalMile), 2.2E-06);
+        Assert.AreEqual(0, L2.As(LengthUnit.LightYear) - L1.As(UnitsNet.Units.LengthUnit.LightYear), 4.3E-19);
+        Assert.AreEqual(0, L2.As(LengthUnit.AstronomicalUnit) - L1.As(UnitsNet.Units.LengthUnit.AstronomicalUnit), 2.74E-14);
+        Assert.AreEqual(0, L2.As(LengthUnit.Parsec) - L1.As(UnitsNet.Units.LengthUnit.Parsec), 1.3E-19);
+
+        Assert.AreEqual(0, HelperClass.Percent(L2.As(LengthUnit.AstronomicalUnit),
+                                    L1.As(UnitsNet.Units.LengthUnit.AstronomicalUnit)), 0.0003);
+        Assert.AreEqual(0, HelperClass.Percent(L2.As(LengthUnit.Centimeter),
+                        L1.As(UnitsNet.Units.LengthUnit.Centimeter)), 0.0003);
+        Assert.AreEqual(0, HelperClass.Percent(L2.As(LengthUnit.Centimeter),
+            L1.As(UnitsNet.Units.LengthUnit.Centimeter)), 0.0003);
+
+        Assert.AreEqual(0, UnitsNet.Length.FromKilometers(435).Meters - EngineeringUnits.Length.FromKilometer(435).Meter, 0);
+        Assert.AreEqual(0, UnitsNet.Length.FromFeet(4356).Meters - EngineeringUnits.Length.FromFoot(4356).Meter, 0);
+        Assert.AreEqual(0, UnitsNet.Length.FromYards(95.65).Miles - EngineeringUnits.Length.FromYard(95.65).Mile, 1.4E-07);
+        Assert.AreEqual(0, UnitsNet.Length.FromInches(95.6322325).Feet - EngineeringUnits.Length.FromInch(95.6322325).Foot, 0);
+        Assert.AreEqual(0, UnitsNet.Length.FromMeters(4454678.945678).Feet - EngineeringUnits.Length.FromMeter(4454678.945678).Foot, 0);
+
+    }
+
+    [TestMethod]
+    public void AutoTest()
+    {
+        var A1 = new UnitsNet.Length(65.743, UnitsNet.Units.LengthUnit.Inch);
+        var A2 = new EngineeringUnits.Length(65.743, LengthUnit.Inch);
+
+        var WorkingCompares = 0;
+
+        foreach (LengthUnit EU in UnitTypebase.ListOf<LengthUnit>())
+        {
+
+            var Error = 1E-5;
+            var RelError = 3E-4;
+
+            IEnumerable<UnitsNet.Units.LengthUnit> UNList = UnitsNet.Length.Units.Where(x => x.ToString() == EU.QuantityName);
+
+            if (UNList.Count() == 1)
+            {
+                UnitsNet.Units.LengthUnit UN = UNList.Single();
+
+                //if (UN == UnitsNet.Units.LengthUnit.SquareMicrometer) Error = 2629720.0009765625;
+
+                Debug.Print($"");
+                Debug.Print($"UnitsNets:       {UN} {A1.As(UN)}");
+                Debug.Print($"EngineeringUnit: {EU.QuantityName} {A2.As(EU)}");
+                Debug.Print($"ABS:    {A2.As(EU) - A1.As(UN):F6}");
+                Debug.Print($"REF[%]: {HelperClass.Percent(A2.As(EU), A1.As(UN)):P6}");
+
+                //All units absolute difference
+                Assert.AreEqual(0, A2.As(EU) - A1.As(UN), Error);
+
+                //All units relative difference
+                Assert.AreEqual(0, HelperClass.Percent(A2.As(EU),
+                                                        A1.As(UN)),
+                                                        RelError);
+                //All units symbol compare
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                                A1.ToUnit(UN).ToString("a"));
+
+                WorkingCompares++;
+
+            }
+        }
+
+        //Number of comparables units
+        Assert.AreEqual(31, WorkingCompares);
+
+    }
 
     [TestMethod]
     public void LengthTimesDouble()
