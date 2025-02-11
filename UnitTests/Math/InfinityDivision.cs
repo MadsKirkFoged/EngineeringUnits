@@ -3,6 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Math;
 
+/// <summary>
+/// Testing division by 0 and division by Infinity
+/// The goal is that the behavior is the same as for the equivalent double divisions
+/// </summary>
 [TestClass]
 public class InfinityZeroDivision
 {
