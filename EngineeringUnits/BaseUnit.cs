@@ -428,14 +428,10 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())        
             return new UnknownUnit(left!.NEWValue / right!.NEWValue, left.Unit / right.Unit);
-
-
-        
+                
 
         try
         {
-
-
             if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
             {
                 //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
