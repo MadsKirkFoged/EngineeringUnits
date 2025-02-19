@@ -59,10 +59,10 @@ public class InfinityZeroDivision
     public void NumberDividedByInfinity()
     {
         // Number divided by infinity should be 0
-        MassFlow mf0_1 =       mass1 / durationPosInf;                        // Infinity kg / s <-- TODO
+        MassFlow mf0_1 =       mass1 / durationPosInf;                        // 0.0 kg / s
         MassFlow mf0_1_check = MassFlow.FromSI(mass1.SI / durationPosInf.SI); // 0.0 kg / s
 
-        MassFlow mf0_2 =       mass1 / durationNegInf;                        // Infinity kg / s <-- TODO
+        MassFlow mf0_2 =       mass1 / durationNegInf;                        // 0.0 kg / s
         MassFlow mf0_2_check = MassFlow.FromSI(mass1.SI / durationNegInf.SI); // 0.0 kg / s
 
         Assert.AreEqual(mf0_1, mf0_1_check);
@@ -73,7 +73,7 @@ public class InfinityZeroDivision
     public void ZeroDividedByZero()
     {
         // Zero divided by 0 should be NaN (not defined)
-        MassFlow mfNaN =       mass0 / duration0;                        // Infinity kg / s <-- TODO
+        MassFlow mfNaN =       mass0 / duration0;                        // NaN kg / s
         MassFlow mfNaN_check = MassFlow.FromSI(mass0.SI / duration0.SI); // NaN kg / s
 
         Assert.AreEqual(mfNaN, mfNaN_check);
@@ -83,16 +83,16 @@ public class InfinityZeroDivision
     public void InfinityDividedByInfinity()
     {
         // Infinity divided by infinity should be NaN (not defined)
-        MassFlow mfNaN_1 =       massPosInf / durationPosInf;                        // Infinity kg / s <-- TODO
+        MassFlow mfNaN_1 =       massPosInf / durationPosInf;                        // NaN kg / s
         MassFlow mfNaN_1_check = MassFlow.FromSI(massPosInf.SI / durationPosInf.SI); // NaN kg / s
 
-        MassFlow mfNaN_2 =       massNegInf / durationNegInf;                        // Infinity kg / s <-- TODO
+        MassFlow mfNaN_2 =       massNegInf / durationNegInf;                        // NaN kg / s
         MassFlow mfNaN_2_check = MassFlow.FromSI(massPosInf.SI / durationNegInf.SI); // NaN kg / s
 
-        MassFlow mfNaN_3 =       massNegInf / durationPosInf;                        // Infinity kg / s <-- TODO
+        MassFlow mfNaN_3 =       massNegInf / durationPosInf;                        // NaN kg / s
         MassFlow mfNaN_3_check = MassFlow.FromSI(massNegInf.SI / durationPosInf.SI); // NaN kg / s
 
-        MassFlow mfNaN_4 =       massNegInf / durationPosInf;                        // Infinity kg / s <-- TODO
+        MassFlow mfNaN_4 =       massNegInf / durationPosInf;                        // NaN kg / s
         MassFlow mfNaN_4_check = MassFlow.FromSI(massPosInf.SI / durationPosInf.SI); // NaN kg / s
 
         Assert.AreEqual(mfNaN_1, mfNaN_1_check);
@@ -119,10 +119,10 @@ public class InfinityZeroDivision
     public void ZeroDividedByInfinity()
     {
         // Zero divided by infinity should be 0
-        MassFlow mf0_1 = mass0 / durationPosInf;                              // Infinity kg / s <-- TODO
+        MassFlow mf0_1 = mass0 / durationPosInf;                              // 0.0 kg / s
         MassFlow mf0_1_check = MassFlow.FromSI(mass0.SI / durationPosInf.SI); // 0.0 kg / s
 
-        MassFlow mf0_2 = mass0 / durationNegInf;                              // Infinity kg / s <-- TODO
+        MassFlow mf0_2 = mass0 / durationNegInf;                              // 0.0 kg / s
         MassFlow mf0_2_check = MassFlow.FromSI(mass0.SI / durationNegInf.SI); // 0.0 kg / s
 
         Assert.AreEqual(mf0_1, mf0_1_check);
