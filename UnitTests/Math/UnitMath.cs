@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UnitTests;
+namespace UnitTests.Math;
 
 [TestClass]
-public class UnitMathTest
+public class UnitMath
 {
 
     [TestMethod]
@@ -28,12 +28,12 @@ public class UnitMathTest
             MassFlow.FromKilogramPerSecond(9),
         };
 
-        MassFlow? Average = UnitMath.Average(list1);
-        MassFlow? Sum = UnitMath.Sum(list1);
-        MassFlow? Max = UnitMath.Max(list1);
-        MassFlow? Min = UnitMath.Min(list1);
+        MassFlow? Average = EngineeringUnits.UnitMath.Average(list1);
+        MassFlow? Sum = EngineeringUnits.UnitMath.Sum(list1);
+        MassFlow? Max = EngineeringUnits.UnitMath.Max(list1);
+        MassFlow? Min = EngineeringUnits.UnitMath.Min(list1);
 
-        MassFlow? Average2 = UnitMath.Average(
+        MassFlow? Average2 = EngineeringUnits.UnitMath.Average(
             MassFlow.FromKilogramPerSecond(1),
             MassFlow.FromKilogramPerSecond(2),
             MassFlow.FromKilogramPerSecond(3),
@@ -46,7 +46,7 @@ public class UnitMathTest
             MassFlow.FromKilogramPerSecond(10)
             );
 
-        MassFlow? Sum2 = UnitMath.Sum(
+        MassFlow? Sum2 = EngineeringUnits.UnitMath.Sum(
             MassFlow.FromKilogramPerSecond(1),
             MassFlow.FromKilogramPerSecond(2),
             MassFlow.FromKilogramPerSecond(3),
@@ -59,7 +59,7 @@ public class UnitMathTest
             MassFlow.FromKilogramPerSecond(10)
             );
 
-        MassFlow? Max2 = UnitMath.Max(
+        MassFlow? Max2 = EngineeringUnits.UnitMath.Max(
             MassFlow.FromKilogramPerSecond(1),
             MassFlow.FromKilogramPerSecond(2),
             MassFlow.FromKilogramPerSecond(3),
@@ -72,7 +72,7 @@ public class UnitMathTest
             MassFlow.FromKilogramPerSecond(10)
             );
 
-        MassFlow? Min2 = UnitMath.Min(
+        MassFlow? Min2 = EngineeringUnits.UnitMath.Min(
                 MassFlow.FromKilogramPerSecond(1),
                 MassFlow.FromKilogramPerSecond(2),
                 MassFlow.FromKilogramPerSecond(3),
@@ -131,12 +131,12 @@ public class UnitMathTest
             Temperature.FromKelvin(9),
         };
 
-        Temperature? AverageK = UnitMath.Average(list1K);
-        Temperature? SumK =     UnitMath.Sum(list1K);
-        Temperature? MaxK =     UnitMath.Max(list1K);
-        Temperature? MinK =     UnitMath.Min(list1K);
+        Temperature? AverageK = EngineeringUnits.UnitMath.Average(list1K);
+        Temperature? SumK = EngineeringUnits.UnitMath.Sum(list1K);
+        Temperature? MaxK = EngineeringUnits.UnitMath.Max(list1K);
+        Temperature? MinK = EngineeringUnits.UnitMath.Min(list1K);
 
-        Temperature? Average2K = UnitMath.Average(
+        Temperature? Average2K = EngineeringUnits.UnitMath.Average(
             Temperature.FromKelvin(1),
             Temperature.FromKelvin(2),
             Temperature.FromKelvin(3),
@@ -149,7 +149,7 @@ public class UnitMathTest
             Temperature.FromKelvin(10)
             );
 
-        Temperature? Sum2K = UnitMath.Sum(
+        Temperature? Sum2K = EngineeringUnits.UnitMath.Sum(
             Temperature.FromKelvin(1),
             Temperature.FromKelvin(2),
             Temperature.FromKelvin(3),
@@ -162,7 +162,7 @@ public class UnitMathTest
             Temperature.FromKelvin(10)
             );
 
-        Temperature? Max2K = UnitMath.Max(
+        Temperature? Max2K = EngineeringUnits.UnitMath.Max(
             Temperature.FromKelvin(1),
             Temperature.FromKelvin(2),
             Temperature.FromKelvin(3),
@@ -175,7 +175,7 @@ public class UnitMathTest
             Temperature.FromKelvin(10)
             );
 
-        Temperature? Min2K = UnitMath.Min(
+        Temperature? Min2K = EngineeringUnits.UnitMath.Min(
             Temperature.FromKelvin(1),
             Temperature.FromKelvin(2),
             Temperature.FromKelvin(3),
@@ -229,12 +229,12 @@ public class UnitMathTest
             Temperature.FromDegreeCelsius(9),
         };
 
-        Temperature? AverageC = UnitMath.Average(list1C);
-        Temperature? SumC =     UnitMath.Sum(list1C);
-        Temperature? MaxC =     UnitMath.Max(list1C);
-        Temperature? MinC =     UnitMath.Min(list1C);
+        Temperature? AverageC = EngineeringUnits.UnitMath.Average(list1C);
+        Temperature? SumC = EngineeringUnits.UnitMath.Sum(list1C);
+        Temperature? MaxC = EngineeringUnits.UnitMath.Max(list1C);
+        Temperature? MinC = EngineeringUnits.UnitMath.Min(list1C);
 
-        Temperature? Average2C = UnitMath.Average(
+        Temperature? Average2C = EngineeringUnits.UnitMath.Average(
             Temperature.FromDegreeCelsius(1),
             Temperature.FromDegreeCelsius(2),
             Temperature.FromDegreeCelsius(3),
@@ -247,7 +247,7 @@ public class UnitMathTest
             Temperature.FromDegreeCelsius(10)
             );
 
-        Temperature? Sum2C = UnitMath.Sum(
+        Temperature? Sum2C = EngineeringUnits.UnitMath.Sum(
             Temperature.FromDegreeCelsius(1),
             Temperature.FromDegreeCelsius(2),
             Temperature.FromDegreeCelsius(3),
@@ -260,7 +260,7 @@ public class UnitMathTest
             Temperature.FromDegreeCelsius(10)
             );
 
-        Temperature? Max2C = UnitMath.Max(
+        Temperature? Max2C = EngineeringUnits.UnitMath.Max(
             Temperature.FromDegreeCelsius(1),
             Temperature.FromDegreeCelsius(2),
             Temperature.FromDegreeCelsius(3),
@@ -273,7 +273,7 @@ public class UnitMathTest
             Temperature.FromDegreeCelsius(10)
             );
 
-        Temperature? Min2C = UnitMath.Min(
+        Temperature? Min2C = EngineeringUnits.UnitMath.Min(
             Temperature.FromDegreeCelsius(1),
             Temperature.FromDegreeCelsius(2),
             Temperature.FromDegreeCelsius(3),
@@ -350,12 +350,12 @@ public class UnitMathTest
 
         };
 
-        UnknownUnit? Average = UnitMath.Average(list1);
-        UnknownUnit? Sum = UnitMath.Sum(list1);
-        UnknownUnit? Max = UnitMath.Max(list1);
-        UnknownUnit? Min = UnitMath.Min(list1);
+        UnknownUnit? Average = EngineeringUnits.UnitMath.Average(list1);
+        UnknownUnit? Sum = EngineeringUnits.UnitMath.Sum(list1);
+        UnknownUnit? Max = EngineeringUnits.UnitMath.Max(list1);
+        UnknownUnit? Min = EngineeringUnits.UnitMath.Min(list1);
 
-        UnknownUnit? Average2 = UnitMath.Average(
+        UnknownUnit? Average2 = EngineeringUnits.UnitMath.Average(
         Length.FromKilometer(1) / Duration.FromHour(1),
         Length.FromKilometer(1) / Duration.FromHour(2),
         Length.FromKilometer(1) / Duration.FromHour(3),
@@ -363,7 +363,7 @@ public class UnitMathTest
         Length.FromKilometer(1) / Duration.FromHour(5)
         );
 
-        UnknownUnit? Sum2 = UnitMath.Sum(
+        UnknownUnit? Sum2 = EngineeringUnits.UnitMath.Sum(
             Length.FromKilometer(1) / Duration.FromHour(1),
             Length.FromKilometer(1) / Duration.FromHour(2),
             Length.FromKilometer(1) / Duration.FromHour(3),
@@ -371,7 +371,7 @@ public class UnitMathTest
             Length.FromKilometer(1) / Duration.FromHour(5)
             );
 
-        UnknownUnit? Max2 = UnitMath.Max(
+        UnknownUnit? Max2 = EngineeringUnits.UnitMath.Max(
             Length.FromKilometer(1) / Duration.FromHour(1),
             Length.FromKilometer(1) / Duration.FromHour(2),
             Length.FromKilometer(1) / Duration.FromHour(3),
@@ -379,7 +379,7 @@ public class UnitMathTest
             Length.FromKilometer(1) / Duration.FromHour(5)
             );
 
-        UnknownUnit? Min2 = UnitMath.Min(
+        UnknownUnit? Min2 = EngineeringUnits.UnitMath.Min(
             Length.FromKilometer(1) / Duration.FromHour(1),
             Length.FromKilometer(1) / Duration.FromHour(2),
             Length.FromKilometer(1) / Duration.FromHour(3),
@@ -428,12 +428,12 @@ public class UnitMathTest
 
         };
 
-        UnknownUnit? Average = UnitMath.Average(list1);
-        UnknownUnit? Sum = UnitMath.Sum(list1);
-        UnknownUnit? Max = UnitMath.Max(list1);
-        UnknownUnit? Min = UnitMath.Min(list1);
+        UnknownUnit? Average = EngineeringUnits.UnitMath.Average(list1);
+        UnknownUnit? Sum = EngineeringUnits.UnitMath.Sum(list1);
+        UnknownUnit? Max = EngineeringUnits.UnitMath.Max(list1);
+        UnknownUnit? Min = EngineeringUnits.UnitMath.Min(list1);
 
-        UnknownUnit? Average2 = UnitMath.Average(
+        UnknownUnit? Average2 = EngineeringUnits.UnitMath.Average(
         Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(2),
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(1),
             Acceleration.FromKilometerPerSecondSquared(2) / Duration.FromMicrosecond(3),
@@ -441,7 +441,7 @@ public class UnitMathTest
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(4)
         );
 
-        UnknownUnit? Sum2 = UnitMath.Sum(
+        UnknownUnit? Sum2 = EngineeringUnits.UnitMath.Sum(
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(2),
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(1),
             Acceleration.FromKilometerPerSecondSquared(2) / Duration.FromMicrosecond(3),
@@ -449,7 +449,7 @@ public class UnitMathTest
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(4)
             );
 
-        UnknownUnit? Max2 = UnitMath.Max(
+        UnknownUnit? Max2 = EngineeringUnits.UnitMath.Max(
              Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(2),
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(1),
             Acceleration.FromKilometerPerSecondSquared(2) / Duration.FromMicrosecond(3),
@@ -457,7 +457,7 @@ public class UnitMathTest
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(4)
             );
 
-        UnknownUnit? Min2 = UnitMath.Min(
+        UnknownUnit? Min2 = EngineeringUnits.UnitMath.Min(
              Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(2),
             Acceleration.FromKilometerPerSecondSquared(1) / Duration.FromMicrosecond(1),
             Acceleration.FromKilometerPerSecondSquared(2) / Duration.FromMicrosecond(3),
@@ -514,14 +514,14 @@ public class UnitMathTest
         };
         var minlist = new List<UnknownUnit?>
         {
-            UnitMath.Min(speed),
-            UnitMath.Min(speed2)
+            EngineeringUnits.UnitMath.Min(speed),
+            EngineeringUnits.UnitMath.Min(speed2)
         };
 
-        UnknownUnit? res = UnitMath.Min(minlist);
-        UnknownUnit? max = UnitMath.Max(minlist);
+        UnknownUnit? res = EngineeringUnits.UnitMath.Min(minlist);
+        UnknownUnit? max = EngineeringUnits.UnitMath.Max(minlist);
         Assert.AreEqual(res, minlist.ElementAt(1));
-        Assert.AreEqual(max, UnitMath.Min(speed));
+        Assert.AreEqual(max, EngineeringUnits.UnitMath.Min(speed));
 
     }
     [TestMethod]
