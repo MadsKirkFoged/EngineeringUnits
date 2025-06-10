@@ -105,7 +105,7 @@ public record UnitTypebase
            BaseunitType.length => "m",
            BaseunitType.mass => "g",
            BaseunitType.electricCurrent => "A",
-           BaseunitType.temperature => "",
+           BaseunitType.temperature => "K",
            BaseunitType.amountOfSubstance => "mol",
            BaseunitType.luminousIntensity => "cd",
            _ => "",
@@ -145,7 +145,7 @@ public record UnitTypebase
 
     public static UnitSystem operator *(UnitTypebase left, UnitTypebase right)
     {
-        return left.Unit* right.Unit;
+        return left.Unit * right.Unit;
     }
 
     public static UnitSystem operator *(UnitSystem left, UnitTypebase right)
