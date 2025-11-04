@@ -19,6 +19,13 @@ steps:
 
 - bash: echo $(Build)
 
+# Install .NET 6 runtime (for backward compatibility)
+- task: UseDotNet@2
+  inputs:
+    packageType: 'runtime'
+    version: '6.0.x'
+
+# Install .NET 8 SDK (for current builds)
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
