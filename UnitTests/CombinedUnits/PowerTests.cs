@@ -274,6 +274,17 @@ public class PowerTests
     }
 
 
+    [TestMethod]
+    public void One_TR_IsApproximately_3_517_kW()
+    {
+        // 1 TR ≈ 3.517 kW (derived from 1 TR = 12,000 Btu/h)
+        var p = new Power(1, PowerUnit.TonOfRefrigeration);
+
+        double kW = p.As(PowerUnit.Kilowatt);
+
+        Assert.AreEqual(3.516866666666667, kW, 0.001);
+    }
+
 
 
 }
