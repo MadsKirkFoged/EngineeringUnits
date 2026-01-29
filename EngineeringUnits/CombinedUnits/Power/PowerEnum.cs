@@ -31,6 +31,7 @@ public partial record PowerUnit : UnitTypebase
     public static readonly PowerUnit HydraulicHorsepower = new(EnergyUnit.SI, DurationUnit.SI, "hp(H)", 745.69988145m);
     public static readonly PowerUnit MechanicalHorsepower = new(EnergyUnit.SI, DurationUnit.SI, "hp(I)", 745.69m);
     public static readonly PowerUnit MetricHorsepower = new(EnergyUnit.SI, DurationUnit.SI, "hp(M)", 735.49875m);
+    public static readonly PowerUnit TonOfRefrigeration = new(EnergyUnit.BritishThermalUnit, DurationUnit.Hour, "TR", 12000m);
 
     public static readonly PowerUnit CaloriePerSecond = new(EnergyUnit.Calorie, DurationUnit.Second);
     public static readonly PowerUnit KilocaloriePerHour = new(EnergyUnit.Kilocalorie, DurationUnit.Hour);

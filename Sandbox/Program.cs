@@ -24,6 +24,12 @@ public class Program
 
     public static void Main()
     {
+
+        UnknownUnit InfTest = MassFlow.FromSI(double.NegativeInfinity);
+
+        UnknownUnit InfTest2 = InfTest.Abs();
+
+
         Fraction f = Fraction.FromDecimal(1);
 
         // Using System.Text.Json

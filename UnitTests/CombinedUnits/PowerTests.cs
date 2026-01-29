@@ -243,4 +243,37 @@ public class PowerTests
         Assert.AreEqual("10.75458 BTU/h", $"{T4:0.######}");
 
     }
+
+
+
+    [TestMethod]
+    public void One_TR_Equals_12000_BtuPerHour()
+    {
+        // 1 TR = 12000 Btu/h
+        var tr = new Power(1, PowerUnit.TonOfRefrigeration);
+
+        var btuPerHour = tr.As(PowerUnit.BritishThermalUnitPerHour);
+
+        Assert.AreEqual(12000.0, btuPerHour, 1e-9);
+    }
+
+    [TestMethod]
+    public void TwelveThousand_BtuPerHour_Equals_One_TR()
+    {
+        var p = new Power(12000, PowerUnit.BritishThermalUnitPerHour);
+
+        var tr = p.As(PowerUnit.TonOfRefrigeration);
+
+        Assert.AreEqual(1.0, tr, 1e-9);
+    }
+
+    [TestMethod]
+    public void TR_Has_Symbol_TR()
+    {
+        Assert.AreEqual("TR", PowerUnit.TonOfRefrigeration.ToString());
+    }
+
+
+
+
 }

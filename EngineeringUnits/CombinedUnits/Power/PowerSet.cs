@@ -344,6 +344,18 @@ public partial class Power
         return new Power((double)MetricHorsepower, PowerUnit.MetricHorsepower);
     }
     /// <summary>
+    /// Get Power from TonOfRefrigeration.
+    /// </summary>
+    /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>
+    [return: NotNullIfNotNull(nameof(TonOfRefrigeration))]
+    public static Power? FromTonOfRefrigeration(double? TonOfRefrigeration)
+    {
+        if (TonOfRefrigeration is null)
+            return null;
+        
+        return new Power((double)TonOfRefrigeration, PowerUnit.TonOfRefrigeration);
+    }
+    /// <summary>
     /// Get Power from CaloriePerSecond.
     /// </summary>
     /// <exception cref="ArgumentException">If value is NaN or Infinity.</exception>

@@ -119,6 +119,10 @@ public partial class Power
     /// </summary>
     public double MetricHorsepower => As(PowerUnit.MetricHorsepower);
     /// <summary>
+    /// Get Power in TonOfRefrigeration.
+    /// </summary>
+    public double TonOfRefrigeration => As(PowerUnit.TonOfRefrigeration);
+    /// <summary>
     /// Get Power in CaloriePerSecond.
     /// </summary>
     public double CaloriePerSecond => As(PowerUnit.CaloriePerSecond);
