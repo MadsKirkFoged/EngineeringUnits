@@ -20,6 +20,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [JsonInclude]
     internal DecimalSafe NEWValue { get; init; }
 
+    internal Fraction? testValue { get; init; } = null;
+
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
     public double Value => (double)this.GetBaseValue();
 
@@ -28,6 +30,14 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         Unit = new UnitSystem();
         NEWValue = 0;
     }
+
+    public BaseUnit(Fraction value, UnitSystem unitSystem)
+    {
+        Unit = unitSystem;
+        NEWValue = value;
+        testValue = value;
+    }
+
     public BaseUnit(DecimalSafe value, UnitSystem unitSystem)
     {
         Unit = unitSystem;
@@ -416,6 +426,12 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return left * new BaseUnit((decimal)right);
     }
 
+
+    //public static UnknownUnit? operator /(BaseUnit? left, Ratio? right)
+    //{ 
+    //    return left / (decimal)right;
+    //}
+
     [return: NotNullIfNotNull(nameof(left))]
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator /(BaseUnit? left, BaseUnit? right)
@@ -623,27 +639,27 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return unit.Unit;
     }
 
-    public static implicit operator int(BaseUnit Unit)
-    {
-        if (UnitSystemExtensions.UnitsystemForDouble != Unit)
-            throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+    //public static implicit operator int(BaseUnit Unit)
+    //{
+    //    if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+    //        throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
-        return (int)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
-    }
-    public static implicit operator double(BaseUnit Unit)
-    {
-        if (UnitSystemExtensions.UnitsystemForDouble != Unit)
-            throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+    //    return (int)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
+    //}
+    //public static implicit operator double(BaseUnit Unit)
+    //{
+    //    if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+    //        throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
-        return Unit.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble);
-    }
-    public static implicit operator decimal(BaseUnit Unit)
-    {
-        if (new UnitSystem() != Unit.Unit)
-            throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
+    //    return Unit.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble);
+    //}
+    //public static implicit operator decimal(BaseUnit Unit)
+    //{
+    //    if (new UnitSystem() != Unit.Unit)
+    //        throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
-        return Unit.GetValueAs(new UnitSystem());
-    }
+    //    return Unit.GetValueAs(new UnitSystem());
+    //}
 
     /// <summary>
     ///     Gets the default string representation of value and unit.

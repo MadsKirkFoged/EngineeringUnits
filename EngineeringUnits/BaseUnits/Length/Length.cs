@@ -1,4 +1,5 @@
 using EngineeringUnits.Units;
+using Fractions;
 using System.Diagnostics.CodeAnalysis;
 
 namespace EngineeringUnits;
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Length : BaseUnit
 {
     public Length() { }
+    public Length(Fraction value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Length(decimal value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Length(double value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Length(int value, LengthUnit selectedUnit) : base(value, selectedUnit.Unit) { }
@@ -24,7 +26,15 @@ public partial class Length : BaseUnit
         return From((double)value, unit);
     }
     public double As(LengthUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-    public Length ToUnit(LengthUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public Length ToUnit(LengthUnit selectedUnit)
+    {
+        var value = this.GetValueAstest(selectedUnit.Unit);
+
+        return new(value, selectedUnit);
+    }
+    
+    
+    
     public static Length Zero => new(0, LengthUnit.SI);
     public static Length NaN => new(double.NaN, LengthUnit.SI);
 

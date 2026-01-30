@@ -13,7 +13,7 @@ public class UnknownUnit : BaseUnit
 
     public UnknownUnit() : base() { }
 
-    public UnknownUnit(double valueLocalUnit) : base(valueLocalUnit) { }
+    //public UnknownUnit(double valueLocalUnit) : base(valueLocalUnit) { }
     public UnknownUnit(double valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
     public UnknownUnit(decimal valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
     public UnknownUnit(DecimalSafe valueLocalUnit, UnitSystem unitsystem) : base(valueLocalUnit, unitsystem) { }
@@ -54,5 +54,28 @@ public class UnknownUnit : BaseUnit
             return base.ToString(format, provider);
 
         return CastingUnit.ToString(format, provider);
+    }
+
+
+    public static explicit operator int(UnknownUnit Unit)
+    {
+        if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+            throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+        return (int)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
+    }
+    public static explicit operator double(UnknownUnit Unit)
+    {
+        if (UnitSystemExtensions.UnitsystemForDouble != Unit)
+            throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+        return Unit.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble);
+    }
+    public static explicit operator decimal(UnknownUnit Unit)
+    {
+        if (new UnitSystem() != Unit.Unit)
+            throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
+
+        return Unit.GetValueAs(new UnitSystem());
     }
 }

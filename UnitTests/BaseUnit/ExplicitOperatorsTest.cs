@@ -49,48 +49,48 @@ public class BaseUnitImplicitOperatorsTest
 
     }
 
-    [TestMethod()]
-    [ExpectedException(typeof(WrongUnitException))]
-    public void LengthToInt()
-    {
-        // Arrange
-        var R1 = new Length(1, LengthUnit.SI);
+    //[TestMethod()]
+    //[ExpectedException(typeof(WrongUnitException))]
+    //public void LengthToInt()
+    //{
+    //    // Arrange
+    //    var R1 = new Length(1, LengthUnit.SI);
 
-        // Act
-        int Int1 = R1;
+    //    // Act
+    //    int Int1 = R1;
 
-        // Assert
-        Assert.AreEqual(1, Int1);
+    //    // Assert
+    //    Assert.AreEqual(1, Int1);
 
-    }
+    //}
 
-    [TestMethod()]
-    [ExpectedException(typeof(WrongUnitException))]
-    public void LengthToDouble()
-    {
-        // Arrange
-        var R1 = new Length(1d, LengthUnit.SI);
+    //[TestMethod()]
+    //[ExpectedException(typeof(WrongUnitException))]
+    //public void LengthToDouble()
+    //{
+    //    // Arrange
+    //    var R1 = new Length(1d, LengthUnit.SI);
 
-        // Act
-        double Double1 = R1;
+    //    // Act
+    //    double Double1 = R1;
 
-        // Assert
-        Assert.AreEqual(1, Double1);
+    //    // Assert
+    //    Assert.AreEqual(1, Double1);
 
-    }
+    //}
 
-    [TestMethod()]
-    [ExpectedException(typeof(WrongUnitException))]
-    public void LengthToDecimal()
-    {
-        // Arrange
-        var R1 = new Length(1m, LengthUnit.SI);
+    //[TestMethod()]
+    //[ExpectedException(typeof(WrongUnitException))]
+    //public void LengthToDecimal()
+    //{
+    //    // Arrange
+    //    var R1 = new Length(1m, LengthUnit.SI);
 
-        // Act
-        decimal Decimal1 = R1;
+    //    // Act
+    //    decimal Decimal1 = R1;
 
-        // Assert
-        Assert.AreEqual(1, Decimal1);
+    //    // Assert
+    //    Assert.AreEqual(1, Decimal1);
 
-    }
+    //}
 }

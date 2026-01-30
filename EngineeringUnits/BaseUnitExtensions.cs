@@ -48,6 +48,49 @@ public static class BaseUnitExtensions
         return (DecimalSafe)y2test2;
     }
 
+    public static Fraction GetValueAstest(this BaseUnit From, UnitSystem To)
+    {
+
+        Fraction b1 = To.SumOfBConstants();
+        Fraction b2 = From.Unit.SumOfBConstants();
+
+        Fraction y2test2;
+
+        if (b1.IsZero && b2.IsZero)
+        {
+            Fraction Factor = To.ConvertionFactor(From.Unit);
+            if (From.testValue is null)
+            {
+                y2test2 = Factor * (Fraction)From.NEWValue;
+            }
+            else
+            {
+                y2test2 = Factor * (Fraction)From.testValue;
+            }
+        }
+        else
+        {
+
+            b1 = To.SumOfBConstants();
+            b2 = From.Unit.SumOfBConstants();
+
+            Fraction a2 = From.Unit.SumConstant();
+            var x2 = (Fraction)From.NEWValue;
+
+            if (From.testValue is null)
+            {
+                x2 = (Fraction)From.testValue;
+            }
+
+            Fraction a1 = To.SumConstant();
+
+            y2test2 = ((a2 * x2) + b2 - b1) / a1;
+
+        }
+
+        return y2test2;
+    }
+
     public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs(To);
 
     public static string DisplaySymbol(this BaseUnit From) => From.Unit.ReduceUnits().ToString();
@@ -99,7 +142,7 @@ public static class BaseUnitExtensions
 
         return toPower switch
         {
-            0 => new(1),
+            0 => new(1d, new UnitSystem()),
             1 => new(a),
             > 1 => a.Pow(toPower - 1) * a,
             < 0 => a.Pow(toPower + 1) / a
