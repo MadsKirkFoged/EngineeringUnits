@@ -11,32 +11,51 @@ namespace EngineeringUnits.Analyzers
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public sealed class DimensionMismatchAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId = "EU0001";
+        public const string DiagnosticId_Conversion = "EU0001";
+        public const string DiagnosticId_AddSubtract = "EU0002";
 
-        private static readonly DiagnosticDescriptor Rule = new(
-            id: DiagnosticId,
+        // EU0001: conversion mismatch (your existing behavior)
+        private static readonly DiagnosticDescriptor ConversionRule = new(
+            id: DiagnosticId_Conversion,
             title: "EngineeringUnits unit mismatch",
             messageFormat: "This is NOT a [{0}] as expected! Your Unit is a [{1}].",
             category: "EngineeringUnits",
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
+        // EU0002: add/subtract mismatch (new)
+        private static readonly DiagnosticDescriptor AddSubtractRule = new(
+            id: DiagnosticId_AddSubtract,
+            title: "EngineeringUnits can't add/subtract different units",
+            messageFormat: "Trying to do [{0}] {2} [{1}]. Can't add/subtract two different units!",
+            category: "EngineeringUnits",
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
-            => ImmutableArray.Create(Rule);
+            => ImmutableArray.Create(ConversionRule, AddSubtractRule);
 
         public override void Initialize(AnalysisContext context)
         {
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
+            // Cache enum -> name map once per compilation for formatting
             context.RegisterCompilationStartAction(startContext =>
             {
                 var enumValueToName = SiUnitFormatter.BuildEnumValueToNameMap(startContext.Compilation);
 
+                // EU0001: conversion checks (UnknownUnit -> Quantity via op_Implicit)
                 startContext.RegisterOperationAction(opContext =>
                 {
                     AnalyzeConversion(opContext, enumValueToName);
                 }, OperationKind.Conversion);
+
+                // EU0002: binary operator checks for + and -
+                startContext.RegisterOperationAction(opContext =>
+                {
+                    AnalyzeAddSubtract(opContext, enumValueToName);
+                }, OperationKind.Binary);
             });
         }
 
@@ -59,19 +78,50 @@ namespace EngineeringUnits.Analyzers
             if (!TryInferDimension(conv.Operand, out var actual))
                 return;
 
-            // ✅ FIX: DimVector now exposes Exps
             var expectedSi = SiUnitFormatter.FormatAsSi(expected.Exps, enumValueToName);
             var actualSi = SiUnitFormatter.FormatAsSi(actual.Exps, enumValueToName);
 
-            // compare by canonical key
             if (expected.ToKey() != actual.ToKey())
             {
                 context.ReportDiagnostic(Diagnostic.Create(
-                    Rule,
+                    ConversionRule,
                     conv.Operand.Syntax.GetLocation(),
                     expectedSi,
                     actualSi));
             }
+        }
+
+        private static void AnalyzeAddSubtract(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
+        {
+            var bin = (IBinaryOperation)context.Operation;
+
+            // Only + and -
+            if (bin.OperatorKind is not BinaryOperatorKind.Add and not BinaryOperatorKind.Subtract)
+                return;
+
+            // Infer both sides
+            if (!TryInferDimension(bin.LeftOperand, out var left))
+                return;
+
+            if (!TryInferDimension(bin.RightOperand, out var right))
+                return;
+
+            // If same dimension: OK
+            if (left.ToKey() == right.ToKey())
+                return;
+
+            // Pretty format like runtime: [m³] + [kg]
+            var leftSi = SiUnitFormatter.FormatAsSi(left.Exps, enumValueToName);
+            var rightSi = SiUnitFormatter.FormatAsSi(right.Exps, enumValueToName);
+            var opSymbol = bin.OperatorKind == BinaryOperatorKind.Add ? "+" : "-";
+
+            // Underline the expression itself
+            context.ReportDiagnostic(Diagnostic.Create(
+                AddSubtractRule,
+                bin.Syntax.GetLocation(),
+                leftSi,
+                rightSi,
+                opSymbol));
         }
 
         // ---------- Dimension inference (PoC rules) ----------
@@ -121,7 +171,7 @@ namespace EngineeringUnits.Analyzers
 
                     case BinaryOperatorKind.Add:
                     case BinaryOperatorKind.Subtract:
-                        // For PoC: require same dimensions for +/-; otherwise "unknown" => no diagnostic
+                        // For +/-: require same dimensions to infer; otherwise "unknown"
                         if (!left.StructuralEquals(right))
                         {
                             dim = default;
@@ -138,7 +188,6 @@ namespace EngineeringUnits.Analyzers
 
         private static bool TryGetDimension(ITypeSymbol type, out DimVector dim)
         {
-            // Find EngineeringUnits.UnitDimensionAttribute
             var attr = type.GetAttributes()
                 .FirstOrDefault(a =>
                     a.AttributeClass?.Name == "UnitDimensionAttribute" &&
@@ -151,8 +200,6 @@ namespace EngineeringUnits.Analyzers
             }
 
             var args = attr.ConstructorArguments;
-
-            // Build dictionary: key=BaseunitType underlying int, value=exponent
             var dict = new Dictionary<int, int>();
 
             for (int i = 0; i + 1 < args.Length; i += 2)
@@ -169,11 +216,10 @@ namespace EngineeringUnits.Analyzers
             return true;
         }
 
-        // ---------- DimVector: canonical representation + keys ----------
+        // ---------- DimVector ----------
 
         private readonly struct DimVector
         {
-            // Always sorted, and no zero exponents.
             private readonly ImmutableArray<(int Unit, int Exp)> _terms;
             private readonly int _hash;
 
@@ -207,7 +253,7 @@ namespace EngineeringUnits.Analyzers
                 return new DimVector(terms);
             }
 
-            // ✅ HERE IS THE FIX: Exps property for SiUnitFormatter
+            // Used by SiUnitFormatter
             public Dictionary<int, int> Exps
                 => _terms.ToDictionary(t => t.Unit, t => t.Exp);
 
