@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
+[UnitDimension(BaseunitType.time, 0, BaseunitType.length, -1, BaseunitType.mass, 0, BaseunitType.electricCurrent, 1, BaseunitType.temperature, 0, BaseunitType.amountOfSubstance, 0, BaseunitType.luminousIntensity, 0, BaseunitType.Cost, 0)]
 public partial class Magnetization : BaseUnit
 {
     public Magnetization() { }

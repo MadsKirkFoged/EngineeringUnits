@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
+[UnitDimension(BaseunitType.time, 4, BaseunitType.length, -3, BaseunitType.mass, -1, BaseunitType.electricCurrent, 2, BaseunitType.temperature, 0, BaseunitType.amountOfSubstance, 0, BaseunitType.luminousIntensity, 0, BaseunitType.Cost, 0)]
 public partial class Permittivity : BaseUnit
 {
     public Permittivity() { }

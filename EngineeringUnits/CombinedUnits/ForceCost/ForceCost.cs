@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
+[UnitDimension(BaseunitType.time, 2, BaseunitType.length, -1, BaseunitType.mass, -1, BaseunitType.electricCurrent, 0, BaseunitType.temperature, 0, BaseunitType.amountOfSubstance, 0, BaseunitType.luminousIntensity, 0, BaseunitType.Cost, 1)]
 public partial class ForceCost : BaseUnit
 {
     public ForceCost() { }

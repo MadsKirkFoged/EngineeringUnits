@@ -38,34 +38,34 @@ public class Program
         var m = new Mass(1, MassUnit.Kilogram);
         var v = new Volume(1, VolumeUnit.CubicMeter);
 
-        Density d111 = (v / m) + (m / v);
+        //Density d111 = (v / m) + (m / v);
 
         // Wrong:
-        Density d11 = (v / m);   // EU0001 should trigger
+        //Density d11 = (v / m);   // EU0001 should trigger
 
         // Right:
         Density d2 = (m / v) + (m / v);   // should be fine
 
-        Density d22 = (m + v) / v;
+        //Density d22 = (m + v) / v;
 
         void SetDensity(Density d)
         { }
 
-        Density CalcBad(Mass m, Volume v) => v / m; // EU0005
+       // Density CalcBad(Mass m, Volume v) => v / m; // EU0005
 
         void Test(Mass m, Volume v)
         {
-            Density d1 = v / m; // EU0001
-            SetDensity(v / m);  // EU0004
+            //Density d1 = v / m; // EU0001
+            //SetDensity(v / m);  // EU0004
 
-            if (m > v)
+            //if (m > v)
             { }      // EU0003
         }
 
-        Density Test2(Mass m, Volume v)
-        {
-            return v / m;
-        }
+        //Density Test2(Mass m, Volume v)
+        //{
+        //    return v / m;
+        //}
 
 
         Length mylength = 10.Meter;

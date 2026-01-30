@@ -14,15 +14,15 @@ namespace EngineeringUnits.Analyzers
         public const string EU0001 = "EU0001"; // conversion mismatch
         public const string EU0002 = "EU0002"; // add/sub mismatch
         public const string EU0003 = "EU0003"; // compare mismatch
-        public const string EU0004 = "EU0004"; // argument mismatch
-        public const string EU0005 = "EU0005"; // return mismatch
+        //public const string EU0004 = "EU0004"; // argument mismatch
+        //public const string EU0005 = "EU0005"; // return mismatch
 
         private static readonly DiagnosticDescriptor ConversionRule = new(
             id: EU0001,
             title: "EngineeringUnits unit mismatch",
             messageFormat: "This is NOT a [{0}] as expected! Your Unit is a [{1}].",
             category: "EngineeringUnits",
-            defaultSeverity: DiagnosticSeverity.Warning,
+            defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
         private static readonly DiagnosticDescriptor AddSubtractRule = new(
@@ -30,7 +30,7 @@ namespace EngineeringUnits.Analyzers
             title: "EngineeringUnits can't add/subtract different units",
             messageFormat: "Trying to do [{0}] {2} [{1}]. Can't add/subtract two different units!",
             category: "EngineeringUnits",
-            defaultSeverity: DiagnosticSeverity.Warning,
+            defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
         private static readonly DiagnosticDescriptor CompareRule = new(
@@ -38,7 +38,7 @@ namespace EngineeringUnits.Analyzers
             title: "EngineeringUnits can't compare different units",
             messageFormat: "Trying to compare [{0}] {2} [{1}]. Can't compare two different units!",
             category: "EngineeringUnits",
-            defaultSeverity: DiagnosticSeverity.Warning,
+            defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
         //private static readonly DiagnosticDescriptor ArgumentRule = new(

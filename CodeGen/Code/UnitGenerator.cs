@@ -50,8 +50,6 @@ internal class UnitGenerator
         var unitSystem = UnitReflection.GetSiUnitSystem(item);
         var listOfUnits = UnitReflection.GetListOfUnits(unitSystem);
 
-        List<string> UnitDimension = [];
-
         var dims = Enum.GetValues<BaseunitType>()
                        .Where(k => k != BaseunitType.CombinedUnit)
                        .ToDictionary(k => k, _ => 0);
@@ -62,17 +60,13 @@ internal class UnitGenerator
             int count = (int)rawUnit.GetType().GetProperty("Count")?.GetValue(rawUnit);
 
             dims[unitType] = count;
-
-            UnitDimension.Add($"BaseunitType.{unitType}, {count}");
         }
 
         var parts = Enum.GetValues<BaseunitType>()
+                        .Where(k => k != BaseunitType.CombinedUnit)
                         .Select(t => $"BaseunitType.{t}, {dims.GetValueOrDefault(t)}");
 
-        var test = $"[UnitDimension({string.Join(", ", parts)})]";
-
-        string UnitDimensionText = $"[UnitDimension({string.Join(", ", UnitDimension)})]";
-        return UnitDimensionText;
+        return $"[UnitDimension({string.Join(", ", parts)})]";
     }
 
     public static string Generate(string Variable, string DimensionText)

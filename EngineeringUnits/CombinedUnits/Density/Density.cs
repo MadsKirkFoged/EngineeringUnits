@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
-[UnitDimension(BaseunitType.mass, +1, BaseunitType.length, -3)]
+[UnitDimension(BaseunitType.time, 0, BaseunitType.length, -3, BaseunitType.mass, 1, BaseunitType.electricCurrent, 0, BaseunitType.temperature, 0, BaseunitType.amountOfSubstance, 0, BaseunitType.luminousIntensity, 0, BaseunitType.Cost, 0)]
 public partial class Density : BaseUnit
 {
     public Density() { }
