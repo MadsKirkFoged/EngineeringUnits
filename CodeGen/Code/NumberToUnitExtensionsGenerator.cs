@@ -1,94 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Text;
+using System.Reflection;
+using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
-namespace CodeGen;
+namespace CodeGen.Code;
 
-public static class NumberToUnitExtensionsGenerator
+internal static class GenerateNumberToUnitExtensions
 {
-    /// <summary>
-    /// Generates number-to-unit extension members for all units and all subunit fields.
-    /// Ex: doubleValue.Meter => new Length(doubleValue, LengthUnit.Meter)
-    /// </summary>
-    /// <param name="engineeringUnitsProjectPath">
-    /// Path to the EngineeringUnits project folder that contains BaseUnits/ and CombinedUnits/.
-    /// (Same style as your existing generators.)
-    /// </param>
-    public static void Generate(string engineeringUnitsProjectPath)
+    public static void Generate(string projectPath)
     {
-        // Union base + combined and generate both sets
-        GenerateForFolder(engineeringUnitsProjectPath, "BaseUnits",
-            ListOfUnitsForDifferentGenerators.GetListOfBaseUnits());
+        GenerateForFolder(
+            projectPath,
+            unitRootFolder: "CombinedUnits",
+            units: ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
 
-        GenerateForFolder(engineeringUnitsProjectPath, "CombinedUnits",
-            ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
+        GenerateForFolder(
+            projectPath,
+            unitRootFolder: "BaseUnits",
+            units: ListOfUnitsForDifferentGenerators.GetListOfBaseUnits());
     }
 
-    private static void GenerateForFolder(string projectPath, string unitRootFolder, IEnumerable<string> unitNames)
+    private static void GenerateForFolder(string projectPath, string unitRootFolder, IEnumerable<string> units)
     {
-        var units = unitNames
+        var sortedUnits = units
             .Where(u => !string.IsNullOrWhiteSpace(u))
             .Distinct(StringComparer.Ordinal)
             .OrderBy(u => u, StringComparer.Ordinal);
 
-        foreach (var unit in units)
+        foreach (var unit in sortedUnits)
         {
-            var enumPath = Path.Combine(projectPath, unitRootFolder, unit, $"{unit}Enum.cs");
-            if (!File.Exists(enumPath))
-            {
-                // Skip if the unit enum file is missing (keeps generator resilient)
-                continue;
-            }
-
-            var subUnits = ExtractStaticReadonlyFieldNames(enumPath, $"{unit}Unit")
-                .Where(n => n is not "Unit") // defensive: avoid weird matches
-                .Distinct(StringComparer.Ordinal)
-                .OrderBy(n => n, StringComparer.Ordinal)
-                .ToList();
-
-            if (subUnits.Count == 0)
+            var content = GenerateFile(unit);
+            if (content is null)
                 continue;
 
-            var content = GenerateFileContent(unit, subUnits);
+            // ✅ Place inside each unit folder (like your Length test)
+            var unitFolder = Path.Combine(projectPath, unitRootFolder, unit);
+            Directory.CreateDirectory(unitFolder);
 
-            var outDir = Path.Combine(projectPath, "NumberExtensions", $"NumberTo{unit}");
-            Directory.CreateDirectory(outDir);
-
-            var outFile = Path.Combine(outDir, $"NumberTo{unit}Extensions.cs");
-            WriteIfChanged(outFile, content);
+            var filePath = Path.Combine(unitFolder, $"NumberTo{unit}Extensions.cs");
+            WriteIfChanged(filePath, content);
         }
     }
 
-    /// <summary>
-    /// Extracts all "public static readonly {typeName} Xxx =" field names from the enum file.
-    /// Example pattern: public static readonly FrequencyUnit Hertz = ...
-    /// </summary>
-    private static IEnumerable<string> ExtractStaticReadonlyFieldNames(string enumFilePath, string typeName)
+    private static string? GenerateFile(string unit)
     {
-        var text = File.ReadAllText(enumFilePath);
+        // Reflection lookup same style as your GenerateSetter
+        var typeName = $"EngineeringUnits.Units.{unit}Unit, EngineeringUnits";
+        var t = Type.GetType(typeName);
 
-        // Simple, robust-enough regex for your generated enum style:
-        // public static readonly FrequencyUnit Hertz = new(...)
-        var pattern = $@"public\s+static\s+readonly\s+{Regex.Escape(typeName)}\s+(?<name>[A-Za-z_][A-Za-z0-9_]*)\s*=";
-        var matches = Regex.Matches(text, pattern);
+        if (t is null)
+            return null;
 
-        foreach (Match m in matches)
-            yield return m.Groups["name"].Value;
+        // Only public static fields (the unit definitions)
+        var fields = t.GetFields(BindingFlags.Public | BindingFlags.Static)
+            // Safety: only fields whose type is the unit type itself
+            .Where(f => f.FieldType == t)
+            // Requirement: exclude SI
+            .Where(f => !string.Equals(f.Name, "SI", StringComparison.Ordinal))
+            .Select(f => f.Name)
+            .Distinct(StringComparer.Ordinal)
+            .OrderBy(n => n, StringComparer.Ordinal)
+            .ToList();
+
+        if (fields.Count == 0)
+            return null;
+
+        return Template(unit, fields);
     }
 
-    private static string GenerateFileContent(string unit, IReadOnlyList<string> subUnits)
+    private static string Template(string unit, IReadOnlyList<string> subUnits)
     {
-        // Build property bodies
-        string DoubleProps() => string.Join(Environment.NewLine,
+        // Uses constructors that exist on units like Length(double, LengthUnit) and Length(int, LengthUnit) [1](https://github.com/MadsKirkFoged/EngineeringUnits/blob/master/EngineeringUnits/BaseUnits/Length/Length.cs)
+        var doubleProps = string.Join(Environment.NewLine,
             subUnits.Select(s => $"        public {unit} {s} => new {unit}(value, {unit}Unit.{s});"));
 
-        string IntProps() => string.Join(Environment.NewLine,
+        var intProps = string.Join(Environment.NewLine,
             subUnits.Select(s => $"        public {unit} {s} => new {unit}(value, {unit}Unit.{s});"));
 
-        string DecimalProps() => string.Join(Environment.NewLine,
+        var decimalProps = string.Join(Environment.NewLine,
             subUnits.Select(s => $"        public {unit} {s} => new {unit}((double)value, {unit}Unit.{s});"));
 
         return $$"""
@@ -104,19 +95,19 @@ public static class NumberToUnitExtensionsGenerator
                      // double receiver
                      extension(double value)
                      {
-                 {{DoubleProps()}}
+                 {{doubleProps}}
                      }
 
                      // int receiver
                      extension(int value)
                      {
-                 {{IntProps()}}
+                 {{intProps}}
                      }
 
                      // decimal receiver (convert as needed)
                      extension(decimal value)
                      {
-                 {{DecimalProps()}}
+                 {{decimalProps}}
                      }
                  }
                  """;
@@ -124,7 +115,6 @@ public static class NumberToUnitExtensionsGenerator
 
     private static void WriteIfChanged(string path, string content)
     {
-        // Small upgrade: don’t rewrite files if content didn’t change (clean diffs, faster CI)
         if (File.Exists(path))
         {
             var existing = File.ReadAllText(path);
@@ -132,7 +122,6 @@ public static class NumberToUnitExtensionsGenerator
                 return;
         }
 
-        // Consistent encoding; choose BOM/no-BOM as you prefer
         var utf8NoBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
         File.WriteAllText(path, content, utf8NoBom);
     }

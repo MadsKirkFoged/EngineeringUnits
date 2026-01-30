@@ -42,7 +42,7 @@ internal class Program
 
         //AbsExtensionsGenerator.Generate(libraryDir);
         UnknownUnitExtensionsGenerator.Generate(libraryDir);
-        NumberToUnitExtensionsGenerator.Generate(libraryDir);
+        GenerateNumberToUnitExtensions.Generate(libraryDir);
 
         _ = UnitListGenerator.ShowUnittypes();
         _ = UnitListGenerator.ShowUnitNames();
