@@ -3,6 +3,7 @@ using EngineeringUnits.Units;
 using Fractions;
 using System;
 using System.Diagnostics;
+using EngineeringUnits.NumberExtensions.NumberToLength;
 
 //using UnitsNet;
 
@@ -24,6 +25,8 @@ public class Program
 
     public static void Main()
     {
+
+        Length mylength = 10.Meter;
 
         UnknownUnit InfTest = MassFlow.FromSI(double.NegativeInfinity);
 
