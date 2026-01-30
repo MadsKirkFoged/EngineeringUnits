@@ -40,4 +40,9 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
 	<PackageReference Include="System.Numerics.Tensors" Version="9.0.5" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineeringUnits.Analyzers\EngineeringUnits.Analyzers.csproj" 
+					  OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
 </Project>

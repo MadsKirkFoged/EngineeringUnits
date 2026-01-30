@@ -51,7 +51,7 @@ public class Program
         void SetDensity(Density d)
         { }
 
-       // Density CalcBad(Mass m, Volume v) => v / m; // EU0005
+        //Density CalcBad(Mass m, Volume v) => v / m; // EU0005
 
         void Test(Mass m, Volume v)
         {
