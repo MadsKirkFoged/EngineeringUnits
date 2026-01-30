@@ -33,18 +33,18 @@ internal class Program
         var libraryDir = Path.Combine(solutionDir, LIBRARY_NAME);
 
         UnitGenerator.GenerateClasses(libraryDir);
-        ExtensionGenerator.GenerateExtention(libraryDir);
-        GenerateUnitEnum.GenerateClasses(libraryDir);
-        GenerateAlias.GenerateEnums(libraryDir);
-        GenerateSetter.GenerateSetterClasses(libraryDir);
-        GenerateGetter.GenerateGetterClasses(libraryDir);
-        GenerateAlias.AliasClass(libraryDir);
+        //ExtensionGenerator.GenerateExtention(libraryDir);
+        //GenerateUnitEnum.GenerateClasses(libraryDir);
+        //GenerateAlias.GenerateEnums(libraryDir);
+        //GenerateSetter.GenerateSetterClasses(libraryDir);
+        //GenerateGetter.GenerateGetterClasses(libraryDir);
+        //GenerateAlias.AliasClass(libraryDir);
 
-        //AbsExtensionsGenerator.Generate(libraryDir);
-        UnknownUnitExtensionsGenerator.Generate(libraryDir);
-        GenerateNumberToUnitExtensions.Generate(libraryDir);
+        ////AbsExtensionsGenerator.Generate(libraryDir);
+        //UnknownUnitExtensionsGenerator.Generate(libraryDir);
+        //GenerateNumberToUnitExtensions.Generate(libraryDir);
 
-        _ = UnitListGenerator.ShowUnittypes();
-        _ = UnitListGenerator.ShowUnitNames();
+        //_ = UnitListGenerator.ShowUnittypes();
+        //_ = UnitListGenerator.ShowUnitNames();
     }
 }

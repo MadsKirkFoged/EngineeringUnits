@@ -11,54 +11,84 @@ namespace EngineeringUnits.Analyzers
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public sealed class DimensionMismatchAnalyzer : DiagnosticAnalyzer
     {
-        public const string DiagnosticId_Conversion = "EU0001";
-        public const string DiagnosticId_AddSubtract = "EU0002";
+        public const string EU0001 = "EU0001"; // conversion mismatch
+        public const string EU0002 = "EU0002"; // add/sub mismatch
+        public const string EU0003 = "EU0003"; // compare mismatch
+        public const string EU0004 = "EU0004"; // argument mismatch
+        public const string EU0005 = "EU0005"; // return mismatch
 
-        // EU0001: conversion mismatch (your existing behavior)
         private static readonly DiagnosticDescriptor ConversionRule = new(
-            id: DiagnosticId_Conversion,
+            id: EU0001,
             title: "EngineeringUnits unit mismatch",
             messageFormat: "This is NOT a [{0}] as expected! Your Unit is a [{1}].",
             category: "EngineeringUnits",
-            defaultSeverity: DiagnosticSeverity.Error,
+            defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true);
 
-        // EU0002: add/subtract mismatch (new)
         private static readonly DiagnosticDescriptor AddSubtractRule = new(
-            id: DiagnosticId_AddSubtract,
+            id: EU0002,
             title: "EngineeringUnits can't add/subtract different units",
             messageFormat: "Trying to do [{0}] {2} [{1}]. Can't add/subtract two different units!",
             category: "EngineeringUnits",
-            defaultSeverity: DiagnosticSeverity.Error,
+            defaultSeverity: DiagnosticSeverity.Warning,
             isEnabledByDefault: true);
 
+        private static readonly DiagnosticDescriptor CompareRule = new(
+            id: EU0003,
+            title: "EngineeringUnits can't compare different units",
+            messageFormat: "Trying to compare [{0}] {2} [{1}]. Can't compare two different units!",
+            category: "EngineeringUnits",
+            defaultSeverity: DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
+        //private static readonly DiagnosticDescriptor ArgumentRule = new(
+        //    id: EU0004,
+        //    title: "EngineeringUnits argument unit mismatch",
+        //    messageFormat: "This is NOT a [{0}] as expected! Your Unit is a [{1}]",
+        //    category: "EngineeringUnits",
+        //    defaultSeverity: DiagnosticSeverity.Warning,
+        //    isEnabledByDefault: true);
+
+        //private static readonly DiagnosticDescriptor ReturnRule = new(
+        //    id: EU0005,
+        //    title: "EngineeringUnits return unit mismatch",
+        //    messageFormat: "This is NOT a [{0}] as expected! Your Unit is a [{1}]",
+        //    category: "EngineeringUnits",
+        //    defaultSeverity: DiagnosticSeverity.Warning,
+        //    isEnabledByDefault: true);
+
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
-            => ImmutableArray.Create(ConversionRule, AddSubtractRule);
+            => ImmutableArray.Create(ConversionRule, AddSubtractRule, CompareRule);//, ArgumentRule, ReturnRule);
 
         public override void Initialize(AnalysisContext context)
         {
             context.ConfigureGeneratedCodeAnalysis(GeneratedCodeAnalysisFlags.None);
             context.EnableConcurrentExecution();
 
-            // Cache enum -> name map once per compilation for formatting
+            // Build enum value->name map once per compilation for SI formatting
             context.RegisterCompilationStartAction(startContext =>
             {
                 var enumValueToName = SiUnitFormatter.BuildEnumValueToNameMap(startContext.Compilation);
 
-                // EU0001: conversion checks (UnknownUnit -> Quantity via op_Implicit)
                 startContext.RegisterOperationAction(opContext =>
-                {
-                    AnalyzeConversion(opContext, enumValueToName);
-                }, OperationKind.Conversion);
+                    AnalyzeConversion(opContext, enumValueToName),
+                    OperationKind.Conversion);
 
-                // EU0002: binary operator checks for + and -
                 startContext.RegisterOperationAction(opContext =>
-                {
-                    AnalyzeAddSubtract(opContext, enumValueToName);
-                }, OperationKind.Binary);
+                    AnalyzeBinary(opContext, enumValueToName),
+                    OperationKind.Binary);
+
+                //startContext.RegisterOperationAction(opContext =>
+                //    AnalyzeArgument(opContext, enumValueToName),
+                //    OperationKind.Argument);
+
+                //startContext.RegisterOperationAction(opContext =>
+                //    AnalyzeReturn(opContext, enumValueToName),
+                //    OperationKind.Return);
             });
         }
 
+        // ---------------- EU0001: UnknownUnit -> Quantity implicit conversion ----------------
         private static void AnalyzeConversion(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
         {
             var conv = (IConversionOperation)context.Operation;
@@ -66,6 +96,7 @@ namespace EngineeringUnits.Analyzers
             if (!conv.Conversion.IsUserDefined)
                 return;
 
+            // Your generated code uses user-defined implicit conversions (op_Implicit)
             if (conv.OperatorMethod is null || conv.OperatorMethod.Name != "op_Implicit")
                 return;
 
@@ -78,54 +109,155 @@ namespace EngineeringUnits.Analyzers
             if (!TryInferDimension(conv.Operand, out var actual))
                 return;
 
+            if (expected.ToKey() == actual.ToKey())
+                return;
+
             var expectedSi = SiUnitFormatter.FormatAsSi(expected.Exps, enumValueToName);
             var actualSi = SiUnitFormatter.FormatAsSi(actual.Exps, enumValueToName);
 
-            if (expected.ToKey() != actual.ToKey())
-            {
-                context.ReportDiagnostic(Diagnostic.Create(
-                    ConversionRule,
-                    conv.Operand.Syntax.GetLocation(),
-                    expectedSi,
-                    actualSi));
-            }
+            context.ReportDiagnostic(Diagnostic.Create(
+                ConversionRule,
+                conv.Operand.Syntax.GetLocation(),
+                expectedSi,
+                actualSi));
         }
 
-        private static void AnalyzeAddSubtract(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
+        // ---------------- EU0002 + EU0003: Binary operators ----------------
+        private static void AnalyzeBinary(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
         {
             var bin = (IBinaryOperation)context.Operation;
 
-            // Only + and -
-            if (bin.OperatorKind is not BinaryOperatorKind.Add and not BinaryOperatorKind.Subtract)
+            // We handle: +, -, and comparisons (<, >, <=, >=, ==, !=)
+            var isAddSub = bin.OperatorKind is BinaryOperatorKind.Add or BinaryOperatorKind.Subtract;
+
+            var isCompare =
+                bin.OperatorKind is BinaryOperatorKind.LessThan
+                                or BinaryOperatorKind.LessThanOrEqual
+                                or BinaryOperatorKind.GreaterThan
+                                or BinaryOperatorKind.GreaterThanOrEqual
+                                or BinaryOperatorKind.Equals
+                                or BinaryOperatorKind.NotEquals;
+
+            if (!isAddSub && !isCompare)
                 return;
 
-            // Infer both sides
+            // Infer both sides (if unknown => no diagnostic to avoid noise)
             if (!TryInferDimension(bin.LeftOperand, out var left))
                 return;
-
             if (!TryInferDimension(bin.RightOperand, out var right))
                 return;
 
-            // If same dimension: OK
+            // Same dimension => OK
             if (left.ToKey() == right.ToKey())
                 return;
 
-            // Pretty format like runtime: [m³] + [kg]
             var leftSi = SiUnitFormatter.FormatAsSi(left.Exps, enumValueToName);
             var rightSi = SiUnitFormatter.FormatAsSi(right.Exps, enumValueToName);
-            var opSymbol = bin.OperatorKind == BinaryOperatorKind.Add ? "+" : "-";
 
-            // Underline the expression itself
-            context.ReportDiagnostic(Diagnostic.Create(
-                AddSubtractRule,
-                bin.Syntax.GetLocation(),
-                leftSi,
-                rightSi,
-                opSymbol));
+            if (isAddSub)
+            {
+                var opSymbol = bin.OperatorKind == BinaryOperatorKind.Add ? "+" : "-";
+                context.ReportDiagnostic(Diagnostic.Create(
+                    AddSubtractRule,
+                    bin.Syntax.GetLocation(),
+                    leftSi,
+                    rightSi,
+                    opSymbol));
+            }
+            else
+            {
+                var opSymbol = OperatorSymbol(bin.OperatorKind);
+                context.ReportDiagnostic(Diagnostic.Create(
+                    CompareRule,
+                    bin.Syntax.GetLocation(),
+                    leftSi,
+                    rightSi,
+                    opSymbol));
+            }
         }
 
-        // ---------- Dimension inference (PoC rules) ----------
+        private static string OperatorSymbol(BinaryOperatorKind kind) => kind switch
+        {
+            BinaryOperatorKind.LessThan => "<",
+            BinaryOperatorKind.LessThanOrEqual => "<=",
+            BinaryOperatorKind.GreaterThan => ">",
+            BinaryOperatorKind.GreaterThanOrEqual => ">=",
+            BinaryOperatorKind.Equals => "==",
+            BinaryOperatorKind.NotEquals => "!=",
+            _ => "?"
+        };
 
+        // ---------------- EU0004: Argument mismatch ----------------
+        //private static void AnalyzeArgument(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
+        //{
+        //    var arg = (IArgumentOperation)context.Operation;
+
+        //    // Parameter type must be a known quantity type (has UnitDimension)
+        //    var paramType = arg.Parameter?.Type;
+        //    if (paramType is null)
+        //        return;
+
+        //    if (!TryGetDimension(paramType, out var expected))
+        //        return;
+
+        //    // Infer actual dimension from the passed expression
+        //    if (!TryInferDimension(arg.Value, out var actual))
+        //        return;
+
+        //    if (expected.ToKey() == actual.ToKey())
+        //        return;
+
+        //    var expectedSi = SiUnitFormatter.FormatAsSi(expected.Exps, enumValueToName);
+        //    var actualSi = SiUnitFormatter.FormatAsSi(actual.Exps, enumValueToName);
+
+        //    context.ReportDiagnostic(Diagnostic.Create(
+        //        ArgumentRule,
+        //        arg.Value.Syntax.GetLocation(),
+        //        expectedSi,
+        //        actualSi));
+        //}
+
+        // ---------------- EU0005: Return mismatch ----------------
+        // ---------------- EU0005: Return mismatch ----------------
+        //private static void AnalyzeReturn(OperationAnalysisContext context, Dictionary<int, string> enumValueToName)
+        //{
+        //    var ret = (IReturnOperation)context.Operation;
+
+        //    // Nothing returned (e.g., "return;" in void method)
+        //    if (ret.ReturnedValue is null)
+        //        return;
+
+        //    // The containing symbol for both methods and local functions is IMethodSymbol
+        //    if (context.ContainingSymbol is not IMethodSymbol method)
+        //        return;
+
+        //    // Ignore void returns
+        //    if (method.ReturnsVoid)
+        //        return;
+
+        //    var returnType = method.ReturnType;
+
+        //    // Only care about return types that are dimensioned quantities
+        //    if (!TryGetDimension(returnType, out var expected))
+        //        return;
+
+        //    if (!TryInferDimension(ret.ReturnedValue, out var actual))
+        //        return;
+
+        //    if (expected.ToKey() == actual.ToKey())
+        //        return;
+
+        //    var expectedSi = SiUnitFormatter.FormatAsSi(expected.Exps, enumValueToName);
+        //    var actualSi = SiUnitFormatter.FormatAsSi(actual.Exps, enumValueToName);
+
+        //    context.ReportDiagnostic(Diagnostic.Create(
+        //        ReturnRule,
+        //        ret.ReturnedValue.Syntax.GetLocation(),
+        //        expectedSi,
+        //        actualSi));
+        //}
+
+        // ---------- Dimension inference (same as your PoC, with + - requiring equal dims) ----------
         private static bool TryInferDimension(IOperation op, out DimVector dim)
         {
             // Unwrap implicit conversions like Volume -> BaseUnit
@@ -171,7 +303,7 @@ namespace EngineeringUnits.Analyzers
 
                     case BinaryOperatorKind.Add:
                     case BinaryOperatorKind.Subtract:
-                        // For +/-: require same dimensions to infer; otherwise "unknown"
+                        // For +/-: require same dimensions to infer; otherwise unknown
                         if (!left.StructuralEquals(right))
                         {
                             dim = default;
@@ -217,7 +349,6 @@ namespace EngineeringUnits.Analyzers
         }
 
         // ---------- DimVector ----------
-
         private readonly struct DimVector
         {
             private readonly ImmutableArray<(int Unit, int Exp)> _terms;
@@ -253,7 +384,6 @@ namespace EngineeringUnits.Analyzers
                 return new DimVector(terms);
             }
 
-            // Used by SiUnitFormatter
             public Dictionary<int, int> Exps
                 => _terms.ToDictionary(t => t.Unit, t => t.Exp);
 

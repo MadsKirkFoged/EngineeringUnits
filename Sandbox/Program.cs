@@ -4,6 +4,7 @@ using Fractions;
 using System;
 using System.Diagnostics;
 using EngineeringUnits.NumberExtensions.NumberToLength;
+using System.Reflection.Metadata.Ecma335;
 
 //using UnitsNet;
 
@@ -26,6 +27,14 @@ public class Program
     public static void Main()
     {
 
+        var test11 = PressureUnit.SI.Unit.ListOfUnits;
+
+        foreach (var item in PressureUnit.SI.Unit.ListOfUnits)
+        {
+            Console.WriteLine($"{item.UnitType} {item.Count}");
+        }
+
+
         var m = new Mass(1, MassUnit.Kilogram);
         var v = new Volume(1, VolumeUnit.CubicMeter);
 
@@ -36,6 +45,27 @@ public class Program
 
         // Right:
         Density d2 = (m / v) + (m / v);   // should be fine
+
+        Density d22 = (m + v) / v;
+
+        void SetDensity(Density d)
+        { }
+
+        Density CalcBad(Mass m, Volume v) => v / m; // EU0005
+
+        void Test(Mass m, Volume v)
+        {
+            Density d1 = v / m; // EU0001
+            SetDensity(v / m);  // EU0004
+
+            if (m > v)
+            { }      // EU0003
+        }
+
+        Density Test2(Mass m, Volume v)
+        {
+            return v / m;
+        }
 
 
         Length mylength = 10.Meter;

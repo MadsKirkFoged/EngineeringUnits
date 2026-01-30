@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace CodeGen.Code;
 
@@ -10,11 +13,26 @@ internal class UnitGenerator
     {
 
         List<string> list = ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits();
-        list.AddRange(ListOfUnitsForDifferentGenerators.GetListOfCombinedUnits());
         foreach (var item in list)
         {
 
-            var sb = Generate().Replace("Variable", $"{item}");
+            var unitSystem = UnitReflection.GetSiUnitSystem(item);
+            var listOfUnits = UnitReflection.GetListOfUnits(unitSystem);
+
+            List<string> UnitDimension = [];
+
+            foreach (var rawUnit in listOfUnits)
+            {
+                var unitType = rawUnit.GetType().GetProperty("UnitType")?.GetValue(rawUnit);
+                var count = rawUnit.GetType().GetProperty("Count")?.GetValue(rawUnit);
+                UnitDimension.Add($"BaseunitType.{unitType}, {count}");
+            }
+
+            string UnitDimensionText = $"[UnitDimension({string.Join(", ", UnitDimension)})]";
+
+
+            var sb = Generate().Replace("Variable", $"{item}")
+                               .Replace("UnitDimension", UnitDimensionText);
 
             var projectPathWithUnit = Path.Combine(projectPath, "CombinedUnits", item);
 
@@ -53,6 +71,7 @@ internal class UnitGenerator
                    namespace EngineeringUnits;
                    
                    // This class is auto-generated, changes to the file will be overwritten!
+                   UnitDimension
                    public partial class Variable : BaseUnit
                    {
                        public Variable() { }
