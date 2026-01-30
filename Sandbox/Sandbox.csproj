@@ -9,6 +9,10 @@
     <PackageReference Include="Fractions" Version="8.0.4" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EngineeringUnits.Analyzers\EngineeringUnits.Analyzers.csproj" 
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+
     <ProjectReference Include="..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>
 </Project>

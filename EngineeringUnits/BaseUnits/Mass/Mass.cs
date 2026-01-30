@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace EngineeringUnits;
 
 // This class is auto-generated, changes to the file will be overwritten!
+[UnitDimension(BaseunitType.mass, +1)]
 public partial class Mass : BaseUnit
 {
     public Mass() { }

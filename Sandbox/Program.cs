@@ -26,6 +26,18 @@ public class Program
     public static void Main()
     {
 
+        var m = new Mass(1, MassUnit.Kilogram);
+        var v = new Volume(1, VolumeUnit.CubicMeter);
+
+
+
+        // Wrong:
+        Density d11 = (v / m) + (v / m);   // EU0001 should trigger
+
+        // Right:
+        Density d2 = (m / v) + (m / v);   // should be fine
+
+
         Length mylength = 10.Meter;
 
         UnknownUnit InfTest = MassFlow.FromSI(double.NegativeInfinity);
