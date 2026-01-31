@@ -75,11 +75,15 @@ public static class BaseUnitExtensions
             b2 = From.Unit.SumOfBConstants();
 
             Fraction a2 = From.Unit.SumConstant();
-            var x2 = (Fraction)From.NEWValue;
+            Fraction x2;
 
             if (From.testValue is null)
             {
                 x2 = (Fraction)From.testValue;
+            }
+            else
+            {
+                x2 = (Fraction)From.NEWValue;
             }
 
             Fraction a1 = To.SumConstant();

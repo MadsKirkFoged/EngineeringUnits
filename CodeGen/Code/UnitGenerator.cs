@@ -83,6 +83,7 @@ internal class UnitGenerator
                    public partial class {{Variable}} : BaseUnit
                    {
                        public {{Variable}}() { }
+                       public {{Variable}}(Fraction value, {{Variable}}Unit selectedUnit) : base(value, selectedUnit.Unit) { }
                        public {{Variable}}(decimal value, {{Variable}}Unit selectedUnit) : base(value, selectedUnit.Unit) { }
                        public {{Variable}}(double value, {{Variable}}Unit selectedUnit) : base(value, selectedUnit.Unit) { }
                        public {{Variable}}(int value, {{Variable}}Unit selectedUnit) : base(value, selectedUnit.Unit) { }

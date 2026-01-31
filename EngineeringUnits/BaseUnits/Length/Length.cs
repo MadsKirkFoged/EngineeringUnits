@@ -26,15 +26,8 @@ public partial class Length : BaseUnit
         return From((double)value, unit);
     }
     public double As(LengthUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-    public Length ToUnit(LengthUnit selectedUnit)
-    {
-        var value = this.GetValueAstest(selectedUnit.Unit);
+    public Length ToUnit(LengthUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
 
-        return new(value, selectedUnit);
-    }
-    
-    
-    
     public static Length Zero => new(0, LengthUnit.SI);
     public static Length NaN => new(double.NaN, LengthUnit.SI);
 
