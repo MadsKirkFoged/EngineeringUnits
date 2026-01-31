@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class ElectricCurrentGradient : BaseUnit
 {
     public ElectricCurrentGradient() { }
+    public ElectricCurrentGradient(Fraction value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricCurrentGradient(decimal value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricCurrentGradient(double value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ElectricCurrentGradient(int value, ElectricCurrentGradientUnit selectedUnit) : base(value, selectedUnit.Unit) { }

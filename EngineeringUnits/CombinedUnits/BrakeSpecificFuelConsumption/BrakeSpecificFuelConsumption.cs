@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class BrakeSpecificFuelConsumption : BaseUnit
 {
     public BrakeSpecificFuelConsumption() { }
+    public BrakeSpecificFuelConsumption(Fraction value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BrakeSpecificFuelConsumption(decimal value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BrakeSpecificFuelConsumption(double value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BrakeSpecificFuelConsumption(int value, BrakeSpecificFuelConsumptionUnit selectedUnit) : base(value, selectedUnit.Unit) { }

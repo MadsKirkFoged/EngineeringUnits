@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class KinematicViscosity : BaseUnit
 {
     public KinematicViscosity() { }
+    public KinematicViscosity(Fraction value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public KinematicViscosity(decimal value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public KinematicViscosity(double value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public KinematicViscosity(int value, KinematicViscosityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

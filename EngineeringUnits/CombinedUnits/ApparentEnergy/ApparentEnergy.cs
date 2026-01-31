@@ -15,7 +15,7 @@ public partial class ApparentEnergy : BaseUnit
 
     public static ApparentEnergy From(double value, ApparentEnergyUnit unit) => new(value, unit);
     public double As(ApparentEnergyUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public ApparentEnergy ToUnit(ApparentEnergyUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public ApparentEnergy ToUnit(ApparentEnergyUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static ApparentEnergy Zero => new(0, ApparentEnergyUnit.SI);
 
     public static implicit operator ApparentEnergy(UnknownUnit Unit)

@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class ThermalConductivity : BaseUnit
 {
     public ThermalConductivity() { }
+    public ThermalConductivity(Fraction value, ThermalConductivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ThermalConductivity(decimal value, ThermalConductivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ThermalConductivity(double value, ThermalConductivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public ThermalConductivity(int value, ThermalConductivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

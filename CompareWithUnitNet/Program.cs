@@ -14,12 +14,9 @@ var L11 = L1.ToUnit(EngineeringUnits.Units.LengthUnit.Foot)
 var L22 = L2.ToUnit(UnitsNet.Units.LengthUnit.Foot)
             .ToUnit(UnitsNet.Units.LengthUnit.Meter);
 
-Console.WriteLine(L11 == L1);
-Console.WriteLine(L22 == L2);
+Console.WriteLine(L11 == L1); //true
+Console.WriteLine(L22 == L2); //false
 
-
-var test1 = L1.ToString();
-var test2 = L2.ToString();
 
 Console.WriteLine("Hello, World!");
 

@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class MolarMass : BaseUnit
 {
     public MolarMass() { }
+    public MolarMass(Fraction value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public MolarMass(decimal value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public MolarMass(double value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public MolarMass(int value, MolarMassUnit selectedUnit) : base(value, selectedUnit.Unit) { }

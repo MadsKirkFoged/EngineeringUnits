@@ -34,7 +34,7 @@ public partial class TemperatureDelta : BaseUnit
     public double As(TemperatureUnit ReturnInThisUnit) => (double)this.GetValueAs(ReturnInThisUnit.Unit);
 
     [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
-    public TemperatureDelta ToUnit(TemperatureUnit selectedUnit) => new TemperatureDelta(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public TemperatureDelta ToUnit(TemperatureUnit selectedUnit) => new TemperatureDelta(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
 
     [Obsolete("TemperatureDelta has been removed - Just use Temperature instead")]
     public static TemperatureDelta Zero => new(0, TemperatureUnit.SI);

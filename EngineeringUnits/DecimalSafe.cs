@@ -268,6 +268,17 @@ public readonly record struct DecimalSafe
 
     public static explicit operator Fraction(DecimalSafe value)
     {
+        if (value.IsInf)
+        {
+            return Fraction.PositiveInfinity;
+        }
+
+        if (value.IsNaN)
+        {
+            return Fraction.NaN;
+        }
+
+
         return (Fraction)value.Value;
     }
 

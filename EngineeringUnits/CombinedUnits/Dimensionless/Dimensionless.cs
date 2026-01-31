@@ -25,7 +25,7 @@ public partial class Dimensionless : BaseUnit
         return From((double)value, unit);
     }
     public double As(DimensionlessUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
-    public Dimensionless ToUnit(DimensionlessUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public Dimensionless ToUnit(DimensionlessUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static Dimensionless Zero => new(0, DimensionlessUnit.SI);
     public static Dimensionless NaN => new(double.NaN, DimensionlessUnit.SI);
 

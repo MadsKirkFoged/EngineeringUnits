@@ -4,7 +4,6 @@ namespace EngineeringUnits;
 
 public class Constants : BaseUnit
 {
-
     /// <summary>
     /// Gravitational Constant
     /// <br>Value: 6.67430×10−11</br>
@@ -16,7 +15,7 @@ public class Constants : BaseUnit
         get
         {
             UnitSystem unit = ForceUnit.SI * LengthUnit.SI.Pow(2) / MassUnit.SI.Pow(2);
-            return new(0.0000000000667408, unit);
+            return new(0.0000000000667408m, unit);
         }
     }
 
@@ -34,90 +33,69 @@ public class Constants : BaseUnit
     /// </summary>
     public static Acceleration StandardGravity => new(1, AccelerationUnit.StandardGravity);
 
-    ///// <summary>
-    ///// Planck Constant
-    ///// <br>Value: 6.62607004 × 10-34</br>
-    ///// <br>Unit: [m2 kg s-1]</br>
-    ///// </summary>
-    //public static BaseUnit PlanckConstant
-    //{
-
-    //    get
-    //    {
-    //        UnitSystem unit = (EnergyUnit.SI) / (FrequencyUnit.SI);
-    //        BaseUnit local = new(6.62607015e-34m, unit);
-    //        return local;
-    //    }
-
-    //}
+    /// <summary>
+    /// Planck Constant (h)
+    /// <br>Value: 6.62607015 × 10−34</br>
+    /// <br>Unit: [J⋅s]</br>
+    /// </summary>
+    public static BaseUnit PlanckConstant
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule / FrequencyUnit.Hertz; // J/Hz = J*s
+            return new(6.62607015e-34m, unit);
+        }
+    }
 
     /// <summary>
-    /// Vacuum electric permittivity
+    /// Reduced Planck constant (ħ)
+    /// <br>Value: 1.054571817… × 10−34</br>
+    /// <br>Unit: [J⋅s]</br>
+    /// </summary>
+    public static BaseUnit ReducedPlanckConstant
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule / FrequencyUnit.Hertz; // J/Hz = J*s
+            return new(1.054571817e-34m, unit);
+        }
+    }
+
+    /// <summary>
+    /// Vacuum electric permittivity (ε₀)
     /// <br>Value: 8.8541878128 × 10−12</br>
     /// <br>Unit: [F⋅m−1]</br>
     /// </summary>
-    public static BaseUnit VacuumElectricPermittivity
-    {
-        get
-        {
-            UnitSystem unit = CapacitanceUnit.Farad / LengthUnit.Meter;
-            return new(8.8541878128e-12m, unit);
-        }
-    }
+    public static Permittivity VacuumElectricPermittivity => new(8.8541878128e-12m, PermittivityUnit.SI);
 
     /// <summary>
-    /// Vacuum Magnetic Permeability
+    /// Vacuum magnetic permeability (μ₀)
     /// <br>Value: 1.25663706212 × 10−6</br>
     /// <br>Unit: [H/m]</br>
     /// </summary>
-    public static BaseUnit VacuumMagneticPermeability
-    {
-
-        get
-        {
-            UnitSystem unit = ElectricInductanceUnit.Henry / LengthUnit.Meter;
-            return new(1.25663706212e-6m, unit);
-        }
-    }
+    public static Permeability VacuumMagneticPermeability => new(1.25663706212e-6m, PermeabilityUnit.SI);
 
     /// <summary>
-    /// Impedance of free space
+    /// Impedance of free space (Z₀)
     /// <br>Value: 376.730313668</br>
     /// <br>Unit: [Ω]</br>
     /// </summary>
-    public static BaseUnit ImpedanceOfFreeSpace
-    {
-
-        get
-        {
-            UnitSystem unit = ElectricResistanceUnit.Ohm.Unit;
-            return new(376.730313668, unit);
-        }
-    }
+    public static ElectricResistance ImpedanceOfFreeSpace => new(376.730313668m, ElectricResistanceUnit.Ohm);
 
     /// <summary>
-    /// Elementary charge
+    /// Elementary charge (e)
     /// <br>Value: 1.602176634×10−19</br>
     /// <br>Unit: [C]</br>
     /// </summary>
-    public static BaseUnit ElementaryCharge
-    {
-
-        get
-        {
-            UnitSystem unit = ElectricChargeUnit.Coulomb.Unit;
-            return new(1.602176634e-19m, unit);
-        }
-    }
+    public static ElectricCharge ElementaryCharge => new(1.602176634e-19m, ElectricChargeUnit.Coulomb);
 
     /// <summary>
-    /// Avogadro constant
-    /// <br>Value: 6.02214076×1023</br>
-    /// <br>Unit: [Mol-1]</br>
+    /// Avogadro constant (N_A)
+    /// <br>Value: 6.02214076×10^23</br>
+    /// <br>Unit: [mol−1]</br>
     /// </summary>
     public static BaseUnit AvogadroConstant
     {
-
         get
         {
             UnitSystem unit = AmountOfSubstanceUnit.Mole.Pow(-1);
@@ -126,105 +104,427 @@ public class Constants : BaseUnit
     }
 
     /// <summary>
-    /// Boltzmann constant
+    /// Boltzmann constant (k)
     /// <br>Value: 1.380649×10−23</br>
-    /// <br>Unit: [J⋅K−1]</br>
+    /// <br>Unit: [J⋅K−1] (same dimension as Entropy)</br>
     /// </summary>
-    public static BaseUnit BoltzmannConstant
-    {
+    public static Entropy BoltzmannConstant => new(1.380649e-23m, EntropyUnit.SI);
 
+    /// <summary>
+    /// Ideal gas constant (R)
+    /// <br>Value: 8.31446261815324</br>
+    /// <br>Unit: [J⋅K−1⋅mol−1] (same dimension as MolarEntropy)</br>
+    /// </summary>
+    public static MolarEntropy IdealGasConstant => new(8.31446261815324m, MolarEntropyUnit.JoulePerMoleKelvin);
+
+    // -------------------------------------------------------------------------
+    // NEW “normal” constants requested: 1,2,3,7
+    // -------------------------------------------------------------------------
+
+    /// <summary>
+    /// Luminous efficacy of monochromatic radiation of frequency 540×10¹² Hz (Kcd)
+    /// <br>Value: 683</br>
+    /// <br>Unit: [lm⋅W−1]</br>
+    /// <br>Exact SI defining constant.</br>
+    /// </summary>
+    public static BaseUnit LuminousEfficacy540THz
+    {
         get
         {
-            UnitSystem unit = EnergyUnit.Joule / TemperatureUnit.Kelvin;
-            return new(1.380649e-23m, unit);
+            // lm/W
+            UnitSystem unit = LuminousFluxUnit.Lumen / PowerUnit.Watt;
+            return new(683m, unit);
         }
     }
 
     /// <summary>
-    /// Ideal gas constant
-    /// <br>Value: 8.31446261815324</br>
-    /// <br>Unit: [J⋅K−1⋅mol−1]</br>
+    /// Standard atmosphere (atm)
+    /// <br>Value: 101325</br>
+    /// <br>Unit: [Pa]</br>
+    /// <br>Exact adopted value.</br>
     /// </summary>
-    public static BaseUnit IdealGasConstant
+    public static Pressure StandardAtmosphere => new(101325m, PressureUnit.Pascal);
+
+    /// <summary>
+    /// Standard-state pressure (p°)
+    /// <br>Value: 100000</br>
+    /// <br>Unit: [Pa]</br>
+    /// <br>Exact adopted value (100 kPa).</br>
+    /// </summary>
+    public static Pressure StandardStatePressure => new(100000m, PressureUnit.Pascal);
+
+    /// <summary>
+    /// Electron volt in joules (eV→J)
+    /// <br>Value: 1.602176634×10−19</br>
+    /// <br>Unit: [J]</br>
+    /// <br>Exact (2022 CODATA / SI definition).</br>
+    /// </summary>
+    public static Energy ElectronVoltInJoules => new(1.602176634e-19m, EnergyUnit.Joule);
+
+    // -------------------------------------------------------------------------
+    // Previously-commented constants - upgraded to strongly typed where possible
+    // -------------------------------------------------------------------------
+
+    /// <summary>
+    /// Conductance quantum (G₀ = 2e²/h)
+    /// <br>Value: 7.748091729…×10−5</br>
+    /// <br>Unit: [S]</br>
+    /// </summary>
+    public static ElectricConductance ConductanceQuantum => new(7.748091729e-5m, ElectricConductanceUnit.SI);
+
+    /// <summary>
+    /// Inverse of conductance quantum (G₀⁻¹)
+    /// <br>Value: 12906.40372…</br>
+    /// <br>Unit: [Ω]</br>
+    /// </summary>
+    public static ElectricResistance InverseConductanceQuantum => new(12906.40372m, ElectricResistanceUnit.Ohm);
+
+    /// <summary>
+    /// Josephson constant (K_J = 2e/h)
+    /// <br>Value: 483597.8484…×10⁹</br>
+    /// <br>Unit: [Hz⋅V−1]</br>
+    /// </summary>
+    public static BaseUnit JosephsonConstant
     {
         get
         {
-            UnitSystem unit = MolarEntropyUnit.JoulePerMoleKelvin.Unit;
-            return new BaseUnit(8.31446261815324, unit);
+            UnitSystem unit = FrequencyUnit.Hertz / ElectricPotentialUnit.Volt;
+            return new(483597.8484e9m, unit);
         }
     }
 
-    //conductance quantum	7.748091729...×10−5 S[13]
+    /// <summary>
+    /// Coulomb constant (kₑ = 1/(4πϵ₀))
+    /// <br>Value: 8.987551786170799×10⁹ (computed from ε₀)</br>
+    /// <br>Unit: [N⋅m²⋅C−2]</br>
+    /// </summary>
+    public static BaseUnit CoulombConstant
+    {
+        get
+        {
+            UnitSystem unit = ForceUnit.SI * LengthUnit.Meter.Pow(2) / ElectricChargeUnit.Coulomb.Pow(2);
+            return new(8.987551786170799e9m, unit);
+        }
+    }
 
-    //Josephson constant	483597.8484...×109 Hz⋅V−1[14]
+    /// <summary>
+    /// von Klitzing constant (R_K = h/e²)
+    /// <br>Value: 25812.80745…</br>
+    /// <br>Unit: [Ω]</br>
+    /// </summary>
+    public static ElectricResistance VonKlitzingConstant => new(25812.80745m, ElectricResistanceUnit.Ohm);
 
-    //	Coulomb constant	8.9875517923(14)×109 kg⋅m3⋅s−2⋅C−2[15]
+    /// <summary>
+    /// Magnetic flux quantum (Φ₀ = h/2e)
+    /// <br>Value: 2.067833848…×10−15</br>
+    /// <br>Unit: [Wb]</br>
+    /// </summary>
+    public static MagneticFlux MagneticFluxQuantum => new(2.067833848e-15m, MagneticFluxUnit.Weber);
 
-    //von Klitzing constant	25812.80745... Ω[16]
+    /// <summary>
+    /// Bohr magneton (μ_B)
+    /// <br>Value: 9.2740100657×10−24</br>
+    /// <br>Unit: [J⋅T−1]</br>
+    /// <br>Note: no dedicated “MagneticDipoleMoment” quantity in your combined list, so kept as BaseUnit.</br>
+    /// </summary>
+    public static BaseUnit BohrMagneton
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule / MagneticFieldUnit.Tesla;
+            return new(9.2740100657e-24m, unit);
+        }
+    }
 
-    //magnetic flux quantum	2.067833848...×10−15 Wb[17]
+    /// <summary>
+    /// Nuclear magneton (μ_N)
+    /// <br>Value: 5.0507837393×10−27</br>
+    /// <br>Unit: [J⋅T−1]</br>
+    /// <br>Note: no dedicated “MagneticDipoleMoment” quantity in your combined list, so kept as BaseUnit.</br>
+    /// </summary>
+    public static BaseUnit NuclearMagneton
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule / MagneticFieldUnit.Tesla;
+            return new(5.0507837393e-27m, unit);
+        }
+    }
 
-    //inverse conductance quantum	12906.40372... Ω[18]
+    /// <summary>
+    /// Fine-structure constant (α)
+    /// <br>Value: 7.2973525643×10−3</br>
+    /// <br>Unit: [-]</br>
+    /// </summary>
+    public static BaseUnit FineStructureConstant => new(7.2973525643e-3m, new UnitSystem(1m, null));
 
-    //Bohr magneton	9.2740100783(28)×10−24 J⋅T−1[19]
+    /// <summary>
+    /// Inverse fine-structure constant (α⁻¹)
+    /// <br>Value: 137.035999177</br>
+    /// <br>Unit: [-]</br>
+    /// </summary>
+    public static BaseUnit InverseFineStructureConstant => new(137.035999177m, new UnitSystem(1m, null));
 
-    //nuclear magneton	5.0507837461(15)×10−27 J⋅T−1[20]
+    /// <summary>
+    /// Electron mass (mₑ)
+    /// <br>Value: 9.1093837139×10−31</br>
+    /// <br>Unit: [kg]</br>
+    /// </summary>
+    public static Mass ElectronMass => new(9.1093837139e-31m, MassUnit.Kilogram);
 
-    //fine-structure constant	7.2973525693(11)×10−3[21]
+    /// <summary>
+    /// Proton mass (m_p)
+    /// <br>Value: 1.67262192595×10−27</br>
+    /// <br>Unit: [kg]</br>
+    /// </summary>
+    public static Mass ProtonMass => new(1.67262192595e-27m, MassUnit.Kilogram);
 
-    //inverse fine-structure constant	137.035999084(21)[22]
+    /// <summary>
+    /// Neutron mass (m_n)
+    /// <br>Value: 1.67492750056×10−27</br>
+    /// <br>Unit: [kg]</br>
+    /// </summary>
+    public static Mass NeutronMass => new(1.67492750056e-27m, MassUnit.Kilogram);
 
-    //electron mass	9.1093837015(28)×10−31 kg[23]
+    /// <summary>
+    /// Bohr radius (a₀)
+    /// <br>Value: 5.29177210544×10−11</br>
+    /// <br>Unit: [m]</br>
+    /// </summary>
+    public static Length BohrRadius => new(5.29177210544e-11m, LengthUnit.Meter);
 
-    //proton mass	1.67262192369(51)×10−27 kg[24]
+    /// <summary>
+    /// Classical electron radius (rₑ)
+    /// <br>Value: 2.8179403205×10−15</br>
+    /// <br>Unit: [m]</br>
+    /// </summary>
+    public static Length ClassicalElectronRadius => new(2.8179403205e-15m, LengthUnit.Meter);
 
-    //neutron mass	1.67492749804(95)×10−27 kg[25]
+    /// <summary>
+    /// Electron g-factor (gₑ)
+    /// <br>Value: −2.00231930436092</br>
+    /// <br>Unit: [-]</br>
+    /// </summary>
+    public static BaseUnit ElectronGFactor => new(-2.00231930436092m, new UnitSystem(1m, null));
 
-    //Bohr radius	5.29177210903(80)×10−11 m[26]
+    /// <summary>
+    /// Fermi coupling constant (G_F)
+    /// <br>Value: 1.1663787×10−5 GeV−2</br>
+    /// <br>Unit (returned here): [J−2] (converted using exact e)</br>
+    /// </summary>
+    public static BaseUnit FermiCouplingConstant
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule.Pow(-2);
+            return new(4.543795662612158e14m, unit);
+        }
+    }
 
-    //classical electron radius	2.8179403262(13)×10−15 m[27]
+    /// <summary>
+    /// Hartree energy (E_h)
+    /// <br>Value: 4.3597447222060×10−18</br>
+    /// <br>Unit: [J]</br>
+    /// </summary>
+    public static Energy HartreeEnergy => new(4.3597447222060e-18m, EnergyUnit.Joule);
 
-    //electron g-factor	−2.00231930436256(35)[28]
+    /// <summary>
+    /// Quantum of circulation (κ)
+    /// <br>Value: 3.6369475467×10−4</br>
+    /// <br>Unit: [m²⋅s−1] (same dimension as KinematicViscosity)</br>
+    /// </summary>
+    public static KinematicViscosity QuantumOfCirculation => new(3.6369475467e-4m, KinematicViscosityUnit.SI);
 
-    //Fermi coupling constant	1.1663787(6)×10−5 GeV−2[29]
+    /// <summary>
+    /// Rydberg constant (R∞)
+    /// <br>Value: 10973731.568157</br>
+    /// <br>Unit: [m−1]</br>
+    /// <br>Note: no dedicated reciprocal-length quantity, so kept as BaseUnit.</br>
+    /// </summary>
+    public static BaseUnit RydbergConstant
+    {
+        get
+        {
+            UnitSystem unit = LengthUnit.Meter.Pow(-1);
+            return new(10973731.568157m, unit);
+        }
+    }
 
-    //Hartree energy	4.3597447222071(85)×10−18 J[30]
+    /// <summary>
+    /// Thomson cross section (σₑ)
+    /// <br>Value: 6.6524587051×10−29</br>
+    /// <br>Unit: [m²]</br>
+    /// </summary>
+    public static Area ThomsonCrossSection => new(6.6524587051e-29m, AreaUnit.SquareMeter);
 
-    //quantum of circulation	3.6369475516(11)×10−4 m2⋅s−1[31]
+    /// <summary>
+    /// W-to-Z mass ratio (m_W/m_Z)
+    /// <br>Value: 0.8814476728654969</br>
+    /// <br>Unit: [-]</br>
+    /// </summary>
+    public static BaseUnit WToZMassRatio => new(0.8814476728654969m, new UnitSystem(1m, null));
 
-    //Rydberg constant	10973731.568160(21) m−1[32]
+    /// <summary>
+    /// Weak mixing angle (on-shell scheme): sin²θ_W
+    /// <br>Value: 0.22305</br>
+    /// <br>Unit: [-]</br>
+    /// </summary>
+    public static BaseUnit WeakMixingAngle => new(0.22305m, new UnitSystem(1m, null));
 
-    //Thomson cross section	6.6524587321(60)×10−29 m2[33]
+    /// <summary>
+    /// Atomic mass constant (u)
+    /// <br>Value: 1.66053906892×10−27</br>
+    /// <br>Unit: [kg]</br>
+    /// </summary>
+    public static Mass AtomicMassConstant => new(1.66053906892e-27m, MassUnit.Kilogram);
 
-    //W-to-Z mass ratio	0.88153(17)[34]
+    /// <summary>
+    /// Faraday constant (F)
+    /// <br>Value: 96485.33212…</br>
+    /// <br>Unit: [C⋅mol−1]</br>
+    /// <br>Note: no dedicated “ChargePerAmount” quantity, so kept as BaseUnit.</br>
+    /// </summary>
+    public static BaseUnit FaradayConstant
+    {
+        get
+        {
+            UnitSystem unit = ElectricChargeUnit.Coulomb / AmountOfSubstanceUnit.Mole;
+            return new(96485.33212m, unit);
+        }
+    }
 
-    //weak mixing angle	0.22290(30)[35]
+    /// <summary>
+    /// Molar mass constant (M_u)
+    /// <br>Value: 1.00000000105×10−3</br>
+    /// <br>Unit: [kg⋅mol−1]</br>
+    /// </summary>
+    public static MolarMass MolarMassConstant => new(1.00000000105e-3m, MolarMassUnit.SI);
 
-    //atomic mass constant	1.66053906660(50)×10−27 kg[36]
+    /// <summary>
+    /// Molar mass of carbon-12
+    /// <br>Value: 12.0000000126×10−3</br>
+    /// <br>Unit: [kg⋅mol−1]</br>
+    /// </summary>
+    public static MolarMass MolarMassOfCarbon12 => new(12.0000000126e-3m, MolarMassUnit.SI);
 
-    //Faraday constant	96485.33212... C⋅mol−1[37]
+    /// <summary>
+    /// Stefan–Boltzmann constant (σ)
+    /// <br>Value: 5.670374419…×10−8</br>
+    /// <br>Unit: [W⋅m−2⋅K−4]</br>
+    /// <br>Note: no dedicated quantity for W⋅m−2⋅K−4, so kept as BaseUnit.</br>
+    /// </summary>
+    public static BaseUnit StefanBoltzmannConstant
+    {
+        get
+        {
+            UnitSystem unit = PowerUnit.Watt / AreaUnit.SquareMeter / TemperatureUnit.Kelvin.Pow(4);
+            return new(5.670374419e-8m, unit);
+        }
+    }
 
-    //molar gas constant	8.314462618... J⋅mol−1⋅K−1[38]
+    /// <summary>
+    /// First radiation constant (c₁ = 2πhc²)
+    /// <br>Value: 3.741771852…×10−16</br>
+    /// <br>Unit: [W⋅m²]</br>
+    /// </summary>
+    public static BaseUnit FirstRadiationConstant
+    {
+        get
+        {
+            UnitSystem unit = PowerUnit.Watt * AreaUnit.SquareMeter;
+            return new(3.741771852e-16m, unit);
+        }
+    }
 
-    //	molar mass constant	0.99999999965(30)×10−3 kg⋅mol−1[39]
+    /// <summary>
+    /// First radiation constant for spectral radiance (c₁L = 2hc²)
+    /// <br>Value: 1.191042972…×10−16</br>
+    /// <br>Unit: [W⋅m²⋅sr−1] (sr treated as dimensionless)</br>
+    /// </summary>
+    public static BaseUnit FirstRadiationConstantForSpectralRadiance
+    {
+        get
+        {
+            UnitSystem unit = PowerUnit.Watt * AreaUnit.SquareMeter;
+            return new(1.191042972e-16m, unit);
+        }
+    }
 
-    //Stefan–Boltzmann constant	5.670374419...×10−8 W⋅m−2⋅K−4[40]
+    /// <summary>
+    /// Molar Planck constant (N_A h)
+    /// <br>Value: 3.990312712…×10−10</br>
+    /// <br>Unit: [J⋅Hz−1⋅mol−1]</br>
+    /// </summary>
+    public static BaseUnit MolarPlanckConstant
+    {
+        get
+        {
+            UnitSystem unit = EnergyUnit.Joule / FrequencyUnit.Hertz / AmountOfSubstanceUnit.Mole;
+            return new(3.990312712e-10m, unit);
+        }
+    }
 
-    //first radiation constant	3.741771852...×10−16 W⋅m2[41]
+    /// <summary>
+    /// Second radiation constant (c₂ = hc/k)
+    /// <br>Value: 1.438776877…×10−2</br>
+    /// <br>Unit: [m⋅K]</br>
+    /// </summary>
+    public static BaseUnit SecondRadiationConstant
+    {
+        get
+        {
+            UnitSystem unit = LengthUnit.Meter * TemperatureUnit.Kelvin;
+            return new(1.438776877e-2m, unit);
+        }
+    }
 
-    //first radiation constant for spectral radiance	1.191042972...×10−16 W⋅m2⋅sr−1[42]
+    /// <summary>
+    /// Wien wavelength displacement law constant (b = λ_max T)
+    /// <br>Value: 2.897771955…×10−3</br>
+    /// <br>Unit: [m⋅K]</br>
+    /// </summary>
+    public static BaseUnit WienWavelengthDisplacementLawConstant
+    {
+        get
+        {
+            UnitSystem unit = LengthUnit.Meter * TemperatureUnit.Kelvin;
+            return new(2.897771955e-3m, unit);
+        }
+    }
 
-    //molar mass of carbon-12	11.9999999958(36)×10−3 kg⋅mol−1[43]
+    /// <summary>
+    /// Wien frequency displacement law constant (b′ = ν_max/T)
+    /// <br>Value: 5.878925757…×10¹⁰</br>
+    /// <br>Unit: [Hz⋅K−1]</br>
+    /// </summary>
+    public static BaseUnit WienFrequencyDisplacementLawConstant
+    {
+        get
+        {
+            UnitSystem unit = FrequencyUnit.Hertz / TemperatureUnit.Kelvin;
+            return new(5.878925757e10m, unit);
+        }
+    }
 
-    //molar Planck constant	3.990312712...×10−10 J⋅Hz−1⋅mol−1[44]
+    /// <summary>
+    /// Wien entropy displacement law constant
+    /// <br>Value: 3.002916077×10−3</br>
+    /// <br>Unit: [m⋅K]</br>
+    /// <br>Note: Not present in the NIST “all.pdf” snippet; preserved from your TODO list.</br>
+    /// </summary>
+    public static BaseUnit WienEntropyDisplacementLawConstant
+    {
+        get
+        {
+            UnitSystem unit = LengthUnit.Meter * TemperatureUnit.Kelvin;
+            return new(3.002916077e-3m, unit);
+        }
+    }
 
-    //second radiation constant	1.438776877...×10−2 m⋅K[45]
-
-    //Wien wavelength displacement law constant	2.897771955...×10−3 m⋅K[46]
-
-    //Wien frequency displacement law constant	5.878925757...×1010 Hz⋅K−1[47]
-
-    //Wien entropy displacement law constant	3.002916077...×10−3 m⋅K[48]
-    //hyperfine transition frequency of 133Cs	9192631770 Hz[10]
-
+    /// <summary>
+    /// Hyperfine transition frequency of 133Cs (ΔνCs)
+    /// <br>Value: 9192631770</br>
+    /// <br>Unit: [Hz]</br>
+    /// </summary>
+    public static Frequency Cesium133HyperfineTransitionFrequency => new(9192631770m, FrequencyUnit.Hertz);
 }

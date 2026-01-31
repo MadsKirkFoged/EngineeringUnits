@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class LapseRate : BaseUnit
 {
     public LapseRate() { }
+    public LapseRate(Fraction value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LapseRate(decimal value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LapseRate(double value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public LapseRate(int value, LapseRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }

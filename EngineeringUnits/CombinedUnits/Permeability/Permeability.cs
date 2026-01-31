@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Permeability : BaseUnit
 {
     public Permeability() { }
+    public Permeability(Fraction value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permeability(decimal value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permeability(double value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permeability(int value, PermeabilityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Permittivity : BaseUnit
 {
     public Permittivity() { }
+    public Permittivity(Fraction value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permittivity(decimal value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permittivity(double value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Permittivity(int value, PermittivityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

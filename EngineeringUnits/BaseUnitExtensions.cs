@@ -15,7 +15,7 @@ public static class BaseUnitExtensions
         return (DecimalSafe)(Factor * (Fraction)To.NEWValue);
     }
 
-    public static DecimalSafe GetValueAs(this BaseUnit From, UnitSystem To)
+    public static DecimalSafe GetValueAs2(this BaseUnit From, UnitSystem To)
     {
         if (From.NEWValue.IsNotAValue())
             return From.NEWValue;
@@ -48,8 +48,10 @@ public static class BaseUnitExtensions
         return (DecimalSafe)y2test2;
     }
 
-    public static Fraction GetValueAstest(this BaseUnit From, UnitSystem To)
+    public static Fraction GetValueAs(this BaseUnit From, UnitSystem To)
     {
+
+
 
         Fraction b1 = To.SumOfBConstants();
         Fraction b2 = From.Unit.SumOfBConstants();
@@ -77,7 +79,7 @@ public static class BaseUnitExtensions
             Fraction a2 = From.Unit.SumConstant();
             Fraction x2;
 
-            if (From.testValue is null)
+            if (From.testValue is not null)
             {
                 x2 = (Fraction)From.testValue;
             }
@@ -95,7 +97,7 @@ public static class BaseUnitExtensions
         return y2test2;
     }
 
-    public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs(To);
+    public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs2(To);
 
     public static string DisplaySymbol(this BaseUnit From) => From.Unit.ReduceUnits().ToString();
 

@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Irradiance : BaseUnit
 {
     public Irradiance() { }
+    public Irradiance(Fraction value, IrradianceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Irradiance(decimal value, IrradianceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Irradiance(double value, IrradianceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Irradiance(int value, IrradianceUnit selectedUnit) : base(value, selectedUnit.Unit) { }

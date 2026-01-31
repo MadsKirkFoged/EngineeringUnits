@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Snap : BaseUnit
 {
     public Snap() { }
+    public Snap(Fraction value, SnapUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Snap(decimal value, SnapUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Snap(double value, SnapUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Snap(int value, SnapUnit selectedUnit) : base(value, selectedUnit.Unit) { }

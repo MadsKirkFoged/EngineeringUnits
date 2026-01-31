@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Angle : BaseUnit
 {
     public Angle() { }
+    public Angle(Fraction value, AngleUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Angle(decimal value, AngleUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Angle(double value, AngleUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Angle(int value, AngleUnit selectedUnit) : base(value, selectedUnit.Unit) { }

@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class EnergyCost : BaseUnit
 {
     public EnergyCost() { }
+    public EnergyCost(Fraction value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public EnergyCost(decimal value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public EnergyCost(double value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public EnergyCost(int value, EnergyCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }

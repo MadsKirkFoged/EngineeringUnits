@@ -39,7 +39,7 @@ public partial class Ratio : BaseUnit
         if (new UnitSystem() != Unit.Unit)
             throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
-        return Unit.GetValueAs(new UnitSystem());
+        return Unit.GetValueAs2(new UnitSystem());
     }
 
     public static UnknownUnit? operator /(BaseUnit? left, Ratio? right)

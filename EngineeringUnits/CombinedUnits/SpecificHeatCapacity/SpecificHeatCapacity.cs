@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class SpecificHeatCapacity : BaseUnit
 {
     public SpecificHeatCapacity() { }
+    public SpecificHeatCapacity(Fraction value, SpecificHeatCapacityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public SpecificHeatCapacity(decimal value, SpecificHeatCapacityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public SpecificHeatCapacity(double value, SpecificHeatCapacityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public SpecificHeatCapacity(int value, SpecificHeatCapacityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

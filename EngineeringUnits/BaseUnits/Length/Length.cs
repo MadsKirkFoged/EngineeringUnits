@@ -1,6 +1,6 @@
 using EngineeringUnits.Units;
-using Fractions;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -27,7 +27,6 @@ public partial class Length : BaseUnit
     }
     public double As(LengthUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
     public Length ToUnit(LengthUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
-
     public static Length Zero => new(0, LengthUnit.SI);
     public static Length NaN => new(double.NaN, LengthUnit.SI);
 

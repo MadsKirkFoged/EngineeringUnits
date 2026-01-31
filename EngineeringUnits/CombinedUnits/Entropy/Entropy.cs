@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Entropy : BaseUnit
 {
     public Entropy() { }
+    public Entropy(Fraction value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Entropy(decimal value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Entropy(double value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Entropy(int value, EntropyUnit selectedUnit) : base(value, selectedUnit.Unit) { }

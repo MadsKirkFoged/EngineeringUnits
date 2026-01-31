@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Temperature : BaseUnit
 {
     public Temperature() { }
+    public Temperature(Fraction value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Temperature(decimal value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Temperature(double value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Temperature(int value, TemperatureUnit selectedUnit) : base(value, selectedUnit.Unit) { }

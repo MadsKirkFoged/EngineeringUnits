@@ -75,6 +75,7 @@ internal class UnitGenerator
         return $$"""
                    using EngineeringUnits.Units;
                    using System.Diagnostics.CodeAnalysis;
+                   using Fractions;
                    
                    namespace EngineeringUnits;
                    

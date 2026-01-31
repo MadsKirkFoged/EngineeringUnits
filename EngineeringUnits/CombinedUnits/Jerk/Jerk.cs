@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Jerk : BaseUnit
 {
     public Jerk() { }
+    public Jerk(Fraction value, JerkUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Jerk(decimal value, JerkUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Jerk(double value, JerkUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Jerk(int value, JerkUnit selectedUnit) : base(value, selectedUnit.Unit) { }

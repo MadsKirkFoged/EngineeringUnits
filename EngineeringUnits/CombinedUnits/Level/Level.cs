@@ -15,7 +15,7 @@ public partial class Level : BaseUnit
 
     public static Level From(double value, LevelUnit unit) => new(value, unit);
     public double As(LevelUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public Level ToUnit(LevelUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public Level ToUnit(LevelUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static Level Zero => new(0, LevelUnit.SI);
 
     public static implicit operator Level(UnknownUnit Unit)

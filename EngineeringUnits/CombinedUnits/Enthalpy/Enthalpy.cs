@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Enthalpy : BaseUnit
 {
     public Enthalpy() { }
+    public Enthalpy(Fraction value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Enthalpy(decimal value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Enthalpy(double value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Enthalpy(int value, EnthalpyUnit selectedUnit) : base(value, selectedUnit.Unit) { }

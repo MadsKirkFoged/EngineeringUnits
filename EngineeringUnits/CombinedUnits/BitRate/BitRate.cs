@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class BitRate : BaseUnit
 {
     public BitRate() { }
+    public BitRate(Fraction value, BitRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BitRate(decimal value, BitRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BitRate(double value, BitRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public BitRate(int value, BitRateUnit selectedUnit) : base(value, selectedUnit.Unit) { }

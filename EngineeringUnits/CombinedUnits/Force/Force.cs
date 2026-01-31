@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Force : BaseUnit
 {
     public Force() { }
+    public Force(Fraction value, ForceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Force(decimal value, ForceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Force(double value, ForceUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Force(int value, ForceUnit selectedUnit) : base(value, selectedUnit.Unit) { }

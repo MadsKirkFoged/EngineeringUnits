@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Area : BaseUnit
 {
     public Area() { }
+    public Area(Fraction value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Area(decimal value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Area(double value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Area(int value, AreaUnit selectedUnit) : base(value, selectedUnit.Unit) { }

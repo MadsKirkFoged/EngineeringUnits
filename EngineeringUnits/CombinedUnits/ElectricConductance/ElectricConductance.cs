@@ -15,7 +15,7 @@ public partial class ElectricConductance : BaseUnit
 
     public static ElectricConductance From(double value, ElectricConductanceUnit unit) => new(value, unit);
     public double As(ElectricConductanceUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public ElectricConductance ToUnit(ElectricConductanceUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static ElectricConductance Zero => new(0, ElectricConductanceUnit.SI);
 
     public static implicit operator ElectricConductance(UnknownUnit Unit)

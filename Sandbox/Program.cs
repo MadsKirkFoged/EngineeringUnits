@@ -5,6 +5,10 @@ using System;
 using System.Diagnostics;
 using EngineeringUnits.NumberExtensions.NumberToLength;
 using System.Reflection.Metadata.Ecma335;
+using EngineeringUnits.NumberExtensions.NumberToSpecificEntropy;
+using EngineeringUnits.NumberExtensions.NumberToMassFlow;
+using EngineeringUnits.NumberExtensions.NumberToTemperature;
+using static EngineeringUnits.ExchangeRates;
 
 //using UnitsNet;
 
@@ -26,6 +30,80 @@ public class Program
 
     public static void Main()
     {
+
+        //Working with physical constants
+        Energy E = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // 8.988e+16 J
+
+
+        // Update the currency (euro to usd) 1.19        
+        ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
+
+        Cost Price = Cost.FromMillionUSDollar(10);
+        Length Road = Length.FromKilometer(10);
+
+        LengthCost PricePerLenght = Price / Road; // 1000 $/m
+        LengthCost EUROs = PricePerLenght.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
+
+        
+  
+
+
+        MassFlow M11 = MassFlow.FromKilogramPerSecond(-10); //-10 kg/s
+        MassFlow M21 = M11.Abs(); //10 kg/s   
+
+        Speed DrivingSpeed = Speed.FromKilometerPerHour(60);
+        
+        double DrivingSpeedAsDouble = DrivingSpeed.As(SpeedUnit.MilePerHour); //37.282271534240039
+
+        string DefaultDisplay = DrivingSpeed.ToString(); // 60 km/h
+        string DefaultDisplay2 = DrivingSpeed.ToUnit(SpeedUnit.MilePerHour).ToString(); // 37.28 mph
+
+
+        Length length1 = Length.FromYard(1);
+        Length length2 = new Length(1, LengthUnit.Yard);
+
+        // add using EngineeringUnits.NumberExtensions.NumberToLength;
+        Length length3 = 1.Yard;
+
+
+        SpecificEntropy P1 = 1.JoulePerKilogramKelvin;
+        MassFlow M1 = 1.KilogramPerSecond;
+        Temperature T2 = 10.DegreeCelsius;
+        Temperature T1 = 5.DegreeCelsius;
+
+        //Do any kind of equation
+        Power Q1 = M1 * P1 * (T2 - T1); // 5 W
+
+
+
+
+        Length OneMeter = 1.Meter;
+        Length InFoot = OneMeter.ToUnit(LengthUnit.Foot);
+        Length OneMeterRoundTrip = InFoot.ToUnit(LengthUnit.Meter);
+
+        bool check = OneMeter == OneMeterRoundTrip; //true
+
+
+
+        Mass massPosInf = Mass.FromKilogram(double.PositiveInfinity);
+
+
+        var inftest = massPosInf.SI;
+
+    Length L1 = new(3.87, LengthUnit.Inch);
+        Length L2 = new(2.78, LengthUnit.Meter);
+
+        Length L3 = new(9, LengthUnit.Meter);
+        Length L4 = new(3, LengthUnit.Meter);
+
+        Length L5 = new(80, LengthUnit.Inch);
+        Length L6 = new(20, LengthUnit.Inch);
+
+        bool unittest = 0.035358992805755392 == (double)(L1 / L2);
+
+
+
+
 
         var test11 = PressureUnit.SI.Unit.ListOfUnits;
 

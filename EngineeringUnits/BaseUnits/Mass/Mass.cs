@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Mass : BaseUnit
 {
     public Mass() { }
+    public Mass(Fraction value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Mass(decimal value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Mass(double value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Mass(int value, MassUnit selectedUnit) : base(value, selectedUnit.Unit) { }

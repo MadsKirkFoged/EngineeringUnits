@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Density : BaseUnit
 {
     public Density() { }
+    public Density(Fraction value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Density(decimal value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Density(double value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Density(int value, DensityUnit selectedUnit) : base(value, selectedUnit.Unit) { }

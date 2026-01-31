@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class PipeSize : BaseUnit
 {
     public PipeSize() { }
+    public PipeSize(Fraction value, PipeSizeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public PipeSize(decimal value, PipeSizeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public PipeSize(double value, PipeSizeUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public PipeSize(int value, PipeSizeUnit selectedUnit) : base(value, selectedUnit.Unit) { }

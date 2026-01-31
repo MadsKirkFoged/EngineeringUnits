@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Torque : BaseUnit
 {
     public Torque() { }
+    public Torque(Fraction value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Torque(decimal value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Torque(double value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Torque(int value, TorqueUnit selectedUnit) : base(value, selectedUnit.Unit) { }

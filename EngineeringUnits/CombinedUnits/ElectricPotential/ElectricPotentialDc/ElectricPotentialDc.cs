@@ -12,7 +12,7 @@ public partial class ElectricPotentialDc : BaseUnit
 
     public static ElectricPotentialDc From(double value, ElectricPotentialUnit unit) => new(value, unit);
     public double As(ElectricPotentialUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public ElectricPotentialDc ToUnit(ElectricPotentialUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public ElectricPotentialDc ToUnit(ElectricPotentialUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static ElectricPotentialDc Zero => new(0, ElectricPotentialUnit.SI);
 
     public static implicit operator ElectricPotentialDc(UnknownUnit Unit)

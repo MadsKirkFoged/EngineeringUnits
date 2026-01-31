@@ -23,27 +23,26 @@ using EngineeringUnits.Units;
 ###### :heavy_check_mark: EngineeringUnits can handle mathematical operations (+-*/) between any unit
 
 ```C#
-SpecificEntropy P1 = new SpecificEntropy(1, SpecificEntropyUnit.JoulePerKilogramKelvin);
-MassFlow M1 = new MassFlow(1, MassFlowUnit.KilogramPerSecond);
-Temperature T2 = new Temperature(10, TemperatureUnit.DegreeCelsius);
-Temperature T1 = new Temperature(5, TemperatureUnit.DegreeCelsius);
+SpecificEntropy P1 = 1.JoulePerKilogramKelvin;
+MassFlow M1 = 1.KilogramPerSecond;
+Temperature T2 = 10.DegreeCelsius;
+Temperature T1 = 5.DegreeCelsius;
 
-//UnitsNet cant do this..
-Power Q1 = M1 * P1 * (T2 - T1);
+//Do any kind of equation
+Power Q1 = M1 * P1 * (T2 - T1); // 5 W
 ```
 
-###### :heavy_check_mark: Temperature calculations are done just like any other unit (TemperatureDelta has been removed!)
-###### :heavy_check_mark: Units can have alias. Ex *SpecificEnergy* and *Enthalpy* are the same thing and you can just choose the one you normally use. (No code duplication for this option!)
-###### :heavy_check_mark: More precise convertions:
+###### :heavy_check_mark: Units can have alias. Ex *SpecificEnergy* and *Enthalpy* are the same thing and you can just choose the one you normally use.
+###### :heavy_check_mark: Perfect precise when converting:
 ```C#
-Length L2 = new Length(1, LengthUnit.Mile);
+Length OneMeter = 1.Meter;
+Length InFoot = OneMeter.ToUnit(LengthUnit.Foot);
+Length OneMeterRoundTrip = InFoot.ToUnit(LengthUnit.Meter);
 
-//Correct result in Inch:   63360
-//EngineeringUnits in Inch: 63360
-//UnitsNet in Inch:         63359.84251968504
+bool check = OneMeter == OneMeterRoundTrip; //true
 ```
 
-###### :triangular_flag_on_post: Unit checks has been moved from Compile time to runtime. In [UnitsNet](https://github.com/angularsen/UnitsNet) if you do mathematical operations on units that doesnt turn into the expected unit, you're get an error before you compile the program. In EngineeringUnits you still have the same check but you will get the error when you run the program.
+###### :heavy_check_mark: Units are checked at Compile time
 
 
 
@@ -62,38 +61,38 @@ Length L2 = new Length(1, LengthUnit.Mile);
 
 ###### Get told if you mess up a calculation
 ```C#
-Mass mass = new Mass(10, MassUnit.Kilogram);
-Volume volume = new Volume(4, VolumeUnit.CubicMeter);
+Mass mass = 10.Kilogram;
+Volume volume = 4.CubicMeter;
 
 Density D1 = mass / volume; // 2.5 kg/m³
-Density D2 = volume / mass; // WrongUnitException: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
+Density D2 = volume / mass; // Red line at compile time: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
 ```
 
 ###### Creating a new Unit
 ```C#
-//Two Different ways of creating a new unit
-Length length = Length.FromYards(1);
-Length length2 = new Length(1, LengthUnit.Yard); 
+//Different ways of creating a new unit
+Length length1 = Length.FromYard(1);
+Length length2 = new Length(1, LengthUnit.Yard);
+
+// add using EngineeringUnits.NumberExtensions.NumberToLength;
+Length length3 = 1.Yard;
 ```
 
 ###### Exporting a Unit
 ```C#
-Length length = Length.FromYards(1);
+// The general idea is to only a the edge of your code to export unit out of the unit safety
+Speed DrivingSpeed = Speed.FromKilometerPerHour(60);
 
-//Display the unis as it was created
-Debug.Print($"{length}"); //1 yd
+double DrivingSpeedAsDouble = DrivingSpeed.As(SpeedUnit.MilePerHour); //37.282271534240039
 
-//Returns as an other unit
-Debug.Print($"{length.ToUnit(LengthUnit.Meter)}"); //0.914 m
-
-//Returns as a double
-Debug.Print($"{length.As(LengthUnit.Meter)}"); //0.9144
+string DefaultDisplay = DrivingSpeed.ToString(); // 60 km/h
+string DefaultDisplay2 = DrivingSpeed.ToUnit(SpeedUnit.MilePerHour).ToString(); // 37.28 mph
 ```
 
 ###### Absolute value
 ```C#
-MassFlow M1 = new MassFlow(-10, MassFlowUnit.KilogramPerSecond); //-10 kg/s
-MassFlow M2 = M1.Abs(); //10 kg/s                     
+MassFlow M1 = MassFlow.FromKilogramPerSecond(-10); //-10 kg/s
+MassFlow M2 = M1.Abs(); //10 kg/s                   
 ```
 
 ###### min/max/Average/Mean/Sum value
@@ -275,6 +274,25 @@ string Output5 = $"{T1:UnitOnly}"; // °C
 string Output6 = $"{T1:G1}"; // 1E+01 °C
 string Output7 = $"{T1:G4}"; // 10.57 °C            
 ```
+###### Working with currency 
+```C#
+// Update the currency (euro to usd) 1.19        
+ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
+
+Cost Price = Cost.FromMillionUSDollar(10);
+Length Road = Length.FromKilometer(10);
+
+LengthCost PricePerLenght = Price / Road; // 1000 $/m
+LengthCost EUROs = PricePerLenght.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
+```
+
+###### Working with physical constants
+Inside Constants. is a large collection of physical constants ready to use.
+
+```C#
+//Working with physical constants
+ Energy E = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // 8.988e+16 J
+ ```
 
 ###### Transfer Units in APIs or store in database
 
@@ -306,11 +324,85 @@ There is a guide in the [Wiki section](https://github.com/MadsKirkFoged/Engineer
 
 
 ###### Want to contribute to making EngineeringUnits better?
-We need more code exemples of real users using EngineeringUnits.
+We need more code examples of real users using EngineeringUnits.
 Create an 'Issue' and showcase how you are using it!
 This could both improve your code and help other people learn!
  
 
+ ###### Constants that are current included
+ ```C#
+ Mechanics / Gravitation
+GravitationalConstant — Gravitational constant G — m³·kg⁻¹·s⁻²
+StandardGravity — Standard gravity g₀ — m·s⁻²
+SpeedOfLight — Speed of light in vacuum c — m·s⁻¹
+
+Quantum / Fundamental
+PlanckConstant — Planck constant h — J·s
+ReducedPlanckConstant — Reduced Planck constant ħ — J·s
+
+Electromagnetism
+VacuumElectricPermittivity — Vacuum permittivity ε₀ — F·m⁻¹
+VacuumMagneticPermeability — Vacuum permeability μ₀ — H·m⁻¹
+ImpedanceOfFreeSpace — Free-space impedance Z₀ — Ω
+CoulombConstant — Coulomb constant kₑ = 1/(4π ε₀) — N·m²·C⁻²
+
+Electricity / Quantum electrical standards
+ElementaryCharge — Elementary charge e — C
+ConductanceQuantum — Conductance quantum G₀ = 2e²/h — S
+InverseConductanceQuantum — Inverse conductance quantum G₀⁻¹ = h/(2e²) — Ω
+JosephsonConstant — Josephson constant Kⱼ = 2e/h — Hz·V⁻¹
+VonKlitzingConstant — von Klitzing constant Rₖ = h/e² — Ω
+MagneticFluxQuantum — Magnetic flux quantum Φ₀ = h/(2e) — Wb
+
+Thermodynamics / Statistical mechanics
+BoltzmannConstant — Boltzmann constant k — J·K⁻¹
+IdealGasConstant — Molar gas constant R — J·mol⁻¹·K⁻¹
+StefanBoltzmannConstant — Stefan–Boltzmann constant σ — W·m⁻²·K⁻⁴
+FirstRadiationConstant — First radiation constant c₁ = 2πhc² — W·m²
+FirstRadiationConstantForSpectralRadiance — First radiation constant for spectral radiance c₁L = 2hc² — W·m² 
+SecondRadiationConstant — Second radiation constant c₂ = hc/k — m·K
+WienWavelengthDisplacementLawConstant — Wien displacement constant b = λₘₐₓ·T — m·K
+WienFrequencyDisplacementLawConstant — Wien frequency displacement constant b′ = νₘₐₓ/T — Hz·K⁻¹
+WienEntropyDisplacementLawConstant — Wien entropy displacement constant — m·K
+
+Chemistry / Amount-of-substance / Molar constants
+AvogadroConstant — Avogadro constant N_A — mol⁻¹
+FaradayConstant — Faraday constant F = N_A·e — C·mol⁻¹
+AtomicMassConstant — Atomic mass constant u — kg
+MolarMassConstant — Molar mass constant M_u — kg·mol⁻¹
+MolarMassOfCarbon12 — Molar mass of carbon-12 M(¹²C) — kg·mol⁻¹
+MolarPlanckConstant — Molar Planck constant N_A·h — J·s·mol⁻¹ 
+
+Atomic / Particle / Radiation physics
+ElectronMass — Electron mass mₑ — kg
+ProtonMass — Proton mass mₚ — kg
+NeutronMass — Neutron mass mₙ — kg
+BohrRadius — Bohr radius a₀ — m
+ClassicalElectronRadius — Classical electron radius rₑ — m
+ThomsonCrossSection — Thomson cross section σ_T — m²
+HartreeEnergy — Hartree energy E_h — J
+RydbergConstant — Rydberg constant R∞ — m⁻¹
+QuantumOfCirculation — Quantum of circulation κ — m²·s⁻¹
+FermiCouplingConstant — Fermi coupling constant G_F — J⁻² 
+
+Magnetons (magnetic dipole moments)
+BohrMagneton — Bohr magneton μ_B — J·T⁻¹
+NuclearMagneton — Nuclear magneton μ_N — J·T⁻¹
+
+Dimensionless / Ratios
+FineStructureConstant — Fine-structure constant α — dimensionless
+InverseFineStructureConstant — α⁻¹ — dimensionless
+ElectronGFactor — Electron g-factor gₑ — dimensionless
+WToZMassRatio — W-to-Z mass ratio m_W/m_Z — dimensionless
+WeakMixingAngle — Weak mixing angle (on-shell) sin²θ_W — dimensionless
+
+Metrology / Definitions / Reference values
+StandardAtmosphere — Standard atmosphere atm — Pa
+StandardStatePressure — Standard-state pressure p° — Pa
+ElectronVoltInJoules — Electron volt expressed in joules — J
+LuminousEfficacy540THz — Luminous efficacy at 540 THz Kcd — lm·W⁻¹
+Cesium133HyperfineTransitionFrequency — Caesium-133 hyperfine transition frequency ΔνCs — Hz
+```
 
 ###### What units are included?
 ```C#

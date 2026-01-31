@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Acceleration : BaseUnit
 {
     public Acceleration() { }
+    public Acceleration(Fraction value, AccelerationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Acceleration(decimal value, AccelerationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Acceleration(double value, AccelerationUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Acceleration(int value, AccelerationUnit selectedUnit) : base(value, selectedUnit.Unit) { }

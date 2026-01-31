@@ -17,7 +17,7 @@ public partial class MassConcentration : BaseUnit
 
     public static MassConcentration From(double value, DensityUnit unit) => new(value, unit);
     public double As(DensityUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public MassConcentration ToUnit(DensityUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public MassConcentration ToUnit(DensityUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static MassConcentration Zero => new(0, DensityUnit.SI);
 
     public static implicit operator MassConcentration(UnknownUnit Unit)

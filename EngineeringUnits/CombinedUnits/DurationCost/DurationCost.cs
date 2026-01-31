@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class DurationCost : BaseUnit
 {
     public DurationCost() { }
+    public DurationCost(Fraction value, DurationCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public DurationCost(decimal value, DurationCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public DurationCost(double value, DurationCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public DurationCost(int value, DurationCostUnit selectedUnit) : base(value, selectedUnit.Unit) { }

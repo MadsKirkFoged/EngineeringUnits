@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Speed : BaseUnit
 {
     public Speed() { }
+    public Speed(Fraction value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Speed(decimal value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Speed(double value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Speed(int value, SpeedUnit selectedUnit) : base(value, selectedUnit.Unit) { }

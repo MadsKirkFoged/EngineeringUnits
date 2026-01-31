@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Frequency : BaseUnit
 {
     public Frequency() { }
+    public Frequency(Fraction value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Frequency(decimal value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Frequency(double value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Frequency(int value, FrequencyUnit selectedUnit) : base(value, selectedUnit.Unit) { }

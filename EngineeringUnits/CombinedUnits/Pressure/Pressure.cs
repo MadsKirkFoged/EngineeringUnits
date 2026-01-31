@@ -1,5 +1,6 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
+using Fractions;
 
 namespace EngineeringUnits;
 
@@ -8,6 +9,7 @@ namespace EngineeringUnits;
 public partial class Pressure : BaseUnit
 {
     public Pressure() { }
+    public Pressure(Fraction value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Pressure(decimal value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Pressure(double value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }
     public Pressure(int value, PressureUnit selectedUnit) : base(value, selectedUnit.Unit) { }

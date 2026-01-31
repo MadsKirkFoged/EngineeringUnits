@@ -17,7 +17,7 @@ public partial class Luminosity : BaseUnit
 
     public static Luminosity From(double value, PowerUnit unit) => new(value, unit);
     public double As(PowerUnit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit.Unit);
-    public Luminosity ToUnit(PowerUnit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
+    public Luminosity ToUnit(PowerUnit selectedUnit) => new(this.GetValueAs2(selectedUnit.Unit), selectedUnit);
     public static Luminosity Zero => new(0, PowerUnit.SI);
 
     public static implicit operator Luminosity(UnknownUnit Unit)
