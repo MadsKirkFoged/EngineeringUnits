@@ -1,411 +1,92 @@
 [![NuGet](https://img.shields.io/nuget/v/EngineeringUnits)](https://www.nuget.org/packages/EngineeringUnits/)
-[![NuGet](https://img.shields.io/nuget/dt/EngineeringUnits)](https://www.nuget.org/packages/EngineeringUnits/)
-[![License](https://img.shields.io/github/license/MadsKirkFoged/SharpFluids)](https://github.com/MadsKirkFoged/EngineeringUnits/blob/master/LICENSE)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/EngineeringUnits)](https://www.nuget.org/packages/EngineeringUnits/)
+[![License](https://img.shields.io/github/license/MadsKirkFoged/EngineeringUnits)](https://github.com/MadsKirkFoged/EngineeringUnits/blob/master/LICENSE)
 
 # EngineeringUnits
 
+**EngineeringUnits** is a units-of-measure library for .NET designed for **engineering, physics, and chemistry calculations**.
+It is an drop-in alternative to **UnitsNet**, with a key difference:
 
-This is an (almost) interchangeable version of [UnitsNet](https://github.com/angularsen/UnitsNet) which mean you just have to change the *using* if you already use [UnitsNet](https://github.com/angularsen/UnitsNet)
+> ✅ You can do arithmetic between *any* units and keep the result unit-safe.
+
+---
+
+## Why EngineeringUnits?
+
+- ✅ **Unit-safe math**: multiply/divide/add/subtract quantities and keep the resulting unit correct.
+- ✅ **Runtime unit validation**: invalid casts/assignments throw early.
+- ✅ **Precise conversions**: stable round-trip conversions.
+- ✅ **Aliases**: multiple names can represent the same dimension (e.g., *SpecificEnergy* vs *Enthalpy*).
+- ✅ **Batteries included**: helpers (Min/Max/Average, Clamp…), currency support, and physical constants.
+
+---
+
+## Install
+
+```bash
+dotnet add package EngineeringUnits
+```
+
+---
+
+## Quick start
+
+If you already use UnitsNet, switching is usually just changing the `using`:
 
 ```C#
-//using UnitsNet;
-//using UnitsNet.Units;
+// UnitsNet:
+// using UnitsNet;
+// using UnitsNet.Units;
 
 using EngineeringUnits;
 using EngineeringUnits.Units;
 ```
 
+---
 
-
-## Comparing UnitsNet and EngineeringUnits
-
-
-###### :heavy_check_mark: EngineeringUnits can handle mathematical operations (+-*/) between any unit
+## Unit-safe engineering math
 
 ```C#
-SpecificEntropy P1 = 1.JoulePerKilogramKelvin;
-MassFlow M1 = 1.KilogramPerSecond;
-Temperature T2 = 10.DegreeCelsius;
-Temperature T1 = 5.DegreeCelsius;
+SpecificEntropy p1 = 1.JoulePerKilogramKelvin;
+MassFlow m1 = 1.KilogramPerSecond;
+Temperature t2 = 10.DegreeCelsius;
+Temperature t1 = 5.DegreeCelsius;
 
-//Do any kind of equation
-Power Q1 = M1 * P1 * (T2 - T1); // 5 W
+Power q = m1 * p1 * (t2 - t1);   // 5 W
 ```
 
-###### :heavy_check_mark: Units can have alias. Ex *SpecificEnergy* and *Enthalpy* are the same thing and you can just choose the one you normally use.
-###### :heavy_check_mark: Perfect precise when converting:
+---
+
+## Conversion (round-trip safe)
+
 ```C#
-Length OneMeter = 1.Meter;
-Length InFoot = OneMeter.ToUnit(LengthUnit.Foot);
-Length OneMeterRoundTrip = InFoot.ToUnit(LengthUnit.Meter);
+Length oneMeter = 1.Meter;
 
-bool check = OneMeter == OneMeterRoundTrip; //true
+Length inFoot = oneMeter.ToUnit(LengthUnit.Foot);
+Length backToMeter = inFoot.ToUnit(LengthUnit.Meter);
+
+bool roundTripOk = oneMeter == backToMeter; // true
 ```
 
-###### :heavy_check_mark: Units are checked at Compile time
+---
 
+## Catch unit mistakes early
 
-
-## Should I change from UnitsNet to EngineeringUnits?
-
-
-###### :heavy_check_mark: If you are working with engineering-, physics- , chemical- equations then EngineeringUnits will make your life easier
-###### :triangular_flag_on_post: If you are just making converions ( Meter -> Inch) and you dont care about the extra precision then UnitsNet and EngineeringUnits are identical.
-
-
-## How to install
-
-###### :heavy_check_mark: Nuget Package: EngineeringUnits
-
-## Code examples
-
-###### Get told if you mess up a calculation
 ```C#
 Mass mass = 10.Kilogram;
 Volume volume = 4.CubicMeter;
 
-Density D1 = mass / volume; // 2.5 kg/m³
-Density D2 = volume / mass; // Red line at compile time: 'This is NOT a [kg/m³] as expected! Your Unit is a [m³/kg]'
+Density d1 = mass / volume;   // 2.5 kg/m³
+
+// Compile time error will be shown below
+Density d2 = volume / mass;   // WrongUnitException
 ```
+## Very large collection of units
 
-###### Creating a new Unit
-```C#
-//Different ways of creating a new unit
-Length length1 = Length.FromYard(1);
-Length length2 = new Length(1, LengthUnit.Yard);
+<details>
+<summary><b> Expand to see list of Units included</b></summary>
 
-// add using EngineeringUnits.NumberExtensions.NumberToLength;
-Length length3 = 1.Yard;
-```
-
-###### Exporting a Unit
-```C#
-// The general idea is to only a the edge of your code to export unit out of the unit safety
-Speed DrivingSpeed = Speed.FromKilometerPerHour(60);
-
-double DrivingSpeedAsDouble = DrivingSpeed.As(SpeedUnit.MilePerHour); //37.282271534240039
-
-string DefaultDisplay = DrivingSpeed.ToString(); // 60 km/h
-string DefaultDisplay2 = DrivingSpeed.ToUnit(SpeedUnit.MilePerHour).ToString(); // 37.28 mph
-```
-
-###### Absolute value
-```C#
-MassFlow M1 = MassFlow.FromKilogramPerSecond(-10); //-10 kg/s
-MassFlow M2 = M1.Abs(); //10 kg/s                   
-```
-
-###### min/max/Average/Mean/Sum value
-```C#
-//Following functions work in this way:
-//min() max() Average() Mean() Sum()
-
-Length L1 = Length.FromMeter(5);
-Length L2 = Length.FromMeter(15);
-
-//Recommended way
-Length LMin = (L1, L2).Min(); //5m
-
-//Obsolete way
-Length LMin2 = UnitMath.Min(L1, L2); //5m
-
-//Alternative way using a list
-List<Length> List = [L1, L2];
-Length LMin3 = List.Min(); //5m
-
-//Obsolete way using a list
-List<Length> List2 = new List<Length>() { L1, L2 };
-Length LMin4 = List2.Min(); //5m
-               
-```
-
-###### Powers and Square Roots
-```C#
-Length L1 = new Length(54.3, LengthUnit.Foot); //54.3 ft
-Area A1 = L1.Pow(2);  //2948 ft²    
-Length L2 = A1.Sqrt(); //54.3 ft               
-```
-
-
-Find the closed in a list
-```C#
-var MyList = new List<Length>
-{
-   Length.FromMeter(1),
-   Length.FromMeter(5),
-   Length.FromMeter(20),
-   Length.FromMeter(44)
-};
-
-Length L1 = MyList.RoundUpToNearest(Length.FromMeter(30)); //44m
-Length L2 = MyList.RoundDownToNearest(Length.FromMeter(30)); //20m
-Length L3 = MyList.RoundToNearest(Length.FromMeter(4)); //5m
-```
-
-###### Clamp(min,max)
-```C#
-//The value is restricted (Clamp) to be inside the limits.
-
-Power min = Power.FromWatt(-5);
-Power max = Power.FromWatt(5);
-
-Power f1 = Power.FromWatt(19);
-Power f2 = f1.Clamp(min, max); //5 W
-
-Power f3 = Power.FromWatt(-19);
-Power f4 = f3.Clamp(min, max); //-5 W
-
-Power f5 = Power.FromWatt(4);
-Power f6 = f5.Clamp(min, max); //4 W
-
-Power f7 = Power.FromWatt(-10).LowerLimitAt(min);//-5 W
-Power f8 = Power.FromWatt(10).UpperLimitAt(max); //5 W
-
-//Same as using Clamp(min, max)
-Power f9 = Power.FromWatt(4).LowerLimitAt(min)
-                            .UpperLimitAt(max); //4 W
-```
-
-
-###### Checks
-```C#
-var length1 = Length.FromYard(1);
-var length2 = Length.FromMeter(5);
-
-if ((length1 - length2).IsAboveZero())
-if ((length1 - length2).IsBelowZero())
-if ((length1 - length2).IsZero())
-if ((length1 - length2).IsNotZero())
-if (length1 >= length2)
-if (length1 <= length2)
-if (length1 == length2)
-if (length1 < length2)
-if (length1 > length2)
-
-```
-
-###### Chaining functions
-```C#
-//Create a list of Lenghts
-List<Length> listOfLengths = [Length.FromYard(-1),
-                              Length.FromYard(-2),
-                              Length.FromYard(3),
-                              Length.FromYard(4)];
-
-// Chaining many functions together
-Area NewUnit = listOfLengths                          // [-1,-2,3,4]
-               .Select(x => x.Abs())                  // [1,2,3,4]
-               .Where(x => x > Length.FromMeter(1))   // [2,3,4]
-               .Average()                             // [4.5]
-               .Pow(2)                                // [20.25] yr2 (turn into area!)
-               .UpperLimitAt(Area.FromSquareMeter(8)) // Set the upper limit of the area to 8 m^2
-               .ToUnit(AreaUnit.SquareMeter);         // Turn the area into a specific unit-type
-                                                      // result: 7.525 m²
-
-                           
-```
-
-###### How fast is EngineeringUnits?
-
-For the average user the calculation speed of EngineeringUnits is not the bottleneck of their system.
-It can calculate 10 mio equations in about ~1sec (Dependent of the size of the equation and the resources of the system..)
-
-What if I want it to be even faster?
-Declaring units as SI, gives a slight speed boost because some check can be skipped when all units are in SI
-```C#
-Power P2 = Power.FromSI(10);
-Length L2 = Length.FromSI(2);
-Temperature T2 = Temperature.FromSI(4);
-
-ThermalConductivity TC = P2 / (L2 * T2);
-```
-
-What if I want maximum speed?
-
-If 10mio in ~1sec is too slow for you then converting to double, do your calculations, and turn in back into Units is the way for you.
-This way you only have a small part of your code where you bypass the safety features.
-
-```C#
-Power P2 = Power.FromSI(10);
-Length L2 = Length.FromSI(2);
-Temperature T2 = Temperature.FromSI(4);
-
-// Unit --> double
-double PowerAsSI = P2.SI;
-double LengthAsSI = L2.SI;
-double TemperatureAsSI = T2.SI;
-double ThermalConductivityAsSI = 0;
-
-//Solver or function where calculation speed is critical!
-for (int i = 0; i < 1000000000; i++)
-{
-     //Doing very heavy calculation
-     ThermalConductivityAsSI = PowerAsSI / (LengthAsSI * TemperatureAsSI);
-}
-
-// double --> Unit
-ThermalConductivity Result = ThermalConductivity.FromSI(ThermalConductivityAsSI);
-```
-
-
-###### What are my options for outputting to a string?
-```C#
-Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
-
-//This will as standard use 4 significant digits
-string Output1 = T1.ToString(); // 10.57 °C
-
-//This will use 5 significant digits
-string Output2 = T1.ToString("S5"); // 10.572 °C
-
-//Same as ToString but looks better
-string Output3 = $"{T1:S5}"; // 10.572 °C
-
-//Same as "S4" but without the unit
-string Output4 = $"{T1:V4}"; // 10.57
-
-//Display the unit without value
-string Output5 = $"{T1:UnitOnly}"; // °C
-
-//All the normal options can still be used
-//https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
-
-//The build-in "General"
-string Output6 = $"{T1:G1}"; // 1E+01 °C
-string Output7 = $"{T1:G4}"; // 10.57 °C            
-```
-###### Working with currency 
-```C#
-// Update the currency (euro to usd) 1.19        
-ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
-
-Cost Price = Cost.FromMillionUSDollar(10);
-Length Road = Length.FromKilometer(10);
-
-LengthCost PricePerLenght = Price / Road; // 1000 $/m
-LengthCost EUROs = PricePerLenght.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
-```
-
-###### Working with physical constants
-Inside Constants. is a large collection of physical constants ready to use.
-
-```C#
-//Working with physical constants
- Energy E = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // 8.988e+16 J
- ```
-
-###### Transfer Units in APIs or store in database
-
-Recommended way to Transfer Units between systems is to serialize/Deserialize the units
-```C#
-//Create new unit
-Length L11 = new(1d, LengthUnit.Meter);
-
-//Serialize it into JSON 
-string L1AsJSON = JsonConvert.SerializeObject(L11);
-
-//Deserialize from JSON
-Length BackFromJSON = JsonConvert.DeserializeObject<Length>(L1AsJSON);
-```
-
-Recommended way to store single units in database
-[See all the names further down the page]
-
-```C#
-//Got from database (Stored in two different cells)
-double? value = 10;
-string unit = "Meter";
-
-//Put it back together
-Length temp = value.AddUnit<LengthUnit>(unit);
-```
-###### Add you own units?
-There is a guide in the [Wiki section](https://github.com/MadsKirkFoged/EngineeringUnits/wiki/Costume-units)
-
-
-###### Want to contribute to making EngineeringUnits better?
-We need more code examples of real users using EngineeringUnits.
-Create an 'Issue' and showcase how you are using it!
-This could both improve your code and help other people learn!
- 
-
- ###### Constants that are current included
- ```C#
- Mechanics / Gravitation
-GravitationalConstant — Gravitational constant G — m³·kg⁻¹·s⁻²
-StandardGravity — Standard gravity g₀ — m·s⁻²
-SpeedOfLight — Speed of light in vacuum c — m·s⁻¹
-
-Quantum / Fundamental
-PlanckConstant — Planck constant h — J·s
-ReducedPlanckConstant — Reduced Planck constant ħ — J·s
-
-Electromagnetism
-VacuumElectricPermittivity — Vacuum permittivity ε₀ — F·m⁻¹
-VacuumMagneticPermeability — Vacuum permeability μ₀ — H·m⁻¹
-ImpedanceOfFreeSpace — Free-space impedance Z₀ — Ω
-CoulombConstant — Coulomb constant kₑ = 1/(4π ε₀) — N·m²·C⁻²
-
-Electricity / Quantum electrical standards
-ElementaryCharge — Elementary charge e — C
-ConductanceQuantum — Conductance quantum G₀ = 2e²/h — S
-InverseConductanceQuantum — Inverse conductance quantum G₀⁻¹ = h/(2e²) — Ω
-JosephsonConstant — Josephson constant Kⱼ = 2e/h — Hz·V⁻¹
-VonKlitzingConstant — von Klitzing constant Rₖ = h/e² — Ω
-MagneticFluxQuantum — Magnetic flux quantum Φ₀ = h/(2e) — Wb
-
-Thermodynamics / Statistical mechanics
-BoltzmannConstant — Boltzmann constant k — J·K⁻¹
-IdealGasConstant — Molar gas constant R — J·mol⁻¹·K⁻¹
-StefanBoltzmannConstant — Stefan–Boltzmann constant σ — W·m⁻²·K⁻⁴
-FirstRadiationConstant — First radiation constant c₁ = 2πhc² — W·m²
-FirstRadiationConstantForSpectralRadiance — First radiation constant for spectral radiance c₁L = 2hc² — W·m² 
-SecondRadiationConstant — Second radiation constant c₂ = hc/k — m·K
-WienWavelengthDisplacementLawConstant — Wien displacement constant b = λₘₐₓ·T — m·K
-WienFrequencyDisplacementLawConstant — Wien frequency displacement constant b′ = νₘₐₓ/T — Hz·K⁻¹
-WienEntropyDisplacementLawConstant — Wien entropy displacement constant — m·K
-
-Chemistry / Amount-of-substance / Molar constants
-AvogadroConstant — Avogadro constant N_A — mol⁻¹
-FaradayConstant — Faraday constant F = N_A·e — C·mol⁻¹
-AtomicMassConstant — Atomic mass constant u — kg
-MolarMassConstant — Molar mass constant M_u — kg·mol⁻¹
-MolarMassOfCarbon12 — Molar mass of carbon-12 M(¹²C) — kg·mol⁻¹
-MolarPlanckConstant — Molar Planck constant N_A·h — J·s·mol⁻¹ 
-
-Atomic / Particle / Radiation physics
-ElectronMass — Electron mass mₑ — kg
-ProtonMass — Proton mass mₚ — kg
-NeutronMass — Neutron mass mₙ — kg
-BohrRadius — Bohr radius a₀ — m
-ClassicalElectronRadius — Classical electron radius rₑ — m
-ThomsonCrossSection — Thomson cross section σ_T — m²
-HartreeEnergy — Hartree energy E_h — J
-RydbergConstant — Rydberg constant R∞ — m⁻¹
-QuantumOfCirculation — Quantum of circulation κ — m²·s⁻¹
-FermiCouplingConstant — Fermi coupling constant G_F — J⁻² 
-
-Magnetons (magnetic dipole moments)
-BohrMagneton — Bohr magneton μ_B — J·T⁻¹
-NuclearMagneton — Nuclear magneton μ_N — J·T⁻¹
-
-Dimensionless / Ratios
-FineStructureConstant — Fine-structure constant α — dimensionless
-InverseFineStructureConstant — α⁻¹ — dimensionless
-ElectronGFactor — Electron g-factor gₑ — dimensionless
-WToZMassRatio — W-to-Z mass ratio m_W/m_Z — dimensionless
-WeakMixingAngle — Weak mixing angle (on-shell) sin²θ_W — dimensionless
-
-Metrology / Definitions / Reference values
-StandardAtmosphere — Standard atmosphere atm — Pa
-StandardStatePressure — Standard-state pressure p° — Pa
-ElectronVoltInJoules — Electron volt expressed in joules — J
-LuminousEfficacy540THz — Luminous efficacy at 540 THz Kcd — lm·W⁻¹
-Cesium133HyperfineTransitionFrequency — Caesium-133 hyperfine transition frequency ΔνCs — Hz
-```
-
-###### What units are included?
-```C#
+```text
 Acceleration:[m/s²], [km/s²], [m/s²], [dm/s²], [cm/s²], [µm/s²], [mm/s²], [nm/s²], [in/s²], [ft/s²], [kn/s], [kn/min], [kn/h], [g], [mg],
 AreaDensity:[kg/m²], [kg/m²],
 AreaMomentOfInertia:[m4], [m4], [cm4], [dm4], [mm4], [in4], [ft4],
@@ -503,10 +184,108 @@ Mass:[kg], [kg], [pg], [cg], [dag], [dg], [g], [hg], [µg], [mg], [ng], [t], [kt
 Temperature:[K], [K], [°C], [°F], [°R],
 Cost:[$], [$], [M$], [?], [£],
 
+
 ```
 
-###### What are the names of the units?
+</details>
+
+---
+
+## Creating quantities
+
 ```C#
+// Factory
+Length length1 = Length.FromYard(1);
+
+// Constructor
+Length length2 = new Length(1, LengthUnit.Yard);
+
+// Number extensions (if you added the extension namespace)
+Length length3 = 1.Yard;
+```
+
+---
+
+## Exporting values (edge of your system)
+
+A good pattern is: **keep units inside your domain**, export primitive values at boundaries only.
+
+```C#
+Speed drivingSpeed = Speed.FromKilometerPerHour(60);
+
+double mph = drivingSpeed.As(SpeedUnit.MilePerHour); // 37.28227...
+
+string display1 = drivingSpeed.ToString();                               // "60 km/h"
+string display2 = drivingSpeed.ToUnit(SpeedUnit.MilePerHour).ToString(); // "37.28 mph"
+```
+
+---
+
+## Useful helpers
+
+### Absolute value
+
+```C#
+MassFlow m1 = MassFlow.FromKilogramPerSecond(-10); // -10 kg/s
+MassFlow m2 = m1.Abs();                            //  10 kg/s
+```
+
+### Min / Max / Average / Sum
+
+```C#
+Length l1 = Length.FromMeter(5);
+Length l2 = Length.FromMeter(15);
+
+Length min = (l1, l2).Min();
+Length avg = (l1, l2).Average();
+
+var list = new List<Length> { l1, l2 };
+Length max = list.Max();
+```
+
+### Pow / Sqrt
+
+```C#
+Length l1 = new Length(54.3, LengthUnit.Foot);
+Area a1 = l1.Pow(2);
+Length l2 = a1.Sqrt();
+```
+
+### Clamp / Limits
+
+```C#
+Power min = Power.FromWatt(-5);
+Power max = Power.FromWatt(5);
+
+Power p = Power.FromWatt(19).Clamp(min, max);   // 5 W
+Power q = Power.FromWatt(-19).Clamp(min, max);  // -5 W
+```
+
+---
+
+## Serialization (APIs / storage)
+
+### Recommended for APIs: serialize the quantity (value + unit)
+
+```C#
+Length l = new(1d, LengthUnit.Meter);
+
+string json = JsonConvert.SerializeObject(l);
+Length back = JsonConvert.DeserializeObject<Length>(json);
+```
+
+### Recommended for DB: store `value` + `unitName`
+
+```C#
+double? value = 10;
+string unit = "Meter";
+
+Length length = value.AddUnit<LengthUnit>(unit);
+```
+<details>
+<summary><b> Expand to see names of Units</b></summary>
+
+```text
 Acceleration:[SI], [KilometerPerSecondSquared], [MeterPerSecondSquared], [DecimeterPerSecondSquared], [CentimeterPerSecondSquared], [MicrometerPerSecondSquared], [MillimeterPerSecondSquared], [NanometerPerSecondSquared], [InchPerSecondSquared], [FootPerSecondSquared], [KnotPerSecond], [KnotPerMinute], [KnotPerHour], [StandardGravity], [MillistandardGravity],
 AmountOfSubstance:[SI], [Mole], [Centimole], [Decimole], [Kilomole], [Megamole], [Micromole], [Millimole], [Nanomole], [Picomole], [NanopoundMole], [MicropoundMole], [MillipoundMole], [PoundMole], [KilopoundMole], [DecipoundMole], [CentipoundMole],
 Angle:[SI], [Arcminute], [Arcsecond], [Gradian], [Radian], [Centiradian], [Deciradian], [Microradian], [Milliradian], [Nanoradian], [Degree], [Microdegree], [Millidegree], [Nanodegree], [Revolution],
@@ -605,4 +384,165 @@ VolumetricHeatTransferCoefficient:[SI], [WattPerCubicMeterKelvin],
 WarpingMomentOfInertia:[MeterToTheSixth], [MillimeterToTheSixth], [InchToTheSixth], [FootToTheSixth], [DecimeterToTheSixth], [CentimeterToTheSixth], [SI],
 
 
+
 ```
+
+</details>
+
+---
+
+## Currency support
+
+```C#
+// Update the currency rate (e.g., EUR -> USD) 1.19
+ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
+
+Cost price = Cost.FromMillionUSDollar(10);
+Length road = Length.FromKilometer(10);
+
+LengthCost pricePerLength = price / road; // 1000 $/m
+LengthCost euros = pricePerLength.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
+```
+
+---
+
+## Physical constants
+
+EngineeringUnits includes a growing list of physical constants under `Constants`.
+
+```C#
+Energy e = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // ~8.99e16 J
+```
+
+<details>
+<summary><b>List of constants currently included</b></summary>
+
+```text
+Mechanics / Gravitation
+- GravitationalConstant
+- StandardGravity
+- SpeedOfLight
+
+Quantum / Fundamental
+- PlanckConstant
+- ReducedPlanckConstant
+
+Electromagnetism
+- VacuumElectricPermittivity
+- VacuumMagneticPermeability
+- ImpedanceOfFreeSpace
+- CoulombConstant
+
+Electricity / Quantum electrical standards
+- ElementaryCharge
+- ConductanceQuantum
+- InverseConductanceQuantum
+- JosephsonConstant
+- VonKlitzingConstant
+- MagneticFluxQuantum
+
+Thermodynamics / Statistical mechanics
+- BoltzmannConstant
+- IdealGasConstant
+- StefanBoltzmannConstant
+- FirstRadiationConstant
+- FirstRadiationConstantForSpectralRadiance
+- SecondRadiationConstant
+- WienWavelengthDisplacementLawConstant
+- WienFrequencyDisplacementLawConstant
+- WienEntropyDisplacementLawConstant
+
+Chemistry / Molar constants
+- AvogadroConstant
+- FaradayConstant
+- AtomicMassConstant
+- MolarMassConstant
+- MolarMassOfCarbon12
+- MolarPlanckConstant
+
+Atomic / Particle / Radiation physics
+- ElectronMass
+- ProtonMass
+- NeutronMass
+- BohrRadius
+- ClassicalElectronRadius
+- ThomsonCrossSection
+- HartreeEnergy
+- RydbergConstant
+- QuantumOfCirculation
+- FermiCouplingConstant
+
+Magnetons
+- BohrMagneton
+- NuclearMagneton
+
+Dimensionless / Ratios
+- FineStructureConstant
+- InverseFineStructureConstant
+- ElectronGFactor
+- WToZMassRatio
+- WeakMixingAngle
+
+Metrology / Reference values
+- StandardAtmosphere
+- StandardStatePressure
+- ElectronVoltInJoules
+- LuminousEfficacy540THz
+- Cesium133HyperfineTransitionFrequency
+```
+
+</details>
+
+---
+
+## Performance
+
+For most users, EngineeringUnits performance is more than sufficient.
+If you need maximum speed you can:
+1) work in SI units, and/or
+2) temporarily convert to primitive values, compute, then convert back.
+
+```csharp
+Power p = Power.FromSI(10);
+Length l = Length.FromSI(2);
+Temperature t = Temperature.FromSI(4);
+
+double pSI = (double)p.AsSI;
+double lSI = (double)l.AsSI;
+double tSI = (double)t.AsSI;
+
+double resultSI = 0;
+
+for (int i = 0; i < 1_000_000_000; i++)
+{
+    resultSI = pSI / (lSI * tSI);
+}
+
+ThermalConductivity result = ThermalConductivity.FromSI(resultSI);
+```
+
+---
+
+## Documentation / Custom units
+
+- Add your own units: see the wiki
+  https://github.com/MadsKirkFoged/EngineeringUnits/wiki/Costume-units
+
+---
+
+## Contributing
+
+Contributions are welcome!
+The most helpful contributions are:
+- real-world example snippets (engineering, physics, chemistry)
+- bug reports with minimal repro
+- unit additions + tests
+
+Open an issue and show how you use EngineeringUnits:
+https://github.com/MadsKirkFoged/EngineeringUnits/issues
+
+---
+
+## License
+
+MIT — see [LICENSE](https://github.com/MadsKirkFoged/EngineeringUnits/blob/master/LICENSE)
