@@ -3,25 +3,44 @@
 [![License](https://img.shields.io/github/license/MadsKirkFoged/EngineeringUnits)](https://github.com/MadsKirkFoged/EngineeringUnits/blob/master/LICENSE)
 
 # EngineeringUnits
+**EngineeringUnits** is a .NET units-of-measure library built for engineering equations: you can write formulas naturally, keep units attached to values, and get upfront errors when you mess up dimensional analysis.
 
-**EngineeringUnits** is a units-of-measure library for .NET designed for **engineering, physics, and chemistry calculations**.
-It is an drop-in alternative to **UnitsNet**, with a key difference:
+- ✅ No more having your units in doubles with comments above it explaining what type of unit it is.
+- ✅ No more magic "* 1000" constants floating around in your equations.
+- ✅ No more rechecking "Did I have all my values converted correctly?"
+- ✅ No more side notes checking if the units of an equation match
 
-> ✅ You can do arithmetic between *any* units and keep the result unit-safe.
+## The only place you care about unit types are at the edge of your code.
+```C#
+//Value enters from outside your code
+double Inputfield = 21;
 
----
+//Transfers into an EngineeringUnits unit
+Temperature TIn = Temperature.FromDegreesCelsius(Inputfield); //21 °C
+
+//Math
+Temperature TOut = TIn - 10.Kelvin; //11 °C
+
+//Converts to DegreeFahrenheit
+Temperature USCustomer = TOut.ToUnit(TemperatureUnit.DegreeFahrenheit); //51.8 °F
+
+//Display it
+string Output2 = USCustomer.ToString("S2"); // Output: 52 °F
+
+```
 
 ## Why EngineeringUnits?
-
-- ✅ **Unit-safe math**: multiply/divide/add/subtract quantities and keep the resulting unit correct.
-- ✅ **Runtime unit validation**: invalid casts/assignments throw early.
-- ✅ **Precise conversions**: stable round-trip conversions.
+ 
+- ✅ You can do arithmetic between *any* unit and keep the result unit-safe.
+- ✅ **Unit-safe math**: multiply/divide/add/subtract quantities and let us handle the resulting unit.
+- ✅ **Compile time unit validation**: Your equations are checked for correct units while you write it.
+- ✅ **High precision conversions**   
 - ✅ **Aliases**: multiple names can represent the same dimension (e.g., *SpecificEnergy* vs *Enthalpy*).
-- ✅ **Batteries included**: helpers (Min/Max/Average, Clamp…), currency support, and physical constants.
+- ✅ **helpers**: Min/Max/Average/mean, Clamp, abs and built-in physical constants.
 
 ---
 
-## Install
+## Install as nuget package
 
 ```bash
 dotnet add package EngineeringUnits
@@ -76,10 +95,10 @@ bool roundTripOk = oneMeter == backToMeter; // true
 Mass mass = 10.Kilogram;
 Volume volume = 4.CubicMeter;
 
-Density d1 = mass / volume;   // 2.5 kg/m³
+Density d1 = mass / volume;   // OK: kg/m³
 
-// Compile time error will be shown below
-Density d2 = volume / mass;   // WrongUnitException
+// Compile-time error
+Density d2 = volume / mass;   // shows a red line. Wouldn't let you run the code before it is fixed!
 ```
 ## Very large collection of units
 
@@ -208,7 +227,7 @@ Length length3 = 1.Yard;
 
 ## Exporting values (edge of your system)
 
-A good pattern is: **keep units inside your domain**, export primitive values at boundaries only.
+A good pattern is: **keep units inside your domain**, import/export primitive values at boundaries only.
 
 ```C#
 Speed drivingSpeed = Speed.FromKilometerPerHour(60);
@@ -230,7 +249,7 @@ MassFlow m1 = MassFlow.FromKilogramPerSecond(-10); // -10 kg/s
 MassFlow m2 = m1.Abs();                            //  10 kg/s
 ```
 
-### Min / Max / Average / Sum
+### Min / Max / Average / Mean / Sum
 
 ```C#
 Length l1 = Length.FromMeter(5);
@@ -260,6 +279,139 @@ Power max = Power.FromWatt(5);
 Power p = Power.FromWatt(19).Clamp(min, max);   // 5 W
 Power q = Power.FromWatt(-19).Clamp(min, max);  // -5 W
 ```
+---
+
+## Currency support
+
+```C#
+// Update the currency rate (e.g., EUR -> USD) 1.19
+ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
+
+Cost price = Cost.FromMillionUSDollar(10);
+Length road = Length.FromKilometer(10);
+
+LengthCost pricePerLength = price / road; // 1000 $/m
+LengthCost euros = pricePerLength.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
+```
+
+---
+
+## Physical constants
+
+EngineeringUnits includes a growing list of physical constants under `Constants`.
+
+```C#
+Energy e = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // ~8.99e16 J
+```
+
+<details>
+<summary><b>List of constants currently included</b></summary>
+
+```text
+Mechanics / Gravitation
+- GravitationalConstant
+- StandardGravity
+- SpeedOfLight
+
+Quantum / Fundamental
+- PlanckConstant
+- ReducedPlanckConstant
+
+Electromagnetism
+- VacuumElectricPermittivity
+- VacuumMagneticPermeability
+- ImpedanceOfFreeSpace
+- CoulombConstant
+
+Electricity / Quantum electrical standards
+- ElementaryCharge
+- ConductanceQuantum
+- InverseConductanceQuantum
+- JosephsonConstant
+- VonKlitzingConstant
+- MagneticFluxQuantum
+
+Thermodynamics / Statistical mechanics
+- BoltzmannConstant
+- IdealGasConstant
+- StefanBoltzmannConstant
+- FirstRadiationConstant
+- FirstRadiationConstantForSpectralRadiance
+- SecondRadiationConstant
+- WienWavelengthDisplacementLawConstant
+- WienFrequencyDisplacementLawConstant
+- WienEntropyDisplacementLawConstant
+
+Chemistry / Molar constants
+- AvogadroConstant
+- FaradayConstant
+- AtomicMassConstant
+- MolarMassConstant
+- MolarMassOfCarbon12
+- MolarPlanckConstant
+
+Atomic / Particle / Radiation physics
+- ElectronMass
+- ProtonMass
+- NeutronMass
+- BohrRadius
+- ClassicalElectronRadius
+- ThomsonCrossSection
+- HartreeEnergy
+- RydbergConstant
+- QuantumOfCirculation
+- FermiCouplingConstant
+
+Magnetons
+- BohrMagneton
+- NuclearMagneton
+
+Dimensionless / Ratios
+- FineStructureConstant
+- InverseFineStructureConstant
+- ElectronGFactor
+- WToZMassRatio
+- WeakMixingAngle
+
+Metrology / Reference values
+- StandardAtmosphere
+- StandardStatePressure
+- ElectronVoltInJoules
+- LuminousEfficacy540THz
+- Cesium133HyperfineTransitionFrequency
+```
+
+</details>
+
+---
+
+## What are my options for outputting to a string?
+```C#
+Temperature T1 = new Temperature(10.572455, TemperatureUnit.DegreeCelsius);
+
+//This will as standard use 4 significant digits
+string Output1 = T1.ToString(); // 10.57 °C
+
+//This will use 5 significant digits
+string Output2 = T1.ToString("S5"); // 10.572 °C
+
+//Same as ToString but looks better
+string Output3 = $"{T1:S5}"; // 10.572 °C
+
+//Same as "S4" but without the unit
+string Output4 = $"{T1:V4}"; // 10.57
+
+//Display the unit without value
+string Output5 = $"{T1:UnitOnly}"; // °C
+
+//All the normal options can still be used
+//https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
+```
+
+## Tips
+
+- ✅ Addition/subtraction with a temperature use kelvin!
+- ✅ On the left side of = use the expected unit type for automatic unit check
 
 ---
 
@@ -391,110 +543,6 @@ WarpingMomentOfInertia:[MeterToTheSixth], [MillimeterToTheSixth], [InchToTheSixt
 
 ---
 
-## Currency support
-
-```C#
-// Update the currency rate (e.g., EUR -> USD) 1.19
-ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
-
-Cost price = Cost.FromMillionUSDollar(10);
-Length road = Length.FromKilometer(10);
-
-LengthCost pricePerLength = price / road; // 1000 $/m
-LengthCost euros = pricePerLength.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m
-```
-
----
-
-## Physical constants
-
-EngineeringUnits includes a growing list of physical constants under `Constants`.
-
-```C#
-Energy e = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // ~8.99e16 J
-```
-
-<details>
-<summary><b>List of constants currently included</b></summary>
-
-```text
-Mechanics / Gravitation
-- GravitationalConstant
-- StandardGravity
-- SpeedOfLight
-
-Quantum / Fundamental
-- PlanckConstant
-- ReducedPlanckConstant
-
-Electromagnetism
-- VacuumElectricPermittivity
-- VacuumMagneticPermeability
-- ImpedanceOfFreeSpace
-- CoulombConstant
-
-Electricity / Quantum electrical standards
-- ElementaryCharge
-- ConductanceQuantum
-- InverseConductanceQuantum
-- JosephsonConstant
-- VonKlitzingConstant
-- MagneticFluxQuantum
-
-Thermodynamics / Statistical mechanics
-- BoltzmannConstant
-- IdealGasConstant
-- StefanBoltzmannConstant
-- FirstRadiationConstant
-- FirstRadiationConstantForSpectralRadiance
-- SecondRadiationConstant
-- WienWavelengthDisplacementLawConstant
-- WienFrequencyDisplacementLawConstant
-- WienEntropyDisplacementLawConstant
-
-Chemistry / Molar constants
-- AvogadroConstant
-- FaradayConstant
-- AtomicMassConstant
-- MolarMassConstant
-- MolarMassOfCarbon12
-- MolarPlanckConstant
-
-Atomic / Particle / Radiation physics
-- ElectronMass
-- ProtonMass
-- NeutronMass
-- BohrRadius
-- ClassicalElectronRadius
-- ThomsonCrossSection
-- HartreeEnergy
-- RydbergConstant
-- QuantumOfCirculation
-- FermiCouplingConstant
-
-Magnetons
-- BohrMagneton
-- NuclearMagneton
-
-Dimensionless / Ratios
-- FineStructureConstant
-- InverseFineStructureConstant
-- ElectronGFactor
-- WToZMassRatio
-- WeakMixingAngle
-
-Metrology / Reference values
-- StandardAtmosphere
-- StandardStatePressure
-- ElectronVoltInJoules
-- LuminousEfficacy540THz
-- Cesium133HyperfineTransitionFrequency
-```
-
-</details>
-
----
-
 ## Performance
 
 For most users, EngineeringUnits performance is more than sufficient.
@@ -520,6 +568,9 @@ for (int i = 0; i < 1_000_000_000; i++)
 
 ThermalConductivity result = ThermalConductivity.FromSI(resultSI);
 ```
+## See more real world examples
+
+
 
 ---
 
