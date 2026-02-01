@@ -570,6 +570,258 @@ ThermalConductivity result = ThermalConductivity.FromSI(resultSI);
 ```
 ## See more real world examples
 
+Recipe-style snippets you can copy/paste and adapt.  
+
+<details>
+<summary><b>Thermal / Heat transfer</b></summary>
+
+### 1) Heat exchanger duty (classic)
+```csharp
+// Q = ṁ * cp * (Tout - Tin)
+SpecificEntropy cp = 4180.JoulePerKilogramKelvin;  // water-ish
+MassFlow mDot     = 2.KilogramPerSecond;
+
+Temperature Tin   = 20.DegreeCelsius;
+Temperature Tout  = 60.DegreeCelsius;
+
+Power Q = mDot * cp * (Tout - Tin);
+Console.WriteLine(Q.ToUnit(PowerUnit.Kilowatt)); // e.g. "334.4 kW"
+```
+
+### 2) Conduction through a wall (Fourier)
+```csharp
+// q = k * A * ΔT / L
+ThermalConductivity k = 1.4.WattPerMeterKelvin;
+Area A = 12.SquareMeter;
+Length L = 0.24.Meter;
+
+Temperature Tin  = 21.DegreeCelsius;
+Temperature Tout = -2.DegreeCelsius;
+
+Power q = k * A * (Tin - Tout) / L;
+```
+
+### 3) Radiation heat loss (Stefan–Boltzmann)
+```csharp
+// q = ε σ A (T1^4 - T2^4)
+Ratio epsilon = 0.9.DecimalFraction;
+Area A = 2.SquareMeter;
+
+Temperature T1 = 500.Kelvin;
+Temperature T2 = 300.Kelvin;
+
+Power q = epsilon * Constants.StefanBoltzmannConstant * A * (T1.Pow(4) - T2.Pow(4));
+```
+
+### 4) Round-trip example (SI ↔ Imperial)
+```csharp
+Temperature room = 21.DegreeCelsius;
+
+Temperature f = room.ToUnit(TemperatureUnit.DegreeFahrenheit);
+Temperature back = f.ToUnit(TemperatureUnit.DegreeCelsius);
+
+Console.WriteLine($"{room} -> {f} -> {back}");
+```
+
+</details>
+
+<details>
+<summary><b>Fluids / HVAC</b></summary>
+
+### 1) Volumetric flow from duct velocity
+```csharp
+// Qv = v * A
+Speed v = 5.MeterPerSecond;
+Area A = 0.25.SquareMeter;
+
+VolumeFlow Qv = v * A; // m³/s
+Console.WriteLine(Qv);
+```
+
+### 2) Mass flow from density and volumetric flow
+```csharp
+// ṁ = ρ * Qv
+Density rho = 1.2.KilogramPerCubicMeter;  // air-ish
+VolumeFlow Qv = 0.8.CubicMeterPerSecond;
+
+MassFlow mDot = rho * Qv;
+```
+
+### 3) Pressure from head (pump/hydraulics quick check)
+```csharp
+// Δp = ρ g h
+Density rho = 998.KilogramPerCubicMeter; // water-ish
+Length h = 18.Meter;
+
+Pressure dp = rho * Constants.StandardGravity * h; // Pa
+Console.WriteLine(dp.ToUnit(PressureUnit.Bar));
+```
+
+### 4) Reynolds number (dimensionless sanity check)
+```csharp
+// Re = (ρ * v * D) / μ  -> should be dimensionless
+Density rho = 1.2.KilogramPerCubicMeter;
+Speed v = 8.MeterPerSecond;
+Length D = 0.2.Meter;
+DynamicViscosity mu = 1.8e-5.PascalSecond;
+
+Ratio Re = (rho * v * D) / mu;
+Console.WriteLine(Re);
+```
+
+### 5) Convert flow to US units (m³/s → CFM)
+```csharp
+VolumeFlow Qv = 0.35.CubicMeterPerSecond;
+
+var cfm = Qv.ToUnit(VolumeFlowUnit.CubicFootPerMinute);
+Console.WriteLine(cfm); // e.g. "741.6 ft³/min"
+```
+
+</details>
+
+<details>
+<summary><b>Mechanical</b></summary>
+
+### 1) Density (and catching unit order mistakes)
+```csharp
+Mass m = 10.Kilogram;
+Volume V = 4.CubicMeter;
+
+Density rho = m / V;     // OK: kg/m³
+
+// Compile-time error (analyzer): m³/kg != kg/m³
+Density wrong = V / m;
+```
+
+### 2) Kinetic energy
+```csharp
+// Ek = 0.5 * m * v²
+Mass m = 1200.Kilogram;       // car-ish
+Speed v = 27.MeterPerSecond;  // ~97 km/h
+
+Energy Ek = 0.5m * m * v.Pow(2);
+```
+
+### 3) Torque and power
+```csharp
+// P = τ * ω
+Torque tau = 250.NewtonMeter;
+RotationalSpeed omega = 3000.RPM;
+
+Power P = tau * omega;
+Console.WriteLine(P.ToUnit(PowerUnit.MechanicalHorsepower));
+```
+
+### 4) Pressure force on a piston
+```csharp
+// F = p * A
+Pressure p = 10.Bar;
+Area A = 0.01.SquareMeter;
+
+Force F = p * A;
+Console.WriteLine(F);
+```
+
+</details>
+
+<details>
+<summary><b>Electrical</b></summary>
+
+### 1) Ohm’s law + electrical power
+```csharp
+ElectricResistance R = 12.Ohm;
+ElectricCurrent I = 3.Ampere;
+
+ElectricPotential V = I * R;
+Power P = V * I;
+
+Console.WriteLine($"{V}, {P}");
+```
+
+### 2) Energy usage over time
+```csharp
+Power P = 850.Watt;
+Duration t = 3.Hour;
+
+Energy E = P * t;
+Console.WriteLine(E.ToUnit(EnergyUnit.KilowattHour));
+```
+
+### 3) Capacitor energy
+```csharp
+// E = 0.5 * C * V²
+Capacitance C = 470.Microfarad;
+ElectricPotential V = 24.Volt;
+
+Energy E = 0.5m * C * V.Pow(2);
+Console.WriteLine(E);
+```
+
+</details>
+
+<details>
+<summary><b>Chemistry / thermo</b></summary>
+
+### 1) Ideal gas law (PV = nRT)
+```csharp
+Pressure P = 101325.Pascal;
+Volume V = 1.CubicMeter;
+AmountOfSubstance n = 40.Mole;
+
+// T = (P * V) / (n * R)
+Temperature T = (P * V) / (n * Constants.IdealGasConstant);
+Console.WriteLine(T);
+```
+
+### 2) Molar concentration (molarity)
+```csharp
+// c = n / V
+AmountOfSubstance n = 0.75.Mole;
+Volume V = 0.5.Liter;
+
+Molarity c = n / V;
+Console.WriteLine(c); // mol/L (depending on chosen unit)
+```
+
+</details>
+
+<details>
+<summary><b>Cost / “engineering meets business”</b></summary>
+
+### 1) Energy cost from power and time
+```csharp
+Power avgLoad = 12.Kilowatt;
+Duration t = 7.Hour;
+Energy E = avgLoad * t;
+
+EnergyCost price = 0.25.USDollarPerKilowattHour;
+Cost total = E * price;
+
+Console.WriteLine(total);
+```
+
+### 2) Cost per length (budgeting)
+```csharp
+Cost budget = 2.MillionUSDollar;
+Length road = 3.Kilometer;
+
+LengthCost costPerMeter = budget / road;
+Console.WriteLine(costPerMeter);
+```
+
+### 3) Currency conversion in a unit expression
+```csharp
+ExchangeRates.UpdateRate(Currency.Euro, 1.19m); // 1 EUR -> 1.19 USD
+
+LengthCost usd = 840.3.USDollarPerMeter;
+LengthCost eur = usd.ToUnit(LengthCostUnit.EuroPerMeter);
+
+Console.WriteLine($"{usd} -> {eur}");
+```
+
+</details>
+
+
 
 
 ---
