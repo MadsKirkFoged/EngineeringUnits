@@ -46,9 +46,43 @@ public partial class Ratio : BaseUnit
     {
         return left / (decimal)right;
     }
+    public static UnknownUnit? operator /(UnknownUnit? left, Ratio? right)
+    {
+        return left / (decimal)right;
+    }
 
     public static UnknownUnit? operator /(Ratio? left, BaseUnit? right)
     {
         return (decimal)left / right;
     }
+
+    public static UnknownUnit? operator /(Ratio? left, UnknownUnit? right)
+    {
+        return (decimal)left / right;
+    }
+
+
+
+
+
+
+    public static UnknownUnit? operator *(BaseUnit? left, Ratio? right)
+    {
+        return left * (decimal)right;
+    }
+    public static UnknownUnit? operator *(UnknownUnit? left, Ratio? right)
+    {
+        return left * (decimal)right;
+    }
+
+    public static UnknownUnit? operator *(Ratio? left, BaseUnit? right)
+    {
+        return (decimal)left * right;
+    }
+
+    public static UnknownUnit? operator *(Ratio? left, UnknownUnit? right)
+    {
+        return (decimal)left * right;
+    }
+
 }
