@@ -31,6 +31,12 @@ public class Program
     public static void Main()
     {
 
+        Ratio One = Ratio.FromSI(1);
+
+
+        Pressure test1 = Pressure.FromSI(1) * One * (1 + 1);
+
+
         //Working with physical constants
         Energy E = Mass.FromKilogram(1) * Constants.SpeedOfLight.Pow(2); // 8.988e+16 J
 

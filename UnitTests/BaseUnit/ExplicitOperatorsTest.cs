@@ -14,7 +14,7 @@ public class BaseUnitImplicitOperatorsTest
         var R1 = new Ratio(1, RatioUnit.SI);
 
         // Act
-        int Int1 = R1;
+        int Int1 = (int)R1;
 
         // Assert
         Assert.AreEqual(1, Int1);
@@ -28,7 +28,7 @@ public class BaseUnitImplicitOperatorsTest
         var R1 = new Ratio(1d, RatioUnit.SI);
 
         // Act
-        double Double1 = R1;
+        double Double1 = (double)R1;
 
         // Assert
         Assert.AreEqual(1, Double1);
@@ -42,7 +42,7 @@ public class BaseUnitImplicitOperatorsTest
         var R1 = new Ratio(1m, RatioUnit.SI);
 
         // Act
-        decimal Decimal1 = R1;
+        decimal Decimal1 = (decimal)R1;
 
         // Assert
         Assert.AreEqual(1, Decimal1);

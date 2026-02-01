@@ -20,21 +20,21 @@ public partial class Ratio : BaseUnit
     }
 
 
-    public static implicit operator int(Ratio Unit)
+    public static explicit operator int(Ratio Unit)
     {
         if (UnitSystemExtensions.UnitsystemForDouble != Unit)
             throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
         return (int)Unit.GetValueAs(UnitSystemExtensions.UnitsystemForDouble);
     }
-    public static implicit operator double(Ratio Unit)
+    public static explicit operator double(Ratio Unit)
     {
         if (UnitSystemExtensions.UnitsystemForDouble != Unit)
             throw new WrongUnitException($"This is NOT a double [-] as expected! Your Unit is a [{Unit.Unit}] ");
 
         return Unit.GetValueAsDouble(UnitSystemExtensions.UnitsystemForDouble);
     }
-    public static implicit operator decimal(Ratio Unit)
+    public static explicit operator decimal(Ratio Unit)
     {
         if (new UnitSystem() != Unit.Unit)
             throw new WrongUnitException($"This is NOT a decimal [-] as expected! Your Unit is a [{Unit.Unit}] ");

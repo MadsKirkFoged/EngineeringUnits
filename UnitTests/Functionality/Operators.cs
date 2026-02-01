@@ -115,8 +115,8 @@ public class Operators
         Ratio sum2 = R1 + R2;
 
         // Assert
-        Assert.AreEqual(11, sum1);
-        Assert.AreEqual(11, sum2);
+        Assert.AreEqual(11, (int)sum1);
+        Assert.AreEqual(11, (int)sum2);
 
     }
 
@@ -132,8 +132,8 @@ public class Operators
         Ratio sum2 = R1 + R2;
 
         // Assert
-        Assert.AreEqual(11, sum1);
-        Assert.AreEqual(11, sum2);
+        Assert.AreEqual(11, (int)sum1);
+        Assert.AreEqual(11, (int)sum2);
 
     }
 
@@ -149,8 +149,8 @@ public class Operators
         Ratio sum2 = R1 + R2;
 
         // Assert
-        Assert.AreEqual(11, sum1);
-        Assert.AreEqual(11, sum2);
+        Assert.AreEqual(11, (int)sum1);
+        Assert.AreEqual(11, (int)sum2);
 
     }
 
@@ -166,8 +166,8 @@ public class Operators
         Ratio sum2 = R1 - R2;
 
         // Assert
-        Assert.AreEqual(-9, sum1);
-        Assert.AreEqual(9, sum2);
+        Assert.AreEqual(-9, (int)sum1);
+        Assert.AreEqual(9, (int)sum2);
 
     }
 
@@ -183,8 +183,8 @@ public class Operators
         Ratio sum2 = R1 - R2;
 
         // Assert
-        Assert.AreEqual(-9, sum1);
-        Assert.AreEqual(9, sum2);
+        Assert.AreEqual(-9, (int)sum1);
+        Assert.AreEqual(9, (int)sum2);
 
     }
 
@@ -200,8 +200,8 @@ public class Operators
         Ratio sum2 = R1 - R2;
 
         // Assert
-        Assert.AreEqual(-9, sum1);
-        Assert.AreEqual(9, sum2);
+        Assert.AreEqual(-9, (int)sum1);
+        Assert.AreEqual(9, (int)sum2);
 
     }
 
@@ -217,8 +217,8 @@ public class Operators
         Ratio sum2 = R1 * R2;
 
         // Assert
-        Assert.AreEqual(20, sum1);
-        Assert.AreEqual(20, sum2);
+        Assert.AreEqual(20, (int)sum1);
+        Assert.AreEqual(20, (int)sum2);
 
     }
 
@@ -234,8 +234,8 @@ public class Operators
         Ratio sum2 = R1 * R2;
 
         // Assert
-        Assert.AreEqual(20, sum1);
-        Assert.AreEqual(20, sum2);
+        Assert.AreEqual(20, (double)sum1);
+        Assert.AreEqual(20, (double)sum2);
 
     }
 
@@ -251,8 +251,8 @@ public class Operators
         Ratio sum2 = R1 * R2;
 
         // Assert
-        Assert.AreEqual(20, sum1);
-        Assert.AreEqual(20, sum2);
+        Assert.AreEqual(20, (decimal)sum1);
+        Assert.AreEqual(20, (decimal)sum2);
 
     }
 
@@ -268,8 +268,8 @@ public class Operators
         Ratio sum2 = R1 / R2;
 
         // Assert
-        Assert.AreEqual(0.2, sum1);
-        Assert.AreEqual(5, sum2);
+        Assert.AreEqual(0.2, (double)sum1);
+        Assert.AreEqual(5, (double)sum2);
 
     }
 
@@ -285,8 +285,8 @@ public class Operators
         Ratio sum2 = R1 / R2;
 
         // Assert
-        Assert.AreEqual(0.2, sum1);
-        Assert.AreEqual(5, sum2);
+        Assert.AreEqual(0.2, (double)sum1);
+        Assert.AreEqual(5, (double)sum2);
 
     }
 
@@ -302,8 +302,8 @@ public class Operators
         Ratio sum2 = R1 / R2;
 
         // Assert
-        Assert.AreEqual(0.2, sum1);
-        Assert.AreEqual(5, sum2);
+        Assert.AreEqual(0.2, (double)sum1);
+        Assert.AreEqual(5, (double)sum2);
 
     }
 }
