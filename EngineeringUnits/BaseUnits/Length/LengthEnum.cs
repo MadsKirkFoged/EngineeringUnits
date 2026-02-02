@@ -59,7 +59,7 @@ public partial record LengthUnit : UnitTypebase
     public static readonly LengthUnit Inch = new("in", new Fraction(1) * new Fraction(0.0254m));
 
     [Synonyms("hand", "hands", "hh")]
-    public static readonly LengthUnit Hand = new("h", new Fraction(4) * new Fraction(0.0254m));
+    public static readonly LengthUnit Hand = new("hand", new Fraction(4) * new Fraction(0.0254m));
 
     [Synonyms("foot", "feet", "ft", "'")]
     public static readonly LengthUnit Foot = new("ft", new Fraction(12) * new Fraction(0.0254m));

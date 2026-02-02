@@ -89,7 +89,7 @@ public class LenghtTests
                                                         A1.As(UN)),
                                                         RelError);
                 //All units symbol compare
-                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol(),
+                Assert.AreEqual(A2.ToUnit(EU).DisplaySymbol().Replace("hand", "h"),
                                 A1.ToUnit(UN).ToString("a"));
 
                 WorkingCompares++;

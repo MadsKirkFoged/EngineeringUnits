@@ -21,7 +21,7 @@ public class ExtensionTests
 
         UnitSystem unitSystem = area;
 
-        Assert.AreEqual("mh", unitSystem.ToString());
+        Assert.AreEqual("mhand", unitSystem.ToString());
         Assert.AreEqual("m²", unitSystem.ReduceUnitsHard().ToString());
     }
 

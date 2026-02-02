@@ -6,25 +6,17 @@ using System.Text;
 
 namespace EngineeringUnits.Parsing
 {
-    //public sealed class AmbiguousUnitTokenException : Exception
-    //{
-    //    public string Token { get; }
-    //    public IReadOnlyList<string> Candidates { get; }
-
-    //    public AmbiguousUnitTokenException(string token, IReadOnlyList<string> candidates)
-    //        : base($"Ambiguous unit token '{token}'. Candidates: {string.Join(", ", candidates)}")
-    //    {
-    //        Token = token;
-    //        Candidates = candidates;
-    //    }
-    //}
-
     public static class AnyUnitTokenRegistry
     {
         private sealed class Maps
         {
-            public readonly Dictionary<string, UnitTypebase> TokenToUnit = new(StringComparer.OrdinalIgnoreCase);
-            public readonly Dictionary<string, List<UnitTypebase>> Ambiguous = new(StringComparer.OrdinalIgnoreCase);
+            // Case-sensitive symbols: "s" != "S", "nm" != "NM"
+            public readonly Dictionary<string, UnitTypebase> SymbolToUnit = new(StringComparer.Ordinal);
+            public readonly Dictionary<string, List<UnitTypebase>> SymbolAmbiguous = new(StringComparer.Ordinal);
+
+            // Case-insensitive names/synonyms: "meter" == "Meter"
+            public readonly Dictionary<string, UnitTypebase> NameToUnit = new(StringComparer.OrdinalIgnoreCase);
+            public readonly Dictionary<string, List<UnitTypebase>> NameAmbiguous = new(StringComparer.OrdinalIgnoreCase);
         }
 
         private static readonly Lazy<Maps> _maps = new(BuildMaps, isThreadSafe: true);
@@ -35,25 +27,37 @@ namespace EngineeringUnits.Parsing
             if (string.IsNullOrWhiteSpace(token))
                 return false;
 
-            var normalized = NormalizeToken(token);
+            var t = NormalizeToken(token);
             var maps = _maps.Value;
 
-            if (maps.Ambiguous.TryGetValue(normalized, out var candidates) && candidates.Count > 0)
-            {
-                var names = candidates.Select(u => u.ToString())
-                                      .Distinct(StringComparer.OrdinalIgnoreCase)
-                                      .ToList();
-                throw new AmbiguousUnitTokenException(normalized, names);
-            }
+            // 1) Exact symbol lookup first (case-sensitive)
+            if (maps.SymbolAmbiguous.TryGetValue(t, out var symCandidates) && symCandidates.Count > 0)
+                ThrowAmbiguous(t, symCandidates);
 
-            return maps.TokenToUnit.TryGetValue(normalized, out unit);
+            if (maps.SymbolToUnit.TryGetValue(t, out unit))
+                return true;
+
+            // 2) Fallback to name/synonym lookup (case-insensitive)
+            if (maps.NameAmbiguous.TryGetValue(t, out var nameCandidates) && nameCandidates.Count > 0)
+                ThrowAmbiguous(t, nameCandidates);
+
+            return maps.NameToUnit.TryGetValue(t, out unit);
+        }
+
+        private static void ThrowAmbiguous(string token, List<UnitTypebase> candidates)
+        {
+            var names = candidates
+                .Select(u => u.ToString())
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            throw new AmbiguousUnitTokenException(token, names);
         }
 
         private static Maps BuildMaps()
         {
             var maps = new Maps();
 
-            // Scan only the EngineeringUnits assembly and only EngineeringUnits.Units namespace
             var asm = typeof(UnitTypebase).Assembly;
             var unitTypes = asm.GetTypes()
                 .Where(t => t is { IsAbstract: false, IsGenericTypeDefinition: false } &&
@@ -71,15 +75,15 @@ namespace EngineeringUnits.Parsing
                     if (field.GetValue(null) is not UnitTypebase unit)
                         continue;
 
-                    // 1) Field name (e.g. "Meter", "KilowattHour")
-                    AddToken(maps, field.Name, unit);
+                    // Field name (case-insensitive map)
+                    AddName(maps, field.Name, unit);
 
-                    // 2) Canonical token (ToString => symbol if present)
-                    var canonical = unit.ToString();
-                    if (!string.IsNullOrWhiteSpace(canonical))
-                        AddToken(maps, canonical, unit);
+                    // Canonical display token (symbol) goes into symbol map (case-sensitive)
+                    var symbol = unit.ToString();
+                    if (!string.IsNullOrWhiteSpace(symbol))
+                        AddSymbol(maps, symbol, unit);
 
-                    // 3) Optional: SynonymsAttribute support (if present)
+                    // Optional SynonymsAttribute (case-insensitive map)
                     foreach (var attr in field.GetCustomAttributes(false))
                     {
                         if (attr.GetType().Name == "SynonymsAttribute")
@@ -88,7 +92,7 @@ namespace EngineeringUnits.Parsing
                             if (tokensProp?.GetValue(attr) is string[] tokens)
                             {
                                 foreach (var syn in tokens)
-                                    AddToken(maps, syn, unit);
+                                    AddName(maps, syn, unit);
                             }
                         }
                     }
@@ -98,24 +102,42 @@ namespace EngineeringUnits.Parsing
             return maps;
         }
 
-        private static void AddToken(Maps maps, string rawToken, UnitTypebase unit)
+        private static void AddSymbol(Maps maps, string rawToken, UnitTypebase unit)
         {
             if (string.IsNullOrWhiteSpace(rawToken))
                 return;
 
             var token = NormalizeToken(rawToken);
-            AddTokenInternal(maps, token, unit);
+            AddTokenInternal(maps.SymbolToUnit, maps.SymbolAmbiguous, token, unit);
 
-            // Optional: "nautical mile" -> "nauticalmile"
+            // optional no-space
             var noSpaces = token.Replace(" ", "");
             if (!string.Equals(noSpaces, token, StringComparison.Ordinal))
-                AddTokenInternal(maps, noSpaces, unit);
+                AddTokenInternal(maps.SymbolToUnit, maps.SymbolAmbiguous, noSpaces, unit);
         }
 
-        private static void AddTokenInternal(Maps maps, string token, UnitTypebase unit)
+        private static void AddName(Maps maps, string rawToken, UnitTypebase unit)
         {
-            // already ambiguous -> add if new
-            if (maps.Ambiguous.TryGetValue(token, out var list))
+            if (string.IsNullOrWhiteSpace(rawToken))
+                return;
+
+            var token = NormalizeToken(rawToken);
+            AddTokenInternal(maps.NameToUnit, maps.NameAmbiguous, token, unit);
+
+            // optional no-space
+            var noSpaces = token.Replace(" ", "");
+            if (!string.Equals(noSpaces, token, StringComparison.Ordinal))
+                AddTokenInternal(maps.NameToUnit, maps.NameAmbiguous, noSpaces, unit);
+        }
+
+        private static void AddTokenInternal(
+            Dictionary<string, UnitTypebase> map,
+            Dictionary<string, List<UnitTypebase>> ambiguous,
+            string token,
+            UnitTypebase unit)
+        {
+            // already ambiguous => just add candidate if new
+            if (ambiguous.TryGetValue(token, out var list))
             {
                 if (!list.Any(u => ReferenceEquals(u, unit) || UnitsEquivalent(u, unit)))
                     list.Add(unit);
@@ -123,18 +145,18 @@ namespace EngineeringUnits.Parsing
             }
 
             // existing mapping?
-            if (maps.TokenToUnit.TryGetValue(token, out var existing))
+            if (map.TryGetValue(token, out var existing))
             {
-                // If equivalent (aliases like SI vs Meter), keep non-ambiguous
+                // allow equivalent aliases (same UnitSystem)
                 if (ReferenceEquals(existing, unit) || UnitsEquivalent(existing, unit))
                     return;
 
-                maps.TokenToUnit.Remove(token);
-                maps.Ambiguous[token] = new List<UnitTypebase> { existing, unit };
+                map.Remove(token);
+                ambiguous[token] = new List<UnitTypebase> { existing, unit };
                 return;
             }
 
-            maps.TokenToUnit[token] = unit;
+            map[token] = unit;
         }
 
         private static bool UnitsEquivalent(UnitTypebase a, UnitTypebase b) => a.Unit == b.Unit;
@@ -145,6 +167,7 @@ namespace EngineeringUnits.Parsing
             if (token.Length == 0)
                 return token;
 
+            // Collapse whitespace to single space
             bool hasWs = token.Any(char.IsWhiteSpace);
             if (!hasWs)
                 return token;

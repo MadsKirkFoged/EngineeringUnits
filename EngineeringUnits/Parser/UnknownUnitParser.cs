@@ -27,7 +27,7 @@ namespace EngineeringUnits.Parsing
             if (!TryParseDouble(numberPart, culture, out var value))
                 return false;
 
-            if (!UnitExpressionParser.TryParse(unitExpr, out var unitSystem))
+            if (!UnitParser.TryParse(unitExpr, out var unitSystem))
                 return false;
 
             unit = new UnknownUnit((decimal)value, unitSystem);
@@ -52,16 +52,10 @@ namespace EngineeringUnits.Parsing
                 char c = input[i];
 
                 if (char.IsDigit(c) || c == '+' || c == '-' || c == '.' || c == ',' || c == 'e' || c == 'E')
-                {
-                    i++;
-                    continue;
-                }
+                { i++; continue; }
 
                 if (char.IsWhiteSpace(c))
-                {
-                    i++;
-                    continue;
-                }
+                { i++; continue; }
 
                 break;
             }
@@ -84,7 +78,6 @@ namespace EngineeringUnits.Parsing
         private static bool TryParseDouble(string s, IFormatProvider? culture, out double value)
         {
             value = 0;
-
             if (string.IsNullOrWhiteSpace(s))
                 return false;
 
@@ -128,7 +121,6 @@ namespace EngineeringUnits.Parsing
                     if (double.TryParse(normalized, style, CultureInfo.InvariantCulture, out value))
                         return true;
                 }
-
                 return false;
             }
 

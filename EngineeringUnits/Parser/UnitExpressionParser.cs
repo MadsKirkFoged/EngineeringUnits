@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using EngineeringUnits.Units;
 
 namespace EngineeringUnits.Parsing
 {
@@ -10,7 +8,6 @@ namespace EngineeringUnits.Parsing
         public static bool TryParse(string text, out UnitSystem unitSystem)
         {
             unitSystem = new UnitSystem();
-
             if (string.IsNullOrWhiteSpace(text))
                 return false;
 
@@ -19,20 +16,17 @@ namespace EngineeringUnits.Parsing
                 var tokenizer = new Tokenizer(text);
                 var parser = new Parser(tokenizer);
                 unitSystem = parser.ParseExpression();
-
-                // Ensure we consumed everything
-                if (tokenizer.Current.Kind != TokenKind.End)
-                    return false;
-
-                return true;
+                return tokenizer.Current.Kind == TokenKind.End;
+            }
+            catch (AmbiguousUnitTokenException)
+            {
+                throw; // bubble up clearly
             }
             catch
             {
                 return false;
             }
         }
-
-        // ---------------- Tokenizer ----------------
 
         private enum TokenKind { Unit, Mul, Div, Pow, LParen, RParen, Int, End }
 
@@ -41,136 +35,119 @@ namespace EngineeringUnits.Parsing
             public TokenKind Kind { get; }
             public string Text { get; }
             public int IntValue { get; }
-
-            public Token(TokenKind kind, string text, int intValue = 0)
-            {
-                Kind = kind;
-                Text = text;
-                IntValue = intValue;
-            }
+            public Token(TokenKind kind, string text, int intValue = 0) { Kind = kind; Text = text; IntValue = intValue; }
         }
 
         private sealed class Tokenizer
         {
             private readonly string _s;
             private int _i;
-
             public Token Current { get; private set; }
 
-            public Tokenizer(string s)
-            {
-                _s = s;
-                _i = 0;
-                Next();
-            }
+            public Tokenizer(string s) { _s = s; _i = 0; Next(); }
 
             public void Next()
             {
                 SkipWs();
 
                 if (_i >= _s.Length)
-                {
-                    Current = new Token(TokenKind.End, "");
-                    return;
-                }
+                { Current = new(TokenKind.End, ""); return; }
 
                 char c = _s[_i];
 
-                // Operators
                 if (c == '*' || c == '·')
-                { _i++; Current = new Token(TokenKind.Mul, c.ToString()); return; }
+                { _i++; Current = new(TokenKind.Mul, c.ToString()); return; }
                 if (c == '/')
-                { _i++; Current = new Token(TokenKind.Div, "/"); return; }
+                { _i++; Current = new(TokenKind.Div, "/"); return; }
                 if (c == '^')
-                { _i++; Current = new Token(TokenKind.Pow, "^"); return; }
+                { _i++; Current = new(TokenKind.Pow, "^"); return; }
                 if (c == '(')
-                { _i++; Current = new Token(TokenKind.LParen, "("); return; }
+                { _i++; Current = new(TokenKind.LParen, "("); return; }
                 if (c == ')')
-                { _i++; Current = new Token(TokenKind.RParen, ")"); return; }
+                { _i++; Current = new(TokenKind.RParen, ")"); return; }
 
-                // Signed integer exponent (only when tokenizer is asked after '^' by parser)
+                // Integer exponent token (only if not immediately followed by unit characters)
                 if (c == '+' || c == '-' || char.IsDigit(c))
                 {
-                    // Only treat as Int if it's clearly an integer token (no letters right away)
                     int start = _i;
                     int sign = 1;
-
                     if (c == '+')
-                    { sign = 1; _i++; }
+                    { _i++; }
                     else if (c == '-')
                     { sign = -1; _i++; }
 
-                    int digitsStart = _i;
+                    int d0 = _i;
                     while (_i < _s.Length && char.IsDigit(_s[_i]))
                         _i++;
 
-                    if (_i > digitsStart)
+                    if (_i > d0)
                     {
-                        // If next is a letter, this was actually part of a unit token like "m2" (we don't support that here)
-                        // Rollback and parse as Unit token instead
-                        if (_i < _s.Length && IsUnitChar(_s[_i]))
+                        if (_i >= _s.Length || !IsUnitChar(_s[_i]))
                         {
-                            _i = start;
-                        }
-                        else
-                        {
-                            int val = int.Parse(_s.Substring(digitsStart, _i - digitsStart), CultureInfo.InvariantCulture) * sign;
-                            Current = new Token(TokenKind.Int, _s.Substring(start, _i - start), val);
+                            int val = int.Parse(_s.Substring(d0, _i - d0), CultureInfo.InvariantCulture) * sign;
+                            Current = new(TokenKind.Int, _s.Substring(start, _i - start), val);
                             return;
                         }
-                    }
-                    else
-                    {
                         _i = start;
                     }
+                    else
+                        _i = start;
                 }
 
                 // Unit token
-                {
-                    int start = _i;
-                    while (_i < _s.Length && IsUnitChar(_s[_i]))
-                        _i++;
-                    var token = _s.Substring(start, _i - start).Trim();
-
-                    if (token.Length == 0)
-                        throw new FormatException();
-                    Current = new Token(TokenKind.Unit, token);
-                    return;
-                }
-            }
-
-            private void SkipWs()
-            {
-                while (_i < _s.Length && char.IsWhiteSpace(_s[_i]))
+                int u0 = _i;
+                while (_i < _s.Length && IsUnitChar(_s[_i]))
                     _i++;
+                var token = _s.Substring(u0, _i - u0).Trim();
+                if (token.Length == 0)
+                    throw new FormatException();
+                Current = new(TokenKind.Unit, token);
             }
+
+            private void SkipWs() { while (_i < _s.Length && char.IsWhiteSpace(_s[_i])) _i++; }
 
             private static bool IsUnitChar(char c)
-            {
-                // Letters + common unit symbols (µ, Ω, °) + US/metric tokens
-                return char.IsLetter(c) || c == 'µ' || c == 'Ω' || c == '°';
-            }
+                => char.IsLetter(c) || c == 'µ' || c == 'Ω' || c == '°';
         }
-
-        // ---------------- Parser ----------------
 
         private sealed class Parser
         {
             private readonly Tokenizer _t;
-
             public Parser(Tokenizer t) => _t = t;
 
             public UnitSystem ParseExpression()
             {
-                // Expr := Factor ( ( * | / ) Factor )*
                 var left = ParseFactor();
 
-                while (_t.Current.Kind == TokenKind.Mul || _t.Current.Kind == TokenKind.Div)
+                while (true)
                 {
-                    var op = _t.Current.Kind;
-                    _t.Next();
-                    var right = ParseFactor();
-                    left = op == TokenKind.Mul ? (left * right) : (left / right);
+                    // explicit ops
+                    if (_t.Current.Kind == TokenKind.Mul)
+                    {
+                        _t.Next();
+                        var right = ParseFactor();
+                        left = left * right;
+                        continue;
+                    }
+
+                    if (_t.Current.Kind == TokenKind.Div)
+                    {
+                        _t.Next();
+                        var right = ParseFactor();
+                        left = left / right;
+                        continue;
+                    }
+
+                    // ✅ implicit multiplication by whitespace:
+                    // if the next token starts a factor, treat it as "*"
+                    if (_t.Current.Kind == TokenKind.Unit || _t.Current.Kind == TokenKind.LParen)
+                    {
+                        var right = ParseFactor();
+                        left = left * right;
+                        continue;
+                    }
+
+                    break;
                 }
 
                 return left;
@@ -178,17 +155,16 @@ namespace EngineeringUnits.Parsing
 
             private UnitSystem ParseFactor()
             {
-                // Factor := Primary ( ^ Exponent )?
-                var baseUnit = ParsePrimary();
+                var u = ParsePrimary();
 
                 if (_t.Current.Kind == TokenKind.Pow)
                 {
                     _t.Next();
                     int exp = ParseExponent();
-                    baseUnit = Pow(baseUnit, exp);
+                    u = Pow(u, exp);
                 }
 
-                return baseUnit;
+                return u;
             }
 
             private UnitSystem ParsePrimary()
@@ -206,36 +182,37 @@ namespace EngineeringUnits.Parsing
                 if (_t.Current.Kind != TokenKind.Unit)
                     throw new FormatException();
 
-                var token = _t.Current.Text;
+                var raw = _t.Current.Text;
                 _t.Next();
 
-                if (!TryResolveAnyUnitSystem(token, out var us))
-                    throw new FormatException($"Unknown unit token '{token}'.");
+                var token = AnyUnitTokenRegistry.NormalizeToken(raw);
 
-                return us;
+                if (!AnyUnitTokenRegistry.TryResolve(token, out var unit))
+                    throw new FormatException($"Unknown unit token '{raw}'.");
+
+                return unit.Unit;
             }
 
             private int ParseExponent()
             {
-                // Exponent := Int | ( Int )
                 if (_t.Current.Kind == TokenKind.LParen)
                 {
                     _t.Next();
                     if (_t.Current.Kind != TokenKind.Int)
                         throw new FormatException();
-                    int val = _t.Current.IntValue;
+                    int v = _t.Current.IntValue;
                     _t.Next();
                     if (_t.Current.Kind != TokenKind.RParen)
                         throw new FormatException();
                     _t.Next();
-                    return val;
+                    return v;
                 }
 
                 if (_t.Current.Kind != TokenKind.Int)
                     throw new FormatException();
-                int v = _t.Current.IntValue;
+                int val = _t.Current.IntValue;
                 _t.Next();
-                return v;
+                return val;
             }
 
             private static UnitSystem Pow(UnitSystem u, int exp)
@@ -244,37 +221,13 @@ namespace EngineeringUnits.Parsing
                     return new UnitSystem(1m, null);
 
                 int n = Math.Abs(exp);
-                UnitSystem result = u;
-
+                UnitSystem r = u;
                 for (int i = 1; i < n; i++)
-                    result = result * u;
+                    r = r * u;
 
                 if (exp < 0)
-                    result = new UnitSystem(1m, null) / result;
-
-                return result;
-            }
-
-            private static bool TryResolveAnyUnitSystem(string rawToken, out UnitSystem unitSystem)
-            {
-                unitSystem = new UnitSystem();
-                string token = UnitTokenRegistry<EnergyUnit>.NormalizeToken(rawToken);
-
-                // Order matters: try time-related tokens before length to avoid "h" (hour vs hand).
-                if (UnitTokenRegistry<EnergyUnit>.TryResolve(token, out var eu))
-                { unitSystem = eu.Unit; return true; }
-                if (UnitTokenRegistry<PowerUnit>.TryResolve(token, out var pu))
-                { unitSystem = pu.Unit; return true; }
-                if (UnitTokenRegistry<ForceUnit>.TryResolve(token, out var fu))
-                { unitSystem = fu.Unit; return true; }
-                if (UnitTokenRegistry<MassUnit>.TryResolve(token, out var mu))
-                { unitSystem = mu.Unit; return true; }
-                if (UnitTokenRegistry<DurationUnit>.TryResolve(token, out var tu))
-                { unitSystem = tu.Unit; return true; }
-                if (UnitTokenRegistry<LengthUnit>.TryResolve(token, out var lu))
-                { unitSystem = lu.Unit; return true; }
-
-                return false;
+                    r = new UnitSystem(1m, null) / r;
+                return r;
             }
         }
     }
