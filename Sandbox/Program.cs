@@ -46,7 +46,7 @@ public class Program
         Power test = Power.FromSI(10);
         int i = 1;
 
-        Ratio r = Ratio.FromSI(1);
+        Ratio r = Ratio.FromSI(1) / Ratio.FromSI(1);
 
         var result = (test / i) / r;
 

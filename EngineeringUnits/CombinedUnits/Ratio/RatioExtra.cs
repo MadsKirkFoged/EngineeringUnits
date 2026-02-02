@@ -61,8 +61,15 @@ public partial class Ratio : BaseUnit
         return (decimal)left / right;
     }
 
+    public static Ratio? operator /(Ratio? left, Ratio? right)
+    {
+        return (Ratio?)((decimal)left / (decimal)right);
+    }
 
-
+    public static Ratio? operator *(Ratio? left, Ratio? right)
+    {
+        return (Ratio?)((decimal)left * (decimal)right);
+    }
 
 
 
