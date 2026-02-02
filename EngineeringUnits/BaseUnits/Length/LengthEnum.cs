@@ -1,25 +1,36 @@
-﻿using Fractions;
+﻿using EngineeringUnits.Parsing;
+using Fractions;
 
 namespace EngineeringUnits.Units;
 
 public partial record LengthUnit : UnitTypebase
 {
-    public static readonly LengthUnit Kilometer = new(PreFix.kilo);
-    public static readonly LengthUnit Hectometer = new(PreFix.hecto);
+
+
+    [Synonyms("meter", "metre")]
     public static readonly LengthUnit Meter = new(PreFix.SI);
     public static readonly LengthUnit SI = new(PreFix.SI);
+
+    [Synonyms("kilometer", "kilometre", "km")]
+    public static readonly LengthUnit Kilometer = new(PreFix.kilo);
+    public static readonly LengthUnit Hectometer = new(PreFix.hecto);
     public static readonly LengthUnit Decimeter = new(PreFix.deci);
     public static readonly LengthUnit Centimeter = new(PreFix.centi);
     public static readonly LengthUnit Millimeter = new(PreFix.milli);
     public static readonly LengthUnit Micrometer = new(PreFix.micro);
     public static readonly LengthUnit Nanometer = new(PreFix.nano);
+
     public static readonly LengthUnit Microinch = new("µin", new Fraction(1e-6m)      * new Fraction(0.0254m));
     public static readonly LengthUnit Twip = new("twip", new Fraction(1, 1440)   * new Fraction(0.0254m));
     public static readonly LengthUnit Mil = new("mil", new Fraction(1, 1000)     * new Fraction(0.0254m));
     public static readonly LengthUnit DtpPoint = new("pt", new Fraction(1, 72)        * new Fraction(0.0254m));
     public static readonly LengthUnit DtpPica = new("pica", new Fraction(1, 6)       * new Fraction(0.0254m));
+
+    [Synonyms("inch", "inches", "in", "\"")]
     public static readonly LengthUnit Inch = new("in", new Fraction(1)           * new Fraction(0.0254m));
     public static readonly LengthUnit Hand = new("h", new Fraction(4)            * new Fraction(0.0254m));
+
+    [Synonyms("foot", "feet", "ft", "'")]
     public static readonly LengthUnit Foot = new("ft", new Fraction(12)          * new Fraction(0.0254m));
     public static readonly LengthUnit Yard = new("yd", new Fraction(36)          * new Fraction(0.0254m));
     public static readonly LengthUnit Fathom = new("fathom", new Fraction(72)      * new Fraction(0.0254m));

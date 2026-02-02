@@ -21,6 +21,11 @@ using EngineeringUnits.NumberExtensions.NumberToDynamicViscosity;
 using EngineeringUnits.NumberExtensions.NumberToTorque;
 using EngineeringUnits.NumberExtensions.NumberToPressure;
 using EngineeringUnits.NumberExtensions.NumberToAmountOfSubstance;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.IO;
+using EngineeringUnits.Parsing;
 
 //using UnitsNet;
 
@@ -43,12 +48,31 @@ public class Program
     public static void Main()
     {
 
-        Power test = Power.FromSI(10);
-        int i = 1;
+        
 
-        Ratio r = Ratio.FromSI(1) / Ratio.FromSI(1);
 
-        var result = (test / i) / r;
+
+        Length a = LengthParser.Parse("12.3 m"); 
+        Length b = LengthParser.Parse("1ft");
+        //Length c = LengthParser.Parse("6' 2\"");
+        Length d = LengthParser.Parse("1,5 m", new CultureInfo("da-DK"));
+        Length e = LengthParser.Parse("2e3 mm"); // 2000 mm
+
+
+        Console.WriteLine(a);
+        Console.WriteLine(b);
+        //Console.WriteLine(c.ToUnit(LengthUnit.Meter));
+        Console.WriteLine(d);
+        Console.WriteLine(e.ToUnit(LengthUnit.Meter));
+
+
+
+        //Power test = Power.FromSI(10);
+        //int i = 1;
+
+        //Ratio r = Ratio.FromSI(1) / Ratio.FromSI(1);
+
+        //var result = (test / i) / r;
 
 
 
