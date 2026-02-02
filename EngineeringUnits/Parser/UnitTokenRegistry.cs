@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -7,7 +8,7 @@ namespace EngineeringUnits.Parsing
 {
     public static class UnitTokenRegistry<TUnit> where TUnit : UnitTypebase
     {
-        private static readonly Dictionary<string, TUnit> TokenToUnit = new(StringComparer.OrdinalIgnoreCase);
+        private static readonly ConcurrentDictionary<string, TUnit> TokenToUnit = new(StringComparer.OrdinalIgnoreCase);
 
         static UnitTokenRegistry()
         {
@@ -72,13 +73,14 @@ namespace EngineeringUnits.Parsing
                 throw new AmbiguousUnitTokenException(token, candidates);
             }
 
-            TokenToUnit[token] = unit;
+            //TokenToUnit[token] = unit;
+            TokenToUnit.TryAdd(token, unit);
 
             // Optional: support "nautical mile" -> "nauticalmile"
             var noSpaces = token.Replace(" ", "");
             if (!string.Equals(noSpaces, token, StringComparison.Ordinal))
             {
-                if (TokenToUnit.TryGetValue(noSpaces, out existing) && !ReferenceEquals(existing, unit))
+                if (TokenToUnit.TryGetValue(noSpaces, out existing) && (existing != unit))
                 {
                     var candidates = new List<string>
                     {
@@ -87,7 +89,10 @@ namespace EngineeringUnits.Parsing
                     };
                     throw new AmbiguousUnitTokenException(noSpaces, candidates);
                 }
-                TokenToUnit[noSpaces] = unit;
+
+                TokenToUnit.TryAdd(noSpaces, unit);
+
+                //TokenToUnit[noSpaces] = unit;
             }
         }
 

@@ -57,6 +57,8 @@ public class Program
         //Length c = LengthParser.Parse("6' 2\"");
         Length d = LengthParser.Parse("1,5 m", new CultureInfo("da-DK"));
         Length e = LengthParser.Parse("2e3 mm"); // 2000 mm
+        Length f = LengthParser.Parse("12.3 km");
+        Length g = LengthParser.Parse("12.3 megameter");
 
 
         Console.WriteLine(a);
