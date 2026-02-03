@@ -1,16 +1,15 @@
-﻿using System;
+﻿using EngineeringUnits.Parser.Accessories;
+using EngineeringUnits.Parser.Objects;
+using EngineeringUnits.Parsing;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace EngineeringUnits.Parsing
+namespace EngineeringUnits.Parser.UnitParser
 {
     public static class UnitExpressionParser
     {
-        public static bool TryParseWithWarnings(
-            string text,
-            out UnitSystem unitSystem,
-            out List<ParseWarning> warnings,
-            out string? error)
+        public static bool TryParseWithWarnings(string text, out UnitSystem unitSystem, out List<ParseWarning> warnings, out string? error)
         {
             warnings = new List<ParseWarning>();
             unitSystem = new UnitSystem();
@@ -18,8 +17,8 @@ namespace EngineeringUnits.Parsing
 
             if (string.IsNullOrWhiteSpace(text))
             {
-                error = "Unit expression was empty.";
-                return false;
+                //error = "Unit expression was empty.";
+                return true;
             }
 
             try
@@ -67,27 +66,11 @@ namespace EngineeringUnits.Parsing
             }
         }
 
-
-        //public static bool TryParseWithWarnings(string text, out UnitSystem unitSystem, out List<ParseWarning> warnings)
-        //{
-        //    warnings = new List<ParseWarning>();
-        //    unitSystem = new UnitSystem();
-
-        //    if (!TryParse(text, out unitSystem))
-        //        return false;
-
-        //    var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
-        //    unitSystem = normalized.unit;
-        //    warnings.AddRange(normalized.warnings);
-
-        //    return true;
-        //}
-
         public static bool TryParse(string text, out UnitSystem unitSystem)
         {
             unitSystem = new UnitSystem();
             if (string.IsNullOrWhiteSpace(text))
-                return false;
+                return true;
 
             try
             {
@@ -265,9 +248,9 @@ namespace EngineeringUnits.Parsing
                 var raw = _t.Current.Text;
                 _t.Next();
 
-                var token = AnyUnitTokenRegistry.NormalizeToken(raw);
+                var token = GlobalUnitTokenRegistry.NormalizeToken(raw);
 
-                if (!AnyUnitTokenRegistry.TryResolve(token, out var unit))
+                if (!GlobalUnitTokenRegistry.TryResolve(token, out var unit))
                     throw new FormatException($"Unknown unit token '{raw}'.");
 
                 return unit.Unit;

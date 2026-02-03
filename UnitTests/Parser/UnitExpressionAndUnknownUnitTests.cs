@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using EngineeringUnits.Parsing;
+using EngineeringUnits.Parser.UnitParser;
 
 namespace UnitTests.Parsing
 {
@@ -33,7 +34,7 @@ namespace UnitTests.Parsing
         [DataRow("1 W h")]
         public void UnknownUnitParser_ShouldParse_CommonExpressions(string input)
         {
-            var r = UnknownUnitParser.ParseWithWarnings(input, Inv);
+            var r = QuantityParser.ParseWithWarnings(input, Inv);
             Assert.IsTrue(r.Success, $"Expected OK for '{input}', error: {r.Error}");
             Assert.IsNotNull(r.Value);
             Assert.IsFalse(string.IsNullOrWhiteSpace(r.Normalized));
@@ -42,7 +43,7 @@ namespace UnitTests.Parsing
         [TestMethod]
         public void UnknownUnitParser_ShouldParse_CommaDecimal_Culture()
         {
-            var r = UnknownUnitParser.ParseWithWarnings("1,5 m", Da);
+            var r = QuantityParser.ParseWithWarnings("1,5 m", Da);
             Assert.IsTrue(r.Success, $"Expected OK, error: {r.Error}");
         }
 
@@ -58,7 +59,7 @@ namespace UnitTests.Parsing
         [DataRow("10 kg m^")]
         public void UnknownUnitParser_ShouldFail_Friendly(string input)
         {
-            var r = UnknownUnitParser.ParseWithWarnings(input, Inv);
+            var r = QuantityParser.ParseWithWarnings(input, Inv);
             Assert.IsFalse(r.Success, $"Expected FAIL for '{input}'");
             Assert.IsFalse(string.IsNullOrWhiteSpace(r.Error), "Expected an error message.");
         }

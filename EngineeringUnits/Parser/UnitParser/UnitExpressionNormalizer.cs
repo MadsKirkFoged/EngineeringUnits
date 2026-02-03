@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace EngineeringUnits.Parsing
+namespace EngineeringUnits.Parser.UnitParser
 {
     public static class UnitExpressionNormalizer
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EngineeringUnits.Parsing
+namespace EngineeringUnits.Parser.Objects
 {
     public sealed class ParseWarning
     {

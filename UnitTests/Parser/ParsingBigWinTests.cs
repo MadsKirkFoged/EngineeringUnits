@@ -4,8 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EngineeringUnits;
 using EngineeringUnits.Parsing;
 using EngineeringUnits.Units;
+using EngineeringUnits.Parser.UnitParser;
 
-namespace UnitTests.Parsing
+namespace UnitTests.ParserNew
 {
     [TestClass]
     public class ParsingBigWinTests
@@ -13,7 +14,7 @@ namespace UnitTests.Parsing
         private static readonly CultureInfo Inv = CultureInfo.InvariantCulture;
         private static readonly CultureInfo Da = CultureInfo.GetCultureInfo("da-DK");
 
-        private static decimal ToJoules(UnknownUnit u)
+        private static decimal ToJoules(EngineeringUnits.BaseUnit u)
         {
             // Convert parsed unit-system into Joules by converting to EnergyUnit.SI.Unit
             // (conversion mechanism is used throughout the lib via BaseUnit.GetValueAs). [3](https://www.nuget.org/packages/EngineeringUnits/1.1.0)
@@ -52,7 +53,7 @@ namespace UnitTests.Parsing
         [DataRow("10 kg*m^2*s^-2")]
         public void UnknownUnitParser_ShouldParse_CommonExpressions(string input)
         {
-            var ok = AnyUnitParser.TryParse(input, out var u, Inv);
+            var ok = QuantityParser.TryParse(input, out var u, Inv);
             Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
             Assert.IsNotNull(u);
             Assert.IsNotNull(u.Unit);
@@ -67,7 +68,7 @@ namespace UnitTests.Parsing
         [DataRow("1,5 kg m / s^2", 1.5)]
         public void UnknownUnitParser_ShouldParse_CommaDecimal_WithCulture(string input, double expectedValue)
         {
-            var ok = AnyUnitParser.TryParse(input, out var u, Da);
+            var ok = QuantityParser.TryParse(input, out var u, Da);
             Assert.IsTrue(ok, $"Expected parse OK for '{input}' (da-DK)");
 
             // Convert to a simple SI unit system and check the numeric value is preserved.
@@ -104,8 +105,8 @@ namespace UnitTests.Parsing
         [TestMethod]
         public void UnknownUnit_EnergyEquivalence_NewtonMeter_Equals_Joule()
         {
-            Assert.IsTrue(AnyUnitParser.TryParse("1 N*m", out var u1, Inv));
-            Assert.IsTrue(AnyUnitParser.TryParse("1 kg*m^2/s^2", out var u2, Inv));
+            Assert.IsTrue(QuantityParser.TryParse("1 N*m", out var u1, Inv));
+            Assert.IsTrue(QuantityParser.TryParse("1 kg*m^2/s^2", out var u2, Inv));
 
             // Both are energy dimensions; compare SI UnitSystem
             Assert.IsTrue(SI(u1.Unit) == SI(u2.Unit)); // [1](https://careerkarma.com/blog/git-download-a-single-file-from-github/)[2](https://github.com/MadsKirkFoged/)
@@ -122,8 +123,8 @@ namespace UnitTests.Parsing
         public void UnknownUnit_EnergyEquivalence_WattHour_Equals_3600_Joule()
         {
             // With hand 'h' removed from LengthUnit, "h" should resolve to hour.
-            Assert.IsTrue(AnyUnitParser.TryParse("1 W*h", out var u1, Inv), "Expected parse OK for '1 W*h'");
-            Assert.IsTrue(AnyUnitParser.TryParse("1 W h", out var u2, Inv), "Expected parse OK for '1 W h'");
+            Assert.IsTrue(QuantityParser.TryParse("1 W*h", out var u1, Inv), "Expected parse OK for '1 W*h'");
+            Assert.IsTrue(QuantityParser.TryParse("1 W h", out var u2, Inv), "Expected parse OK for '1 W h'");
 
             var j1 = ToJoules(u1);
             var j2 = ToJoules(u2);
@@ -185,7 +186,7 @@ namespace UnitTests.Parsing
         [DataRow("10 kg m^")]           // missing exponent
         public void UnknownUnitParser_ShouldFail_OnInvalidInput(string input)
         {
-            var ok = AnyUnitParser.TryParse(input, out var _, Inv);
+            var ok = QuantityParser.TryParse(input, out var _, Inv);
             Assert.IsFalse(ok, $"Expected parse FAIL for '{input}'");
         }
 
@@ -194,7 +195,7 @@ namespace UnitTests.Parsing
         {
             Assert.ThrowsException<FormatException>(() =>
             {
-                _ = AnyUnitParser.Parse("10 totallyNotAUnit", Inv);
+                _ = QuantityParser.Parse("10 totallyNotAUnit", Inv);
             });
         }
 
@@ -209,7 +210,7 @@ namespace UnitTests.Parsing
             // The key is: no TypeInitializationException, no hidden state issues.
             for (int i = 0; i < 200; i++)
             {
-                Assert.IsTrue(AnyUnitParser.TryParse("1 kg m^2 / s^2", out var u, Inv));
+                Assert.IsTrue(QuantityParser.TryParse("1 kg m^2 / s^2", out var u, Inv));
                 Assert.AreEqual(1m, ToJoules(u), 1e-9m);
             }
         }

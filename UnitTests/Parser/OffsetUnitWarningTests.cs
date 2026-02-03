@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using EngineeringUnits.Parsing;
+using EngineeringUnits.Parser.UnitParser;
 
 namespace UnitTests.Parsing
 {
@@ -26,7 +27,7 @@ namespace UnitTests.Parsing
         [TestMethod]
         public void UnknownUnit_WithOffsetTemperature_InCompound_ShouldReturnSuccess_WithWarning()
         {
-            var r = UnknownUnitParser.ParseWithWarnings("1 W/°C", Inv);
+            var r = QuantityParser.ParseWithWarnings("1 W/°C", Inv);
 
             Assert.IsTrue(r.Success, $"Expected OK, error: {r.Error}");
             Assert.IsNotNull(r.Value);

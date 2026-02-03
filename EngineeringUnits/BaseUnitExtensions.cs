@@ -522,6 +522,18 @@ public static class BaseUnitExtensions
 
 
 
+    public static BaseUnit TryCastToKnownUnit(this UnknownUnit local)
+    {
+
+        var Hit = local.IntelligentCast();
+
+        if (Hit is null)
+        {
+            return local;
+        }
+
+        return Hit;
+    }
 
 
 }

@@ -48,13 +48,29 @@ public class Program
     public static void Main()
     {
 
+        Length u = QuantityExpressionParser.Parse("10m + 10m - 5in");
+
+        Length testing = QuantityParser.Parse("10 m") + QuantityParser.Parse("5 in"); //result = {10.13 m}
+
+        Temperature testing2 = QuantityParser.Parse("10 °C") + QuantityParser.Parse("5m"); //EngineeringUnits.WrongUnitException: 'Trying to do [°C] + [m]. Can't add two different units!'
 
 
+
+        var works3 = Ratio.Parse("10%").AsSI;
+
+        var works = Ratio.Parse("10");
+        var works2 = QuantityParser.Parse("10");
+
+        //10 m + 5 in
+
+        var mytesting = QuantityParser.Parse("1 kg*mm^5/s^3");
+        var mytesting2 = QuantityParser.Parse("1 s^3");
+        var mytesting3 = mytesting * mytesting2; // 1 kgmm⁵
 
         var parsertest = Frequency.Parse("1/s");
 
 
-        var r2 = UnknownUnitParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
+        var r2 = QuantityParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
         if (!r2.Success)
         {
             Console.WriteLine("Error: " + r2.Error);
@@ -75,9 +91,9 @@ public class Program
         Length aa = Length.Parse("12.3 m");
         //Length aa2 = Length.Parse("1 Gm");
 
-        var u1 = AnyUnitParser.Parse("10 N m");          // implicit multiply
-        var u2 = AnyUnitParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
-        var u3 = AnyUnitParser.Parse("1 W h");           // implicit multiply
+        var u1 = QuantityParser.Parse("10 N m");          // implicit multiply
+        var u2 = QuantityParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
+        var u3 = QuantityParser.Parse("1 W h");           // implicit multiply
 
         Console.WriteLine(u1.Unit.GetSIUnitsystem());
         Console.WriteLine(u2.Unit.GetSIUnitsystem());

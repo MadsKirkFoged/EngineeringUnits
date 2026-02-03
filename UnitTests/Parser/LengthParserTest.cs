@@ -5,7 +5,7 @@ using EngineeringUnits;
 using EngineeringUnits.Units;
 using EngineeringUnits.Parsing;
 
-namespace UnitTests.Parsing
+namespace UnitTests.ParserNew
 {
     [TestClass]
     public class LengthParserTests

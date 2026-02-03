@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EngineeringUnits.Parsing
+namespace EngineeringUnits.Parser.Accessories
 {
     public sealed class AmbiguousUnitTokenException : Exception
     {

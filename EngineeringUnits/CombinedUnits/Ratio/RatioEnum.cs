@@ -1,14 +1,21 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+
+namespace EngineeringUnits.Units;
 
 public partial record RatioUnit : UnitTypebase
 {
 
+    
     public static readonly RatioUnit SI = new("");
+
+    [Synonyms("[-]", "[ - ]", "dimensionless")]
     public static readonly RatioUnit DecimalFraction = new("-");
     public static readonly RatioUnit PartPerBillion = new("ppb", 1/1e9m);
     public static readonly RatioUnit PartPerMillion = new("ppm", 1 / 1e6m);
     public static readonly RatioUnit PartPerThousand = new("‰", 1 / 1e3m);
     public static readonly RatioUnit PartPerTrillion = new("ppt", 1 / 1e12m);
+
+    //[Synonyms("%")]
     public static readonly RatioUnit Percent = new("%", 1 / 1e2m);
 
     public static readonly RatioUnit CentigramPerGram = new(MassUnit.Centigram, MassUnit.Gram);

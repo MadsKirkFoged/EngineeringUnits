@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
 using EngineeringUnits;
+using System;
 
 namespace UnitTests.Parsing
 {
@@ -401,5 +402,23 @@ namespace UnitTests.Parsing
                 Assert.AreEqual(1m, Permeability.Parse("1 V*s/(A*m)", Inv).AsSI, 1e-9m);
             }
 
+        [TestMethod]
+        public void Dimensionless_NumberOnly_ShouldWork_ForRatio()
+        {
+            Assert.AreEqual(10m, Ratio.Parse("10", Inv).AsSI, 1e-12m);
         }
+
+        [TestMethod]
+        public void Dimensionless_NumberOnly_ShouldFail_ForLength()
+        {
+            Assert.ThrowsException<FormatException>(() => Length.Parse("10", Inv));
+        }
+
+        [TestMethod]
+        public void Dimensionless_Brackets_ShouldWork_ForRatio()
+        {
+            Assert.AreEqual(10m, Ratio.Parse("10 [-]", Inv).AsSI, 1e-12m);
+        }
+
+    }
     }

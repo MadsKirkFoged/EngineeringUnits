@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using EngineeringUnits.Parser.Objects;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace EngineeringUnits.Parsing
+namespace EngineeringUnits.Parser.UnitParser
 {
     internal static class OffsetUnitNormalizer
     {

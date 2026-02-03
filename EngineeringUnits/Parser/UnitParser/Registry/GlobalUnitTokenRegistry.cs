@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngineeringUnits.Parser.Accessories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace EngineeringUnits.Parsing
 {
-    public static class AnyUnitTokenRegistry
+    public static class GlobalUnitTokenRegistry
     {
         private sealed class Maps
         {
