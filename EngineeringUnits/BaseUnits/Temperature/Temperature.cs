@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Temperature : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
+
+    public static Temperature Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Temperature, TemperatureUnit>(
+         input,
+         (v, u) => new Temperature(v, u),
+         TemperatureUnit.SI,
+         culture);
+    }
 }

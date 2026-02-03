@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);
+
+    public static VolumetricHeatTransferCoefficient Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<VolumetricHeatTransferCoefficient, VolumetricHeatTransferCoefficientUnit>(
+         input,
+         (v, u) => new VolumetricHeatTransferCoefficient(v, u),
+         VolumetricHeatTransferCoefficientUnit.SI,
+         culture);
+    }
 }

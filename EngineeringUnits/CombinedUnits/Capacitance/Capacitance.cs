@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Capacitance : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CapacitanceUnit>(_unit);
+
+    public static Capacitance Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Capacitance, CapacitanceUnit>(
+         input,
+         (v, u) => new Capacitance(v, u),
+         CapacitanceUnit.SI,
+         culture);
+    }
 }

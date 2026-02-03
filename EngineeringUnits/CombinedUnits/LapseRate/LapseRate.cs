@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class LapseRate : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);
+
+    public static LapseRate Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<LapseRate, LapseRateUnit>(
+         input,
+         (v, u) => new LapseRate(v, u),
+         LapseRateUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ElectricInductance : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricInductanceUnit>(_unit);
+
+    public static ElectricInductance Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ElectricInductance, ElectricInductanceUnit>(
+         input,
+         (v, u) => new ElectricInductance(v, u),
+         ElectricInductanceUnit.SI,
+         culture);
+    }
 }

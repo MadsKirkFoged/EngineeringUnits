@@ -53,7 +53,7 @@ public class Program
         Energy ee3 = Energy.Parse("1 kg*mm^2/s^2");
 
         Length aa = Length.Parse("12.3 m");
-        Length aa2 = Length.Parse("1 Gm");
+        //Length aa2 = Length.Parse("1 Gm");
 
         var u1 = AnyUnitParser.Parse("10 N m");          // implicit multiply
         var u2 = AnyUnitParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent

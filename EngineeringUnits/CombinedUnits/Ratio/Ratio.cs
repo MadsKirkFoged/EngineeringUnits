@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Ratio : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);
+
+    public static Ratio Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Ratio, RatioUnit>(
+         input,
+         (v, u) => new Ratio(v, u),
+         RatioUnit.SI,
+         culture);
+    }
 }

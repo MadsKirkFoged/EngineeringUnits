@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class WarpingMomentOfInertia : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);
+
+    public static WarpingMomentOfInertia Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<WarpingMomentOfInertia, WarpingMomentOfInertiaUnit>(
+         input,
+         (v, u) => new WarpingMomentOfInertia(v, u),
+         WarpingMomentOfInertiaUnit.SI,
+         culture);
+    }
 }

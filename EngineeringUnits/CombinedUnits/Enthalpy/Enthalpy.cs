@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Enthalpy : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnthalpyUnit>(_unit);
+
+    public static Enthalpy Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Enthalpy, EnthalpyUnit>(
+         input,
+         (v, u) => new Enthalpy(v, u),
+         EnthalpyUnit.SI,
+         culture);
+    }
 }

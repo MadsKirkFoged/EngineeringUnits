@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);
+
+    public static CoefficientOfThermalExpansion Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<CoefficientOfThermalExpansion, CoefficientOfThermalExpansionUnit>(
+         input,
+         (v, u) => new CoefficientOfThermalExpansion(v, u),
+         CoefficientOfThermalExpansionUnit.SI,
+         culture);
+    }
 }

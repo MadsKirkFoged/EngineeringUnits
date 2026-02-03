@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class SpecificWeight : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);
+
+    public static SpecificWeight Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<SpecificWeight, SpecificWeightUnit>(
+         input,
+         (v, u) => new SpecificWeight(v, u),
+         SpecificWeightUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class MassFlow : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassFlowUnit>(_unit);
+
+    public static MassFlow Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<MassFlow, MassFlowUnit>(
+         input,
+         (v, u) => new MassFlow(v, u),
+         MassFlowUnit.SI,
+         culture);
+    }
 }

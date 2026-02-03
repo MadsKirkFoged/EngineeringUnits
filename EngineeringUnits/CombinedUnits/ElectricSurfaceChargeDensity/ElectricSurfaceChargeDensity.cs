@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);
+
+    public static ElectricSurfaceChargeDensity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ElectricSurfaceChargeDensity, ElectricSurfaceChargeDensityUnit>(
+         input,
+         (v, u) => new ElectricSurfaceChargeDensity(v, u),
+         ElectricSurfaceChargeDensityUnit.SI,
+         culture);
+    }
 }

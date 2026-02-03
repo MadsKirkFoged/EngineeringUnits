@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class SpecificVolume : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificVolumeUnit>(_unit);
+
+    public static SpecificVolume Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<SpecificVolume, SpecificVolumeUnit>(
+         input,
+         (v, u) => new SpecificVolume(v, u),
+         SpecificVolumeUnit.SI,
+         culture);
+    }
 }

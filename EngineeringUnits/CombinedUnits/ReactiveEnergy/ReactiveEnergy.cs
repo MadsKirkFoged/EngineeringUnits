@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ReactiveEnergy : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);
+
+    public static ReactiveEnergy Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ReactiveEnergy, ReactiveEnergyUnit>(
+         input,
+         (v, u) => new ReactiveEnergy(v, u),
+         ReactiveEnergyUnit.SI,
+         culture);
+    }
 }

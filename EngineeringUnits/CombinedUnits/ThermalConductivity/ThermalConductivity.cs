@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ThermalConductivity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ThermalConductivityUnit>(_unit);
+
+    public static ThermalConductivity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ThermalConductivity, ThermalConductivityUnit>(
+         input,
+         (v, u) => new ThermalConductivity(v, u),
+         ThermalConductivityUnit.SI,
+         culture);
+    }
 }

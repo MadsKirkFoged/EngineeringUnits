@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Snap : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SnapUnit>(_unit);
+
+    public static Snap Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Snap, SnapUnit>(
+         input,
+         (v, u) => new Snap(v, u),
+         SnapUnit.SI,
+         culture);
+    }
 }

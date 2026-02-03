@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ThermalResistance : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ThermalResistanceUnit>(_unit);
+
+    public static ThermalResistance Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ThermalResistance, ThermalResistanceUnit>(
+         input,
+         (v, u) => new ThermalResistance(v, u),
+         ThermalResistanceUnit.SI,
+         culture);
+    }
 }

@@ -1,10 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace EngineeringUnits.Parsing
 {
     public static class UnitExpressionParser
     {
+
+        public static bool TryParseWithWarnings(string text, out UnitSystem unitSystem, out List<ParseWarning> warnings)
+        {
+            warnings = new List<ParseWarning>();
+            unitSystem = new UnitSystem();
+
+            if (!TryParse(text, out unitSystem))
+                return false;
+
+            var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
+            unitSystem = normalized.unit;
+            warnings.AddRange(normalized.warnings);
+
+            return true;
+        }
+
         public static bool TryParse(string text, out UnitSystem unitSystem)
         {
             unitSystem = new UnitSystem();

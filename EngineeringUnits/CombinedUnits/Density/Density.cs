@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Density : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DensityUnit>(_unit);
+
+    public static Density Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Density, DensityUnit>(
+         input,
+         (v, u) => new Density(v, u),
+         DensityUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Illuminance : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IlluminanceUnit>(_unit);
+
+    public static Illuminance Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Illuminance, IlluminanceUnit>(
+         input,
+         (v, u) => new Illuminance(v, u),
+         IlluminanceUnit.SI,
+         culture);
+    }
 }

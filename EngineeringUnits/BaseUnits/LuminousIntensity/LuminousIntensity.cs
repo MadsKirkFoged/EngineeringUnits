@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class LuminousIntensity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);
+
+    public static LuminousIntensity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<LuminousIntensity, LuminousIntensityUnit>(
+         input,
+         (v, u) => new LuminousIntensity(v, u),
+         LuminousIntensityUnit.SI,
+         culture);
+    }
 }

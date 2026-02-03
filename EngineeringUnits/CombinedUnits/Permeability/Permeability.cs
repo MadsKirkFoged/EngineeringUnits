@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Permeability : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermeabilityUnit>(_unit);
+
+    public static Permeability Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Permeability, PermeabilityUnit>(
+         input,
+         (v, u) => new Permeability(v, u),
+         PermeabilityUnit.SI,
+         culture);
+    }
 }

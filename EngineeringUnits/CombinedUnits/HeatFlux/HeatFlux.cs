@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class HeatFlux : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);
+
+    public static HeatFlux Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<HeatFlux, HeatFluxUnit>(
+         input,
+         (v, u) => new HeatFlux(v, u),
+         HeatFluxUnit.SI,
+         culture);
+    }
 }

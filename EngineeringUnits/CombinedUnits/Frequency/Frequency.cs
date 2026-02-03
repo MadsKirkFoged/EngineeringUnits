@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Frequency : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
+
+    public static Frequency Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Frequency, FrequencyUnit>(
+         input,
+         (v, u) => new Frequency(v, u),
+         FrequencyUnit.SI,
+         culture);
+    }
 }

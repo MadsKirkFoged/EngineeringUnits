@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Power : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerUnit>(_unit);
+
+    public static Power Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Power, PowerUnit>(
+         input,
+         (v, u) => new Power(v, u),
+         PowerUnit.SI,
+         culture);
+    }
 }

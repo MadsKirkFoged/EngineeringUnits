@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class AreaDensity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaDensityUnit>(_unit);
+
+    public static AreaDensity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<AreaDensity, AreaDensityUnit>(
+         input,
+         (v, u) => new AreaDensity(v, u),
+         AreaDensityUnit.SI,
+         culture);
+    }
 }

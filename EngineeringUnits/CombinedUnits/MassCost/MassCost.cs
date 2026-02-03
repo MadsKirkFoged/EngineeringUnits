@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class MassCost : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassCostUnit>(_unit);
+
+    public static MassCost Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<MassCost, MassCostUnit>(
+         input,
+         (v, u) => new MassCost(v, u),
+         MassCostUnit.SI,
+         culture);
+    }
 }

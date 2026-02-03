@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class DynamicViscosity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);
+
+    public static DynamicViscosity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<DynamicViscosity, DynamicViscosityUnit>(
+         input,
+         (v, u) => new DynamicViscosity(v, u),
+         DynamicViscosityUnit.SI,
+         culture);
+    }
 }

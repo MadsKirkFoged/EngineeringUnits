@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ElectricCurrent : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentUnit>(_unit);
+
+    public static ElectricCurrent Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ElectricCurrent, ElectricCurrentUnit>(
+         input,
+         (v, u) => new ElectricCurrent(v, u),
+         ElectricCurrentUnit.SI,
+         culture);
+    }
 }

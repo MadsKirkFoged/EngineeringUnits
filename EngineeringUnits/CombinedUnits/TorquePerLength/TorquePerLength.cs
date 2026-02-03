@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class TorquePerLength : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorquePerLengthUnit>(_unit);
+
+    public static TorquePerLength Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<TorquePerLength, TorquePerLengthUnit>(
+         input,
+         (v, u) => new TorquePerLength(v, u),
+         TorquePerLengthUnit.SI,
+         culture);
+    }
 }

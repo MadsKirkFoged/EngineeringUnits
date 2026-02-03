@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Speed : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpeedUnit>(_unit);
+
+    public static Speed Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Speed, SpeedUnit>(
+         input,
+         (v, u) => new Speed(v, u),
+         SpeedUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Jerk : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<JerkUnit>(_unit);
+
+    public static Jerk Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Jerk, JerkUnit>(
+         input,
+         (v, u) => new Jerk(v, u),
+         JerkUnit.SI,
+         culture);
+    }
 }

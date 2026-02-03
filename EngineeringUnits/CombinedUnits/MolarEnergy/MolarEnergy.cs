@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class MolarEnergy : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);
+
+    public static MolarEnergy Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<MolarEnergy, MolarEnergyUnit>(
+         input,
+         (v, u) => new MolarEnergy(v, u),
+         MolarEnergyUnit.SI,
+         culture);
+    }
 }

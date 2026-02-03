@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class DurationCost : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DurationCostUnit>(_unit);
+
+    public static DurationCost Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<DurationCost, DurationCostUnit>(
+         input,
+         (v, u) => new DurationCost(v, u),
+         DurationCostUnit.SI,
+         culture);
+    }
 }

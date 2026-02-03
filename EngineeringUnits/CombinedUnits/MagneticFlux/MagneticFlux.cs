@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class MagneticFlux : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFluxUnit>(_unit);
+
+    public static MagneticFlux Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<MagneticFlux, MagneticFluxUnit>(
+         input,
+         (v, u) => new MagneticFlux(v, u),
+         MagneticFluxUnit.SI,
+         culture);
+    }
 }

@@ -1,8 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
-using System;
 using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -55,10 +55,10 @@ public partial class Energy : BaseUnit
 
     public static Energy Parse(string? input, IFormatProvider? culture = null)
     {
-        return QuantityParser.Parse<Energy, EnergyUnit>(
-            input,
-            (v, u) => new Energy(v, u),
-            EnergyUnit.SI,
-            culture);
+         return QuantityParser.Parse<Energy, EnergyUnit>(
+         input,
+         (v, u) => new Energy(v, u),
+         EnergyUnit.SI,
+         culture);
     }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ForcePerLength : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForcePerLengthUnit>(_unit);
+
+    public static ForcePerLength Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ForcePerLength, ForcePerLengthUnit>(
+         input,
+         (v, u) => new ForcePerLength(v, u),
+         ForcePerLengthUnit.SI,
+         culture);
+    }
 }

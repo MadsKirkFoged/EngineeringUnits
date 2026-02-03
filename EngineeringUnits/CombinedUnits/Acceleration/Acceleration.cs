@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Acceleration : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AccelerationUnit>(_unit);
+
+    public static Acceleration Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Acceleration, AccelerationUnit>(
+         input,
+         (v, u) => new Acceleration(v, u),
+         AccelerationUnit.SI,
+         culture);
+    }
 }

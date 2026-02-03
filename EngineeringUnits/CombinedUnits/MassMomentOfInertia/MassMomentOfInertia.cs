@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class MassMomentOfInertia : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);
+
+    public static MassMomentOfInertia Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<MassMomentOfInertia, MassMomentOfInertiaUnit>(
+         input,
+         (v, u) => new MassMomentOfInertia(v, u),
+         MassMomentOfInertiaUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class BitRate : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BitRateUnit>(_unit);
+
+    public static BitRate Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<BitRate, BitRateUnit>(
+         input,
+         (v, u) => new BitRate(v, u),
+         BitRateUnit.SI,
+         culture);
+    }
 }

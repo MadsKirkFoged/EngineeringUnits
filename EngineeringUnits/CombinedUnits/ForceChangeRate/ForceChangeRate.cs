@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class ForceChangeRate : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceChangeRateUnit>(_unit);
+
+    public static ForceChangeRate Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<ForceChangeRate, ForceChangeRateUnit>(
+         input,
+         (v, u) => new ForceChangeRate(v, u),
+         ForceChangeRateUnit.SI,
+         culture);
+    }
 }

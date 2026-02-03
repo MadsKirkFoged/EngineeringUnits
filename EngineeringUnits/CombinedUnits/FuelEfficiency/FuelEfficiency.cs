@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class FuelEfficiency : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FuelEfficiencyUnit>(_unit);
+
+    public static FuelEfficiency Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<FuelEfficiency, FuelEfficiencyUnit>(
+         input,
+         (v, u) => new FuelEfficiency(v, u),
+         FuelEfficiencyUnit.SI,
+         culture);
+    }
 }

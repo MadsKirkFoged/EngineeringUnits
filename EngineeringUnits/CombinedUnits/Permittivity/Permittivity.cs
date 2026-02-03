@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Permittivity : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermittivityUnit>(_unit);
+
+    public static Permittivity Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Permittivity, PermittivityUnit>(
+         input,
+         (v, u) => new Permittivity(v, u),
+         PermittivityUnit.SI,
+         culture);
+    }
 }

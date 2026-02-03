@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Angle : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AngleUnit>(_unit);
+
+    public static Angle Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Angle, AngleUnit>(
+         input,
+         (v, u) => new Angle(v, u),
+         AngleUnit.SI,
+         culture);
+    }
 }

@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class LengthCost : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);
+
+    public static LengthCost Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<LengthCost, LengthCostUnit>(
+         input,
+         (v, u) => new LengthCost(v, u),
+         LengthCostUnit.SI,
+         culture);
+    }
 }

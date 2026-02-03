@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,13 @@ public partial class Pressure : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);
+
+    public static Pressure Parse(string? input, IFormatProvider? culture = null)
+    {
+         return QuantityParser.Parse<Pressure, PressureUnit>(
+         input,
+         (v, u) => new Pressure(v, u),
+         PressureUnit.SI,
+         culture);
+    }
 }
