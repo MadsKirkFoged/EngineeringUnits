@@ -14,11 +14,5 @@ namespace EngineeringUnits.Parsing
             return UnitTokenRegistry<TUnit>.TryResolve(token, out unit);
         }
 
-        public static TUnit Parse(string token)
-        {
-            if (!TryParse(token, out var unit))
-                throw new FormatException($"Could not parse {typeof(TUnit).Name} from '{token}'.");
-            return unit;
-        }
     }
 }

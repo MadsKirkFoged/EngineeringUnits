@@ -21,6 +21,18 @@ namespace EngineeringUnits.Parsing
             if (!TryParseDouble(numberPart, culture, out var value))
                 return Fail(original, "Could not parse numeric value.");
 
+            unitExpr = unitExpr.Trim();
+
+            if (unitExpr.StartsWith("/", StringComparison.Ordinal))
+            {
+                var rest = unitExpr.Substring(1).Trim();
+                if (rest.Length == 0)
+                    return Fail(original, "Unit expression started with '/' but had no denominator.");
+
+                unitExpr = $"({rest})^-1";
+            }
+
+
             // ✅ Friendly: no exceptions, errors returned via out string
             if (!UnitExpressionParser.TryParseWithWarnings(unitExpr, out var unitSystem, out List<ParseWarning> warnings, out string? error))
                 return Fail(original, error ?? "Could not parse unit expression.");

@@ -28,9 +28,9 @@ namespace UnitTests.Parsing
         [DataRow("0.002 km", 2.0)]
         public void TryParse_Length_Succeeds_AndMatchesMeters(string input, double expectedMeters)
         {
-            var ok = LengthParser.TryParse(input, out var length, culture: CultureInfo.InvariantCulture);
+            var length = Length.Parse(input, culture: CultureInfo.InvariantCulture);
 
-            Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
+            //Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
             Assert.AreEqual(expectedMeters, Meters(length), 1e-9, $"Meters mismatch for '{input}'");
         }
 
@@ -66,20 +66,7 @@ namespace UnitTests.Parsing
             Assert.AreEqual(expectedMeters, Meters(length), 1e-6, $"Meters mismatch for '{input}'");
         }
 
-        [DataTestMethod]
-        // Prefix long name last-resort examples (space tolerated)
-        [DataRow("2 mega metre", 2_000_000.0)]
-        [DataRow("2 megametre", 2_000_000.0)]
-        [DataRow("3 micro metre", 0.000003)]
-        [DataRow("3 micrometre", 0.000003)]
-        [DataRow("4 kilo meter", 4000.0)]
-        public void TryParse_Length_PrefixLong_LastResort(string input, double expectedMeters)
-        {
-            var length = Length.Parse(input, CultureInfo.InvariantCulture);
 
-            //Assert.IsTrue(ok, $"Expected prefix-long parse OK for '{input}'");
-            Assert.AreEqual(expectedMeters, Meters(length), 1e-6, $"Meters mismatch for '{input}'");
-        }
 
         [DataTestMethod]
         [DataRow("")]

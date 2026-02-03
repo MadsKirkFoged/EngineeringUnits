@@ -33,6 +33,21 @@ namespace EngineeringUnits.Parsing
             if (!TryParseDouble(numberPart, culture, out var number))
                 return false;
 
+
+            unitPart = unitPart.Trim();
+
+            // If the unit expression begins with '/', rewrite it as "(rest)^-1"
+            // This avoids introducing numeric literals (like "1/s") into the unit-expression grammar.
+            if (unitPart.StartsWith("/", StringComparison.Ordinal))
+            {
+                var rest = unitPart.Substring(1).Trim();
+                if (rest.Length == 0)
+                    return false;
+
+                unitPart = $"({rest})^-1";
+            }
+
+
             // 1) First try: typed token only (safe, no cross-quantity matches)
             if (UnitParser<TUnit>.TryParse(unitPart, out var unitToken))
             {

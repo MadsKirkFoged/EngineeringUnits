@@ -48,6 +48,12 @@ public class Program
     public static void Main()
     {
 
+
+
+
+        var parsertest = Frequency.Parse("1/s");
+
+
         var r2 = UnknownUnitParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
         if (!r2.Success)
         {
@@ -77,23 +83,6 @@ public class Program
         Console.WriteLine(u2.Unit.GetSIUnitsystem());
 
         
-
-        Length a = LengthParser.Parse("12.3 m"); 
-        Length b = LengthParser.Parse("1ft");
-        //Length c = LengthParser.Parse("6' 2\"");
-        Length d = LengthParser.Parse("1,5 m", new CultureInfo("da-DK"));
-        Length e = LengthParser.Parse("2e3 mm"); // 2000 mm
-        Length f = LengthParser.Parse("12.3 km");
-        Length g = LengthParser.Parse("12.3 megameter");
-
-
-        Console.WriteLine(a);
-        Console.WriteLine(b);
-        //Console.WriteLine(c.ToUnit(LengthUnit.Meter));
-        Console.WriteLine(d);
-        Console.WriteLine(e.ToUnit(LengthUnit.Meter));
-
-
 
         //Power test = Power.FromSI(10);
         //int i = 1;

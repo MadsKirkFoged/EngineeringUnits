@@ -24,6 +24,15 @@ namespace EngineeringUnits.Parsing
 
             try
             {
+                text = text.Trim();
+                if (text.StartsWith("/", StringComparison.Ordinal))
+                {
+                    var rest = text.Substring(1).Trim();
+                    if (rest.Length == 0)
+                    { error = "Unit expression started with '/'."; return false; }
+                    text = $"({rest})^-1";
+                }
+
                 text = UnitExpressionNormalizer.Normalize(text);
 
                 // Parse expression

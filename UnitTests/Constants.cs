@@ -69,6 +69,10 @@ namespace ConstantTest
         public void LuminousEfficacy540THz_is_exact()
         {
             Assert.AreEqual(683m, SI(Constants.LuminousEfficacy540THz));
+
+
+
+            Assert.AreEqual(1d, Energy.Parse("1 (N*m)").SI);
         }
 
         [TestMethod]
