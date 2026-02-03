@@ -48,16 +48,21 @@ public class Program
     public static void Main()
     {
 
+        Energy ee = Energy.Parse("1 Wh");
+        Energy ee2 = Energy.Parse("1 kg*m^2/s^2");
+        Energy ee3 = Energy.Parse("1 kg*mm^2/s^2");
 
+        Length aa = Length.Parse("12.3 m");
+        Length aa2 = Length.Parse("1 Gm");
 
-        var u1 = UnknownUnitParser.Parse("10 N m");          // implicit multiply
-        var u2 = UnknownUnitParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
-        var u3 = UnknownUnitParser.Parse("1 W h");           // implicit multiply
+        var u1 = AnyUnitParser.Parse("10 N m");          // implicit multiply
+        var u2 = AnyUnitParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
+        var u3 = AnyUnitParser.Parse("1 W h");           // implicit multiply
 
         Console.WriteLine(u1.Unit.GetSIUnitsystem());
         Console.WriteLine(u2.Unit.GetSIUnitsystem());
 
-        Length aa = UnknownUnitParser.Parse("12.3 m");
+        
 
         Length a = LengthParser.Parse("12.3 m"); 
         Length b = LengthParser.Parse("1ft");

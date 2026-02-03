@@ -1,6 +1,8 @@
 using EngineeringUnits.Units;
 using System.Diagnostics.CodeAnalysis;
 using Fractions;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -50,4 +52,15 @@ public partial class Length : BaseUnit
     }
 
     public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthUnit>(_unit);
+
+
+    public static Length Parse(string? input, IFormatProvider? culture = null)
+    {
+        return QuantityParser.Parse<Length, LengthUnit>(
+            input,
+            (v, u) => new Length(v, u),
+            LengthUnit.SI,
+            culture);
+    }
+
 }

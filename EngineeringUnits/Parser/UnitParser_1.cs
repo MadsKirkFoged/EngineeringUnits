@@ -2,7 +2,7 @@
 
 namespace EngineeringUnits.Parsing
 {
-    public static class UnitParserTUnit<TUnit> where TUnit : UnitTypebase
+    public static class UnitParser<TUnit> where TUnit : UnitTypebase
     {
         public static bool TryParse(string token, out TUnit unit)
         {

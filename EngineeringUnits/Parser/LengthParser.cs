@@ -9,8 +9,6 @@ namespace EngineeringUnits.Parsing
     public static class LengthParser
     {
 
-
-
         public static Length Parse(string input, IFormatProvider? culture = null)
         {
             if (!TryParse(input, out var length, culture))

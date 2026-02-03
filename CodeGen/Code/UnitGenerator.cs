@@ -76,6 +76,8 @@ internal class UnitGenerator
                    using EngineeringUnits.Units;
                    using System.Diagnostics.CodeAnalysis;
                    using Fractions;
+                   using EngineeringUnits.Parsing;
+                   using System;
                    
                    namespace EngineeringUnits;
                    
@@ -125,6 +127,15 @@ internal class UnitGenerator
                        }
                    
                        public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<{{Variable}}Unit>(_unit);
+
+                       public static {{Variable}} Parse(string? input, IFormatProvider? culture = null)
+                       {
+                            return QuantityParser.Parse<{{Variable}}, {{Variable}}Unit>(
+                            input,
+                            (v, u) => new {{Variable}}(v, u),
+                            {{Variable}}Unit.SI,
+                            culture);
+                       }
                    }
                    
                    """;
