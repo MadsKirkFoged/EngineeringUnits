@@ -48,6 +48,20 @@ public class Program
     public static void Main()
     {
 
+        var r2 = UnknownUnitParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
+        if (!r2.Success)
+        {
+            Console.WriteLine("Error: " + r2.Error);
+        }
+        else
+        {
+            Console.WriteLine("Normalized: " + r2.Normalized);
+            foreach (var w in r2.Warnings)
+                Console.WriteLine($"Warning: {w.Code} - {w.Message}");
+        }
+
+        var parsed = r2.Value;
+
         Energy ee = Energy.Parse("1 Wh");
         Energy ee2 = Energy.Parse("1 kg*m^2/s^2");
         Energy ee3 = Energy.Parse("1 kg*mm^2/s^2");

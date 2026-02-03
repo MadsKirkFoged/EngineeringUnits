@@ -6,21 +6,73 @@ namespace EngineeringUnits.Parsing
 {
     public static class UnitExpressionParser
     {
-
-        public static bool TryParseWithWarnings(string text, out UnitSystem unitSystem, out List<ParseWarning> warnings)
+        public static bool TryParseWithWarnings(
+            string text,
+            out UnitSystem unitSystem,
+            out List<ParseWarning> warnings,
+            out string? error)
         {
             warnings = new List<ParseWarning>();
             unitSystem = new UnitSystem();
+            error = null;
 
-            if (!TryParse(text, out unitSystem))
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                error = "Unit expression was empty.";
                 return false;
+            }
 
-            var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
-            unitSystem = normalized.unit;
-            warnings.AddRange(normalized.warnings);
+            try
+            {
+                text = UnitExpressionNormalizer.Normalize(text);
 
-            return true;
+                // Parse expression
+                if (!TryParse(text, out unitSystem))
+                {
+                    error = "Could not parse unit expression.";
+                    return false;
+                }
+
+                // Normalize offsets + warnings
+                var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
+                unitSystem = normalized.unit;
+                warnings.AddRange(normalized.warnings);
+
+                return true;
+            }
+            catch (AmbiguousUnitTokenException ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            catch (FormatException ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // Keep this user-friendly (no stack traces)
+                error = $"Could not parse unit expression: {ex.Message}";
+                return false;
+            }
         }
+
+
+        //public static bool TryParseWithWarnings(string text, out UnitSystem unitSystem, out List<ParseWarning> warnings)
+        //{
+        //    warnings = new List<ParseWarning>();
+        //    unitSystem = new UnitSystem();
+
+        //    if (!TryParse(text, out unitSystem))
+        //        return false;
+
+        //    var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
+        //    unitSystem = normalized.unit;
+        //    warnings.AddRange(normalized.warnings);
+
+        //    return true;
+        //}
 
         public static bool TryParse(string text, out UnitSystem unitSystem)
         {
@@ -30,6 +82,8 @@ namespace EngineeringUnits.Parsing
 
             try
             {
+                text = UnitExpressionNormalizer.Normalize(text);
+
                 var tokenizer = new Tokenizer(text);
                 var parser = new Parser(tokenizer);
                 unitSystem = parser.ParseExpression();
