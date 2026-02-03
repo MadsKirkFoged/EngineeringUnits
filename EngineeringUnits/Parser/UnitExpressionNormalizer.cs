@@ -10,19 +10,18 @@ namespace EngineeringUnits.Parsing
             if (string.IsNullOrWhiteSpace(input))
                 return input ?? "";
 
-            // 1) Trim and normalize common multiplication dot
+            // Normalize multiplication dots to '*'
             input = input.Trim()
                          .Replace('·', '*')
                          .Replace('⋅', '*'); // optional
 
-            // 2) Rewrite superscripts into ^exponent form
+            // 1) Rewrite superscripts into ^exponent form (digits + minus only)
             var sb = new StringBuilder(input.Length * 2);
 
             for (int i = 0; i < input.Length; i++)
             {
                 char c = input[i];
 
-                // If we encounter a superscript sequence, rewrite it as ^<int>
                 if (c == '⁻' || IsSuperscriptDigit(c))
                 {
                     int start = i;
@@ -34,7 +33,7 @@ namespace EngineeringUnits.Parsing
                         i++;
                         if (i >= input.Length || !IsSuperscriptDigit(input[i]))
                         {
-                            // Lone superscript minus; keep as-is
+                            // Lone superscript minus, keep it
                             sb.Append('⁻');
                             i = start;
                             continue;
@@ -46,12 +45,12 @@ namespace EngineeringUnits.Parsing
 
                     while (i < input.Length && IsSuperscriptDigit(input[i]))
                     {
-                        value = value * 10 + SuperscriptDigitValue(input[i]);
+                        value = (value * 10) + SuperscriptDigitValue(input[i]);
                         i++;
                         digits++;
                     }
 
-                    i--; // step back because for-loop will i++
+                    i--; // for-loop will increment
 
                     if (digits > 0)
                     {
@@ -62,7 +61,6 @@ namespace EngineeringUnits.Parsing
                         continue;
                     }
 
-                    // fallback: should not hit
                     sb.Append(c);
                     continue;
                 }
@@ -70,13 +68,12 @@ namespace EngineeringUnits.Parsing
                 sb.Append(c);
             }
 
-            // 3) Insert '*' for adjacency when it looks like implicit multiplication.
-            // We do this conservatively: between ") or digit" and "(" or letter/µ/Ω/°.
-            // This turns "s^3A^2/m^2" into "s^3*A^2/m^2".
-            var normalized = InsertImplicitMultiplication(sb.ToString());
+            var normalized = sb.ToString();
 
-            // 4) Collapse whitespace (optional): treat spaces as multiplication in parser,
-            // but it's nicer to make it explicit for determinism.
+            // 2) Insert '*' only in safe adjacency cases (never between letters!)
+            normalized = InsertSafeImplicitMultiplication(normalized);
+
+            // 3) Turn whitespace into '*' safely (between meaningful tokens only)
             normalized = CollapseWhitespaceToStar(normalized);
 
             return normalized;
@@ -100,7 +97,21 @@ namespace EngineeringUnits.Parsing
             _ => throw new ArgumentOutOfRangeException(nameof(c))
         };
 
-        private static string InsertImplicitMultiplication(string s)
+        private static bool IsUnitStartChar(char c) =>
+            char.IsLetter(c) || c is 'µ' or 'Ω' or '°';
+
+        private static bool IsOp(char c) =>
+            c is '*' or '/' or '^';
+
+        /// <summary>
+        /// Inserts '*' only where we can be confident adjacency means multiplication.
+        /// - After a complete exponent (e.g. s^3A -> s^3*A)
+        /// - Between ')' and unit-start (e.g. (m^2)s -> (m^2)*s)
+        /// - Between unit and '(' (e.g. m(s) -> m*(s))
+        /// - Between ')' and '('
+        /// Never inserts '*' between letters (so "kg" stays "kg").
+        /// </summary>
+        private static string InsertSafeImplicitMultiplication(string s)
         {
             var sb = new StringBuilder(s.Length * 2);
 
@@ -114,32 +125,67 @@ namespace EngineeringUnits.Parsing
 
                 char b = s[i + 1];
 
-                // Don't insert around operators
-                if (IsOperatorOrParenBoundary(a) || IsOperatorOrParenBoundary(b))
+                // Don't insert around explicit operators or division boundary
+                if (IsOp(a) || IsOp(b) || a == '/' || b == '/' || a == '*' || b == '*')
                     continue;
 
-                // Insert '*' when adjacency implies multiplication:
-                // e.g. "...3A..." or ")A" or "mA" etc.
-                if (IsLeftMultipliable(a) && IsRightMultipliable(b))
+                // Case 1: ")("  -> ")*("
+                if (a == ')' && b == '(')
+                {
                     sb.Append('*');
+                    continue;
+                }
+
+                // Case 2: ")<unit>" -> ")*<unit>"
+                if (a == ')' && IsUnitStartChar(b))
+                {
+                    sb.Append('*');
+                    continue;
+                }
+
+                // Case 3: "<unit>(" -> "<unit>*("
+                if (IsUnitStartChar(a) && b == '(')
+                {
+                    sb.Append('*');
+                    continue;
+                }
+
+                // Case 4: After an exponent number, next is a unit start: "...^2A" -> "...^2*A"
+                // Detect pattern: current char is digit AND somewhere earlier we had '^' for this exponent.
+                // We only insert when we're at the END of the exponent digits.
+                if (char.IsDigit(a) && IsUnitStartChar(b))
+                {
+                    // look backward: are we in "^[-]?\d+" right now?
+                    int j = i;
+                    while (j >= 0 && char.IsDigit(s[j]))
+                        j--;
+
+                    if (j >= 0 && s[j] == '-' && j - 1 >= 0 && s[j - 1] == '^')
+                    {
+                        // exponent like ^-2
+                        sb.Append('*');
+                        continue;
+                    }
+                    if (j >= 0 && s[j] == '^')
+                    {
+                        // exponent like ^2
+                        sb.Append('*');
+                        continue;
+                    }
+                }
             }
 
             return sb.ToString();
         }
 
-        private static bool IsOperatorOrParenBoundary(char c) =>
-            c is '*' or '/' or '^' or '(' or ')';
-
-        private static bool IsLeftMultipliable(char c) =>
-            char.IsLetter(c) || c is ')' || char.IsDigit(c);
-
-        private static bool IsRightMultipliable(char c) =>
-            char.IsLetter(c) || c is '(' || c is 'µ' or 'Ω' or '°';
-
+        /// <summary>
+        /// Converts whitespace to '*' only when it separates two meaningful tokens.
+        /// Never creates k*g from kg (since there's no whitespace inside 'kg').
+        /// </summary>
         private static string CollapseWhitespaceToStar(string s)
         {
             var sb = new StringBuilder(s.Length);
-            bool prevWasSpace = false;
+            bool pendingSpace = false;
 
             for (int i = 0; i < s.Length; i++)
             {
@@ -147,21 +193,24 @@ namespace EngineeringUnits.Parsing
 
                 if (char.IsWhiteSpace(c))
                 {
-                    prevWasSpace = true;
+                    pendingSpace = true;
                     continue;
                 }
 
-                if (prevWasSpace)
+                if (pendingSpace)
                 {
-                    // If we have adjacency after whitespace, treat it as multiplication unless
-                    // it would be awkward (start/end/operators)
+                    // Insert '*' if previous is a "value-like end" and next is a "token start"
                     if (sb.Length > 0)
                     {
                         char prev = sb[sb.Length - 1];
-                        if (!IsOperatorOrParenBoundary(prev) && c != ')' && c != '/' && c != '*')
+
+                        bool prevOk = !(prev is '*' or '/' or '^' or '(');
+                        bool nextOk = !(c is '*' or '/' or '^' or ')');
+
+                        if (prevOk && nextOk)
                             sb.Append('*');
                     }
-                    prevWasSpace = false;
+                    pendingSpace = false;
                 }
 
                 sb.Append(c);

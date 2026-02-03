@@ -44,9 +44,9 @@ namespace UnitTests.Parsing
         {
             var culture = CultureInfo.GetCultureInfo(cultureName);
 
-            var ok = LengthParser.TryParse(input, out var length, culture);
+            var length = Length.Parse(input, culture);
 
-            Assert.IsTrue(ok, $"Expected parse OK for '{input}' with culture '{cultureName}'");
+            //Assert.IsTrue(ok, $"Expected parse OK for '{input}' with culture '{cultureName}'");
             Assert.AreEqual(expectedMeters, Meters(length), 1e-9);
         }
 
@@ -60,9 +60,9 @@ namespace UnitTests.Parsing
         [DataRow("2km", 2000.0)]
         public void TryParse_Length_PrefixShort_LastResort(string input, double expectedMeters)
         {
-            var ok = LengthParser.TryParse(input, out var length, CultureInfo.InvariantCulture);
+            var length = Length.Parse(input, CultureInfo.InvariantCulture);
 
-            Assert.IsTrue(ok, $"Expected prefix parse OK for '{input}'");
+            //Assert.IsTrue(ok, $"Expected prefix parse OK for '{input}'");
             Assert.AreEqual(expectedMeters, Meters(length), 1e-6, $"Meters mismatch for '{input}'");
         }
 
@@ -75,9 +75,9 @@ namespace UnitTests.Parsing
         [DataRow("4 kilo meter", 4000.0)]
         public void TryParse_Length_PrefixLong_LastResort(string input, double expectedMeters)
         {
-            var ok = LengthParser.TryParse(input, out var length, CultureInfo.InvariantCulture);
+            var length = Length.Parse(input, CultureInfo.InvariantCulture);
 
-            Assert.IsTrue(ok, $"Expected prefix-long parse OK for '{input}'");
+            //Assert.IsTrue(ok, $"Expected prefix-long parse OK for '{input}'");
             Assert.AreEqual(expectedMeters, Meters(length), 1e-6, $"Meters mismatch for '{input}'");
         }
 
@@ -90,9 +90,11 @@ namespace UnitTests.Parsing
         [DataRow("10 unknown")]  // unknown unit token
         public void TryParse_Length_Fails_OnInvalidInput(string input)
         {
-            var ok = LengthParser.TryParse(input, out var _);
-
-            Assert.IsFalse(ok, $"Expected parse FAIL for '{input}'");
+            
+            Assert.ThrowsException<FormatException>(() =>
+            {
+                Length.Parse(input);
+            });         
         }
 
         [TestMethod]
@@ -100,7 +102,7 @@ namespace UnitTests.Parsing
         {
             Assert.ThrowsException<FormatException>(() =>
             {
-                _ = LengthParser.Parse("10 unknown", CultureInfo.InvariantCulture);
+                _ = Length.Parse("10 unknown", CultureInfo.InvariantCulture);
             });
         }
 

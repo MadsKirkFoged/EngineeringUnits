@@ -20,9 +20,8 @@ namespace UnitTests.Parsing
         [DataRow("1 kWh", 3_600_000.0)]
         public void Energy_DirectTokens(string input, double expectedJ)
         {
-            var ok = EnergyParser.TryParse(input, out var e, CultureInfo.InvariantCulture);
+            var e = Energy.Parse(input, CultureInfo.InvariantCulture);
 
-            Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
             Assert.AreEqual(expectedJ, Joules(e), 1e-6);
         }
 
@@ -34,18 +33,21 @@ namespace UnitTests.Parsing
         [DataRow("1 W*h", 3600.0)]
         public void Energy_Expressions(string input, double expectedJ)
         {
-            var ok = EnergyParser.TryParse(input, out var e, CultureInfo.InvariantCulture);
+            var e = Energy.Parse(input, CultureInfo.InvariantCulture);
 
-            Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
+            //Assert.IsTrue(ok, $"Expected parse OK for '{input}'");
             Assert.AreEqual(expectedJ, Joules(e), 1e-3);
         }
 
         [TestMethod]
         public void Energy_Fails_OnWrongDimension()
         {
-            // Force is not energy
-            var ok = EnergyParser.TryParse("10 N", out var _);
-            Assert.IsFalse(ok);
+          
+            Assert.ThrowsException<FormatException>(() =>
+            {
+                var ok = Energy.Parse("10 N");
+            });
+
         }
 
         [TestMethod]
@@ -53,7 +55,7 @@ namespace UnitTests.Parsing
         {
             Assert.ThrowsException<FormatException>(() =>
             {
-                _ = EnergyParser.Parse("10 totallyNotAUnit", CultureInfo.InvariantCulture);
+                Energy.Parse("10 totallyNotAUnit", CultureInfo.InvariantCulture);
             });
         }
     }
