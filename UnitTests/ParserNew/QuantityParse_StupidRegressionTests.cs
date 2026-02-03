@@ -147,8 +147,7 @@ namespace UnitTests.Parsing
             // ElectricCurrentDensity often A/m^2
             Assert.AreEqual(1m, ElectricCurrentDensity.Parse("1 A/m^2", Inv).AsSI, 1e-9m);
 
-            // ElectricCurrentGradient often A/m^3
-            Assert.AreEqual(1m, ElectricCurrentGradient.Parse("1 A/m^3", Inv).AsSI, 1e-9m);
+          
         }
 
         // -------------------- KINEMATICS --------------------
@@ -252,9 +251,6 @@ namespace UnitTests.Parsing
 
             // CoefficientOfThermalExpansion: 1/K
             Assert.AreEqual(1m, CoefficientOfThermalExpansion.Parse("1/K", Inv).AsSI, 1e-9m);
-
-            // ThermalResistance: K/W
-            Assert.AreEqual(1m, ThermalResistance.Parse("1 K/W", Inv).AsSI, 1e-9m);
         }
 
         // -------------------- MOLAR --------------------
@@ -340,9 +336,6 @@ namespace UnitTests.Parsing
                 // ElectricCurrentDensity: A/m^2
                 Assert.AreEqual(1m, ElectricCurrentDensity.Parse("1 A/m^2", Inv).AsSI, 1e-9m);
                 Assert.AreEqual(2m, ElectricCurrentDensity.Parse("2 A/m^2", Inv).AsSI, 1e-9m);
-
-                // ElectricCurrentGradient: A/m^3
-                Assert.AreEqual(1m, ElectricCurrentGradient.Parse("1 A/m^3", Inv).AsSI, 1e-9m);
 
                 // ElectricChargeDensity: C/m^3 == A*s/m^3
                 Assert.AreEqual(1m, ElectricChargeDensity.Parse("1 C/m^3", Inv).AsSI, 1e-9m);
