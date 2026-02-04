@@ -126,7 +126,7 @@ internal class UnitGenerator
                            return new(Unit);
                        }
                    
-                       public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<{{Variable}}Unit>(_unit);
+                       public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<{{Variable}}Unit>(_unit, format);
 
                        public static {{Variable}} Parse(string? input, IFormatProvider? culture = null)
                        {

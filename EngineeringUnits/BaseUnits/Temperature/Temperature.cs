@@ -51,7 +51,8 @@ public partial class Temperature : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
+    //public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<TemperatureUnit>(_unit, format);
 
     public static Temperature Parse(string? input, IFormatProvider? culture = null)
     {

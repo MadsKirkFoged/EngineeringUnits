@@ -296,7 +296,7 @@ public class UnitSystem
 
         return format switch
         {
-            "P" => ToPrettyNoDivision(),
+            "P" => Symbol ?? ToPrettyNoDivision(),
             "S" => Symbol ?? ToCanonicalNoDivision(),
             _ => ToCanonicalNoDivision(),
         };

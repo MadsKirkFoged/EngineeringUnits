@@ -216,7 +216,7 @@ public class TemperatureTests
         var K3 = T2.As(TemperatureUnit.SI) * T1.As(TemperatureUnit.SI);
 
         //Assert
-        Assert.AreEqual(T3.ToString(), "8.617e+04 K²");
+        Assert.AreEqual(T3.ToString("p"), "8.617e+04 K²");
         Assert.AreEqual(K3, 86173.633611111116);
     }
 
@@ -248,7 +248,7 @@ public class TemperatureTests
         var K3 = T1.As(TemperatureUnit.SI) * T2.As(TemperatureUnit.SI);
 
         //Assert
-        Assert.AreEqual(T3.ToString(), "8.319e+04 K²");
+        Assert.AreEqual(T3.ToString("p"), "8.319e+04 K²");
         Assert.AreEqual(K3, 83186.57249999998);
     }
 

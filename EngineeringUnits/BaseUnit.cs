@@ -689,11 +689,22 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     /// <returns>The string representation.</returns>
     public virtual string ToString(string? format, IFormatProvider? provider)
     {
+
         if (format is null)
-            format = "S4";
+            format = "g4";
 
         if (provider is null)
             provider = CultureInfo.InvariantCulture;
+
+        string FormatUnit = "C";
+        if (format.ToLower().EndsWith("p"))
+        {
+            format = format.TrimEnd('p').TrimEnd('p');
+            FormatUnit = "P";
+        }
+
+        if (format is "")
+            format = "g4";
 
         DecimalSafe NewNEWValue = NEWValue;
 
@@ -701,7 +712,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         var GetUnit = Unit.Symbol;
 
         if (GetUnit is null)
-            GetUnit = GetStandardSymbol(Unit);
+            GetUnit = GetStandardSymbol(Unit, FormatUnit);
 
         // If GetUnit is still null it could not find a standard symbol
         // --> convert it to SI
@@ -709,7 +720,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         {
             UnitSystem NewUnit = Unit.GetSIUnitsystem();
             NewNEWValue = this.GetValueAs(NewUnit);
-            GetUnit = GetStandardSymbol(NewUnit);
+            GetUnit = GetStandardSymbol(NewUnit, FormatUnit);
         }
 
         //Convert value to string
@@ -745,16 +756,17 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         return hashCode.ToHashCode();
     }
 
-    public static string? GetStandardSymbol<T>(UnitSystem _unit)
+    public static string? GetStandardSymbol<T>(UnitSystem _unit, string? format = null )
         where T : UnitTypebase
     {
         //This check the list of Predefined unit and if it finds a match it returns that Symbol
         return UnitTypebase.ListOf<T>()
             .Find(x => x.Unit.SumConstant() == _unit.SumConstant() &&
                        x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
-            .Unit.ToString();
+            .Unit.ToString(format, null);
     }
-    public virtual string? GetStandardSymbol(UnitSystem _unit) => $"{_unit}";
+    public virtual string? GetStandardSymbol(UnitSystem _unit) => _unit.ToString("C", null);
+    public virtual string? GetStandardSymbol(UnitSystem _unit, string format) => _unit.ToString(format, null);
 
     public override bool Equals(object? obj)
     {

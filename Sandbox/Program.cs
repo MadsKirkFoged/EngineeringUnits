@@ -48,7 +48,12 @@ public class Program
     public static void Main()
     {
 
-        Length u = QuantityExpressionParser.Parse("10m + 10m - 5in");
+        var u = QuantityExpressionParser.Parse("10m + 10m - 5in");
+        var u22 = QuantityExpressionParser.Parse("10m + (10m) - 5in");
+        var u33 = QuantityExpressionParser.Parse("(10m + (10m)) - 5in");
+        //var u44 = QuantityExpressionParser.Parse("((10m + (10m)) - 5in"); //fails as expectet
+        //var u55 = QuantityExpressionParser.Parse("(10m + 10m)^2"); fails but is valid math
+        var u66 = QuantityExpressionParser.Parse("(10m + 10m) * 2");
 
         Length testing = QuantityParser.Parse("10 m") + QuantityParser.Parse("5 in"); //result = {10.13 m}
 
