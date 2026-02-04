@@ -51,7 +51,7 @@ public partial class LapseRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LapseRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LapseRateUnit>(_unit, format);
 
     public static LapseRate Parse(string? input, IFormatProvider? culture = null)
     {

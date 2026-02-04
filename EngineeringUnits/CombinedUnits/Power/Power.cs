@@ -51,7 +51,7 @@ public partial class Power : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PowerUnit>(_unit, format);
 
     public static Power Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class Volume : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<VolumeUnit>(_unit, format);
 
     public static Volume Parse(string? input, IFormatProvider? culture = null)
     {

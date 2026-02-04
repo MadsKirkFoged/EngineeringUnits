@@ -51,7 +51,7 @@ public partial class Cost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<CostUnit>(_unit, format);
 
     public static Cost Parse(string? input, IFormatProvider? culture = null)
     {

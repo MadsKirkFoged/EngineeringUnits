@@ -99,7 +99,7 @@ public static class BaseUnitExtensions
 
     public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs2(To);
 
-    public static string DisplaySymbol(this BaseUnit From) => From.Unit.ReduceUnits().ToString();
+    public static string DisplaySymbol(this BaseUnit From, string? format = null) => From.Unit.ReduceUnits().ToString(format, null);
 
     internal static DecimalSafe GetBaseValue(this BaseUnit From)
     {

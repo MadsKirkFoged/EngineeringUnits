@@ -51,7 +51,7 @@ public partial class Speed : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpeedUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpeedUnit>(_unit, format);
 
     public static Speed Parse(string? input, IFormatProvider? culture = null)
     {

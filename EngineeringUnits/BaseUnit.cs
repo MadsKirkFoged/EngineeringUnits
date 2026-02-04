@@ -665,14 +665,14 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     ///     Gets the default string representation of value and unit.
     /// </summary>
     /// <returns>String representation.</returns>
-    public override string ToString() => ToString("g4");
+    public override string ToString() => ToString("S4");
 
     /// <summary>
     ///     Gets the default string representation of value and unit using the given format provider.
     /// </summary>
     /// <returns>String representation.</returns>
     /// <param name="provider">Format to use for localization and number formatting. Defaults to <see cref="CultureInfo.InvariantCulture" /> if null.</param>
-    public virtual string ToString(IFormatProvider provider) => ToString("g4", provider);
+    public virtual string ToString(IFormatProvider provider) => ToString("S4", provider);
 
     /// <summary>
     /// Gets the string representation of this instance in the specified format string using <see cref="CultureInfo.InvariantCulture" />.
@@ -691,20 +691,26 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     {
 
         if (format is null)
-            format = "g4";
+            format = "S4";
 
         if (provider is null)
             provider = CultureInfo.InvariantCulture;
 
-        string FormatUnit = "C";
-        if (format.ToLower().EndsWith("p"))
+        string numericFormat = format;
+        string unitFormat = "PF"; // default display you agreed on
+
+        // Opt-in: allow unit format after U:
+        int idx = format.IndexOf("U:", StringComparison.OrdinalIgnoreCase);
+        if (idx >= 0)
         {
-            format = format.TrimEnd('p').TrimEnd('p');
-            FormatUnit = "P";
+            numericFormat = format.Substring(0, idx).Trim();
+            unitFormat = format.Substring(idx + 2).Trim();
+            if (string.IsNullOrWhiteSpace(numericFormat))
+                numericFormat = "G";
+            if (string.IsNullOrWhiteSpace(unitFormat))
+                unitFormat = "PF";
         }
 
-        if (format is "")
-            format = "g4";
 
         DecimalSafe NewNEWValue = NEWValue;
 
@@ -712,7 +718,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         var GetUnit = Unit.Symbol;
 
         if (GetUnit is null)
-            GetUnit = GetStandardSymbol(Unit, FormatUnit);
+            GetUnit = GetStandardSymbol(Unit, unitFormat);
 
         // If GetUnit is still null it could not find a standard symbol
         // --> convert it to SI
@@ -720,7 +726,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         {
             UnitSystem NewUnit = Unit.GetSIUnitsystem();
             NewNEWValue = this.GetValueAs(NewUnit);
-            GetUnit = GetStandardSymbol(NewUnit, FormatUnit);
+            GetUnit = GetStandardSymbol(NewUnit, unitFormat);
         }
 
         //Convert value to string
@@ -729,12 +735,12 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
             'A'or'a' => "",
             'U'or'u' => "",
             'Q'or'q' => "",
-            'V'or'v' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-            'S'or's' => NewNEWValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
-            _ => NewNEWValue.ToString(format, provider),
+            'V'or'v' => NewNEWValue.DisplaySignificantDigits(int.Parse(numericFormat.Remove(0, 1))),
+            'S'or's' => NewNEWValue.DisplaySignificantDigits(int.Parse(numericFormat.Remove(0, 1))),
+            _ => NewNEWValue.ToString(numericFormat, provider),
         };
 
-        var unit = format[0] switch
+        var unit = numericFormat[0] switch
         {
             'A'or'a' => GetUnit,
             'U'or'u' => GetUnit,

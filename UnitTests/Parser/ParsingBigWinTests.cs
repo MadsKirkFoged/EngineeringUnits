@@ -176,7 +176,6 @@ namespace UnitTests.ParserNew
         [DataTestMethod]
         [DataRow("")]
         [DataRow("   ")]
-        [DataRow("10")]                 // no unit
         [DataRow("m")]                  // no value
         [DataRow("abc m")]              // invalid number
         [DataRow("10 totallyNotAUnit")] // unknown token

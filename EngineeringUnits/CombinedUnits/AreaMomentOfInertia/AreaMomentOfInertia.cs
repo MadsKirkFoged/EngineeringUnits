@@ -51,7 +51,7 @@ public partial class AreaMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaMomentOfInertiaUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AreaMomentOfInertiaUnit>(_unit, format);
 
     public static AreaMomentOfInertia Parse(string? input, IFormatProvider? culture = null)
     {

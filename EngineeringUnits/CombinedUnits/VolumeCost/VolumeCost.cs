@@ -51,7 +51,7 @@ public partial class VolumeCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<VolumeCostUnit>(_unit, format);
 
     public static VolumeCost Parse(string? input, IFormatProvider? culture = null)
     {

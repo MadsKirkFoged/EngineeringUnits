@@ -116,5 +116,54 @@ namespace UnitTests.Parsing
                 Assert.AreEqual(expectedAsSI.Value, actual, tol, $"AsSI mismatch for '{expr}'");
             }
         }
+
+        [TestMethod]
+        public void UnaryMinus_Parentheses_ShouldWork()
+        {
+            var u11 = QuantityExpressionParser.Parse("1 * (10 m - 5 m)", Inv);
+            Assert.AreEqual(5m, ((EngineeringUnits.BaseUnit)u11).AsSI, 1e-9m);
+
+            var u22 = QuantityExpressionParser.Parse("-1 * (10 m - 5 m)", Inv);
+            Assert.AreEqual(-5m, ((EngineeringUnits.BaseUnit)u22).AsSI, 1e-9m);
+
+            var u33 = QuantityExpressionParser.Parse("-(10 m - 5 m)", Inv);
+            Assert.AreEqual(-5m, ((EngineeringUnits.BaseUnit)u33).AsSI, 1e-9m);
+        }
+
+        [TestMethod]
+        public void UnaryMinus_Parentheses_WithNested_ShouldWork()
+        {
+            var u = QuantityExpressionParser.Parse("-((10 m - 5 m) + (2 m))", Inv);
+            Assert.AreEqual(-7m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-9m);
+        }
+
+        [TestMethod]
+        public void UnaryMinus_Parentheses_ThenMultiply_ShouldWork()
+        {
+            var u = QuantityExpressionParser.Parse("2 * -(10 m - 5 m)", Inv);
+            Assert.AreEqual(-10m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-9m);
+        }
+
+        [TestMethod]
+        public void UnaryPlus_Parentheses_ShouldWork()
+        {
+            var u = QuantityExpressionParser.Parse("+(10 m - 5 m)", Inv);
+            Assert.AreEqual(5m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-9m);
+        }
+
+        [TestMethod]
+        public void UnaryPlus_Literal_ShouldWork()
+        {
+            var u = QuantityExpressionParser.Parse("+10 m", Inv);
+            Assert.AreEqual(10m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-9m);
+        }
+
+        [TestMethod]
+        public void UnaryPlus_Nested_ShouldWork()
+        {
+            var u = QuantityExpressionParser.Parse("+(+(10 m - 5 m))", Inv);
+            Assert.AreEqual(5m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-9m);
+        }
+
     }
 }

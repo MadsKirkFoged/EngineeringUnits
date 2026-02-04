@@ -51,7 +51,7 @@ public partial class Irradiance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IrradianceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<IrradianceUnit>(_unit, format);
 
     public static Irradiance Parse(string? input, IFormatProvider? culture = null)
     {

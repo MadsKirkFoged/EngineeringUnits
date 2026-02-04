@@ -51,7 +51,7 @@ public partial class ElectricCharge : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricChargeUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricChargeUnit>(_unit, format);
 
     public static ElectricCharge Parse(string? input, IFormatProvider? culture = null)
     {

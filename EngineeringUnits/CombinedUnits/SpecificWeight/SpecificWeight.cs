@@ -51,7 +51,7 @@ public partial class SpecificWeight : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificWeightUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificWeightUnit>(_unit, format);
 
     public static SpecificWeight Parse(string? input, IFormatProvider? culture = null)
     {

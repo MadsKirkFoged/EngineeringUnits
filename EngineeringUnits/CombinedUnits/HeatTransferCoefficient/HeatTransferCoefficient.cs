@@ -51,7 +51,7 @@ public partial class HeatTransferCoefficient : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatTransferCoefficientUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<HeatTransferCoefficientUnit>(_unit, format);
 
     public static HeatTransferCoefficient Parse(string? input, IFormatProvider? culture = null)
     {

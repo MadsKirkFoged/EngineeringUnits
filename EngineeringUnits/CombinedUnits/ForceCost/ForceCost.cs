@@ -51,7 +51,7 @@ public partial class ForceCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ForceCostUnit>(_unit, format);
 
     public static ForceCost Parse(string? input, IFormatProvider? culture = null)
     {

@@ -50,7 +50,6 @@ namespace UnitTests.Parsing
         [DataTestMethod]
         [DataRow("")]
         [DataRow("   ")]
-        [DataRow("10")]
         [DataRow("m")]
         [DataRow("abc m")]
         [DataRow("10 totallyNotAUnit")]

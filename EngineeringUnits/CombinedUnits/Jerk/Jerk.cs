@@ -51,7 +51,7 @@ public partial class Jerk : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<JerkUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<JerkUnit>(_unit, format);
 
     public static Jerk Parse(string? input, IFormatProvider? culture = null)
     {

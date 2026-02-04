@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace EngineeringUnits;
@@ -191,28 +192,28 @@ public class UnitSystem
 
     }
 
-    //public override string ToString()
-    //{
+    public string ToStringOld()
+    {
 
-    //    if (Symbol is not null)
-    //        return Symbol;
+        if (Symbol is not null)
+            return Symbol;
 
-    //    //Creates all positive symbols
-    //    var local = ListOfUnits
-    //        .Where(x => x.Count > 0)
-    //        .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
+        //Creates all positive symbols
+        var local = ListOfUnits
+            .Where(x => x.Count > 0)
+            .Aggregate("", (x, y) => x += $"{y.Symbol}{y.Count.ToSuperScript()}");
 
-    //    //If any negative values are present create a '/'
-    //    if (ListOfUnits.Any(x => x.Count < 0))
-    //        local += "/";
+        //If any negative values are present create a '/'
+        if (ListOfUnits.Any(x => x.Count < 0))
+            local += "/";
 
-    //    //Creates all negative symbols
-    //    local += ListOfUnits
-    //        .Where(x => x.Count < 0)
-    //        .Aggregate("", (x, y) => x += $"{y.Symbol}{(y.Count * -1).ToSuperScript()}");
+        //Creates all negative symbols
+        local += ListOfUnits
+            .Where(x => x.Count < 0)
+            .Aggregate("", (x, y) => x += $"{y.Symbol}{(y.Count * -1).ToSuperScript()}");
 
-    //    return local;
-    //}
+        return local;
+    }
 
     private int HashCodeCached;
     public override int GetHashCode()
@@ -283,90 +284,208 @@ public class UnitSystem
 
 
     // Canonical, parse-friendly form by default
-    public override string ToString() => ToString("C", null);
+    //public override string ToString() => ToString("C", null);
 
     // Formats:
     // "C" = Canonical parse-friendly: kg·m^2·s^-3·A^-1
     // "P" = Pretty: kg·m²·s⁻³·A⁻¹
     // "S" = Symbol if present, otherwise canonical
-    public string ToString(string? format, IFormatProvider? formatProvider)
+    //public string ToString(string? format, IFormatProvider? formatProvider)
+    //{
+    //    format ??= "C";
+    //    format = format.Trim().ToUpperInvariant();
+
+    //    return format switch
+    //    {
+    //        "P" => Symbol ?? ToPrettyNoDivision(),
+    //        "S" => Symbol ?? ToCanonicalNoDivision(),
+    //        _ => ToCanonicalNoDivision(),
+    //    };
+    //}
+
+    //public string ToCanonicalNoDivision()
+    //{
+    //    if (Symbol is not null)
+    //        return Symbol; // optional: consider not short-circuiting for canonical
+
+    //    var units = ListOfUnits
+    //        .Where(u => !IsUselessDimensionlessCombined(u))
+    //        .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
+    //        .Where(u => u.Count != 0)
+    //        .ToList();
+
+    //    if (units.Count == 0)
+    //        return "";
+
+    //    // For determinism: order by base unit type, then symbol
+    //    // (prevents random ordering in output)
+    //    var ordered = units
+    //        .OrderBy(u => u.UnitType)
+    //        .ThenBy(u => u.Symbol, StringComparer.Ordinal)
+    //        .ToList();
+
+    //    string Format(RawUnit u)
+    //    {
+    //        if (u.Count == 1)
+    //            return u.Symbol!;
+    //        return $"{u.Symbol}^{u.Count}";
+    //    }
+
+    //    return string.Join("·", ordered.Select(Format));
+    //}
+
+    //public string ToPrettyNoDivision()
+    //{
+    //    if (Symbol is not null)
+    //        return Symbol;
+
+    //    var units = ListOfUnits
+    //        .Where(u => !IsUselessDimensionlessCombined(u))
+    //        .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
+    //        .Where(u => u.Count != 0)
+    //        .ToList();
+
+    //    if (units.Count == 0)
+    //        return "";
+
+    //    var ordered = units
+    //        .OrderBy(u => u.UnitType)
+    //        .ThenBy(u => u.Symbol, StringComparer.Ordinal)
+    //        .ToList();
+
+    //    string Format(RawUnit u)
+    //    {
+    //        // Uses your existing ToSuperScript helper on int
+    //        // exponent 1 => omit
+    //        if (u.Count == 1)
+    //            return u.Symbol!;
+    //        return $"{u.Symbol}{u.Count.ToSuperScript()}";
+    //    }
+
+    //    return string.Join("·", ordered.Select(Format));
+    //}
+
+    //private static bool IsUselessDimensionlessCombined(RawUnit u)
+    //{
+    //    // filters out the internal "dimensionless" CombinedUnit noise
+    //    if (u.UnitType != BaseunitType.CombinedUnit)
+    //        return false;
+
+    //    bool noSymbol = string.IsNullOrWhiteSpace(u.Symbol);
+    //    bool isOne = u.A == Fraction.One;
+    //    bool noOffset = u.B == Fraction.Zero;
+    //    bool countOne = u.Count == 1;
+
+    //    return noSymbol && isOne && noOffset && countOne;
+    //}
+
+
+    // Default = PrettyFraction (simple fraction else product)
+    public override string ToString() => ToString("PF", CultureInfo.InvariantCulture);
+
+    // PF = PrettyFraction (default)
+    // PP = PrettyProduct (always signed superscripts, no '/')
+    // C  = Canonical (parse-friendly, uses ^ with signed ints, no '/')
+    // S  = Symbol if present, else PF
+    public string ToString(string? format, IFormatProvider? provider)
     {
-        format ??= "C";
+        format ??= "Unit:PF";
         format = format.Trim().ToUpperInvariant();
 
         return format switch
         {
-            "P" => Symbol ?? ToPrettyNoDivision(),
-            "S" => Symbol ?? ToCanonicalNoDivision(),
-            _ => ToCanonicalNoDivision(),
+            "Unit:PP" => ToPrettyProduct(),
+            "Unit:C" => ToCanonicalProduct(),
+            "Unit:S" => Symbol ?? ToPrettyFraction(),
+            _ => ToPrettyFraction(),
         };
     }
 
-    public string ToCanonicalNoDivision()
-    {
-        if (Symbol is not null)
-            return Symbol; // optional: consider not short-circuiting for canonical
-
-        var units = ListOfUnits
-            .Where(u => !IsUselessDimensionlessCombined(u))
-            .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
-            .Where(u => u.Count != 0)
-            .ToList();
-
-        if (units.Count == 0)
-            return "";
-
-        // For determinism: order by base unit type, then symbol
-        // (prevents random ordering in output)
-        var ordered = units
-            .OrderBy(u => u.UnitType)
-            .ThenBy(u => u.Symbol, StringComparer.Ordinal)
-            .ToList();
-
-        string Format(RawUnit u)
-        {
-            if (u.Count == 1)
-                return u.Symbol!;
-            return $"{u.Symbol}^{u.Count}";
-        }
-
-        return string.Join("·", ordered.Select(Format));
-    }
-
-    public string ToPrettyNoDivision()
+    private string ToPrettyFraction()
     {
         if (Symbol is not null)
             return Symbol;
 
-        var units = ListOfUnits
-            .Where(u => !IsUselessDimensionlessCombined(u))
-            .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
-            .Where(u => u.Count != 0)
-            .ToList();
+        var units = ListOfUnits.Where(u => !IsUselessDimensionlessCombined(u))
+                               .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
+                               .Where(u => u.Count != 0)
+                               .ToList();
 
         if (units.Count == 0)
-            return "";
+            return "";//"[-]"; // pretty dimensionless
 
-        var ordered = units
-            .OrderBy(u => u.UnitType)
-            .ThenBy(u => u.Symbol, StringComparer.Ordinal)
-            .ToList();
+        // Deterministic ordering prevents flaky tests and "random" output
+        var ordered = units.OrderBy(u => u.UnitType).ThenBy(u => u.Symbol, StringComparer.Ordinal).ToList();
 
-        string Format(RawUnit u)
-        {
-            // Uses your existing ToSuperScript helper on int
-            // exponent 1 => omit
-            if (u.Count == 1)
-                return u.Symbol!;
-            return $"{u.Symbol}{u.Count.ToSuperScript()}";
-        }
+        var pos = ordered.Where(u => u.Count > 0).ToList();
+        var neg = ordered.Where(u => u.Count < 0).ToList();
 
-        return string.Join("·", ordered.Select(Format));
+        // If no numerator -> do NOT show 1/(...) in pretty mode
+        if (pos.Count == 0 || neg.Count == 0)
+            return ToPrettyProductFromOrdered(ordered);
+
+        bool simple = (pos.Count <= 2) && (neg.Count <= 2);
+        if (!simple)
+            return ToPrettyProductFromOrdered(ordered);
+
+        string Num() => string.Join("·", pos.Select(u => $"{u.Symbol}{u.Count.ToSuperScript()}"));
+        string Den() => string.Join("·", neg.Select(u => $"{u.Symbol}{(-u.Count).ToSuperScript()}"));
+
+        var num = Num();
+        var den = Den();
+
+        if (pos.Count == 2)
+            num = "(" + num + ")";
+        if (neg.Count == 2)
+            den = "(" + den + ")";
+
+        return $"{num}/{den}";
+    }
+
+    private string ToPrettyProduct()
+    {
+        if (Symbol is not null)
+            return Symbol;
+
+        var units = ListOfUnits.Where(u => !IsUselessDimensionlessCombined(u))
+                               .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
+                               .Where(u => u.Count != 0)
+                               .OrderBy(u => u.UnitType).ThenBy(u => u.Symbol, StringComparer.Ordinal)
+                               .ToList();
+
+        if (units.Count == 0)
+            return "[-]";
+
+        return ToPrettyProductFromOrdered(units);
+    }
+
+    private static string ToPrettyProductFromOrdered(System.Collections.Generic.IEnumerable<RawUnit> ordered)
+    {
+        return string.Join("·", ordered.Select(u =>
+            u.Count == 1 ? u.Symbol! : $"{u.Symbol}{u.Count.ToSuperScript()}"));
+    }
+
+    private string ToCanonicalProduct()
+    {
+        // Canonical should not depend on Symbol; it should be round-trip safe.
+        // If you want Symbol-shortcut, use format "S".
+        var units = ListOfUnits.Where(u => !IsUselessDimensionlessCombined(u))
+                               .Where(u => !string.IsNullOrWhiteSpace(u.Symbol))
+                               .Where(u => u.Count != 0)
+                               .OrderBy(u => u.UnitType).ThenBy(u => u.Symbol, StringComparer.Ordinal)
+                               .ToList();
+
+        if (units.Count == 0)
+            return "1";
+
+        return string.Join("·", units.Select(u =>
+            u.Count == 1 ? u.Symbol! : $"{u.Symbol}^{u.Count}"));
     }
 
     private static bool IsUselessDimensionlessCombined(RawUnit u)
     {
-        // filters out the internal "dimensionless" CombinedUnit noise
+        // internal dimensionless CombinedUnit noise: A=1, B=0, Count=1, no symbol
+        // RawUnit stores A/B/Count/UnitType. [2](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
         if (u.UnitType != BaseunitType.CombinedUnit)
             return false;
 
@@ -377,5 +496,7 @@ public class UnitSystem
 
         return noSymbol && isOne && noOffset && countOne;
     }
+
+
 
 }

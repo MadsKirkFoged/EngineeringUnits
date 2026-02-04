@@ -51,7 +51,7 @@ public partial class ApparentPower : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ApparentPowerUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ApparentPowerUnit>(_unit, format);
 
     public static ApparentPower Parse(string? input, IFormatProvider? culture = null)
     {

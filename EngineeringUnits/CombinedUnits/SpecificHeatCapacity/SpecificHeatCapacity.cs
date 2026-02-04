@@ -51,7 +51,7 @@ public partial class SpecificHeatCapacity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificHeatCapacityUnit>(_unit, format);
 
     public static SpecificHeatCapacity Parse(string? input, IFormatProvider? culture = null)
     {

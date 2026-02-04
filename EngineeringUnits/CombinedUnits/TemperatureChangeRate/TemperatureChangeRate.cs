@@ -51,7 +51,7 @@ public partial class TemperatureChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TemperatureChangeRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<TemperatureChangeRateUnit>(_unit, format);
 
     public static TemperatureChangeRate Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class DynamicViscosity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<DynamicViscosityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<DynamicViscosityUnit>(_unit, format);
 
     public static DynamicViscosity Parse(string? input, IFormatProvider? culture = null)
     {

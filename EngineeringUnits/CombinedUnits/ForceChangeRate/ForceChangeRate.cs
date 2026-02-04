@@ -51,7 +51,7 @@ public partial class ForceChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForceChangeRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ForceChangeRateUnit>(_unit, format);
 
     public static ForceChangeRate Parse(string? input, IFormatProvider? culture = null)
     {

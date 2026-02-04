@@ -51,7 +51,7 @@ public partial class Molarity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MolarityUnit>(_unit, format);
 
     public static Molarity Parse(string? input, IFormatProvider? culture = null)
     {

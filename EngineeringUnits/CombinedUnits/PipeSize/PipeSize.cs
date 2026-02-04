@@ -51,7 +51,7 @@ public partial class PipeSize : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PipeSizeUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PipeSizeUnit>(_unit, format);
 
     public static PipeSize Parse(string? input, IFormatProvider? culture = null)
     {

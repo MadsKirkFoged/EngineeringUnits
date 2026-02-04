@@ -51,7 +51,7 @@ public partial class HeatFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<HeatFluxUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<HeatFluxUnit>(_unit, format);
 
     public static HeatFlux Parse(string? input, IFormatProvider? culture = null)
     {

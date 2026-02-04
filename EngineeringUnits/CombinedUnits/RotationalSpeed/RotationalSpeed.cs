@@ -51,7 +51,7 @@ public partial class RotationalSpeed : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RotationalSpeedUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<RotationalSpeedUnit>(_unit, format);
 
     public static RotationalSpeed Parse(string? input, IFormatProvider? culture = null)
     {

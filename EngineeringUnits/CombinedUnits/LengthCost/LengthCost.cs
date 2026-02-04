@@ -51,7 +51,7 @@ public partial class LengthCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LengthCostUnit>(_unit, format);
 
     public static LengthCost Parse(string? input, IFormatProvider? culture = null)
     {

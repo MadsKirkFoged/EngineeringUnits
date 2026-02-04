@@ -51,7 +51,7 @@ public partial class SpecificEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEnergyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificEnergyUnit>(_unit, format);
 
     public static SpecificEnergy Parse(string? input, IFormatProvider? culture = null)
     {

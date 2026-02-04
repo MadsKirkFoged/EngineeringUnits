@@ -51,7 +51,7 @@ public partial class Angle : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AngleUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AngleUnit>(_unit, format);
 
     public static Angle Parse(string? input, IFormatProvider? culture = null)
     {

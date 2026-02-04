@@ -51,7 +51,7 @@ public partial class PowerDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PowerDensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PowerDensityUnit>(_unit, format);
 
     public static PowerDensity Parse(string? input, IFormatProvider? culture = null)
     {

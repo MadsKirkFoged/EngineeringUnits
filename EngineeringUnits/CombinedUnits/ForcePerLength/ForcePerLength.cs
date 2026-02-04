@@ -51,7 +51,7 @@ public partial class ForcePerLength : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ForcePerLengthUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ForcePerLengthUnit>(_unit, format);
 
     public static ForcePerLength Parse(string? input, IFormatProvider? culture = null)
     {

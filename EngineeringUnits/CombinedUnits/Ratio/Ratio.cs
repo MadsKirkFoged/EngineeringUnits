@@ -51,7 +51,7 @@ public partial class Ratio : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<RatioUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<RatioUnit>(_unit, format);
 
     public static Ratio Parse(string? input, IFormatProvider? culture = null)
     {

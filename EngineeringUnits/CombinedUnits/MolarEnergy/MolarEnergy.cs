@@ -51,7 +51,7 @@ public partial class MolarEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEnergyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MolarEnergyUnit>(_unit, format);
 
     public static MolarEnergy Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class MassMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MassMomentOfInertiaUnit>(_unit, format);
 
     public static MassMomentOfInertia Parse(string? input, IFormatProvider? culture = null)
     {

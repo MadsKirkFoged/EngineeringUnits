@@ -51,7 +51,7 @@ public partial class Torque : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<TorqueUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<TorqueUnit>(_unit, format);
 
     public static Torque Parse(string? input, IFormatProvider? culture = null)
     {

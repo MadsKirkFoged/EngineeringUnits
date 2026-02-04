@@ -51,7 +51,7 @@ public partial class ElectricPotentialChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricPotentialChangeRateUnit>(_unit, format);
 
     public static ElectricPotentialChangeRate Parse(string? input, IFormatProvider? culture = null)
     {

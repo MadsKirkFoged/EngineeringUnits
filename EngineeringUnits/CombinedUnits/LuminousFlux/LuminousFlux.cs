@@ -51,7 +51,7 @@ public partial class LuminousFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousFluxUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LuminousFluxUnit>(_unit, format);
 
     public static LuminousFlux Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class EnergyCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<EnergyCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<EnergyCostUnit>(_unit, format);
 
     public static EnergyCost Parse(string? input, IFormatProvider? culture = null)
     {

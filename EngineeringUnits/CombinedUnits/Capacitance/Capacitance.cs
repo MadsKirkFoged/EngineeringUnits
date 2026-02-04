@@ -51,7 +51,7 @@ public partial class Capacitance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CapacitanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<CapacitanceUnit>(_unit, format);
 
     public static Capacitance Parse(string? input, IFormatProvider? culture = null)
     {

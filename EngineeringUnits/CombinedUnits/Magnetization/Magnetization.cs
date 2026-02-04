@@ -51,7 +51,7 @@ public partial class Magnetization : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagnetizationUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MagnetizationUnit>(_unit, format);
 
     public static Magnetization Parse(string? input, IFormatProvider? culture = null)
     {

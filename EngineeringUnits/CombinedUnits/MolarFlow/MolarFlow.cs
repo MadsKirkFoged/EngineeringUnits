@@ -51,7 +51,7 @@ public partial class MolarFlow : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarFlowUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MolarFlowUnit>(_unit, format);
 
     public static MolarFlow Parse(string? input, IFormatProvider? culture = null)
     {

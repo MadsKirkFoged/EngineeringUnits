@@ -51,7 +51,7 @@ public partial class Mass : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MassUnit>(_unit, format);
 
     public static Mass Parse(string? input, IFormatProvider? culture = null)
     {

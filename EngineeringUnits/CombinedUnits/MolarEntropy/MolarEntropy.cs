@@ -51,7 +51,7 @@ public partial class MolarEntropy : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarEntropyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MolarEntropyUnit>(_unit, format);
 
     public static MolarEntropy Parse(string? input, IFormatProvider? culture = null)
     {

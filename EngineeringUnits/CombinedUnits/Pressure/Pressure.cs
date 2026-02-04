@@ -51,7 +51,7 @@ public partial class Pressure : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PressureUnit>(_unit, format);
 
     public static Pressure Parse(string? input, IFormatProvider? culture = null)
     {

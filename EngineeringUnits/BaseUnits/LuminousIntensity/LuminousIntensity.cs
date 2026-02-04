@@ -51,7 +51,7 @@ public partial class LuminousIntensity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LuminousIntensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LuminousIntensityUnit>(_unit, format);
 
     public static LuminousIntensity Parse(string? input, IFormatProvider? culture = null)
     {

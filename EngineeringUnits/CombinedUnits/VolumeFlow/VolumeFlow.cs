@@ -51,7 +51,7 @@ public partial class VolumeFlow : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumeFlowUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<VolumeFlowUnit>(_unit, format);
 
     public static VolumeFlow Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class PressureChangeRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PressureChangeRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PressureChangeRateUnit>(_unit, format);
 
     public static PressureChangeRate Parse(string? input, IFormatProvider? culture = null)
     {

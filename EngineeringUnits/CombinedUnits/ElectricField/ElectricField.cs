@@ -51,7 +51,7 @@ public partial class ElectricField : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricFieldUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricFieldUnit>(_unit, format);
 
     public static ElectricField Parse(string? input, IFormatProvider? culture = null)
     {

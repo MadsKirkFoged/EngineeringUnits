@@ -47,10 +47,17 @@ public class Program
 
     public static void Main()
     {
+        var test = QuantityParser.Parse("10 m¹");
+        var test2 = QuantityParser.Parse("10 m¹¹ ");
 
-        var u = QuantityExpressionParser.Parse("10m + 10m - 5in");
-        var u22 = QuantityExpressionParser.Parse("10m + (10m) - 5in");
-        var u33 = QuantityExpressionParser.Parse("(10m + (10m)) - 5in");
+        var u11 = QuantityExpressionParser.Parse("10 m⁴"); //{5 m}
+        var u22 = QuantityExpressionParser.Parse("1 s^-2 + 2 s^-2"); //{-5 m}
+        var u33 = QuantityExpressionParser.Parse("+(10 m - 5 m)"); //System.FormatException: 'Trying to do [] - [m]. Can't subtract two different units!'
+
+        //string ustr = $"{u:G7 U:PF}";
+
+        //var u22 = QuantityExpressionParser.Parse("10m + (10m) - 5in");
+        //var u33 = QuantityExpressionParser.Parse("(10m + (10m)) - 5in");
         //var u44 = QuantityExpressionParser.Parse("((10m + (10m)) - 5in"); //fails as expectet
         //var u55 = QuantityExpressionParser.Parse("(10m + 10m)^2"); fails but is valid math
         var u66 = QuantityExpressionParser.Parse("(10m + 10m) * 2");

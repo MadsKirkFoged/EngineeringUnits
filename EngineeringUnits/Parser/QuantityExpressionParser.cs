@@ -100,6 +100,14 @@ namespace EngineeringUnits.Parsing
                     continue;
                 }
 
+                // Unary plus: +( ... ) or +literal -> no-op
+                if (expectOperand && c == '+')
+                {
+                    i++;              // consume '+'
+                                      // still expecting an operand next
+                    continue;
+                }
+
                 // Unary minus for parenthesis: -( ... )
                 if (expectOperand && c == '-' && i + 1 < s.Length)
                 {
@@ -109,13 +117,16 @@ namespace EngineeringUnits.Parsing
                         j++;
                     if (j < s.Length && s[j] == '(')
                     {
-                        // Insert literal 0 (dimensionless) then minus
-                        var zero = QuantityParser.ParseWithWarnings("0", culture).Value!;
-                        list.Add(new Lit(zero));
-                        list.Add(new Op('-'));
-                        i++; // consume '-'
+
+                        // ✅ unit-safe: -(...) == (-1) * (...)
+                        var minusOne = QuantityParser.ParseWithWarnings("-1", culture).Value!;
+                        list.Add(new Lit(minusOne));
+                        list.Add(new Op('*'));
+
+                        i++;              // consume '-'
                         expectOperand = true;
                         continue;
+
                     }
                 }
 
@@ -181,13 +192,13 @@ namespace EngineeringUnits.Parsing
                     bestWarns = new List<ParseWarning>(r.Warnings);
                 }
 
-                // Heuristic early stop: if next char is '+' or '-' (likely math op), we can stop searching
-                if (end < s.Length)
-                {
-                    char next = s[end];
-                    if (next == '+' || next == '-')
-                        break;
-                }
+                //// Heuristic early stop: if next char is '+' or '-' (likely math op), we can stop searching
+                //if (end < s.Length)
+                //{
+                //    char next = s[end];
+                //    if (next == '+' || next == '-')
+                //        break;
+                //}
             }
 
             if (best is null)

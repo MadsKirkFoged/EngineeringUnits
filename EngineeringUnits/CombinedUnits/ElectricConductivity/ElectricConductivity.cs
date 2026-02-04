@@ -51,7 +51,7 @@ public partial class ElectricConductivity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricConductivityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricConductivityUnit>(_unit, format);
 
     public static ElectricConductivity Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class BitRate : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BitRateUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<BitRateUnit>(_unit, format);
 
     public static BitRate Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class FuelEfficiency : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FuelEfficiencyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<FuelEfficiencyUnit>(_unit, format);
 
     public static FuelEfficiency Parse(string? input, IFormatProvider? culture = null)
     {

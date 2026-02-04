@@ -51,7 +51,7 @@ public partial class Permittivity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermittivityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PermittivityUnit>(_unit, format);
 
     public static Permittivity Parse(string? input, IFormatProvider? culture = null)
     {

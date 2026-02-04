@@ -51,7 +51,7 @@ public partial class Illuminance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<IlluminanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<IlluminanceUnit>(_unit, format);
 
     public static Illuminance Parse(string? input, IFormatProvider? culture = null)
     {

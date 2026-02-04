@@ -51,7 +51,7 @@ public partial class ElectricCurrent : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricCurrentUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricCurrentUnit>(_unit, format);
 
     public static ElectricCurrent Parse(string? input, IFormatProvider? culture = null)
     {

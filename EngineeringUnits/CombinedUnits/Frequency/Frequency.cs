@@ -51,7 +51,7 @@ public partial class Frequency : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<FrequencyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<FrequencyUnit>(_unit, format);
 
     public static Frequency Parse(string? input, IFormatProvider? culture = null)
     {

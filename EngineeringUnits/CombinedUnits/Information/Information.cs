@@ -51,7 +51,7 @@ public partial class Information : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<InformationUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<InformationUnit>(_unit, format);
 
     public static Information Parse(string? input, IFormatProvider? culture = null)
     {

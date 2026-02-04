@@ -51,7 +51,7 @@ public partial class Length : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LengthUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LengthUnit>(_unit, format);
 
     public static Length Parse(string? input, IFormatProvider? culture = null)
     {

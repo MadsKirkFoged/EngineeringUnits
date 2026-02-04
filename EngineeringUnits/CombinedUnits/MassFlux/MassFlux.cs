@@ -51,7 +51,7 @@ public partial class MassFlux : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassFluxUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MassFluxUnit>(_unit, format);
 
     public static MassFlux Parse(string? input, IFormatProvider? culture = null)
     {

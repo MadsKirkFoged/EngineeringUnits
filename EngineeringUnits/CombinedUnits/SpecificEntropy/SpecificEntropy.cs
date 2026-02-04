@@ -51,7 +51,7 @@ public partial class SpecificEntropy : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificEntropyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificEntropyUnit>(_unit, format);
 
     public static SpecificEntropy Parse(string? input, IFormatProvider? culture = null)
     {

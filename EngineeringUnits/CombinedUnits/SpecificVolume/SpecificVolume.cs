@@ -51,7 +51,7 @@ public partial class SpecificVolume : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificVolumeUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificVolumeUnit>(_unit, format);
 
     public static SpecificVolume Parse(string? input, IFormatProvider? culture = null)
     {

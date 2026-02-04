@@ -51,7 +51,7 @@ public partial class MagneticField : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MagneticFieldUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MagneticFieldUnit>(_unit, format);
 
     public static MagneticField Parse(string? input, IFormatProvider? culture = null)
     {

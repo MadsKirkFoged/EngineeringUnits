@@ -51,7 +51,7 @@ public partial class ElectricResistance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricResistanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricResistanceUnit>(_unit, format);
 
     public static ElectricResistance Parse(string? input, IFormatProvider? culture = null)
     {

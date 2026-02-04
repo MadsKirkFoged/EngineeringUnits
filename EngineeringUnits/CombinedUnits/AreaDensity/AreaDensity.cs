@@ -51,7 +51,7 @@ public partial class AreaDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaDensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AreaDensityUnit>(_unit, format);
 
     public static AreaDensity Parse(string? input, IFormatProvider? culture = null)
     {

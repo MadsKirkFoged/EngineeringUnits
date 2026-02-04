@@ -51,7 +51,7 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<BrakeSpecificFuelConsumptionUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<BrakeSpecificFuelConsumptionUnit>(_unit, format);
 
     public static BrakeSpecificFuelConsumption Parse(string? input, IFormatProvider? culture = null)
     {

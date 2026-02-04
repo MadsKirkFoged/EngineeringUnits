@@ -51,7 +51,7 @@ public partial class MassCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MassCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MassCostUnit>(_unit, format);
 
     public static MassCost Parse(string? input, IFormatProvider? culture = null)
     {

@@ -51,7 +51,7 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<VolumetricHeatTransferCoefficientUnit>(_unit, format);
 
     public static VolumetricHeatTransferCoefficient Parse(string? input, IFormatProvider? culture = null)
     {

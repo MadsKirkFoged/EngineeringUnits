@@ -51,7 +51,7 @@ public partial class AmountOfSubstance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AmountOfSubstanceUnit>(_unit, format);
 
     public static AmountOfSubstance Parse(string? input, IFormatProvider? culture = null)
     {

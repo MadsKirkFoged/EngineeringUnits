@@ -51,7 +51,7 @@ public partial class MolarMass : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<MolarMassUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<MolarMassUnit>(_unit, format);
 
     public static MolarMass Parse(string? input, IFormatProvider? culture = null)
     {

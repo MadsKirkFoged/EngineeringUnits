@@ -51,7 +51,7 @@ public partial class LinearDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<LinearDensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<LinearDensityUnit>(_unit, format);
 
     public static LinearDensity Parse(string? input, IFormatProvider? culture = null)
     {

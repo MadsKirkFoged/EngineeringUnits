@@ -51,7 +51,7 @@ public partial class Permeability : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<PermeabilityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<PermeabilityUnit>(_unit, format);
 
     public static Permeability Parse(string? input, IFormatProvider? culture = null)
     {

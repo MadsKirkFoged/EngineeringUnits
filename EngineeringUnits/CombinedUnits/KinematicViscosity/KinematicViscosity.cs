@@ -51,7 +51,7 @@ public partial class KinematicViscosity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<KinematicViscosityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<KinematicViscosityUnit>(_unit, format);
 
     public static KinematicViscosity Parse(string? input, IFormatProvider? culture = null)
     {

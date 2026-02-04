@@ -51,7 +51,7 @@ public partial class Snap : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SnapUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SnapUnit>(_unit, format);
 
     public static Snap Parse(string? input, IFormatProvider? culture = null)
     {

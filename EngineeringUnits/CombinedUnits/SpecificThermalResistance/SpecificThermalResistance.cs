@@ -51,7 +51,7 @@ public partial class SpecificThermalResistance : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<SpecificThermalResistanceUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<SpecificThermalResistanceUnit>(_unit, format);
 
     public static SpecificThermalResistance Parse(string? input, IFormatProvider? culture = null)
     {

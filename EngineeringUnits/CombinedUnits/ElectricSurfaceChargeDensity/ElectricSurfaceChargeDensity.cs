@@ -51,7 +51,7 @@ public partial class ElectricSurfaceChargeDensity : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ElectricSurfaceChargeDensityUnit>(_unit, format);
 
     public static ElectricSurfaceChargeDensity Parse(string? input, IFormatProvider? culture = null)
     {

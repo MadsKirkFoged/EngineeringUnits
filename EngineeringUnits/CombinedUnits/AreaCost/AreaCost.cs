@@ -51,7 +51,7 @@ public partial class AreaCost : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AreaCostUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AreaCostUnit>(_unit, format);
 
     public static AreaCost Parse(string? input, IFormatProvider? culture = null)
     {

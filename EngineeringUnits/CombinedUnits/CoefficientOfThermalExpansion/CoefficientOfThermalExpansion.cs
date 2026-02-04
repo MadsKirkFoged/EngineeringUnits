@@ -51,7 +51,7 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<CoefficientOfThermalExpansionUnit>(_unit, format);
 
     public static CoefficientOfThermalExpansion Parse(string? input, IFormatProvider? culture = null)
     {

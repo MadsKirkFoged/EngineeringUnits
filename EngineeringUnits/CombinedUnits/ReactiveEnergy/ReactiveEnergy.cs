@@ -51,7 +51,7 @@ public partial class ReactiveEnergy : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<ReactiveEnergyUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<ReactiveEnergyUnit>(_unit, format);
 
     public static ReactiveEnergy Parse(string? input, IFormatProvider? culture = null)
     {

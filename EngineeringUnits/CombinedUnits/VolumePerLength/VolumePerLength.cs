@@ -51,7 +51,7 @@ public partial class VolumePerLength : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<VolumePerLengthUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<VolumePerLengthUnit>(_unit, format);
 
     public static VolumePerLength Parse(string? input, IFormatProvider? culture = null)
     {

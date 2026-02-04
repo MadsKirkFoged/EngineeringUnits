@@ -51,7 +51,7 @@ public partial class WarpingMomentOfInertia : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<WarpingMomentOfInertiaUnit>(_unit, format);
 
     public static WarpingMomentOfInertia Parse(string? input, IFormatProvider? culture = null)
     {

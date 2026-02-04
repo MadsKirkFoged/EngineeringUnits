@@ -51,7 +51,7 @@ public partial class Acceleration : BaseUnit
         return new(Unit);
     }
 
-    public override string? GetStandardSymbol(UnitSystem _unit) => GetStandardSymbol<AccelerationUnit>(_unit);
+    public override string? GetStandardSymbol(UnitSystem _unit, string? format = null) => GetStandardSymbol<AccelerationUnit>(_unit, format);
 
     public static Acceleration Parse(string? input, IFormatProvider? culture = null)
     {
