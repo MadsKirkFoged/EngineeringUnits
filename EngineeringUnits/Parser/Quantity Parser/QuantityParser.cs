@@ -30,6 +30,11 @@ namespace EngineeringUnits.Parsing
 
             input = input.Trim();
 
+            //fx 10−1  -> 1e-1
+            input = NormalizeNumericUnicode(input);
+            input = NormalizeTenPowerShorthand(input); // literal-only behavior is OK he
+
+
             if (!TrySplitNumberAndUnit(input, out var numberPart, out var unitPart))
                 return false;
 
@@ -88,7 +93,12 @@ namespace EngineeringUnits.Parsing
             where TUnit : UnitTypebase
         {
             if (!TryParse(input, factory, siUnit, out TQuantity value, culture, allowUnitExpressions))
-                throw new FormatException($"Could not parse {typeof(TQuantity).Name} from '{input}'.");
+            {
+                // Best-effort diagnostic
+                var diag = QuantityParser.ParseWithWarnings(input, culture);
+                var extra = string.IsNullOrWhiteSpace(diag.Error) ? "" : $" {diag.Error}";
+                throw new FormatException($"Could not parse {typeof(TQuantity).Name} from '{input}'.{extra}");
+            }
             return value;
         }
 
@@ -100,6 +110,9 @@ namespace EngineeringUnits.Parsing
                 return Fail(original, "Input was empty.");
 
             input = input.Trim();
+            input = NormalizeNumericUnicode(input);
+            input = NormalizeTenPowerShorthand(input); // literal-only behavior is OK he
+
 
             if (!TrySplitNumberAndUnit(input, out var numberPart, out var unitExpr))
                 return Fail(original, "Expected '<number> <unit expression>'.");
@@ -137,22 +150,23 @@ namespace EngineeringUnits.Parsing
         }
 
 
-        public static BaseUnit Parse(string? input, IFormatProvider? culture = null)
+        public static UnknownUnit Parse(string? input, IFormatProvider? culture = null)
         {
             var r = ParseWithWarnings(input, culture);
             if (!r.Success || r.Value is null)
-                throw new FormatException($"Could not parse '{input}'. {r.Error}");
-            return r.Value.TryCastToKnownUnit();
+                throw new FormatException(string.IsNullOrWhiteSpace(r.Error) ? $"Could not parse '{input}'." : $"Could not parse '{input}'. {r.Error}"
+);
+            return r.Value;//.TryCastToKnownUnit();
         }
 
-        public static bool TryParse(string? input, out BaseUnit unit, IFormatProvider? culture = null)
+        public static bool TryParse(string? input, out UnknownUnit unit, IFormatProvider? culture = null)
         {
             unit = default!;
             var r = ParseWithWarnings(input, culture);
             if (!r.Success || r.Value is null)
                 return false;
 
-            unit = r.Value.TryCastToKnownUnit();
+            unit = r.Value;//.TryCastToKnownUnit();
             return true;
         }
 
@@ -170,47 +184,7 @@ namespace EngineeringUnits.Parsing
         }
 
 
-        // ---------------- helpers ----------------
-        //private static bool TrySplitNumberAndUnit(string input, out string numberPart, out string unitPart)
-        //{
-        //    numberPart = "";
-        //    unitPart = "";
-
-        //    int i = 0;
-        //    while (i < input.Length && char.IsWhiteSpace(input[i]))
-        //        i++;
-        //    if (i >= input.Length)
-        //        return false;
-
-        //    int startNum = i;
-
-        //    while (i < input.Length)
-        //    {
-        //        char c = input[i];
-
-        //        if (char.IsDigit(c) || c == '+' || c == '-' || c == '.' || c == ',' || c == 'e' || c == 'E')
-        //        { i++; continue; }
-
-        //        if (char.IsWhiteSpace(c))
-        //        { i++; continue; }
-
-        //        break;
-        //    }
-
-        //    int endNum = i;
-
-        //    while (i < input.Length && char.IsWhiteSpace(input[i]))
-        //        i++;
-        //    if (i >= input.Length)
-        //        return false;
-
-        //    int startUnit = i;
-
-        //    numberPart = input.Substring(startNum, endNum - startNum).Trim();
-        //    unitPart = input.Substring(startUnit).Trim();
-
-        //    return numberPart.Length > 0 && unitPart.Length > 0;
-        //}
+        // ---------------- helpers ----------------        
 
         private static bool TrySplitNumberAndUnit(string input, out string numberPart, out string unitPart)
         {
@@ -324,5 +298,201 @@ namespace EngineeringUnits.Parsing
 
             return false;
         }
+
+        private static string NormalizeTenPowerShorthand(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return input ?? "";
+
+            int i = 0;
+            while (i < input.Length && char.IsWhiteSpace(input[i]))
+                i++;
+
+            if (i >= input.Length)
+                return input;
+
+            // ---- Helpers ----
+            static bool IsMul(char c) => c == '*' || c == '×' || c == '·' || c == '⋅' || c == '∙';
+            // × (multiplication sign) and ⋅ (dot operator) are common in copied math text. [5](https://github.com/angularsen/UnitsNet)[6](https://libs.tech/project/11521218/unitsnet)
+
+            static bool IsSupDigit(char c) => c is '⁰' or '¹' or '²' or '³' or '⁴' or '⁵' or '⁶' or '⁷' or '⁸' or '⁹';
+            static int SupDigitValue(char c) => c switch
+            {
+                '⁰' => 0,
+                '¹' => 1,
+                '²' => 2,
+                '³' => 3,
+                '⁴' => 4,
+                '⁵' => 5,
+                '⁶' => 6,
+                '⁷' => 7,
+                '⁸' => 8,
+                '⁹' => 9,
+                _ => 0
+            };
+
+            static void SkipWs(string s, ref int idx)
+            {
+                while (idx < s.Length && char.IsWhiteSpace(s[idx]))
+                    idx++;
+            }
+
+            static bool ReadAsciiDigits(string s, ref int idx, out string digits)
+            {
+                int start = idx;
+                while (idx < s.Length && char.IsDigit(s[idx]))
+                    idx++;
+                digits = s.Substring(start, idx - start);
+                return digits.Length > 0;
+            }
+
+            static bool TryReadExponentAfterCaret(string s, ref int idx, out string exp)
+            {
+                exp = "";
+                SkipWs(s, ref idx);
+                if (idx >= s.Length || s[idx] != '^')
+                    return false;
+                idx++;
+
+                SkipWs(s, ref idx);
+
+                bool paren = idx < s.Length && s[idx] == '(';
+                if (paren)
+                { idx++; SkipWs(s, ref idx); }
+
+                char sign = '+';
+                if (idx < s.Length && (s[idx] == '+' || s[idx] == '-'))
+                {
+                    sign = s[idx];
+                    idx++;
+                }
+
+                if (!ReadAsciiDigits(s, ref idx, out var digits))
+                    return false;
+
+                if (paren)
+                {
+                    SkipWs(s, ref idx);
+                    if (idx >= s.Length || s[idx] != ')')
+                        return false;
+                    idx++;
+                }
+
+                exp = (sign == '-' ? "-" : "") + digits;
+                return true;
+            }
+
+            static bool TryReadSuperscriptExponent(string s, ref int idx, out string exp)
+            {
+                exp = "";
+                SkipWs(s, ref idx);
+
+                char sign = '+';
+                if (idx < s.Length && s[idx] == '⁻')
+                { sign = '-'; idx++; }
+                else if (idx < s.Length && s[idx] == '⁺')
+                { sign = '+'; idx++; }
+
+                int val = 0;
+                int digits = 0;
+                while (idx < s.Length && IsSupDigit(s[idx]))
+                {
+                    val = (val * 10) + SupDigitValue(s[idx]);
+                    digits++;
+                    idx++;
+                }
+
+                if (digits == 0)
+                    return false;
+
+                exp = (sign == '-' ? "-" : "") + val.ToString(CultureInfo.InvariantCulture);
+                return true;
+            }
+
+            // ---- Pattern 1: STARTS WITH 10^exp ----
+            if (i + 1 < input.Length && input[i] == '1' && input[i + 1] == '0')
+            {
+                int j = i + 2;
+
+                // 10^...  -> 1e...
+                int k = j;
+                if (TryReadExponentAfterCaret(input, ref k, out var expCaret))
+                    return input.Substring(0, i) + "1e" + expCaret + input.Substring(k);
+
+                // 10⁻¹ / 10¹ -> 1e...
+                k = j;
+                if (TryReadSuperscriptExponent(input, ref k, out var expSup))
+                    return input.Substring(0, i) + "1e" + expSup + input.Substring(k);
+
+                // Lost-caret shorthand: 10-1 or 10+3 (NO spaces, start only) -> 1e-1 / 1e+3
+                // Only if sign is immediately after 10 and digits immediately after sign.
+                if (j < input.Length && (input[j] == '-' || input[j] == '+'))
+                {
+                    int d = j + 1;
+                    int dStart = d;
+                    while (d < input.Length && char.IsDigit(input[d]))
+                        d++;
+                    if (d > dStart)
+                    {
+                        string expDigits = input.Substring(dStart, d - dStart);
+                        return input.Substring(0, i) + "1e" + input[j] + expDigits + input.Substring(d);
+                    }
+                }
+            }
+
+            // ---- Pattern 2: <coef> * 10^exp  (or ×, ⋅, ·) ----
+            // Read coefficient token up to whitespace or mul symbol.
+            int coefStart = i;
+            int coefEnd = i;
+            while (coefEnd < input.Length && !char.IsWhiteSpace(input[coefEnd]) && !IsMul(input[coefEnd]))
+                coefEnd++;
+
+            if (coefEnd > coefStart)
+            {
+                string coef = input.Substring(coefStart, coefEnd - coefStart);
+
+                int j = coefEnd;
+                SkipWs(input, ref j);
+
+                if (j < input.Length && IsMul(input[j]))
+                {
+                    j++;
+                    SkipWs(input, ref j);
+
+                    if (j + 1 < input.Length && input[j] == '1' && input[j + 1] == '0')
+                    {
+                        int after10 = j + 2;
+                        int k = after10;
+
+                        if (TryReadExponentAfterCaret(input, ref k, out var expCaret))
+                            return input.Substring(0, coefStart) + coef + "e" + expCaret + input.Substring(k);
+
+                        k = after10;
+                        if (TryReadSuperscriptExponent(input, ref k, out var expSup))
+                            return input.Substring(0, coefStart) + coef + "e" + expSup + input.Substring(k);
+                    }
+                }
+            }
+
+            return input;
+        }
+        private static string NormalizeNumericUnicode(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return input ?? "";
+
+            // Normalize common unicode minus/plus and odd spaces that break numeric parsing
+            // U+2212 is MINUS SIGN (very common in copied math) [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
+            return input
+                .Replace('\u00A0', ' ')  // NBSP
+                .Replace('−', '-')       // U+2212 minus sign [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
+                .Replace('–', '-')       // en dash
+                .Replace('—', '-')       // em dash
+                .Replace('‑', '-')       // non-breaking hyphen
+                .Replace('－', '-')      // fullwidth hyphen-minus
+                .Replace('＋', '+');     // fullwidth plus
+        }
+
+
     }
-}
+    }

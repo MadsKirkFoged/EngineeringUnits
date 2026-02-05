@@ -47,195 +47,226 @@ public class Program
 
     public static void Main()
     {
-
-        var inf = Energy.FromSI(0) / MassFlow.FromSI(0);
-
-
-        var test = QuantityParser.Parse("10 m¹");
-        var test2 = QuantityParser.Parse("10 m¹¹ ");
-
-        var u11 = QuantityExpressionParser.Parse("10 m⁴"); //{5 m}
-        var u22 = QuantityExpressionParser.Parse("1 s^-2 + 2 s^-2"); //{-5 m}
-        var u33 = QuantityExpressionParser.Parse("+(10 m - 5 m)"); //System.FormatException: 'Trying to do [] - [m]. Can't subtract two different units!'
-
-        //string ustr = $"{u:G7 U:PF}";
-
-        //var u22 = QuantityExpressionParser.Parse("10m + (10m) - 5in");
-        //var u33 = QuantityExpressionParser.Parse("(10m + (10m)) - 5in");
-        //var u44 = QuantityExpressionParser.Parse("((10m + (10m)) - 5in"); //fails as expectet
-        //var u55 = QuantityExpressionParser.Parse("(10m + 10m)^2"); fails but is valid math
-        var u66 = QuantityExpressionParser.Parse("(10m + 10m) * 2");
-
-        Length testing = QuantityParser.Parse("10 m") + QuantityParser.Parse("5 in"); //result = {10.13 m}
-
-        Temperature testing2 = QuantityParser.Parse("10 °C") + QuantityParser.Parse("5m"); //EngineeringUnits.WrongUnitException: 'Trying to do [°C] + [m]. Can't add two different units!'
+        //double test = double.Parse("10^1");
 
 
-
-        var works3 = Ratio.Parse("10%").AsSI;
-
-        var works = Ratio.Parse("10");
-        var works2 = QuantityParser.Parse("10");
-
-        //10 m + 5 in
-
-        var mytesting = QuantityParser.Parse("1 kg*mm^5/s^3");
-        var mytesting2 = QuantityParser.Parse("1 s^3");
-        var mytesting3 = mytesting * mytesting2; // 1 kgmm⁵
-
-        var parsertest = Frequency.Parse("1/s");
+        //Pressure p3 = Pressure.Parse("1e1 Pa");
+        //Pressure p4 = Pressure.Parse("1E1 Pa");
+        //Pressure p5 = Pressure.Parse("1e+1 Pa");
+        //Pressure p6 = Pressure.Parse("1e-1 Pa");
+        Pressure p7 = Pressure.Parse("10^1 Pa");
+        Pressure p8 = Pressure.Parse("10^-1 Pa");
+        Pressure p9 = Pressure.Parse("10¹ Pa");
 
 
-        var r2 = QuantityParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
-        if (!r2.Success)
-        {
-            Console.WriteLine("Error: " + r2.Error);
-        }
-        else
-        {
-            Console.WriteLine("Normalized: " + r2.Normalized);
-            foreach (var w in r2.Warnings)
-                Console.WriteLine($"Warning: {w.Code} - {w.Message}");
-        }
+        // Parse directly into a specific type (unit-safe)
+        Length L = Length.Parse("10 m");
+        Speed v = Speed.Parse("90 km/h");
+        Power P = Power.Parse("850 W");
+        Temperature T = Temperature.Parse("21 °C");
+        Area A = Area.Parse("12 m^2"); // Or use "12 m²"
 
-        var parsed = r2.Value;
+        //If you dont know the specific type
+        var u = UnknownUnit.Parse("1 kg*mm^5/s^3");
 
-        Energy ee = Energy.Parse("1 Wh");
-        Energy ee2 = Energy.Parse("1 kg*m^2/s^2");
-        Energy ee3 = Energy.Parse("1 kg*mm^2/s^2");
+        //Cast if you know the unit
+        //var p2 = UnknownUnit.Parse("1 kg*m^2/s^2");
 
-        Length aa = Length.Parse("12.3 m");
-        //Length aa2 = Length.Parse("1 Gm");
 
-        var u1 = QuantityParser.Parse("10 N m");          // implicit multiply
-        var u2 = QuantityParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
-        var u3 = QuantityParser.Parse("1 W h");           // implicit multiply
+        //Full equaltion parser
+        
+        var r2 = UnknownUnit.Eval("1 N*m - 1 kg*m^2/s^2");
+        var r3 = UnknownUnit.Eval("(10 m/s) * (5 s)");
 
-        Console.WriteLine(u1.Unit.GetSIUnitsystem());
-        Console.WriteLine(u2.Unit.GetSIUnitsystem());
+
+        //var inf = Energy.FromSI(0) / MassFlow.FromSI(0);
+
+
+        //var test = QuantityParser.Parse("10 m¹");
+        //var test2 = QuantityParser.Parse("10 m¹¹ ");
+
+        //var u11 = QuantityExpressionParser.Parse("10 m⁴"); //{5 m}
+        //var u22 = QuantityExpressionParser.Parse("1 s^-2 + 2 s^-2"); //{-5 m}
+        //var u33 = QuantityExpressionParser.Parse("+(10 m - 5 m)"); //System.FormatException: 'Trying to do [] - [m]. Can't subtract two different units!'
+
+        ////string ustr = $"{u:G7 U:PF}";
+
+        ////var u22 = QuantityExpressionParser.Parse("10m + (10m) - 5in");
+        ////var u33 = QuantityExpressionParser.Parse("(10m + (10m)) - 5in");
+        ////var u44 = QuantityExpressionParser.Parse("((10m + (10m)) - 5in"); //fails as expectet
+        ////var u55 = QuantityExpressionParser.Parse("(10m + 10m)^2"); fails but is valid math
+        //var u66 = QuantityExpressionParser.Parse("(10m + 10m) * 2");
+
+        //Length testing = QuantityParser.Parse("10 m") + QuantityParser.Parse("5 in"); //result = {10.13 m}
+
+        //Temperature testing2 = QuantityParser.Parse("10 °C") + QuantityParser.Parse("5m"); //EngineeringUnits.WrongUnitException: 'Trying to do [°C] + [m]. Can't add two different units!'
+
+
+
+        //var works3 = Ratio.Parse("10%").AsSI;
+
+        //var works = Ratio.Parse("10");
+        //var works2 = QuantityParser.Parse("10");
+
+        ////10 m + 5 in
+
+        //var mytesting = QuantityParser.Parse("1 kg*mm^5/s^3");
+        //var mytesting2 = QuantityParser.Parse("1 s^3");
+        //var mytesting3 = mytesting * mytesting2; // 1 kgmm⁵
+
+        //var parsertest = Frequency.Parse("1/s");
+
+
+        //var r2 = QuantityParser.ParseWithWarnings("1 W h"); // after your "h" removal, should succeed
+        //if (!r2.Success)
+        //{
+        //    Console.WriteLine("Error: " + r2.Error);
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Normalized: " + r2.Normalized);
+        //    foreach (var w in r2.Warnings)
+        //        Console.WriteLine($"Warning: {w.Code} - {w.Message}");
+        //}
+
+        //var parsed = r2.Value;
+
+        //Energy ee = Energy.Parse("1 Wh");
+        //Energy ee2 = Energy.Parse("1 kg*m^2/s^2");
+        //Energy ee3 = Energy.Parse("1 kg*mm^2/s^2");
+
+        //Length aa = Length.Parse("12.3 m");
+        ////Length aa2 = Length.Parse("1 Gm");
+
+        //var u1 = QuantityParser.Parse("10 N m");          // implicit multiply
+        //var u2 = QuantityParser.Parse("10 kg m^2 / s^2"); // implicit multiply + division + exponent
+        //var u3 = QuantityParser.Parse("1 W h");           // implicit multiply
+
+        //Console.WriteLine(u1.Unit.GetSIUnitsystem());
+        //Console.WriteLine(u2.Unit.GetSIUnitsystem());
 
         
 
-        //Power test = Power.FromSI(10);
-        //int i = 1;
+        ////Power test = Power.FromSI(10);
+        ////int i = 1;
 
-        //Ratio r = Ratio.FromSI(1) / Ratio.FromSI(1);
+        ////Ratio r = Ratio.FromSI(1) / Ratio.FromSI(1);
 
-        //var result = (test / i) / r;
-
-
-
-        // Q = ṁ * cp * (Tout - Tin)
-        //SpecificEntropy cp = 4180.JoulePerKilogramKelvin;  // water-ish
-        //MassFlow mDot = 2.KilogramPerSecond;
-
-        //Temperature Tin = 20.DegreeCelsius;
-        //Temperature Tout = 60.DegreeCelsius;
-
-        //Power Q = mDot * cp * (Tout - Tin);
-        //Console.WriteLine(Q.ToUnit(PowerUnit.Kilowatt)); // e.g. "334.4 kW"
-
-
-        // q = k * A * ΔT / L
-        //ThermalConductivity k = 1.4.WattPerMeterKelvin;
-        //Area A = 12.SquareMeter;
-        //Length L = 0.24.Meter;
-
-        //Temperature Tin = 21.DegreeCelsius;
-        //Temperature Tout = -2.DegreeCelsius;
-
-        //Power q = k * A * (Tin - Tout) / L;
-
-
-        //// q = ε σ A (T1^4 - T2^4)
-        //Ratio epsilon = 0.9.DecimalFraction;
-        //Area A = 2.SquareMeter;
-
-        //Temperature T1 = 500.Kelvin;
-        //Temperature T2 = 300.Kelvin;
-
-        //Power q = epsilon * Constants.StefanBoltzmannConstant * A * (T1.Pow(4) - T2.Pow(4));
-
-
-        //Temperature room = 21.DegreeCelsius;
-
-        //Temperature f = room.ToUnit(TemperatureUnit.DegreeFahrenheit);
-        //Temperature back = f.ToUnit(TemperatureUnit.DegreeCelsius);
-
-        //Console.WriteLine($"{room} -> {f} -> {back}");
-
-
-        // Qv = v * A
-        //Speed v = 5.MeterPerSecond;
-        //Area A = 0.25.SquareMeter;
-
-        //VolumeFlow Qv = v * A; // m³/s
-        //Console.WriteLine(Qv);
-
-
-        // ṁ = ρ * Qv
-        //Density rho = 1.2.KilogramPerCubicMeter;  // air-ish
-        //VolumeFlow Qv = 0.8.CubicMeterPerSecond;
-
-        //MassFlow mDot = rho * Qv;
-
-
-        // Δp = ρ g h
-        //Density rho = 998.KilogramPerCubicMeter; // water-ish
-        //Length h = 18.Meter;
-
-        //Pressure dp = rho * Constants.StandardGravity * h; // Pa
-        //Console.WriteLine(dp.ToUnit(PressureUnit.Bar));
-
-
-        // Re = (ρ * v * D) / μ  -> should be dimensionless
-        //Density rho = 1.2.KilogramPerCubicMeter;
-        //Speed v = 8.MeterPerSecond;
-        //Length D = 0.2.Meter;
-        //DynamicViscosity mu = 1.8e-5.PascalSecond;
-
-        //Ratio Re = (rho * v * D) / mu;
-        //Console.WriteLine(Re);
+        ////var result = (test / i) / r;
 
 
 
-        //VolumeFlow Qv = 0.35.CubicMeterPerSecond;
+        //// Q = ṁ * cp * (Tout - Tin)
+        ////SpecificEntropy cp = 4180.JoulePerKilogramKelvin;  // water-ish
+        ////MassFlow mDot = 2.KilogramPerSecond;
 
-        //var cfm = Qv.ToUnit(VolumeFlowUnit.CubicFootPerMinute);
-        //Console.WriteLine(cfm); // e.g. "741.6 ft³/min"
+        ////Temperature Tin = 20.DegreeCelsius;
+        ////Temperature Tout = 60.DegreeCelsius;
 
-
-
-        // Ek = 0.5 * m * v²
-        //Mass m = 1200.Kilogram;       // car-ish
-        //Speed v = 27.MeterPerSecond;  // ~97 km/h
-
-        //Energy Ek = 0.5m * m * v.Pow(2);
+        ////Power Q = mDot * cp * (Tout - Tin);
+        ////Console.WriteLine(Q.ToUnit(PowerUnit.Kilowatt)); // e.g. "334.4 kW"
 
 
-        // P = τ * ω
-        //Torque tau = 250.NewtonMeter;
-        //RotationalSpeed omega = RotationalSpeed.FromRadianPerSecond(3000);
+        //// q = k * A * ΔT / L
+        ////ThermalConductivity k = 1.4.WattPerMeterKelvin;
+        ////Area A = 12.SquareMeter;
+        ////Length L = 0.24.Meter;
 
-        //Power P = tau * omega;
-        //Console.WriteLine(P.ToUnit(PowerUnit.MechanicalHorsepower));
+        ////Temperature Tin = 21.DegreeCelsius;
+        ////Temperature Tout = -2.DegreeCelsius;
 
-
-        //// F = p * A
-        //Pressure p = 10.Bar;
-        //Area A = 0.01.SquareMeter;
-
-        //Force F = p * A;
-        //Console.WriteLine(F);
+        ////Power q = k * A * (Tin - Tout) / L;
 
 
-        Pressure P = 101325.Pascal;
-        Volume V = 1.CubicMeter;
-        AmountOfSubstance n = 40.Mole;
+        ////// q = ε σ A (T1^4 - T2^4)
+        ////Ratio epsilon = 0.9.DecimalFraction;
+        ////Area A = 2.SquareMeter;
 
-        // T = (P * V) / (n * R)
-        Temperature T = (P * V) / (n * Constants.IdealGasConstant);
-        Console.WriteLine(T);
+        ////Temperature T1 = 500.Kelvin;
+        ////Temperature T2 = 300.Kelvin;
+
+        ////Power q = epsilon * Constants.StefanBoltzmannConstant * A * (T1.Pow(4) - T2.Pow(4));
+
+
+        ////Temperature room = 21.DegreeCelsius;
+
+        ////Temperature f = room.ToUnit(TemperatureUnit.DegreeFahrenheit);
+        ////Temperature back = f.ToUnit(TemperatureUnit.DegreeCelsius);
+
+        ////Console.WriteLine($"{room} -> {f} -> {back}");
+
+
+        //// Qv = v * A
+        ////Speed v = 5.MeterPerSecond;
+        ////Area A = 0.25.SquareMeter;
+
+        ////VolumeFlow Qv = v * A; // m³/s
+        ////Console.WriteLine(Qv);
+
+
+        //// ṁ = ρ * Qv
+        ////Density rho = 1.2.KilogramPerCubicMeter;  // air-ish
+        ////VolumeFlow Qv = 0.8.CubicMeterPerSecond;
+
+        ////MassFlow mDot = rho * Qv;
+
+
+        //// Δp = ρ g h
+        ////Density rho = 998.KilogramPerCubicMeter; // water-ish
+        ////Length h = 18.Meter;
+
+        ////Pressure dp = rho * Constants.StandardGravity * h; // Pa
+        ////Console.WriteLine(dp.ToUnit(PressureUnit.Bar));
+
+
+        //// Re = (ρ * v * D) / μ  -> should be dimensionless
+        ////Density rho = 1.2.KilogramPerCubicMeter;
+        ////Speed v = 8.MeterPerSecond;
+        ////Length D = 0.2.Meter;
+        ////DynamicViscosity mu = 1.8e-5.PascalSecond;
+
+        ////Ratio Re = (rho * v * D) / mu;
+        ////Console.WriteLine(Re);
+
+
+
+        ////VolumeFlow Qv = 0.35.CubicMeterPerSecond;
+
+        ////var cfm = Qv.ToUnit(VolumeFlowUnit.CubicFootPerMinute);
+        ////Console.WriteLine(cfm); // e.g. "741.6 ft³/min"
+
+
+
+        //// Ek = 0.5 * m * v²
+        ////Mass m = 1200.Kilogram;       // car-ish
+        ////Speed v = 27.MeterPerSecond;  // ~97 km/h
+
+        ////Energy Ek = 0.5m * m * v.Pow(2);
+
+
+        //// P = τ * ω
+        ////Torque tau = 250.NewtonMeter;
+        ////RotationalSpeed omega = RotationalSpeed.FromRadianPerSecond(3000);
+
+        ////Power P = tau * omega;
+        ////Console.WriteLine(P.ToUnit(PowerUnit.MechanicalHorsepower));
+
+
+        ////// F = p * A
+        ////Pressure p = 10.Bar;
+        ////Area A = 0.01.SquareMeter;
+
+        ////Force F = p * A;
+        ////Console.WriteLine(F);
+
+
+        //Pressure P = 101325.Pascal;
+        //Volume V = 1.CubicMeter;
+        //AmountOfSubstance n = 40.Mole;
+
+        //// T = (P * V) / (n * R)
+        //Temperature T = (P * V) / (n * Constants.IdealGasConstant);
+        //Console.WriteLine(T);
 
 
 

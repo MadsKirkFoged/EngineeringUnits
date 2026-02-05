@@ -34,12 +34,14 @@ namespace EngineeringUnits.Parser.UnitParser
 
                 text = UnitExpressionNormalizer.Normalize(text);
 
+
                 // Parse expression
-                if (!TryParse(text, out unitSystem))
+                if (!TryParse(text, out unitSystem, out error))
                 {
-                    error = "Could not parse unit expression.";
+                    error ??= "Could not parse unit expression.";
                     return false;
                 }
+
 
                 // Normalize offsets + warnings
                 var normalized = OffsetUnitNormalizer.Normalize(unitSystem);
@@ -66,9 +68,18 @@ namespace EngineeringUnits.Parser.UnitParser
             }
         }
 
+
         public static bool TryParse(string text, out UnitSystem unitSystem)
         {
+            return TryParse(text, out unitSystem, out _);
+        }
+
+
+        public static bool TryParse(string text, out UnitSystem unitSystem, out string? error)
+        {
             unitSystem = new UnitSystem();
+            error = null;
+
             if (string.IsNullOrWhiteSpace(text))
                 return true;
 
@@ -79,14 +90,28 @@ namespace EngineeringUnits.Parser.UnitParser
                 var tokenizer = new Tokenizer(text);
                 var parser = new Parser(tokenizer);
                 unitSystem = parser.ParseExpression();
-                return tokenizer.Current.Kind == TokenKind.End;
+
+                if (tokenizer.Current.Kind != TokenKind.End)
+                {
+                    error = $"Unexpected token '{tokenizer.Current.Text}' at end of expression.";
+                    return false;
+                }
+
+                return true;
             }
             catch (AmbiguousUnitTokenException)
             {
-                throw; // bubble up clearly
+                throw; // keep this behavior
             }
-            catch
+            catch (FormatException ex)
             {
+                error = string.IsNullOrWhiteSpace(ex.Message) ? "Could not parse unit expression." : ex.Message;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // still user-friendly, but keep the message
+                error = $"Could not parse unit expression: {ex.Message}";
                 return false;
             }
         }
@@ -162,8 +187,14 @@ namespace EngineeringUnits.Parser.UnitParser
                 while (_i < _s.Length && IsUnitChar(_s[_i]))
                     _i++;
                 var token = _s.Substring(u0, _i - u0).Trim();
+
                 if (token.Length == 0)
-                    throw new FormatException();
+                {
+                    char bad = _s[_i];
+                    throw new FormatException($"Unexpected character '{bad}' (U+{((int)bad):X4}) at position {_i}.");
+                }
+
+
                 Current = new(TokenKind.Unit, token);
             }
 
@@ -243,7 +274,7 @@ namespace EngineeringUnits.Parser.UnitParser
                 }
 
                 if (_t.Current.Kind != TokenKind.Unit)
-                    throw new FormatException();
+                    throw new FormatException($"Expected unit token, got '{_t.Current.Text}'.");
 
                 var raw = _t.Current.Text;
                 _t.Next();
@@ -272,7 +303,8 @@ namespace EngineeringUnits.Parser.UnitParser
                 }
 
                 if (_t.Current.Kind != TokenKind.Int)
-                    throw new FormatException();
+                    throw new FormatException($"Expected integer exponent after '^', got '{_t.Current.Text}'.");
+
                 int val = _t.Current.IntValue;
                 _t.Next();
                 return val;

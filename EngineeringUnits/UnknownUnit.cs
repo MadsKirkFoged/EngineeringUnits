@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EngineeringUnits.Parser.Objects;
+using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits;
 
@@ -78,4 +80,29 @@ public class UnknownUnit : BaseUnit
 
         return Unit.GetValueAs2(new UnitSystem());
     }
+
+    // -------------------------
+    // Literal parsing (value + unit/unit-expression)
+    // -------------------------
+    public static UnknownUnit Parse(string? input, IFormatProvider? culture = null)
+        => QuantityParser.Parse(input, culture);
+
+    public static bool TryParse(string? input, out UnknownUnit result, IFormatProvider? culture = null)
+        => QuantityParser.TryParse(input, out result, culture);
+
+    public static ParseResult<UnknownUnit> ParseWithWarnings(string? input, IFormatProvider? culture = null)
+        => QuantityParser.ParseWithWarnings(input, culture);
+
+    // -------------------------
+    // Expression evaluation (+ - * / parentheses)
+    // -------------------------
+    public static UnknownUnit Eval(string input, IFormatProvider? culture = null)
+        => QuantityExpressionParser.Parse(input, culture);
+
+    public static bool TryEval(string input, out UnknownUnit result, IFormatProvider? culture = null)
+        => QuantityExpressionParser.TryParse(input, out result, culture);
+
+    public static ParseResult<UnknownUnit> EvalWithWarnings(string input, IFormatProvider? culture = null)
+        => QuantityExpressionParser.ParseWithWarnings(input, culture);
+
 }

@@ -30,5 +30,32 @@ namespace UnitTests.Parsing
             Assert.AreEqual(1m, p.AsSI, 1e-9m);
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void UnicodeMinus_InExponent_ShouldParse()
+        {
+            var a = UnknownUnit.Parse("1 kg*m^2*s^-2", CultureInfo.InvariantCulture);
+            var b = UnknownUnit.Parse("1 kg*m^2*s^−2", CultureInfo.InvariantCulture); // U+2212
+
+            Assert.AreEqual(((EngineeringUnits.BaseUnit)a).AsSI, ((EngineeringUnits.BaseUnit)b).AsSI, 1e-12m);
+            Assert.IsTrue(a.Unit.GetSIUnitsystem() == b.Unit.GetSIUnitsystem());
+        }
+
+        [TestMethod]
+        public void SuperscriptNegativeExponent_ShouldParse_ForAcceleration()
+        {
+            var inv = CultureInfo.InvariantCulture;
+
+            var a1 = Acceleration.Parse("1 m·s⁻²", inv);
+            Assert.AreEqual(1m, a1.AsSI, 1e-9m);
+
+            // Mixed unicode minus + superscript digit (common copy/paste)
+            var a2 = Acceleration.Parse("1 m·s−²", inv); // U+2212 + U+00B2
+            Assert.AreEqual(1m, a2.AsSI, 1e-9m);
+
+            // ASCII '-' + superscript digit (after normalization)
+            var a3 = Acceleration.Parse("1 m·s-²", inv);
+            Assert.AreEqual(1m, a3.AsSI, 1e-9m);
+        }
     }
 }
