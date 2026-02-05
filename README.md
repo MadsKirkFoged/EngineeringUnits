@@ -223,6 +223,41 @@ Length length2 = new Length(1, LengthUnit.Yard);
 Length length3 = 1.Yard;
 ```
 
+
+---
+
+## Parse from string (NEW)
+
+You can now turn a string into an EngineeringUnits.
+This is still a new feature please create an Issue to let us know if you find something that does not work!
+
+```C#
+// Parse directly into a specific type (unit-safe)
+Length L = Length.Parse("10 m");
+Speed v = Speed.Parse("90 km/h");
+Power P = Power.Parse("850 W");
+Temperature T = Temperature.Parse("21 °C");
+Area A = Area.Parse("12 m^2"); // Or use "12 m²"
+
+//If you dont know the specific type
+var u = UnknownUnit.Parse("1 kg*mm^5/s^3");
+var p2 = UnknownUnit.Parse("1 kg*m^2/s^2");
+
+//Full equaltion parser
+var r1 = UnknownUnit.Eval("10m + 5in");
+var r2 = UnknownUnit.Eval("1 N*m - 1 kg*m^2/s^2");
+var r3 = UnknownUnit.Eval("(10 m/s) * (5 s)");
+
+```
+
+### Supported syntax
+
+- Literals: `10 m`, `5in`, `1 kg*m^2/s^2`, `2.5e-3 Pa`
+- Operators: `+ - * /`
+- Parentheses: `( ... )`
+- Unit multiplication: `*` or `·`
+- Exponents: `^2`, `^-3` and superscripts like `²`, `⁻¹` (normalized)
+
 ---
 
 ## Exporting values (edge of your system)
