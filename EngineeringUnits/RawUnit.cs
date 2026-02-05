@@ -86,18 +86,33 @@ public record RawUnit
 
     public RawUnit CloneWithOutOffset() => this with { B = 0, Symbol = null };
 
+    //public override int GetHashCode()
+    //{
+    //    int TempHashCode;
+    //    unchecked // Overflow is fine, just wrap
+    //    {
+    //        TempHashCode = (int)2166136261;
+    //        TempHashCode = (TempHashCode * 16777619) ^ A.GetHashCode();
+    //        TempHashCode = (TempHashCode * 45476689) ^ B.GetHashCode();
+    //        TempHashCode = (TempHashCode * 16777619) ^ Count.GetHashCode();
+    //        TempHashCode = (TempHashCode * 16777619) ^ UnitType.GetHashCode();
+    //    }
+
+    //    return TempHashCode;
+    //}
+
     public override int GetHashCode()
     {
-        int TempHashCode;
-        unchecked // Overflow is fine, just wrap
-        {
-            TempHashCode = (int)2166136261;
-            TempHashCode = (TempHashCode * 16777619) ^ A.GetHashCode();
-            TempHashCode = (TempHashCode * 45476689) ^ B.GetHashCode();
-            TempHashCode = (TempHashCode * 16777619) ^ Count.GetHashCode();
-            TempHashCode = (TempHashCode * 16777619) ^ UnitType.GetHashCode();
-        }
+        var hc = new HashCode();
 
-        return TempHashCode;
+        
+        //hc.Add(Symbol, StringComparer.Ordinal);
+
+        hc.Add(A);
+        hc.Add(B);
+        hc.Add(Count);
+        hc.Add(UnitType);
+
+        return hc.ToHashCode();
     }
 }

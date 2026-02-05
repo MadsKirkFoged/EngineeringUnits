@@ -91,19 +91,25 @@ public class UnitSystem
 
     }
 
-    private static readonly ConcurrentDictionary<int, UnitSystem> CacheMultiply = new();
+
+#if DEBUG
+    public static int MultiplyCacheCount => CacheMultiply.Count;
+    public static int DivideCacheCount => CacheDivide.Count;
+#endif
+
+
+    private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheMultiply = new();
     public static UnitSystem operator *(UnitSystem left, UnitSystem right)
     {
-        var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
+        var key = (Left: left.GetHashCode(), Right: right.GetHashCode());
 
-        if (CacheMultiply.TryGetValue(Hashes, out UnitSystem? local))
+        if (CacheMultiply.TryGetValue(key, out UnitSystem? local))
             return local;
 
         var test2 = new UnitSystem(new List<RawUnit>(left.ListOfUnits.Concat(right.ListOfUnits)));
 
-        //test2 = test2.ReduceUnitsHard();
 
-        _ = CacheMultiply.TryAdd(Hashes, test2);
+        _ = CacheMultiply.TryAdd(key, test2);
 
         return test2;
     }
@@ -135,12 +141,13 @@ public class UnitSystem
 
     }
 
-    private static readonly ConcurrentDictionary<int, UnitSystem> CacheDivide = new();
+    private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivide = new();
     public static UnitSystem operator /(UnitSystem left, UnitSystem right)
     {
-        var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
+        //var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
+        var key = (Left: left.GetHashCode(), Right: right.GetHashCode());
 
-        if (CacheDivide.TryGetValue(Hashes, out UnitSystem? local))
+        if (CacheDivide.TryGetValue(key, out UnitSystem? local))
             return local;
 
         List<RawUnit> LocalUnitList = new(left.ListOfUnits);
@@ -148,45 +155,9 @@ public class UnitSystem
         foreach (RawUnit item in right.ListOfUnits)
             LocalUnitList.Add(item.CloneAndReverseCount());
 
-        var DividedUnit = new UnitSystem(LocalUnitList);
+        var DividedUnit = new UnitSystem(LocalUnitList);       
 
-        ////Normalize the unit
-        //var NewUnit = DividedUnit.ReduceUnitsHard();
-
-        ////What is the diff between DividedUnit and NewUnit?
-        //var factor = NewUnit.ConvertionFactor(DividedUnit);
-
-        //if (factor != Fraction.One)
-        //{
-
-        //    RawUnit? combinedUnit = LocalUnitList.Where(x => x.UnitType is BaseunitType.CombinedUnit)
-        //                                         .FirstOrDefault();
-
-
-        //    if (combinedUnit is null)
-        //    {
-
-        //        var dimensionless = new RawUnit()
-        //        {
-        //            Symbol=null,
-        //            A = factor,
-        //            UnitType = BaseunitType.CombinedUnit,
-        //            B = 0,
-        //            Count = 1,
-        //        };
-
-        //        LocalUnitList.Add(dimensionless);
-        //    }
-        //    else
-        //    {
-        //        combinedUnit = combinedUnit with { A = combinedUnit.A  * factor };
-        //    }
-        //}
-
-
-        //DividedUnit = new UnitSystem(LocalUnitList);
-
-        _ = CacheDivide.TryAdd(Hashes, DividedUnit);
+        _ = CacheDivide.TryAdd(key, DividedUnit);
 
         return DividedUnit;
 
@@ -216,25 +187,45 @@ public class UnitSystem
     }
 
     private int HashCodeCached;
+    //public override int GetHashCode()
+    //{
+    //    if (HashCodeCached is not 0)
+    //        return HashCodeCached;
+
+    //    int TempHashCode;
+    //    unchecked // Overflow is fine, just wrap
+    //    {
+    //        TempHashCode = 795945743;
+
+    //        var deleteme = ListOfUnits.OrderBy(x => x.UnitType).ToList();
+
+    //        foreach (RawUnit item in ListOfUnits.OrderBy(x => x.UnitType))
+    //        {
+    //            TempHashCode = (TempHashCode * 512265997) ^ item.GetHashCode();
+    //        }
+    //    }
+
+    //    HashCodeCached = TempHashCode;
+
+    //    return TempHashCode;
+    //}
+
     public override int GetHashCode()
     {
         if (HashCodeCached is not 0)
             return HashCodeCached;
 
         int TempHashCode;
-        unchecked // Overflow is fine, just wrap
-        {
-            TempHashCode = 795945743;
+        var hc = new HashCode();
 
-            foreach (RawUnit item in ListOfUnits.OrderBy(x => x.UnitType))
-            {
-                TempHashCode = (TempHashCode * 512265997) ^ item.GetHashCode();
-            }
+        foreach (RawUnit item in ListOfUnits.OrderBy(x => x.UnitType))
+        {
+            hc.Add(item);
         }
 
-        HashCodeCached = TempHashCode;
+        HashCodeCached = hc.ToHashCode();
 
-        return TempHashCode;
+        return HashCodeCached;
     }
 
     internal int HashCodeForUnitCompare;

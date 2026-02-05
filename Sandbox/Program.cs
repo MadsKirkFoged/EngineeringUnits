@@ -47,6 +47,10 @@ public class Program
 
     public static void Main()
     {
+
+        var inf = Energy.FromSI(0) / MassFlow.FromSI(0);
+
+
         var test = QuantityParser.Parse("10 m¹");
         var test2 = QuantityParser.Parse("10 m¹¹ ");
 

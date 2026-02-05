@@ -47,22 +47,22 @@ public class RawUnitTests
     }
 
     //Create test for creating a RawUnit and calling GetHashCode()
-    [TestMethod]
-    public void CreateRawUnitAndCallGetHashCode()
-    {
-        RawUnit unit = new()
-        {
-            Symbol = "m",
-            A = 1,
-            B = 0,
-            Count = 1,
-            UnitType = BaseunitType.length
+    //[TestMethod]
+    //public void CreateRawUnitAndCallGetHashCode()
+    //{
+    //    RawUnit unit = new()
+    //    {
+    //        Symbol = "m",
+    //        A = 1,
+    //        B = 0,
+    //        Count = 1,
+    //        UnitType = BaseunitType.length
 
-        };
+    //    };
 
-        Assert.AreEqual(-1939243696, unit.GetHashCode());
-        Assert.AreEqual(1939243694, unit.CloneAndReverseCount().GetHashCode());
-        Assert.AreEqual(1939243694, unit.CloneWithNewCount(-1).GetHashCode());
-        Assert.AreEqual(-1989576551, unit.CloneWithNewCount(2).GetHashCode());
-    }
+    //    Assert.AreEqual(-1939243696, unit.GetHashCode());
+    //    Assert.AreEqual(1939243694, unit.CloneAndReverseCount().GetHashCode());
+    //    Assert.AreEqual(1939243694, unit.CloneWithNewCount(-1).GetHashCode());
+    //    Assert.AreEqual(-1989576551, unit.CloneWithNewCount(2).GetHashCode());
+    //}
 }

@@ -134,7 +134,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         }
         catch (OverflowException)
         {
-            return new UnknownUnit(double.PositiveInfinity, left.Unit + right.Unit);
+            return new UnknownUnit(double.PositiveInfinity, left.Unit);
         }
     }
 
@@ -249,7 +249,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         }
         catch (OverflowException)
         {
-            return new UnknownUnit(double.PositiveInfinity, left.Unit - right.Unit);
+            return new UnknownUnit(double.PositiveInfinity, left.Unit);
         }
     }
 

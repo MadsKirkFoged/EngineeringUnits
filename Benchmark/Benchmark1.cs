@@ -102,14 +102,14 @@ public class Benchy
     //| CalculationDecimal |  88.9409 ns | 0.3370 ns | 0.3152 ns |      - |         - |
     //| CalculationDouble  |   0.4440 ns | 0.0119 ns | 0.0112 ns |      - |         - |
 
-    //[Benchmark]
-    //public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
+    [Benchmark]
+    public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
 
-    //[Benchmark]
-    //public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
+    [Benchmark]
+    public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
 
-    //[Benchmark]
-    //public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
+    [Benchmark]
+    public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
 
 
     //[Benchmark]
