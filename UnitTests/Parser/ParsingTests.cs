@@ -57,5 +57,21 @@ namespace UnitTests.Parsing
             var a3 = Acceleration.Parse("1 m·s-²", inv);
             Assert.AreEqual(1m, a3.AsSI, 1e-9m);
         }
+
+
+        [TestMethod]
+        public void TypedParse_PowerOfTen_ShouldWork()
+        {
+            var p = Pressure.Parse("10^−1 Pa", CultureInfo.InvariantCulture);
+            Assert.AreEqual(0.1m, p.AsSI, 1e-12m);
+        }
+
+        [TestMethod]
+        public void UnknownUnitParse_PowerOfTen_ShouldWork()
+        {
+            var u = UnknownUnit.Parse("10−1 Pa", CultureInfo.InvariantCulture);
+            Assert.AreEqual(0.1m, ((EngineeringUnits.BaseUnit)u).AsSI, 1e-12m);
+        }
+
     }
 }
