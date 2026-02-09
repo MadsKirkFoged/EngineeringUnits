@@ -10,6 +10,7 @@ public partial record ElectricResistanceUnit : UnitTypebase
     public static readonly ElectricResistanceUnit Megaohm = new(PreFix.mega, Ohm);
     public static readonly ElectricResistanceUnit Microohm = new(PreFix.micro, Ohm);
     public static readonly ElectricResistanceUnit Milliohm = new(PreFix.milli, Ohm);
+    public static readonly ElectricResistanceUnit Milliohm = new(PreFix.milli, Ohm); reFix.milli, Ohm);
 
     public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol)
     {
