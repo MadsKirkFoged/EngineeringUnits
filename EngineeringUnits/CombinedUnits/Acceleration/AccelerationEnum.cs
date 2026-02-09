@@ -1,11 +1,18 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+
+namespace EngineeringUnits.Units;
 
 public partial record AccelerationUnit : UnitTypebase
 {
 
     public static readonly AccelerationUnit SI = new(LengthUnit.SI, DurationUnit.SI);
+
+    [Synonyms("km/s^2", "km/s²")]
     public static readonly AccelerationUnit KilometerPerSecondSquared = new(LengthUnit.Kilometer, DurationUnit.Second);
+
+    [Synonyms("m/s^2", "m/s²", "m·s^-2", "m·s⁻²")]
     public static readonly AccelerationUnit MeterPerSecondSquared = new(LengthUnit.SI, DurationUnit.SI);
+
     public static readonly AccelerationUnit DecimeterPerSecondSquared = new(LengthUnit.Decimeter, DurationUnit.Second);
     public static readonly AccelerationUnit CentimeterPerSecondSquared = new(LengthUnit.Centimeter, DurationUnit.Second);
     public static readonly AccelerationUnit MicrometerPerSecondSquared = new(LengthUnit.Micrometer, DurationUnit.Second);
@@ -16,7 +23,12 @@ public partial record AccelerationUnit : UnitTypebase
     public static readonly AccelerationUnit KnotPerSecond = new(SpeedUnit.Knot, DurationUnit.Second);
     public static readonly AccelerationUnit KnotPerMinute = new(SpeedUnit.Knot, DurationUnit.Minute);
     public static readonly AccelerationUnit KnotPerHour = new(SpeedUnit.Knot, DurationUnit.Hour);
+
+    // Skipping "g" (too short / collides with gram and is generally overloaded)
+    [Synonyms("standardgravity", "standard gravity")]
     public static readonly AccelerationUnit StandardGravity = new(AccelerationUnit.SI, "g", 9.80665m);
+
+    [Synonyms("millistandardgravity", "milli standard gravity")]
     public static readonly AccelerationUnit MillistandardGravity = new(PreFix.milli, StandardGravity);
 
     public AccelerationUnit(LengthUnit length, DurationUnit duration)

@@ -1,16 +1,29 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+
+namespace EngineeringUnits.Units;
 
 public partial record ElectricResistanceUnit : UnitTypebase
 {
 
     public static readonly ElectricResistanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "Ω");
+
+    [Synonyms("ohm", "ohms", "Ω")]
     public static readonly ElectricResistanceUnit Ohm = new(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "Ω");
+
+    [Synonyms("gigaohm", "gigaohms", "GΩ")]
     public static readonly ElectricResistanceUnit Gigaohm = new(PreFix.giga, Ohm);
+
+    [Synonyms("kiloohm", "kiloohms", "kΩ")]
     public static readonly ElectricResistanceUnit Kiloohm = new(PreFix.kilo, Ohm);
+
+    [Synonyms("megaohm", "megaohms", "MΩ")]
     public static readonly ElectricResistanceUnit Megaohm = new(PreFix.mega, Ohm);
+
+    [Synonyms("microohm", "microohms", "µΩ", "uΩ")]
     public static readonly ElectricResistanceUnit Microohm = new(PreFix.micro, Ohm);
+
+    [Synonyms("milliohm", "milliohms", "mΩ")]
     public static readonly ElectricResistanceUnit Milliohm = new(PreFix.milli, Ohm);
-    public static readonly ElectricResistanceUnit Milliohm = new(PreFix.milli, Ohm); reFix.milli, Ohm);
 
     public ElectricResistanceUnit(MassUnit mass, LengthUnit Length, DurationUnit duration, ElectricCurrentUnit electricCurrent, string NewSymbol)
     {

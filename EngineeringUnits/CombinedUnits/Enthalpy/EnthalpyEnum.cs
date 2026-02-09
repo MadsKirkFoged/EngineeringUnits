@@ -1,13 +1,24 @@
+using EngineeringUnits.Parsing;
+
 namespace EngineeringUnits.Units;
 
 public partial record EnthalpyUnit : UnitTypebase
 {
 
     public static readonly EnthalpyUnit SI = new(EnergyUnit.SI, MassUnit.SI);
+
+    [Synonyms("j/kg", "j/kg", "jouleperkilogram", "joulesperkilogram", "joule per kilogram", "joules per kilogram")]
     public static readonly EnthalpyUnit JoulePerKilogram = new(EnergyUnit.Joule, MassUnit.Kilogram);
+
+    [Synonyms("kj/kg", "kilojouleperkilogram", "kilojoulesperkilogram", "kilojoule per kilogram", "kilojoules per kilogram")]
     public static readonly EnthalpyUnit KilojoulePerKilogram = new(EnergyUnit.Kilojoule, MassUnit.Kilogram);
+
+    [Synonyms("mj/kg", "megajouleperkilogram", "megajoulesperkilogram", "megajoule per kilogram", "megajoules per kilogram")]
     public static readonly EnthalpyUnit MegajoulePerKilogram = new(EnergyUnit.Megajoule, MassUnit.Kilogram);
+
+    [Synonyms("btu/lb", "btuperpound", "btusperpound", "btu per pound", "btus per pound")]
     public static readonly EnthalpyUnit BtuPerPound = new(EnergyUnit.BritishThermalUnit, MassUnit.Pound);
+
     public static readonly EnthalpyUnit CaloriePerGram = new(EnergyUnit.Calorie, MassUnit.Gram);
     public static readonly EnthalpyUnit KilocaloriePerGram = new(EnergyUnit.Kilocalorie, MassUnit.Gram);
     public static readonly EnthalpyUnit WattDayPerKilogram = new(EnergyUnit.WattDay, MassUnit.Kilogram);

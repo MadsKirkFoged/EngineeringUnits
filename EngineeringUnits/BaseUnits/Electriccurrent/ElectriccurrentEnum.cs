@@ -1,4 +1,5 @@
-﻿using Fractions;
+﻿using EngineeringUnits.Parsing;
+using Fractions;
 
 namespace EngineeringUnits.Units;
 
@@ -6,13 +7,29 @@ public partial record ElectricCurrentUnit : UnitTypebase
 {
 
     public static readonly ElectricCurrentUnit SI = new(PreFix.SI);
+
+    [Synonyms("ampere", "amperes", "amp", "amps", "A")]
     public static readonly ElectricCurrentUnit Ampere = new(PreFix.SI);
+
+    [Synonyms("centiampere", "centiamperes", "cA")]
     public static readonly ElectricCurrentUnit Centiampere = new(PreFix.centi);
+
+    [Synonyms("kiloampere", "kiloamperes", "kA")]
     public static readonly ElectricCurrentUnit Kiloampere = new(PreFix.kilo);
+
+    [Synonyms("megaampere", "megaamperes", "MA")]
     public static readonly ElectricCurrentUnit Megaampere = new(PreFix.mega);
+
+    [Synonyms("microampere", "microamperes", "µA", "uA")]
     public static readonly ElectricCurrentUnit Microampere = new(PreFix.micro);
+
+    [Synonyms("milliampere", "milliamperes", "mA")]
     public static readonly ElectricCurrentUnit Milliampere = new(PreFix.milli);
+
+    [Synonyms("nanoampere", "nanoamperes", "nA")]
     public static readonly ElectricCurrentUnit Nanoampere = new(PreFix.nano);
+
+    [Synonyms("picoampere", "picoamperes", "pA")]
     public static readonly ElectricCurrentUnit Picoampere = new(PreFix.pico);
 
     public ElectricCurrentUnit() { }

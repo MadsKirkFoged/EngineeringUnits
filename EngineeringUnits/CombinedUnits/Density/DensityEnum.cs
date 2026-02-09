@@ -1,4 +1,6 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+
+namespace EngineeringUnits.Units;
 
 public partial record DensityUnit : UnitTypebase
 {
@@ -11,17 +13,29 @@ public partial record DensityUnit : UnitTypebase
     public static readonly DensityUnit DecigramPerLiter = new(MassUnit.Decigram, VolumeUnit.Liter);
     public static readonly DensityUnit DecigramPerMilliliter = new(MassUnit.Decigram, VolumeUnit.Milliliter);
     public static readonly DensityUnit DecigramPerMicroliter = new(MassUnit.Decigram, VolumeUnit.Microliter);
+
+    [Synonyms("g/cm^3", "g/cm3", "g/cm³")]
     public static readonly DensityUnit GramPerCubicCentimeter = new(MassUnit.Gram, VolumeUnit.CubicCentimeter);
+
     public static readonly DensityUnit GramPerCubicMeter = new(MassUnit.Gram, VolumeUnit.CubicMeter);
     public static readonly DensityUnit GramPerCubicMillimeter = new(MassUnit.Gram, VolumeUnit.CubicMillimeter);
     public static readonly DensityUnit GramPerDeciliter = new(MassUnit.Gram, VolumeUnit.Deciliter);
     public static readonly DensityUnit GramPerLiter = new(MassUnit.Gram, VolumeUnit.Liter);
+
+    [Synonyms("g/ml", "g/mL")]
     public static readonly DensityUnit GramPerMilliliter = new(MassUnit.Gram, VolumeUnit.Milliliter);
+
     public static readonly DensityUnit GramPerMicroliter = new(MassUnit.Gram, VolumeUnit.Microliter);
     public static readonly DensityUnit KilogramPerCubicCentimeter = new(MassUnit.Kilogram, VolumeUnit.CubicCentimeter);
+
+    [Synonyms("kg/m^3", "kg/m3", "kg/m³")]
     public static readonly DensityUnit KilogramPerCubicMeter = new(MassUnit.Kilogram, VolumeUnit.CubicMeter);
+
     public static readonly DensityUnit KilogramPerCubicMillimeter = new(MassUnit.Kilogram, VolumeUnit.CubicMillimeter);
+
+    [Synonyms("kg/l", "kg/L")]
     public static readonly DensityUnit KilogramPerLiter = new(MassUnit.Kilogram, VolumeUnit.Liter);
+
     public static readonly DensityUnit KilopoundPerCubicFoot = new(MassUnit.Kilopound, VolumeUnit.CubicFoot);
     public static readonly DensityUnit KilopoundPerCubicInch = new(MassUnit.Kilopound, VolumeUnit.CubicInch);
     public static readonly DensityUnit MicrogramPerCubicMeter = new(MassUnit.Microgram, VolumeUnit.CubicMeter);
@@ -42,8 +56,13 @@ public partial record DensityUnit : UnitTypebase
     public static readonly DensityUnit PicogramPerLiter = new(MassUnit.Picogram, VolumeUnit.Liter);
     public static readonly DensityUnit PicogramPerMilliliter = new(MassUnit.Picogram, VolumeUnit.Milliliter);
     public static readonly DensityUnit PicogramPerMicroliter = new(MassUnit.Picogram, VolumeUnit.Microliter);
+
+    [Synonyms("lb/ft^3", "lb/ft3", "lb/ft³")]
     public static readonly DensityUnit PoundPerCubicFoot = new(MassUnit.Pound, VolumeUnit.CubicFoot);
+
+    [Synonyms("lb/in^3", "lb/in3", "lb/in³")]
     public static readonly DensityUnit PoundPerCubicInch = new(MassUnit.Pound, VolumeUnit.CubicInch);
+
     public static readonly DensityUnit PoundPerImperialGallon = new(MassUnit.Pound, VolumeUnit.ImperialGallon, "ppg (imp.)");
     public static readonly DensityUnit PoundPerUSGallon = new(MassUnit.Pound, VolumeUnit.UsGallon, "ppg (U.S.)");
     public static readonly DensityUnit SlugPerCubicFoot = new(MassUnit.Slug, VolumeUnit.CubicFoot);
