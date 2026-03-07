@@ -186,6 +186,8 @@ public class ListOfUnitsForDifferentGenerators
         
         "VolumeFlow",
         
+        "VolumetricHeatCapacity",
+
         "VolumetricHeatTransferCoefficient",
         
         "WarpingMomentOfInertia",

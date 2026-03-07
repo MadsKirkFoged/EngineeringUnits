@@ -191,6 +191,8 @@ public static class UnknownUnitExtensions
             return (VolumeCost?)toCast;
         if (toCast == VolumeFlowUnit.SI.Unit)
             return (VolumeFlow?)toCast;
+        if (toCast == VolumetricHeatCapacityUnit.SI.Unit)
+            return (VolumetricHeatCapacity?)toCast;
         if (toCast == VolumetricHeatTransferCoefficientUnit.SI.Unit)
             return (VolumetricHeatTransferCoefficient?)toCast;
         if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)
