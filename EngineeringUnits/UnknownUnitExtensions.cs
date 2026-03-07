@@ -79,6 +79,8 @@ public static class UnknownUnitExtensions
             return (Torque?)toCast;
         if (toCast == ReactiveEnergyUnit.SI.Unit)
             return (ReactiveEnergy?)toCast;
+        if (toCast == EnergyDensityUnit.SI.Unit)
+            return (EnergyDensity?)toCast;
         if (toCast == EnergyCostUnit.SI.Unit)
             return (EnergyCost?)toCast;
         if (toCast == SpecificEnergyUnit.SI.Unit)

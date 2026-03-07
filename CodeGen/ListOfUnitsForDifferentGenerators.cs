@@ -79,6 +79,8 @@ public class ListOfUnitsForDifferentGenerators
         "Torque", //Same as Energy
         "ReactiveEnergy", //Same as Energy
         
+        "EnergyDensity",
+
         "EnergyCost",
         
         
