@@ -181,6 +181,8 @@ public static class UnknownUnitExtensions
             return (Speed?)toCast;
         if (toCast == TemperatureChangeRateUnit.SI.Unit)
             return (TemperatureChangeRate?)toCast;
+        if (toCast == ThermalConductanceUnit.SI.Unit)
+            return (ThermalConductance?)toCast;
         if (toCast == ThermalConductivityUnit.SI.Unit)
             return (ThermalConductivity?)toCast;
         if (toCast == ThermalResistanceUnit.SI.Unit)

@@ -176,6 +176,8 @@ public class ListOfUnitsForDifferentGenerators
 
         "TemperatureChangeRate",
 
+        "ThermalConductance",
+
         "ThermalConductivity",
         
         "ThermalResistance",
