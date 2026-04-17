@@ -55,6 +55,14 @@ public class Program
     {
 
 
+        Power ZeroPower = Power.FromSI(0);
+        MassFlow ZeroMassFlow = MassFlow.FromSI(0);
+
+        SpecificEnergy NotZero = SpecificEnergy.FromSI(1);
+
+        Enthalpy AvailableEnergy = NotZero - (ZeroPower / ZeroMassFlow);
+
+
         for (int i = 0; i < 100000000; i++)
         {
             UnknownUnit test = ((m1 * (h2 - h1)) + P2) / P3;

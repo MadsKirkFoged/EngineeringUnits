@@ -59,6 +59,10 @@ public readonly record struct DecimalSafe
         {
             IsInf = true;
         }
+        catch
+        {
+            IsInf = true;
+        }
     }
 
     public static DecimalSafe operator +(DecimalSafe left, DecimalSafe right)
