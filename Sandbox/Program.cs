@@ -37,6 +37,12 @@ public class Program
     public static readonly Length L1 = Length.FromSI(2);
     public static readonly Temperature T1 = Temperature.FromSI(4);
 
+    private static readonly Enthalpy h1 = Enthalpy.FromJoulePerKilogram(856.75245687853);
+    private static readonly Enthalpy h2 = Enthalpy.FromJoulePerKilogram(1456.546239456);
+    private static readonly MassFlow m1 = MassFlow.FromKilogramPerSecond(7.4526425854623);
+    private static readonly Power P2 = Power.FromWatt(1567.1567896541);
+    private static readonly Power P3 = Power.FromWatt(1000.3487624531);
+
     public record mytest
     {
         public double? OilPressure { private get; init; }
@@ -47,36 +53,45 @@ public class Program
 
     public static void Main()
     {
+
+
+        for (int i = 0; i < 100000000; i++)
+        {
+            UnknownUnit test = ((m1 * (h2 - h1)) + P2) / P3;
+        }
+
+
+
         //double test = double.Parse("10^1");
 
 
-        //Pressure p3 = Pressure.Parse("1e1 Pa");
-        //Pressure p4 = Pressure.Parse("1E1 Pa");
-        //Pressure p5 = Pressure.Parse("1e+1 Pa");
-        //Pressure p6 = Pressure.Parse("1e-1 Pa");
-        Pressure p7 = Pressure.Parse("10^1 Pa");
-        Pressure p8 = Pressure.Parse("10^-1 Pa");
-        Pressure p9 = Pressure.Parse("10¹ Pa");
+        ////Pressure p3 = Pressure.Parse("1e1 Pa");
+        ////Pressure p4 = Pressure.Parse("1E1 Pa");
+        ////Pressure p5 = Pressure.Parse("1e+1 Pa");
+        ////Pressure p6 = Pressure.Parse("1e-1 Pa");
+        //Pressure p7 = Pressure.Parse("10^1 Pa");
+        //Pressure p8 = Pressure.Parse("10^-1 Pa");
+        //Pressure p9 = Pressure.Parse("10¹ Pa");
 
 
-        // Parse directly into a specific type (unit-safe)
-        Length L = Length.Parse("10 m");
-        Speed v = Speed.Parse("90 km/h");
-        Power P = Power.Parse("850 W");
-        Temperature T = Temperature.Parse("21 °C");
-        Area A = Area.Parse("12 m^2"); // Or use "12 m²"
+        //// Parse directly into a specific type (unit-safe)
+        //Length L = Length.Parse("10 m");
+        //Speed v = Speed.Parse("90 km/h");
+        //Power P = Power.Parse("850 W");
+        //Temperature T = Temperature.Parse("21 °C");
+        //Area A = Area.Parse("12 m^2"); // Or use "12 m²"
 
-        //If you dont know the specific type
-        var u = UnknownUnit.Parse("1 kg*mm^5/s^3");
+        ////If you dont know the specific type
+        //var u = UnknownUnit.Parse("1 kg*mm^5/s^3");
 
-        //Cast if you know the unit
-        //var p2 = UnknownUnit.Parse("1 kg*m^2/s^2");
+        ////Cast if you know the unit
+        ////var p2 = UnknownUnit.Parse("1 kg*m^2/s^2");
 
 
-        //Full equaltion parser
+        ////Full equaltion parser
         
-        var r2 = UnknownUnit.Eval("1 N*m - 1 kg*m^2/s^2");
-        var r3 = UnknownUnit.Eval("(10 m/s) * (5 s)");
+        //var r2 = UnknownUnit.Eval("1 N*m - 1 kg*m^2/s^2");
+        //var r3 = UnknownUnit.Eval("(10 m/s) * (5 s)");
 
 
         //var inf = Energy.FromSI(0) / MassFlow.FromSI(0);

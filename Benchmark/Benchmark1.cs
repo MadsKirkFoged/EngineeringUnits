@@ -1,9 +1,11 @@
 ﻿using BenchmarkDotNet.Attributes;
 using EngineeringUnits;
+using EngineeringUnits.NumberExtensions.NumberToLength;
+using EngineeringUnits.Units;
 
 namespace Benchmark;
 
-[InProcess()]
+[ShortRunJob]
 [MemoryDiagnoser]
 public class Benchy
 {
@@ -29,38 +31,38 @@ public class Benchy
     private static readonly bool Compare3 = true;
 
 
-    [Benchmark]
-    public static double serial()
-    { 
+    //[Benchmark]
+    //public static double serial()
+    //{ 
     
-        var test1 = Math.Exp(5.345d);
+    //    var test1 = Math.Exp(5.345d);
 
-        var test2 = Math.Exp(0.346534d);
+    //    var test2 = Math.Exp(0.346534d);
 
-        var test3 = Math.Log(0.346534d);
+    //    var test3 = Math.Log(0.346534d);
 
-        var test4 = Math.Pow(0.346534, 2);
+    //    var test4 = Math.Pow(0.346534, 2);
 
-        var test5 = test1 + test2 + test3 * test4;
+    //    var test5 = test1 + test2 + test3 * test4;
 
-        return test5;
+    //    return test5;
 
-    }
+    //}
 
-    [Benchmark]
-    public static async Task<double> SerialAsync()
-    {
-        var test1Task = Task.Run(() => Math.Exp(5.345d));
-        var test2Task = Task.Run(() => Math.Exp(0.346534d));
-        var test3Task = Task.Run(() => Math.Log(0.346534d));
-        var test4Task = Task.Run(() => Math.Pow(0.346534, 2));
+    //[Benchmark]
+    //public static async Task<double> SerialAsync()
+    //{
+    //    var test1Task = Task.Run(() => Math.Exp(5.345d));
+    //    var test2Task = Task.Run(() => Math.Exp(0.346534d));
+    //    var test3Task = Task.Run(() => Math.Log(0.346534d));
+    //    var test4Task = Task.Run(() => Math.Pow(0.346534, 2));
 
-        await Task.WhenAll(test1Task, test2Task, test3Task, test4Task);
+    //    await Task.WhenAll(test1Task, test2Task, test3Task, test4Task);
 
-        var test5 = test1Task.Result + test2Task.Result + test3Task.Result * test4Task.Result;
+    //    var test5 = test1Task.Result + test2Task.Result + test3Task.Result * test4Task.Result;
 
-        return test5;
-    }
+    //    return test5;
+    //}
 
     //[Benchmark]
     //public static double Exp3() => Math.Exp(5.345d);
@@ -102,14 +104,14 @@ public class Benchy
     //| CalculationDecimal |  88.9409 ns | 0.3370 ns | 0.3152 ns |      - |         - |
     //| CalculationDouble  |   0.4440 ns | 0.0119 ns | 0.0112 ns |      - |         - |
 
-    [Benchmark]
-    public static UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
+    //[Benchmark]
+    //public UnknownUnit CalculationUnits() => ((m1 * (h2 - h1)) + P2) / P3;
 
-    [Benchmark]
-    public static decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
+    //[Benchmark]
+    //public decimal CalculationDecimal() => ((m1m * (h2m - h1m)) + P2m) / P3m;
 
-    [Benchmark]
-    public static double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
+    //[Benchmark]
+    //public double CalculationDouble() => ((m1d * (h2d - h1d)) + P2d) / P3d;
 
 
     //[Benchmark]
@@ -349,17 +351,17 @@ public class Benchy
     //    return MassFlowPositiveSI1==MassFlowPositiveSI2;
     //}
 
-    //[Benchmark]
-    //public static BaseUnit BaseUnit_new()
-    //{
-    //    return new BaseUnit();
-    //}
+    [Benchmark]
+    public BaseUnit BaseUnit_new()
+    {
+        return new BaseUnit();
+    }
 
-    //[Benchmark]
-    //public static UnknownUnit UnknownUnit_new()
-    //{
-    //    return new UnknownUnit();
-    //}
+    [Benchmark]
+    public UnknownUnit UnknownUnit_new()
+    {
+        return new UnknownUnit();
+    }
 
     //[Benchmark]
     //public static int GetInt()
@@ -404,20 +406,26 @@ public class Benchy
     //2024-01-08
     //Length_new   | 10.47 ns | 0.274 ns | 0.573 ns | 0.0167 |      72 B |
 
-    //[Benchmark]
-    //public static Length Length_new()
-    //{
-    //    return new Length(10, LengthUnit.Inch);
-    //}
+    [Benchmark]
+    public Length Length_new()
+    {
+        return new Length(10, LengthUnit.Inch);
+    }
 
     ////2024-01-08
     ////Length_new   | 10.47 ns | 0.274 ns | 0.573 ns | 0.0167 |      72 B |
 
-    //[Benchmark]
-    //public static Length LengthSI_new()
-    //{
-    //    return new Length(10, LengthUnit.SI);
-    //}
+    [Benchmark]
+    public Length LengthSI_new()
+    {
+        return new Length(10, LengthUnit.SI);
+    }
+
+    [Benchmark]
+    public Length Length_new2()
+    {
+        return 10.Inch;
+    }
 
     //readonly Length _L1 = Length.FromSI(1);
     //readonly Length _L2 = Length.FromSI(2);
