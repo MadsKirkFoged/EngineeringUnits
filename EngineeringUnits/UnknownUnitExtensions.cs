@@ -79,6 +79,8 @@ public static class UnknownUnitExtensions
             return (Torque?)toCast;
         if (toCast == ReactiveEnergyUnit.SI.Unit)
             return (ReactiveEnergy?)toCast;
+        if (toCast == EnergyDensityUnit.SI.Unit)
+            return (EnergyDensity?)toCast;
         if (toCast == EnergyCostUnit.SI.Unit)
             return (EnergyCost?)toCast;
         if (toCast == SpecificEnergyUnit.SI.Unit)
@@ -179,6 +181,8 @@ public static class UnknownUnitExtensions
             return (Speed?)toCast;
         if (toCast == TemperatureChangeRateUnit.SI.Unit)
             return (TemperatureChangeRate?)toCast;
+        if (toCast == ThermalConductanceUnit.SI.Unit)
+            return (ThermalConductance?)toCast;
         if (toCast == ThermalConductivityUnit.SI.Unit)
             return (ThermalConductivity?)toCast;
         if (toCast == ThermalResistanceUnit.SI.Unit)
@@ -189,6 +193,8 @@ public static class UnknownUnitExtensions
             return (VolumeCost?)toCast;
         if (toCast == VolumeFlowUnit.SI.Unit)
             return (VolumeFlow?)toCast;
+        if (toCast == VolumetricHeatCapacityUnit.SI.Unit)
+            return (VolumetricHeatCapacity?)toCast;
         if (toCast == VolumetricHeatTransferCoefficientUnit.SI.Unit)
             return (VolumetricHeatTransferCoefficient?)toCast;
         if (toCast == WarpingMomentOfInertiaUnit.SI.Unit)

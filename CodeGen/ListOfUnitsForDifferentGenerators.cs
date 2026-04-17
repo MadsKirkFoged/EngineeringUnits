@@ -79,6 +79,8 @@ public class ListOfUnitsForDifferentGenerators
         "Torque", //Same as Energy
         "ReactiveEnergy", //Same as Energy
         
+        "EnergyDensity",
+
         "EnergyCost",
         
         
@@ -174,6 +176,8 @@ public class ListOfUnitsForDifferentGenerators
 
         "TemperatureChangeRate",
 
+        "ThermalConductance",
+
         "ThermalConductivity",
         
         "ThermalResistance",
@@ -184,6 +188,8 @@ public class ListOfUnitsForDifferentGenerators
         
         "VolumeFlow",
         
+        "VolumetricHeatCapacity",
+
         "VolumetricHeatTransferCoefficient",
         
         "WarpingMomentOfInertia",
