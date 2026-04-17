@@ -98,6 +98,7 @@ public static class BaseUnitExtensions
     }
 
     public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs2(To);
+    public static decimal GetValueAsDecimal(this BaseUnit From, UnitSystem To) => (decimal)From.GetValueAs2(To);
 
     public static string DisplaySymbol(this BaseUnit From, string? format = null) => From.Unit.ReduceUnits().ToString(format, null);
 
