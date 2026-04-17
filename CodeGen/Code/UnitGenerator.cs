@@ -92,15 +92,45 @@ internal class UnitGenerator
                        public {{Variable}}(int value, {{Variable}}Unit selectedUnit) : base(value, selectedUnit.Unit) { }
                        public {{Variable}}(UnknownUnit value) : base(value) { }
                    
+                       public static {{Variable}} From(Fraction value, {{Variable}}Unit unit) => new(value, unit);
+                       public static {{Variable}} From(decimal value, {{Variable}}Unit unit) => new(value, unit);
                        public static {{Variable}} From(double value, {{Variable}}Unit unit) => new(value, unit);
-                   
+                       public static {{Variable}} From(int value, {{Variable}}Unit unit) => new(value, unit);
+
+                       [return: NotNullIfNotNull(nameof(value))]
+                       public static {{Variable}}? From(Fraction? value, {{Variable}}Unit? unit)
+                       {
+                           if (value is null || unit is null)
+                               return null;
+
+                           return From((Fraction)value, unit);
+                       }
+
+                       [return: NotNullIfNotNull(nameof(value))]
+                       public static {{Variable}}? From(decimal? value, {{Variable}}Unit? unit)
+                       {
+                           if (value is null || unit is null)
+                               return null;
+
+                           return From((decimal)value, unit);
+                       }
+
                        [return: NotNullIfNotNull(nameof(value))]
                        public static {{Variable}}? From(double? value, {{Variable}}Unit? unit)
                        {
                            if (value is null || unit is null)
                                return null;
-                   
+
                            return From((double)value, unit);
+                       }
+
+                       [return: NotNullIfNotNull(nameof(value))]
+                       public static {{Variable}}? From(int? value, {{Variable}}Unit? unit)
+                       {
+                           if (value is null || unit is null)
+                               return null;
+
+                           return From((int)value, unit);
                        }
                        public double As({{Variable}}Unit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
                        public {{Variable}} ToUnit({{Variable}}Unit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
