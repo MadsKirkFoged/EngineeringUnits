@@ -101,6 +101,45 @@ public static class BaseUnitExtensions
 
     public static string DisplaySymbol(this BaseUnit From, string? format = null) => From.Unit.ReduceUnits().ToString(format, null);
 
+    /// <summary>
+    /// Converts the BaseUnit to SI units and returns a string representation.
+    /// </summary>
+    /// <param name="unit">The BaseUnit to convert to SI.</param>
+    /// <returns>String representation of the value in SI units with SI unit symbol.</returns>
+    public static string ToSIString(this BaseUnit unit)
+    {
+        return unit.ToSIString("g4");
+    }
+
+    /// <summary>
+    /// Converts the BaseUnit to SI units and returns a string representation with the specified format.
+    /// </summary>
+    /// <param name="unit">The BaseUnit to convert to SI.</param>
+    /// <param name="format">The format string for the value (e.g., "g4", "f2", "e3").</param>
+    /// <returns>String representation of the value in SI units with SI unit symbol.</returns>
+    public static string ToSIString(this BaseUnit unit, string format)
+    {
+        // Get the SI unit system for this unit
+        var siUnitSystem = unit.Unit.GetSIUnitsystem();
+
+        // Convert the value to SI
+        DecimalSafe siValue = unit.GetValueAs(siUnitSystem);
+
+        // Get the SI unit symbol
+        var siSymbol = unit.GetStandardSymbol(siUnitSystem) ?? siUnitSystem.ToString();
+
+        // Format the value
+        var formattedValue = format[0] switch
+        {
+            'V' or 'v' => siValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+            'S' or 's' => siValue.DisplaySignificantDigits(int.Parse(format.Remove(0, 1))),
+            _ => siValue.ToString(format, System.Globalization.CultureInfo.InvariantCulture)
+        };
+
+        // Return formatted string with SI unit
+        return $"{formattedValue} {siSymbol}".Trim();
+    }
+
     internal static DecimalSafe GetBaseValue(this BaseUnit From)
     {
         if (From.Unit.IsSIUnit())
