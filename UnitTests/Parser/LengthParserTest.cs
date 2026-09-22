@@ -78,7 +78,7 @@ namespace UnitTests.ParserNew
         public void TryParse_Length_Fails_OnInvalidInput(string input)
         {
             
-            Assert.ThrowsException<FormatException>(() =>
+            Assert.ThrowsExactly<FormatException>(() =>
             {
                 Length.Parse(input);
             });         
@@ -87,7 +87,7 @@ namespace UnitTests.ParserNew
         [TestMethod]
         public void Parse_ThrowsFormatException_OnInvalid()
         {
-            Assert.ThrowsException<FormatException>(() =>
+            Assert.ThrowsExactly<FormatException>(() =>
             {
                 _ = Length.Parse("10 unknown", CultureInfo.InvariantCulture);
             });

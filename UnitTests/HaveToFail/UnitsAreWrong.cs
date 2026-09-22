@@ -1,4 +1,4 @@
-﻿using EngineeringUnits;
+using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -10,131 +10,113 @@ namespace UnitTests.HaveToFail;
 public class UnitsAreWrong
 {
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void AreaCantBeVolume()
     {
-        var length = Length.FromYard(1);
-        var length2 = Length.FromMeter(5);
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var length = Length.FromYard(1);
+            var length2 = Length.FromMeter(5);
 
-        Area area2 = length * length2 * length2;
+            Area area2 = length * length2 * length2;
 
-        Assert.AreNotEqual(length, length2);
-        Assert.AreEqual(area2, area2);
-
+            Assert.AreNotEqual(length, length2);
+            Assert.AreEqual(area2, area2);
+        });
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void EnergyCantBeDensity()
     {
-        var mass = Mass.FromGram(150);
-        var volume = Volume.FromLiter(3);
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var mass = Mass.FromGram(150);
+            var volume = Volume.FromLiter(3);
 
-        Energy energy = mass / volume;
-        Assert.AreEqual(energy, energy);
+            Energy energy = mass / volume;
+            Assert.AreEqual(energy, energy);
+        });
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitsEqualOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length == mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length == mass);
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitsNotEqualOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length != mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length != mass);
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitsGreaterOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length > mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length > mass);
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitGreaterOrEqualOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length >= mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length >= mass);
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitSmallerOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length < mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length < mass);
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongBaseUnitSmallerOrEqualOperator()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length <= mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length <= mass);
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitToCompare()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
 
-        _=length.CompareTo(mass);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length.CompareTo(mass));
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitEquals()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
 
-        _=length.Equals(mass);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length.Equals(mass));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitToCompare02()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
         object test = mass;
-        _=length.CompareTo(test);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length.CompareTo(test));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnknownUnitEquals01()
     {
         UnknownUnit speed = Length.FromCentimeter(7)/Duration.FromMinute(32);
         UnknownUnit density = Mass.FromCentigram(15)/Volume.FromCubicFoot(7);
 
-        _=speed.Equals(density);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = speed.Equals(density));
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnknownUnitToCompare01()
     {
         var list1 = new List<UnknownUnit>
@@ -150,79 +132,65 @@ public class UnitsAreWrong
 
         var test = (object)list1.First();
 
-        _=density.CompareTo(test);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = density.CompareTo(test));
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnknownUnitToCompare02()
     {
         UnknownUnit speed = Length.FromCentimeter(7) / Duration.FromMinute(32);
         UnknownUnit density = Mass.FromCentigram(15) / Volume.FromCubicFoot(7);
 
-        _=speed.CompareTo(density);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = speed.CompareTo(density));
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnknownUnitToEquals02()
     {
         UnknownUnit speed = Length.FromCentimeter(7) / Duration.FromMinute(32);
         UnknownUnit density = Mass.FromCentigram(15) / Volume.FromCubicFoot(7);
         object test = density;
-        _=speed.Equals(test);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = speed.Equals(test));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void CheckWrongUnit01()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
 
         //length.UnitCheck(mass);
-        GuardAgainst.DifferentUnits(length, mass);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => GuardAgainst.DifferentUnits(length, mass));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void CheckWrongUnit02()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
 
-        GuardAgainst.DifferentUnits(length, mass);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => GuardAgainst.DifferentUnits(length, mass));
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void CheckWrongUnit03()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
 
-        GuardAgainst.DifferentUnits(length, mass);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => GuardAgainst.DifferentUnits(length, mass));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitsToAdd()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length + mass;
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length + mass);
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitsToSubtract01()
     {
         var length = Length.FromCentimeter(3);
         var mass = Mass.FromKilogram(3);
-        _ = length - mass;
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = length - mass);
     }
 
     //[TestMethod]
@@ -236,41 +204,41 @@ public class UnitsAreWrong
     //}
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitCast01()
     {
-
-        var A4 = new Length(10, LengthUnit.Kilometer);
-        var A5 = new Duration(1, DurationUnit.Minute);
-        var A6 = new Duration(1, DurationUnit.Hour);
-        _ = A4 / (A5 * A6);
-        UnknownUnit res = A4 * (A5 * A6);
-        _ = (double)res;
-
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var A4 = new Length(10, LengthUnit.Kilometer);
+            var A5 = new Duration(1, DurationUnit.Minute);
+            var A6 = new Duration(1, DurationUnit.Hour);
+            _ = A4 / (A5 * A6);
+            UnknownUnit res = A4 * (A5 * A6);
+            _ = (double)res;
+        });
     }
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitCast02()
     {
-
-        var A4 = new Length(10, LengthUnit.Kilometer);
-        var A5 = new Duration(1, DurationUnit.Minute);
-        var A6 = new Duration(1, DurationUnit.Hour);
-        _ = A4 / (A5 * A6);
-        UnknownUnit res = A4 * (A5 * A6);
-        _ = (decimal)res;
-
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var A4 = new Length(10, LengthUnit.Kilometer);
+            var A5 = new Duration(1, DurationUnit.Minute);
+            var A6 = new Duration(1, DurationUnit.Hour);
+            _ = A4 / (A5 * A6);
+            UnknownUnit res = A4 * (A5 * A6);
+            _ = (decimal)res;
+        });
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void WrongUnitAddUits01()
     {
-
-        var A1 = new Duration(1, DurationUnit.Minute);
-        var A2 = new Length(1, LengthUnit.Chain);
-        _ = A1+ A2;
-
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var A1 = new Duration(1, DurationUnit.Minute);
+            var A2 = new Length(1, LengthUnit.Chain);
+            _ = A1 + A2;
+        });
     }
     //[TestMethod]
     //[ExpectedException(typeof(WrongUnitException))]
@@ -299,24 +267,24 @@ public class UnitsAreWrong
 
     //}
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void EnergyCantBePower()
     {
-        var mass = Mass.FromCentigram(1);
-        var length = Length.FromMeter(5);
-        var duration = Duration.FromHour(5);
+        Assert.ThrowsExactly<WrongUnitException>(() =>
+        {
+            var mass = Mass.FromCentigram(1);
+            var length = Length.FromMeter(5);
+            var duration = Duration.FromHour(5);
 
-        Power local = mass * length.Pow(2) / duration.Pow(2);
-        Assert.AreEqual(local, local);
+            Power local = mass * length.Pow(2) / duration.Pow(2);
+            Assert.AreEqual(local, local);
+        });
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void ToUnitWithWrongUnit()
     {
         var mass = Mass.FromCentigram(1);
-        _ = mass.ToUnit(MassFlowUnit.KilogramPerSecond);
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = mass.ToUnit(MassFlowUnit.KilogramPerSecond));
     }
 
     //[TestMethod]

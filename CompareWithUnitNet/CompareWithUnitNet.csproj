@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="UnitsNet" Version="5.75.0" />
+    <PackageReference Include="UnitsNet" Version="5.75.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -69,7 +69,7 @@ namespace UnitTests.Parsing
         [DynamicData(nameof(ShouldFail), DynamicDataSourceType.Method)]
         public void Pressure_Parse_ShouldRejectMalformedOrAmbiguousPowerForms(string input)
         {
-            Assert.ThrowsException<FormatException>(() => Pressure.Parse(input, Inv), $"Input '{input}'");
+            Assert.ThrowsExactly<FormatException>(() => Pressure.Parse(input, Inv), $"Input '{input}'");
         }
     }
 }

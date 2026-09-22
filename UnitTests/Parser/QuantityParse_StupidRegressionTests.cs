@@ -411,7 +411,7 @@ namespace UnitTests.Parsing
         [TestMethod]
         public void Dimensionless_NumberOnly_ShouldFail_ForLength()
         {
-            Assert.ThrowsException<FormatException>(() => Length.Parse("10", Inv));
+            Assert.ThrowsExactly<FormatException>(() => Length.Parse("10", Inv));
         }
 
         [TestMethod]

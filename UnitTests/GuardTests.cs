@@ -16,7 +16,7 @@ public class GuardTests
         Length Unit1 = new(1, LengthUnit.Meter);
         Mass Unit2 = new(1, MassUnit.Decigram);
 
-        _=Assert.ThrowsException<WrongUnitException>(() => GuardAgainst.DifferentUnits(Unit1, Unit2));
+        _=Assert.ThrowsExactly<WrongUnitException>(() => GuardAgainst.DifferentUnits(Unit1, Unit2));
     }
 
     //Create test for GuardAgainst.DifferentUnits with a list if units
@@ -34,7 +34,7 @@ public class GuardTests
             Unit3
         };
 
-        _=Assert.ThrowsException<WrongUnitException>(() => GuardAgainst.DifferentUnits(ListOfUnits));
+        _=Assert.ThrowsExactly<WrongUnitException>(() => GuardAgainst.DifferentUnits(ListOfUnits));
     }
 
     //Create test for GuardAgainst.DifferentUnits with a list if the same units where it should not thros an exception

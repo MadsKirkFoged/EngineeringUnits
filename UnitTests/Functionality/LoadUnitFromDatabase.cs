@@ -35,15 +35,20 @@ public class LoadUnitFromDatabase
     }
 
     [TestMethod]
-    [ExpectedException(typeof(ArgumentException))]
+    //[ExpectedException(typeof(ArgumentException))]
     public void FromDatabaseWrongUnits()
     {
-        double value = 10;
-        var unit = "Meter";
+        Assert.ThrowsExactly<ArgumentException>(() =>
+        {
+            double value = 10;
+            var unit = "Meter";
 
-        Length length = value.AddUnit<TemperatureUnit>(unit);
+            Length length = value.AddUnit<TemperatureUnit>(unit);
 
-        Assert.AreEqual("10 m", $"{length:S5}");
+            Assert.AreEqual("10 m", $"{length:S5}");
+        });
+
+
 
     }
 }

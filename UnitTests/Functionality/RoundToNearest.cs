@@ -125,7 +125,6 @@ public class RoundToNearest
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void RoundUpWithWrongUnit()
     {
         var MyList = new List<Length>
@@ -136,13 +135,10 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length? L1 = MyList.RoundUpToNearest(Mass.FromKilogram(30));
-
-        Assert.AreEqual(L1, L1);
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = MyList.RoundUpToNearest(Mass.FromKilogram(30)));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void RoundDownWithWrongUnit()
     {
         var MyList = new List<Length>
@@ -153,12 +149,10 @@ public class RoundToNearest
             Length.FromMeter(44)
         };
 
-        Length? L1 = MyList.RoundDownToNearest(Mass.FromKilogram(30));
-        Assert.AreEqual(L1, L1);
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = MyList.RoundDownToNearest(Mass.FromKilogram(30)));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     public void RoundWithWrongUnit()
     {
         var MyList = new List<Length>
@@ -168,7 +162,6 @@ public class RoundToNearest
             Length.FromMeter(20),
             Length.FromMeter(44)
         };
-        _ = MyList.RoundToNearest(Mass.FromKilogram(30));
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = MyList.RoundToNearest(Mass.FromKilogram(30)));
     }
 }

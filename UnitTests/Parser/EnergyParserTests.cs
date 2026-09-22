@@ -43,7 +43,7 @@ namespace UnitTests.ParserNew
         public void Energy_Fails_OnWrongDimension()
         {
           
-            Assert.ThrowsException<FormatException>(() =>
+            Assert.ThrowsExactly<FormatException>(() =>
             {
                 var ok = Energy.Parse("10 N");
             });
@@ -53,7 +53,7 @@ namespace UnitTests.ParserNew
         [TestMethod]
         public void Energy_Parse_Throws_OnInvalid()
         {
-            Assert.ThrowsException<FormatException>(() =>
+            Assert.ThrowsExactly<FormatException>(() =>
             {
                 Energy.Parse("10 totallyNotAUnit", CultureInfo.InvariantCulture);
             });

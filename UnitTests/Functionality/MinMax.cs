@@ -33,13 +33,11 @@ public class MinMax
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     //[Obsolete]
     public void MinimumWithWrongUnit()
     {
         Length L1 = new(10d, LengthUnit.Meter);
-        _ = L1.LowerLimitAt(Frequency.FromSI(15));
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = L1.LowerLimitAt(Frequency.FromSI(15)));
     }
 
     [TestMethod]
@@ -68,13 +66,11 @@ public class MinMax
     }
 
     [TestMethod]
-    [ExpectedException(typeof(WrongUnitException))]
     //[Obsolete]
     public void MaximumWithWrongUnit()
     {
         Length L1 = new(10d, LengthUnit.Meter);
-        _ = L1.UpperLimitAt(Frequency.FromSI(15));
-
+        Assert.ThrowsExactly<WrongUnitException>(() => _ = L1.UpperLimitAt(Frequency.FromSI(15)));
     }
 
     [TestMethod]

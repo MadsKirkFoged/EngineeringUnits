@@ -192,7 +192,7 @@ namespace UnitTests.ParserNew
         [TestMethod]
         public void UnknownUnitParser_Parse_ShouldThrowFormatException_OnInvalid()
         {
-            Assert.ThrowsException<FormatException>(() =>
+            Assert.ThrowsExactly<FormatException>(() =>
             {
                 _ = QuantityParser.Parse("10 totallyNotAUnit", Inv);
             });

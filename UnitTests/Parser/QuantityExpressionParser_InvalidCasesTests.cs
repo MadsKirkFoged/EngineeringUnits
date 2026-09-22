@@ -40,7 +40,7 @@ namespace UnitTests.Parsing
         [DataRow("(10 m + 2 m")]
         public void InvalidExpressions_StrictParse_ShouldThrow(string expr)
         {
-            Assert.ThrowsException<System.FormatException>(() =>
+            Assert.ThrowsExactly<System.FormatException>(() =>
             {
                 _ = QuantityExpressionParser.Parse(expr, Inv);
             });
