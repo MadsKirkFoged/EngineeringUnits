@@ -11,8 +11,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>UnitsNet Unit units measurement si metric imperial convert conversion Physics Engineering science Math mathematics calculation</PackageTags>
     <IsPackable>true</IsPackable>
-    <LangVersion>preview</LangVersion>
-	<EnablePreviewFeatures>true</EnablePreviewFeatures>
+	<LangVersion>preview</LangVersion>
 	<Nullable>enable</Nullable>
 	<IncludeSymbols>True</IncludeSymbols>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
