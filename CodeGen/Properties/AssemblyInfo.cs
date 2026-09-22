@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
+[assembly: RequiresPreviewFeatures]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
