@@ -61,4 +61,17 @@ public partial class MolarMass : BaseUnit
          MolarMassUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MolarMass? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MolarMass, MolarMassUnit>(
+         input,
+         (v, u) => new MolarMass(v, u),
+         MolarMassUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

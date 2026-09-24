@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EngineeringUnits.Parsing;
+using System;
 
 namespace EngineeringUnits.Units;
 
@@ -8,15 +9,24 @@ public partial record RotationalSpeedUnit : UnitTypebase
     public static readonly RotationalSpeedUnit SI = new(DurationUnit.Second, "rad/s");
     public static readonly RotationalSpeedUnit RadianPerSecond = new(DurationUnit.Second, "rad/s");
 
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit Hertz = new(DurationUnit.Second, "Hz", 2 * (decimal)Math.PI);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit Kilohertz = new(PreFix.kilo, Hertz);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit Megahertz = new(PreFix.mega, Hertz);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit Gigahertz = new(PreFix.giga, Hertz);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit Terahertz = new(PreFix.tera, Hertz);
 
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit PerSecond = new(DurationUnit.Second, "s⁻¹", 2 * (decimal)Math.PI);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit BeatPerMinute = new(DurationUnit.Minute, "bpm", 2 * (decimal)Math.PI);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit CyclePerHour = new(DurationUnit.Hour, "cph", 2 * (decimal)Math.PI);
+    [SecondarySymbol]
     public static readonly RotationalSpeedUnit CyclePerMinute = new(DurationUnit.Minute, "cpm", 2 * (decimal)Math.PI);
 
     public RotationalSpeedUnit(DurationUnit duration, string NewSymbol, decimal correction = 1)

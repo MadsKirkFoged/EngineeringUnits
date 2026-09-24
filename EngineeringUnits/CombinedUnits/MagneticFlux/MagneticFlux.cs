@@ -61,4 +61,17 @@ public partial class MagneticFlux : BaseUnit
          MagneticFluxUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MagneticFlux? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MagneticFlux, MagneticFluxUnit>(
+         input,
+         (v, u) => new MagneticFlux(v, u),
+         MagneticFluxUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

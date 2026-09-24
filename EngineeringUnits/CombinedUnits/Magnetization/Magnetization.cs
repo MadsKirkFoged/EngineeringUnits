@@ -61,4 +61,17 @@ public partial class Magnetization : BaseUnit
          MagnetizationUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Magnetization? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Magnetization, MagnetizationUnit>(
+         input,
+         (v, u) => new Magnetization(v, u),
+         MagnetizationUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

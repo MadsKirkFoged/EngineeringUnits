@@ -61,4 +61,17 @@ public partial class TemperatureChangeRate : BaseUnit
          TemperatureChangeRateUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out TemperatureChangeRate? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<TemperatureChangeRate, TemperatureChangeRateUnit>(
+         input,
+         (v, u) => new TemperatureChangeRate(v, u),
+         TemperatureChangeRateUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

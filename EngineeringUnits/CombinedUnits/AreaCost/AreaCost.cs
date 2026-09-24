@@ -61,4 +61,17 @@ public partial class AreaCost : BaseUnit
          AreaCostUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out AreaCost? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<AreaCost, AreaCostUnit>(
+         input,
+         (v, u) => new AreaCost(v, u),
+         AreaCostUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

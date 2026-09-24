@@ -1,15 +1,23 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using EngineeringUnits;
+using System.Linq;
 using EngineeringUnits.Parser.Objects;
+using EngineeringUnits.Parser.UnitParser;
 
 namespace EngineeringUnits.Parsing
 {
+    /// <summary>
+    /// Evaluates arithmetic on quantities: "10 m + 5 in", "(10 m + 2 m) / 2 s", "(2 m)^2", "2 (3 m)".
+    /// <para>
+    /// Operands are "&lt;number&gt; &lt;unit&gt;" literals parsed by <see cref="QuantityParser"/>. Inside an expression
+    /// '+', '-' and numbers always belong to the arithmetic, so write unit exponents with '^' or superscripts
+    /// ("m^-2", "m⁻²"), not "m-2". "2/s" is a literal (2 per second), except directly after '/':
+    /// "10 m/2/s" is 10 m ÷ 2 ÷ s.
+    /// </para>
+    /// </summary>
     public static class QuantityExpressionParser
     {
-        private static readonly HashSet<char> Ops = new() { '+', '-', '*', '/', '(', ')' };
-
         public static UnknownUnit Parse(string input, IFormatProvider? culture = null)
         {
             var r = ParseWithWarnings(input, culture);
@@ -34,13 +42,16 @@ namespace EngineeringUnits.Parsing
 
             try
             {
-                var tokens = Tokenize(input, culture, warnings, out string? tokenError);
+                var tokens = Tokenize(NormalizeDashes(input), culture, warnings, out string? tokenError);
                 if (tokens is null)
-                    return Fail(input, tokenError ?? "Failed to tokenize expression.");
+                    return Fail(input, tokenError ?? "Failed to tokenize expression.", warnings);
+
+                if (tokens.Count == 0)
+                    return Fail(input, "Input was empty.", warnings);
 
                 var rpn = ToRpn(tokens, out string? rpnError);
                 if (rpn is null)
-                    return Fail(input, rpnError ?? "Failed to parse expression.");
+                    return Fail(input, rpnError ?? "Failed to parse expression.", warnings);
 
                 var value = EvalRpn(rpn, out string? evalError);
                 if (evalError != null)
@@ -51,16 +62,13 @@ namespace EngineeringUnits.Parsing
                     Success = true,
                     Value = value,
                     Original = input,
-                    Normalized = input, // optional: later you can output canonical unit string
+                    Normalized = input,
                     Warnings = warnings
                 };
             }
-            catch (WrongUnitException ex) // your engine’s mismatch exception [1](https://www.engineeringtoolbox.net/getsimdata/getunisim)
-            {
-                return Fail(input, ex.Message, warnings);
-            }
             catch (Exception ex)
             {
+                // WrongUnitException (dimension mismatch) and anything else
                 return Fail(input, ex.Message, warnings);
             }
         }
@@ -68,10 +76,14 @@ namespace EngineeringUnits.Parsing
         // ---------------- Token model ----------------
 
         private abstract record Tok;
-        private record Lit(UnknownUnit Value) : Tok;
-        private record Op(char C) : Tok;
+        private sealed record Lit(UnknownUnit Value) : Tok;
+        private sealed record IntExponent(int Value) : Tok;
+        private sealed record Op(char C) : Tok;
 
-        // ---------------- Tokenize with max-munch literal parsing ----------------
+        private static string NormalizeDashes(string s)
+            => s.Replace('−', '-').Replace('–', '-').Replace('—', '-').Replace('‑', '-').Replace('－', '-').Replace('＋', '+');
+
+        // ---------------- Tokenize ----------------
 
         private static List<Tok>? Tokenize(string s, IFormatProvider culture, List<ParseWarning> warnings, out string? error)
         {
@@ -83,54 +95,73 @@ namespace EngineeringUnits.Parsing
 
             while (i < s.Length)
             {
-                // skip whitespace
                 while (i < s.Length && char.IsWhiteSpace(s[i]))
                     i++;
                 if (i >= s.Length)
                     break;
 
                 char c = s[i];
+                Tok? prev = list.Count > 0 ? list[list.Count - 1] : null;
 
-                // Parentheses always operators
-                if (c == '(' || c == ')')
+                if (c == '(')
                 {
-                    list.Add(new Op(c));
+                    // implicit multiplication: "2 (3 m)", "(2)(3 m)"
+                    if (!expectOperand)
+                        list.Add(new Op('*'));
+
+                    list.Add(new Op('('));
                     i++;
-                    expectOperand = (c == '(');
+                    expectOperand = true;
+                    continue;
+                }
+
+                if (c == ')')
+                {
+                    list.Add(new Op(')'));
+                    i++;
+                    expectOperand = false;
                     continue;
                 }
 
                 // Unary plus: +( ... ) or +literal -> no-op
                 if (expectOperand && c == '+')
                 {
-                    i++;              // consume '+'
-                                      // still expecting an operand next
+                    i++;
                     continue;
                 }
 
-                // Unary minus for parenthesis: -( ... )
-                if (expectOperand && c == '-' && i + 1 < s.Length)
+                // Unary minus before parenthesis: -( ... ) == (-1) * ( ... )
+                if (expectOperand && c == '-')
                 {
-                    // if next non-ws is '(' => treat as unary negate operator: 0 - ( ... )
                     int j = i + 1;
                     while (j < s.Length && char.IsWhiteSpace(s[j]))
                         j++;
                     if (j < s.Length && s[j] == '(')
                     {
-
-                        // ✅ unit-safe: -(...) == (-1) * (...)
-                        var minusOne = QuantityParser.ParseWithWarnings("-1", culture).Value!;
-                        list.Add(new Lit(minusOne));
+                        list.Add(new Lit(new UnknownUnit(-1m, new UnitSystem())));
                         list.Add(new Op('*'));
-
-                        i++;              // consume '-'
-                        expectOperand = true;
+                        i++;
                         continue;
-
                     }
                 }
 
-                // Binary operators (when we’re not expecting operand)
+                // Power operator: "(2 m)^2", "2^3"
+                if (!expectOperand && c == '^')
+                {
+                    i++;
+                    if (!TryReadIntegerExponent(s, ref i, out int exp))
+                    {
+                        error = "Expected an integer exponent after '^'.";
+                        return null;
+                    }
+
+                    list.Add(new Op('^'));
+                    list.Add(new IntExponent(exp));
+                    expectOperand = false;
+                    continue;
+                }
+
+                // Binary operators
                 if (!expectOperand && (c == '+' || c == '-' || c == '*' || c == '/'))
                 {
                     list.Add(new Op(c));
@@ -139,8 +170,29 @@ namespace EngineeringUnits.Parsing
                     continue;
                 }
 
-                // Otherwise we must parse a literal (max-munch)
-                var (lit, consumed, litWarns, litErr) = TryParseLongestLiteral(s, i, culture);
+                bool afterClosing = prev is Op { C: ')' } || prev is IntExponent;
+                bool afterMulDiv = prev is Op { C: '*' or '/' };
+
+                // A bare unit ("s") is an operand only after '*', '/' or as an implicit factor after ')' / an exponent.
+                // At the start of an operand a number is required ("m + 10 m" is an error).
+                bool bareUnit = IsUnitStart(c) && (afterClosing || afterMulDiv);
+
+                if (!expectOperand)
+                {
+                    if (bareUnit && afterClosing)
+                    {
+                        list.Add(new Op('*')); // "(5) m", "2^3 m"
+                    }
+                    else
+                    {
+                        error = $"Unexpected '{s.Substring(i)}' (missing operator?).";
+                        return null;
+                    }
+                }
+
+                bool afterDivision = prev is Op { C: '/' };
+
+                var (lit, consumed, litWarns, litErr) = TryParseLongestLiteral(s, i, culture, bareUnit, afterDivision);
                 if (litErr != null)
                 {
                     error = litErr;
@@ -162,49 +214,149 @@ namespace EngineeringUnits.Parsing
             return list;
         }
 
-        private static (UnknownUnit? value, int consumed, List<ParseWarning> warns, string? error)
-            TryParseLongestLiteral(string s, int start, IFormatProvider culture)
-        {
-            var warns = new List<ParseWarning>();
-            UnknownUnit? best = null;
-            int bestEnd = -1;
-            List<ParseWarning>? bestWarns = null;
+        private static bool IsUnitStart(char c) => char.IsLetter(c) || c is '°' or '%' or '‰' or 'µ' or 'Ω';
 
-            // Scan forward; keep last successful literal parse.
-            // Stop if we hit a top-level math operator that cannot belong to the literal.
-            // (We still allow unit expressions with '*' '/' '^' inside the literal because UnknownUnitParser handles it.)
-            for (int end = start + 1; end <= s.Length; end++)
+        private static bool TryReadIntegerExponent(string s, ref int i, out int value)
+        {
+            value = 0;
+            while (i < s.Length && char.IsWhiteSpace(s[i]))
+                i++;
+
+            bool paren = i < s.Length && s[i] == '(';
+            if (paren)
+                i++;
+
+            int sign = 1;
+            if (i < s.Length && (s[i] == '-' || s[i] == '+'))
             {
+                sign = s[i] == '-' ? -1 : 1;
+                i++;
+            }
+
+            int start = i;
+            while (i < s.Length && char.IsDigit(s[i]))
+                i++;
+
+            if (i == start || !int.TryParse(s.Substring(start, i - start), NumberStyles.None, CultureInfo.InvariantCulture, out value) ||
+                value > UnitExpressionParser.MaxExponent)
+                return false;
+
+            if (paren)
+            {
+                if (i >= s.Length || s[i] != ')')
+                    return false;
+                i++;
+            }
+
+            value *= sign;
+            return true;
+        }
+
+        /// <summary>
+        /// Finds the longest literal starting at <paramref name="start"/>. The literal can never extend past an
+        /// arithmetic '+'/'-' or an unmatched ')', and only ends at token boundaries, so this is linear-ish rather
+        /// than trying every substring.
+        /// </summary>
+        private static (UnknownUnit? value, int consumed, IReadOnlyList<ParseWarning> warns, string? error)
+            TryParseLongestLiteral(string s, int start, IFormatProvider culture, bool bareUnit, bool afterDivision)
+        {
+            int limit = FindLiteralLimit(s, start);
+
+            var options = UnitParseOptions.ExpressionLiteral with { AllowLeadingSlash = !afterDivision };
+
+            for (int end = limit; end > start; end--)
+            {
+                if (!IsBoundary(s, end, limit))
+                    continue;
+
                 string sub = s.Substring(start, end - start).TrimEnd();
                 if (sub.Length == 0)
                     continue;
 
-                // If sub ends with an obvious incomplete token, skip
                 char last = sub[sub.Length - 1];
-                if (last is '+' or '-' or '*' or '/' or '^')
+                if (last is '+' or '-' or '*' or '/' or '^' or '(')
                     continue;
 
-                var r = QuantityParser.ParseWithWarnings(sub, culture);
+                var r = QuantityParser.ParseLiteral(bareUnit ? "1 " + sub : sub, culture, options);
                 if (r.Success && r.Value is not null)
-                {
-                    best = r.Value;
-                    bestEnd = end;
-                    bestWarns = new List<ParseWarning>(r.Warnings);
-                }
-
-                //// Heuristic early stop: if next char is '+' or '-' (likely math op), we can stop searching
-                //if (end < s.Length)
-                //{
-                //    char next = s[end];
-                //    if (next == '+' || next == '-')
-                //        break;
-                //}
+                    return (r.Value, end - start, r.Warnings, null);
             }
 
-            if (best is null)
-                return (null, 0, warns, $"Could not parse quantity literal starting at: '{s.Substring(start)}'");
+            var tail = s.Substring(start, limit - start).Trim();
+            var detail = QuantityParser.ParseLiteral(bareUnit ? "1 " + tail : tail, culture, options).Error;
+            return (null, 0, Array.Empty<ParseWarning>(),
+                    $"Could not parse quantity literal starting at: '{s.Substring(start)}'" + (detail is null ? "" : $" ({detail})"));
+        }
 
-            return (best, bestEnd - start, bestWarns ?? warns, null);
+        private static bool IsBoundary(string s, int end, int limit)
+        {
+            if (end >= limit)
+                return true;
+
+            char next = s[end];
+            char prev = s[end - 1];
+
+            return char.IsWhiteSpace(next) || next is '*' or '/' or '(' or ')' or '^' or '+' or '-' ||
+                   prev == ')' ||
+                   (char.IsDigit(prev) && !char.IsDigit(next) && next is not '.' and not ','); // "5m", "2^3"
+        }
+
+        /// <summary>Index of the first arithmetic '+'/'-' or unmatched ')' after <paramref name="start"/>.</summary>
+        private static int FindLiteralLimit(string s, int start)
+        {
+            int depth = 0;
+
+            for (int i = start; i < s.Length; i++)
+            {
+                char c = s[i];
+
+                if (c == '(')
+                { depth++; continue; }
+
+                if (c == ')')
+                {
+                    if (--depth < 0)
+                        return i;
+                    continue;
+                }
+
+                if (c is '+' or '-')
+                {
+                    if (i == start)
+                        continue; // sign of the number
+
+                    if (IsExponentSign(s, i))
+                        continue;
+
+                    if (depth == 0)
+                        return i;
+                }
+            }
+
+            return s.Length;
+        }
+
+        private static bool IsExponentSign(string s, int i)
+        {
+            int j = i - 1;
+            while (j >= 0 && char.IsWhiteSpace(s[j]))
+                j--;
+            if (j < 0)
+                return false;
+
+            // "^-2", "^(-2)"
+            if (s[j] == '^')
+                return true;
+            if (s[j] == '(')
+            {
+                int k = j - 1;
+                while (k >= 0 && char.IsWhiteSpace(s[k]))
+                    k--;
+                return k >= 0 && s[k] == '^';
+            }
+
+            // "1e-3" (e directly after a digit, no spaces)
+            return j == i - 1 && (s[j] == 'e' || s[j] == 'E') && j > 0 && char.IsDigit(s[j - 1]);
         }
 
         // ---------------- Shunting-yard: tokens -> RPN ----------------
@@ -215,14 +367,20 @@ namespace EngineeringUnits.Parsing
             var output = new List<Tok>();
             var stack = new Stack<Op>();
 
-            int Prec(char op) => op is '*' or '/' ? 2 : op is '+' or '-' ? 1 : 0;
+            static int Prec(char op) => op switch
+            {
+                '^' => 3,
+                '*' or '/' => 2,
+                '+' or '-' => 1,
+                _ => 0,
+            };
 
             foreach (var t in tokens)
             {
                 switch (t)
                 {
-                    case Lit lit:
-                        output.Add(lit);
+                    case Lit or IntExponent:
+                        output.Add(t);
                         break;
 
                     case Op o when o.C == '(':
@@ -232,7 +390,7 @@ namespace EngineeringUnits.Parsing
                     case Op o when o.C == ')':
                         while (stack.Count > 0 && stack.Peek().C != '(')
                             output.Add(stack.Pop());
-                        if (stack.Count == 0 || stack.Peek().C != '(')
+                        if (stack.Count == 0)
                         {
                             error = "Mismatched parentheses.";
                             return null;
@@ -241,8 +399,9 @@ namespace EngineeringUnits.Parsing
                         break;
 
                     case Op o:
+                        // '^' is right-associative, the rest left-associative
                         while (stack.Count > 0 && stack.Peek().C != '(' &&
-                               Prec(stack.Peek().C) >= Prec(o.C))
+                               (o.C == '^' ? Prec(stack.Peek().C) > Prec(o.C) : Prec(stack.Peek().C) >= Prec(o.C)))
                         {
                             output.Add(stack.Pop());
                         }
@@ -265,52 +424,77 @@ namespace EngineeringUnits.Parsing
             return output;
         }
 
-        // ---------------- Evaluate RPN using your unit engine ops ----------------
+        // ---------------- Evaluate RPN ----------------
 
         private static UnknownUnit? EvalRpn(List<Tok> rpn, out string? error)
         {
             error = null;
-            var st = new Stack<UnknownUnit>();
+            var st = new Stack<object>();
 
             foreach (var t in rpn)
             {
-                if (t is Lit lit)
+                switch (t)
                 {
-                    st.Push(lit.Value);
-                    continue;
-                }
+                    case Lit lit:
+                        st.Push(lit.Value);
+                        continue;
 
-                if (t is Op op)
-                {
-                    if (st.Count < 2)
-                    {
-                        error = "Invalid expression (missing operands).";
-                        return null;
-                    }
+                    case IntExponent e:
+                        st.Push(e.Value);
+                        continue;
 
-                    var b = st.Pop();
-                    var a = st.Pop();
+                    case Op op:
+                        if (st.Count < 2)
+                        {
+                            error = "Invalid expression (missing operands).";
+                            return null;
+                        }
 
-                    UnknownUnit res = op.C switch
-                    {
-                        '+' => a + b,
-                        '-' => a - b,
-                        '*' => a * b,
-                        '/' => a / b,
-                        _ => throw new FormatException($"Unknown operator '{op.C}'")
-                    };
+                        var b = st.Pop();
+                        var a = st.Pop();
 
-                    st.Push(res);
+                        if (a is not UnknownUnit left)
+                        {
+                            error = "Invalid expression.";
+                            return null;
+                        }
+
+                        if (op.C == '^')
+                        {
+                            if (b is not int exp)
+                            {
+                                error = "Exponent must be an integer.";
+                                return null;
+                            }
+                            st.Push(left.Pow(exp)!);
+                            continue;
+                        }
+
+                        if (b is not UnknownUnit right)
+                        {
+                            error = "Invalid expression.";
+                            return null;
+                        }
+
+                        st.Push(op.C switch
+                        {
+                            '+' => left + right,
+                            '-' => left - right,
+                            '*' => left * right,
+                            '/' => left / right,
+                            _ => throw new FormatException($"Unknown operator '{op.C}'")
+                        });
+                        continue;
                 }
             }
 
-            if (st.Count != 1)
+            if (st.Count != 1 || st.Peek() is not UnknownUnit result)
             {
                 error = "Invalid expression (leftover operands).";
                 return null;
             }
 
-            return st.Pop();
+            return result;
         }
 
         private static ParseResult<UnknownUnit> Fail(string original, string message, IReadOnlyList<ParseWarning>? warns = null)

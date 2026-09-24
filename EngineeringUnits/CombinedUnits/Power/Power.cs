@@ -61,4 +61,17 @@ public partial class Power : BaseUnit
          PowerUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Power? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Power, PowerUnit>(
+         input,
+         (v, u) => new Power(v, u),
+         PowerUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

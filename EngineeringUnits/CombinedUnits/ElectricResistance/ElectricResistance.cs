@@ -61,4 +61,17 @@ public partial class ElectricResistance : BaseUnit
          ElectricResistanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricResistance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricResistance, ElectricResistanceUnit>(
+         input,
+         (v, u) => new ElectricResistance(v, u),
+         ElectricResistanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

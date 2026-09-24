@@ -61,4 +61,17 @@ public partial class ReactiveEnergy : BaseUnit
          ReactiveEnergyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ReactiveEnergy? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ReactiveEnergy, ReactiveEnergyUnit>(
+         input,
+         (v, u) => new ReactiveEnergy(v, u),
+         ReactiveEnergyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

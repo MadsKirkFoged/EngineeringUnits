@@ -1,18 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Text;
 using EngineeringUnits.Parser.Objects;
 using EngineeringUnits.Parser.UnitParser;
-using EngineeringUnits;
 
 namespace EngineeringUnits.Parsing
 {
+    /// <summary>
+    /// Parses "&lt;number&gt; &lt;unit expression&gt;" text such as "12.5 kPa", "1 000 m³/h", "3×10⁻² W/(m·K)" or "20 °C".
+    /// All TryParse methods return false instead of throwing; Parse methods throw <see cref="FormatException"/>.
+    /// </summary>
     public static class QuantityParser
     {
+        // ---------------- typed (Length, Pressure, ...) ----------------
+
         /// <summary>
-        /// Parses either:
-        ///  - "<number> <TUnit token>"  (token resolved using UnitTokenRegistry<TUnit> only)
-        ///  - "<number> <unit expression>" (expression parsed to UnitSystem, dimension-checked vs siUnit)
+        /// Parses into a specific quantity type. The unit is resolved against <typeparamref name="TUnit"/> first
+        /// ("MPa", "megapascal"), then as a unit expression ("N/mm²") that must have the dimension of <paramref name="siUnit"/>.
         /// </summary>
         public static bool TryParse<TQuantity, TUnit>(
             string? input,
@@ -22,67 +28,7 @@ namespace EngineeringUnits.Parsing
             IFormatProvider? culture = null,
             bool allowUnitExpressions = true)
             where TUnit : UnitTypebase
-        {
-            value = default!;
-
-            if (string.IsNullOrWhiteSpace(input))
-                return false;
-
-            input = input.Trim();
-
-            //fx 10−1  -> 1e-1
-            input = NormalizeNumericUnicode(input);
-            input = NormalizeTenPowerShorthand(input); // literal-only behavior is OK he
-
-
-            if (!TrySplitNumberAndUnit(input, out var numberPart, out var unitPart))
-                return false;
-
-            if (!TryParseDouble(numberPart, culture, out var number))
-                return false;
-
-
-            unitPart = unitPart.Trim();
-
-            // If the unit expression begins with '/', rewrite it as "(rest)^-1"
-            // This avoids introducing numeric literals (like "1/s") into the unit-expression grammar.
-            if (unitPart.StartsWith("/", StringComparison.Ordinal))
-            {
-                var rest = unitPart.Substring(1).Trim();
-                if (rest.Length == 0)
-                    return false;
-
-                unitPart = $"({rest})^-1";
-            }
-
-
-            // 1) First try: typed token only (safe, no cross-quantity matches)
-            if (UnitParser<TUnit>.TryParse(unitPart, out var unitToken))
-            {
-                value = factory(number, unitToken);
-                return true;
-            }
-
-            // 2) Second try: unit expression -> UnitSystem -> dimension-check -> convert to SI -> construct
-            if (!allowUnitExpressions)
-                return false;
-
-            if (!UnitParser.TryParse(unitPart, out var unitSystem))
-                return false;
-
-            // Dimension check (SI-normalized compare)
-            // UnitSystem equality is dimension-based and GetSIUnitsystem normalizes symbols/constants. [1](https://careerkarma.com/blog/git-download-a-single-file-from-github/)[2](https://github.com/MadsKirkFoged/)
-            if (unitSystem.GetSIUnitsystem() != siUnit.Unit.GetSIUnitsystem())
-                return false;
-
-            // Convert numeric value expressed in "unitSystem" to SI quantity value
-            // Use UnknownUnit as the intermediate (value + UnitSystem), then convert via existing conversion machinery. [3](https://www.nuget.org/packages/EngineeringUnits/1.1.0)
-            var unknown = new UnknownUnit((decimal)number, unitSystem);
-            decimal siValue = (decimal)unknown.GetValueAs(siUnit.Unit);
-
-            value = factory((double)siValue, siUnit);
-            return true;
-        }
+            => TryParseTyped(input, factory, siUnit, out value, out _, culture, allowUnitExpressions);
 
         public static TQuantity Parse<TQuantity, TUnit>(
             string? input,
@@ -92,71 +38,112 @@ namespace EngineeringUnits.Parsing
             bool allowUnitExpressions = true)
             where TUnit : UnitTypebase
         {
-            if (!TryParse(input, factory, siUnit, out TQuantity value, culture, allowUnitExpressions))
-            {
-                // Best-effort diagnostic
-                var diag = QuantityParser.ParseWithWarnings(input, culture);
-                var extra = string.IsNullOrWhiteSpace(diag.Error) ? "" : $" {diag.Error}";
-                throw new FormatException($"Could not parse {typeof(TQuantity).Name} from '{input}'.{extra}");
-            }
+            if (!TryParseTyped(input, factory, siUnit, out TQuantity value, out var error, culture, allowUnitExpressions))
+                throw new FormatException($"Could not parse {typeof(TQuantity).Name} from '{input}'. {error}".TrimEnd());
             return value;
         }
 
-        public static ParseResult<UnknownUnit> ParseWithWarnings(string? input, IFormatProvider? culture = null)
+        private static bool TryParseTyped<TQuantity, TUnit>(
+            string? input,
+            Func<double, TUnit, TQuantity> factory,
+            TUnit siUnit,
+            out TQuantity value,
+            out string? error,
+            IFormatProvider? culture,
+            bool allowUnitExpressions)
+            where TUnit : UnitTypebase
         {
-            string original = input ?? "";
+            value = default!;
 
-            if (string.IsNullOrWhiteSpace(input))
-                return Fail(original, "Input was empty.");
-
-            input = input.Trim();
-            input = NormalizeNumericUnicode(input);
-            input = NormalizeTenPowerShorthand(input); // literal-only behavior is OK he
-
-
-            if (!TrySplitNumberAndUnit(input, out var numberPart, out var unitExpr))
-                return Fail(original, "Expected '<number> <unit expression>'.");
-
-            if (!TryParseDouble(numberPart, culture, out var value))
-                return Fail(original, "Could not parse numeric value.");
-
-            unitExpr = unitExpr.Trim();
-
-            if (unitExpr.StartsWith("/", StringComparison.Ordinal))
+            try
             {
-                var rest = unitExpr.Substring(1).Trim();
-                if (rest.Length == 0)
-                    return Fail(original, "Unit expression started with '/' but had no denominator.");
+                if (!TrySplit(input, culture, out var number, out var unitPart, out error))
+                    return false;
 
-                unitExpr = $"({rest})^-1";
+                // 1) Unit token of this quantity type only (no cross-quantity matches)
+                if (unitPart.Length > 0)
+                {
+                    if (UnitParser<TUnit>.TryParse(unitPart, out var unitToken, out var tokenError))
+                    {
+                        value = factory(number.Double, unitToken);
+                        return true;
+                    }
+
+                    if (tokenError is not null)
+                    {
+                        error = tokenError;
+                        return false;
+                    }
+                }
+
+                if (!allowUnitExpressions)
+                {
+                    error = $"Unknown {typeof(TQuantity).Name} unit '{unitPart}'.";
+                    return false;
+                }
+
+                // 2) Unit expression -> UnitSystem -> dimension check
+                if (!UnitExpressionParser.TryParseCore(unitPart, UnitParseOptions.Default, out var unitSystem, warnings: null, out error))
+                    return false;
+
+                if (unitSystem.GetSIUnitsystem() != siUnit.Unit.GetSIUnitsystem())
+                {
+                    error = unitPart.Length == 0
+                        ? $"Missing unit; expected a {typeof(TQuantity).Name} unit."
+                        : $"'{unitPart}' is not a {typeof(TQuantity).Name} unit (it is {DescribeDimension(unitSystem)}).";
+                    return false;
+                }
+
+                // Keep the user's unit when it matches a predefined one ("5 kW h" stays in kWh)
+                var known = KnownUnits<TUnit>.FindEquivalent(unitSystem);
+                if (known is not null)
+                {
+                    value = factory(number.Double, known);
+                    return true;
+                }
+
+                var unknown = new UnknownUnit(number.Decimal, unitSystem);
+                decimal siValue = (decimal)unknown.GetValueAs(siUnit.Unit);
+                value = factory((double)siValue, siUnit);
+                return true;
             }
-
-
-            // ✅ Friendly: no exceptions, errors returned via out string
-            if (!UnitExpressionParser.TryParseWithWarnings(unitExpr, out var unitSystem, out List<ParseWarning> warnings, out string? error))
-                return Fail(original, error ?? "Could not parse unit expression.");
-
-            var normalized = $"{numberPart} {unitSystem}";
-            var unknown = new UnknownUnit((decimal)value, unitSystem);
-
-            return new ParseResult<UnknownUnit>
+            catch (OverflowException)
             {
-                Success = true,
-                Value = unknown,
-                Original = original,
-                Normalized = normalized,
-                Warnings = warnings
-            };
+                error = "The value is too large to be represented.";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
         }
 
+        private static class KnownUnits<TUnit> where TUnit : UnitTypebase
+        {
+            private static readonly Lazy<List<TUnit>> _all = new(() => UnitTypebase.ListOf<TUnit>(), isThreadSafe: true);
+
+            public static TUnit? FindEquivalent(UnitSystem unitSystem)
+                => _all.Value.FirstOrDefault(u => UnitTokenIndex<TUnit>.UnitsEquivalent(u.Unit, unitSystem));
+        }
+
+        private static string DescribeDimension(UnitSystem u)
+        {
+            var si = u.GetSIUnitsystem().ToString();
+            return string.IsNullOrEmpty(si) ? "dimensionless" : si;
+        }
+
+        // ---------------- untyped (UnknownUnit) ----------------
+
+        public static ParseResult<UnknownUnit> ParseWithWarnings(string? input, IFormatProvider? culture = null)
+            => ParseLiteral(input, culture, UnitParseOptions.Default);
 
         public static UnknownUnit Parse(string? input, IFormatProvider? culture = null)
         {
             var r = ParseWithWarnings(input, culture);
             if (!r.Success || r.Value is null)
-                throw new FormatException(string.IsNullOrWhiteSpace(r.Error) ? $"Could not parse '{input}'." : $"Could not parse '{input}'. {r.Error}"
-);
-            return r.Value;//.TryCastToKnownUnit();
+                throw new FormatException(string.IsNullOrWhiteSpace(r.Error) ? $"Could not parse '{input}'." : $"Could not parse '{input}'. {r.Error}");
+            return r.Value;
         }
 
         public static bool TryParse(string? input, out UnknownUnit unit, IFormatProvider? culture = null)
@@ -166,8 +153,37 @@ namespace EngineeringUnits.Parsing
             if (!r.Success || r.Value is null)
                 return false;
 
-            unit = r.Value;//.TryCastToKnownUnit();
+            unit = r.Value;
             return true;
+        }
+
+        /// <summary>Parses one "&lt;number&gt; &lt;unit&gt;" literal. Also used by <see cref="QuantityExpressionParser"/>.</summary>
+        internal static ParseResult<UnknownUnit> ParseLiteral(string? input, IFormatProvider? culture, UnitParseOptions options)
+        {
+            string original = input ?? "";
+
+            try
+            {
+                if (!TrySplit(input, culture, out var number, out var unitExpr, out var error))
+                    return Fail(original, error!);
+
+                var warnings = new List<ParseWarning>();
+                if (!UnitExpressionParser.TryParseCore(unitExpr, options, out var unitSystem, warnings, out error))
+                    return Fail(original, error ?? "Could not parse unit expression.");
+
+                return new ParseResult<UnknownUnit>
+                {
+                    Success = true,
+                    Value = new UnknownUnit(number.Decimal, unitSystem),
+                    Original = original,
+                    Normalized = $"{number.Text} {unitSystem}".Trim(),
+                    Warnings = warnings
+                };
+            }
+            catch (Exception ex)
+            {
+                return Fail(original, ex.Message);
+            }
         }
 
         private static ParseResult<UnknownUnit> Fail(string original, string message)
@@ -183,121 +199,230 @@ namespace EngineeringUnits.Parsing
             };
         }
 
+        // ---------------- number / unit split ----------------
 
-        // ---------------- helpers ----------------        
-
-        private static bool TrySplitNumberAndUnit(string input, out string numberPart, out string unitPart)
+        internal readonly struct ParsedNumber
         {
-            numberPart = "";
-            unitPart = "";
+            public ParsedNumber(decimal value, string text) { Decimal = value; Text = text; }
 
-            int i = 0;
-            while (i < input.Length && char.IsWhiteSpace(input[i]))
-                i++;
-            if (i >= input.Length)
+            public decimal Decimal { get; }
+            public double Double => (double)Decimal;
+
+            /// <summary>Canonical invariant text, e.g. "1234.5" for "1.234,5".</summary>
+            public string Text { get; }
+        }
+
+        private static bool TrySplit(string? input, IFormatProvider? culture, out ParsedNumber number, out string unitPart, out string? error)
+        {
+            number = default;
+            unitPart = "";
+            error = null;
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                error = "Input was empty.";
+                return false;
+            }
+
+            var s = NormalizeNumericUnicode(input!.Trim());
+            s = NormalizeTenPowerShorthand(s);
+
+            int end = ScanNumber(s, 0);
+            if (end == 0)
+            {
+                error = "Expected '<number> <unit expression>'.";
+                return false;
+            }
+
+            if (!TryInterpretNumber(s.Substring(0, end), culture, out number, out error))
                 return false;
 
-            int startNum = i;
+            unitPart = s.Substring(end).Trim();
+            return true;
+        }
 
-            while (i < input.Length)
+        private static bool IsDigit(char c) => c is >= '0' and <= '9';
+
+        private static bool IsGroupSpace(char c) => c is ' ' or ' ' or ' ' or ' ' or ' ';
+
+        /// <summary>
+        /// Returns the end index of a number at <paramref name="start"/> (0 if none).
+        /// Accepts sign, '.'/',' separators, SI digit-group spaces ("1 000 000") and an exponent.
+        /// 'e'/'E' only counts as an exponent when digits follow, so "5 eV", "5 EJ" and "5 erg" keep their unit.
+        /// </summary>
+        private static int ScanNumber(string s, int start)
+        {
+            int i = start;
+            int n = s.Length;
+
+            if (i < n && (s[i] == '+' || s[i] == '-'))
+                i++;
+
+            bool anyDigit = false;
+            int run = 0; // digits since the last separator
+
+            while (i < n)
             {
-                char c = input[i];
+                char c = s[i];
 
-                if (char.IsDigit(c) || c == '+' || c == '-' || c == '.' || c == ',' || c == 'e' || c == 'E')
-                {
-                    i++;
-                    continue;
-                }
+                if (IsDigit(c))
+                { anyDigit = true; run++; i++; continue; }
 
-                if (char.IsWhiteSpace(c))
-                {
-                    i++;
-                    continue;
-                }
+                if ((c == '.' || c == ',') && i + 1 < n && IsDigit(s[i + 1]))
+                { run = 0; i++; continue; }
+
+                // "5." (trailing decimal point)
+                if (c == '.' && anyDigit)
+                { i++; break; }
+
+                // "1 000": a space followed by exactly three digits
+                if (IsGroupSpace(c) && anyDigit && run is >= 1 and <= 3 &&
+                    i + 3 < n && IsDigit(s[i + 1]) && IsDigit(s[i + 2]) && IsDigit(s[i + 3]) &&
+                    (i + 4 >= n || !IsDigit(s[i + 4])))
+                { run = 0; i++; continue; }
 
                 break;
             }
 
-            int endNum = i;
+            if (!anyDigit)
+                return 0;
 
-            numberPart = input.Substring(startNum, endNum - startNum).Trim();
-            if (numberPart.Length == 0)
-                return false;
-
-            // Skip whitespace after number
-            while (i < input.Length && char.IsWhiteSpace(input[i]))
-                i++;
-
-            // ✅ NEW: allow "number only" => unitPart empty
-            if (i >= input.Length)
+            // Exponent: e3, E-3, e+03
+            if (i < n && (s[i] == 'e' || s[i] == 'E'))
             {
-                unitPart = "";
+                int j = i + 1;
+                if (j < n && (s[j] == '+' || s[j] == '-'))
+                    j++;
+                if (j < n && IsDigit(s[j]))
+                {
+                    while (j < n && IsDigit(s[j]))
+                        j++;
+                    i = j;
+                }
+            }
+
+            return i;
+        }
+
+        /// <summary>
+        /// Works out which of '.' and ',' is the decimal separator:
+        /// <list type="bullet">
+        /// <item>both present: the last one is the decimal separator ("1,234.5", "1.234,5")</item>
+        /// <item>one kind, several times: digit grouping ("1,000,000")</item>
+        /// <item>a single '.': decimal</item>
+        /// <item>a single ',': decimal if the culture uses ',', otherwise grouping only when exactly three digits follow ("1,234"), else decimal ("1,5")</item>
+        /// </list>
+        /// </summary>
+        private static bool TryInterpretNumber(string raw, IFormatProvider? culture, out ParsedNumber number, out string? error)
+        {
+            number = default;
+            error = null;
+
+            string sign = "";
+            if (raw.Length > 0 && (raw[0] == '+' || raw[0] == '-'))
+            {
+                sign = raw[0] == '-' ? "-" : "";
+                raw = raw.Substring(1);
+            }
+
+            string exponent = "";
+            int e = raw.IndexOfAny(new[] { 'e', 'E' });
+            if (e >= 0)
+            {
+                exponent = raw.Substring(e);
+                raw = raw.Substring(0, e);
+            }
+
+            bool spaceGrouped = raw.Any(IsGroupSpace);
+            var mantissa = new string(raw.Where(c => !IsGroupSpace(c)).ToArray());
+
+            int dots = mantissa.Count(c => c == '.');
+            int commas = mantissa.Count(c => c == ',');
+
+            char? decimalSep = null;
+            char? groupSep = null;
+
+            if (dots > 0 && commas > 0)
+            {
+                decimalSep = mantissa.LastIndexOf('.') > mantissa.LastIndexOf(',') ? '.' : ',';
+                groupSep = decimalSep == '.' ? ',' : '.';
+            }
+            else if (dots > 1)
+                groupSep = '.';
+            else if (commas > 1)
+                groupSep = ',';
+            else if (dots == 1)
+                decimalSep = '.';
+            else if (commas == 1)
+            {
+                var nfi = NumberFormatInfo.GetInstance(culture ?? CultureInfo.CurrentCulture);
+                int idx = mantissa.IndexOf(',');
+                int after = mantissa.Length - idx - 1;
+
+                if (nfi.NumberDecimalSeparator == ",")
+                    decimalSep = ',';
+                else if (after == 3 && idx is >= 1 and <= 3 && !spaceGrouped)
+                    groupSep = ',';
+                else
+                    decimalSep = ',';
+            }
+
+            string intPart = mantissa;
+            string fracPart = "";
+
+            if (decimalSep is char d)
+            {
+                int idx = mantissa.LastIndexOf(d);
+                if (mantissa.IndexOf(d) != idx)
+                {
+                    error = $"Could not parse numeric value '{sign}{raw}{exponent}': more than one decimal separator.";
+                    return false;
+                }
+                intPart = mantissa.Substring(0, idx);
+                fracPart = mantissa.Substring(idx + 1);
+            }
+
+            if (groupSep is char g)
+            {
+                var groups = intPart.Split(g);
+                bool valid = groups[0].Length is >= 1 and <= 3 && groups.Skip(1).All(x => x.Length == 3);
+                if (!valid)
+                {
+                    error = $"Could not parse numeric value '{sign}{raw}{exponent}': invalid digit grouping.";
+                    return false;
+                }
+                intPart = string.Concat(groups);
+            }
+
+            if (intPart.Length == 0)
+                intPart = "0";
+
+            var canonical = sign + intPart + (fracPart.Length > 0 ? "." + fracPart : "") + exponent;
+
+            if (decimal.TryParse(canonical, NumberStyles.Float, CultureInfo.InvariantCulture, out var dec))
+            {
+                number = new ParsedNumber(dec, canonical);
                 return true;
             }
 
-            unitPart = input.Substring(i).Trim();
-            return true;
-        }
-
-        private static bool TryParseDouble(string s, IFormatProvider? culture, out double value)
-        {
-            value = 0;
-            if (string.IsNullOrWhiteSpace(s))
-                return false;
-
-            const NumberStyles style = NumberStyles.Float | NumberStyles.AllowThousands;
-
-            int lastDot = s.LastIndexOf('.');
-            int lastComma = s.LastIndexOf(',');
-
-            bool hasDot = lastDot >= 0;
-            bool hasComma = lastComma >= 0;
-
-            bool looksDotDecimal =
-                (hasDot && !hasComma) ||
-                (hasDot && hasComma && lastDot > lastComma);
-
-            bool looksCommaDecimal =
-                (hasComma && !hasDot) ||
-                (hasDot && hasComma && lastComma > lastDot);
-
-            if (looksDotDecimal)
+            if (double.TryParse(canonical, NumberStyles.Float, CultureInfo.InvariantCulture, out var dbl) && !double.IsInfinity(dbl))
             {
-                if (double.TryParse(s, style, CultureInfo.InvariantCulture, out value))
-                    return true;
-                if (culture != null && double.TryParse(s, style, culture, out value))
-                    return true;
-                if (double.TryParse(s, style, CultureInfo.CurrentCulture, out value))
-                    return true;
-                return false;
-            }
-
-            if (looksCommaDecimal)
-            {
-                if (culture != null && double.TryParse(s, style, culture, out value))
-                    return true;
-                if (double.TryParse(s, style, CultureInfo.CurrentCulture, out value))
-                    return true;
-
-                if (!hasDot)
+                // Between decimal and double range, or a tiny value decimal cannot hold
+                if (Math.Abs(dbl) < 1e-28)
                 {
-                    var normalized = s.Replace(',', '.');
-                    if (double.TryParse(normalized, style, CultureInfo.InvariantCulture, out value))
-                        return true;
+                    number = new ParsedNumber(0m, canonical);
+                    return true;
                 }
 
+                error = $"The value '{canonical}' is too large to be represented (max ±7.9e28).";
                 return false;
             }
 
-            if (culture != null && double.TryParse(s, style, culture, out value))
-                return true;
-            if (double.TryParse(s, style, CultureInfo.InvariantCulture, out value))
-                return true;
-            if (double.TryParse(s, style, CultureInfo.CurrentCulture, out value))
-                return true;
-
+            error = $"Could not parse numeric value '{sign}{raw}{exponent}'.";
             return false;
         }
+
+        // ---------------- pre-normalization ----------------
 
         private static string NormalizeTenPowerShorthand(string input)
         {
@@ -313,23 +438,6 @@ namespace EngineeringUnits.Parsing
 
             // ---- Helpers ----
             static bool IsMul(char c) => c == '*' || c == '×' || c == '·' || c == '⋅' || c == '∙';
-            // × (multiplication sign) and ⋅ (dot operator) are common in copied math text. [5](https://github.com/angularsen/UnitsNet)[6](https://libs.tech/project/11521218/unitsnet)
-
-            static bool IsSupDigit(char c) => c is '⁰' or '¹' or '²' or '³' or '⁴' or '⁵' or '⁶' or '⁷' or '⁸' or '⁹';
-            static int SupDigitValue(char c) => c switch
-            {
-                '⁰' => 0,
-                '¹' => 1,
-                '²' => 2,
-                '³' => 3,
-                '⁴' => 4,
-                '⁵' => 5,
-                '⁶' => 6,
-                '⁷' => 7,
-                '⁸' => 8,
-                '⁹' => 9,
-                _ => 0
-            };
 
             static void SkipWs(string s, ref int idx)
             {
@@ -395,9 +503,9 @@ namespace EngineeringUnits.Parsing
 
                 int val = 0;
                 int digits = 0;
-                while (idx < s.Length && IsSupDigit(s[idx]))
+                while (idx < s.Length && UnitExpressionNormalizer.IsSuperscriptDigit(s[idx]))
                 {
-                    val = (val * 10) + SupDigitValue(s[idx]);
+                    val = (val * 10) + UnitExpressionNormalizer.SuperscriptDigitValue(s[idx]);
                     digits++;
                     idx++;
                 }
@@ -440,7 +548,7 @@ namespace EngineeringUnits.Parsing
                 }
             }
 
-            // ---- Pattern 2: <coef> * 10^exp  (or ×, ⋅, ·) ----
+            // ---- Pattern 2: <coef> * 10^exp  (or ×, ⋅, ·, or a spaced 'x') ----
             // Read coefficient token up to whitespace or mul symbol.
             int coefStart = i;
             int coefEnd = i;
@@ -454,7 +562,9 @@ namespace EngineeringUnits.Parsing
                 int j = coefEnd;
                 SkipWs(input, ref j);
 
-                if (j < input.Length && IsMul(input[j]))
+                bool spacedX = j > coefEnd && j + 1 < input.Length && (input[j] == 'x' || input[j] == 'X') && char.IsWhiteSpace(input[j + 1]);
+
+                if (j < input.Length && (IsMul(input[j]) || spacedX))
                 {
                     j++;
                     SkipWs(input, ref j);
@@ -476,23 +586,25 @@ namespace EngineeringUnits.Parsing
 
             return input;
         }
+
         private static string NormalizeNumericUnicode(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
                 return input ?? "";
 
-            // Normalize common unicode minus/plus and odd spaces that break numeric parsing
-            // U+2212 is MINUS SIGN (very common in copied math) [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
-            return input
-                .Replace('\u00A0', ' ')  // NBSP
-                .Replace('−', '-')       // U+2212 minus sign [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
-                .Replace('–', '-')       // en dash
-                .Replace('—', '-')       // em dash
-                .Replace('‑', '-')       // non-breaking hyphen
-                .Replace('－', '-')      // fullwidth hyphen-minus
-                .Replace('＋', '+');     // fullwidth plus
+            // Unicode minus/plus and odd spaces break numeric parsing (U+2212 is common in copied math)
+            var sb = new StringBuilder(input.Length);
+            foreach (var c in input)
+            {
+                sb.Append(c switch
+                {
+                    ' ' => ' ',
+                    '−' or '–' or '—' or '‑' or '－' => '-',
+                    '＋' => '+',
+                    _ => c,
+                });
+            }
+            return sb.ToString();
         }
-
-
     }
-    }
+}

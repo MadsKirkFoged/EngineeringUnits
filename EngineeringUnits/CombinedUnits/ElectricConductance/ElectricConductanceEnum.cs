@@ -1,11 +1,14 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+namespace EngineeringUnits.Units;
 
 public partial record ElectricConductanceUnit : UnitTypebase
 {
 
     public static readonly ElectricConductanceUnit SI = new(LengthUnit.SI);
     public static readonly ElectricConductanceUnit CubicMeter = new(LengthUnit.Meter);
+    [SecondarySymbol]
     public static readonly ElectricConductanceUnit HectocubicMeter = new(PreFix.hecto, CubicMeter);
+    [SecondarySymbol]
     public static readonly ElectricConductanceUnit KilocubicMeter = new(PreFix.kilo, CubicMeter);
 
     public ElectricConductanceUnit(LengthUnit Length)

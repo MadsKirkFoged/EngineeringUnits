@@ -1,4 +1,4 @@
-﻿using EngineeringUnits.Parser.Objects;
+using EngineeringUnits.Parser.Objects;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,25 +6,25 @@ namespace EngineeringUnits.Parser.UnitParser
 {
     internal static class OffsetUnitNormalizer
     {
+        /// <summary>
+        /// Offset units (°C, °F; RawUnit.B != 0 in y = a·x + b) only make sense on their own.
+        /// Inside a compound unit ("J/(kg·°C)", "°C/s") they are rewritten to their delta form (offset removed).
+        /// </summary>
         internal static (UnitSystem unit, List<ParseWarning> warnings) Normalize(UnitSystem unit)
         {
             var warnings = new List<ParseWarning>();
 
-            // Detect offset terms: RawUnit.B != 0 indicates affine conversion y=a*x+b. [1](https://linuxvox.com/blog/wget-a-raw-file-from-github-from-a-private-repo/)
-            // We only care when the unit system is compound (not a pure temperature quantity).
             bool hasOffset = unit.ListOfUnits.Any(u => u.B != 0);
             if (!hasOffset)
                 return (unit, warnings);
 
             bool isPureTemperature =
-                unit.ListOfUnits.All(u => u.UnitType == BaseunitType.temperature) &&
-                unit.ListOfUnits.Count() == 1;
+                unit.ListOfUnits.Count() == 1 &&
+                unit.ListOfUnits.All(u => u.UnitType == BaseunitType.temperature && u.Count == 1);
 
             if (isPureTemperature)
                 return (unit, warnings);
 
-            // Option A: auto-rewrite to "without offset" (delta interpretation).
-            // This uses UnitSystemExtensions.GetWithOutOffset(). [2](https://github.com/MadsKirkFoged/)
             var rewritten = unit.GetWithOutOffset();
 
             warnings.Add(new ParseWarning

@@ -61,4 +61,17 @@ public partial class Enthalpy : BaseUnit
          EnthalpyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Enthalpy? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Enthalpy, EnthalpyUnit>(
+         input,
+         (v, u) => new Enthalpy(v, u),
+         EnthalpyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

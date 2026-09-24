@@ -25,18 +25,18 @@ namespace UnitTests.Parsing
             //  - AsSI values match
             yield return Case("1 kg*m^2/s^2", "1 kg*m^2/s^2");
 
-            // Superscripts for exponent digits (common copy/paste) [1](https://www.youtube.com/watch?v=uRjcZkHxi4g)[9](https://www.nuget.org/packages/EngineeringUnits/1.1.100)
+            // Superscripts for exponent digits (common copy/paste)
             yield return Case("1 kg*m²/s²", "1 kg*m^2/s^2");
             yield return Case("1 m/s²", "1 m/s^2");
             yield return Case("1 m·s⁻²", "1 m*s^-2"); // superscript minus + digit
 
-            // Unicode minus sign U+2212 often pasted from Word/PDF/math pages [3](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/When-opening-drawings-exported-from-other-platforms-or-software-the-units-are-read-incorrectly-in-Civil-3D.html)[10](https://forums.autodesk.com/t5/revit-api-forum/change-project-units/td-p/12858468)
+            // Unicode minus sign U+2212 often pasted from Word/PDF/math pages
             yield return Case("1 kg*m^2*s^−2", "1 kg*m^2*s^-2"); // ^−2 using U+2212
 
-            // Dot operator U+22C5 is used as multiplication in math typography [4](https://github.com/orgs/community/discussions/44370)[11](https://mystry-geek.blogspot.com/2024/12/compile-time-unit-checking-enhancing.html)
+            // Dot operator U+22C5 is used as multiplication in math typography
             yield return Case("1 N⋅m", "1 N*m");
 
-            // Multiplication sign U+00D7 commonly used instead of '*' [5](https://www.howtogeek.com/devops/how-to-download-single-files-from-a-github-repository/)[12](blob:https://m365.cloud.microsoft/d82160bd-d1e0-4858-a8e8-1be8734b5ecb)
+            // Multiplication sign U+00D7 commonly used instead of '*'[12](blob:https://m365.cloud.microsoft/d82160bd-d1e0-4858-a8e8-1be8734b5ecb)
             yield return Case("1 N×m", "1 N*m");
 
             // Division sign and fraction slashes (common in formatted sources)
@@ -44,13 +44,13 @@ namespace UnitTests.Parsing
             yield return Case("1 m⁄s", "1 m/s");
             yield return Case("1 m∕s", "1 m/s");
 
-            // NBSP between number and unit (common in HTML/Word) [6](https://www.engineeringtoolbox.net/getsimdata/getunisim)[13](https://www.etsi.org/deliver/etsi_ts/121100_121199/121111/16.01.00_60/ts_121111v160100p.pdf)
+            // NBSP between number and unit (common in HTML/Word)
             yield return Case("10\u00A0kg", "10 kg");
 
-            // Greek mu vs micro sign confusion is common [8](https://github.blog/developer-skills/github/beginners-guide-to-github-repositories-how-to-create-your-first-repo/)[7](https://github.com/DI-Lab-THU/EngineeringSim)
+            // Greek mu vs micro sign confusion is common
             yield return Case("1 μm", "1 µm");
 
-            // Ohm sign vs Greek omega confusion is common [8](https://github.blog/developer-skills/github/beginners-guide-to-github-repositories-how-to-create-your-first-repo/)[14](https://people.freebsd.org/~kami/2015-32C3/paper-twocolumn-grey.pdf)
+            // Ohm sign vs Greek omega confusion is common
             yield return Case("1 Ω", "1 Ω");
 
             // Degree ordinal indicator sometimes appears instead of degree sign
@@ -97,7 +97,7 @@ namespace UnitTests.Parsing
 
         public static IEnumerable<object[]> ShouldFailCases()
         {
-            // Subscripts are ambiguous (indices/labels, chemical formulas) [1](https://www.youtube.com/watch?v=uRjcZkHxi4g)[2](https://github.com/MadsKirkFoged/)
+            // Subscripts are ambiguous (indices/labels, chemical formulas)
             yield return Fail("1 m₂");              // m sub 2 (index), not exponent
             yield return Fail("1 s₋²");             // subscript minus + digit
             yield return Fail("1 kg*m₂/s^2");       // mixed index in expression

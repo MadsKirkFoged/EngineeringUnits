@@ -61,4 +61,17 @@ public partial class ForceChangeRate : BaseUnit
          ForceChangeRateUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ForceChangeRate? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ForceChangeRate, ForceChangeRateUnit>(
+         input,
+         (v, u) => new ForceChangeRate(v, u),
+         ForceChangeRateUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

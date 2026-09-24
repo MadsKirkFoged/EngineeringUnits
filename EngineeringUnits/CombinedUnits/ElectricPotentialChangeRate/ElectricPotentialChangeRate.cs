@@ -61,4 +61,17 @@ public partial class ElectricPotentialChangeRate : BaseUnit
          ElectricPotentialChangeRateUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricPotentialChangeRate? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricPotentialChangeRate, ElectricPotentialChangeRateUnit>(
+         input,
+         (v, u) => new ElectricPotentialChangeRate(v, u),
+         ElectricPotentialChangeRateUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

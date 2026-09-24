@@ -61,4 +61,17 @@ public partial class CoefficientOfThermalExpansion : BaseUnit
          CoefficientOfThermalExpansionUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out CoefficientOfThermalExpansion? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<CoefficientOfThermalExpansion, CoefficientOfThermalExpansionUnit>(
+         input,
+         (v, u) => new CoefficientOfThermalExpansion(v, u),
+         CoefficientOfThermalExpansionUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

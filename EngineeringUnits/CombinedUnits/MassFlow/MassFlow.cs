@@ -61,4 +61,17 @@ public partial class MassFlow : BaseUnit
          MassFlowUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MassFlow? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MassFlow, MassFlowUnit>(
+         input,
+         (v, u) => new MassFlow(v, u),
+         MassFlowUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

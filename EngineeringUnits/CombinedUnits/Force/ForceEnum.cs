@@ -18,7 +18,6 @@ public partial record ForceUnit : UnitTypebase
     public static readonly ForceUnit Micronewton = new(PreFix.micro, Newton);
 
     [Synonyms(
-        "mn",
         "millinewton", "millinewtons",
         "milli-newton", "milli-newtons"
     )]
@@ -39,10 +38,8 @@ public partial record ForceUnit : UnitTypebase
     public static readonly ForceUnit Kilonewton = new(PreFix.kilo, Newton);
 
     [Synonyms(
-        "mn",  // NOTE: conflicts with millinewton if case-insensitive
-        "mnw", // optional alternative if you need a disambiguator
-        "mn (mega)", // probably remove if your parser is strict
-        "mn (meganewton)"
+        "meganewton", "meganewtons",
+        "mega-newton", "mega-newtons"
     )]
     public static readonly ForceUnit Meganewton = new(PreFix.mega, Newton);
 
@@ -104,7 +101,6 @@ public partial record ForceUnit : UnitTypebase
     public static readonly ForceUnit KilopoundForce = new(MassUnit.Kilopound, AccelerationUnit.StandardGravity, "kipf");
 
     [Synonyms(
-        "mlbf",
         "megapound-force", "megapound force",
         "million pound-force", "million pound force"
     )]

@@ -13,7 +13,7 @@ public partial record EnthalpyUnit : UnitTypebase
     [Synonyms("kj/kg", "kilojouleperkilogram", "kilojoulesperkilogram", "kilojoule per kilogram", "kilojoules per kilogram")]
     public static readonly EnthalpyUnit KilojoulePerKilogram = new(EnergyUnit.Kilojoule, MassUnit.Kilogram);
 
-    [Synonyms("mj/kg", "megajouleperkilogram", "megajoulesperkilogram", "megajoule per kilogram", "megajoules per kilogram")]
+    [Synonyms("megajouleperkilogram", "megajoulesperkilogram", "megajoule per kilogram", "megajoules per kilogram")]
     public static readonly EnthalpyUnit MegajoulePerKilogram = new(EnergyUnit.Megajoule, MassUnit.Kilogram);
 
     [Synonyms("btu/lb", "btuperpound", "btusperpound", "btu per pound", "btus per pound")]

@@ -136,6 +136,19 @@ internal class UnitGenerator
                             {{Variable}}Unit.SI,
                             culture);
                        }
+
+                       public static bool TryParse(string? input, [NotNullWhen(true)] out {{Variable}}? result, IFormatProvider? culture = null)
+                       {
+                            var ok = QuantityParser.TryParse<{{Variable}}, {{Variable}}Unit>(
+                            input,
+                            (v, u) => new {{Variable}}(v, u),
+                            {{Variable}}Unit.SI,
+                            out var value,
+                            culture);
+
+                            result = ok ? value : null;
+                            return ok;
+                       }
                    }
                    
                    """;

@@ -61,4 +61,17 @@ public partial class Capacitance : BaseUnit
          CapacitanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Capacitance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Capacitance, CapacitanceUnit>(
+         input,
+         (v, u) => new Capacitance(v, u),
+         CapacitanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

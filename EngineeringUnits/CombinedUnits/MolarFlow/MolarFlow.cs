@@ -61,4 +61,17 @@ public partial class MolarFlow : BaseUnit
          MolarFlowUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MolarFlow? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MolarFlow, MolarFlowUnit>(
+         input,
+         (v, u) => new MolarFlow(v, u),
+         MolarFlowUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

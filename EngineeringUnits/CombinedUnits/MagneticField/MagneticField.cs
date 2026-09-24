@@ -61,4 +61,17 @@ public partial class MagneticField : BaseUnit
          MagneticFieldUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MagneticField? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MagneticField, MagneticFieldUnit>(
+         input,
+         (v, u) => new MagneticField(v, u),
+         MagneticFieldUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

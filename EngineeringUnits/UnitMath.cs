@@ -15,7 +15,8 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The sum of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit? Sum(this IEnumerable<BaseUnit?> list)
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this IEnumerable<BaseUnit?> list)
     {
         if (list.Any() is false)
             return null;
@@ -34,12 +35,18 @@ public static class UnitMath
                             (x, y) => (x + y)!);
     }
 
-    public static UnknownUnit? Sum(params BaseUnit?[] x) => x.Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
-    public static UnknownUnit? Sum(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    [return: DimensionOf(nameof(x))]
+    public static UnknownUnit? Sum([SameDimension] params BaseUnit?[] x) => x.Sum();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this (BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Sum([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Sum();
 
     /// <summary>
     /// Calculates the average value of a collection of <see cref="BaseUnit"/> objects.
@@ -47,7 +54,8 @@ public static class UnitMath
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The average value of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
-    public static UnknownUnit? Average(this IEnumerable<BaseUnit?> list)
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this IEnumerable<BaseUnit?> list)
     {
         if (list.Any() is false)
             return null;
@@ -58,12 +66,18 @@ public static class UnitMath
         return list.Sum() / list.Count();
     }
 
-    public static UnknownUnit? Average(params BaseUnit?[] x) => x.Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
-    public static UnknownUnit? Average(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    [return: DimensionOf(nameof(x))]
+    public static UnknownUnit? Average([SameDimension] params BaseUnit?[] x) => x.Average();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this (BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Average([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Average();
 
     /// <summary>
     /// Calculates the mean value of a collection of <see cref="BaseUnit"/> objects.
@@ -72,7 +86,8 @@ public static class UnitMath
     /// <returns>The mean value of the <see cref="BaseUnit"/> objects.</returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
 
-    public static UnknownUnit? Mean(this IEnumerable<BaseUnit?> list)
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this IEnumerable<BaseUnit?> list)
     {
         if (list.Any() is false)
             return null;
@@ -83,40 +98,60 @@ public static class UnitMath
         return new(list.OrderBy(x => x).ToList()[list.Count() / 2]!);
     }
 
-    public static UnknownUnit? Mean(params BaseUnit?[] x) => x.Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
-    public static UnknownUnit? Mean(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    [return: DimensionOf(nameof(x))]
+    public static UnknownUnit? Mean([SameDimension] params BaseUnit?[] x) => x.Mean();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this (BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Mean([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Mean();
 
     /// <summary>
     /// Calculates the minimum value of a collection of <see cref="BaseUnit"/> objects.
     /// </summary>
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The minimum value of the <see cref="BaseUnit"/> objects.</returns>
-    public static UnknownUnit? Min(IEnumerable<BaseUnit?> list) => list.Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] IEnumerable<BaseUnit?> list) => list.Min().ToUnknownUnit();
 
-    public static UnknownUnit? Min(params BaseUnit?[] x) => x.Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
-    public static UnknownUnit? Min(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(x))]
+    public static UnknownUnit? Min([SameDimension] params BaseUnit?[] x) => x.Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] this (BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Min([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Min().ToUnknownUnit();
 
     /// <summary>
     /// Calculates the maximum value of a collection of <see cref="BaseUnit"/> objects.
     /// </summary>
     /// <param name="list">The collection of <see cref="BaseUnit"/> objects.</param>
     /// <returns>The maximum value of the <see cref="BaseUnit"/> objects.</returns>
-    public static UnknownUnit? Max(IEnumerable<BaseUnit?> list) => list.Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] IEnumerable<BaseUnit?> list) => list.Max().ToUnknownUnit();
 
-    public static UnknownUnit? Max(params BaseUnit?[] x) => x.Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
-    public static UnknownUnit? Max(this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(x))]
+    public static UnknownUnit? Max([SameDimension] params BaseUnit?[] x) => x.Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] this (BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
+    [return: DimensionOf(nameof(list))]
+    public static UnknownUnit? Max([SameDimension] this (BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?, BaseUnit?) list) => list.ToList().Max().ToUnknownUnit();
 
     /// <summary>
     /// Performs linear interpolation between two points.
@@ -145,7 +180,8 @@ public static class UnitMath
     /// <param name="y0">The y-coordinate of the first reference point.</param>
     /// <param name="y1">The y-coordinate of the second reference point.</param>
     /// <returns>y-coordinate.</returns>
-    public static UnknownUnit? LinearInterpolation(BaseUnit? x, BaseUnit? x0, BaseUnit? x1, BaseUnit? y0, BaseUnit? y1)
+    [return: DimensionOf(nameof(y0))]
+    public static UnknownUnit? LinearInterpolation([SameDimension("x")] BaseUnit? x, [SameDimension("x")] BaseUnit? x0, [SameDimension("x")] BaseUnit? x1, [SameDimension("y")] BaseUnit? y0, [SameDimension("y")] BaseUnit? y1)
     {
 
         if (x1 == x0)
@@ -162,6 +198,7 @@ public static class UnitMath
     /// <param name="a">The <see cref="BaseUnit"/> object.</param>
     /// <returns>The absolute value of the <see cref="BaseUnit"/> object.</returns>
     [return: NotNullIfNotNull(nameof(a))]
+    [return: DimensionOf(nameof(a))]
     public static UnknownUnit? Abs(this BaseUnit? a)
     {
         if (a is null)
@@ -187,6 +224,7 @@ public static class UnitMath
     /// <param name="a">Source value</param>
     /// <exception cref="WrongUnitException">gg</exception>
     [return: NotNullIfNotNull(nameof(a))]
+    [return: DimensionOf(nameof(a), Root = 2)]
     public static UnknownUnit? Sqrt(this BaseUnit? a)
     {
         if (a is null || a.IsBelowZero())

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
@@ -13,11 +14,11 @@ internal static class SiUnitFormatter
         ["mass"] = "kg",
         ["length"] = "m",
         ["time"] = "s",
-        ["duration"] = "s",
         ["electricCurrent"] = "A",
         ["temperature"] = "K",
         ["amountOfSubstance"] = "mol",
         ["luminousIntensity"] = "cd",
+        ["Cost"] = "$",
     };
 
     internal static Dictionary<int, string> BuildEnumValueToNameMap(Compilation compilation)
@@ -35,15 +36,13 @@ internal static class SiUnitFormatter
         return map;
     }
 
-    internal static string FormatAsSi(Dictionary<int, int> exps, Dictionary<int, string> enumValueToName)
+    internal static string FormatAsSi(ImmutableArray<(int BaseUnit, int Exponent)> terms, Dictionary<int, string> enumValueToName)
     {
         var num = new List<string>();
         var den = new List<string>();
 
-        foreach (var kv in exps.OrderBy(k => k.Key))
+        foreach (var (unitKey, exp) in terms.OrderBy(t => t.BaseUnit))
         {
-            var unitKey = kv.Key;
-            var exp = kv.Value;
             if (exp == 0)
                 continue;
 

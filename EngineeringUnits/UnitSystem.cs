@@ -476,7 +476,7 @@ public class UnitSystem
     private static bool IsUselessDimensionlessCombined(RawUnit u)
     {
         // internal dimensionless CombinedUnit noise: A=1, B=0, Count=1, no symbol
-        // RawUnit stores A/B/Count/UnitType. [2](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
+        // RawUnit stores A/B/Count/UnitType.
         if (u.UnitType != BaseunitType.CombinedUnit)
             return false;
 

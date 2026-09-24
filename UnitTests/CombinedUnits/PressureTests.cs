@@ -60,7 +60,7 @@ public class PressureTests
         }
 
         //Number of comparables units
-        Assert.AreEqual(42, WorkingCompares);
+        Assert.AreEqual(43, WorkingCompares); // +MillimeterOfWaterColumn
     }
 
     [TestMethod]

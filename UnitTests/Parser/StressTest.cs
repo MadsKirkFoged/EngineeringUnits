@@ -142,7 +142,7 @@ namespace UnitTests.Stress
                 Assert.IsTrue(UnitExpressionParser.TryParseWithWarnings(canon, out var u2, out _, out var err2),
                     $"Round-trip parse failed: expr='{expr}', canon='{canon}', err='{err2}'");
 
-                // Dimension equality should hold in SI-normalized space. [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)
+                // Dimension equality should hold in SI-normalized space.
                 Assert.IsTrue(u1.GetSIUnitsystem() == u2.GetSIUnitsystem(),
                     $"SI mismatch: expr='{expr}', canon='{canon}', si1='{u1.GetSIUnitsystem()}', si2='{u2.GetSIUnitsystem()}'");
 

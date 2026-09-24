@@ -61,4 +61,17 @@ public partial class Torque : BaseUnit
          TorqueUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Torque? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Torque, TorqueUnit>(
+         input,
+         (v, u) => new Torque(v, u),
+         TorqueUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

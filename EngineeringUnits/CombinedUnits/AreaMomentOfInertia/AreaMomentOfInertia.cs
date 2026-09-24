@@ -61,4 +61,17 @@ public partial class AreaMomentOfInertia : BaseUnit
          AreaMomentOfInertiaUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out AreaMomentOfInertia? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<AreaMomentOfInertia, AreaMomentOfInertiaUnit>(
+         input,
+         (v, u) => new AreaMomentOfInertia(v, u),
+         AreaMomentOfInertiaUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

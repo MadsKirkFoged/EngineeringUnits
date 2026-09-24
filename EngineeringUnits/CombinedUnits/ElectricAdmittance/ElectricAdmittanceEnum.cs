@@ -1,9 +1,11 @@
-﻿namespace EngineeringUnits.Units;
+﻿using EngineeringUnits.Parsing;
+namespace EngineeringUnits.Units;
 
 public partial record ElectricAdmittanceUnit : UnitTypebase
 {
 
     public static readonly ElectricAdmittanceUnit SI = new(MassUnit.SI, LengthUnit.SI, DurationUnit.SI, ElectricCurrentUnit.SI, "S");
+    [Synonyms("siemens", "mho", "mhos", "℧")]
     public static readonly ElectricAdmittanceUnit Siemens = new(MassUnit.Kilogram, LengthUnit.Meter, DurationUnit.Second, ElectricCurrentUnit.Ampere, "S");
     public static readonly ElectricAdmittanceUnit Microsiemens = new(PreFix.micro, Siemens);
     public static readonly ElectricAdmittanceUnit Millisiemens = new(PreFix.milli, Siemens);

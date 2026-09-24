@@ -61,4 +61,17 @@ public partial class MassCost : BaseUnit
          MassCostUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MassCost? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MassCost, MassCostUnit>(
+         input,
+         (v, u) => new MassCost(v, u),
+         MassCostUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

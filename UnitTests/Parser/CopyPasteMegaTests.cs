@@ -34,31 +34,31 @@ namespace UnitTests.Parsing
                 // ------------------------------------------------------------
                 new("10^1", "10^1 Pa", true, () => AssertPressure("10^1 Pa", 10m)),
                 new("10^-1", "10^-1 Pa", true, () => AssertPressure("10^-1 Pa", 0.1m)),
-                new("10^−1 (U+2212 minus)", "10^−1 Pa", true, () => AssertPressure("10^−1 Pa", 0.1m)), // U+2212 [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
-                new("10^(−1)", "10^(−1) Pa", true, () => AssertPressure("10^(−1) Pa", 0.1m)),            // U+2212 [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
+                new("10^−1 (U+2212 minus)", "10^−1 Pa", true, () => AssertPressure("10^−1 Pa", 0.1m)), // U+2212
+                new("10^(−1)", "10^(−1) Pa", true, () => AssertPressure("10^(−1) Pa", 0.1m)),            // U+2212
 
-                new("1e−1 (unicode minus)", "1e−1 Pa", true, () => AssertPressure("1e−1 Pa", 0.1m)),    // U+2212 [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
-                new("1E+1", "1E+1 Pa", true, () => AssertPressure("1E+1 Pa", 10m)),                      // scientific notation [11](https://github.com/MadsKirkFoged/)[12](https://www.nuget.org/packages/EngineeringUnits/1.1.0)
+                new("1e−1 (unicode minus)", "1e−1 Pa", true, () => AssertPressure("1e−1 Pa", 0.1m)),    // U+2212
+                new("1E+1", "1E+1 Pa", true, () => AssertPressure("1E+1 Pa", 10m)),                      // scientific notation
 
                 // Lost-caret shorthand (start-only, literal parser only)
-                new("10−1 (lost caret)", "10−1 Pa", true, () => AssertPressure("10−1 Pa", 0.1m)),        // U+2212 [1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)[2](https://github.com/lbborkowski/engineering-unit-converter)
+                new("10−1 (lost caret)", "10−1 Pa", true, () => AssertPressure("10−1 Pa", 0.1m)),        // U+2212
 
                 // coefficient × 10^n style
-                new("3×10^2", "3×10^2 Pa", true, () => AssertPressure("3×10^2 Pa", 300m)),               // × [4](https://www.nuget.org/packages/UnitsNet/)[5](https://github.com/angularsen/UnitsNet)
-                new("3⋅10^2", "3⋅10^2 Pa", true, () => AssertPressure("3⋅10^2 Pa", 300m)),               // ⋅ [3](https://libs.tech/project/11521218/unitsnet)
-                new("3·10^2", "3·10^2 Pa", true, () => AssertPressure("3·10^2 Pa", 300m)),               // middle dot used for multiplication [3](https://libs.tech/project/11521218/unitsnet)
+                new("3×10^2", "3×10^2 Pa", true, () => AssertPressure("3×10^2 Pa", 300m)),               // ×
+                new("3⋅10^2", "3⋅10^2 Pa", true, () => AssertPressure("3⋅10^2 Pa", 300m)),               // ⋅
+                new("3·10^2", "3·10^2 Pa", true, () => AssertPressure("3·10^2 Pa", 300m)),               // middle dot used for multiplication
 
                 // ------------------------------------------------------------
                 // B) Superscripts in units (exponents)
                 // ------------------------------------------------------------
                 new("Acceleration m/s²", "1 m/s²", true, () => AssertAcceleration("1 m/s²", 1m)),
-                new("Acceleration m·s⁻²", "1 m·s⁻²", true, () => AssertAcceleration("1 m·s⁻²", 1m)),     // ⁻ is U+207B [10](https://1library.net/document/q2vw1rjy-unisim-design-operations-guide.html)
+                new("Acceleration m·s⁻²", "1 m·s⁻²", true, () => AssertAcceleration("1 m·s⁻²", 1m)),     // ⁻ is U+207B
 
                 // ------------------------------------------------------------
                 // C) Unit operators from typography
                 // ------------------------------------------------------------
-                new("Dot operator multiplication", "1 N⋅m", true, () => AssertUnknownSIEqual("1 N⋅m", "1 N*m")), // ⋅ multiplication [3](https://libs.tech/project/11521218/unitsnet)
-                new("Multiplication sign ×", "1 N×m", true, () => AssertUnknownSIEqual("1 N×m", "1 N*m")),      // × [4](https://www.nuget.org/packages/UnitsNet/)[5](https://github.com/angularsen/UnitsNet)
+                new("Dot operator multiplication", "1 N⋅m", true, () => AssertUnknownSIEqual("1 N⋅m", "1 N*m")), // ⋅ multiplication
+                new("Multiplication sign ×", "1 N×m", true, () => AssertUnknownSIEqual("1 N×m", "1 N*m")),      // ×
 
                 new("Division sign ÷", "1 m÷s", true, () => AssertUnknownSIEqual("1 m÷s", "1 m/s")),
                 new("Fraction slash ⁄", "1 m⁄s", true, () => AssertUnknownSIEqual("1 m⁄s", "1 m/s")),
@@ -67,21 +67,21 @@ namespace UnitTests.Parsing
                 // ------------------------------------------------------------
                 // D) Confusable unit symbols (μ/µ, Ω/Ω)
                 // ------------------------------------------------------------
-                new("Greek mu μ vs micro µ", "1 μm", true, () => AssertUnknownSIEqual("1 μm", "1 µm")),         // μ vs µ [8](https://people.freebsd.org/~kami/2015-32C3/paper-twocolumn-grey.pdf)[9](https://github.com/orgs/community/discussions/44370)
-                new("Ohm sign Ω vs Ω", "1 Ω", true, () => AssertUnknownSIEqual("1 Ω", "1 Ω")),                  // Ω vs Ω [9](https://github.com/orgs/community/discussions/44370)[1](https://skillbolt.dev/blog/top-10-github-repos-engineering-students-should-know)
+                new("Greek mu μ vs micro µ", "1 μm", true, () => AssertUnknownSIEqual("1 μm", "1 µm")),         // μ vs µ
+                new("Ohm sign Ω vs Ω", "1 Ω", true, () => AssertUnknownSIEqual("1 Ω", "1 Ω")),                  // Ω vs Ω
 
                 // ------------------------------------------------------------
                 // E) Whitespace issues (NBSP)
                 // ------------------------------------------------------------
-                new("NBSP between number and unit", "10\u00A0kg", true, () => AssertUnknownSIEqual("10\u00A0kg", "10 kg")), // NBSP U+00A0 [6](https://github.com/angularsen/UnitsNet/issues/1322)[7](https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/When-opening-drawings-exported-from-other-platforms-or-software-the-units-are-read-incorrectly-in-Civil-3D.html)
+                new("NBSP between number and unit", "10\u00A0kg", true, () => AssertUnknownSIEqual("10\u00A0kg", "10 kg")), // NBSP U+00A0
 
                 // ------------------------------------------------------------
                 // F) Things we *currently* consider ambiguous / unsupported
                 // (Mark as ShouldParse=false so we can revisit policy later)
                 // ------------------------------------------------------------
                 new("Ambiguous subtraction-looking numeric token", "10 - 1 Pa", false),
-                new("Subscript index (ambiguous intent)", "1 m₂", false), // subscripts are semantic/index often [13](https://github.com/MadsKirkFoged/EngineeringUnits/pulls)[14](https://github.com/MadsKirkFoged/EngineeringUnits/issues)
-                new("Chemical-formula-like token", "1 H₂O", false),       // not a unit [13](https://github.com/MadsKirkFoged/EngineeringUnits/pulls)[14](https://github.com/MadsKirkFoged/EngineeringUnits/issues)
+                new("Subscript index (ambiguous intent)", "1 m₂", false), // subscripts are semantic/index often
+                new("Chemical-formula-like token", "1 H₂O", false),       // not a unit
             };
 
             var failures = new List<string>();

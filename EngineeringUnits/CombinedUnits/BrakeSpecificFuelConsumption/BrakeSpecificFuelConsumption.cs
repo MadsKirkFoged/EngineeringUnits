@@ -61,4 +61,17 @@ public partial class BrakeSpecificFuelConsumption : BaseUnit
          BrakeSpecificFuelConsumptionUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out BrakeSpecificFuelConsumption? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<BrakeSpecificFuelConsumption, BrakeSpecificFuelConsumptionUnit>(
+         input,
+         (v, u) => new BrakeSpecificFuelConsumption(v, u),
+         BrakeSpecificFuelConsumptionUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

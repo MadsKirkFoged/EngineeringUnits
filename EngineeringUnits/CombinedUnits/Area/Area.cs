@@ -61,4 +61,17 @@ public partial class Area : BaseUnit
          AreaUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Area? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Area, AreaUnit>(
+         input,
+         (v, u) => new Area(v, u),
+         AreaUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class Duration : BaseUnit
          DurationUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Duration? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Duration, DurationUnit>(
+         input,
+         (v, u) => new Duration(v, u),
+         DurationUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

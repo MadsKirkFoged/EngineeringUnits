@@ -782,7 +782,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         else
             return this == (BaseUnit)obj;
     }
-    public bool Equals(BaseUnit? other) => this == other;
+    public bool Equals([SameDimension] BaseUnit? other) => this == other;
 
     public int CompareTo(object? obj)
     {
@@ -790,7 +790,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         return CompareTo(local);
     }
-    public int CompareTo(BaseUnit? other)
+    public int CompareTo([SameDimension] BaseUnit? other)
     {
         if (other is null)
             throw new NullReferenceException();

@@ -23,7 +23,6 @@ public partial record FrequencyUnit : UnitTypebase
     public static readonly FrequencyUnit Kilohertz = new(PreFix.kilo, Hertz);
 
     [Synonyms(
-        "mhz",
         "megahertz",
         "mega hertz", "mega-hertz"
     )]
@@ -101,6 +100,7 @@ public partial record FrequencyUnit : UnitTypebase
         "rad/s^-1", // optional if your users type odd formats
         "rad·s^-1", "rad s^-1"
     )]
+    [SecondarySymbol]
     public static readonly FrequencyUnit RadianPerSecond =
         new(DurationUnit.Second, "rad/s", 1 / (2 * (decimal)Math.PI));
 

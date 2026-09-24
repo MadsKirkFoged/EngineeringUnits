@@ -61,4 +61,17 @@ public partial class Irradiation : BaseUnit
          IrradiationUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Irradiation? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Irradiation, IrradiationUnit>(
+         input,
+         (v, u) => new Irradiation(v, u),
+         IrradiationUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

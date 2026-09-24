@@ -61,4 +61,17 @@ public partial class ThermalConductivity : BaseUnit
          ThermalConductivityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ThermalConductivity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ThermalConductivity, ThermalConductivityUnit>(
+         input,
+         (v, u) => new ThermalConductivity(v, u),
+         ThermalConductivityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

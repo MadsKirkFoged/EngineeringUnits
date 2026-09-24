@@ -37,6 +37,9 @@ public partial record LengthUnit : UnitTypebase
     [Synonyms("nanometer", "nanometre", "nanometers", "nanometres", "nm")]
     public static readonly LengthUnit Nanometer = new(PreFix.nano);
 
+    [Synonyms("angstrom", "angstroms", "ångström", "ångströms")]
+    public static readonly LengthUnit Angstrom = new("Å", 1e-10m);
+
     // --- Typography / small units ---
     [Synonyms("microinch", "microinches", "uin", "µin", "micro-inch", "micro inch")]
     public static readonly LengthUnit Microinch = new("µin", new Fraction(1e-6m) * new Fraction(0.0254m));
@@ -79,7 +82,7 @@ public partial record LengthUnit : UnitTypebase
     [Synonyms("mile", "miles", "mi")]
     public static readonly LengthUnit Mile = new("mi", new Fraction(63360) * new Fraction(0.0254m));
 
-    [Synonyms("nautical mile", "nautical miles", "nauticalmile", "nauticalmiles", "nmi", "nm")]
+    [Synonyms("nautical mile", "nautical miles", "nauticalmile", "nauticalmiles", "nmi")]
     public static readonly LengthUnit NauticalMile = new("NM", new Fraction(72913.3858m) * new Fraction(0.0254m));
 
     [Synonyms("us survey foot", "u.s. survey foot", "survey foot", "usft", "ftus", "ftUS")]
@@ -92,7 +95,7 @@ public partial record LengthUnit : UnitTypebase
     [Synonyms("kilolightyear", "kilolightyears", "kilo lightyear", "kilo light year", "kly")]
     public static readonly LengthUnit KilolightYear = new("kly", 9460730472580800m * 1e+3m);
 
-    [Synonyms("megalightyear", "megalightyears", "mega lightyear", "mega light year", "mly", "Mly")]
+    [Synonyms("megalightyear", "megalightyears", "mega lightyear", "mega light year", "Mly")]
     public static readonly LengthUnit MegalightYear = new("Mly", 9460730472580800m * 1e+6m);
 
     [Synonyms("solar radius", "solarradius", "rsun", "r_sun", "r☉", "R☉", "Rsun")]
@@ -107,7 +110,7 @@ public partial record LengthUnit : UnitTypebase
     [Synonyms("kiloparsec", "kiloparsecs", "kpc")]
     public static readonly LengthUnit Kiloparsec = new("kpc", 30856775814913673m * 1e+3m);
 
-    [Synonyms("megaparsec", "megaparsecs", "mpc", "Mpc")]
+    [Synonyms("megaparsec", "megaparsecs", "Mpc")]
     public static readonly LengthUnit Megaparsec = new("Mpc", 30856775814913673m * 1e+6m);
 
 

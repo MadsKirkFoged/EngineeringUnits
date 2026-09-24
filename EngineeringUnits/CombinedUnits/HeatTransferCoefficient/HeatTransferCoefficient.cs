@@ -61,4 +61,17 @@ public partial class HeatTransferCoefficient : BaseUnit
          HeatTransferCoefficientUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out HeatTransferCoefficient? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<HeatTransferCoefficient, HeatTransferCoefficientUnit>(
+         input,
+         (v, u) => new HeatTransferCoefficient(v, u),
+         HeatTransferCoefficientUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

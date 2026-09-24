@@ -26,9 +26,11 @@ public partial record AccelerationUnit : UnitTypebase
 
     // Skipping "g" (too short / collides with gram and is generally overloaded)
     [Synonyms("standardgravity", "standard gravity")]
+    [SecondarySymbol]
     public static readonly AccelerationUnit StandardGravity = new(AccelerationUnit.SI, "g", 9.80665m);
 
     [Synonyms("millistandardgravity", "milli standard gravity")]
+    [SecondarySymbol]
     public static readonly AccelerationUnit MillistandardGravity = new(PreFix.milli, StandardGravity);
 
     public AccelerationUnit(LengthUnit length, DurationUnit duration)

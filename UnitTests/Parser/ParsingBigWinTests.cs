@@ -17,11 +17,11 @@ namespace UnitTests.ParserNew
         private static decimal ToJoules(EngineeringUnits.BaseUnit u)
         {
             // Convert parsed unit-system into Joules by converting to EnergyUnit.SI.Unit
-            // (conversion mechanism is used throughout the lib via BaseUnit.GetValueAs). [3](https://www.nuget.org/packages/EngineeringUnits/1.1.0)
+            // (conversion mechanism is used throughout the lib via BaseUnit.GetValueAs).
             return (decimal)u.GetValueAs(EnergyUnit.SI.Unit);
         }
 
-        private static UnitSystem SI(UnitSystem u) => u.GetSIUnitsystem(); // [2](https://github.com/MadsKirkFoged/)
+        private static UnitSystem SI(UnitSystem u) => u.GetSIUnitsystem(); //
 
         // -----------------------------
         // UnknownUnitParser: happy paths
@@ -73,7 +73,7 @@ namespace UnitTests.ParserNew
 
             // Convert to a simple SI unit system and check the numeric value is preserved.
             // We'll verify via converting to SI of the parsed unit itself.
-            var siUnit = u.Unit.GetSIUnitsystem(); // [2](https://github.com/MadsKirkFoged/)
+            var siUnit = u.Unit.GetSIUnitsystem(); //
             var siValue = u.GetValueAs(siUnit);
 
             Assert.AreEqual((decimal)expectedValue, (decimal)siValue, 1e-12m, $"Value mismatch for '{input}'");
@@ -95,7 +95,7 @@ namespace UnitTests.ParserNew
             Assert.IsTrue(UnitParser.TryParse(a, out var ua), $"Expected parse OK for '{a}'");
             Assert.IsTrue(UnitParser.TryParse(b, out var ub), $"Expected parse OK for '{b}'");
 
-            Assert.IsTrue(SI(ua) == SI(ub), $"Expected SI(UnitSystem) to match for '{a}' and '{b}'"); // [1](https://careerkarma.com/blog/git-download-a-single-file-from-github/)[2](https://github.com/MadsKirkFoged/)
+            Assert.IsTrue(SI(ua) == SI(ub), $"Expected SI(UnitSystem) to match for '{a}' and '{b}'"); //
         }
 
         // -----------------------------
@@ -109,7 +109,7 @@ namespace UnitTests.ParserNew
             Assert.IsTrue(QuantityParser.TryParse("1 kg*m^2/s^2", out var u2, Inv));
 
             // Both are energy dimensions; compare SI UnitSystem
-            Assert.IsTrue(SI(u1.Unit) == SI(u2.Unit)); // [1](https://careerkarma.com/blog/git-download-a-single-file-from-github/)[2](https://github.com/MadsKirkFoged/)
+            Assert.IsTrue(SI(u1.Unit) == SI(u2.Unit)); //
 
             // Both should convert to 1 Joule
             var j1 = ToJoules(u1);

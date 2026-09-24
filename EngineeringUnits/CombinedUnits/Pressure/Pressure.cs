@@ -61,4 +61,17 @@ public partial class Pressure : BaseUnit
          PressureUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Pressure? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Pressure, PressureUnit>(
+         input,
+         (v, u) => new Pressure(v, u),
+         PressureUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

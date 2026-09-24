@@ -113,6 +113,15 @@ public partial record PressureUnit : UnitTypebase
     public static readonly PressureUnit InchOfWaterColumn = new(Pascal, "inH2O", 249.08890833333m);
 
     [Synonyms(
+        "mmh2o", "mm h2o", "mm H2O",
+        "mm wc", "mmwc", "mm w.c.",
+        "millimeter of water", "millimeters of water",
+        "millimetre of water", "millimetres of water",
+        "millimeter of water column", "millimeters of water column"
+    )]
+    public static readonly PressureUnit MillimeterOfWaterColumn = new(Pascal, "mmH2O", 9.80665m);
+
+    [Synonyms(
         "m of head", "m head",
         "m of water", "m water",
         "m h2o", "mh2o", "m h₂o",
@@ -333,6 +342,16 @@ public partial record PressureUnit : UnitTypebase
         "barg", "bar(g)", "bar g", "bar gauge", "bar gauge pressure"
     )]
     public static readonly PressureUnit BarG = new(Bar, PressureReference.Gauge);
+
+    [Synonyms(
+        "psia", "psi(a)", "psi a", "psi abs", "psi absolute"
+    )]
+    public static readonly PressureUnit PsiA = new(PoundForcePerSquareInch, PressureReference.Absolute);
+
+    [Synonyms(
+        "psig", "psi(g)", "psi g", "psi gauge"
+    )]
+    public static readonly PressureUnit PsiG = new(PoundForcePerSquareInch, PressureReference.Gauge);
 
     public PressureReference Reference { get; private set; }
 

@@ -61,4 +61,17 @@ public partial class ElectricChargeDensity : BaseUnit
          ElectricChargeDensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricChargeDensity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricChargeDensity, ElectricChargeDensityUnit>(
+         input,
+         (v, u) => new ElectricChargeDensity(v, u),
+         ElectricChargeDensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

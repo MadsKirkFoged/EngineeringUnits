@@ -9,7 +9,7 @@ public partial record TorqueUnit : UnitTypebase
 
     // SI / base (same physical unit as N·m)
     [Synonyms(
-        "n*m", "n·m", "n m", "n-m", "nm",
+        "n*m", "n·m", "n m", "n-m", "Nm",
         "newton meter", "newton meters",
         "newton metre", "newton metres",
         "newton-meter", "newton-metre",
@@ -18,7 +18,7 @@ public partial record TorqueUnit : UnitTypebase
     public static readonly TorqueUnit SI = new(ForceUnit.SI, LengthUnit.SI);
 
     [Synonyms(
-        "n*m", "n·m", "n m", "n-m", "nm",
+        "n*m", "n·m", "n m", "n-m", "Nm",
         "newton meter", "newton meters",
         "newton metre", "newton metres",
         "newton-meter", "newton-metre",

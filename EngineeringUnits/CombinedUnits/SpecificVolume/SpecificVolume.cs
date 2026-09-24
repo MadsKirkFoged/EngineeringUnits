@@ -61,4 +61,17 @@ public partial class SpecificVolume : BaseUnit
          SpecificVolumeUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out SpecificVolume? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<SpecificVolume, SpecificVolumeUnit>(
+         input,
+         (v, u) => new SpecificVolume(v, u),
+         SpecificVolumeUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class ElectricCurrentDensity : BaseUnit
          ElectricCurrentDensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricCurrentDensity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricCurrentDensity, ElectricCurrentDensityUnit>(
+         input,
+         (v, u) => new ElectricCurrentDensity(v, u),
+         ElectricCurrentDensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

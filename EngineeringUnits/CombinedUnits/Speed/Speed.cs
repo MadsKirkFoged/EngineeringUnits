@@ -61,4 +61,17 @@ public partial class Speed : BaseUnit
          SpeedUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Speed? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Speed, SpeedUnit>(
+         input,
+         (v, u) => new Speed(v, u),
+         SpeedUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

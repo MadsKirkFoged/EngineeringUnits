@@ -61,4 +61,17 @@ public partial class DynamicViscosity : BaseUnit
          DynamicViscosityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out DynamicViscosity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<DynamicViscosity, DynamicViscosityUnit>(
+         input,
+         (v, u) => new DynamicViscosity(v, u),
+         DynamicViscosityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

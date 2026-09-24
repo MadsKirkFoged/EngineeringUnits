@@ -61,4 +61,17 @@ public partial class Density : BaseUnit
          DensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Density? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Density, DensityUnit>(
+         input,
+         (v, u) => new Density(v, u),
+         DensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class Temperature : BaseUnit
          TemperatureUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Temperature? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Temperature, TemperatureUnit>(
+         input,
+         (v, u) => new Temperature(v, u),
+         TemperatureUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

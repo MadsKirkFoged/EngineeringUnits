@@ -61,4 +61,17 @@ public partial class LuminousIntensity : BaseUnit
          LuminousIntensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out LuminousIntensity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<LuminousIntensity, LuminousIntensityUnit>(
+         input,
+         (v, u) => new LuminousIntensity(v, u),
+         LuminousIntensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

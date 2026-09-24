@@ -61,4 +61,17 @@ public partial class MolarEntropy : BaseUnit
          MolarEntropyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MolarEntropy? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MolarEntropy, MolarEntropyUnit>(
+         input,
+         (v, u) => new MolarEntropy(v, u),
+         MolarEntropyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

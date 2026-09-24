@@ -61,4 +61,17 @@ public partial class LapseRate : BaseUnit
          LapseRateUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out LapseRate? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<LapseRate, LapseRateUnit>(
+         input,
+         (v, u) => new LapseRate(v, u),
+         LapseRateUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

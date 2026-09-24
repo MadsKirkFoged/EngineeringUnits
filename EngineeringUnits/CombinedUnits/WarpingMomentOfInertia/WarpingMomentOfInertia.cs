@@ -61,4 +61,17 @@ public partial class WarpingMomentOfInertia : BaseUnit
          WarpingMomentOfInertiaUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out WarpingMomentOfInertia? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<WarpingMomentOfInertia, WarpingMomentOfInertiaUnit>(
+         input,
+         (v, u) => new WarpingMomentOfInertia(v, u),
+         WarpingMomentOfInertiaUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

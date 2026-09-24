@@ -61,4 +61,17 @@ public partial class Permeability : BaseUnit
          PermeabilityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Permeability? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Permeability, PermeabilityUnit>(
+         input,
+         (v, u) => new Permeability(v, u),
+         PermeabilityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

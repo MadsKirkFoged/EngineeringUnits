@@ -26,7 +26,7 @@ public partial record DurationUnit : UnitTypebase
     [Synonyms("hour", "hours", "hr", "hrs")]
     public static readonly DurationUnit Hour = new("h", 3600m);
 
-    [Synonyms("day", "days")]
+    [Synonyms("day", "days", "d")]
     public static readonly DurationUnit Day = new("day", 24 * 3600m);
 
     [Synonyms("week", "weeks", "wk")]

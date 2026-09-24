@@ -61,4 +61,17 @@ public partial class AreaDensity : BaseUnit
          AreaDensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out AreaDensity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<AreaDensity, AreaDensityUnit>(
+         input,
+         (v, u) => new AreaDensity(v, u),
+         AreaDensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

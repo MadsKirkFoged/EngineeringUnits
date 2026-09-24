@@ -64,11 +64,8 @@ public partial record EntropyUnit : UnitTypebase
     public static readonly EntropyUnit KilojoulePerKelvin = new(EnergyUnit.Kilojoule, TemperatureUnit.Kelvin);
 
     [Synonyms(
-        "mj/k",
         "megajouleperkelvin", "megajoulesperkelvin",
-        "megajoule per kelvin", "megajoules per kelvin",
-        "mj per k", "mj per kelvin",
-        "mj·k-1", "mj k-1"
+        "megajoule per kelvin", "megajoules per kelvin"
     )]
     public static readonly EntropyUnit MegajoulePerKelvin = new(EnergyUnit.Megajoule, TemperatureUnit.Kelvin);
 

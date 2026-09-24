@@ -61,4 +61,17 @@ public partial class Permittivity : BaseUnit
          PermittivityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Permittivity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Permittivity, PermittivityUnit>(
+         input,
+         (v, u) => new Permittivity(v, u),
+         PermittivityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

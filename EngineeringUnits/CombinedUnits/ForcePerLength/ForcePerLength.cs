@@ -61,4 +61,17 @@ public partial class ForcePerLength : BaseUnit
          ForcePerLengthUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ForcePerLength? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ForcePerLength, ForcePerLengthUnit>(
+         input,
+         (v, u) => new ForcePerLength(v, u),
+         ForcePerLengthUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

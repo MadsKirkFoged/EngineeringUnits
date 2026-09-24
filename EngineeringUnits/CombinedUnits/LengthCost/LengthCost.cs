@@ -61,4 +61,17 @@ public partial class LengthCost : BaseUnit
          LengthCostUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out LengthCost? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<LengthCost, LengthCostUnit>(
+         input,
+         (v, u) => new LengthCost(v, u),
+         LengthCostUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

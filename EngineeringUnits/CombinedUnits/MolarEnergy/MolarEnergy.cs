@@ -61,4 +61,17 @@ public partial class MolarEnergy : BaseUnit
          MolarEnergyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MolarEnergy? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MolarEnergy, MolarEnergyUnit>(
+         input,
+         (v, u) => new MolarEnergy(v, u),
+         MolarEnergyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

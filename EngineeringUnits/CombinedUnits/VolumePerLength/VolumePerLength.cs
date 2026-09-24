@@ -61,4 +61,17 @@ public partial class VolumePerLength : BaseUnit
          VolumePerLengthUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out VolumePerLength? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<VolumePerLength, VolumePerLengthUnit>(
+         input,
+         (v, u) => new VolumePerLength(v, u),
+         VolumePerLengthUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

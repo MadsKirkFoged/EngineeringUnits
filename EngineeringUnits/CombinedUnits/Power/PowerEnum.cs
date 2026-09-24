@@ -52,7 +52,7 @@ public partial record PowerUnit : UnitTypebase
 
     // Joule per hour family
     [Synonyms(
-        "mJ/h", "mJ/hr", "mj/h", "mj/hr",
+        "mJ/h", "mJ/hr",
         "millijoule per hour", "millijoules per hour", "millijouleperhour", "millijoulesperhour"
     )]
     public static readonly PowerUnit MillijoulePerHour = new(EnergyUnit.Millijoule, DurationUnit.Hour);
@@ -70,7 +70,7 @@ public partial record PowerUnit : UnitTypebase
     public static readonly PowerUnit KilojoulePerHour = new(EnergyUnit.Kilojoule, DurationUnit.Hour);
 
     [Synonyms(
-        "MJ/h", "MJ/hr", "mj/h", "mj/hr",
+        "MJ/h", "MJ/hr",
         "megajoule per hour", "megajoules per hour", "megajouleperhour", "megajoulesperhour"
     )]
     public static readonly PowerUnit MegajoulePerHour = new(EnergyUnit.Megajoule, DurationUnit.Hour);
@@ -130,7 +130,7 @@ public partial record PowerUnit : UnitTypebase
     public static readonly PowerUnit ElectricalHorsepower = new(EnergyUnit.SI, DurationUnit.SI, "hp(E)", 746m);
 
     [Synonyms(
-        "hp(h)", "hp (h)", "hp-h", "hph",
+        "hp(h)", "hp (h)",
         "hydraulic horsepower", "hydraulic hp"
     )]
     public static readonly PowerUnit HydraulicHorsepower = new(EnergyUnit.SI, DurationUnit.SI, "hp(H)", 745.69988145m);
@@ -153,7 +153,7 @@ public partial record PowerUnit : UnitTypebase
 
     // Refrigeration ton
     [Synonyms(
-        "TR", "tr",
+        "TR", "tr", "ton", "tons",
         "ton of refrigeration", "tons of refrigeration",
         "refrigeration ton", "refrigeration tons",
         "rt" // common shorthand; remove if it conflicts in your domain

@@ -61,4 +61,17 @@ public partial class Force : BaseUnit
          ForceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Force? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Force, ForceUnit>(
+         input,
+         (v, u) => new Force(v, u),
+         ForceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

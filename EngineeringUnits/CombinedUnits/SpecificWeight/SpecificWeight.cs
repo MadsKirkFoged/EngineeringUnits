@@ -61,4 +61,17 @@ public partial class SpecificWeight : BaseUnit
          SpecificWeightUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out SpecificWeight? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<SpecificWeight, SpecificWeightUnit>(
+         input,
+         (v, u) => new SpecificWeight(v, u),
+         SpecificWeightUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

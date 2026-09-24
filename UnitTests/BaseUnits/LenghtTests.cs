@@ -98,7 +98,7 @@ public class LenghtTests
         }
 
         //Number of comparables units
-        Assert.AreEqual(31, WorkingCompares);
+        Assert.AreEqual(32, WorkingCompares); // +Angstrom
 
     }
 

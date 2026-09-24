@@ -61,4 +61,17 @@ public partial class KinematicViscosity : BaseUnit
          KinematicViscosityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out KinematicViscosity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<KinematicViscosity, KinematicViscosityUnit>(
+         input,
+         (v, u) => new KinematicViscosity(v, u),
+         KinematicViscosityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

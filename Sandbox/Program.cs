@@ -55,12 +55,17 @@ public class Program
     {
 
 
+
+
         Power ZeroPower = Power.FromSI(0);
-        MassFlow ZeroMassFlow = MassFlow.FromSI(0);
+        //UnknownUnit ZeroMassFlow = Mass.FromCentigram(1) / Duration.FromDay(1) + Mass.FromCentigram(1) * Duration.FromDay(1);
+
+        //Length test = ZeroPower * ZeroMassFlow;
+
 
         SpecificEnergy NotZero = SpecificEnergy.FromSI(1);
 
-        Enthalpy AvailableEnergy = NotZero - (ZeroPower / ZeroMassFlow);
+        //Enthalpy AvailableEnergy = NotZero - (ZeroPower / ZeroMassFlow);
 
 
         for (int i = 0; i < 100000000; i++)

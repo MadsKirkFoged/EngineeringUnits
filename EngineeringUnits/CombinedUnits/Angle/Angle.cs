@@ -61,4 +61,17 @@ public partial class Angle : BaseUnit
          AngleUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Angle? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Angle, AngleUnit>(
+         input,
+         (v, u) => new Angle(v, u),
+         AngleUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

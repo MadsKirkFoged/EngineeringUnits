@@ -124,6 +124,7 @@ public static class BaseUnitExtensions
     /// <param name="selectedUnit">The target UnitSystem.</param>
     /// <returns>The orginal unit converted into a new.</returns>
     [return: NotNullIfNotNull(nameof(From))]
+    [return: DimensionOf(nameof(From))]
     public static UnknownUnit? ToUnit(this BaseUnit? From, UnitSystem selectedUnit)
     {
         if (From is null)
@@ -141,6 +142,7 @@ public static class BaseUnitExtensions
     /// <param name="toPower">The power to raise the BaseUnit to.</param>
     /// <returns>The result of raising the BaseUnit to the specified power.</returns>
     [return: NotNullIfNotNull(nameof(a))]
+    [return: DimensionOf(nameof(a), PowerParameter = nameof(toPower))]
     public static UnknownUnit? Pow(this BaseUnit? a, int toPower)
     {
         if (a is null)
@@ -163,7 +165,8 @@ public static class BaseUnitExtensions
     /// <param name="Upper">The upper limit BaseUnit.</param>
     /// <returns>The clamped value between lower and upper limits.</returns>
     [return: NotNullIfNotNull(nameof(Clamped))]
-    public static UnknownUnit? Clamp(this BaseUnit? Clamped, BaseUnit? Lower, BaseUnit? Upper)
+    [return: DimensionOf(nameof(Clamped))]
+    public static UnknownUnit? Clamp([SameDimension] this BaseUnit? Clamped, [SameDimension] BaseUnit? Lower, [SameDimension] BaseUnit? Upper)
     {
         if (Clamped is null)
             return null;
@@ -205,7 +208,8 @@ public static class BaseUnitExtensions
     }
 
     [Obsolete($"This is changing name to: {nameof(Clamp)} to follow System.Math syntax")]
-    public static UnknownUnit? InRangeOf(this BaseUnit? a, BaseUnit? Min, BaseUnit? Max) => a.Clamp(Min, Max);
+    [return: DimensionOf(nameof(a))]
+    public static UnknownUnit? InRangeOf([SameDimension] this BaseUnit? a, [SameDimension] BaseUnit? Min, [SameDimension] BaseUnit? Max) => a.Clamp(Min, Max);
 
     /// <summary>
     /// Determines whether the specified Unit is equal to zero.
@@ -282,7 +286,8 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRoundedUp">The reference value.</param>
-    public static UnknownUnit? RoundUpToNearest(this IEnumerable<BaseUnit?> list, BaseUnit? valueToBeRoundedUp)
+    [return: DimensionOf(nameof(valueToBeRoundedUp))]
+    public static UnknownUnit? RoundUpToNearest([SameDimension] this IEnumerable<BaseUnit?> list, [SameDimension] BaseUnit? valueToBeRoundedUp)
     {
         if (valueToBeRoundedUp is null)
             return null;
@@ -312,7 +317,8 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRoundedDown">The reference value.</param>
-    public static UnknownUnit? RoundDownToNearest(this IEnumerable<BaseUnit?> list, BaseUnit? valueToBeRoundedDown)
+    [return: DimensionOf(nameof(valueToBeRoundedDown))]
+    public static UnknownUnit? RoundDownToNearest([SameDimension] this IEnumerable<BaseUnit?> list, [SameDimension] BaseUnit? valueToBeRoundedDown)
     {
         if (valueToBeRoundedDown is null)
             return null;
@@ -342,7 +348,8 @@ public static class BaseUnitExtensions
     /// </summary> 
     /// <param name="list">The collection of BaseUnits.</param>
     /// <param name="valueToBeRounded">The reference value.</param>
-    public static UnknownUnit? RoundToNearest(this IEnumerable<BaseUnit> list, BaseUnit? valueToBeRounded)
+    [return: DimensionOf(nameof(valueToBeRounded))]
+    public static UnknownUnit? RoundToNearest([SameDimension] this IEnumerable<BaseUnit> list, [SameDimension] BaseUnit? valueToBeRounded)
     {
         if (valueToBeRounded is null)
             return null;
@@ -366,9 +373,11 @@ public static class BaseUnitExtensions
     }
 
     [Obsolete("Name has changed to: LowerLimitAt")]
-    public static UnknownUnit? Minimum(this BaseUnit? unit, BaseUnit? minimum) => unit.LowerLimitAt(minimum);
+    [return: DimensionOf(nameof(unit))]
+    public static UnknownUnit? Minimum([SameDimension] this BaseUnit? unit, [SameDimension] BaseUnit? minimum) => unit.LowerLimitAt(minimum);
     [Obsolete("Name has changed to: UpperLimitAt")]
-    public static UnknownUnit? Maximum(this BaseUnit? unit, BaseUnit? maximum) => unit.UpperLimitAt(maximum);
+    [return: DimensionOf(nameof(unit))]
+    public static UnknownUnit? Maximum([SameDimension] this BaseUnit? unit, [SameDimension] BaseUnit? maximum) => unit.UpperLimitAt(maximum);
 
     /// <summary>
     /// Set a upper limit on a value/calculation.<br></br>
@@ -384,7 +393,8 @@ public static class BaseUnitExtensions
     /// <returns>The lesser of the source value or the specified limit. </returns>
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
     [return: NotNullIfNotNull(nameof(unit))]
-    public static UnknownUnit? UpperLimitAt(this BaseUnit? unit, BaseUnit? limit)
+    [return: DimensionOf(nameof(unit))]
+    public static UnknownUnit? UpperLimitAt([SameDimension] this BaseUnit? unit, [SameDimension] BaseUnit? limit)
     {
         if (unit is null || limit is null)
             return null;
@@ -410,7 +420,8 @@ public static class BaseUnitExtensions
     /// <exception cref="WrongUnitException">Thrown when the unit of value and limit are different</exception>
 
     [return: NotNullIfNotNull(nameof(value))]
-    public static UnknownUnit? LowerLimitAt(this BaseUnit? value, BaseUnit? limit)
+    [return: DimensionOf(nameof(value))]
+    public static UnknownUnit? LowerLimitAt([SameDimension] this BaseUnit? value, [SameDimension] BaseUnit? limit)
     {
         if (value is null || limit is null)
             return null;
@@ -426,6 +437,7 @@ public static class BaseUnitExtensions
     /// Converting from BaseUnit => UnknownUnit
     /// </summary>
     [return: NotNullIfNotNull(nameof(unit))]
+    [return: DimensionOf(nameof(unit))]
     public static UnknownUnit? ToUnknownUnit(this BaseUnit? unit)
     {
         if (unit is null)
@@ -456,6 +468,7 @@ public static class BaseUnitExtensions
 
 
     [return: NotNullIfNotNull(nameof(unit))]
+    [return: DimensionOf(nameof(unit))]
     public static UnknownUnit? ConvertToSI(this BaseUnit? unit)
     {
         if (unit is null)
@@ -478,7 +491,8 @@ public static class BaseUnitExtensions
     /// <param name="value">Value to round</param>
     /// <param name="roundVal"></param>
     [return: NotNullIfNotNull(nameof(value))]
-    public static UnknownUnit? RoundTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    [return: DimensionOf(nameof(value))]
+    public static UnknownUnit? RoundTo<T>([SameDimension] this T? value, [SameDimension] T? roundVal) where T : BaseUnit
     {
         if (value is null)
             return null;
@@ -494,7 +508,8 @@ public static class BaseUnitExtensions
     /// <param name="value">Value to round</param>
     /// <param name="roundVal"></param>
     [return: NotNullIfNotNull(nameof(value))]
-    public static UnknownUnit? CeilingTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    [return: DimensionOf(nameof(value))]
+    public static UnknownUnit? CeilingTo<T>([SameDimension] this T? value, [SameDimension] T? roundVal) where T : BaseUnit
     {
         if (value is null)
             return null;
@@ -510,7 +525,8 @@ public static class BaseUnitExtensions
     /// <param name="value">Value to round</param>
     /// <param name="roundVal"></param>
     [return: NotNullIfNotNull(nameof(value))]
-    public static UnknownUnit? FloorTo<T>(this T? value, T? roundVal) where T : BaseUnit
+    [return: DimensionOf(nameof(value))]
+    public static UnknownUnit? FloorTo<T>([SameDimension] this T? value, [SameDimension] T? roundVal) where T : BaseUnit
     {
         if (value is null)
             return null;
@@ -522,6 +538,7 @@ public static class BaseUnitExtensions
 
 
 
+    [return: DimensionOf(nameof(local))]
     public static BaseUnit TryCastToKnownUnit(this UnknownUnit local)
     {
 

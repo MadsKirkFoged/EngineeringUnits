@@ -61,4 +61,17 @@ public partial class LuminousFlux : BaseUnit
          LuminousFluxUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out LuminousFlux? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<LuminousFlux, LuminousFluxUnit>(
+         input,
+         (v, u) => new LuminousFlux(v, u),
+         LuminousFluxUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

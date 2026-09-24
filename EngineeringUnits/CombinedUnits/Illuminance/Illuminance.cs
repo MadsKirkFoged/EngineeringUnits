@@ -61,4 +61,17 @@ public partial class Illuminance : BaseUnit
          IlluminanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Illuminance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Illuminance, IlluminanceUnit>(
+         input,
+         (v, u) => new Illuminance(v, u),
+         IlluminanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class ElectricField : BaseUnit
          ElectricFieldUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricField? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricField, ElectricFieldUnit>(
+         input,
+         (v, u) => new ElectricField(v, u),
+         ElectricFieldUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class PowerDensity : BaseUnit
          PowerDensityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out PowerDensity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<PowerDensity, PowerDensityUnit>(
+         input,
+         (v, u) => new PowerDensity(v, u),
+         PowerDensityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

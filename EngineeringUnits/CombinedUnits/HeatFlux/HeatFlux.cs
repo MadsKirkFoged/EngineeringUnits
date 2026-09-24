@@ -61,4 +61,17 @@ public partial class HeatFlux : BaseUnit
          HeatFluxUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out HeatFlux? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<HeatFlux, HeatFluxUnit>(
+         input,
+         (v, u) => new HeatFlux(v, u),
+         HeatFluxUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

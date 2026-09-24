@@ -61,4 +61,17 @@ public partial class VolumetricHeatTransferCoefficient : BaseUnit
          VolumetricHeatTransferCoefficientUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out VolumetricHeatTransferCoefficient? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<VolumetricHeatTransferCoefficient, VolumetricHeatTransferCoefficientUnit>(
+         input,
+         (v, u) => new VolumetricHeatTransferCoefficient(v, u),
+         VolumetricHeatTransferCoefficientUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

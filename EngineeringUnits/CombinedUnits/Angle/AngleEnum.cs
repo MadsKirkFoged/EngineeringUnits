@@ -14,6 +14,7 @@ public partial record AngleUnit : UnitTypebase
     public static readonly AngleUnit Arcsecond = new("″", 1 / 3600m);
 
     [Synonyms("gradian", "gradians", "gon", "gons")]
+    [SecondarySymbol]
     public static readonly AngleUnit Gradian = new("g", 0.9m);
 
     [Synonyms("radian", "radians", "rad")]
@@ -32,8 +33,7 @@ public partial record AngleUnit : UnitTypebase
     public static readonly AngleUnit Millidegree = new(PreFix.milli, Degree);
     public static readonly AngleUnit Nanodegree = new(PreFix.nano, Degree);
 
-    // Skipping short token "r" (too ambiguous). Use words only.
-    [Synonyms("revolution", "revolutions", "turn", "turns")]
+    [Synonyms("revolution", "revolutions", "rev", "revs", "turn", "turns")]
     public static readonly AngleUnit Revolution = new("r", 360m);
     //public static readonly AngleUnit Tilt = new AngleUnit("", Math.Asin(_value)*180/Math.PI); //TODO How do we do this?
 

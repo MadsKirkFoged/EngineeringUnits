@@ -61,4 +61,17 @@ public partial class SpecificEntropy : BaseUnit
          SpecificEntropyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out SpecificEntropy? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<SpecificEntropy, SpecificEntropyUnit>(
+         input,
+         (v, u) => new SpecificEntropy(v, u),
+         SpecificEntropyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

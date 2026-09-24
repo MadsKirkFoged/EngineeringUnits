@@ -61,4 +61,17 @@ public partial class FuelEfficiency : BaseUnit
          FuelEfficiencyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out FuelEfficiency? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<FuelEfficiency, FuelEfficiencyUnit>(
+         input,
+         (v, u) => new FuelEfficiency(v, u),
+         FuelEfficiencyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

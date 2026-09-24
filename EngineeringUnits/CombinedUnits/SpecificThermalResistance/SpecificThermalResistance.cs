@@ -61,4 +61,17 @@ public partial class SpecificThermalResistance : BaseUnit
          SpecificThermalResistanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out SpecificThermalResistance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<SpecificThermalResistance, SpecificThermalResistanceUnit>(
+         input,
+         (v, u) => new SpecificThermalResistance(v, u),
+         SpecificThermalResistanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

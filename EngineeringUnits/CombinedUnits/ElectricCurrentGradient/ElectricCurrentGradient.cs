@@ -61,4 +61,17 @@ public partial class ElectricCurrentGradient : BaseUnit
          ElectricCurrentGradientUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricCurrentGradient? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricCurrentGradient, ElectricCurrentGradientUnit>(
+         input,
+         (v, u) => new ElectricCurrentGradient(v, u),
+         ElectricCurrentGradientUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

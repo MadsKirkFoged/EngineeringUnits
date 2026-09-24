@@ -61,4 +61,17 @@ public partial class MassMomentOfInertia : BaseUnit
          MassMomentOfInertiaUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out MassMomentOfInertia? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<MassMomentOfInertia, MassMomentOfInertiaUnit>(
+         input,
+         (v, u) => new MassMomentOfInertia(v, u),
+         MassMomentOfInertiaUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

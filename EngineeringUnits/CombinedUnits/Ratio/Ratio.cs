@@ -61,4 +61,17 @@ public partial class Ratio : BaseUnit
          RatioUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Ratio? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Ratio, RatioUnit>(
+         input,
+         (v, u) => new Ratio(v, u),
+         RatioUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

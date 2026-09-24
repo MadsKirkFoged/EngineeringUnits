@@ -61,4 +61,17 @@ public partial class PipeSize : BaseUnit
          PipeSizeUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out PipeSize? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<PipeSize, PipeSizeUnit>(
+         input,
+         (v, u) => new PipeSize(v, u),
+         PipeSizeUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

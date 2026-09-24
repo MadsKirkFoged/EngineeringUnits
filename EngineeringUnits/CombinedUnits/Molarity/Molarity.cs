@@ -61,4 +61,17 @@ public partial class Molarity : BaseUnit
          MolarityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Molarity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Molarity, MolarityUnit>(
+         input,
+         (v, u) => new Molarity(v, u),
+         MolarityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

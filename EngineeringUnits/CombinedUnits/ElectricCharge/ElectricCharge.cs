@@ -61,4 +61,17 @@ public partial class ElectricCharge : BaseUnit
          ElectricChargeUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricCharge? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricCharge, ElectricChargeUnit>(
+         input,
+         (v, u) => new ElectricCharge(v, u),
+         ElectricChargeUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -61,4 +61,17 @@ public partial class Frequency : BaseUnit
          FrequencyUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Frequency? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Frequency, FrequencyUnit>(
+         input,
+         (v, u) => new Frequency(v, u),
+         FrequencyUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

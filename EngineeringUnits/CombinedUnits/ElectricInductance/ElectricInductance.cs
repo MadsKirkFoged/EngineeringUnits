@@ -61,4 +61,17 @@ public partial class ElectricInductance : BaseUnit
          ElectricInductanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out ElectricInductance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<ElectricInductance, ElectricInductanceUnit>(
+         input,
+         (v, u) => new ElectricInductance(v, u),
+         ElectricInductanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

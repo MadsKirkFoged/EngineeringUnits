@@ -61,4 +61,17 @@ public partial class AmountOfSubstance : BaseUnit
          AmountOfSubstanceUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out AmountOfSubstance? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<AmountOfSubstance, AmountOfSubstanceUnit>(
+         input,
+         (v, u) => new AmountOfSubstance(v, u),
+         AmountOfSubstanceUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

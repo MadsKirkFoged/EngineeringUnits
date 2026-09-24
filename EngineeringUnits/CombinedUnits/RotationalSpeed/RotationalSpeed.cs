@@ -61,4 +61,17 @@ public partial class RotationalSpeed : BaseUnit
          RotationalSpeedUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out RotationalSpeed? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<RotationalSpeed, RotationalSpeedUnit>(
+         input,
+         (v, u) => new RotationalSpeed(v, u),
+         RotationalSpeedUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

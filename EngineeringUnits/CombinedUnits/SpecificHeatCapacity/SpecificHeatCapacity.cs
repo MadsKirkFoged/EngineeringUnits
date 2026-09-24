@@ -61,4 +61,17 @@ public partial class SpecificHeatCapacity : BaseUnit
          SpecificHeatCapacityUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out SpecificHeatCapacity? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<SpecificHeatCapacity, SpecificHeatCapacityUnit>(
+         input,
+         (v, u) => new SpecificHeatCapacity(v, u),
+         SpecificHeatCapacityUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

@@ -34,6 +34,7 @@ public partial record VolumeUnit : UnitTypebase
         "hundred cubic meters", "hundred cubic metres",
         "100 cubic meters", "100 cubic metres"
     )]
+    [SecondarySymbol]
     public static readonly VolumeUnit HectocubicMeter = new(PreFix.hecto, CubicMeter);
 
     // NOTE: Avoid "km3" here (that’s cubic kilometer). Use words instead.
@@ -44,6 +45,7 @@ public partial record VolumeUnit : UnitTypebase
         "thousand cubic meters", "thousand cubic metres",
         "1000 cubic meters", "1000 cubic metres"
     )]
+    [SecondarySymbol]
     public static readonly VolumeUnit KilocubicMeter = new(PreFix.kilo, CubicMeter);
 
     [Synonyms(
@@ -158,65 +160,66 @@ public partial record VolumeUnit : UnitTypebase
     public static readonly VolumeUnit CubicCentimeter = new(LengthUnit.Centimeter);
 
     // --- Liter family ---
-    // NOTE: keep both "l" and "liter/litre" spellings; avoid "L" reliance (case-insensitive anyway).
+    // NOTE: keep both "l" and "liter/litre" spellings; "L" is listed explicitly because single-letter tokens are case-sensitive.
     [Synonyms(
-        "l",
+        "l", "L", "ℓ",
         "liter", "liters",
         "litre", "litres"
     )]
     public static readonly VolumeUnit Liter = new(LengthUnit.Decimeter, "l");
 
     [Synonyms(
-        "nl",
+        "nl", "nL",
         "nanoliter", "nanoliters",
         "nanolitre", "nanolitres"
     )]
     public static readonly VolumeUnit Nanoliter = new(PreFix.nano, Liter);
 
     [Synonyms(
-        "ul", "µl",
+        "ul", "µl", "uL", "µL",
         "microliter", "microliters",
         "microlitre", "microlitres"
     )]
     public static readonly VolumeUnit Microliter = new(PreFix.micro, Liter);
 
     [Synonyms(
-        "ml",
+        "ml", "mL",
         "milliliter", "milliliters",
         "millilitre", "millilitres"
     )]
     public static readonly VolumeUnit Milliliter = new(PreFix.milli, Liter);
 
     [Synonyms(
-        "dl",
+        "dl", "dL",
         "deciliter", "deciliters",
         "decilitre", "decilitres"
     )]
     public static readonly VolumeUnit Deciliter = new(PreFix.deci, Liter);
 
     [Synonyms(
-        "cl",
+        "cl", "cL",
         "centiliter", "centiliters",
         "centilitre", "centilitres"
     )]
     public static readonly VolumeUnit Centiliter = new(PreFix.centi, Liter);
 
     [Synonyms(
-        "hl",
+        "hl", "hL",
         "hectoliter", "hectoliters",
         "hectolitre", "hectolitres"
     )]
     public static readonly VolumeUnit Hectoliter = new(PreFix.hecto, Liter);
 
     [Synonyms(
-        "kl",
+        "kl", "kL",
         "kiloliter", "kiloliters",
         "kilolitre", "kilolitres"
     )]
     public static readonly VolumeUnit Kiloliter = new(PreFix.kilo, Liter);
 
-    // NOTE: Do NOT use "ml" / "ML" here (collides with milliliter if case-insensitive). Words only.
+    // NOTE: "ML" is safe: symbols are case-sensitive ("mL" is milliliter).
     [Synonyms(
+        "ML",
         "megaliter", "megaliters",
         "megalitre", "megalitres",
         "mega liter", "mega litre"
@@ -224,7 +227,7 @@ public partial record VolumeUnit : UnitTypebase
     public static readonly VolumeUnit Megaliter = new(PreFix.mega, Liter);
 
     [Synonyms(
-        "pl",
+        "pl", "pL",
         "picoliter", "picoliters",
         "picolitre", "picolitres"
     )]
@@ -333,7 +336,8 @@ public partial record VolumeUnit : UnitTypebase
 
     [Synonyms(
         "us gallon", "gallon (us)", "us liquid gallon",
-        "gal (u.s.)", "gal us", "us gal"
+        "gal (u.s.)", "gal us", "us gal",
+        "gal", "gallon", "gallons"
     )]
     public static readonly VolumeUnit UsGallon = new(UsOunce, "gal (U.S.)", 128m);
 

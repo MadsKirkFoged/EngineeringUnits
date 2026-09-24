@@ -61,4 +61,17 @@ public partial class Snap : BaseUnit
          SnapUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Snap? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Snap, SnapUnit>(
+         input,
+         (v, u) => new Snap(v, u),
+         SnapUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

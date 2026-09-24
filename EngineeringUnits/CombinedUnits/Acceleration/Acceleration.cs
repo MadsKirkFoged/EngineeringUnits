@@ -61,4 +61,17 @@ public partial class Acceleration : BaseUnit
          AccelerationUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Acceleration? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Acceleration, AccelerationUnit>(
+         input,
+         (v, u) => new Acceleration(v, u),
+         AccelerationUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

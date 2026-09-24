@@ -39,7 +39,7 @@ public partial record MassUnit : UnitTypebase
     [Synonyms("nanogram", "nanograms")]
     public static readonly MassUnit Nanogram = new($"{PrefixSISymbol(PreFix.nano)}g", PrefixSISize(PreFix.nano) / 1000m);
 
-    [Synonyms("tonne", "tonnes", "metrictonne", "metrictonnes")]
+    [Synonyms("tonne", "tonnes", "metrictonne", "metrictonnes", "metric ton", "metric tons")]
     public static readonly MassUnit Tonne = new("t", 1e+3m);
 
     [Synonyms("kilotonne", "kilotonnes")]
@@ -55,7 +55,7 @@ public partial record MassUnit : UnitTypebase
     [Synonyms("ounce", "ounces")]
     public static readonly MassUnit Ounce = new("oz", 1 / 16m * 0.45359237m);
 
-    [Synonyms("pound", "pounds")]
+    [Synonyms("pound", "pounds", "lbm", "lbs", "pound mass")]
     public static readonly MassUnit Pound = new("lb", 1 * 0.45359237m);
 
     [Synonyms("stone", "stones")]
@@ -73,10 +73,10 @@ public partial record MassUnit : UnitTypebase
     [Synonyms("kilopound", "kilopounds")]
     public static readonly MassUnit Kilopound = new("kip", 1000 * 0.45359237m);
 
-    [Synonyms("shortton", "shorttons", "short-ton", "short-tons")]
+    [Synonyms("shortton", "shorttons", "short-ton", "short-tons", "short ton", "short tons", "ton", "tons", "tn", "US ton")]
     public static readonly MassUnit ShortTon = new("t (short)", 2000 * 0.45359237m);
 
-    [Synonyms("longton", "longtons", "imperialton", "imperialtons", "long-ton", "long-tons")]
+    [Synonyms("longton", "longtons", "imperialton", "imperialtons", "long-ton", "long-tons", "long ton", "long tons", "UK ton")]
     public static readonly MassUnit LongTon = new("long tn", 2240 * 0.45359237m);
 
     [Synonyms("megapound", "megapounds")]

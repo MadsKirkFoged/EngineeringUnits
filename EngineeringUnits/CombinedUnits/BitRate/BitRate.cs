@@ -61,4 +61,17 @@ public partial class BitRate : BaseUnit
          BitRateUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out BitRate? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<BitRate, BitRateUnit>(
+         input,
+         (v, u) => new BitRate(v, u),
+         BitRateUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

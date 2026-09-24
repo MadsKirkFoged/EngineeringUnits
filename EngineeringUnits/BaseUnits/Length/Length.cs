@@ -61,4 +61,17 @@ public partial class Length : BaseUnit
          LengthUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Length? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Length, LengthUnit>(
+         input,
+         (v, u) => new Length(v, u),
+         LengthUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }

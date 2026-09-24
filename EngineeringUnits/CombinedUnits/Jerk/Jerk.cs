@@ -61,4 +61,17 @@ public partial class Jerk : BaseUnit
          JerkUnit.SI,
          culture);
     }
+
+    public static bool TryParse(string? input, [NotNullWhen(true)] out Jerk? result, IFormatProvider? culture = null)
+    {
+         var ok = QuantityParser.TryParse<Jerk, JerkUnit>(
+         input,
+         (v, u) => new Jerk(v, u),
+         JerkUnit.SI,
+         out var value,
+         culture);
+
+         result = ok ? value : null;
+         return ok;
+    }
 }
