@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Math;
@@ -18,30 +19,43 @@ public class MathWithInf
         Assert.AreEqual(Inf.ToString(), "Infinity");
     }
 
+    // 1e34 is too large for decimal, but a double holds it fine - it used to become Infinity
     [TestMethod()]
-    public void DivideEndsInInf()
+    public void DivideBeyondDecimalRangeStaysFinite()
     {
         //Arrange
 
 
         // Act
-        Ratio Inf = MassFlow.FromKilogramPerSecond(1000000000000000) / MassFlow.FromKilogramPerSecond(0.0000000000000000001);
+        Ratio Large = MassFlow.FromKilogramPerSecond(1000000000000000) / MassFlow.FromKilogramPerSecond(0.0000000000000000001);
 
         // Assert
-        Assert.AreEqual(Inf.ToString(), "Infinity");
+        Assert.AreEqual(1e34, Large.As(RatioUnit.SI), 1e20);
+        Assert.AreNotEqual("Infinity", Large.ToString());
     }
 
     [TestMethod()]
-    public void DivideEndsInMinusInf()
+    public void DivideBeyondDecimalRangeStaysFiniteNegative()
     {
         //Arrange
 
 
         // Act
-        Ratio Inf = MassFlow.FromKilogramPerSecond(-1000000000000000) / MassFlow.FromKilogramPerSecond(0.0000000000000000001);
+        Ratio Large = MassFlow.FromKilogramPerSecond(-1000000000000000) / MassFlow.FromKilogramPerSecond(0.0000000000000000001);
 
         // Assert
-        Assert.AreEqual(Inf.ToString(), "Infinity");
+        Assert.AreEqual(-1e34, Large.As(RatioUnit.SI), 1e20);
+    }
+
+    [TestMethod()]
+    public void DivideNegativeByZeroIsMinusInf()
+    {
+        // Act
+        Ratio Inf = MassFlow.FromKilogramPerSecond(-1) / MassFlow.Zero;
+
+        // Assert
+        Assert.AreEqual(double.NegativeInfinity, Inf.As(RatioUnit.SI));
+        Assert.AreEqual("-Infinity", Inf.ToString());
     }
 
     [TestMethod()]

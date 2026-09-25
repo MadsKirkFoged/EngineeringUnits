@@ -111,14 +111,17 @@ public static class Extensions
 
         if (local.IsInf)
         {
-            return "Infinity";
-            //return double.PositiveInfinity.ToString();
+            return (double)local > 0 ? "Infinity" : "-Infinity";
         }
 
         if (local.IsNaN)
-        {           
+        {
             return double.NaN.ToString();
         }
+
+        // A double can be finite and still too large for decimal
+        if (!local.IsDecimal && Math.Abs((double)local) >= (double)decimal.MaxValue)
+            return ((double)local).ToString("G" + count, CultureInfo.InvariantCulture);
 
         return  ((decimal)local).DisplaySignificantDigits(count);
     }

@@ -31,7 +31,7 @@ public class IsInf
         var value = unit.As(MassFlowUnit.SI);
 
         // Assert
-        Assert.AreEqual(double.PositiveInfinity, value);
+        Assert.AreEqual(double.NegativeInfinity, value);
     }
 
     //add inf test with massflow

@@ -12,11 +12,28 @@ public static class BaseUnitExtensions
     {
         Fraction Factor = From.Unit.ConvertionFactor(To.Unit);
 
-        return (DecimalSafe)(Factor * (Fraction)To.NEWValue);
+        // Conversions are always exact
+        return ExactResult(Factor * (Fraction)To.NEWValue, To.NEWValue);
+    }
+
+    // An exact conversion result, in the kind of the input: a double input gives the exact result rounded to double.
+    // A double can hold results too large for decimal - those are rounded from the Fraction directly.
+    private static DecimalSafe ExactResult(Fraction result, DecimalSafe input)
+    {
+        var exact = (DecimalSafe)result;
+
+        if (input.IsDecimal)
+            return exact;
+
+        return exact.IsDecimal ? (double)exact : result.ToDouble();
     }
 
     public static DecimalSafe GetValueAs2(this BaseUnit From, UnitSystem To)
     {
+        // Same unit and a double value: nothing to convert
+        if (!From.NEWValue.IsDecimal && ReferenceEquals(From.Unit, To))
+            return From.NEWValue;
+
         if (From.NEWValue.IsNotAValue())
             return From.NEWValue;
 
@@ -45,7 +62,7 @@ public static class BaseUnitExtensions
 
         }
 
-        return (DecimalSafe)y2test2;
+        return ExactResult(y2test2, From.NEWValue);
     }
 
     public static Fraction GetValueAs(this BaseUnit From, UnitSystem To)
@@ -106,7 +123,7 @@ public static class BaseUnitExtensions
         if (From.Unit.IsSIUnit())
             return From.NEWValue;
 
-        return (DecimalSafe)((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants());
+        return ExactResult((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants(), From.NEWValue);
     }
 
     /// <summary>

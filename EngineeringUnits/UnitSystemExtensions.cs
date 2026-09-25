@@ -12,7 +12,7 @@ public static class UnitSystemExtensions
 
     public static Fraction SumOfBConstants(this IEnumerable<RawUnit> me) => me.Aggregate(Fraction.Zero, (x, y) => x + (y.B * y.Count));
 
-    public static Fraction SumOfBConstants(this UnitSystem me) => me.ListOfUnits.SumOfBConstants();
+    public static Fraction SumOfBConstants(this UnitSystem me) => me.Derived.SumOfBConstants;
 
     public static UnitSystem Sqrt(this UnitSystem local)
     {

@@ -55,6 +55,9 @@ public class UnitSystem
 
     public static bool operator ==(UnitSystem a, UnitSystem b)
     {
+        if (ReferenceEquals(a, b))
+            return true;
+
         return a.GetHashCodeForUnitTypeCompare() == b.GetHashCodeForUnitTypeCompare();
     }
     public static bool operator !=(UnitSystem a, UnitSystem b)
@@ -98,8 +101,30 @@ public class UnitSystem
 #endif
 
 
+    // Last result per instance, checked by reference before the shared dictionary.
+    // Swapped as one immutable object, so readers never see a mismatched pair.
+    private sealed class LastOp(UnitSystem right, UnitSystem result)
+    {
+        public readonly UnitSystem Right = right;
+        public readonly UnitSystem Result = result;
+    }
+
+    private LastOp? lastMultiply;
+    private LastOp? lastDivide;
+
     private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheMultiply = new();
     public static UnitSystem operator *(UnitSystem left, UnitSystem right)
+    {
+        LastOp? last = left.lastMultiply;
+        if (last is not null && ReferenceEquals(last.Right, right))
+            return last.Result;
+
+        UnitSystem result = MultiplyCached(left, right);
+        left.lastMultiply = new LastOp(right, result);
+        return result;
+    }
+
+    private static UnitSystem MultiplyCached(UnitSystem left, UnitSystem right)
     {
         var key = (Left: left.GetHashCode(), Right: right.GetHashCode());
 
@@ -143,6 +168,17 @@ public class UnitSystem
 
     private static readonly ConcurrentDictionary<(int,int), UnitSystem> CacheDivide = new();
     public static UnitSystem operator /(UnitSystem left, UnitSystem right)
+    {
+        LastOp? last = left.lastDivide;
+        if (last is not null && ReferenceEquals(last.Right, right))
+            return last.Result;
+
+        UnitSystem result = DivideCached(left, right);
+        left.lastDivide = new LastOp(right, result);
+        return result;
+    }
+
+    private static UnitSystem DivideCached(UnitSystem left, UnitSystem right)
     {
         //var Hashes = (left.GetHashCode() * 512265997) ^ right.GetHashCode();
         var key = (Left: left.GetHashCode(), Right: right.GetHashCode());
@@ -234,43 +270,70 @@ public class UnitSystem
         //This can tell if two units is of the same type
         //ex meter and feet is both length and would return the same hashcode
 
-        if (HashCodeForUnitCompare is 0)
+        int cached = HashCodeForUnitCompare;
+        return cached is not 0 ? cached : ComputeHashCodeForUnitTypeCompare();
+    }
+
+    private int ComputeHashCodeForUnitTypeCompare()
+    {
+        //Exemple of output:
+        //Mass - 2
+        //Length - 1
+        //Duration - 3
+
+        IOrderedEnumerable<(BaseunitType Key, int)> _UnitsCount = ListOfUnits
+                          .Where(x => x.UnitType is not BaseunitType.CombinedUnit)
+                          .GroupBy(x => x.UnitType)
+                          .Select(x => (x.Key, x.Sum(x => x.Count)))
+                          .Where(x => x.Item2 != 0)
+                          .OrderBy(x => x.Key)
+                          .ThenBy(x => x.Item2);
+
+        HashCode hashCode = new();
+
+        foreach ((BaseunitType Key, var Value) in _UnitsCount)
         {
-
-            //Exemple of output:
-            //Mass - 2
-            //Length - 1
-            //Duration - 3
-
-            IOrderedEnumerable<(BaseunitType Key, int)> _UnitsCount = ListOfUnits
-                              .Where(x => x.UnitType is not BaseunitType.CombinedUnit)
-                              .GroupBy(x => x.UnitType)
-                              .Select(x => (x.Key, x.Sum(x => x.Count)))
-                              .Where(x => x.Item2 != 0)
-                              .OrderBy(x => x.Key)
-                              .ThenBy(x => x.Item2);
-
-            HashCode hashCode = new();
-
-            foreach ((BaseunitType Key, var Value) in _UnitsCount)
-            {
-                hashCode.Add(Key);
-                hashCode.Add(Value);
-            }
-
-            HashCodeForUnitCompare = hashCode.ToHashCode();
+            hashCode.Add(Key);
+            hashCode.Add(Value);
         }
+
+        HashCodeForUnitCompare = hashCode.ToHashCode();
 
         return HashCodeForUnitCompare;
     }
 
-    private bool? isSIUnit = null;
+    // Constants derived from ListOfUnits, computed once per instance.
+    // Published as one immutable object so other threads never see it half written.
+    internal sealed class DerivedConstants
+    {
+        public readonly Fraction SumOfBConstants;
+        public readonly bool HasOffset;
+
+        public DerivedConstants(UnitSystem unit)
+        {
+            SumOfBConstants = unit.ListOfUnits.SumOfBConstants();
+            HasOffset = SumOfBConstants != Fraction.Zero;
+        }
+    }
+
+    private DerivedConstants? derived;
+    internal DerivedConstants Derived => derived ??= new DerivedConstants(this);
+
+    internal bool HasOffset() => Derived.HasOffset;
+
+    // 0 = not computed, 1 = SI, 2 = not SI
+    private byte isSIUnit;
     public bool IsSIUnit()
     {
-        if (isSIUnit is null)
-            isSIUnit = ListOfUnits.All(x => x.IsSI);
+        byte cached = isSIUnit;
+        return cached is not 0 ? cached is 1 : ComputeIsSIUnit();
+    }
 
-        return (bool)isSIUnit;
+    private bool ComputeIsSIUnit()
+    {
+        bool isSI = ListOfUnits.All(x => x.IsSI);
+        isSIUnit = isSI ? (byte)1 : (byte)2;
+        return isSI;
     }
 
 

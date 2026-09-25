@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 
 namespace EngineeringUnits;
@@ -20,7 +21,8 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [JsonInclude]
     internal DecimalSafe NEWValue { get; init; }
 
-    internal Fraction? testValue { get; init; } = null;
+    // Boxed Fraction (or null) - kept as a reference so every unit object does not carry a 48 byte Fraction?
+    internal object? testValue { get; init; }
 
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
     public double Value => (double)this.GetBaseValue();
@@ -80,9 +82,44 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         NEWValue = unit.NEWValue;
     }
 
+    // Each binary operator has a small fast path and moves everything else
+    // (offsets, conversions, exceptions) into a non-inlined *Slow method
+
+    // + and - need no conversion when both units are SI, or when it is the very same unit without an offset (inch + inch)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool NothingToConvert(BaseUnit left, BaseUnit right)
+    {
+        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return left.Unit == right.Unit;
+
+        return ReferenceEquals(left.Unit, right.Unit) && !left.Unit.HasOffset();
+    }
+
     [return: NotNullIfNotNull(nameof(left))]
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator +(BaseUnit? left, BaseUnit? right)
+    {
+        if (left is not null && right is not null && NothingToConvert(left, right))
+            return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+
+        return AddSlow(left, right);
+    }
+
+    // Math involving non-SI units is done exactly, also when the values are doubles:
+    // a double is turned into a decimal first, and the result stays a decimal
+    private static BaseUnit AsExact(BaseUnit unit) =>
+        unit.NEWValue.IsDecimal ? unit : new UnknownUnit(unit.NEWValue.ToExact(), unit.Unit);
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static UnknownUnit? AddSlow(BaseUnit? left, BaseUnit? right)
+    {
+        if (left is null || right is null)
+            return null;
+
+        return AddCore(AsExact(left), AsExact(right));
+    }
+
+    private static UnknownUnit? AddCore(BaseUnit? left, BaseUnit? right)
     {
         if (left is null || right is null)
             return null;
@@ -100,13 +137,13 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         try
         {
 
-            if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+            if (left.Unit.HasOffset() || right.Unit.HasOffset())
             {
 
                 //Working with B-Constants units does not really make sense to show as unit after a calculation
 
                 //Check if there is a similarly unit but without the B-Constant
-                if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                if (!right.Unit.HasOffset())
                 {
 
                     DecimalSafe leftvalue = left.GetValueAs(right);
@@ -114,7 +151,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                     var valuer = right.NEWValue + leftvalue + br.ToDecimal();
                     return new UnknownUnit(valuer, right.Unit);
                 }
-                else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                else if (left.Unit.HasOffset() && right.Unit.HasOffset())
                 {
                     UnitSystem NewUnit = left.Unit.GetWithOutOffset();
                     DecimalSafe NewValue = left.GetValueAs(NewUnit);
@@ -202,6 +239,23 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator -(BaseUnit? left, BaseUnit? right)
     {
+        if (left is not null && right is not null && NothingToConvert(left, right))
+            return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+
+        return SubtractSlow(left, right);
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static UnknownUnit? SubtractSlow(BaseUnit? left, BaseUnit? right)
+    {
+        if (left is null || right is null)
+            return null;
+
+        return SubtractCore(AsExact(left), AsExact(right));
+    }
+
+    private static UnknownUnit? SubtractCore(BaseUnit? left, BaseUnit? right)
+    {
         if (left is null || right is null)
             return null;
 
@@ -214,13 +268,13 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         try
         {
-            if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+            if (left.Unit.HasOffset() || right.Unit.HasOffset())
             {
 
                 //Working with B-Constants units does not really make sense to show as unit after a calculation
 
                 //Check if there is a similarly unit but without the B-Constant
-                if (right.Unit.SumOfBConstants() == Fraction.Zero)
+                if (!right.Unit.HasOffset())
                 {
 
                     DecimalSafe leftvalue = left.GetValueAs(right);
@@ -228,7 +282,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                     var valuer = leftvalue - right.NEWValue + br.ToDecimal();
                     return new UnknownUnit(valuer, right.Unit);
                 }
-                else if (left.Unit.SumOfBConstants() != Fraction.Zero && right.Unit.SumOfBConstants() != Fraction.Zero)
+                else if (left.Unit.HasOffset() && right.Unit.HasOffset())
                 {
                     UnitSystem NewUnit = left.Unit.GetWithOutOffset();
                     DecimalSafe NewValue = left.GetValueAs(NewUnit);
@@ -320,6 +374,23 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator *(BaseUnit? left, BaseUnit? right)
     {
+        if (left is not null && right is not null && left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return new UnknownUnit(left.NEWValue * right.NEWValue, left.Unit * right.Unit);
+
+        return MultiplySlow(left, right);
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static UnknownUnit? MultiplySlow(BaseUnit? left, BaseUnit? right)
+    {
+        if (left is null || right is null)
+            return null;
+
+        return MultiplyCore(AsExact(left), AsExact(right));
+    }
+
+    private static UnknownUnit? MultiplyCore(BaseUnit? left, BaseUnit? right)
+    {
         if (left is null || right is null)
             return null;
 
@@ -334,12 +405,12 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
             try
         {
             
-                if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+                if (left.Unit.HasOffset() || right.Unit.HasOffset())
             {
                 //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
                 //Therefore we will convert these units to their base unit
 
-                if (left.Unit.SumOfBConstants() != Fraction.Zero)
+                if (left.Unit.HasOffset())
                 {
                     //Set value to the base unit
                     var LeftValue = left.GetBaseValue();
@@ -350,7 +421,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                     left= new UnknownUnit(LeftValue, Leftunit).IntelligentCast();
                 }
 
-                if (right.Unit.SumOfBConstants() != Fraction.Zero)
+                if (right.Unit.HasOffset())
                 {
                     //Set value to the base unit
                     var rightValue = right.GetBaseValue();
@@ -436,6 +507,23 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator /(BaseUnit? left, BaseUnit? right)
     {
+        if (left is not null && right is not null && left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
+            return new UnknownUnit(left.NEWValue / right.NEWValue, left.Unit / right.Unit);
+
+        return DivideSlow(left, right);
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static UnknownUnit? DivideSlow(BaseUnit? left, BaseUnit? right)
+    {
+        if (left is null || right is null)
+            return null;
+
+        return DivideCore(AsExact(left), AsExact(right));
+    }
+
+    private static UnknownUnit? DivideCore(BaseUnit? left, BaseUnit? right)
+    {
         if (left is null || right is null)
             return null;
 
@@ -448,12 +536,12 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
 
         try
         {
-            if (left.Unit.SumOfBConstants() != Fraction.Zero || right.Unit.SumOfBConstants() != Fraction.Zero)
+            if (left.Unit.HasOffset() || right.Unit.HasOffset())
             {
                 //Showing a unit like °C as °C^2 is not very useful (As I understand the conversion between °k^2 and °C^2 is not linear)
                 //Therefore we will convert these units to their base unit
 
-                if (left.Unit.SumOfBConstants() != Fraction.Zero)
+                if (left.Unit.HasOffset())
                 {
                     //Set value to the base unit
                     var LeftValue = left.GetBaseValue();
@@ -464,7 +552,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                     left= new UnknownUnit(LeftValue, Leftunit).IntelligentCast();
                 }
 
-                if (right.Unit.SumOfBConstants() != Fraction.Zero)
+                if (right.Unit.HasOffset())
                 {
                     //Set value to the base unit
                     var rightValue = right.GetBaseValue();
@@ -555,7 +643,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue == right.NEWValue;
 
-        return left.NEWValue == right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() == right.GetValueAs(left.Unit);
     }
     public static bool operator !=(BaseUnit? left, BaseUnit? right)
     {
@@ -570,7 +658,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue != right.NEWValue;
 
-        return left.NEWValue != right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() != right.GetValueAs(left.Unit);
     }
     public static bool operator <=(BaseUnit? left, BaseUnit? right)
     {
@@ -585,7 +673,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue <= right.NEWValue;
 
-        return left.NEWValue <= right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() <= right.GetValueAs(left.Unit);
     }
     public static bool operator >=(BaseUnit? left, BaseUnit? right)
     {
@@ -600,7 +688,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue >= right.NEWValue;
 
-        return left.NEWValue >= right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() >= right.GetValueAs(left.Unit);
     }
     public static bool operator <(BaseUnit? left, BaseUnit? right)
     {
@@ -613,7 +701,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue < right.NEWValue;
 
-        return left.NEWValue < right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() < right.GetValueAs(left.Unit);
     }
     public static bool operator >(BaseUnit? left, BaseUnit? right)
     {
@@ -627,7 +715,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue > right.NEWValue;
 
-        return left.NEWValue > right.GetValueAs(left.Unit);
+        return left.NEWValue.ToExact() > right.GetValueAs(left.Unit);
     }
 
     [return: NotNullIfNotNull(nameof(unit))]
