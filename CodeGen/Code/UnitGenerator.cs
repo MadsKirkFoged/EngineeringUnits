@@ -103,6 +103,7 @@ internal class UnitGenerator
                            return From((double)value, unit);
                        }
                        public double As({{Variable}}Unit ReturnInThisUnit) => this.GetValueAsDouble(ReturnInThisUnit);
+                       public decimal AsDecimal({{Variable}}Unit ReturnInThisUnit) => this.GetValueAsDecimal(ReturnInThisUnit);
                        public {{Variable}} ToUnit({{Variable}}Unit selectedUnit) => new(this.GetValueAs(selectedUnit.Unit), selectedUnit);
                        public static {{Variable}} Zero => new(0, {{Variable}}Unit.SI);
                        public static {{Variable}} NaN => new(double.NaN, {{Variable}}Unit.SI);
