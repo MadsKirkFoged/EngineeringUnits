@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Title>EngineeringUnits.Fast</Title>
+    <PackageId>EngineeringUnits.Fast</PackageId>
+    <Authors>Mads Kirk Foged</Authors>
+    <Description>Struct-based EngineeringUnits: every quantity is a plain double at runtime. Unit safety is checked at compile time by the bundled analyzer.</Description>
+    <PackageProjectUrl>https://github.com/MadsKirkFoged/EngineeringUnits</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MadsKirkFoged/EngineeringUnits</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>units measurement si engineering physics struct fast analyzer</PackageTags>
+    <IsPackable>true</IsPackable>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>EngineeringUnits.Fast</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Generated members are self-describing (FromWatt, Watt, ...) -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Runs the analyzer on this project and makes sure it is built before packing -->
+    <ProjectReference Include="..\EngineeringUnits.Analyzers.Fast\EngineeringUnits.Analyzers.Fast.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Fails the consumer's build when analyzers are switched off (EUF1000). buildTransitive: also for App -> Lib -> package -->
+    <None Update="build\EngineeringUnits.Fast.targets" Pack="true" PackagePath="build/EngineeringUnits.Fast.targets;buildTransitive/EngineeringUnits.Fast.targets" />
+  </ItemGroup>
+
+  <!-- Ship the analyzer inside the package: without it there is NO unit checking at all -->
+  <Target Name="IncludeAnalyzerInPackage" BeforeTargets="_GetPackageFiles">
+    <MSBuild Projects="..\EngineeringUnits.Analyzers.Fast\EngineeringUnits.Analyzers.Fast.csproj" Targets="GetTargetPath" Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_FastAnalyzer" />
+    </MSBuild>
+    <ItemGroup>
+      <None Include="@(_FastAnalyzer)" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    </ItemGroup>
+  </Target>
+
+</Project>

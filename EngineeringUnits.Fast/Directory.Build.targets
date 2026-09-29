@@ -1,0 +1,33 @@
+<Project>
+
+  <!--
+    A ProjectReference to EngineeringUnits.Fast does NOT bring its analyzer along (only the NuGet package does). Without the
+    analyzer nothing checks units at all, so every project in this folder that references the library gets it here -
+    exactly what a NuGet consumer gets.
+
+    Done in a target because MSBuild can't look at ProjectReference items in evaluation-time conditions.
+  -->
+  <!-- IncludeTransitiveProjectReferences first: App -> Lib -> EngineeringUnits.Fast must be caught too -->
+  <Target Name="_EUFastWireAnalyzer" DependsOnTargets="IncludeTransitiveProjectReferences" BeforeTargets="AssignProjectConfiguration;ResolveProjectReferences">
+    <ItemGroup>
+      <_EUFastLibraryReference Include="@(ProjectReference)" Condition="'%(Filename)' == 'EngineeringUnits.Fast'" />
+    </ItemGroup>
+
+    <PropertyGroup>
+      <_EUFastUsesLibrary Condition="'@(_EUFastLibraryReference)' != '' or '$(MSBuildProjectName)' == 'EngineeringUnits.Fast'">true</_EUFastUsesLibrary>
+      <!-- Projects that don't use Fast (CodeGen, the analyzer itself) are not guarded -->
+      <EngineeringUnitsFastAllowNoAnalyzer Condition="'$(_EUFastUsesLibrary)' != 'true'">true</EngineeringUnitsFastAllowNoAnalyzer>
+    </PropertyGroup>
+
+    <!-- The analyzer tests reference the analyzer as a library and compile their own snippets -->
+    <ItemGroup Condition="'@(_EUFastLibraryReference)' != '' and '$(MSBuildProjectName)' != 'EngineeringUnits.Analyzers.Tests.Fast'">
+      <ProjectReference Include="$(MSBuildThisFileDirectory)EngineeringUnits.Analyzers.Fast\EngineeringUnits.Analyzers.Fast.csproj"
+                        OutputItemType="Analyzer"
+                        ReferenceOutputAssembly="false" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Same guard as the package: fail the build if analyzers are switched off -->
+  <Import Project="$(MSBuildThisFileDirectory)EngineeringUnits.Fast\build\EngineeringUnits.Fast.targets" />
+
+</Project>

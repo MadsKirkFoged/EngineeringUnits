@@ -1,0 +1,16 @@
+<Project>
+
+  <!--
+    EngineeringUnits.Fast has NO runtime unit checks: a quantity is only a double. The bundled analyzer is the only thing
+    standing between a wrong unit and a wrong number, so building with analyzers switched off is an error, not a warning.
+
+    Shipped in the package (build/ and buildTransitive/) and imported by Directory.Build.targets for project references.
+  -->
+  <Target Name="EngineeringUnitsFastRequireAnalyzer" BeforeTargets="CoreCompile"
+          Condition="'$(EngineeringUnitsFastAllowNoAnalyzer)' != 'true'">
+    <Error Code="EUF1000"
+           Condition="'$(RunAnalyzers)' == 'false' or '$(RunAnalyzersDuringBuild)' == 'false'"
+           Text="EngineeringUnits.Fast has no runtime unit checks - its analyzer must run. Analyzers are switched off for $(MSBuildProjectName) (RunAnalyzers=$(RunAnalyzers), RunAnalyzersDuringBuild=$(RunAnalyzersDuringBuild)). Set EngineeringUnitsFastAllowNoAnalyzer=true only if you accept unchecked units." />
+  </Target>
+
+</Project>
