@@ -54,7 +54,28 @@ public class Program
     public static void Main()
     {
 
+        Acceleration acc1 = Acceleration.FromStandardGravity(1.0);
+        Acceleration acc2 = acc1.ToUnit(AccelerationUnit.MeterPerSecondSquared);
 
+        Console.WriteLine("Acc1: " + acc1.ToString()); // => "Acc1: 1.0 g"
+        Console.WriteLine("Acc2: " + acc2.ToString()); // => "Acc2: 9.807 m/s²"
+
+        // Both accelerations are equal, just different units.
+        Debug.Assert(acc1 == acc2);
+
+        var acc12 = acc1 * acc2;
+        var acc21 = acc2 * acc1;
+        var acc11 = acc1 * acc1;
+        var acc22 = acc2 * acc2;
+
+        // All products are equal, again just different units.
+        Debug.Assert(acc12 == acc21 && acc12 == acc11 && acc12 == acc22);
+
+        // String representations print base unit, but different values, which is wrong
+        Console.WriteLine("Acc1 * Acc2: " + acc12.ToString()); // Acc1 * Acc2: 9.807 m²/s⁴
+        Console.WriteLine("Acc2 * Acc1: " + acc21.ToString()); // Acc2 * Acc1: 9.807 m²/s⁴
+        Console.WriteLine("Acc1 * Acc1: " + acc11.ToString()); // Acc1 * Acc1: 1.0 m²/s⁴
+        Console.WriteLine("Acc2 * Acc2: " + acc22.ToString()); // Acc2 * Acc2: 96.236049 m²/s⁴
 
 
         Power ZeroPower = Power.FromSI(0);

@@ -54,17 +54,23 @@ steps:
     projects: |
      **/EngineeringUnits.csproj
      **/UnitTests.csproj
+     **/EngineeringUnits.Fast.csproj
+     **/UnitTests.Fast.csproj
+     **/EngineeringUnits.Analyzers.Tests.Fast.csproj
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '**/UnitTests.csproj'
+    projects: |
+     **/UnitTests.csproj
+     **/UnitTests.Fast.csproj
+     **/EngineeringUnits.Analyzers.Tests.Fast.csproj
 
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/EngineeringUnits.csproj'
+    packagesToPack: '**/EngineeringUnits.csproj;**/EngineeringUnits.Fast.csproj'
     includesymbols: true
     includesource: true
     versioningScheme: 'byEnvVar'
