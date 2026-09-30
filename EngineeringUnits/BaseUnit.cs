@@ -859,8 +859,9 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
                        x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
             .Unit.ToString(format, null);
     }
-    public virtual string? GetStandardSymbol(UnitSystem _unit) => _unit.ToString("C", null);
-    public virtual string? GetStandardSymbol(UnitSystem _unit, string format) => _unit.ToString(format, null);
+    // Returns null when the unit has a scale factor with no symbol (ex g·g) so ToString falls back to SI
+    public virtual string? GetStandardSymbol(UnitSystem _unit) => _unit.HasUnprintableFactor() ? null : _unit.ToString("C", null);
+    public virtual string? GetStandardSymbol(UnitSystem _unit, string format) => _unit.HasUnprintableFactor() ? null : _unit.ToString(format, null);
 
     public override bool Equals(object? obj)
     {

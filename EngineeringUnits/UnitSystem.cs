@@ -536,6 +536,18 @@ public class UnitSystem
             u.Count == 1 ? u.Symbol! : $"{u.Symbol}^{u.Count}"));
     }
 
+    // True when the unit carries a scale factor with no symbol (e.g. the 9.80665 inside 'g'),
+    // which the pretty/canonical formatters would otherwise silently drop
+    public bool HasUnprintableFactor()
+    {
+        if (Symbol is not null)
+            return false;
+
+        return ListOfUnits.Any(u => string.IsNullOrWhiteSpace(u.Symbol) &&
+                                    u.Count != 0 &&
+                                    (u.A != Fraction.One || u.B != Fraction.Zero));
+    }
+
     private static bool IsUselessDimensionlessCombined(RawUnit u)
     {
         // internal dimensionless CombinedUnit noise: A=1, B=0, Count=1, no symbol

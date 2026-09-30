@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests;
@@ -7,6 +8,19 @@ namespace UnitTests;
 public class UnknownUnitTests
 
 {
+    [TestMethod()]
+    public void ToStringOfUnknownUnitWithHiddenFactor()
+    {
+        // Issue #79: g has a symbol-less factor (9.80665) that was dropped when printing g·g
+        Acceleration acc1 = Acceleration.FromStandardGravity(1.0);
+        Acceleration acc2 = acc1.ToUnit(AccelerationUnit.MeterPerSecondSquared);
+
+        Assert.AreEqual("96.17 m²/s⁴", (acc1 * acc2).ToString());
+        Assert.AreEqual("96.17 m²/s⁴", (acc2 * acc1).ToString());
+        Assert.AreEqual("96.17 m²/s⁴", (acc1 * acc1).ToString());
+        Assert.AreEqual("96.17 m²/s⁴", (acc2 * acc2).ToString());
+    }
+
     [TestMethod()]
     public void PressureToUnknownNUll()
     {
