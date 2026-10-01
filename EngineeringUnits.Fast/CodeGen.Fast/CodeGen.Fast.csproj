@@ -10,8 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- The original library is the single source of truth for units, factors, symbols and constants -->
-    <ProjectReference Include="..\..\EngineeringUnits\EngineeringUnits.csproj" />
+    <!--
+      The original library is the single source of truth for units, factors, symbols and constants.
+      Its net8.0 build: the net10.0 build references EngineeringUnits.Fast (FastConversions/), and a quantity that is renamed or
+      removed would break it - and with it the generator that fixes it.
+    -->
+    <ProjectReference Include="..\..\EngineeringUnits\EngineeringUnits.csproj" SetTargetFramework="TargetFramework=net8.0" SkipGetTargetFrameworkProperties="true" />
   </ItemGroup>
 
 </Project>

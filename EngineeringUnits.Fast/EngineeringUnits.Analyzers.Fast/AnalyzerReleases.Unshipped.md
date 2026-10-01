@@ -13,3 +13,4 @@ EUF0005 | EngineeringUnits.Fast | Error | FastDimensionAnalyzer
 EUF0006 | EngineeringUnits.Fast | Error | FastDimensionAnalyzer
 EUF0007 | EngineeringUnits.Fast | Error | FastDimensionAnalyzer
 EUF0008 | EngineeringUnits.Fast | Error | FastDimensionAnalyzer
+EUF0009 | EngineeringUnits.Fast | Info | FastDimensionAnalyzer

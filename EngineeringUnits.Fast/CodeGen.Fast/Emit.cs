@@ -614,18 +614,23 @@ internal static class Emit
     }
 
     /// <summary>
-    /// EngineeringUnits.Fast.Bridge: ToFast() and ToClassic() for every quantity. Extension methods, not conversion
-    /// operators: an operator would have to live in one of the two libraries (C# allows no extension conversions), and
-    /// both quantities have the same name, so a cast would need the full type name anyway.
+    /// EngineeringUnits/FastConversions/FastBridge.g.cs: ToFast() and ToClassic() for every quantity, in EngineeringUnits
+    /// itself (net10.0) next to the implicit conversions. ToFast() goes through the implicit conversion
+    /// (see <see cref="ClassicConversions"/>), so both give the same bits.
     /// </summary>
     public static string Bridge(List<QuantityDef> quantities)
     {
         var sb = new StringBuilder(Header);
         sb.AppendLine("""
+            // EngineeringUnits.Fast only targets net10.0
+            #if NET10_0_OR_GREATER
             using System;
 
+            // ToFast() is the implicit EngineeringUnits -> EngineeringUnits.Fast conversion, written out
+            #pragma warning disable EUF0009
+
             // Global namespace on purpose: the methods are found in files that use EngineeringUnits, EngineeringUnits.Fast or
-            // both, with no extra using. Remove the package when the move is done and the compiler lists every call that's left.
+            // both, with no extra using. When the move is done, remove EngineeringUnits and the compiler lists every call that's left.
 
             /// <summary>
             /// Converts between EngineeringUnits and EngineeringUnits.Fast, for moving a code base over one project at a time.
@@ -647,11 +652,7 @@ internal static class Emit
 
             sb.AppendLine($$"""
                     /// <summary>The same {{q.Name}} as an EngineeringUnits.Fast struct. Null throws: use <c>value?.ToFast()</c> to pass null through.</summary>
-                    public static {{fast}} ToFast(this {{classic}} value)
-                    {
-                        ArgumentNullException.ThrowIfNull(value);
-                        return {{fast}}.FromSI(global::EngineeringUnits.Fast.Bridge.ClassicValue.SI(value, {{classicSI}}));
-                    }
+                    public static {{fast}} ToFast(this {{classic}} value) => ({{fast}}?)value ?? throw new ArgumentNullException(nameof(value));
 
                     /// <summary>The same {{q.Name}} as an EngineeringUnits object, in its SI unit.</summary>
                     public static {{classic}} ToClassic(this {{fast}} value) => new(value.SI, {{classicSI}});
@@ -660,6 +661,62 @@ internal static class Emit
         }
 
         sb.AppendLine("}");
+        sb.AppendLine("#endif");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// EngineeringUnits/FastConversions: an implicit conversion from every EngineeringUnits quantity to its EngineeringUnits.Fast
+    /// struct, so code that has moved to Fast can keep taking values from code and packages that still use EngineeringUnits.
+    /// <list type="bullet">
+    /// <item>Declared in EngineeringUnits: a conversion operator has to live in one of its two types, and C# 14 allows none in
+    /// <c>extension</c> blocks. Fast stays free of EngineeringUnits.</item>
+    /// <item>Into <c>T?</c>, not <c>T</c>: a null stays null. Assigning to a non-nullable <c>T</c> doesn't compile, which is
+    /// exactly the place to decide what a null means.</item>
+    /// <item>One direction only: with Fast -> EngineeringUnits implicit too, <c>classic - fast</c> would be ambiguous.
+    /// Now it picks Fast's operator. Fast -> EngineeringUnits stays <c>ToClassic()</c> (<see cref="Bridge"/>).</item>
+    /// </list>
+    /// </summary>
+    public static string ClassicConversions(List<QuantityDef> quantities)
+    {
+        var sb = new StringBuilder(Header);
+        sb.AppendLine("""
+            // EngineeringUnits.Fast only targets net10.0
+            #if NET10_0_OR_GREATER
+
+            """);
+
+        foreach (var ns in quantities.GroupBy(q => q.OriginalType.Namespace))
+        {
+            sb.AppendLine($"namespace {ns.Key}");
+            sb.AppendLine("{");
+            foreach (var q in ns)
+            {
+                if (q.OriginalType.DeclaringType is not null)
+                    throw new InvalidOperationException($"{q.OriginalType.FullName} is a nested type - can't add a partial declaration to it");
+                // Both sides meet in SI, so the original's SI unit has to be coherent SI too (Model logs a WARNING otherwise)
+                if (!q.Units.Single(u => u.Name == "SI").IsSI)
+                    throw new InvalidOperationException($"{q.Name}Unit.SI is not coherent SI in EngineeringUnits - can't convert it to Fast");
+
+                var fast = $"global::EngineeringUnits.Fast.{q.Name}";
+                sb.AppendLine($$"""
+                        public partial class {{q.OriginalType.Name}}
+                        {
+                            /// <summary>
+                            /// The same {{q.Name}} as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+                            /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
+                            /// </summary>
+                            public static implicit operator {{fast}}?({{q.OriginalType.Name}}? value) =>
+                                value is null ? null : {{fast}}.FromSI(FastConversion.SI(value, global::{{q.OriginalUnitType.FullName}}.SI));
+                        }
+
+                    """);
+            }
+            sb.AppendLine("}");
+            sb.AppendLine();
+        }
+
+        sb.AppendLine("#endif");
         return sb.ToString();
     }
 

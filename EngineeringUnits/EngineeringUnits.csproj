@@ -31,6 +31,15 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0' Or '$(TargetFramework)' == 'net10.0'">
     <PackageReference Include="Uno.Core.Extensions.Collections" Version="4.1.1" />
   </ItemGroup>
+
+  <!--
+    net10.0 (the only target of EngineeringUnits.Fast): every quantity converts implicitly to its Fast struct, see FastConversions/.
+    Becomes a package dependency for net10.0. Its analyzer comes along (it only looks at Fast types), its build files don't:
+    the EUF1000 guard must not break projects that only use EngineeringUnits and switch analyzers off.
+  -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <ProjectReference Include="..\EngineeringUnits.Fast\EngineeringUnits.Fast\EngineeringUnits.Fast.csproj" PrivateAssets="build;buildtransitive;buildmultitargeting" />
+  </ItemGroup>
   <ItemGroup>
     <!-- Runs the analyzer on this project and makes sure it is built before packing -->
     <ProjectReference Include="..\EngineeringUnits.Analyzers\EngineeringUnits.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all" />

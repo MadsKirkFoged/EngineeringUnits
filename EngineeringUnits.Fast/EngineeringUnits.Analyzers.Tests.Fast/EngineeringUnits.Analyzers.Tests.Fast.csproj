@@ -20,6 +20,8 @@
     <ProjectReference Include="..\EngineeringUnits.Analyzers.Fast\EngineeringUnits.Analyzers.Fast.csproj" />
     <!-- Test snippets are compiled against this assembly -->
     <ProjectReference Include="..\EngineeringUnits.Fast\EngineeringUnits.Fast.csproj" />
+    <!-- ... and against EngineeringUnits, for its implicit conversions into Fast (EUF0009) -->
+    <ProjectReference Include="..\..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>
 
 </Project>

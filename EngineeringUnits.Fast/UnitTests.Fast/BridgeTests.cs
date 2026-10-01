@@ -5,7 +5,7 @@ using EU = global::EngineeringUnits;
 
 namespace UnitTests.Fast;
 
-/// <summary>EngineeringUnits.Fast.Bridge: ToFast() / ToClassic() for every quantity, exact in SI.</summary>
+/// <summary>ToFast() / ToClassic() (EngineeringUnits, FastConversions/FastBridge.g.cs) for every quantity, exact in SI.</summary>
 [TestClass]
 public class BridgeTests
 {

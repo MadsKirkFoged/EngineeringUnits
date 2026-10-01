@@ -24,6 +24,7 @@ public sealed class FastDimensionAnalyzer : DiagnosticAnalyzer
     public const string EUF0006 = "EUF0006"; // root gives fractional units
     public const string EUF0007 = "EUF0007"; // can't verify (fail closed)
     public const string EUF0008 = "EUF0008"; // dynamic
+    public const string EUF0009 = "EUF0009"; // EngineeringUnits -> Fast (info)
 
     internal const string Namespace = "EngineeringUnits.Fast";
     private const string UnitDimensionAttributeName = Namespace + ".UnitDimensionAttribute";
@@ -31,6 +32,7 @@ public sealed class FastDimensionAnalyzer : DiagnosticAnalyzer
     private const string DimensionOfAttributeName = Namespace + ".DimensionOfAttribute";
     private const string UnknownTypeName = Namespace + ".UnknownUnit";
     private const string Category = "EngineeringUnits.Fast";
+    private const string ClassicNamespace = "EngineeringUnits";
 
     private static readonly DiagnosticDescriptor ConversionRule = new(EUF0001,
         "EngineeringUnits.Fast unit mismatch",
@@ -73,8 +75,14 @@ public sealed class FastDimensionAnalyzer : DiagnosticAnalyzer
         "'dynamic' hides the unit from the analyzer and Fast has no runtime check - use a named quantity instead",
         Category, DiagnosticSeverity.Error, isEnabledByDefault: true);
 
+    private static readonly DiagnosticDescriptor ClassicConversionRule = new(EUF0009,
+        "EngineeringUnits value converted to EngineeringUnits.Fast",
+        "An EngineeringUnits {0} is converted to EngineeringUnits.Fast here",
+        Category, DiagnosticSeverity.Info, isEnabledByDefault: true,
+        description: "EngineeringUnits converts every quantity implicitly to its Fast struct (null stays null), so a project can move to Fast while the code around it doesn't. Each conversion reads an EngineeringUnits object: set 'dotnet_diagnostic.EUF0009.severity = warning' in .editorconfig to list every place that still takes EngineeringUnits values.");
+
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(
-        ConversionRule, AddSubtractRule, CompareRule, NumberCastRule, SameDimensionRule, RootRule, UnverifiedRule, DynamicRule);
+        ConversionRule, AddSubtractRule, CompareRule, NumberCastRule, SameDimensionRule, RootRule, UnverifiedRule, DynamicRule, ClassicConversionRule);
 
     public override void Initialize(AnalysisContext context)
     {
@@ -159,6 +167,13 @@ public sealed class FastDimensionAnalyzer : DiagnosticAnalyzer
 
             if (!conv.Conversion.IsUserDefined || conv.OperatorMethod is null)
                 return;
+
+            // EUF0009 (info): an EngineeringUnits quantity into its Fast struct - the type carries the unit, nothing to check
+            if (conv.OperatorMethod.ContainingType.ContainingNamespace?.ToDisplayString() == ClassicNamespace && inference.IsFastType(conv.Type))
+            {
+                Report(c, ClassicConversionRule, conv.Operand, conv.Operand.Type.Name);
+                return;
+            }
 
             switch (conv.OperatorMethod.Name)
             {

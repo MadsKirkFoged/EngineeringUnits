@@ -1,3 +1,4 @@
+using Microsoft.CodeAnalysis;
 using static EngineeringUnits.Analyzers.Tests.Fast.AnalyzerVerifier;
 
 namespace EngineeringUnits.Analyzers.Tests.Fast;
@@ -668,4 +669,38 @@ public class AddUnitTests
             }
         }
         """);
+}
+
+[TestClass]
+public class ClassicConversionTests // EUF0009
+{
+    private const string Classic = "global::EngineeringUnits";
+
+    [TestMethod]
+    public Task ImplicitConversion_ReportedAsInfo() => VerifyBodyAsync($$"""
+        {{Classic}}.Temperature c = {{Classic}}.Temperature.FromKelvin(290);
+        Temperature? t = {|EUF0009:c|};
+        Temperature? dT = t2 - {|EUF0009:c|};
+        bool hot = t1 > {|EUF0009:c|};
+        """);
+
+    [TestMethod]
+    public async Task UnitsAreStillChecked_AfterTheConversion()
+    {
+        var diagnostics = await GetDiagnosticsAsync($$"""
+            {{Classic}}.Temperature c = {{Classic}}.Temperature.FromKelvin(290);
+            Energy bad = massFlow * cp * (t2 - c).Value;
+            """);
+        CollectionAssert.AreEquivalent(new[] { "EUF0001", "EUF0009" }, diagnostics.Select(d => d.Id).ToArray());
+        Assert.AreEqual(DiagnosticSeverity.Info, diagnostics.Single(d => d.Id == "EUF0009").Severity);
+    }
+
+    [TestMethod]
+    public Task OnlyEngineeringUnits_NoDiagnostics() => VerifyBodyAsync($$"""
+        var sum = {{Classic}}.Length.FromMeter(1) + {{Classic}}.Length.FromMeter(2);
+        """);
+
+    [TestMethod]
+    public void IntoNonNullable_DoesNotCompile() =>
+        VerifyCompileError($"Temperature t = {Classic}.Temperature.FromKelvin(290);", "CS0266");
 }

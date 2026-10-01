@@ -38,10 +38,11 @@ foreach (var q in quantities)
 Write(Path.Combine(libOut, "Constants.g.cs"), Emit.Constants(constants));
 Write(Path.Combine(libOut, "Quantities.g.cs"), Emit.Catalog(quantities));
 
-// ToFast() / ToClassic() for every quantity, in its own package
-var bridgeOut = Path.Combine(solution, "EngineeringUnits.Fast.Bridge", "Generated");
-Recreate(bridgeOut);
-Write(Path.Combine(bridgeOut, "FastBridge.g.cs"), Emit.Bridge(quantities));
+// Between EngineeringUnits and Fast: the implicit conversions and ToFast() / ToClassic(), in EngineeringUnits itself (net10.0 only)
+var classicOut = Path.Combine(solution, "..", "EngineeringUnits", "FastConversions");
+Directory.CreateDirectory(classicOut);
+Write(Path.Combine(classicOut, "FastConversions.g.cs"), Emit.ClassicConversions(quantities));
+Write(Path.Combine(classicOut, "FastBridge.g.cs"), Emit.Bridge(quantities));
 
 // Human readable report of what was (not) transferred
 var report = new StringBuilder();
