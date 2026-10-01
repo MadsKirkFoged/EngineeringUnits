@@ -226,12 +226,33 @@ Other things to know when porting:
 - `UnknownUnit` fields, parameters, returns and lists → a named quantity, or `[UnitDimension]` on the `UnknownUnit`.
 - A local that changes unit (`x = x * t`) → one variable per unit.
 - `Torque t = energy;` → `(Torque)energy`. Only the 3 alias pairs that EngineeringUnits converts implicitly are implicit here.
-- `Parse`, `UnknownUnit.Parse`/`Eval`, currencies other than USD, `decimal` inputs → keep EngineeringUnits for those, and convert at the boundary via SI.
+- `Parse`, `UnknownUnit.Parse`/`Eval`, currencies other than USD, `decimal` inputs → keep EngineeringUnits for those, and convert at the boundary with the bridge (below).
 - JSON saved by EngineeringUnits has a different shape. Old files need a one-off conversion.
 
 **In larger applications** with many nullable quantities, most edits are `T? → T`. These edits are not mechanical: `Temperature t = row.Temperature;` quietly passed a null along in EngineeringUnits, while `.Value` throws right there. Each one is a choice between `.Value` (throw), making the target `T?`, or handling the null.
 
-Packages built on EngineeringUnits keep using its types. Both libraries can be referenced side by side (different namespaces), but their types don't mix: convert via SI at the boundary, or move that package to Fast too.
+Packages built on EngineeringUnits keep using its types. Both libraries can be referenced side by side (different namespaces), but their types don't mix: convert at the boundary with the bridge, or move that package to Fast too.
+
+### Moving over one project at a time: EngineeringUnits.Fast.Bridge
+
+`EngineeringUnits.Fast.Bridge` (package and project) adds `ToFast()` and `ToClassic()` for all 103 quantities. Converted and unconverted
+projects can then call each other while the rest of the code base still uses EngineeringUnits:
+
+```C#
+Power q = Heat(massFlow.ToFast(), cp.ToFast(), dT.ToFast());   // EngineeringUnits values into a converted method
+EU.Power p = q.ToClassic();                                    // and back
+Length? l = maybeNull?.ToFast();                               // null stays null; ToFast() on null throws
+```
+
+- **Exact in both directions.** Fast → EngineeringUnits → Fast gives back the same bits, NaN and ±∞ included. A value in another unit
+  (feet, °C, €) is converted to SI along EngineeringUnits' exact path, not `As()` (see finding 1 below).
+- **Fast has no display unit.** `ToClassic()` gives the SI unit, so `3 ft` comes back as `0.9144 m`. Use `.ToUnit(...)` on the result if it's printed.
+- **Named quantities only.** An `UnknownUnit` has no runtime dimension in Fast, so it can't cross. Cast it to a quantity first.
+- **No using needed.** The methods live in the global namespace, like the `{T}NullableExtensions`.
+- **Extension methods, not conversion operators.** A conversion operator has to be declared in one of the two libraries, and C# 14 doesn't
+  allow them in `extension` blocks. Each conversion is also visible in the code: **remove the package when the move is done**, and the
+  compiler lists every place that still converts.
+- The package depends on both EngineeringUnits and EngineeringUnits.Fast, including the Fast analyzer and the EUF1000 guard.
 
 ## Findings about EngineeringUnits along the way
 
@@ -263,6 +284,7 @@ Building and testing this turned up these in the original library:
 EngineeringUnits.sln                     (repo root) the original projects and, in the solution folder EngineeringUnits.Fast, these:
 EngineeringUnits.Fast/
   EngineeringUnits.Fast/                 the library (Core/ hand-written, Generated/ from CodeGen.Fast)      <- EngineeringUnits
+  EngineeringUnits.Fast.Bridge/          ToFast()/ToClassic() for moving over one project at a time (Generated/ from CodeGen.Fast)
   EngineeringUnits.Analyzers.Fast/       fail-closed analyzer (EUF0001-EUF0008), shipped inside the package  <- EngineeringUnits.Analyzers
   EngineeringUnits.Analyzers.Tests.Fast/ rule tests + a port of UnitTests/HaveToFail/UnitsAreWrong.cs     <- EngineeringUnits.Analyzers.Tests
   UnitTests.Fast/                        every unit cross-checked against EngineeringUnits + behaviour tests <- UnitTests

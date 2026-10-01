@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Title>EngineeringUnits.Fast.Bridge</Title>
+    <PackageId>EngineeringUnits.Fast.Bridge</PackageId>
+    <Authors>Mads Kirk Foged</Authors>
+    <Description>ToFast() and ToClassic() between EngineeringUnits and EngineeringUnits.Fast, so a code base can move over one project at a time. Remove it when the move is done: the compiler then lists every conversion that is left.</Description>
+    <PackageProjectUrl>https://github.com/MadsKirkFoged/EngineeringUnits</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MadsKirkFoged/EngineeringUnits</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>units measurement si engineering physics struct fast migration</PackageTags>
+    <IsPackable>true</IsPackable>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>EngineeringUnits.Fast.Bridge</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Both become package dependencies with the same version. PrivateAssets="none": by default NuGet writes
+      exclude="Build,Analyzers" for a project reference, and a project that gets Fast only through the bridge would then
+      have no analyzer - no unit checking at all.
+    -->
+    <ProjectReference Include="..\EngineeringUnits.Fast\EngineeringUnits.Fast.csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\EngineeringUnits\EngineeringUnits.csproj" PrivateAssets="none" />
+  </ItemGroup>
+
+</Project>

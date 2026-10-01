@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EngineeringUnits.Fast\EngineeringUnits.Fast.csproj" />
+    <ProjectReference Include="..\EngineeringUnits.Fast.Bridge\EngineeringUnits.Fast.Bridge.csproj" />
     <!-- The original library is the reference every Fast result is checked against -->
     <ProjectReference Include="..\..\EngineeringUnits\EngineeringUnits.csproj" />
   </ItemGroup>

@@ -38,6 +38,11 @@ foreach (var q in quantities)
 Write(Path.Combine(libOut, "Constants.g.cs"), Emit.Constants(constants));
 Write(Path.Combine(libOut, "Quantities.g.cs"), Emit.Catalog(quantities));
 
+// ToFast() / ToClassic() for every quantity, in its own package
+var bridgeOut = Path.Combine(solution, "EngineeringUnits.Fast.Bridge", "Generated");
+Recreate(bridgeOut);
+Write(Path.Combine(bridgeOut, "FastBridge.g.cs"), Emit.Bridge(quantities));
+
 // Human readable report of what was (not) transferred
 var report = new StringBuilder();
 report.AppendLine("# Generation report");

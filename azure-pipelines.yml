@@ -55,6 +55,7 @@ steps:
      **/EngineeringUnits.csproj
      **/UnitTests.csproj
      **/EngineeringUnits.Fast.csproj
+     **/EngineeringUnits.Fast.Bridge.csproj
      **/UnitTests.Fast.csproj
      **/EngineeringUnits.Analyzers.Tests.Fast.csproj
 
@@ -70,7 +71,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/EngineeringUnits.csproj;**/EngineeringUnits.Fast.csproj'
+    packagesToPack: '**/EngineeringUnits.csproj;**/EngineeringUnits.Fast.csproj;**/EngineeringUnits.Fast.Bridge.csproj'
     includesymbols: true
     includesource: true
     versioningScheme: 'byEnvVar'

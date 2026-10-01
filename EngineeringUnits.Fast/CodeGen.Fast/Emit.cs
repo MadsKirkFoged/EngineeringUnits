@@ -613,4 +613,54 @@ internal static class Emit
         return sb.ToString();
     }
 
+    /// <summary>
+    /// EngineeringUnits.Fast.Bridge: ToFast() and ToClassic() for every quantity. Extension methods, not conversion
+    /// operators: an operator would have to live in one of the two libraries (C# allows no extension conversions), and
+    /// both quantities have the same name, so a cast would need the full type name anyway.
+    /// </summary>
+    public static string Bridge(List<QuantityDef> quantities)
+    {
+        var sb = new StringBuilder(Header);
+        sb.AppendLine("""
+            using System;
+
+            // Global namespace on purpose: the methods are found in files that use EngineeringUnits, EngineeringUnits.Fast or
+            // both, with no extra using. Remove the package when the move is done and the compiler lists every call that's left.
+
+            /// <summary>
+            /// Converts between EngineeringUnits and EngineeringUnits.Fast, for moving a code base over one project at a time.
+            /// The SI value is copied exactly, in both directions. Fast keeps no display unit, so <c>ToClassic()</c> gives the SI unit.
+            /// </summary>
+            public static class FastBridgeExtensions
+            {
+            """);
+
+        foreach (var q in quantities)
+        {
+            // Both sides meet in SI, so the original's SI unit has to be coherent SI too (Model logs a WARNING otherwise)
+            if (!q.Units.Single(u => u.Name == "SI").IsSI)
+                throw new InvalidOperationException($"{q.Name}Unit.SI is not coherent SI in EngineeringUnits - the bridge can't convert it");
+
+            var classic = $"global::{q.OriginalType.FullName}";
+            var classicSI = $"global::{q.OriginalUnitType.FullName}.SI";
+            var fast = $"global::EngineeringUnits.Fast.{q.Name}";
+
+            sb.AppendLine($$"""
+                    /// <summary>The same {{q.Name}} as an EngineeringUnits.Fast struct. Null throws: use <c>value?.ToFast()</c> to pass null through.</summary>
+                    public static {{fast}} ToFast(this {{classic}} value)
+                    {
+                        ArgumentNullException.ThrowIfNull(value);
+                        return {{fast}}.FromSI(global::EngineeringUnits.Fast.Bridge.ClassicValue.SI(value, {{classicSI}}));
+                    }
+
+                    /// <summary>The same {{q.Name}} as an EngineeringUnits object, in its SI unit.</summary>
+                    public static {{classic}} ToClassic(this {{fast}} value) => new(value.SI, {{classicSI}});
+
+                """);
+        }
+
+        sb.AppendLine("}");
+        return sb.ToString();
+    }
+
 }
