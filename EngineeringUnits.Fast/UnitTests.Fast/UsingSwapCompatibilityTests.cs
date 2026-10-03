@@ -372,6 +372,44 @@ public class UsingSwapCompatibilityTests
         Assert.AreEqual("() bar?", $"({missing.ToUnit(PressureUnit.Bar)}) bar?");   // like EngineeringUnits: null prints as nothing
     }
 
+    // "DBs.Max(x => Current(x).ToUnit(ElectricCurrentUnit.Ampere))" in a log message: threw "At least one object must
+    // implement IComparable" at runtime before QuantityInUnit was comparable (found in COMP2.PlantSolver)
+    [TestMethod]
+    public void ToUnit_WorksWithMinMaxAndOrderBy()
+    {
+        Pressure[] pressures = [Pressure.FromBar(3), Pressure.FromBar(1), Pressure.FromBar(2)];
+
+        Assert.AreEqual("3 bar", pressures.Max(p => p.ToUnit(PressureUnit.Bar)).ToString());
+        Assert.AreEqual("1 bar", pressures.Min(p => p.ToUnit(PressureUnit.Bar)).ToString());
+        CollectionAssert.AreEqual(new[] { 1.0, 2.0, 3.0 }, pressures.Select(p => p.ToUnit(PressureUnit.Bar)).Order().Select(p => p.ValueInUnit).ToArray());
+        CollectionAssert.AreEqual(new[] { 3.0, 2.0, 1.0 }, pressures.OrderByDescending(p => p.ToUnit(PressureUnit.Bar)).Select(p => p.Bar).ToArray());
+
+        // Nullable, as in DBs.Max(x => x.Maybe?.ToUnit(...)): nulls are skipped, all null gives null
+        Pressure?[] maybe = [null, Pressure.FromBar(2), null, Pressure.FromBar(5)];
+        Assert.AreEqual("5 bar", maybe.Max(p => p.ToUnit(PressureUnit.Bar)).ToString());
+        Assert.IsNull(new Pressure?[] { null, null }.Max(p => p.ToUnit(PressureUnit.Bar)));
+    }
+
+    [TestMethod]
+    public void ToUnit_ComparesValues_NotDisplayUnits()
+    {
+        var twoBar = Pressure.FromBar(2).ToUnit(PressureUnit.Bar);
+        var sameInKilopascal = Pressure.FromBar(2).ToUnit(PressureUnit.Kilopascal);
+        var oneHundredKilopascal = Pressure.FromKilopascal(100).ToUnit(PressureUnit.Kilopascal);
+
+        Assert.AreEqual(0, twoBar.CompareTo(sameInKilopascal));
+        Assert.IsTrue(twoBar.CompareTo(oneHundredKilopascal) > 0);      // 200 kPa > 100 kPa, even though 2 < 100
+        Assert.IsTrue(oneHundredKilopascal.CompareTo(twoBar) < 0);
+        Assert.AreEqual("200 kPa", new[] { twoBar.Quantity.ToUnit(PressureUnit.Kilopascal), oneHundredKilopascal }.Max().ToString());
+
+        // IComparable (what Comparer<T>.Default uses): the wrapper or the quantity itself; nothing else
+        IComparable comparable = twoBar;
+        Assert.AreEqual(0, comparable.CompareTo(sameInKilopascal));
+        Assert.AreEqual(0, comparable.CompareTo(Pressure.FromBar(2)));
+        Assert.ThrowsExactly<ArgumentException>(() => comparable.CompareTo(Length.FromMeter(2)));
+        Assert.ThrowsExactly<ArgumentException>(() => comparable.CompareTo(null));
+    }
+
     [TestMethod]
     public void AsSI_IsTheSIValue()
     {

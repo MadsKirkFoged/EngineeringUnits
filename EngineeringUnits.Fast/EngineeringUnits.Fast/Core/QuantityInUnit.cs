@@ -6,9 +6,11 @@ namespace EngineeringUnits.Fast;
 /// What <c>x.ToUnit(PressureUnit.Bar)</c> gives: the same value, shown in the chosen unit.<br></br>
 /// In EngineeringUnits a value remembers its unit. Fast always stores SI, so ToUnit returns this small display wrapper instead:
 /// <c>$"{p.ToUnit(PressureUnit.Bar)}"</c> prints "2 bar" as before, and it converts back to the quantity, so
-/// <c>Pressure q = p.ToUnit(PressureUnit.Bar);</c> still compiles. Math on it does not: convert first.
+/// <c>Pressure q = p.ToUnit(PressureUnit.Bar);</c> still compiles. Math on it does not: convert first.<br></br>
+/// It compares by value, like the quantity, so <c>list.Max(x => x.ToUnit(PressureUnit.Bar))</c> and <c>OrderBy</c> work as in
+/// EngineeringUnits: 2 bar and 200 kPa compare as equal, whatever unit each is shown in.
 /// </summary>
-public readonly struct QuantityInUnit<T> : IFormattable where T : struct, IQuantity<T>
+public readonly struct QuantityInUnit<T> : IFormattable, IComparable<QuantityInUnit<T>>, IComparable where T : struct, IQuantity<T>
 {
     public QuantityInUnit(T quantity, UnitTypebase unit)
     {
@@ -27,6 +29,20 @@ public readonly struct QuantityInUnit<T> : IFormattable where T : struct, IQuant
 
     public static implicit operator T(QuantityInUnit<T> value) => value.Quantity;
     public static implicit operator UnknownUnit(QuantityInUnit<T> value) => new(value.Quantity.SI);
+
+    /// <summary>Compares the values (in SI), not the display units - the same order as the quantities themselves.</summary>
+    public int CompareTo(QuantityInUnit<T> other) => Quantity.SI.CompareTo(other.Quantity.SI);
+
+    /// <summary>
+    /// For <c>Comparer&lt;T&gt;.Default</c>, which LINQ's Min/Max/OrderBy use. Also takes the quantity itself; anything else
+    /// (another quantity, null) throws, like the quantities do.
+    /// </summary>
+    public int CompareTo(object? obj) => obj switch
+    {
+        QuantityInUnit<T> other => CompareTo(other),
+        T quantity => Quantity.SI.CompareTo(quantity.SI),
+        _ => throw new ArgumentException($"Can't compare {typeof(T).Name} with {obj?.GetType().Name ?? "null"}"),
+    };
 
     public override string ToString() => ToString(null, null);
     public string ToString(string? format) => ToString(format, null);

@@ -155,39 +155,41 @@ public readonly partial struct LinearPowerDensity : IQuantity<LinearPowerDensity
     public static UnknownUnit operator /(double a, LinearPowerDensity b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(LinearPowerDensity a, LinearPowerDensity b) => a._si == b._si;
-    public static bool operator !=(LinearPowerDensity a, LinearPowerDensity b) => a._si != b._si;
-    public static bool operator <(LinearPowerDensity a, LinearPowerDensity b) => a._si < b._si;
-    public static bool operator >(LinearPowerDensity a, LinearPowerDensity b) => a._si > b._si;
-    public static bool operator <=(LinearPowerDensity a, LinearPowerDensity b) => a._si <= b._si;
-    public static bool operator >=(LinearPowerDensity a, LinearPowerDensity b) => a._si >= b._si;
-    public static bool operator ==(LinearPowerDensity a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(LinearPowerDensity a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(LinearPowerDensity a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(LinearPowerDensity a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(LinearPowerDensity a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(LinearPowerDensity a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, LinearPowerDensity b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, LinearPowerDensity b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, LinearPowerDensity b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, LinearPowerDensity b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, LinearPowerDensity b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, LinearPowerDensity b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(LinearPowerDensity a, LinearPowerDensity b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(LinearPowerDensity a, LinearPowerDensity b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(LinearPowerDensity a, LinearPowerDensity b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(LinearPowerDensity a, LinearPowerDensity b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(LinearPowerDensity a, LinearPowerDensity b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(LinearPowerDensity a, LinearPowerDensity b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(LinearPowerDensity a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(LinearPowerDensity a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(LinearPowerDensity a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(LinearPowerDensity a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(LinearPowerDensity a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(LinearPowerDensity a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, LinearPowerDensity b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, LinearPowerDensity b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, LinearPowerDensity b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, LinearPowerDensity b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, LinearPowerDensity b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, LinearPowerDensity b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(LinearPowerDensity? a, LinearPowerDensity b) => !(a == b);
-    public static bool operator ==(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(LinearPowerDensity a, LinearPowerDensity? b) => !(a == b);
-    public static bool operator ==(LinearPowerDensity? a, LinearPowerDensity? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(LinearPowerDensity? a, LinearPowerDensity? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(LinearPowerDensity? a, LinearPowerDensity? b) => !(a == b);
-    public static bool operator <(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(LinearPowerDensity? a, LinearPowerDensity b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(LinearPowerDensity a, LinearPowerDensity? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(LinearPowerDensity value) => new(value._si);
@@ -201,12 +203,12 @@ public readonly partial struct LinearPowerDensity : IQuantity<LinearPowerDensity
     public static explicit operator LinearPowerDensity(ForceChangeRate value) => new(value.SI);
     public static LinearPowerDensity operator +(LinearPowerDensity a, ForceChangeRate b) => new(a._si + b.SI);
     public static LinearPowerDensity operator -(LinearPowerDensity a, ForceChangeRate b) => new(a._si - b.SI);
-    public static bool operator ==(LinearPowerDensity a, ForceChangeRate b) => a._si == b.SI;
-    public static bool operator !=(LinearPowerDensity a, ForceChangeRate b) => a._si != b.SI;
-    public static bool operator <(LinearPowerDensity a, ForceChangeRate b) => a._si < b.SI;
-    public static bool operator >(LinearPowerDensity a, ForceChangeRate b) => a._si > b.SI;
-    public static bool operator <=(LinearPowerDensity a, ForceChangeRate b) => a._si <= b.SI;
-    public static bool operator >=(LinearPowerDensity a, ForceChangeRate b) => a._si >= b.SI;
+    public static bool operator ==(LinearPowerDensity a, ForceChangeRate b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(LinearPowerDensity a, ForceChangeRate b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(LinearPowerDensity a, ForceChangeRate b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(LinearPowerDensity a, ForceChangeRate b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(LinearPowerDensity a, ForceChangeRate b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(LinearPowerDensity a, ForceChangeRate b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ForceChangeRate's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ForceChangeRateUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<LinearPowerDensity> ToUnit(ForceChangeRateUnit unit) => new(this, unit);
@@ -242,11 +244,11 @@ public readonly partial struct LinearPowerDensity : IQuantity<LinearPowerDensity
     public static LinearPowerDensity Min(LinearPowerDensity a, LinearPowerDensity b) => a._si <= b._si ? a : b;
     public static LinearPowerDensity Max(LinearPowerDensity a, LinearPowerDensity b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(LinearPowerDensity other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(LinearPowerDensity other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

@@ -182,39 +182,41 @@ public readonly partial struct Speed : IQuantity<Speed>, IEquatable<Speed>, ICom
     public static UnknownUnit operator /(double a, Speed b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(Speed a, Speed b) => a._si == b._si;
-    public static bool operator !=(Speed a, Speed b) => a._si != b._si;
-    public static bool operator <(Speed a, Speed b) => a._si < b._si;
-    public static bool operator >(Speed a, Speed b) => a._si > b._si;
-    public static bool operator <=(Speed a, Speed b) => a._si <= b._si;
-    public static bool operator >=(Speed a, Speed b) => a._si >= b._si;
-    public static bool operator ==(Speed a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(Speed a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(Speed a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(Speed a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(Speed a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(Speed a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, Speed b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, Speed b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, Speed b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, Speed b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, Speed b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, Speed b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(Speed a, Speed b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(Speed a, Speed b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(Speed a, Speed b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(Speed a, Speed b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(Speed a, Speed b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(Speed a, Speed b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(Speed a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Speed a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Speed a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Speed a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Speed a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Speed a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, Speed b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, Speed b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, Speed b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, Speed b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, Speed b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, Speed b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(Speed? a, Speed b) => !(a == b);
-    public static bool operator ==(Speed a, Speed? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(Speed a, Speed? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(Speed a, Speed? b) => !(a == b);
-    public static bool operator ==(Speed? a, Speed? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(Speed? a, Speed? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(Speed? a, Speed? b) => !(a == b);
-    public static bool operator <(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(Speed a, Speed? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(Speed a, Speed? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(Speed a, Speed? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(Speed a, Speed? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(Speed? a, Speed b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(Speed a, Speed? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(Speed a, Speed? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(Speed a, Speed? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(Speed a, Speed? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Speed value) => new(value._si);
@@ -253,11 +255,11 @@ public readonly partial struct Speed : IQuantity<Speed>, IEquatable<Speed>, ICom
     public static Speed Min(Speed a, Speed b) => a._si <= b._si ? a : b;
     public static Speed Max(Speed a, Speed b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(Speed other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(Speed other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

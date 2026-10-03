@@ -146,39 +146,41 @@ public readonly partial struct Torque : IQuantity<Torque>, IEquatable<Torque>, I
     public static UnknownUnit operator /(double a, Torque b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(Torque a, Torque b) => a._si == b._si;
-    public static bool operator !=(Torque a, Torque b) => a._si != b._si;
-    public static bool operator <(Torque a, Torque b) => a._si < b._si;
-    public static bool operator >(Torque a, Torque b) => a._si > b._si;
-    public static bool operator <=(Torque a, Torque b) => a._si <= b._si;
-    public static bool operator >=(Torque a, Torque b) => a._si >= b._si;
-    public static bool operator ==(Torque a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(Torque a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(Torque a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(Torque a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(Torque a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(Torque a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, Torque b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, Torque b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, Torque b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, Torque b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, Torque b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, Torque b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(Torque a, Torque b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(Torque a, Torque b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(Torque a, Torque b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(Torque a, Torque b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(Torque a, Torque b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(Torque a, Torque b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(Torque a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Torque a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Torque a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Torque a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Torque a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Torque a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, Torque b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, Torque b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, Torque b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, Torque b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, Torque b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, Torque b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(Torque? a, Torque b) => !(a == b);
-    public static bool operator ==(Torque a, Torque? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(Torque a, Torque? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(Torque a, Torque? b) => !(a == b);
-    public static bool operator ==(Torque? a, Torque? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(Torque? a, Torque? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(Torque? a, Torque? b) => !(a == b);
-    public static bool operator <(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(Torque a, Torque? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(Torque a, Torque? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(Torque a, Torque? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(Torque a, Torque? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(Torque? a, Torque b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(Torque a, Torque? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(Torque a, Torque? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(Torque a, Torque? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(Torque a, Torque? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Torque value) => new(value._si);
@@ -192,12 +194,12 @@ public readonly partial struct Torque : IQuantity<Torque>, IEquatable<Torque>, I
     public static explicit operator Torque(ApparentEnergy value) => new(value.SI);
     public static Torque operator +(Torque a, ApparentEnergy b) => new(a._si + b.SI);
     public static Torque operator -(Torque a, ApparentEnergy b) => new(a._si - b.SI);
-    public static bool operator ==(Torque a, ApparentEnergy b) => a._si == b.SI;
-    public static bool operator !=(Torque a, ApparentEnergy b) => a._si != b.SI;
-    public static bool operator <(Torque a, ApparentEnergy b) => a._si < b.SI;
-    public static bool operator >(Torque a, ApparentEnergy b) => a._si > b.SI;
-    public static bool operator <=(Torque a, ApparentEnergy b) => a._si <= b.SI;
-    public static bool operator >=(Torque a, ApparentEnergy b) => a._si >= b.SI;
+    public static bool operator ==(Torque a, ApparentEnergy b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Torque a, ApparentEnergy b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Torque a, ApparentEnergy b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Torque a, ApparentEnergy b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Torque a, ApparentEnergy b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Torque a, ApparentEnergy b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ApparentEnergy's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ApparentEnergyUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Torque> ToUnit(ApparentEnergyUnit unit) => new(this, unit);
@@ -208,12 +210,12 @@ public readonly partial struct Torque : IQuantity<Torque>, IEquatable<Torque>, I
     public static explicit operator Torque(Energy value) => new(value.SI);
     public static Torque operator +(Torque a, Energy b) => new(a._si + b.SI);
     public static Torque operator -(Torque a, Energy b) => new(a._si - b.SI);
-    public static bool operator ==(Torque a, Energy b) => a._si == b.SI;
-    public static bool operator !=(Torque a, Energy b) => a._si != b.SI;
-    public static bool operator <(Torque a, Energy b) => a._si < b.SI;
-    public static bool operator >(Torque a, Energy b) => a._si > b.SI;
-    public static bool operator <=(Torque a, Energy b) => a._si <= b.SI;
-    public static bool operator >=(Torque a, Energy b) => a._si >= b.SI;
+    public static bool operator ==(Torque a, Energy b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Torque a, Energy b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Torque a, Energy b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Torque a, Energy b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Torque a, Energy b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Torque a, Energy b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so Energy's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(EnergyUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Torque> ToUnit(EnergyUnit unit) => new(this, unit);
@@ -224,12 +226,12 @@ public readonly partial struct Torque : IQuantity<Torque>, IEquatable<Torque>, I
     public static explicit operator Torque(ReactiveEnergy value) => new(value.SI);
     public static Torque operator +(Torque a, ReactiveEnergy b) => new(a._si + b.SI);
     public static Torque operator -(Torque a, ReactiveEnergy b) => new(a._si - b.SI);
-    public static bool operator ==(Torque a, ReactiveEnergy b) => a._si == b.SI;
-    public static bool operator !=(Torque a, ReactiveEnergy b) => a._si != b.SI;
-    public static bool operator <(Torque a, ReactiveEnergy b) => a._si < b.SI;
-    public static bool operator >(Torque a, ReactiveEnergy b) => a._si > b.SI;
-    public static bool operator <=(Torque a, ReactiveEnergy b) => a._si <= b.SI;
-    public static bool operator >=(Torque a, ReactiveEnergy b) => a._si >= b.SI;
+    public static bool operator ==(Torque a, ReactiveEnergy b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Torque a, ReactiveEnergy b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Torque a, ReactiveEnergy b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Torque a, ReactiveEnergy b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Torque a, ReactiveEnergy b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Torque a, ReactiveEnergy b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ReactiveEnergy's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ReactiveEnergyUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Torque> ToUnit(ReactiveEnergyUnit unit) => new(this, unit);
@@ -265,11 +267,11 @@ public readonly partial struct Torque : IQuantity<Torque>, IEquatable<Torque>, I
     public static Torque Min(Torque a, Torque b) => a._si <= b._si ? a : b;
     public static Torque Max(Torque a, Torque b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(Torque other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(Torque other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

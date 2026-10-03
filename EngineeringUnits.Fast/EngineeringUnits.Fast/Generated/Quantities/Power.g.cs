@@ -176,39 +176,41 @@ public readonly partial struct Power : IQuantity<Power>, IEquatable<Power>, ICom
     public static UnknownUnit operator /(double a, Power b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(Power a, Power b) => a._si == b._si;
-    public static bool operator !=(Power a, Power b) => a._si != b._si;
-    public static bool operator <(Power a, Power b) => a._si < b._si;
-    public static bool operator >(Power a, Power b) => a._si > b._si;
-    public static bool operator <=(Power a, Power b) => a._si <= b._si;
-    public static bool operator >=(Power a, Power b) => a._si >= b._si;
-    public static bool operator ==(Power a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(Power a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(Power a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(Power a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(Power a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(Power a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, Power b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, Power b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, Power b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, Power b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, Power b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, Power b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(Power a, Power b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(Power a, Power b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(Power a, Power b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(Power a, Power b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(Power a, Power b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(Power a, Power b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(Power a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Power a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Power a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Power a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Power a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Power a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, Power b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, Power b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, Power b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, Power b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, Power b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, Power b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(Power? a, Power b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(Power? a, Power b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(Power? a, Power b) => !(a == b);
-    public static bool operator ==(Power a, Power? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(Power a, Power? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(Power a, Power? b) => !(a == b);
-    public static bool operator ==(Power? a, Power? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(Power? a, Power? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(Power? a, Power? b) => !(a == b);
-    public static bool operator <(Power? a, Power b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(Power? a, Power b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(Power? a, Power b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(Power? a, Power b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(Power a, Power? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(Power a, Power? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(Power a, Power? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(Power a, Power? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(Power? a, Power b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(Power? a, Power b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(Power? a, Power b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(Power? a, Power b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(Power a, Power? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(Power a, Power? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(Power a, Power? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(Power a, Power? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Power value) => new(value._si);
@@ -222,12 +224,12 @@ public readonly partial struct Power : IQuantity<Power>, IEquatable<Power>, ICom
     public static explicit operator Power(ApparentPower value) => new(value.SI);
     public static Power operator +(Power a, ApparentPower b) => new(a._si + b.SI);
     public static Power operator -(Power a, ApparentPower b) => new(a._si - b.SI);
-    public static bool operator ==(Power a, ApparentPower b) => a._si == b.SI;
-    public static bool operator !=(Power a, ApparentPower b) => a._si != b.SI;
-    public static bool operator <(Power a, ApparentPower b) => a._si < b.SI;
-    public static bool operator >(Power a, ApparentPower b) => a._si > b.SI;
-    public static bool operator <=(Power a, ApparentPower b) => a._si <= b.SI;
-    public static bool operator >=(Power a, ApparentPower b) => a._si >= b.SI;
+    public static bool operator ==(Power a, ApparentPower b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Power a, ApparentPower b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Power a, ApparentPower b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Power a, ApparentPower b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Power a, ApparentPower b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Power a, ApparentPower b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ApparentPower's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ApparentPowerUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Power> ToUnit(ApparentPowerUnit unit) => new(this, unit);
@@ -238,12 +240,12 @@ public readonly partial struct Power : IQuantity<Power>, IEquatable<Power>, ICom
     public static explicit operator Power(ReactivePower value) => new(value.SI);
     public static Power operator +(Power a, ReactivePower b) => new(a._si + b.SI);
     public static Power operator -(Power a, ReactivePower b) => new(a._si - b.SI);
-    public static bool operator ==(Power a, ReactivePower b) => a._si == b.SI;
-    public static bool operator !=(Power a, ReactivePower b) => a._si != b.SI;
-    public static bool operator <(Power a, ReactivePower b) => a._si < b.SI;
-    public static bool operator >(Power a, ReactivePower b) => a._si > b.SI;
-    public static bool operator <=(Power a, ReactivePower b) => a._si <= b.SI;
-    public static bool operator >=(Power a, ReactivePower b) => a._si >= b.SI;
+    public static bool operator ==(Power a, ReactivePower b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Power a, ReactivePower b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Power a, ReactivePower b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Power a, ReactivePower b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Power a, ReactivePower b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Power a, ReactivePower b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ReactivePower's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ReactivePowerUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Power> ToUnit(ReactivePowerUnit unit) => new(this, unit);
@@ -279,11 +281,11 @@ public readonly partial struct Power : IQuantity<Power>, IEquatable<Power>, ICom
     public static Power Min(Power a, Power b) => a._si <= b._si ? a : b;
     public static Power Max(Power a, Power b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(Power other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(Power other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

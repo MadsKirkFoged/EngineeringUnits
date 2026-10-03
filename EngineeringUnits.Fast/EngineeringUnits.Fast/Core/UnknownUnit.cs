@@ -41,12 +41,13 @@ public readonly struct UnknownUnit : IEquatable<UnknownUnit>, IFormattable
     public static UnknownUnit operator -(UnknownUnit a) => new(-a._si);
     public static UnknownUnit operator +(UnknownUnit a) => a;
 
-    public static bool operator ==(UnknownUnit a, UnknownUnit b) => a._si == b._si;
-    public static bool operator !=(UnknownUnit a, UnknownUnit b) => a._si != b._si;
-    public static bool operator <(UnknownUnit a, UnknownUnit b) => a._si < b._si;
-    public static bool operator >(UnknownUnit a, UnknownUnit b) => a._si > b._si;
-    public static bool operator <=(UnknownUnit a, UnknownUnit b) => a._si <= b._si;
-    public static bool operator >=(UnknownUnit a, UnknownUnit b) => a._si >= b._si;
+    // Within 1e-12 (relative) is equal, like the quantities (SIComparison). Equals and GetHashCode stay exact.
+    public static bool operator ==(UnknownUnit a, UnknownUnit b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(UnknownUnit a, UnknownUnit b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(UnknownUnit a, UnknownUnit b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(UnknownUnit a, UnknownUnit b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(UnknownUnit a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(UnknownUnit a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b._si);
 
     /// <summary>Only allowed when the value is dimensionless - checked by the analyzer (EUF0004).</summary>
     public static explicit operator double(UnknownUnit a) => a._si;

@@ -122,39 +122,41 @@ public readonly partial struct Irradiance : IQuantity<Irradiance>, IEquatable<Ir
     public static UnknownUnit operator /(double a, Irradiance b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(Irradiance a, Irradiance b) => a._si == b._si;
-    public static bool operator !=(Irradiance a, Irradiance b) => a._si != b._si;
-    public static bool operator <(Irradiance a, Irradiance b) => a._si < b._si;
-    public static bool operator >(Irradiance a, Irradiance b) => a._si > b._si;
-    public static bool operator <=(Irradiance a, Irradiance b) => a._si <= b._si;
-    public static bool operator >=(Irradiance a, Irradiance b) => a._si >= b._si;
-    public static bool operator ==(Irradiance a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(Irradiance a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(Irradiance a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(Irradiance a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(Irradiance a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(Irradiance a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, Irradiance b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, Irradiance b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, Irradiance b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, Irradiance b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, Irradiance b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, Irradiance b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(Irradiance a, Irradiance b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(Irradiance a, Irradiance b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(Irradiance a, Irradiance b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(Irradiance a, Irradiance b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(Irradiance a, Irradiance b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(Irradiance a, Irradiance b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(Irradiance a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Irradiance a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Irradiance a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Irradiance a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Irradiance a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Irradiance a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, Irradiance b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, Irradiance b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, Irradiance b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, Irradiance b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, Irradiance b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, Irradiance b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(Irradiance? a, Irradiance b) => !(a == b);
-    public static bool operator ==(Irradiance a, Irradiance? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(Irradiance a, Irradiance? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(Irradiance a, Irradiance? b) => !(a == b);
-    public static bool operator ==(Irradiance? a, Irradiance? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(Irradiance? a, Irradiance? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(Irradiance? a, Irradiance? b) => !(a == b);
-    public static bool operator <(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(Irradiance a, Irradiance? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(Irradiance a, Irradiance? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(Irradiance a, Irradiance? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(Irradiance a, Irradiance? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(Irradiance? a, Irradiance b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(Irradiance a, Irradiance? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(Irradiance a, Irradiance? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(Irradiance a, Irradiance? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(Irradiance a, Irradiance? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Irradiance value) => new(value._si);
@@ -168,12 +170,12 @@ public readonly partial struct Irradiance : IQuantity<Irradiance>, IEquatable<Ir
     public static explicit operator Irradiance(HeatFlux value) => new(value.SI);
     public static Irradiance operator +(Irradiance a, HeatFlux b) => new(a._si + b.SI);
     public static Irradiance operator -(Irradiance a, HeatFlux b) => new(a._si - b.SI);
-    public static bool operator ==(Irradiance a, HeatFlux b) => a._si == b.SI;
-    public static bool operator !=(Irradiance a, HeatFlux b) => a._si != b.SI;
-    public static bool operator <(Irradiance a, HeatFlux b) => a._si < b.SI;
-    public static bool operator >(Irradiance a, HeatFlux b) => a._si > b.SI;
-    public static bool operator <=(Irradiance a, HeatFlux b) => a._si <= b.SI;
-    public static bool operator >=(Irradiance a, HeatFlux b) => a._si >= b.SI;
+    public static bool operator ==(Irradiance a, HeatFlux b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(Irradiance a, HeatFlux b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(Irradiance a, HeatFlux b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(Irradiance a, HeatFlux b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(Irradiance a, HeatFlux b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(Irradiance a, HeatFlux b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so HeatFlux's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(HeatFluxUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<Irradiance> ToUnit(HeatFluxUnit unit) => new(this, unit);
@@ -209,11 +211,11 @@ public readonly partial struct Irradiance : IQuantity<Irradiance>, IEquatable<Ir
     public static Irradiance Min(Irradiance a, Irradiance b) => a._si <= b._si ? a : b;
     public static Irradiance Max(Irradiance a, Irradiance b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(Irradiance other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(Irradiance other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

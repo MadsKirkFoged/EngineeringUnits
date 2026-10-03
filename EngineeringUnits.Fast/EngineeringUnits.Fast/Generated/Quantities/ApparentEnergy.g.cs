@@ -89,39 +89,41 @@ public readonly partial struct ApparentEnergy : IQuantity<ApparentEnergy>, IEqua
     public static UnknownUnit operator /(double a, ApparentEnergy b) => new(a / b._si);
 
     // ---- Comparisons ----
-    public static bool operator ==(ApparentEnergy a, ApparentEnergy b) => a._si == b._si;
-    public static bool operator !=(ApparentEnergy a, ApparentEnergy b) => a._si != b._si;
-    public static bool operator <(ApparentEnergy a, ApparentEnergy b) => a._si < b._si;
-    public static bool operator >(ApparentEnergy a, ApparentEnergy b) => a._si > b._si;
-    public static bool operator <=(ApparentEnergy a, ApparentEnergy b) => a._si <= b._si;
-    public static bool operator >=(ApparentEnergy a, ApparentEnergy b) => a._si >= b._si;
-    public static bool operator ==(ApparentEnergy a, UnknownUnit b) => a._si == b.SI;
-    public static bool operator !=(ApparentEnergy a, UnknownUnit b) => a._si != b.SI;
-    public static bool operator <(ApparentEnergy a, UnknownUnit b) => a._si < b.SI;
-    public static bool operator >(ApparentEnergy a, UnknownUnit b) => a._si > b.SI;
-    public static bool operator <=(ApparentEnergy a, UnknownUnit b) => a._si <= b.SI;
-    public static bool operator >=(ApparentEnergy a, UnknownUnit b) => a._si >= b.SI;
-    public static bool operator ==(UnknownUnit a, ApparentEnergy b) => a.SI == b._si;
-    public static bool operator !=(UnknownUnit a, ApparentEnergy b) => a.SI != b._si;
-    public static bool operator <(UnknownUnit a, ApparentEnergy b) => a.SI < b._si;
-    public static bool operator >(UnknownUnit a, ApparentEnergy b) => a.SI > b._si;
-    public static bool operator <=(UnknownUnit a, ApparentEnergy b) => a.SI <= b._si;
-    public static bool operator >=(UnknownUnit a, ApparentEnergy b) => a.SI >= b._si;
+    // Within 1e-12 (relative) is equal: the same value reached through two units can be 1 ulp apart (SIComparison).
+    // Equals, GetHashCode and CompareTo below stay exact.
+    public static bool operator ==(ApparentEnergy a, ApparentEnergy b) => SIComparison.Equal(a._si, b._si);
+    public static bool operator !=(ApparentEnergy a, ApparentEnergy b) => !SIComparison.Equal(a._si, b._si);
+    public static bool operator <(ApparentEnergy a, ApparentEnergy b) => SIComparison.Less(a._si, b._si);
+    public static bool operator >(ApparentEnergy a, ApparentEnergy b) => SIComparison.Greater(a._si, b._si);
+    public static bool operator <=(ApparentEnergy a, ApparentEnergy b) => SIComparison.LessOrEqual(a._si, b._si);
+    public static bool operator >=(ApparentEnergy a, ApparentEnergy b) => SIComparison.GreaterOrEqual(a._si, b._si);
+    public static bool operator ==(ApparentEnergy a, UnknownUnit b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(ApparentEnergy a, UnknownUnit b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(ApparentEnergy a, UnknownUnit b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(ApparentEnergy a, UnknownUnit b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(ApparentEnergy a, UnknownUnit b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(ApparentEnergy a, UnknownUnit b) => SIComparison.GreaterOrEqual(a._si, b.SI);
+    public static bool operator ==(UnknownUnit a, ApparentEnergy b) => SIComparison.Equal(a.SI, b._si);
+    public static bool operator !=(UnknownUnit a, ApparentEnergy b) => !SIComparison.Equal(a.SI, b._si);
+    public static bool operator <(UnknownUnit a, ApparentEnergy b) => SIComparison.Less(a.SI, b._si);
+    public static bool operator >(UnknownUnit a, ApparentEnergy b) => SIComparison.Greater(a.SI, b._si);
+    public static bool operator <=(UnknownUnit a, ApparentEnergy b) => SIComparison.LessOrEqual(a.SI, b._si);
+    public static bool operator >=(UnknownUnit a, ApparentEnergy b) => SIComparison.GreaterOrEqual(a.SI, b._si);
     // Nullable: same semantics as the lifted operators (null compares false, == only when both have a value)
-    public static bool operator ==(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault()._si == b._si;
+    public static bool operator ==(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault() == b;
     public static bool operator !=(ApparentEnergy? a, ApparentEnergy b) => !(a == b);
-    public static bool operator ==(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a._si == b.GetValueOrDefault()._si;
+    public static bool operator ==(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a == b.GetValueOrDefault();
     public static bool operator !=(ApparentEnergy a, ApparentEnergy? b) => !(a == b);
-    public static bool operator ==(ApparentEnergy? a, ApparentEnergy? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault()._si == b.GetValueOrDefault()._si : !b.HasValue;
+    public static bool operator ==(ApparentEnergy? a, ApparentEnergy? b) => a.HasValue ? b.HasValue && a.GetValueOrDefault() == b.GetValueOrDefault() : !b.HasValue;
     public static bool operator !=(ApparentEnergy? a, ApparentEnergy? b) => !(a == b);
-    public static bool operator <(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault()._si < b._si;
-    public static bool operator >(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault()._si > b._si;
-    public static bool operator <=(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault()._si <= b._si;
-    public static bool operator >=(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault()._si >= b._si;
-    public static bool operator <(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a._si < b.GetValueOrDefault()._si;
-    public static bool operator >(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a._si > b.GetValueOrDefault()._si;
-    public static bool operator <=(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a._si <= b.GetValueOrDefault()._si;
-    public static bool operator >=(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a._si >= b.GetValueOrDefault()._si;
+    public static bool operator <(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault() < b;
+    public static bool operator >(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault() > b;
+    public static bool operator <=(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault() <= b;
+    public static bool operator >=(ApparentEnergy? a, ApparentEnergy b) => a.HasValue && a.GetValueOrDefault() >= b;
+    public static bool operator <(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a < b.GetValueOrDefault();
+    public static bool operator >(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a > b.GetValueOrDefault();
+    public static bool operator <=(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a <= b.GetValueOrDefault();
+    public static bool operator >=(ApparentEnergy a, ApparentEnergy? b) => b.HasValue && a >= b.GetValueOrDefault();
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(ApparentEnergy value) => new(value._si);
@@ -135,12 +137,12 @@ public readonly partial struct ApparentEnergy : IQuantity<ApparentEnergy>, IEqua
     public static explicit operator ApparentEnergy(Energy value) => new(value.SI);
     public static ApparentEnergy operator +(ApparentEnergy a, Energy b) => new(a._si + b.SI);
     public static ApparentEnergy operator -(ApparentEnergy a, Energy b) => new(a._si - b.SI);
-    public static bool operator ==(ApparentEnergy a, Energy b) => a._si == b.SI;
-    public static bool operator !=(ApparentEnergy a, Energy b) => a._si != b.SI;
-    public static bool operator <(ApparentEnergy a, Energy b) => a._si < b.SI;
-    public static bool operator >(ApparentEnergy a, Energy b) => a._si > b.SI;
-    public static bool operator <=(ApparentEnergy a, Energy b) => a._si <= b.SI;
-    public static bool operator >=(ApparentEnergy a, Energy b) => a._si >= b.SI;
+    public static bool operator ==(ApparentEnergy a, Energy b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(ApparentEnergy a, Energy b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(ApparentEnergy a, Energy b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(ApparentEnergy a, Energy b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(ApparentEnergy a, Energy b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(ApparentEnergy a, Energy b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so Energy's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(EnergyUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<ApparentEnergy> ToUnit(EnergyUnit unit) => new(this, unit);
@@ -151,12 +153,12 @@ public readonly partial struct ApparentEnergy : IQuantity<ApparentEnergy>, IEqua
     public static explicit operator ApparentEnergy(ReactiveEnergy value) => new(value.SI);
     public static ApparentEnergy operator +(ApparentEnergy a, ReactiveEnergy b) => new(a._si + b.SI);
     public static ApparentEnergy operator -(ApparentEnergy a, ReactiveEnergy b) => new(a._si - b.SI);
-    public static bool operator ==(ApparentEnergy a, ReactiveEnergy b) => a._si == b.SI;
-    public static bool operator !=(ApparentEnergy a, ReactiveEnergy b) => a._si != b.SI;
-    public static bool operator <(ApparentEnergy a, ReactiveEnergy b) => a._si < b.SI;
-    public static bool operator >(ApparentEnergy a, ReactiveEnergy b) => a._si > b.SI;
-    public static bool operator <=(ApparentEnergy a, ReactiveEnergy b) => a._si <= b.SI;
-    public static bool operator >=(ApparentEnergy a, ReactiveEnergy b) => a._si >= b.SI;
+    public static bool operator ==(ApparentEnergy a, ReactiveEnergy b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(ApparentEnergy a, ReactiveEnergy b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(ApparentEnergy a, ReactiveEnergy b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(ApparentEnergy a, ReactiveEnergy b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(ApparentEnergy a, ReactiveEnergy b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(ApparentEnergy a, ReactiveEnergy b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so ReactiveEnergy's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(ReactiveEnergyUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<ApparentEnergy> ToUnit(ReactiveEnergyUnit unit) => new(this, unit);
@@ -167,12 +169,12 @@ public readonly partial struct ApparentEnergy : IQuantity<ApparentEnergy>, IEqua
     public static explicit operator ApparentEnergy(Torque value) => new(value.SI);
     public static ApparentEnergy operator +(ApparentEnergy a, Torque b) => new(a._si + b.SI);
     public static ApparentEnergy operator -(ApparentEnergy a, Torque b) => new(a._si - b.SI);
-    public static bool operator ==(ApparentEnergy a, Torque b) => a._si == b.SI;
-    public static bool operator !=(ApparentEnergy a, Torque b) => a._si != b.SI;
-    public static bool operator <(ApparentEnergy a, Torque b) => a._si < b.SI;
-    public static bool operator >(ApparentEnergy a, Torque b) => a._si > b.SI;
-    public static bool operator <=(ApparentEnergy a, Torque b) => a._si <= b.SI;
-    public static bool operator >=(ApparentEnergy a, Torque b) => a._si >= b.SI;
+    public static bool operator ==(ApparentEnergy a, Torque b) => SIComparison.Equal(a._si, b.SI);
+    public static bool operator !=(ApparentEnergy a, Torque b) => !SIComparison.Equal(a._si, b.SI);
+    public static bool operator <(ApparentEnergy a, Torque b) => SIComparison.Less(a._si, b.SI);
+    public static bool operator >(ApparentEnergy a, Torque b) => SIComparison.Greater(a._si, b.SI);
+    public static bool operator <=(ApparentEnergy a, Torque b) => SIComparison.LessOrEqual(a._si, b.SI);
+    public static bool operator >=(ApparentEnergy a, Torque b) => SIComparison.GreaterOrEqual(a._si, b.SI);
     // Same dimension, so Torque's units work too - like EngineeringUnits' As(UnitSystem)
     public double As(TorqueUnit unit) => unit.FromSI(_si);
     public QuantityInUnit<ApparentEnergy> ToUnit(TorqueUnit unit) => new(this, unit);
@@ -208,11 +210,11 @@ public readonly partial struct ApparentEnergy : IQuantity<ApparentEnergy>, IEqua
     public static ApparentEnergy Min(ApparentEnergy a, ApparentEnergy b) => a._si <= b._si ? a : b;
     public static ApparentEnergy Max(ApparentEnergy a, ApparentEnergy b) => a._si >= b._si ? a : b;
     /// <summary>
-    /// == is an exact double comparison, so 1 ft == 12 in can be false after rounding. Use this when the values
-    /// come from different units. EngineeringUnits compares exactly (fractions) and needs no tolerance.
+    /// == with your own tolerance. == itself already allows 1e-12 (relative), so 1 ft == 12 in is true
+    /// even though the doubles differ in the last bit.
     /// </summary>
-    public bool IsCloseTo(ApparentEnergy other, double relativeTolerance = 1e-12)
-        => _si == other._si || Math.Abs(_si - other._si) <= relativeTolerance * Math.Max(Math.Abs(_si), Math.Abs(other._si));
+    public bool IsCloseTo(ApparentEnergy other, double relativeTolerance = SIComparison.RelativeTolerance)
+        => SIComparison.Equal(_si, other._si, relativeTolerance);
     public bool IsNaN() => double.IsNaN(_si);
     public bool IsInfinity() => double.IsInfinity(_si);
 

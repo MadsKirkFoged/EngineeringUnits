@@ -173,10 +173,10 @@ static UnknownUnit Heat(MassFlow m, Enthalpy h) => m * h;   // returns checked, 
 | Parsing: `Parse`/`TryParse`, `UnknownUnit.Parse`, `Eval`, `"1.5 kW"` in JSON | ❌ Removed. Create values with `FromX(double)` or `From(value, unit)`. `UnknownUnit.Parse`/`Eval` could not be done anyway: there is no runtime dimension to put the result in. |
 | Interop with EngineeringUnits (`ToFast()` / `ToEngineeringUnits()`) | ❌ Removed. Convert at the boundary with `Fast.Power.FromSI(p.As(PowerUnit.SI))`. |
 | netstandard2.0 / net8.0, C# below 14 | ❌ net10.0 only, and consumers need C# 14 (the net10.0 default). Remove any `<LangVersion>` pin. |
-| Values that remember their unit | Storage is always SI. `x.ToUnit(PressureUnit.Bar)` returns a display wrapper (`QuantityInUnit<T>`): `$"{p.ToUnit(PressureUnit.Bar)}"` prints `"2 bar"` exactly like EngineeringUnits (tested), and it converts back to the quantity. Math on it is a compile error, so convert first. |
+| Values that remember their unit | Storage is always SI. `x.ToUnit(PressureUnit.Bar)` returns a display wrapper (`QuantityInUnit<T>`): `$"{p.ToUnit(PressureUnit.Bar)}"` prints `"2 bar"` exactly like EngineeringUnits (tested), and it converts back to the quantity. It compares by value, so `Max`/`Min`/`OrderBy` over `ToUnit(...)` work as before. Math on it is a compile error, so convert first. |
 | `UnknownUnit.ToString()` | Prints `6 [?]`. The unit isn't known at runtime. |
 | Exact decimal / Fraction math | ❌ double only. About 10% of foot round trips (`FromFoot(x).Foot`) are 1 ulp off; EngineeringUnits gives exact results. |
-| `==` across units | Exact double comparison: `1 ft == 12 in` is **false** (0.3048 vs 0.30479999999999996). Use `a.IsCloseTo(b)`. EngineeringUnits compares exactly. |
+| `==` across units | `==`, `!=`, `<`, `>`, `<=`, `>=` treat values within 1e-12 (relative) as equal, so `1 ft == 12 in` is **true** as in EngineeringUnits, although the doubles differ (0.3048 vs 0.30479999999999996). Close to 0 it stays exact (`1e-300 != 0`), and NaN is never equal. `Equals`, `GetHashCode` and `CompareTo` stay **exact**: a tolerance can't be hashed (`Dictionary`, `HashSet`, `Distinct`) and isn't transitive (sorting). Use `a.IsCloseTo(b, tolerance)` for a looser comparison. |
 | Currency units €, £, kr (8 units) | ❌ Their factor is an exchange rate. A generated constant would be frozen at code-generation time. |
 | `null` values | A struct is never null: `default` is 0, and `Power?` is `Nullable<Power>`. `Power p = someNullablePower;` needs `.Value`; C# does not allow a conversion from `T?` to `T`. `x!` does not unwrap a struct; use `x!.Value` or `x.Value`. |
 | `UnknownUnit?` → quantity | Math on nullable quantities gives `UnknownUnit?`. `Speed v = nullableFlow / area;` needs `(...)!.Value`. An implicit conversion was tried and rejected: the literal `null` converts to `UnknownUnit?`, so `Power p = null;` would have compiled and thrown at runtime (the analyzer caught it). |
@@ -223,7 +223,6 @@ In instance code, `Temperature.FromSI(x)` inside a class with `public Temperatur
 
 Other things to know when porting:
 
-- `a == b` with values from different units → `a.IsCloseTo(b)`.
 - `UnknownUnit` fields, parameters, returns and lists → a named quantity, or `[UnitDimension]` on the `UnknownUnit`.
 - A local that changes unit (`x = x * t`) → one variable per unit.
 - `Torque t = energy;` → `(Torque)energy`. Only the 3 alias pairs that EngineeringUnits converts implicitly are implicit here.

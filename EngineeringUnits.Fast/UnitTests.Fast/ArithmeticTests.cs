@@ -251,23 +251,6 @@ public class PrecisionTests
         Assert.AreEqual(3600, p.JoulePerHour);
     }
 
-    /// <summary>
-    /// Known and accepted: == is an exact double comparison. EngineeringUnits compares with exact fractions, so there
-    /// 1 ft == 12 in is always true. In Fast it depends on rounding - compare with a tolerance when units are mixed.
-    /// </summary>
-    [TestMethod]
-    public void Equality_IsExactDoubleComparison()
-    {
-        Length foot = Length.FromFoot(1), inches = Length.FromInch(12);
-        Assert.AreEqual(foot.Meter, inches.Meter, 1e-16);
-        Console.WriteLine($"1 ft == 12 in: {foot == inches} ({foot.SI:R} vs {inches.SI:R})");
-
-        // Same unit on both sides is always exact
-        Assert.IsTrue(Length.FromInch(12) == Length.FromInch(12));
-        Assert.IsTrue(foot.IsCloseTo(inches));
-        Assert.IsFalse(foot.IsCloseTo(Length.FromInch(12.001)));
-    }
-
     [TestMethod]
     public void TinyValues_KeepAllDigits()
     {
