@@ -9,7 +9,7 @@ namespace EngineeringUnits
     public partial class Acceleration
     {
         /// <summary>
-        /// The same Acceleration as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Acceleration as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Acceleration?(Acceleration? value) =>
@@ -19,7 +19,7 @@ namespace EngineeringUnits
     public partial class AmountOfSubstance
     {
         /// <summary>
-        /// The same AmountOfSubstance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same AmountOfSubstance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.AmountOfSubstance?(AmountOfSubstance? value) =>
@@ -29,7 +29,7 @@ namespace EngineeringUnits
     public partial class Angle
     {
         /// <summary>
-        /// The same Angle as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Angle as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Angle?(Angle? value) =>
@@ -39,7 +39,7 @@ namespace EngineeringUnits
     public partial class ApparentEnergy
     {
         /// <summary>
-        /// The same ApparentEnergy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ApparentEnergy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ApparentEnergy?(ApparentEnergy? value) =>
@@ -49,7 +49,7 @@ namespace EngineeringUnits
     public partial class ApparentPower
     {
         /// <summary>
-        /// The same ApparentPower as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ApparentPower as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ApparentPower?(ApparentPower? value) =>
@@ -59,7 +59,7 @@ namespace EngineeringUnits
     public partial class Area
     {
         /// <summary>
-        /// The same Area as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Area as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Area?(Area? value) =>
@@ -69,7 +69,7 @@ namespace EngineeringUnits
     public partial class AreaCost
     {
         /// <summary>
-        /// The same AreaCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same AreaCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.AreaCost?(AreaCost? value) =>
@@ -79,7 +79,7 @@ namespace EngineeringUnits
     public partial class AreaDensity
     {
         /// <summary>
-        /// The same AreaDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same AreaDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.AreaDensity?(AreaDensity? value) =>
@@ -89,7 +89,7 @@ namespace EngineeringUnits
     public partial class AreaMomentOfInertia
     {
         /// <summary>
-        /// The same AreaMomentOfInertia as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same AreaMomentOfInertia as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.AreaMomentOfInertia?(AreaMomentOfInertia? value) =>
@@ -99,7 +99,7 @@ namespace EngineeringUnits
     public partial class BitRate
     {
         /// <summary>
-        /// The same BitRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same BitRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.BitRate?(BitRate? value) =>
@@ -109,7 +109,7 @@ namespace EngineeringUnits
     public partial class BrakeSpecificFuelConsumption
     {
         /// <summary>
-        /// The same BrakeSpecificFuelConsumption as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same BrakeSpecificFuelConsumption as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.BrakeSpecificFuelConsumption?(BrakeSpecificFuelConsumption? value) =>
@@ -119,7 +119,7 @@ namespace EngineeringUnits
     public partial class Capacitance
     {
         /// <summary>
-        /// The same Capacitance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Capacitance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Capacitance?(Capacitance? value) =>
@@ -129,7 +129,7 @@ namespace EngineeringUnits
     public partial class CoefficientOfThermalExpansion
     {
         /// <summary>
-        /// The same CoefficientOfThermalExpansion as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same CoefficientOfThermalExpansion as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.CoefficientOfThermalExpansion?(CoefficientOfThermalExpansion? value) =>
@@ -139,7 +139,7 @@ namespace EngineeringUnits
     public partial class Cost
     {
         /// <summary>
-        /// The same Cost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Cost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Cost?(Cost? value) =>
@@ -149,7 +149,7 @@ namespace EngineeringUnits
     public partial class Density
     {
         /// <summary>
-        /// The same Density as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Density as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Density?(Density? value) =>
@@ -159,7 +159,7 @@ namespace EngineeringUnits
     public partial class Dimensionless
     {
         /// <summary>
-        /// The same Dimensionless as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Dimensionless as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Dimensionless?(Dimensionless? value) =>
@@ -169,7 +169,7 @@ namespace EngineeringUnits
     public partial class Duration
     {
         /// <summary>
-        /// The same Duration as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Duration as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Duration?(Duration? value) =>
@@ -179,7 +179,7 @@ namespace EngineeringUnits
     public partial class DurationCost
     {
         /// <summary>
-        /// The same DurationCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same DurationCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.DurationCost?(DurationCost? value) =>
@@ -189,7 +189,7 @@ namespace EngineeringUnits
     public partial class DynamicViscosity
     {
         /// <summary>
-        /// The same DynamicViscosity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same DynamicViscosity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.DynamicViscosity?(DynamicViscosity? value) =>
@@ -199,7 +199,7 @@ namespace EngineeringUnits
     public partial class ElectricCharge
     {
         /// <summary>
-        /// The same ElectricCharge as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricCharge as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricCharge?(ElectricCharge? value) =>
@@ -209,7 +209,7 @@ namespace EngineeringUnits
     public partial class ElectricChargeDensity
     {
         /// <summary>
-        /// The same ElectricChargeDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricChargeDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricChargeDensity?(ElectricChargeDensity? value) =>
@@ -219,7 +219,7 @@ namespace EngineeringUnits
     public partial class ElectricConductivity
     {
         /// <summary>
-        /// The same ElectricConductivity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricConductivity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricConductivity?(ElectricConductivity? value) =>
@@ -229,7 +229,7 @@ namespace EngineeringUnits
     public partial class ElectricCurrent
     {
         /// <summary>
-        /// The same ElectricCurrent as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricCurrent as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricCurrent?(ElectricCurrent? value) =>
@@ -239,7 +239,7 @@ namespace EngineeringUnits
     public partial class ElectricCurrentDensity
     {
         /// <summary>
-        /// The same ElectricCurrentDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricCurrentDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricCurrentDensity?(ElectricCurrentDensity? value) =>
@@ -249,7 +249,7 @@ namespace EngineeringUnits
     public partial class ElectricCurrentGradient
     {
         /// <summary>
-        /// The same ElectricCurrentGradient as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricCurrentGradient as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricCurrentGradient?(ElectricCurrentGradient? value) =>
@@ -259,7 +259,7 @@ namespace EngineeringUnits
     public partial class ElectricField
     {
         /// <summary>
-        /// The same ElectricField as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricField as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricField?(ElectricField? value) =>
@@ -269,7 +269,7 @@ namespace EngineeringUnits
     public partial class ElectricInductance
     {
         /// <summary>
-        /// The same ElectricInductance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricInductance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricInductance?(ElectricInductance? value) =>
@@ -279,7 +279,7 @@ namespace EngineeringUnits
     public partial class ElectricPotential
     {
         /// <summary>
-        /// The same ElectricPotential as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricPotential as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricPotential?(ElectricPotential? value) =>
@@ -289,7 +289,7 @@ namespace EngineeringUnits
     public partial class ElectricPotentialChangeRate
     {
         /// <summary>
-        /// The same ElectricPotentialChangeRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricPotentialChangeRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricPotentialChangeRate?(ElectricPotentialChangeRate? value) =>
@@ -299,7 +299,7 @@ namespace EngineeringUnits
     public partial class ElectricResistance
     {
         /// <summary>
-        /// The same ElectricResistance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricResistance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricResistance?(ElectricResistance? value) =>
@@ -309,7 +309,7 @@ namespace EngineeringUnits
     public partial class ElectricResistivity
     {
         /// <summary>
-        /// The same ElectricResistivity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricResistivity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricResistivity?(ElectricResistivity? value) =>
@@ -319,7 +319,7 @@ namespace EngineeringUnits
     public partial class ElectricSurfaceChargeDensity
     {
         /// <summary>
-        /// The same ElectricSurfaceChargeDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ElectricSurfaceChargeDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ElectricSurfaceChargeDensity?(ElectricSurfaceChargeDensity? value) =>
@@ -329,7 +329,7 @@ namespace EngineeringUnits
     public partial class Energy
     {
         /// <summary>
-        /// The same Energy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Energy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Energy?(Energy? value) =>
@@ -339,7 +339,7 @@ namespace EngineeringUnits
     public partial class EnergyCost
     {
         /// <summary>
-        /// The same EnergyCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same EnergyCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.EnergyCost?(EnergyCost? value) =>
@@ -349,7 +349,7 @@ namespace EngineeringUnits
     public partial class Enthalpy
     {
         /// <summary>
-        /// The same Enthalpy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Enthalpy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Enthalpy?(Enthalpy? value) =>
@@ -359,7 +359,7 @@ namespace EngineeringUnits
     public partial class Entropy
     {
         /// <summary>
-        /// The same Entropy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Entropy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Entropy?(Entropy? value) =>
@@ -369,7 +369,7 @@ namespace EngineeringUnits
     public partial class Force
     {
         /// <summary>
-        /// The same Force as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Force as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Force?(Force? value) =>
@@ -379,7 +379,7 @@ namespace EngineeringUnits
     public partial class ForceChangeRate
     {
         /// <summary>
-        /// The same ForceChangeRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ForceChangeRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ForceChangeRate?(ForceChangeRate? value) =>
@@ -389,7 +389,7 @@ namespace EngineeringUnits
     public partial class ForceCost
     {
         /// <summary>
-        /// The same ForceCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ForceCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ForceCost?(ForceCost? value) =>
@@ -399,7 +399,7 @@ namespace EngineeringUnits
     public partial class ForcePerLength
     {
         /// <summary>
-        /// The same ForcePerLength as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ForcePerLength as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ForcePerLength?(ForcePerLength? value) =>
@@ -409,7 +409,7 @@ namespace EngineeringUnits
     public partial class Frequency
     {
         /// <summary>
-        /// The same Frequency as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Frequency as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Frequency?(Frequency? value) =>
@@ -419,7 +419,7 @@ namespace EngineeringUnits
     public partial class FuelEfficiency
     {
         /// <summary>
-        /// The same FuelEfficiency as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same FuelEfficiency as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.FuelEfficiency?(FuelEfficiency? value) =>
@@ -429,7 +429,7 @@ namespace EngineeringUnits
     public partial class HeatFlux
     {
         /// <summary>
-        /// The same HeatFlux as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same HeatFlux as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.HeatFlux?(HeatFlux? value) =>
@@ -439,7 +439,7 @@ namespace EngineeringUnits
     public partial class HeatTransferCoefficient
     {
         /// <summary>
-        /// The same HeatTransferCoefficient as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same HeatTransferCoefficient as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.HeatTransferCoefficient?(HeatTransferCoefficient? value) =>
@@ -449,7 +449,7 @@ namespace EngineeringUnits
     public partial class Illuminance
     {
         /// <summary>
-        /// The same Illuminance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Illuminance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Illuminance?(Illuminance? value) =>
@@ -459,7 +459,7 @@ namespace EngineeringUnits
     public partial class Information
     {
         /// <summary>
-        /// The same Information as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Information as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Information?(Information? value) =>
@@ -469,7 +469,7 @@ namespace EngineeringUnits
     public partial class Irradiance
     {
         /// <summary>
-        /// The same Irradiance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Irradiance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Irradiance?(Irradiance? value) =>
@@ -479,7 +479,7 @@ namespace EngineeringUnits
     public partial class Irradiation
     {
         /// <summary>
-        /// The same Irradiation as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Irradiation as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Irradiation?(Irradiation? value) =>
@@ -489,7 +489,7 @@ namespace EngineeringUnits
     public partial class Jerk
     {
         /// <summary>
-        /// The same Jerk as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Jerk as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Jerk?(Jerk? value) =>
@@ -499,7 +499,7 @@ namespace EngineeringUnits
     public partial class KinematicViscosity
     {
         /// <summary>
-        /// The same KinematicViscosity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same KinematicViscosity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.KinematicViscosity?(KinematicViscosity? value) =>
@@ -509,7 +509,7 @@ namespace EngineeringUnits
     public partial class LapseRate
     {
         /// <summary>
-        /// The same LapseRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LapseRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LapseRate?(LapseRate? value) =>
@@ -519,7 +519,7 @@ namespace EngineeringUnits
     public partial class Length
     {
         /// <summary>
-        /// The same Length as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Length as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Length?(Length? value) =>
@@ -529,7 +529,7 @@ namespace EngineeringUnits
     public partial class LengthCost
     {
         /// <summary>
-        /// The same LengthCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LengthCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LengthCost?(LengthCost? value) =>
@@ -539,7 +539,7 @@ namespace EngineeringUnits
     public partial class Level
     {
         /// <summary>
-        /// The same Level as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Level as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Level?(Level? value) =>
@@ -549,7 +549,7 @@ namespace EngineeringUnits
     public partial class LinearDensity
     {
         /// <summary>
-        /// The same LinearDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LinearDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LinearDensity?(LinearDensity? value) =>
@@ -559,7 +559,7 @@ namespace EngineeringUnits
     public partial class LinearPowerDensity
     {
         /// <summary>
-        /// The same LinearPowerDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LinearPowerDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LinearPowerDensity?(LinearPowerDensity? value) =>
@@ -569,7 +569,7 @@ namespace EngineeringUnits
     public partial class LuminousFlux
     {
         /// <summary>
-        /// The same LuminousFlux as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LuminousFlux as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LuminousFlux?(LuminousFlux? value) =>
@@ -579,7 +579,7 @@ namespace EngineeringUnits
     public partial class LuminousIntensity
     {
         /// <summary>
-        /// The same LuminousIntensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same LuminousIntensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.LuminousIntensity?(LuminousIntensity? value) =>
@@ -589,7 +589,7 @@ namespace EngineeringUnits
     public partial class MagneticField
     {
         /// <summary>
-        /// The same MagneticField as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MagneticField as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MagneticField?(MagneticField? value) =>
@@ -599,7 +599,7 @@ namespace EngineeringUnits
     public partial class MagneticFlux
     {
         /// <summary>
-        /// The same MagneticFlux as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MagneticFlux as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MagneticFlux?(MagneticFlux? value) =>
@@ -609,7 +609,7 @@ namespace EngineeringUnits
     public partial class Magnetization
     {
         /// <summary>
-        /// The same Magnetization as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Magnetization as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Magnetization?(Magnetization? value) =>
@@ -619,7 +619,7 @@ namespace EngineeringUnits
     public partial class Mass
     {
         /// <summary>
-        /// The same Mass as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Mass as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Mass?(Mass? value) =>
@@ -629,7 +629,7 @@ namespace EngineeringUnits
     public partial class MassCost
     {
         /// <summary>
-        /// The same MassCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MassCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MassCost?(MassCost? value) =>
@@ -639,7 +639,7 @@ namespace EngineeringUnits
     public partial class MassFlow
     {
         /// <summary>
-        /// The same MassFlow as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MassFlow as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MassFlow?(MassFlow? value) =>
@@ -649,7 +649,7 @@ namespace EngineeringUnits
     public partial class MassFlux
     {
         /// <summary>
-        /// The same MassFlux as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MassFlux as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MassFlux?(MassFlux? value) =>
@@ -659,7 +659,7 @@ namespace EngineeringUnits
     public partial class MassMomentOfInertia
     {
         /// <summary>
-        /// The same MassMomentOfInertia as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MassMomentOfInertia as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MassMomentOfInertia?(MassMomentOfInertia? value) =>
@@ -669,7 +669,7 @@ namespace EngineeringUnits
     public partial class MolarEnergy
     {
         /// <summary>
-        /// The same MolarEnergy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MolarEnergy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MolarEnergy?(MolarEnergy? value) =>
@@ -679,7 +679,7 @@ namespace EngineeringUnits
     public partial class MolarEntropy
     {
         /// <summary>
-        /// The same MolarEntropy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MolarEntropy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MolarEntropy?(MolarEntropy? value) =>
@@ -689,7 +689,7 @@ namespace EngineeringUnits
     public partial class MolarFlow
     {
         /// <summary>
-        /// The same MolarFlow as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MolarFlow as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MolarFlow?(MolarFlow? value) =>
@@ -699,7 +699,7 @@ namespace EngineeringUnits
     public partial class MolarMass
     {
         /// <summary>
-        /// The same MolarMass as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same MolarMass as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.MolarMass?(MolarMass? value) =>
@@ -709,7 +709,7 @@ namespace EngineeringUnits
     public partial class Molarity
     {
         /// <summary>
-        /// The same Molarity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Molarity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Molarity?(Molarity? value) =>
@@ -719,7 +719,7 @@ namespace EngineeringUnits
     public partial class Permeability
     {
         /// <summary>
-        /// The same Permeability as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Permeability as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Permeability?(Permeability? value) =>
@@ -729,7 +729,7 @@ namespace EngineeringUnits
     public partial class Permittivity
     {
         /// <summary>
-        /// The same Permittivity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Permittivity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Permittivity?(Permittivity? value) =>
@@ -739,7 +739,7 @@ namespace EngineeringUnits
     public partial class PipeSize
     {
         /// <summary>
-        /// The same PipeSize as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same PipeSize as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.PipeSize?(PipeSize? value) =>
@@ -749,7 +749,7 @@ namespace EngineeringUnits
     public partial class Power
     {
         /// <summary>
-        /// The same Power as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Power as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Power?(Power? value) =>
@@ -759,7 +759,7 @@ namespace EngineeringUnits
     public partial class PowerCost
     {
         /// <summary>
-        /// The same PowerCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same PowerCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.PowerCost?(PowerCost? value) =>
@@ -769,7 +769,7 @@ namespace EngineeringUnits
     public partial class PowerDensity
     {
         /// <summary>
-        /// The same PowerDensity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same PowerDensity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.PowerDensity?(PowerDensity? value) =>
@@ -779,7 +779,7 @@ namespace EngineeringUnits
     public partial class Pressure
     {
         /// <summary>
-        /// The same Pressure as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Pressure as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Pressure?(Pressure? value) =>
@@ -789,7 +789,7 @@ namespace EngineeringUnits
     public partial class PressureChangeRate
     {
         /// <summary>
-        /// The same PressureChangeRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same PressureChangeRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.PressureChangeRate?(PressureChangeRate? value) =>
@@ -799,7 +799,7 @@ namespace EngineeringUnits
     public partial class Ratio
     {
         /// <summary>
-        /// The same Ratio as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Ratio as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Ratio?(Ratio? value) =>
@@ -809,7 +809,7 @@ namespace EngineeringUnits
     public partial class ReactiveEnergy
     {
         /// <summary>
-        /// The same ReactiveEnergy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ReactiveEnergy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ReactiveEnergy?(ReactiveEnergy? value) =>
@@ -819,7 +819,7 @@ namespace EngineeringUnits
     public partial class ReactivePower
     {
         /// <summary>
-        /// The same ReactivePower as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ReactivePower as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ReactivePower?(ReactivePower? value) =>
@@ -829,7 +829,7 @@ namespace EngineeringUnits
     public partial class RotationalSpeed
     {
         /// <summary>
-        /// The same RotationalSpeed as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same RotationalSpeed as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.RotationalSpeed?(RotationalSpeed? value) =>
@@ -839,7 +839,7 @@ namespace EngineeringUnits
     public partial class Snap
     {
         /// <summary>
-        /// The same Snap as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Snap as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Snap?(Snap? value) =>
@@ -849,7 +849,7 @@ namespace EngineeringUnits
     public partial class SpecificEnergy
     {
         /// <summary>
-        /// The same SpecificEnergy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificEnergy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificEnergy?(SpecificEnergy? value) =>
@@ -859,7 +859,7 @@ namespace EngineeringUnits
     public partial class SpecificEntropy
     {
         /// <summary>
-        /// The same SpecificEntropy as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificEntropy as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificEntropy?(SpecificEntropy? value) =>
@@ -869,7 +869,7 @@ namespace EngineeringUnits
     public partial class SpecificHeatCapacity
     {
         /// <summary>
-        /// The same SpecificHeatCapacity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificHeatCapacity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificHeatCapacity?(SpecificHeatCapacity? value) =>
@@ -879,7 +879,7 @@ namespace EngineeringUnits
     public partial class SpecificThermalResistance
     {
         /// <summary>
-        /// The same SpecificThermalResistance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificThermalResistance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificThermalResistance?(SpecificThermalResistance? value) =>
@@ -889,7 +889,7 @@ namespace EngineeringUnits
     public partial class SpecificVolume
     {
         /// <summary>
-        /// The same SpecificVolume as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificVolume as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificVolume?(SpecificVolume? value) =>
@@ -899,7 +899,7 @@ namespace EngineeringUnits
     public partial class SpecificWeight
     {
         /// <summary>
-        /// The same SpecificWeight as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same SpecificWeight as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.SpecificWeight?(SpecificWeight? value) =>
@@ -909,7 +909,7 @@ namespace EngineeringUnits
     public partial class Speed
     {
         /// <summary>
-        /// The same Speed as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Speed as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Speed?(Speed? value) =>
@@ -919,7 +919,7 @@ namespace EngineeringUnits
     public partial class Temperature
     {
         /// <summary>
-        /// The same Temperature as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Temperature as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Temperature?(Temperature? value) =>
@@ -929,7 +929,7 @@ namespace EngineeringUnits
     public partial class TemperatureChangeRate
     {
         /// <summary>
-        /// The same TemperatureChangeRate as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same TemperatureChangeRate as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.TemperatureChangeRate?(TemperatureChangeRate? value) =>
@@ -939,7 +939,7 @@ namespace EngineeringUnits
     public partial class ThermalConductivity
     {
         /// <summary>
-        /// The same ThermalConductivity as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ThermalConductivity as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ThermalConductivity?(ThermalConductivity? value) =>
@@ -949,7 +949,7 @@ namespace EngineeringUnits
     public partial class ThermalResistance
     {
         /// <summary>
-        /// The same ThermalResistance as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same ThermalResistance as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.ThermalResistance?(ThermalResistance? value) =>
@@ -959,7 +959,7 @@ namespace EngineeringUnits
     public partial class Torque
     {
         /// <summary>
-        /// The same Torque as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Torque as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Torque?(Torque? value) =>
@@ -969,7 +969,7 @@ namespace EngineeringUnits
     public partial class TorquePerLength
     {
         /// <summary>
-        /// The same TorquePerLength as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same TorquePerLength as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.TorquePerLength?(TorquePerLength? value) =>
@@ -979,7 +979,7 @@ namespace EngineeringUnits
     public partial class Volume
     {
         /// <summary>
-        /// The same Volume as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same Volume as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.Volume?(Volume? value) =>
@@ -989,7 +989,7 @@ namespace EngineeringUnits
     public partial class VolumeCost
     {
         /// <summary>
-        /// The same VolumeCost as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same VolumeCost as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.VolumeCost?(VolumeCost? value) =>
@@ -999,7 +999,7 @@ namespace EngineeringUnits
     public partial class VolumeFlow
     {
         /// <summary>
-        /// The same VolumeFlow as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same VolumeFlow as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.VolumeFlow?(VolumeFlow? value) =>
@@ -1009,7 +1009,7 @@ namespace EngineeringUnits
     public partial class VolumePerLength
     {
         /// <summary>
-        /// The same VolumePerLength as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same VolumePerLength as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.VolumePerLength?(VolumePerLength? value) =>
@@ -1019,7 +1019,7 @@ namespace EngineeringUnits
     public partial class VolumetricHeatTransferCoefficient
     {
         /// <summary>
-        /// The same VolumetricHeatTransferCoefficient as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same VolumetricHeatTransferCoefficient as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.VolumetricHeatTransferCoefficient?(VolumetricHeatTransferCoefficient? value) =>
@@ -1029,7 +1029,7 @@ namespace EngineeringUnits
     public partial class WarpingMomentOfInertia
     {
         /// <summary>
-        /// The same WarpingMomentOfInertia as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+        /// The same WarpingMomentOfInertia as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
         /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
         /// </summary>
         public static implicit operator global::EngineeringUnits.Fast.WarpingMomentOfInertia?(WarpingMomentOfInertia? value) =>

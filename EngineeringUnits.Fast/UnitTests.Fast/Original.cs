@@ -1,4 +1,7 @@
 using EngineeringUnits.Fast;
+using Fractions;
+using System.Globalization;
+using System.Numerics;
 using System.Reflection;
 using EU = global::EngineeringUnits;
 
@@ -50,12 +53,31 @@ internal static class Close
 internal static class OriginalExact
 {
     /// <summary>
-    /// The original's exact Fraction path. Its As() goes through decimal, which only keeps 28 decimal places:
-    /// 1 µg/day comes back as 1.15740741E-20 instead of 1.1574074074074073E-20.
+    /// The original's exact Fraction path, rounded once to the nearest double. Its As() goes through decimal, which only keeps
+    /// 28 decimal places: 1 µg/day comes back as 1.15740741E-20 instead of 1.1574074074074073E-20.
     /// </summary>
     public static double As(global::EngineeringUnits.BaseUnit value, string quantity, string unitName)
     {
         var unit = (global::EngineeringUnits.UnitTypebase)Original.Unit(quantity, unitName);
-        return global::EngineeringUnits.BaseUnitExtensions.GetValueAs(value, unit.Unit).ToDouble();
+        return RoundedOnce(global::EngineeringUnits.BaseUnitExtensions.GetValueAs(value, unit.Unit));
+    }
+
+    // 1100 decimal places: more than any double needs, the halfway points between subnormals included (1075)
+    private static readonly BigInteger DecimalPlaces = BigInteger.Pow(10, 1100);
+
+    /// <summary>
+    /// Rounded once to the nearest double. Fraction.ToDouble() is not: 7 / 10^24 gives 7.000000000000001E-24. Written out to
+    /// 1100 decimal places for double.Parse (which rounds correctly), with a 1 at the end when more digits follow - a different
+    /// route than EngineeringUnits' own conversion to Fast, which rounds binary integers.
+    /// </summary>
+    public static double RoundedOnce(Fraction value)
+    {
+        if (value.Denominator.IsZero)
+            return value.ToDouble();    // NaN, ±Infinity
+
+        var digits = BigInteger.DivRem(BigInteger.Abs(value.Numerator) * DecimalPlaces, BigInteger.Abs(value.Denominator), out var rest);
+        var sign = value.Numerator.Sign * value.Denominator.Sign < 0 ? "-" : "";
+        var text = sign + digits.ToString(CultureInfo.InvariantCulture) + (rest.IsZero ? "E-1100" : "1E-1101");
+        return double.Parse(text, NumberStyles.Float, CultureInfo.InvariantCulture);
     }
 }

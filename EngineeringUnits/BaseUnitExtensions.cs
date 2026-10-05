@@ -13,26 +13,58 @@ public static class BaseUnitExtensions
         Fraction Factor = From.Unit.ConvertionFactor(To.Unit);
 
         // Conversions are always exact
-        return ExactResult(Factor * (Fraction)To.NEWValue, To.NEWValue);
-    }
-
-    // An exact conversion result, in the kind of the input: a double input gives the exact result rounded to double.
-    // A double can hold results too large for decimal - those are rounded from the Fraction directly.
-    private static DecimalSafe ExactResult(Fraction result, DecimalSafe input)
-    {
-        var exact = (DecimalSafe)result;
-
-        if (input.IsDecimal)
+        if (To.NEWValue.IsDecimal && TryFactorTimesDecimal(Factor, To.NEWValue.Value, out decimal exact))
             return exact;
 
-        return exact.IsDecimal ? (double)exact : result.ToDouble();
+        return (DecimalSafe)(Factor * (Fraction)To.NEWValue);
+    }
+
+    // (decimal)(Factor * (Fraction)value) without the Fraction math - the very same decimal.
+    // A factor of exactly 1 gives the value back with the same numerator and denominator, so only the form of the decimal changes.
+    private static bool TryFactorTimesDecimal(Fraction Factor, decimal value, out decimal result)
+    {
+        if (Factor.IsExactlyOne())
+        {
+            result = DecimalSafe.Normalize(value);
+            return true;
+        }
+
+        return ExactProduct.TryMultiply(Factor, value, out result);
+    }
+
+    // ((a2*x) + b2 - b1) / a1 between units with an offset, as Factor*x + Offset - worked out once per pair of units
+    private static UnitSystem.OffsetConversion GetOffsetConversion(UnitSystem From, UnitSystem To)
+    {
+        UnitSystem.OffsetConversion? last = From.lastOffsetConversion;
+        if (last is not null && ReferenceEquals(last.Target, To))
+            return last;
+
+        Fraction a1 = To.SumConstant();
+        Fraction a2 = From.SumConstant();
+        Fraction b1 = To.SumOfBConstants();
+        Fraction b2 = From.SumOfBConstants();
+
+        // Only normalized constants give a result in lowest terms - else NaN, which ExactProduct turns down
+        bool normalized = a1.State == FractionState.IsNormalized && a2.State == FractionState.IsNormalized &&
+                          b1.State == FractionState.IsNormalized && b2.State == FractionState.IsNormalized;
+
+        var conversion = normalized
+            ? new UnitSystem.OffsetConversion(To, a2 / a1, (b2 - b1) / a1)
+            : new UnitSystem.OffsetConversion(To, Fraction.NaN, Fraction.NaN);
+
+        From.lastOffsetConversion = conversion;
+        return conversion;
     }
 
     public static DecimalSafe GetValueAs2(this BaseUnit From, UnitSystem To)
     {
-        // Same unit and a double value: nothing to convert
+        // A value beyond decimal in the same unit: nothing to convert
         if (!From.NEWValue.IsDecimal && ReferenceEquals(From.Unit, To))
             return From.NEWValue;
+
+        // The very same unit, also with an offset ((a*x + b - b) / a == x): the Fraction math would only normalize the decimal
+        if (ReferenceEquals(From.Unit, To) && To.SelfFactorIsOne())
+            return DecimalSafe.Normalize(From.NEWValue.Value);
 
         if (From.NEWValue.IsNotAValue())
             return From.NEWValue;
@@ -45,10 +77,21 @@ public static class BaseUnitExtensions
         if (b1.IsZero && b2.IsZero)
         {
             Fraction Factor = To.ConvertionFactor(From.Unit);
+
+            if (From.NEWValue.IsDecimal && TryFactorTimesDecimal(Factor, From.NEWValue.Value, out decimal exact))
+                return exact;
+
             y2test2 = Factor * (Fraction)From.NEWValue;
         }
         else
         {
+            if (ExactProduct.IsAvailable && From.NEWValue.IsDecimal)
+            {
+                UnitSystem.OffsetConversion conversion = GetOffsetConversion(From.Unit, To);
+
+                if (ExactProduct.TryMultiplyAdd(conversion.Factor, From.NEWValue.Value, conversion.Offset, out decimal exact))
+                    return exact;
+            }
 
             b1 = To.SumOfBConstants();
             b2 = From.Unit.SumOfBConstants();
@@ -62,7 +105,7 @@ public static class BaseUnitExtensions
 
         }
 
-        return ExactResult(y2test2, From.NEWValue);
+        return (DecimalSafe)y2test2;
     }
 
     public static Fraction GetValueAs(this BaseUnit From, UnitSystem To)
@@ -114,6 +157,47 @@ public static class BaseUnitExtensions
         return y2test2;
     }
 
+    // (DecimalSafe)GetValueAs(To) - the value the comparison operators compare with - with the same shortcuts as GetValueAs2.
+    // A factor of exactly 1 gives the Fraction of a unit created from a Fraction back with the same numerator and denominator.
+    // (Not NEWValue: it is the same number, but JSON can bring it back with another scale - 5.0 instead of 5.)
+    // For a hand-made unit whose offset Fraction is not normalized, the Fraction formula would round its unreduced result
+    // differently from NEWValue - here the value equals itself instead.
+    internal static DecimalSafe GetValueAsDecimalSafe(this BaseUnit From, UnitSystem To)
+    {
+        if (ReferenceEquals(From.Unit, To) && To.SelfFactorIsOne())
+        {
+            if (From.testValue is null)
+            {
+                if (From.NEWValue.IsDecimal)
+                    return DecimalSafe.Normalize(From.NEWValue.Value);
+            }
+            // A Fraction that is not normalized would come back reduced through an offset
+            else if (From.testValue is Fraction exact && (exact.State == FractionState.IsNormalized || To.SumOfBConstants().IsZero))
+                return new DecimalSafe(exact);
+        }
+        else if (To.SumOfBConstants().IsZero && From.Unit.SumOfBConstants().IsZero)
+        {
+            Fraction Factor = To.ConvertionFactor(From.Unit);
+
+            if (From.testValue is null)
+            {
+                if (From.NEWValue.IsDecimal && TryFactorTimesDecimal(Factor, From.NEWValue.Value, out decimal exact))
+                    return exact;
+            }
+            else if (From.testValue is Fraction fraction && Factor.IsExactlyOne())
+                return new DecimalSafe(fraction);
+        }
+        else if (ExactProduct.IsAvailable && From.testValue is null && From.NEWValue.IsDecimal)
+        {
+            UnitSystem.OffsetConversion conversion = GetOffsetConversion(From.Unit, To);
+
+            if (ExactProduct.TryMultiplyAdd(conversion.Factor, From.NEWValue.Value, conversion.Offset, out decimal exact))
+                return exact;
+        }
+
+        return From.GetValueAs(To);
+    }
+
     public static double GetValueAsDouble(this BaseUnit From, UnitSystem To) => (double)From.GetValueAs2(To);
 
     public static string DisplaySymbol(this BaseUnit From, string? format = null) => From.Unit.ReduceUnits().ToString(format, null);
@@ -123,7 +207,11 @@ public static class BaseUnitExtensions
         if (From.Unit.IsSIUnit())
             return From.NEWValue;
 
-        return ExactResult((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants(), From.NEWValue);
+        if (From.NEWValue.IsDecimal &&
+            ExactProduct.TryMultiplyAdd(From.Unit.SumConstant(), From.NEWValue.Value, From.Unit.SumOfBConstants(), out decimal exact))
+            return exact;
+
+        return (DecimalSafe)((From.Unit.SumConstant() * (Fraction)From.NEWValue) + From.Unit.SumOfBConstants());
     }
 
     /// <summary>

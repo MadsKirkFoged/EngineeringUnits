@@ -64,7 +64,7 @@ public static class Extensions
         var test = local.ToString(CultureInfo.InvariantCulture);
 
         //Is there no dot?
-        if (test.Any(x => x == '.') is false)
+        if (test.IndexOf('.') < 0)
             return test;
 
         //Trim trailing zeros
@@ -74,11 +74,16 @@ public static class Extensions
         test = test.TrimEnd('.');
 
         //Is there still no dot?
-        if (test.Any(x => x == '.') is false)
+        if (test.IndexOf('.') < 0)
             return test;
 
         //Count current decimals
-        var CurrentCount = test.Count(x => x is not '.' and not '-');
+        var CurrentCount = 0;
+        foreach (char x in test)
+        {
+            if (x is not '.' and not '-')
+                CurrentCount++;
+        }
 
         //If we want more precision than we have
         if (CurrentCount <= count)
@@ -88,7 +93,7 @@ public static class Extensions
         var dotIndex = test.IndexOf('.');
 
         //If it is negative value we apply a offset
-        if (test.Any(x => x == '-'))
+        if (test.IndexOf('-') >= 0)
             dotIndex--;
 
         //How much precision after the dot are we looking for?

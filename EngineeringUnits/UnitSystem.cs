@@ -336,6 +336,43 @@ public class UnitSystem
         return isSI;
     }
 
+    // The last predefined symbol looked up for this unit (BaseUnit.GetStandardSymbol<T>, which searches all units of the quantity).
+    // Swapped as one immutable object, so readers never see a mismatched set.
+    internal sealed class SymbolLookup(Type quantity, string? format, string? symbol)
+    {
+        public readonly Type Quantity = quantity;
+        public readonly string? Format = format;
+        public readonly string? Symbol = symbol;
+    }
+
+    internal SymbolLookup? lastSymbol;
+
+    // The last conversion with an offset from this unit into Target, as y = Factor * x + Offset (see BaseUnitExtensions.GetValueAs2)
+    internal sealed class OffsetConversion(UnitSystem target, Fraction factor, Fraction offset)
+    {
+        public readonly UnitSystem Target = target;
+        public readonly Fraction Factor = factor;
+        public readonly Fraction Offset = offset;
+    }
+
+    internal OffsetConversion? lastOffsetConversion;
+
+    // True when converting into this very unit multiplies by exactly 1 - always, unless the unit has a zero or infinite factor.
+    // 0 = not computed, 1 = factor is 1, 2 = it is not
+    private byte selfFactorIsOne;
+    internal bool SelfFactorIsOne()
+    {
+        byte cached = selfFactorIsOne;
+        return cached is not 0 ? cached is 1 : ComputeSelfFactorIsOne();
+    }
+
+    private bool ComputeSelfFactorIsOne()
+    {
+        bool isOne = this.ConvertionFactor(this).IsExactlyOne();
+        selfFactorIsOne = isOne ? (byte)1 : (byte)2;
+        return isOne;
+    }
+
 
     // Canonical, parse-friendly form by default
     //public override string ToString() => ToString("C", null);

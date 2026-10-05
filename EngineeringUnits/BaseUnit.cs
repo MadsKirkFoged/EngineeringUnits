@@ -22,6 +22,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     internal DecimalSafe NEWValue { get; init; }
 
     // Boxed Fraction (or null) - kept as a reference so every unit object does not carry a 48 byte Fraction?
+    [field: Newtonsoft.Json.JsonConverter(typeof(BoxedFractionJsonConverter))]
     internal object? testValue { get; init; }
 
     [Obsolete("Use .As() instead - ex myPower.As(PowerUnit.Watt)")]
@@ -85,30 +86,32 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     // Each binary operator has a small fast path and moves everything else
     // (offsets, conversions, exceptions) into a non-inlined *Slow method
 
-    // + and - need no conversion when both units are SI, or when it is the very same unit without an offset (inch + inch)
+    // + and - need no conversion when both units are SI
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static bool NothingToConvert(BaseUnit left, BaseUnit right)
-    {
-        if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
-            return left.Unit == right.Unit;
+    private static bool BothSameSIUnit(BaseUnit left, BaseUnit right) =>
+        left.Unit.IsSIUnit() && right.Unit.IsSIUnit() && left.Unit == right.Unit;
 
-        return ReferenceEquals(left.Unit, right.Unit) && !left.Unit.HasOffset();
-    }
+    // ...nor when it is the very same unit without an offset (inch + inch). Converting the right value into
+    // that unit would only drop its trailing zeros (Normalized), which shows in ToString("G")
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool SameUnitWithoutOffset(BaseUnit left, BaseUnit right) =>
+        ReferenceEquals(left.Unit, right.Unit) && !left.Unit.HasOffset();
 
     [return: NotNullIfNotNull(nameof(left))]
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator +(BaseUnit? left, BaseUnit? right)
     {
-        if (left is not null && right is not null && NothingToConvert(left, right))
-            return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+        if (left is not null && right is not null)
+        {
+            if (BothSameSIUnit(left, right))
+                return new UnknownUnit(left.NEWValue + right.NEWValue, left.Unit);
+
+            if (SameUnitWithoutOffset(left, right))
+                return new UnknownUnit(left.NEWValue + right.NEWValue.Normalized(), left.Unit);
+        }
 
         return AddSlow(left, right);
     }
-
-    // Math involving non-SI units is done exactly, also when the values are doubles:
-    // a double is turned into a decimal first, and the result stays a decimal
-    private static BaseUnit AsExact(BaseUnit unit) =>
-        unit.NEWValue.IsDecimal ? unit : new UnknownUnit(unit.NEWValue.ToExact(), unit.Unit);
 
     [MethodImpl(MethodImplOptions.NoInlining)]
     private static UnknownUnit? AddSlow(BaseUnit? left, BaseUnit? right)
@@ -116,7 +119,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
-        return AddCore(AsExact(left), AsExact(right));
+        return AddCore(left, right);
     }
 
     private static UnknownUnit? AddCore(BaseUnit? left, BaseUnit? right)
@@ -239,8 +242,14 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     [return: NotNullIfNotNull(nameof(right))]
     public static UnknownUnit? operator -(BaseUnit? left, BaseUnit? right)
     {
-        if (left is not null && right is not null && NothingToConvert(left, right))
-            return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+        if (left is not null && right is not null)
+        {
+            if (BothSameSIUnit(left, right))
+                return new UnknownUnit(left.NEWValue - right.NEWValue, left.Unit);
+
+            if (SameUnitWithoutOffset(left, right))
+                return new UnknownUnit(left.NEWValue - right.NEWValue.Normalized(), left.Unit);
+        }
 
         return SubtractSlow(left, right);
     }
@@ -251,7 +260,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
-        return SubtractCore(AsExact(left), AsExact(right));
+        return SubtractCore(left, right);
     }
 
     private static UnknownUnit? SubtractCore(BaseUnit? left, BaseUnit? right)
@@ -386,7 +395,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
-        return MultiplyCore(AsExact(left), AsExact(right));
+        return MultiplyCore(left, right);
     }
 
     private static UnknownUnit? MultiplyCore(BaseUnit? left, BaseUnit? right)
@@ -519,7 +528,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left is null || right is null)
             return null;
 
-        return DivideCore(AsExact(left), AsExact(right));
+        return DivideCore(left, right);
     }
 
     private static UnknownUnit? DivideCore(BaseUnit? left, BaseUnit? right)
@@ -643,7 +652,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue == right.NEWValue;
 
-        return left.NEWValue.ToExact() == right.GetValueAs(left.Unit);
+        return left.NEWValue == right.GetValueAsDecimalSafe(left.Unit);
     }
     public static bool operator !=(BaseUnit? left, BaseUnit? right)
     {
@@ -658,7 +667,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue != right.NEWValue;
 
-        return left.NEWValue.ToExact() != right.GetValueAs(left.Unit);
+        return left.NEWValue != right.GetValueAsDecimalSafe(left.Unit);
     }
     public static bool operator <=(BaseUnit? left, BaseUnit? right)
     {
@@ -673,7 +682,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue <= right.NEWValue;
 
-        return left.NEWValue.ToExact() <= right.GetValueAs(left.Unit);
+        return left.NEWValue <= right.GetValueAsDecimalSafe(left.Unit);
     }
     public static bool operator >=(BaseUnit? left, BaseUnit? right)
     {
@@ -688,7 +697,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue >= right.NEWValue;
 
-        return left.NEWValue.ToExact() >= right.GetValueAs(left.Unit);
+        return left.NEWValue >= right.GetValueAsDecimalSafe(left.Unit);
     }
     public static bool operator <(BaseUnit? left, BaseUnit? right)
     {
@@ -701,7 +710,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue < right.NEWValue;
 
-        return left.NEWValue.ToExact() < right.GetValueAs(left.Unit);
+        return left.NEWValue < right.GetValueAsDecimalSafe(left.Unit);
     }
     public static bool operator >(BaseUnit? left, BaseUnit? right)
     {
@@ -715,7 +724,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (left.Unit.IsSIUnit() && right.Unit.IsSIUnit())
             return left.NEWValue > right.NEWValue;
 
-        return left.NEWValue.ToExact() > right.GetValueAs(left.Unit);
+        return left.NEWValue > right.GetValueAsDecimalSafe(left.Unit);
     }
 
     [return: NotNullIfNotNull(nameof(unit))]
@@ -813,7 +822,7 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
         if (GetUnit is null)
         {
             UnitSystem NewUnit = Unit.GetSIUnitsystem();
-            NewNEWValue = this.GetValueAs(NewUnit);
+            NewNEWValue = this.GetValueAsDecimalSafe(NewUnit);
             GetUnit = GetStandardSymbol(NewUnit, unitFormat);
         }
 
@@ -853,11 +862,19 @@ public class BaseUnit : IEquatable<BaseUnit>, IComparable, IComparable<BaseUnit>
     public static string? GetStandardSymbol<T>(UnitSystem _unit, string? format = null )
         where T : UnitTypebase
     {
+        // The search below goes through every predefined unit, so the answer is kept on the unit
+        UnitSystem.SymbolLookup? last = _unit.lastSymbol;
+        if (last is not null && last.Quantity == typeof(T) && last.Format == format)
+            return last.Symbol;
+
         //This check the list of Predefined unit and if it finds a match it returns that Symbol
-        return UnitTypebase.ListOf<T>()
+        string? symbol = UnitTypebase.ListOf<T>()
             .Find(x => x.Unit.SumConstant() == _unit.SumConstant() &&
                        x.Unit.SumOfBConstants() == _unit.SumOfBConstants())?
             .Unit.ToString(format, null);
+
+        _unit.lastSymbol = new UnitSystem.SymbolLookup(typeof(T), format, symbol);
+        return symbol;
     }
     // Returns null when the unit has a scale factor with no symbol (ex g·g) so ToString falls back to SI
     public virtual string? GetStandardSymbol(UnitSystem _unit) => _unit.HasUnprintableFactor() ? null : _unit.ToString("C", null);

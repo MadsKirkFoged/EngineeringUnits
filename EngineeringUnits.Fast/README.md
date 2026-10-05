@@ -262,8 +262,15 @@ EU.Power p = q.ToClassic();                            // and back: always expli
 
 **`ToFast()` and `ToClassic()`**
 
-- **Exact in both directions.** Fast → EngineeringUnits → Fast gives back the same bits, NaN and ±∞ included. A value in another unit
-  (feet, °C, €) is converted to SI along EngineeringUnits' exact path, not `As()` (see finding 1 below).
+- **Fast → EngineeringUnits → Fast gives back the same bits.** `ToFast()` rounds the exact SI value once to the nearest double. A value
+  in another unit (feet, °C, €) is converted to SI along EngineeringUnits' exact path, not `As()` (see finding 1 below). `ToClassic()`
+  gives the shortest decimal that rounds back to the same double: `0.1` arrives as `0.1m`, and Fast's `0.1 + 0.2` as
+  `0.30000000000000004m`, not `0.3m`. So the round trip keeps the bits, NaN and ±∞ included. Except for digits beyond decimal's 28
+  decimal places (only values below 1e-12 can have them): they are rounded off (`1e-30` becomes 0), as for any value given to EngineeringUnits.
+- **A computed double crosses with all its digits.** EngineeringUnits' own double constructors keep 15 significant digits
+  (`Length.FromMeter(0.1 + 0.2)` is `0.3m`), `ToClassic()` keeps all of them. So a computed Fast value is not `==` to the
+  EngineeringUnits value built from the same double: `Length.FromMeter(0.1 + 0.2).ToClassic() != EU.Length.FromMeter(0.1 + 0.2)`.
+  Typed values (up to 15 significant digits) arrive the same both ways.
 - **Fast has no display unit.** `ToClassic()` gives the SI unit, so `3 ft` comes back as `0.9144 m`. Use `.ToUnit(...)` on the result if it's printed.
 - **Named quantities only.** An `UnknownUnit` has no runtime dimension in Fast, so it can't cross. Cast it to a quantity first.
 - **No using needed.** The methods live in the global namespace, like the `{T}NullableExtensions`.

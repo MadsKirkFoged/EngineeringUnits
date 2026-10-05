@@ -636,7 +636,11 @@ internal static class Emit
 
             /// <summary>
             /// Converts between EngineeringUnits and EngineeringUnits.Fast, for moving a code base over one project at a time.
-            /// The SI value is copied exactly, in both directions. Fast keeps no display unit, so <c>ToClassic()</c> gives the SI unit.
+            /// Both meet in SI. <c>ToFast()</c> rounds the exact value once to the nearest double. <c>ToClassic()</c> gives the shortest
+            /// decimal that rounds back to the same double (0.1 + 0.2 arrives as 0.30000000000000004, not 0.3), so Fast -> EngineeringUnits
+            /// -> Fast gives the same bits. Except for digits beyond decimal's 28 decimal places (only values below 1e-12 can have them):
+            /// they are rounded off (1e-30 becomes 0), as everywhere in EngineeringUnits. NaN, ±Infinity and values beyond ±7.9e28 stay doubles.
+            /// Fast keeps no display unit, so <c>ToClassic()</c> gives the SI unit.
             /// </summary>
             public static class FastBridgeExtensions
             {
@@ -657,7 +661,8 @@ internal static class Emit
                     public static {{fast}} ToFast(this {{classic}} value) => ({{fast}}?)value ?? throw new ArgumentNullException(nameof(value));
 
                     /// <summary>The same {{q.Name}} as an EngineeringUnits object, in its SI unit.</summary>
-                    public static {{classic}} ToClassic(this {{fast}} value) => new(value.SI, {{classicSI}});
+                    public static {{classic}} ToClassic(this {{fast}} value) =>
+                        global::EngineeringUnits.FastConversion.ShortestDecimal(value.SI) is decimal si ? new(si, {{classicSI}}) : new(value.SI, {{classicSI}});
 
                 """);
         }
@@ -705,7 +710,7 @@ internal static class Emit
                         public partial class {{q.OriginalType.Name}}
                         {
                             /// <summary>
-                            /// The same {{q.Name}} as an EngineeringUnits.Fast struct, exact in SI. Null stays null. The EngineeringUnits.Fast
+                            /// The same {{q.Name}} as an EngineeringUnits.Fast struct: its exact SI value rounded once to the nearest double. Null stays null. The EngineeringUnits.Fast
                             /// analyzer reports every use as EUF0009 (info), so the places still taking EngineeringUnits values can be listed.
                             /// </summary>
                             public static implicit operator {{fast}}?({{q.OriginalType.Name}}? value) =>

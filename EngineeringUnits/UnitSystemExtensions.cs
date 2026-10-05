@@ -65,6 +65,9 @@ public static class UnitSystemExtensions
         return new UnitSystem(test);
     }
 
+    // 1/1: multiplying by it gives a Fraction with the very same numerator and denominator
+    internal static bool IsExactlyOne(this Fraction factor) => factor.Numerator.IsOne && factor.Denominator.IsOne;
+
     private static readonly ConcurrentDictionary<(int, int), Fraction> CacheFactor = new();
     //static readonly object FactorLock = new object();
     public static Fraction ConvertionFactor(this UnitSystem From, UnitSystem To)

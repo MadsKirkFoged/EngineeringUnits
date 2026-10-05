@@ -4,9 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Functionality;
 
-// A value keeps the type it was created with (double or decimal).
-// Math between SI units - or the very same unit - on doubles is plain double math (fast).
-// Math that involves converting between units is exact, also when the values are doubles.
+// A double becomes a decimal when it comes in (15 significant digits - the digits that were typed),
+// so all math is exact decimal math, also between SI units: 0.1 m + 0.2 m == 0.3 m.
+// Only values decimal can't hold (NaN, Infinity, beyond ±7.9e28) stay doubles.
 [TestClass]
 public class DoubleAndDecimalPrecision
 {
@@ -71,20 +71,57 @@ public class DoubleAndDecimalPrecision
     }
 
     [TestMethod]
-    public void SameNonSIUnitUsesDoubleMath()
+    public void SameNonSIUnitMathIsExact()
     {
-        Length sum = Length.FromInch(3.87) + Length.FromInch(1.5);
+        Length sum = Length.FromInch(0.1) + Length.FromInch(0.2);
 
-        Assert.AreEqual(3.87 + 1.5, sum.As(LengthUnit.Inch));
+        Assert.AreEqual(0.3, sum.As(LengthUnit.Inch));
+        Assert.IsTrue(sum == Length.FromInch(0.3));
     }
 
     [TestMethod]
-    public void SIDoubleMathIsPlainDouble()
+    public void SIDoubleMathIsExact()
     {
-        Length sum = Length.FromMeter(0.1) + Length.FromMeter(0.2);
+        Length total = Length.FromMeter(0.1) + Length.FromMeter(0.2);
 
-        // Same result as doing the math on plain doubles - 0.30000000000000004
-        Assert.AreEqual(0.1 + 0.2, sum.As(LengthUnit.Meter));
+        // Not 0.30000000000000004 as plain doubles would give
+        Assert.AreEqual(0.3, total.As(LengthUnit.Meter));
+        Assert.IsTrue(total == Length.FromMeter(0.3));
+        Assert.IsFalse(total != Length.FromMeter(0.3));
+        Assert.IsTrue(total <= Length.FromMeter(0.3));
+        Assert.IsTrue(total >= Length.FromMeter(0.3));
+        Assert.IsFalse(total > Length.FromMeter(0.3));
+        Assert.IsFalse(total < Length.FromMeter(0.3));
+        Assert.AreEqual(Length.FromMeter(0.3), total);
+    }
+
+    [TestMethod]
+    public void SIDoubleSubtractMultiplyDivideIsExact()
+    {
+        Assert.IsTrue(Length.FromMeter(0.3) - Length.FromMeter(0.1) == Length.FromMeter(0.2));
+        Assert.AreEqual(0.2, (Length.FromMeter(0.3) - Length.FromMeter(0.1)).As(LengthUnit.Meter));
+
+        Area area = Length.FromMeter(0.1) * Length.FromMeter(3);
+        Assert.IsTrue(area == Area.FromSquareMeter(0.3));
+
+        Length back = Area.FromSquareMeter(0.3) / Length.FromMeter(0.1);
+        Assert.IsTrue(back == Length.FromMeter(3));
+    }
+
+    [TestMethod]
+    public void DoubleIsTakenAtFifteenSignificantDigits()
+    {
+        // (decimal)double keeps 15 significant digits - what the user typed, not the binary noise of a double
+        Assert.IsTrue(Length.FromMeter(0.1 + 0.2) == Length.FromMeter(0.3));
+        Assert.IsTrue(Length.FromMeter(0.1) == new Length(0.1m, LengthUnit.Meter));
+    }
+
+    [TestMethod]
+    public void DoubleAndDecimalInputsMix()
+    {
+        Length total = Length.FromMeter(0.1) + new Length(0.2m, LengthUnit.Meter);
+
+        Assert.IsTrue(total == new Length(0.3m, LengthUnit.Meter));
     }
 
     [TestMethod]
