@@ -37,6 +37,20 @@ public sealed class UnitDimensionAttribute : Attribute
 }
 
 /// <summary>
+/// The ISO 4217 code of a currency unit, e.g. "EUR" on <c>CostUnit.Euro</c>. Like in EngineeringUnits,
+/// <see cref="UnitTypebase.GetUnitByString{T}"/> (and so <c>AddUnit</c>) accepts it next to the unit's name:
+/// <c>price.AddUnit&lt;CostUnit&gt;("DKK")</c>.
+/// </summary>
+[AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
+public sealed class CurrencyCodeAttribute : Attribute
+{
+    public CurrencyCodeAttribute(string code) => Code = code;
+
+    /// <summary>The ISO 4217 code, e.g. "EUR".</summary>
+    public string Code { get; }
+}
+
+/// <summary>
 /// Marks parameters that must all have the same unit (dimension). Checked at compile time only (EUF0005).
 /// </summary>
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]

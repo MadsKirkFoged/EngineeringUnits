@@ -53,6 +53,9 @@ public readonly partial struct MassCost : IQuantity<MassCost>, IEquatable<MassCo
     /// <summary>All units of MassCost.</summary>
     public static IReadOnlyList<MassCostUnit> Units => MassCostUnit.All;
 
+    public static MassCost FromEuroPerKilogram(double EuroPerKilogram) => new(MassCostUnit.EuroPerKilogram.ToSI(EuroPerKilogram));
+    public static MassCost? FromEuroPerKilogram(double? EuroPerKilogram) => EuroPerKilogram is { } v ? FromEuroPerKilogram(v) : null;
+    public double EuroPerKilogram => MassCostUnit.EuroPerKilogram.FromSI(_si);
     public static MassCost FromUSDollarPerKilogram(double USDollarPerKilogram) => new(USDollarPerKilogram);
     public static MassCost? FromUSDollarPerKilogram(double? USDollarPerKilogram) => USDollarPerKilogram is { } v ? FromUSDollarPerKilogram(v) : null;
     public double USDollarPerKilogram => _si;
@@ -76,6 +79,11 @@ public readonly partial struct MassCost : IQuantity<MassCost>, IEquatable<MassCo
     public static MassCost? operator +(MassCost a, MassCost? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static MassCost? operator -(MassCost? a, MassCost b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static MassCost? operator -(MassCost a, MassCost? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. MassCost + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static MassCost? operator +(MassCost a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static MassCost? operator +(UnknownUnit? a, MassCost b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static MassCost? operator -(MassCost a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static MassCost? operator -(UnknownUnit? a, MassCost b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static MassCost operator -(MassCost a) => new(-a._si);
     public static MassCost operator +(MassCost a) => a;
 
@@ -83,6 +91,9 @@ public readonly partial struct MassCost : IQuantity<MassCost>, IEquatable<MassCo
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(MassCost a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(MassCost a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for MassCost * UnknownUnit?
+    public static UnknownUnit? operator *(MassCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(MassCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static MassCost operator *(MassCost a, double b) => new(a._si * b);
     public static MassCost operator *(double a, MassCost b) => new(a * b._si);
     public static MassCost operator /(MassCost a, double b) => new(a._si / b);
@@ -124,6 +135,16 @@ public readonly partial struct MassCost : IQuantity<MassCost>, IEquatable<MassCo
     public static bool operator >(MassCost a, MassCost? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(MassCost a, MassCost? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(MassCost a, MassCost? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(MassCost a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(MassCost a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(MassCost a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(MassCost a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, MassCost b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, MassCost b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, MassCost b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, MassCost b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(MassCost value) => new(value._si);

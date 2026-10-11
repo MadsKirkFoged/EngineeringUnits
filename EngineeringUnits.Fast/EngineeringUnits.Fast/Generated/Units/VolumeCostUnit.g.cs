@@ -14,13 +14,19 @@ public sealed class VolumeCostUnit : UnitTypebase
     private VolumeCostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private VolumeCostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$/m³] exact factor 1</summary>
     public static readonly VolumeCostUnit SI = new("SI", "$/m³", 1d, 1d, 0d);
     /// <summary>[$/m³] exact factor 1</summary>
     public static readonly VolumeCostUnit USDollarPerCubicMeter = new("USDollarPerCubicMeter", "$/m³", 1d, 1d, 0d);
+    /// <summary>[€/m³] exact factor: the Euro exchange rate (ExchangeRates, by default 1.08568)</summary>
+    public static readonly VolumeCostUnit EuroPerCubicMeter = new("EuroPerCubicMeter", "€/m³", ExchangeRates.Currency.Euro, 1d, 1d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<VolumeCostUnit> All = new[] { SI, USDollarPerCubicMeter };
+    public static readonly IReadOnlyList<VolumeCostUnit> All = new[] { SI, USDollarPerCubicMeter, EuroPerCubicMeter };
 
     internal static readonly Dictionary<string, VolumeCostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

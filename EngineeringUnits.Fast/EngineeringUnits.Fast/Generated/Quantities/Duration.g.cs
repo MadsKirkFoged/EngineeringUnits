@@ -97,6 +97,11 @@ public readonly partial struct Duration : IQuantity<Duration>, IEquatable<Durati
     public static Duration? operator +(Duration a, Duration? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static Duration? operator -(Duration? a, Duration b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static Duration? operator -(Duration a, Duration? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. Duration + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static Duration? operator +(Duration a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static Duration? operator +(UnknownUnit? a, Duration b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static Duration? operator -(Duration a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static Duration? operator -(UnknownUnit? a, Duration b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static Duration operator -(Duration a) => new(-a._si);
     public static Duration operator +(Duration a) => a;
 
@@ -104,6 +109,9 @@ public readonly partial struct Duration : IQuantity<Duration>, IEquatable<Durati
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(Duration a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(Duration a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for Duration * UnknownUnit?
+    public static UnknownUnit? operator *(Duration a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(Duration a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static Duration operator *(Duration a, double b) => new(a._si * b);
     public static Duration operator *(double a, Duration b) => new(a * b._si);
     public static Duration operator /(Duration a, double b) => new(a._si / b);
@@ -145,6 +153,16 @@ public readonly partial struct Duration : IQuantity<Duration>, IEquatable<Durati
     public static bool operator >(Duration a, Duration? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(Duration a, Duration? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(Duration a, Duration? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(Duration a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(Duration a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(Duration a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(Duration a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, Duration b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, Duration b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, Duration b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, Duration b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Duration value) => new(value._si);

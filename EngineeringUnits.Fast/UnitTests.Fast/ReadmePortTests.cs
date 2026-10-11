@@ -8,6 +8,7 @@ using EngineeringUnits.NumberExtensions.NumberToTemperature.Fast;
 using EngineeringUnits.NumberExtensions.NumberToVolume.Fast;
 
 using EngineeringUnits.Units.Fast;
+using static EngineeringUnits.Fast.ExchangeRates;
 
 namespace UnitTests.Fast;
 
@@ -108,13 +109,26 @@ public class ReadmePortTests
     }
 
     [TestMethod]
-    public void Currency()
+    [DoNotParallelize]   // UpdateRate changes the rate for the whole process
+    public void CurrencySupport()
     {
-        // NOT PORTED: ExchangeRates and €/£/kr units. USD units work:
-        Cost price = Cost.FromMillionUSDollar(10);
-        Length road = Length.FromKilometer(10);
-        LengthCost pricePerLength = price / road;
-        Assert.AreEqual(1000, pricePerLength.USDollarPerMeter, 1e-9);
+        // Update the currency rate (e.g., EUR -> USD) 1.19
+        ExchangeRates.UpdateRate(Currency.Euro, 1.19m);
+        try
+        {
+            Cost price = Cost.FromMillionUSDollar(10);
+            Length road = Length.FromKilometer(10);
+
+            LengthCost pricePerLength = price / road; // 1000 $/m
+            var euros = pricePerLength.ToUnit(LengthCostUnit.EuroPerMeter); // 840.3 €/m   CHANGED: var - as a LengthCost it prints in SI ($/m)
+
+            Assert.AreEqual(1000, pricePerLength.USDollarPerMeter, 1e-9);
+            Assert.AreEqual("840.3 €/m", euros.ToString());
+        }
+        finally
+        {
+            ExchangeRates.UpdateRate(Currency.Euro, 1.08568m);   // back to the default, for the other tests
+        }
     }
 
     [TestMethod]

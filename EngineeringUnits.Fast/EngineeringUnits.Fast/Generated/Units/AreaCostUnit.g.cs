@@ -14,15 +14,21 @@ public sealed class AreaCostUnit : UnitTypebase
     private AreaCostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private AreaCostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$/m²] exact factor 1</summary>
     public static readonly AreaCostUnit SI = new("SI", "$/m²", 1d, 1d, 0d);
     /// <summary>[$/m²] exact factor 1</summary>
     public static readonly AreaCostUnit USDollarPerSquareMeter = new("USDollarPerSquareMeter", "$/m²", 1d, 1d, 0d);
     /// <summary>[M$/m²] exact factor 1000000</summary>
     public static readonly AreaCostUnit MillionUSDollarPerSquareMeter = new("MillionUSDollarPerSquareMeter", "M$/m²", 1000000d, 1d, 0d);
+    /// <summary>[€/m²] exact factor: the Euro exchange rate (ExchangeRates, by default 1.08568)</summary>
+    public static readonly AreaCostUnit EuroPerSquareMeter = new("EuroPerSquareMeter", "€/m²", ExchangeRates.Currency.Euro, 1d, 1d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<AreaCostUnit> All = new[] { SI, USDollarPerSquareMeter, MillionUSDollarPerSquareMeter };
+    public static readonly IReadOnlyList<AreaCostUnit> All = new[] { SI, USDollarPerSquareMeter, MillionUSDollarPerSquareMeter, EuroPerSquareMeter };
 
     internal static readonly Dictionary<string, AreaCostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

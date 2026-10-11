@@ -146,6 +146,40 @@ public class ArithmeticTests
     }
 
     [TestMethod]
+    public void NullableUnknownUnitOperators()
+    {
+        // A quantity with an UnknownUnit? from nullable math: ambiguous (CS9342) with only the lifted operators
+        MassFlow? flow = MassFlow.FromKilogramPerSecond(2), noFlow = null;
+        Enthalpy h = Enthalpy.FromJoulePerKilogram(3);
+        Power p = Power.FromWatt(1);
+        Duration t = Duration.FromSecond(10);
+
+        Power? sum = p + flow * h, difference = p - flow * h, sum2 = flow * h + p, difference2 = flow * h - p;
+        Assert.AreEqual(7, sum!.Value.Watt); Assert.AreEqual(-5, difference!.Value.Watt);
+        Assert.AreEqual(7, sum2!.Value.Watt); Assert.AreEqual(5, difference2!.Value.Watt);
+        Power? noSum = p + noFlow * h;
+        Assert.IsNull(noSum);
+
+        Energy? energy = t * (flow * h);
+        Duration? scaled = t / (flow * h / p);
+        Energy? noEnergy = t * (noFlow * h);
+        Assert.AreEqual(60, energy!.Value.Joule);
+        Assert.AreEqual(10 / 6.0, scaled!.Value.Second, 1e-15);
+        Assert.IsNull(noEnergy);
+
+        // UnknownUnit * T?
+        Duration? two = Duration.FromSecond(2), never = null;
+        Energy? fromUnknown = MassFlow.FromKilogramPerSecond(2) * h * two;
+        Energy? noFromUnknown = MassFlow.FromKilogramPerSecond(2) * h * never;
+        Assert.AreEqual(12, fromUnknown!.Value.Joule);
+        Assert.IsNull(noFromUnknown);
+
+        // Comparisons: like the lifted operators, null compares false
+        Assert.IsTrue(p < flow * h && flow * h > p && p <= flow * h && flow * h >= p);
+        Assert.IsFalse(p < noFlow * h || noFlow * h > p || p >= noFlow * h || noFlow * h <= p);
+    }
+
+    [TestMethod]
     public void Aliases_MixWithoutCasts()
     {
         SpecificEnergy se = SpecificEnergy.FromJoulePerKilogram(2);

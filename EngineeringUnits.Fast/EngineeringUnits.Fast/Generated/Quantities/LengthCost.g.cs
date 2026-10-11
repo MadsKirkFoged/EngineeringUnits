@@ -56,6 +56,9 @@ public readonly partial struct LengthCost : IQuantity<LengthCost>, IEquatable<Le
     public static LengthCost FromUSDollarPerMeter(double USDollarPerMeter) => new(USDollarPerMeter);
     public static LengthCost? FromUSDollarPerMeter(double? USDollarPerMeter) => USDollarPerMeter is { } v ? FromUSDollarPerMeter(v) : null;
     public double USDollarPerMeter => _si;
+    public static LengthCost FromEuroPerMeter(double EuroPerMeter) => new(LengthCostUnit.EuroPerMeter.ToSI(EuroPerMeter));
+    public static LengthCost? FromEuroPerMeter(double? EuroPerMeter) => EuroPerMeter is { } v ? FromEuroPerMeter(v) : null;
+    public double EuroPerMeter => LengthCostUnit.EuroPerMeter.FromSI(_si);
 
     // ---- + and - : same quantity only (other quantities give an ambiguity compile error) ----
     public static LengthCost operator +(LengthCost a, LengthCost b) => new(a._si + b._si);
@@ -70,6 +73,11 @@ public readonly partial struct LengthCost : IQuantity<LengthCost>, IEquatable<Le
     public static LengthCost? operator +(LengthCost a, LengthCost? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static LengthCost? operator -(LengthCost? a, LengthCost b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static LengthCost? operator -(LengthCost a, LengthCost? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. LengthCost + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static LengthCost? operator +(LengthCost a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static LengthCost? operator +(UnknownUnit? a, LengthCost b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static LengthCost? operator -(LengthCost a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static LengthCost? operator -(UnknownUnit? a, LengthCost b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static LengthCost operator -(LengthCost a) => new(-a._si);
     public static LengthCost operator +(LengthCost a) => a;
 
@@ -77,6 +85,9 @@ public readonly partial struct LengthCost : IQuantity<LengthCost>, IEquatable<Le
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(LengthCost a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(LengthCost a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for LengthCost * UnknownUnit?
+    public static UnknownUnit? operator *(LengthCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(LengthCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static LengthCost operator *(LengthCost a, double b) => new(a._si * b);
     public static LengthCost operator *(double a, LengthCost b) => new(a * b._si);
     public static LengthCost operator /(LengthCost a, double b) => new(a._si / b);
@@ -118,6 +129,16 @@ public readonly partial struct LengthCost : IQuantity<LengthCost>, IEquatable<Le
     public static bool operator >(LengthCost a, LengthCost? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(LengthCost a, LengthCost? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(LengthCost a, LengthCost? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(LengthCost a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(LengthCost a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(LengthCost a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(LengthCost a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, LengthCost b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, LengthCost b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, LengthCost b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, LengthCost b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(LengthCost value) => new(value._si);

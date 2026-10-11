@@ -14,6 +14,10 @@ public sealed class EnergyCostUnit : UnitTypebase
     private EnergyCostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private EnergyCostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$/J] exact factor 1</summary>
     public static readonly EnergyCostUnit SI = new("SI", "$/J", 1d, 1d, 0d);
     /// <summary>[$/J] exact factor 1</summary>
@@ -26,6 +30,8 @@ public sealed class EnergyCostUnit : UnitTypebase
     public static readonly EnergyCostUnit USDollarPerGigajoule = new("USDollarPerGigajoule", "$/GJ", 1d, 1000000000d, 0d);
     /// <summary>[$/kWh] exact factor 1/3600000</summary>
     public static readonly EnergyCostUnit USDollarPerKilowattHour = new("USDollarPerKilowattHour", "$/kWh", 1d, 3600000d, 0d);
+    /// <summary>[kr/kWh] exact factor: the DKK exchange rate / 3600000 (ExchangeRates, by default 0.15)</summary>
+    public static readonly EnergyCostUnit DKKPerKilowattHour = new("DKKPerKilowattHour", "kr/kWh", ExchangeRates.Currency.DKK, 1d, 3600000d);
     /// <summary>[$/MWh] exact factor 1/3600000000</summary>
     public static readonly EnergyCostUnit USDollarPerMegawattHour = new("USDollarPerMegawattHour", "$/MWh", 1d, 3600000000d, 0d);
     /// <summary>[M$/J] exact factor 1000000</summary>
@@ -42,7 +48,7 @@ public sealed class EnergyCostUnit : UnitTypebase
     public static readonly EnergyCostUnit MillionUSDollarPerMegawattHour = new("MillionUSDollarPerMegawattHour", "M$/MWh", 1d, 3600d, 0d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<EnergyCostUnit> All = new[] { SI, USDollarPerJoule, USDollarPerKilojoule, USDollarPerMegajoule, USDollarPerGigajoule, USDollarPerKilowattHour, USDollarPerMegawattHour, MillionUSDollarPerJoule, MillionUSDollarPerKilojoule, MillionUSDollarPerMegajoule, MillionUSDollarPerGigajoule, MillionUSDollarPerKilowattHour, MillionUSDollarPerMegawattHour };
+    public static readonly IReadOnlyList<EnergyCostUnit> All = new[] { SI, USDollarPerJoule, USDollarPerKilojoule, USDollarPerMegajoule, USDollarPerGigajoule, USDollarPerKilowattHour, DKKPerKilowattHour, USDollarPerMegawattHour, MillionUSDollarPerJoule, MillionUSDollarPerKilojoule, MillionUSDollarPerMegajoule, MillionUSDollarPerGigajoule, MillionUSDollarPerKilowattHour, MillionUSDollarPerMegawattHour };
 
     internal static readonly Dictionary<string, EnergyCostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

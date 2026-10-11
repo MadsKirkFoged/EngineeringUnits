@@ -14,6 +14,7 @@ public static class NumberToEnergyCostExtensions
         public EnergyCost USDollarPerMegajoule => EnergyCost.FromUSDollarPerMegajoule(value);
         public EnergyCost USDollarPerGigajoule => EnergyCost.FromUSDollarPerGigajoule(value);
         public EnergyCost USDollarPerKilowattHour => EnergyCost.FromUSDollarPerKilowattHour(value);
+        public EnergyCost DKKPerKilowattHour => EnergyCost.FromDKKPerKilowattHour(value);
         public EnergyCost USDollarPerMegawattHour => EnergyCost.FromUSDollarPerMegawattHour(value);
         public EnergyCost MillionUSDollarPerJoule => EnergyCost.FromMillionUSDollarPerJoule(value);
         public EnergyCost MillionUSDollarPerKilojoule => EnergyCost.FromMillionUSDollarPerKilojoule(value);
@@ -29,6 +30,7 @@ public static class NumberToEnergyCostExtensions
         public EnergyCost USDollarPerMegajoule => EnergyCost.FromUSDollarPerMegajoule(value);
         public EnergyCost USDollarPerGigajoule => EnergyCost.FromUSDollarPerGigajoule(value);
         public EnergyCost USDollarPerKilowattHour => EnergyCost.FromUSDollarPerKilowattHour(value);
+        public EnergyCost DKKPerKilowattHour => EnergyCost.FromDKKPerKilowattHour(value);
         public EnergyCost USDollarPerMegawattHour => EnergyCost.FromUSDollarPerMegawattHour(value);
         public EnergyCost MillionUSDollarPerJoule => EnergyCost.FromMillionUSDollarPerJoule(value);
         public EnergyCost MillionUSDollarPerKilojoule => EnergyCost.FromMillionUSDollarPerKilojoule(value);

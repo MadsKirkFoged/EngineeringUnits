@@ -11,10 +11,16 @@ public static class NumberToCostExtensions
     {
         public Cost USDollar => Cost.FromUSDollar(value);
         public Cost MillionUSDollar => Cost.FromMillionUSDollar(value);
+        public Cost Euro => Cost.FromEuro(value);
+        public Cost BritishPound => Cost.FromBritishPound(value);
+        public Cost DanishKrone => Cost.FromDanishKrone(value);
     }
     extension(int value)
     {
         public Cost USDollar => Cost.FromUSDollar(value);
         public Cost MillionUSDollar => Cost.FromMillionUSDollar(value);
+        public Cost Euro => Cost.FromEuro(value);
+        public Cost BritishPound => Cost.FromBritishPound(value);
+        public Cost DanishKrone => Cost.FromDanishKrone(value);
     }
 }

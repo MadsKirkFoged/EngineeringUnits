@@ -14,15 +14,29 @@ public sealed class CostUnit : UnitTypebase
     private CostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private CostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$] exact factor 1</summary>
     public static readonly CostUnit SI = new("SI", "$", 1d, 1d, 0d);
     /// <summary>[$] exact factor 1</summary>
+    [CurrencyCode("USD")]
     public static readonly CostUnit USDollar = new("USDollar", "$", 1d, 1d, 0d);
     /// <summary>[M$] exact factor 1000000</summary>
     public static readonly CostUnit MillionUSDollar = new("MillionUSDollar", "M$", 1000000d, 1d, 0d);
+    /// <summary>[€] exact factor: the Euro exchange rate (ExchangeRates, by default 1.08568)</summary>
+    [CurrencyCode("EUR")]
+    public static readonly CostUnit Euro = new("Euro", "€", ExchangeRates.Currency.Euro, 1d, 1d);
+    /// <summary>[£] exact factor: the BritishPound exchange rate (ExchangeRates, by default 1.2665902)</summary>
+    [CurrencyCode("GBP")]
+    public static readonly CostUnit BritishPound = new("BritishPound", "£", ExchangeRates.Currency.BritishPound, 1d, 1d);
+    /// <summary>[kr] exact factor: the DKK exchange rate (ExchangeRates, by default 0.15)</summary>
+    [CurrencyCode("DKK")]
+    public static readonly CostUnit DanishKrone = new("DanishKrone", "kr", ExchangeRates.Currency.DKK, 1d, 1d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<CostUnit> All = new[] { SI, USDollar, MillionUSDollar };
+    public static readonly IReadOnlyList<CostUnit> All = new[] { SI, USDollar, MillionUSDollar, Euro, BritishPound, DanishKrone };
 
     internal static readonly Dictionary<string, CostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

@@ -18,6 +18,7 @@ public static class EnergyCostNullableExtensions
         public double USDollarPerMegajoule => quantity.Value.USDollarPerMegajoule;
         public double USDollarPerGigajoule => quantity.Value.USDollarPerGigajoule;
         public double USDollarPerKilowattHour => quantity.Value.USDollarPerKilowattHour;
+        public double DKKPerKilowattHour => quantity.Value.DKKPerKilowattHour;
         public double USDollarPerMegawattHour => quantity.Value.USDollarPerMegawattHour;
         public double MillionUSDollarPerJoule => quantity.Value.MillionUSDollarPerJoule;
         public double MillionUSDollarPerKilojoule => quantity.Value.MillionUSDollarPerKilojoule;
@@ -36,6 +37,7 @@ public static class EnergyCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromUSDollarPerMegajoule(double value) => EnergyCost.FromUSDollarPerMegajoule(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromUSDollarPerGigajoule(double value) => EnergyCost.FromUSDollarPerGigajoule(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromUSDollarPerKilowattHour(double value) => EnergyCost.FromUSDollarPerKilowattHour(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromDKKPerKilowattHour(double value) => EnergyCost.FromDKKPerKilowattHour(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromUSDollarPerMegawattHour(double value) => EnergyCost.FromUSDollarPerMegawattHour(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromMillionUSDollarPerJoule(double value) => EnergyCost.FromMillionUSDollarPerJoule(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public EnergyCost FromMillionUSDollarPerKilojoule(double value) => EnergyCost.FromMillionUSDollarPerKilojoule(value);

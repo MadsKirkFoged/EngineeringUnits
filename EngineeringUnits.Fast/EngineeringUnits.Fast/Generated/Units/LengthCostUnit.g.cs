@@ -14,13 +14,19 @@ public sealed class LengthCostUnit : UnitTypebase
     private LengthCostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private LengthCostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$/m] exact factor 1</summary>
     public static readonly LengthCostUnit SI = new("SI", "$/m", 1d, 1d, 0d);
     /// <summary>[$/m] exact factor 1</summary>
     public static readonly LengthCostUnit USDollarPerMeter = new("USDollarPerMeter", "$/m", 1d, 1d, 0d);
+    /// <summary>[€/m] exact factor: the Euro exchange rate (ExchangeRates, by default 1.08568)</summary>
+    public static readonly LengthCostUnit EuroPerMeter = new("EuroPerMeter", "€/m", ExchangeRates.Currency.Euro, 1d, 1d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<LengthCostUnit> All = new[] { SI, USDollarPerMeter };
+    public static readonly IReadOnlyList<LengthCostUnit> All = new[] { SI, USDollarPerMeter, EuroPerMeter };
 
     internal static readonly Dictionary<string, LengthCostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

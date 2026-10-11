@@ -223,9 +223,10 @@ public class BridgeTests
         Assert.AreEqual(21.5, EU.Temperature.FromDegreeCelsius(21.5).ToFast().DegreeCelsius, 1e-12);
         Assert.AreEqual(70.7, Temperature.FromDegreeFahrenheit(70.7).ToClassic().As(EU.Units.TemperatureUnit.DegreeFahrenheit), 1e-12);
 
-        // Fast has no exchange-rate units, the bridge still converts a € value to SI ($) at EngineeringUnits' rate
+        // A € value crosses in SI ($), at EngineeringUnits' rate. Both libraries start with the same rates
         var euro = new EU.Cost(100, EU.Units.CostUnit.Euro);
         Assert.AreEqual(euro.As(EU.Units.CostUnit.SI), euro.ToFast().SI, 1e-9);
+        Assert.AreEqual(100, euro.ToFast().Euro, 1e-9);
     }
 
     [TestMethod]

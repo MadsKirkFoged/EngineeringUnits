@@ -70,6 +70,11 @@ public readonly partial struct Permeability : IQuantity<Permeability>, IEquatabl
     public static Permeability? operator +(Permeability a, Permeability? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static Permeability? operator -(Permeability? a, Permeability b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static Permeability? operator -(Permeability a, Permeability? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. Permeability + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static Permeability? operator +(Permeability a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static Permeability? operator +(UnknownUnit? a, Permeability b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static Permeability? operator -(Permeability a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static Permeability? operator -(UnknownUnit? a, Permeability b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static Permeability operator -(Permeability a) => new(-a._si);
     public static Permeability operator +(Permeability a) => a;
 
@@ -77,6 +82,9 @@ public readonly partial struct Permeability : IQuantity<Permeability>, IEquatabl
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(Permeability a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(Permeability a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for Permeability * UnknownUnit?
+    public static UnknownUnit? operator *(Permeability a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(Permeability a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static Permeability operator *(Permeability a, double b) => new(a._si * b);
     public static Permeability operator *(double a, Permeability b) => new(a * b._si);
     public static Permeability operator /(Permeability a, double b) => new(a._si / b);
@@ -118,6 +126,16 @@ public readonly partial struct Permeability : IQuantity<Permeability>, IEquatabl
     public static bool operator >(Permeability a, Permeability? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(Permeability a, Permeability? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(Permeability a, Permeability? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(Permeability a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(Permeability a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(Permeability a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(Permeability a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, Permeability b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, Permeability b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, Permeability b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, Permeability b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Permeability value) => new(value._si);

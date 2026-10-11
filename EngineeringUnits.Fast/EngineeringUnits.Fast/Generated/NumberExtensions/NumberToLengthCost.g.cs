@@ -10,9 +10,11 @@ public static class NumberToLengthCostExtensions
     extension(double value)
     {
         public LengthCost USDollarPerMeter => LengthCost.FromUSDollarPerMeter(value);
+        public LengthCost EuroPerMeter => LengthCost.FromEuroPerMeter(value);
     }
     extension(int value)
     {
         public LengthCost USDollarPerMeter => LengthCost.FromUSDollarPerMeter(value);
+        public LengthCost EuroPerMeter => LengthCost.FromEuroPerMeter(value);
     }
 }

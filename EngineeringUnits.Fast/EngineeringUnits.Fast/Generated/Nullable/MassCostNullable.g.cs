@@ -13,6 +13,7 @@ public static class MassCostNullableExtensions
     {
         public double SI => quantity.Value.SI;
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public double AsSI => quantity.Value.SI;
+        public double EuroPerKilogram => quantity.Value.EuroPerKilogram;
         public double USDollarPerKilogram => quantity.Value.USDollarPerKilogram;
         public double USDollarPerTonne => quantity.Value.USDollarPerTonne;
         public double MillionUSDollarPerTonne => quantity.Value.MillionUSDollarPerTonne;
@@ -22,6 +23,7 @@ public static class MassCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost NaN => MassCost.NaN;
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost FromSI(double si) => MassCost.FromSI(si);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost From(double value, MassCostUnit unit) => MassCost.From(value, unit);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost FromEuroPerKilogram(double value) => MassCost.FromEuroPerKilogram(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost FromUSDollarPerKilogram(double value) => MassCost.FromUSDollarPerKilogram(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost FromUSDollarPerTonne(double value) => MassCost.FromUSDollarPerTonne(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public MassCost FromMillionUSDollarPerTonne(double value) => MassCost.FromMillionUSDollarPerTonne(value);

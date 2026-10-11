@@ -14,8 +14,14 @@ public sealed class MassCostUnit : UnitTypebase
     private MassCostUnit(string name, string symbol, double multiplier, double divisor, double offset)
         : base(name, symbol, multiplier, divisor, offset) { }
 
+    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+    private MassCostUnit(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : base(name, symbol, currency, multiplier, divisor) { }
+
     /// <summary>[$/kg] exact factor 1</summary>
     public static readonly MassCostUnit SI = new("SI", "$/kg", 1d, 1d, 0d);
+    /// <summary>[€/kg] exact factor: the Euro exchange rate (ExchangeRates, by default 1.08568)</summary>
+    public static readonly MassCostUnit EuroPerKilogram = new("EuroPerKilogram", "€/kg", ExchangeRates.Currency.Euro, 1d, 1d);
     /// <summary>[$/kg] exact factor 1</summary>
     public static readonly MassCostUnit USDollarPerKilogram = new("USDollarPerKilogram", "$/kg", 1d, 1d, 0d);
     /// <summary>[$/t] exact factor 1/1000</summary>
@@ -24,7 +30,7 @@ public sealed class MassCostUnit : UnitTypebase
     public static readonly MassCostUnit MillionUSDollarPerTonne = new("MillionUSDollarPerTonne", "M$/t", 1000d, 1d, 0d);
 
     /// <summary>All units, SI first.</summary>
-    public static readonly IReadOnlyList<MassCostUnit> All = new[] { SI, USDollarPerKilogram, USDollarPerTonne, MillionUSDollarPerTonne };
+    public static readonly IReadOnlyList<MassCostUnit> All = new[] { SI, EuroPerKilogram, USDollarPerKilogram, USDollarPerTonne, MillionUSDollarPerTonne };
 
     internal static readonly Dictionary<string, MassCostUnit?> BySymbol = UnitLookup.BySymbol(All);
 }

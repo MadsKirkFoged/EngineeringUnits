@@ -28,6 +28,9 @@ public readonly struct UnknownUnit : IEquatable<UnknownUnit>, IFormattable
     public static UnknownUnit operator -(UnknownUnit a, UnknownUnit b) => new(a._si - b._si);
     public static UnknownUnit operator *(UnknownUnit a, UnknownUnit b) => new(a._si * b._si);
     public static UnknownUnit operator /(UnknownUnit a, UnknownUnit b) => new(a._si / b._si);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for UnknownUnit * Power? (Power's own lifted operator applies too)
+    public static UnknownUnit? operator *(UnknownUnit a, UnknownUnit? b) => b.HasValue ? new(a._si * b.GetValueOrDefault()._si) : null;
+    public static UnknownUnit? operator /(UnknownUnit a, UnknownUnit? b) => b.HasValue ? new(a._si / b.GetValueOrDefault()._si) : null;
     public static UnknownUnit operator *(UnknownUnit a, double b) => new(a._si * b);
     public static UnknownUnit operator *(double a, UnknownUnit b) => new(a * b._si);
     public static UnknownUnit operator /(UnknownUnit a, double b) => new(a._si / b);

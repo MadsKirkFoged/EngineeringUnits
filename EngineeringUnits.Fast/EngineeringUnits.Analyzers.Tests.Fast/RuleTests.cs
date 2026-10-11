@@ -555,6 +555,20 @@ public class UsingSwapCompatibilityRuleTests
         Ratio? bad = {|EUF0001:flag ? a * length2 : null|};
         """);
 
+    // A quantity with an UnknownUnit? from nullable math was ambiguous (CS9342) until it got its own operators - still checked
+    [TestMethod]
+    public Task QuantityWithNullableUnknown_Checked() => VerifyBodyAsync("""
+        MassFlow? m = massFlow;
+        Power? sum = power + m * enthalpy;
+        Power? difference = m * enthalpy - power;
+        Energy? heat = time * (m * enthalpy);
+        Energy? alsoHeat = massFlow * enthalpy * (Duration?)time;
+        bool compared = power < m * enthalpy || m * enthalpy >= power;
+        Power? badSum = {|EUF0002:power + m * cp|};
+        Energy? badProduct = {|EUF0001:time * (m * cp)|};
+        bool badCompare = {|EUF0003:power < m * cp|};
+        """);
+
     [TestMethod]
     public Task NumberMinusUnknown_OnlyWhenDimensionless() => VerifyBodyAsync("""
         Ratio ok = 1 - length / length2;

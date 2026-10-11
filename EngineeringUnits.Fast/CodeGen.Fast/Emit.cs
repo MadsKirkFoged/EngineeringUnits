@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using static CodeGen.Fast.Model;
 
@@ -93,9 +94,12 @@ internal static class Emit
 
         foreach (var u in q.Units.Where(u => u.Name != "SI"))
         {
-            sb.AppendLine($"    public static {T} From{u.Name}(double {u.Name}) => new({ToSI(u, u.Name)});");
+            // A currency unit's factor is an exchange rate that can change (ExchangeRates.UpdateRate): through the unit, not a constant
+            var toSI = u.Currency is null ? ToSI(u, u.Name) : $"{U}.{u.Name}.ToSI({u.Name})";
+            var fromSI = u.Currency is null ? FromSI(u, "_si") : $"{U}.{u.Name}.FromSI(_si)";
+            sb.AppendLine($"    public static {T} From{u.Name}(double {u.Name}) => new({toSI});");
             sb.AppendLine($"    public static {T}? From{u.Name}(double? {u.Name}) => {u.Name} is {{ }} v ? From{u.Name}(v) : null;");
-            sb.AppendLine($"    public double {u.Name} => {FromSI(u, "_si")};");
+            sb.AppendLine($"    public double {u.Name} => {fromSI};");
         }
 
         if (q.Forwarders.Count > 0)
@@ -131,6 +135,11 @@ internal static class Emit
                 public static {{T}}? operator +({{T}} a, {{T}}? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
                 public static {{T}}? operator -({{T}}? a, {{T}} b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
                 public static {{T}}? operator -({{T}} a, {{T}}? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+                // ... and with UnknownUnit?, e.g. {{T}} + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+                public static {{T}}? operator +({{T}} a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+                public static {{T}}? operator +(UnknownUnit? a, {{T}} b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+                public static {{T}}? operator -({{T}} a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+                public static {{T}}? operator -(UnknownUnit? a, {{T}} b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
                 public static {{T}} operator -({{T}} a) => new(-a._si);
                 public static {{T}} operator +({{T}} a) => a;
 
@@ -138,6 +147,9 @@ internal static class Emit
                 // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
                 public static UnknownUnit operator *({{T}} a, UnknownUnit b) => new(a._si * b.SI);
                 public static UnknownUnit operator /({{T}} a, UnknownUnit b) => new(a._si / b.SI);
+                // Explicit nullable versions: the lifted operators alone are ambiguous for {{T}} * UnknownUnit?
+                public static UnknownUnit? operator *({{T}} a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+                public static UnknownUnit? operator /({{T}} a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
                 public static {{T}} operator *({{T}} a, double b) => new(a._si * b);
                 public static {{T}} operator *(double a, {{T}} b) => new(a * b._si);
                 public static {{T}} operator /({{T}} a, double b) => new(a._si / b);
@@ -179,6 +191,16 @@ internal static class Emit
                 public static bool operator >({{T}} a, {{T}}? b) => b.HasValue && a > b.GetValueOrDefault();
                 public static bool operator <=({{T}} a, {{T}}? b) => b.HasValue && a <= b.GetValueOrDefault();
                 public static bool operator >=({{T}} a, {{T}}? b) => b.HasValue && a >= b.GetValueOrDefault();
+                // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+                // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+                public static bool operator <({{T}} a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+                public static bool operator >({{T}} a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+                public static bool operator <=({{T}} a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+                public static bool operator >=({{T}} a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+                public static bool operator <(UnknownUnit? a, {{T}} b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+                public static bool operator >(UnknownUnit? a, {{T}} b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+                public static bool operator <=(UnknownUnit? a, {{T}} b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+                public static bool operator >=(UnknownUnit? a, {{T}} b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
                 // ---- Conversions ----
                 public static implicit operator UnknownUnit({{T}} value) => new(value._si);
@@ -499,10 +521,34 @@ internal static class Emit
 
             """);
 
+        if (q.Units.Any(u => u.Currency is not null))
+        {
+            sb.AppendLine($$"""
+                    // A currency unit: SI ($) = value * the exchange rate (read at every conversion) * multiplier / divisor
+                    private {{U}}(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+                        : base(name, symbol, currency, multiplier, divisor) { }
+
+                """);
+        }
+
         foreach (var u in q.Units)
         {
+            // GetUnitByString also accepts the currency code ("EUR"), as in EngineeringUnits
+            var currencyCode = u.CurrencyCode is null ? "" : $"    [CurrencyCode({Str(u.CurrencyCode)})]\n";
+
+            if (u.Currency is not null)
+            {
+                var rest = (u.Multiplier != 1 ? $" * {u.Multiplier.ToString("R", CultureInfo.InvariantCulture)}" : "")
+                           + (u.Divisor != 1 ? $" / {u.Divisor.ToString("R", CultureInfo.InvariantCulture)}" : "");
+                sb.AppendLine($"    /// <summary>[{System.Security.SecurityElement.Escape(u.Symbol)}] exact factor: the {u.Currency} exchange rate{rest} (ExchangeRates, by default {DefaultRate(u.Currency).ToString(CultureInfo.InvariantCulture)})</summary>");
+                sb.Append(currencyCode);
+                sb.AppendLine($"    public static readonly {U} {u.Name} = new({Str(u.Name)}, {Str(u.Symbol)}, ExchangeRates.Currency.{u.Currency}, {Num(u.Multiplier)}, {Num(u.Divisor)});");
+                continue;
+            }
+
             var exact = u.ExactOffset.IsZero ? $"{u.ExactFactor}" : $"{u.ExactFactor}, offset {u.ExactOffset}";
             sb.AppendLine($"    /// <summary>[{System.Security.SecurityElement.Escape(u.Symbol)}] exact factor {exact}</summary>");
+            sb.Append(currencyCode);
             sb.AppendLine($"    public static readonly {U} {u.Name} = new({Str(u.Name)}, {Str(u.Symbol)}, {Num(u.Multiplier)}, {Num(u.Divisor)}, {Num(u.Offset)});");
         }
 

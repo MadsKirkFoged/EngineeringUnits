@@ -59,6 +59,9 @@ public readonly partial struct AreaCost : IQuantity<AreaCost>, IEquatable<AreaCo
     public static AreaCost FromMillionUSDollarPerSquareMeter(double MillionUSDollarPerSquareMeter) => new(MillionUSDollarPerSquareMeter * 1000000d);
     public static AreaCost? FromMillionUSDollarPerSquareMeter(double? MillionUSDollarPerSquareMeter) => MillionUSDollarPerSquareMeter is { } v ? FromMillionUSDollarPerSquareMeter(v) : null;
     public double MillionUSDollarPerSquareMeter => _si / 1000000d;
+    public static AreaCost FromEuroPerSquareMeter(double EuroPerSquareMeter) => new(AreaCostUnit.EuroPerSquareMeter.ToSI(EuroPerSquareMeter));
+    public static AreaCost? FromEuroPerSquareMeter(double? EuroPerSquareMeter) => EuroPerSquareMeter is { } v ? FromEuroPerSquareMeter(v) : null;
+    public double EuroPerSquareMeter => AreaCostUnit.EuroPerSquareMeter.FromSI(_si);
 
     // ---- + and - : same quantity only (other quantities give an ambiguity compile error) ----
     public static AreaCost operator +(AreaCost a, AreaCost b) => new(a._si + b._si);
@@ -73,6 +76,11 @@ public readonly partial struct AreaCost : IQuantity<AreaCost>, IEquatable<AreaCo
     public static AreaCost? operator +(AreaCost a, AreaCost? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static AreaCost? operator -(AreaCost? a, AreaCost b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static AreaCost? operator -(AreaCost a, AreaCost? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. AreaCost + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static AreaCost? operator +(AreaCost a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static AreaCost? operator +(UnknownUnit? a, AreaCost b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static AreaCost? operator -(AreaCost a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static AreaCost? operator -(UnknownUnit? a, AreaCost b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static AreaCost operator -(AreaCost a) => new(-a._si);
     public static AreaCost operator +(AreaCost a) => a;
 
@@ -80,6 +88,9 @@ public readonly partial struct AreaCost : IQuantity<AreaCost>, IEquatable<AreaCo
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(AreaCost a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(AreaCost a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for AreaCost * UnknownUnit?
+    public static UnknownUnit? operator *(AreaCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(AreaCost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static AreaCost operator *(AreaCost a, double b) => new(a._si * b);
     public static AreaCost operator *(double a, AreaCost b) => new(a * b._si);
     public static AreaCost operator /(AreaCost a, double b) => new(a._si / b);
@@ -121,6 +132,16 @@ public readonly partial struct AreaCost : IQuantity<AreaCost>, IEquatable<AreaCo
     public static bool operator >(AreaCost a, AreaCost? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(AreaCost a, AreaCost? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(AreaCost a, AreaCost? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(AreaCost a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(AreaCost a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(AreaCost a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(AreaCost a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, AreaCost b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, AreaCost b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, AreaCost b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, AreaCost b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(AreaCost value) => new(value._si);

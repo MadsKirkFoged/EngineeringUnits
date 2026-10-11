@@ -23,11 +23,14 @@ internal sealed record Dim(IReadOnlyList<(string Base, int Exp)> Terms)
 
 /// <summary>
 /// SI = value * Multiplier / Divisor + Offset. One of Multiplier/Divisor is 1 when the factor is n or 1/n,
-/// so conversions like J/h -> W are a single rounding (value / 3600) instead of value * 0.000277...
+/// so conversions like J/h -> W are a single rounding (value / 3600) instead of value * 0.000277...<br></br>
+/// A currency unit (€, kr/kWh, ...) has <see cref="Currency"/> set: Fast multiplies by that exchange rate at runtime, so
+/// Multiplier / Divisor is only the rest of the factor (per kWh, ...). ExactFactor is the whole factor at EngineeringUnits' default rate.
+/// <see cref="CurrencyCode"/> is the original's [CurrencyCode] ("EUR"), which GetUnitByString accepts next to the name.
 /// </summary>
-internal sealed record UnitDef(string Name, string Symbol, double Multiplier, double Divisor, double Offset, Fraction ExactFactor, Fraction ExactOffset)
+internal sealed record UnitDef(string Name, string Symbol, double Multiplier, double Divisor, double Offset, Fraction ExactFactor, Fraction ExactOffset, string? Currency = null, string? CurrencyCode = null)
 {
-    public bool IsSI => Multiplier == 1 && Divisor == 1 && Offset == 0;
+    public bool IsSI => Currency is null && Multiplier == 1 && Divisor == 1 && Offset == 0;
 }
 
 internal sealed record QuantityDef(string Name, Dim Dim, List<UnitDef> Units, Type OriginalType, Type OriginalUnitType)
@@ -44,6 +47,9 @@ internal static class Model
 
     /// <summary>EngineeringUnits member names left out because they are [Obsolete] there (Quantity.Member).</summary>
     public static readonly List<string> ObsoleteSkipped = [];
+
+    /// <summary>The currency units, whose exchange rate Fast reads at runtime (for the report).</summary>
+    public static readonly List<string> CurrencyUnits = [];
 
     // Members every generated struct has - a unit with one of these names would not compile
     private static readonly HashSet<string> ReservedNames =
@@ -169,18 +175,23 @@ internal static class Model
             if (!names.Add(member.Name))
                 continue;
 
-            if (IsExchangeRateUnit(unit.Unit))
-            {
-                Log.Add($"Not transferred {quantity.Name}.{member.Name} [{unit}]: its factor is an exchange rate, which EngineeringUnits reads at startup - a generated constant would silently go stale");
-                continue;
-            }
-
             // Coherent SI: SI = a * value + b, straight from the exact fractions (RawUnit.A, RawUnit.B)
             Fraction a = unit.Unit.SumConstant();
             Fraction b = unit.Unit.SumOfBConstants();
 
-            var (mul, div) = SplitFactor(a);
-            var def = new UnitDef(member.Name, unit.ToString(), mul, div, b.ToDouble(), a, b);
+            // A currency unit's factor holds an exchange rate. EngineeringUnits reads it once, at startup; a generated constant
+            // would never see an update. Fast reads the rate at runtime (ExchangeRates), so only the rest of the factor is generated.
+            var currency = ExchangeRateCurrency(unit.Unit);
+            var rest = currency is { } c ? a / (Fraction)ExchangeRates.GetRate(c) : a;
+            if (currency is not null && !b.IsZero)
+                throw new InvalidOperationException($"{quantity.Name}.{member.Name}: a currency unit with an offset is not supported");
+
+            var (mul, div) = SplitFactor(rest);
+            var def = new UnitDef(member.Name, unit.ToString(), mul, div, b.ToDouble(), a, b, currency?.ToString(),
+                member.GetCustomAttribute<CurrencyCodeAttribute>()?.Code);
+
+            if (currency is not null)
+                CurrencyUnits.Add($"{quantity.Name}.{member.Name} [{unit}]: the {currency} rate{(rest.CompareTo(Fraction.One) == 0 ? "" : $" x {rest}")}");
 
             if (member.Name == "SI" && !def.IsSI)
                 Log.Add($"WARNING {quantity.Name}.SI is not coherent SI (factor {a}, offset {b}) - Fast stores coherent SI regardless");
@@ -206,8 +217,14 @@ internal static class Model
         return (a.ToDouble(), 1);
     }
 
-    private static bool IsExchangeRateUnit(UnitSystem unit)
+    /// <summary>EngineeringUnits' default rate of a currency (USD per unit), e.g. 1.08568 for "Euro".</summary>
+    public static decimal DefaultRate(string currency) => ExchangeRates.GetRate(Enum.Parse<ExchangeRates.Currency>(currency));
+
+    /// <summary>The currency whose exchange rate is in the unit's factor (€, kr/kWh, ...), or null (USD and every other unit).</summary>
+    private static ExchangeRates.Currency? ExchangeRateCurrency(UnitSystem unit)
     {
+        ExchangeRates.Currency? result = null;
+
         foreach (var raw in unit.ListOfUnits)
         {
             if (raw.UnitType != BaseunitType.Cost)
@@ -219,11 +236,20 @@ internal static class Model
                 a = new Fraction(a.Numerator / 10, a.Denominator);
             while (a.Denominator % 10 == 0)
                 a = new Fraction(a.Numerator, a.Denominator / 10);
-            if (!(a.Numerator.IsOne && a.Denominator.IsOne))
-                return true;
+            if (a.Numerator.IsOne && a.Denominator.IsOne)
+                continue;
+
+            // The currency whose rate it is, once and to the first power: Fast's currency units multiply by one rate
+            var matches = Enum.GetValues<ExchangeRates.Currency>()
+                .Where(c => ((Fraction)ExchangeRates.GetRate(c)).CompareTo(raw.A) == 0)
+                .ToList();
+            if (matches.Count != 1 || raw.Count != 1 || result is not null)
+                throw new InvalidOperationException($"[{unit}]: its cost factor {raw.A} (power {raw.Count}) is not exactly one of EngineeringUnits' exchange rates");
+
+            result = matches[0];
         }
 
-        return false;
+        return result;
     }
 
     /// <summary>

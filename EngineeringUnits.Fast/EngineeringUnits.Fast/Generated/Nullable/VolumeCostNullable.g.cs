@@ -14,6 +14,7 @@ public static class VolumeCostNullableExtensions
         public double SI => quantity.Value.SI;
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public double AsSI => quantity.Value.SI;
         public double USDollarPerCubicMeter => quantity.Value.USDollarPerCubicMeter;
+        public double EuroPerCubicMeter => quantity.Value.EuroPerCubicMeter;
 
         // ---- Static members reached through a property named after its type (see NullableExtensions in CodeGen) ----
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public VolumeCost Zero => VolumeCost.Zero;
@@ -21,6 +22,7 @@ public static class VolumeCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public VolumeCost FromSI(double si) => VolumeCost.FromSI(si);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public VolumeCost From(double value, VolumeCostUnit unit) => VolumeCost.From(value, unit);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public VolumeCost FromUSDollarPerCubicMeter(double value) => VolumeCost.FromUSDollarPerCubicMeter(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public VolumeCost FromEuroPerCubicMeter(double value) => VolumeCost.FromEuroPerCubicMeter(value);
     }
 
     public static double As(this VolumeCost? quantity, VolumeCostUnit unit) => quantity.Value.As(unit);

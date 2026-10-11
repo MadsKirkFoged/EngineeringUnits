@@ -9,12 +9,14 @@ public static class NumberToMassCostExtensions
 {
     extension(double value)
     {
+        public MassCost EuroPerKilogram => MassCost.FromEuroPerKilogram(value);
         public MassCost USDollarPerKilogram => MassCost.FromUSDollarPerKilogram(value);
         public MassCost USDollarPerTonne => MassCost.FromUSDollarPerTonne(value);
         public MassCost MillionUSDollarPerTonne => MassCost.FromMillionUSDollarPerTonne(value);
     }
     extension(int value)
     {
+        public MassCost EuroPerKilogram => MassCost.FromEuroPerKilogram(value);
         public MassCost USDollarPerKilogram => MassCost.FromUSDollarPerKilogram(value);
         public MassCost USDollarPerTonne => MassCost.FromUSDollarPerTonne(value);
         public MassCost MillionUSDollarPerTonne => MassCost.FromMillionUSDollarPerTonne(value);

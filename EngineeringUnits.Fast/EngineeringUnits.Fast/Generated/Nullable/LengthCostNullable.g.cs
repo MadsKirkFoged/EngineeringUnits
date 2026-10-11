@@ -14,6 +14,7 @@ public static class LengthCostNullableExtensions
         public double SI => quantity.Value.SI;
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public double AsSI => quantity.Value.SI;
         public double USDollarPerMeter => quantity.Value.USDollarPerMeter;
+        public double EuroPerMeter => quantity.Value.EuroPerMeter;
 
         // ---- Static members reached through a property named after its type (see NullableExtensions in CodeGen) ----
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public LengthCost Zero => LengthCost.Zero;
@@ -21,6 +22,7 @@ public static class LengthCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public LengthCost FromSI(double si) => LengthCost.FromSI(si);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public LengthCost From(double value, LengthCostUnit unit) => LengthCost.From(value, unit);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public LengthCost FromUSDollarPerMeter(double value) => LengthCost.FromUSDollarPerMeter(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public LengthCost FromEuroPerMeter(double value) => LengthCost.FromEuroPerMeter(value);
     }
 
     public static double As(this LengthCost? quantity, LengthCostUnit unit) => quantity.Value.As(unit);

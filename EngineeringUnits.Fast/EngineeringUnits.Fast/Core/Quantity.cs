@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 
 namespace EngineeringUnits.Fast;
 
@@ -23,7 +24,8 @@ public interface IQuantity<TSelf> : IQuantity where TSelf : struct, IQuantity<TS
 
 /// <summary>
 /// One unit of measure: SI = value * <see cref="Factor"/> + <see cref="Offset"/>.<br></br>
-/// Factors and offsets are generated from the exact fractions in EngineeringUnits.
+/// Factors and offsets are generated from the exact fractions in EngineeringUnits. A currency unit (€, kr/kWh, ...) also
+/// multiplies by its exchange rate, which it reads at every conversion (<see cref="ExchangeRates"/>).
 /// </summary>
 public abstract class UnitTypebase
 {
@@ -31,6 +33,9 @@ public abstract class UnitTypebase
     // operation (e.g. J/h -> W is value / 3600, not value * 0.000277...)
     private readonly double _multiplier;
     private readonly double _divisor;
+
+    // Set for a currency unit: its multiplier is the exchange rate times _multiplier
+    private readonly ExchangeRates.Currency? _currency;
 
     private protected UnitTypebase(string name, string symbol, double multiplier, double divisor, double offset)
     {
@@ -41,31 +46,40 @@ public abstract class UnitTypebase
         Offset = offset;
     }
 
+    /// <summary>A currency unit: SI ($) = value * the exchange rate of <paramref name="currency"/> * multiplier / divisor.</summary>
+    private protected UnitTypebase(string name, string symbol, ExchangeRates.Currency currency, double multiplier, double divisor)
+        : this(name, symbol, multiplier, divisor, 0d)
+    {
+        _currency = currency;
+    }
+
     /// <summary>Name of the unit, e.g. Kilowatt.</summary>
     public string Name { get; }
 
     /// <summary>Display symbol, e.g. kW.</summary>
     public string Symbol { get; }
 
-    /// <summary>SI per unit, e.g. 1000 for kW.</summary>
-    public double Factor => _multiplier / _divisor;
+    /// <summary>SI per unit, e.g. 1000 for kW. For a currency unit it holds the current exchange rate.</summary>
+    public double Factor => Multiplier / _divisor;
 
     /// <summary>Non-zero for units like °C and °F.</summary>
     public double Offset { get; }
 
-    public bool IsSI => _multiplier == 1d && _divisor == 1d && Offset == 0d;
+    public bool IsSI => _currency is null && _multiplier == 1d && _divisor == 1d && Offset == 0d;
+
+    private double Multiplier => _currency is { } currency ? ExchangeRates.UsdPerUnit(currency) * _multiplier : _multiplier;
 
     // Same operation order as the generated FromXxx/Xxx members, so both give bit-identical results
     public double ToSI(double value)
     {
-        var v = value * _multiplier / _divisor;
+        var v = value * Multiplier / _divisor;
         return Offset == 0d ? v : v + Offset;
     }
 
     public double FromSI(double si)
     {
         var v = Offset == 0d ? si : si - Offset;
-        return v / _multiplier * _divisor;
+        return v / Multiplier * _divisor;
     }
 
     public override string ToString() => Symbol;
@@ -73,6 +87,7 @@ public abstract class UnitTypebase
     /// <summary>
     /// The unit of <typeparamref name="T"/> with this name, e.g. GetUnitByString&lt;PowerUnit&gt;("Kilowatt"). Case-insensitive,
     /// like EngineeringUnits. This is a lookup of a unit NAME (as stored in a database "_uom" column), not a text parser.
+    /// A currency also goes by its currency code: "EUR" is <c>CostUnit.Euro</c> (<see cref="CurrencyCodeAttribute"/>).
     /// </summary>
     /// <exception cref="ArgumentException">No unit with that name - the message lists the options.</exception>
     public static T GetUnitByString<T>(string name) where T : UnitTypebase
@@ -89,15 +104,24 @@ public abstract class UnitTypebase
     // Built once per unit type: GetUnitByString is called for every database value
     private static class UnitsOf<T> where T : UnitTypebase
     {
-        private static readonly (string Name, T Unit)[] Fields = typeof(T)
-            .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
+        private static readonly FieldInfo[] UnitFields = typeof(T)
+            .GetFields(BindingFlags.Public | BindingFlags.Static)
             .Where(f => f.FieldType == typeof(T))
+            .ToArray();
+
+        private static readonly (string Name, T Unit)[] Fields = UnitFields
             .Select(f => (f.Name, (T)f.GetValue(null)!))
             .ToArray();
 
+        // The currency codes come after the names, as in EngineeringUnits: a name always wins
+        private static readonly (string Name, T Unit)[] CurrencyCodes = UnitFields
+            .Where(f => f.IsDefined(typeof(CurrencyCodeAttribute), false))
+            .Select(f => (f.GetCustomAttribute<CurrencyCodeAttribute>(false)!.Code, (T)f.GetValue(null)!))
+            .ToArray();
+
         public static readonly T[] All = Fields.Select(f => f.Unit).ToArray();
-        public static readonly string[] Names = Fields.Select(f => f.Name).ToArray();
-        public static readonly Dictionary<string, T> ByName = Fields
+        public static readonly string[] Names = Fields.Concat(CurrencyCodes).Select(f => f.Name).ToArray();
+        public static readonly Dictionary<string, T> ByName = Fields.Concat(CurrencyCodes)
             .GroupBy(f => f.Name, StringComparer.OrdinalIgnoreCase)
             .ToDictionary(g => g.Key, g => g.First().Unit, StringComparer.OrdinalIgnoreCase);
     }

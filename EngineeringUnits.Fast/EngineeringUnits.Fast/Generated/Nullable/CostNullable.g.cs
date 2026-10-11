@@ -15,6 +15,9 @@ public static class CostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public double AsSI => quantity.Value.SI;
         public double USDollar => quantity.Value.USDollar;
         public double MillionUSDollar => quantity.Value.MillionUSDollar;
+        public double Euro => quantity.Value.Euro;
+        public double BritishPound => quantity.Value.BritishPound;
+        public double DanishKrone => quantity.Value.DanishKrone;
 
         // ---- Static members reached through a property named after its type (see NullableExtensions in CodeGen) ----
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost Zero => Cost.Zero;
@@ -23,6 +26,9 @@ public static class CostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost From(double value, CostUnit unit) => Cost.From(value, unit);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost FromUSDollar(double value) => Cost.FromUSDollar(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost FromMillionUSDollar(double value) => Cost.FromMillionUSDollar(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost FromEuro(double value) => Cost.FromEuro(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost FromBritishPound(double value) => Cost.FromBritishPound(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public Cost FromDanishKrone(double value) => Cost.FromDanishKrone(value);
     }
 
     public static double As(this Cost? quantity, CostUnit unit) => quantity.Value.As(unit);

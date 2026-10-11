@@ -1,4 +1,6 @@
-﻿using EngineeringUnits;
+﻿using System;
+using System.Globalization;
+using EngineeringUnits;
 using EngineeringUnits.Units;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static EngineeringUnits.ExchangeRates;
@@ -70,6 +72,33 @@ public class CostTests
 
         // Assert
         Assert.AreEqual(9.2108171837005379m, 10 / USDtoEuro, 0.0000001m);
+    }
+
+    [TestMethod()]
+    public void CurrencyCodes_WorkAsUnitNames()
+    {
+        Assert.AreSame(CostUnit.USDollar, UnitTypebase.GetUnitByString<CostUnit>("USD"));
+        Assert.AreSame(CostUnit.Euro, UnitTypebase.GetUnitByString<CostUnit>("EUR"));
+        Assert.AreSame(CostUnit.BritishPound, UnitTypebase.GetUnitByString<CostUnit>("GBP"));
+        Assert.AreSame(CostUnit.DanishKrone, UnitTypebase.GetUnitByString<CostUnit>("DKK"));
+        Assert.AreSame(CostUnit.DanishKrone, UnitTypebase.GetUnitByString<CostUnit>("dkk"));
+        Assert.AreSame(CostUnit.DanishKrone, UnitTypebase.GetUnitByString<CostUnit>("DanishKrone"));
+
+        // A price stored with its unit, e.g. in a database: "DKK" next to "DanishKrone"
+        Cost price = 100.0.AddUnit<CostUnit>("DKK");
+        Assert.AreEqual(100, price.DanishKrone, 1e-9);
+
+        var e = Assert.ThrowsExactly<ArgumentException>(() => UnitTypebase.GetUnitByString<CostUnit>("SEK"));
+        StringAssert.Contains(e.Message, "DanishKrone");
+        StringAssert.Contains(e.Message, "DKK");
+    }
+
+    [TestMethod()]
+    public void CurrencyCodes_Parse()
+    {
+        Assert.AreEqual(10, Cost.Parse("10 EUR", CultureInfo.InvariantCulture).Euro, 1e-9);
+        Assert.AreEqual(10, Cost.Parse("10 dkk", CultureInfo.InvariantCulture).DanishKrone, 1e-9);
+        Assert.AreEqual(2.5, EnergyCost.Parse("2.5 DKK/kWh", CultureInfo.InvariantCulture).DKKPerKilowattHour, 1e-9);
     }
 
     //[TestMethod()]

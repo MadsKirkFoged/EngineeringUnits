@@ -10,9 +10,11 @@ public static class NumberToVolumeCostExtensions
     extension(double value)
     {
         public VolumeCost USDollarPerCubicMeter => VolumeCost.FromUSDollarPerCubicMeter(value);
+        public VolumeCost EuroPerCubicMeter => VolumeCost.FromEuroPerCubicMeter(value);
     }
     extension(int value)
     {
         public VolumeCost USDollarPerCubicMeter => VolumeCost.FromUSDollarPerCubicMeter(value);
+        public VolumeCost EuroPerCubicMeter => VolumeCost.FromEuroPerCubicMeter(value);
     }
 }

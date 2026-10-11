@@ -15,6 +15,7 @@ public static class AreaCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public double AsSI => quantity.Value.SI;
         public double USDollarPerSquareMeter => quantity.Value.USDollarPerSquareMeter;
         public double MillionUSDollarPerSquareMeter => quantity.Value.MillionUSDollarPerSquareMeter;
+        public double EuroPerSquareMeter => quantity.Value.EuroPerSquareMeter;
 
         // ---- Static members reached through a property named after its type (see NullableExtensions in CodeGen) ----
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public AreaCost Zero => AreaCost.Zero;
@@ -23,6 +24,7 @@ public static class AreaCostNullableExtensions
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public AreaCost From(double value, AreaCostUnit unit) => AreaCost.From(value, unit);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public AreaCost FromUSDollarPerSquareMeter(double value) => AreaCost.FromUSDollarPerSquareMeter(value);
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public AreaCost FromMillionUSDollarPerSquareMeter(double value) => AreaCost.FromMillionUSDollarPerSquareMeter(value);
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)] public AreaCost FromEuroPerSquareMeter(double value) => AreaCost.FromEuroPerSquareMeter(value);
     }
 
     public static double As(this AreaCost? quantity, AreaCostUnit unit) => quantity.Value.As(unit);

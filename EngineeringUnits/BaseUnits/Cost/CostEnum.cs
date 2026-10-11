@@ -7,11 +7,15 @@ namespace EngineeringUnits.Units;
 public partial record CostUnit : UnitTypebase
 {
     public static readonly CostUnit SI = new CostUnit("USD", "$", GetRate(Currency.USDollar));
+    [CurrencyCode("USD")]
     public static readonly CostUnit USDollar = new CostUnit("USD", "$", GetRate(Currency.USDollar));
     public static readonly CostUnit MillionUSDollar = new CostUnit("USD", "M$", GetRate(Currency.USDollar) * 1000000m);
 
+    [CurrencyCode("EUR")]
     public static readonly CostUnit Euro = new CostUnit("Euro", "€", GetRate(Currency.Euro));
+    [CurrencyCode("GBP")]
     public static readonly CostUnit BritishPound = new CostUnit("GBP", "£", GetRate(Currency.BritishPound));
+    [CurrencyCode("DKK")]
     public static readonly CostUnit DanishKrone = new CostUnit("DKK", "kr", GetRate(Currency.DKK));
 
     // The code that's violating the rule is on this line.

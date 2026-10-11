@@ -199,6 +199,11 @@ public readonly partial struct PowerDensity : IQuantity<PowerDensity>, IEquatabl
     public static PowerDensity? operator +(PowerDensity a, PowerDensity? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static PowerDensity? operator -(PowerDensity? a, PowerDensity b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static PowerDensity? operator -(PowerDensity a, PowerDensity? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. PowerDensity + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static PowerDensity? operator +(PowerDensity a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static PowerDensity? operator +(UnknownUnit? a, PowerDensity b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static PowerDensity? operator -(PowerDensity a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static PowerDensity? operator -(UnknownUnit? a, PowerDensity b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static PowerDensity operator -(PowerDensity a) => new(-a._si);
     public static PowerDensity operator +(PowerDensity a) => a;
 
@@ -206,6 +211,9 @@ public readonly partial struct PowerDensity : IQuantity<PowerDensity>, IEquatabl
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(PowerDensity a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(PowerDensity a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for PowerDensity * UnknownUnit?
+    public static UnknownUnit? operator *(PowerDensity a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(PowerDensity a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static PowerDensity operator *(PowerDensity a, double b) => new(a._si * b);
     public static PowerDensity operator *(double a, PowerDensity b) => new(a * b._si);
     public static PowerDensity operator /(PowerDensity a, double b) => new(a._si / b);
@@ -247,6 +255,16 @@ public readonly partial struct PowerDensity : IQuantity<PowerDensity>, IEquatabl
     public static bool operator >(PowerDensity a, PowerDensity? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(PowerDensity a, PowerDensity? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(PowerDensity a, PowerDensity? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(PowerDensity a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(PowerDensity a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(PowerDensity a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(PowerDensity a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, PowerDensity b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, PowerDensity b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, PowerDensity b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, PowerDensity b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(PowerDensity value) => new(value._si);

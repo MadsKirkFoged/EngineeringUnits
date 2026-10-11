@@ -115,10 +115,22 @@ public record UnitTypebase
         where T : UnitTypebase
     {
         var ListToUser = new List<string>();
-        foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public))
+        var fields = typeof(T).GetFields(BindingFlags.Static | BindingFlags.Public);
+        foreach (FieldInfo field in fields)
         {
             ListToUser.Add(field.Name);
             if (field.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase))
+                return (T)field.GetValue(field)!;
+        }
+
+        // A currency also goes by its currency code: "EUR" is CostUnit.Euro
+        foreach (FieldInfo field in fields)
+        {
+            if (field.GetCustomAttribute<CurrencyCodeAttribute>() is not { } currency)
+                continue;
+
+            ListToUser.Add(currency.Code);
+            if (currency.Code.Equals(name, StringComparison.CurrentCultureIgnoreCase))
                 return (T)field.GetValue(field)!;
         }
 

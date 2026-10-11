@@ -11,10 +11,12 @@ public static class NumberToAreaCostExtensions
     {
         public AreaCost USDollarPerSquareMeter => AreaCost.FromUSDollarPerSquareMeter(value);
         public AreaCost MillionUSDollarPerSquareMeter => AreaCost.FromMillionUSDollarPerSquareMeter(value);
+        public AreaCost EuroPerSquareMeter => AreaCost.FromEuroPerSquareMeter(value);
     }
     extension(int value)
     {
         public AreaCost USDollarPerSquareMeter => AreaCost.FromUSDollarPerSquareMeter(value);
         public AreaCost MillionUSDollarPerSquareMeter => AreaCost.FromMillionUSDollarPerSquareMeter(value);
+        public AreaCost EuroPerSquareMeter => AreaCost.FromEuroPerSquareMeter(value);
     }
 }

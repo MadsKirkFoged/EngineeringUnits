@@ -469,6 +469,9 @@ string unit = "Meter";
 
 Length length = value.AddUnit<LengthUnit>(unit);
 ```
+
+Cost units also go by their currency code (`USD`, `EUR`, `GBP`, `DKK`): `price.AddUnit<CostUnit>("EUR")` is the same as `"Euro"`, and `Cost.Parse("10 EUR")` works too.
+
 <details>
 <summary><b> Expand to see names of Units</b></summary>
 

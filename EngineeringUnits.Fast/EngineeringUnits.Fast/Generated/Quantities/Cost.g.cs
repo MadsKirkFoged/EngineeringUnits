@@ -59,6 +59,15 @@ public readonly partial struct Cost : IQuantity<Cost>, IEquatable<Cost>, ICompar
     public static Cost FromMillionUSDollar(double MillionUSDollar) => new(MillionUSDollar * 1000000d);
     public static Cost? FromMillionUSDollar(double? MillionUSDollar) => MillionUSDollar is { } v ? FromMillionUSDollar(v) : null;
     public double MillionUSDollar => _si / 1000000d;
+    public static Cost FromEuro(double Euro) => new(CostUnit.Euro.ToSI(Euro));
+    public static Cost? FromEuro(double? Euro) => Euro is { } v ? FromEuro(v) : null;
+    public double Euro => CostUnit.Euro.FromSI(_si);
+    public static Cost FromBritishPound(double BritishPound) => new(CostUnit.BritishPound.ToSI(BritishPound));
+    public static Cost? FromBritishPound(double? BritishPound) => BritishPound is { } v ? FromBritishPound(v) : null;
+    public double BritishPound => CostUnit.BritishPound.FromSI(_si);
+    public static Cost FromDanishKrone(double DanishKrone) => new(CostUnit.DanishKrone.ToSI(DanishKrone));
+    public static Cost? FromDanishKrone(double? DanishKrone) => DanishKrone is { } v ? FromDanishKrone(v) : null;
+    public double DanishKrone => CostUnit.DanishKrone.FromSI(_si);
 
     // ---- + and - : same quantity only (other quantities give an ambiguity compile error) ----
     public static Cost operator +(Cost a, Cost b) => new(a._si + b._si);
@@ -73,6 +82,11 @@ public readonly partial struct Cost : IQuantity<Cost>, IEquatable<Cost>, ICompar
     public static Cost? operator +(Cost a, Cost? b) => b.HasValue ? new(a._si + b.GetValueOrDefault()._si) : null;
     public static Cost? operator -(Cost? a, Cost b) => a.HasValue ? new(a.GetValueOrDefault()._si - b._si) : null;
     public static Cost? operator -(Cost a, Cost? b) => b.HasValue ? new(a._si - b.GetValueOrDefault()._si) : null;
+    // ... and with UnknownUnit?, e.g. Cost + nullableA * nullableB: without them it's ambiguous with UnknownUnit's own lifted operator
+    public static Cost? operator +(Cost a, UnknownUnit? b) => b.HasValue ? new(a._si + b.GetValueOrDefault().SI) : null;
+    public static Cost? operator +(UnknownUnit? a, Cost b) => a.HasValue ? new(a.GetValueOrDefault().SI + b._si) : null;
+    public static Cost? operator -(Cost a, UnknownUnit? b) => b.HasValue ? new(a._si - b.GetValueOrDefault().SI) : null;
+    public static Cost? operator -(UnknownUnit? a, Cost b) => a.HasValue ? new(a.GetValueOrDefault().SI - b._si) : null;
     public static Cost operator -(Cost a) => new(-a._si);
     public static Cost operator +(Cost a) => a;
 
@@ -80,6 +94,9 @@ public readonly partial struct Cost : IQuantity<Cost>, IEquatable<Cost>, ICompar
     // This keeps the operator count linear (no N^2 table) and never ambiguous; the analyzer works out the dimension.
     public static UnknownUnit operator *(Cost a, UnknownUnit b) => new(a._si * b.SI);
     public static UnknownUnit operator /(Cost a, UnknownUnit b) => new(a._si / b.SI);
+    // Explicit nullable versions: the lifted operators alone are ambiguous for Cost * UnknownUnit?
+    public static UnknownUnit? operator *(Cost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si * b.GetValueOrDefault().SI) : null;
+    public static UnknownUnit? operator /(Cost a, UnknownUnit? b) => b.HasValue ? new UnknownUnit(a._si / b.GetValueOrDefault().SI) : null;
     public static Cost operator *(Cost a, double b) => new(a._si * b);
     public static Cost operator *(double a, Cost b) => new(a * b._si);
     public static Cost operator /(Cost a, double b) => new(a._si / b);
@@ -121,6 +138,16 @@ public readonly partial struct Cost : IQuantity<Cost>, IEquatable<Cost>, ICompar
     public static bool operator >(Cost a, Cost? b) => b.HasValue && a > b.GetValueOrDefault();
     public static bool operator <=(Cost a, Cost? b) => b.HasValue && a <= b.GetValueOrDefault();
     public static bool operator >=(Cost a, Cost? b) => b.HasValue && a >= b.GetValueOrDefault();
+    // ... and with UnknownUnit?, where the lifted operators alone are ambiguous too (the analyzer checks the UnknownUnit's dimension,
+    // EUF0003). Not == and !=: with those, "maybePower == null" would be ambiguous, as null converts to both Power? and UnknownUnit?
+    public static bool operator <(Cost a, UnknownUnit? b) => b.HasValue && SIComparison.Less(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >(Cost a, UnknownUnit? b) => b.HasValue && SIComparison.Greater(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <=(Cost a, UnknownUnit? b) => b.HasValue && SIComparison.LessOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator >=(Cost a, UnknownUnit? b) => b.HasValue && SIComparison.GreaterOrEqual(a._si, b.GetValueOrDefault().SI);
+    public static bool operator <(UnknownUnit? a, Cost b) => a.HasValue && SIComparison.Less(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >(UnknownUnit? a, Cost b) => a.HasValue && SIComparison.Greater(a.GetValueOrDefault().SI, b._si);
+    public static bool operator <=(UnknownUnit? a, Cost b) => a.HasValue && SIComparison.LessOrEqual(a.GetValueOrDefault().SI, b._si);
+    public static bool operator >=(UnknownUnit? a, Cost b) => a.HasValue && SIComparison.GreaterOrEqual(a.GetValueOrDefault().SI, b._si);
 
     // ---- Conversions ----
     public static implicit operator UnknownUnit(Cost value) => new(value._si);

@@ -275,6 +275,10 @@ namespace EngineeringUnits.Parsing
                     foreach (var syn in attr.Tokens)
                         Add(syn, unit, TokenTier.Synonym, secondary);
 
+                // A currency's code, e.g. "EUR" for Euro
+                if (field.GetCustomAttribute<CurrencyCodeAttribute>(false) is { } currency)
+                    Add(currency.Code, unit, TokenTier.Synonym, secondary);
+
                 foreach (var name in DeriveNames(field.Name))
                     Add(name, unit, TokenTier.Name, secondary);
             }

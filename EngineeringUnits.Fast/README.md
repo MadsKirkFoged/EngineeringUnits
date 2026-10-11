@@ -51,7 +51,10 @@ types. Each struct `T` therefore declares:
 - `T * UnknownUnit → UnknownUnit` and `T / UnknownUnit → UnknownUnit` with **T on the left only**. Every other quantity converts implicitly to `UnknownUnit`, so
   `Power * Length` has exactly one candidate. That keeps it linear (~90 operators per type) and never ambiguous.
 - `T * double`, `double * T`, `T / double → T` and `double / T → UnknownUnit`
-- comparisons, and explicit nullable overloads (the lifted ones alone are ambiguous)
+- comparisons, and explicit nullable overloads (the lifted ones alone are ambiguous). That includes a `T` with an `UnknownUnit?` from
+  nullable math (`power + maybeFlow * enthalpy`, `time * (maybeFlow * enthalpy)`, `power < maybeFlow * enthalpy`), except `==` and `!=`:
+  those would make `maybePower == null` ambiguous, because `null` converts to both `Power?` and `UnknownUnit?`. Compare with `<`/`>`, or
+  cast the `UnknownUnit?` to the quantity first.
 - `implicit T(UnknownUnit)` (free at runtime, checked by EUF0001) and `implicit UnknownUnit(T)`
 - for aliases (same dimension, e.g. `Enthalpy`/`SpecificEnergy`): `+ - == <` between them, plus an **explicit** conversion. Dimensionless quantities (Angle, Information, Ratio, ...) get none, because they are unrelated.
 
@@ -130,7 +133,7 @@ static UnknownUnit Heat(MassFlow m, Enthalpy h) => m * h;   // returns checked, 
 
 | Feature | Status |
 |---|---|
-| 103 quantities, 1,352 units | ✅ All non-obsolete quantities, also the ones without `[UnitDimension]` in EngineeringUnits (`Level`, `Dimensionless`, `ApparentEnergy`: their dimension is read from their SI unit). Units are generated from the original's exact fractions, and every unit is tested against the original's exact path to within 1e-12. |
+| 103 quantities, 1,360 units | ✅ All non-obsolete quantities, also the ones without `[UnitDimension]` in EngineeringUnits (`Level`, `Dimensionless`, `ApparentEnergy`: their dimension is read from their SI unit). Units are generated from the original's exact fractions, and every unit is tested against the original's exact path to within 1e-12. |
 | `FromX(double)`, `.X`, `new T(v, unit)`, `From`, `As(unit)` | ✅ |
 | The original's other current member names (`FromKelvins`, ...) | ✅ forwarded. The generator calls each original member and finds the unit it gives **by value**. |
 | `1.5.Kilowatt` number extensions | ✅ (C# 14 extension properties, `double` and `int`) |
@@ -140,7 +143,7 @@ static UnknownUnit Heat(MassFlow m, Enthalpy h) => m * h;   // returns checked, 
 | `Abs`, `Clamp`, `Min`, `Max`, `Sum`, `Average`, `Pow`, `Sqrt` | ✅ `Pow`/`Sqrt` keep the unit checked. `Clamp` behaves like the original: swapped limits return the value, and a null limit means no limit. |
 | `IsZero`, `IsNotZero`, `IsAboveZero`, `IsBelowZero`, `HasValue`, `HasNoValue`, `IfNullSetToZero`, `LowerLimitAt`, `UpperLimitAt`, `RoundTo`, `CeilingTo`, `FloorTo` | ✅ same names; results tested against EngineeringUnits |
 | `RoundToNearest`, `RoundUpToNearest`, `RoundDownToNearest` (standard sizes) | ✅ tested against EngineeringUnits. Also on `T?` lists and values, with the original's rules: null when the value is null, the list is empty or it holds a null. |
-| `value.AddUnit<PowerUnit>("Kilowatt")`, `UnitTypebase.GetUnitByString<T>(name)`, `ListOf<T>()` | ✅ a lookup by unit **name** (not the text parser), for `double`, `double?`, `int`, `int?`. All 1,300+ unit names give the same value as EngineeringUnits (tested). Unknown names throw the original's message. The analyzer knows the result is a `PowerUnit` value. |
+| `value.AddUnit<PowerUnit>("Kilowatt")`, `UnitTypebase.GetUnitByString<T>(name)`, `ListOf<T>()` | ✅ a lookup by unit **name** (not the text parser), for `double`, `double?`, `int`, `int?`. All 1,300+ unit names give the same value as EngineeringUnits (tested), and cost units also take their currency code (`USD`, `EUR`, `GBP`, `DKK`), as there. Unknown names throw the original's message. The analyzer knows the result is a `PowerUnit` value. |
 | `PipeSize.DNValve`, the DN → outside diameter and pipe schedule tables | ✅ copied from EngineeringUnits. The schedule is a parameter (`GetWallThickness(PipeScheduleEnum.SCH_40)`), because a `PipeSize` here can't carry the settable `PipeSchedule` property. |
 | `Duration` ↔ `TimeSpan`, `DateTime ± Duration`, `AmountOfSubstance.FromMass`/`NumberOfParticles`, `(double)ratio` / `(Ratio)0.5` | ✅ the original's hand-written extras |
 | `ConvertToSI()`, `ToString(CultureInfo)`, `ToString("V4")` on quantities, `UnknownUnit` and their nullable forms | ✅ (`ConvertToSI()` returns the same value, as it is always SI) |
@@ -162,7 +165,7 @@ static UnknownUnit Heat(MassFlow m, Enthalpy h) => m * h;   // returns checked, 
 | JSON (System.Text.Json) | ✅ `{"Value":1500,"Unit":"W"}`. It also reads other units of the quantity by exact symbol and **rejects a wrong unit on read**. A symbol that two units share (`hm³`) is rejected as ambiguous. |
 | Nullable (`Power?`) | ✅ arithmetic and comparisons work, including `== null` |
 | Generic math | ✅ `IAdditionOperators`, `IComparisonOperators`, `IMultiplyOperators<T,double,T>`, ... plus `IQuantity<T>.FromSI` |
-| USD cost units ($, M$) | ✅ |
+| Cost units: $, M$, €, £, kr, and the prices built on them (€/m², €/m, €/kg, €/m³, kr/kWh, $/kWh, ...) | ✅ with `ExchangeRates`: same API, currencies and default rates as EngineeringUnits. A rate update applies at once (see the differences below). |
 | Target framework | net10.0 only, no package dependencies. The analyzer is netstandard2.0 because Roslyn only loads analyzers built for it. |
 
 ## What did NOT transfer, or behaves differently
@@ -177,7 +180,7 @@ static UnknownUnit Heat(MassFlow m, Enthalpy h) => m * h;   // returns checked, 
 | `UnknownUnit.ToString()` | Prints `6 [?]`. The unit isn't known at runtime. |
 | Exact decimal / Fraction math | ❌ double only. About 10% of foot round trips (`FromFoot(x).Foot`) are 1 ulp off; EngineeringUnits gives exact results. |
 | `==` across units | `==`, `!=`, `<`, `>`, `<=`, `>=` treat values within 1e-12 (relative) as equal, so `1 ft == 12 in` is **true** as in EngineeringUnits, although the doubles differ (0.3048 vs 0.30479999999999996). Close to 0 it stays exact (`1e-300 != 0`), and NaN is never equal. `Equals`, `GetHashCode` and `CompareTo` stay **exact**: a tolerance can't be hashed (`Dictionary`, `HashSet`, `Distinct`) and isn't transitive (sorting). Use `a.IsCloseTo(b, tolerance)` for a looser comparison. |
-| Currency units €, £, kr (8 units) | ❌ Their factor is an exchange rate. A generated constant would be frozen at code-generation time. |
+| `ExchangeRates.UpdateRate` | Applies at once, also after a currency unit has been used: €, £, kr and the prices built on them read the rate at every conversion. EngineeringUnits only takes an update made before its first use of a cost unit (finding 3 below). A cost is stored in USD, so a value keeps its dollar amount when a rate changes: `Cost.FromEuro(100)` is 108.568 $ at the default rate, and after `UpdateRate(Currency.Euro, 2m)` it is still 108.568 $, now shown as 54.284 €. USDollar is the base: a USD rate other than 1 throws. EngineeringUnits keeps rates of its own, so an application that uses both and changes a rate updates it in both; `ToFast()` converts an EngineeringUnits € value at EngineeringUnits' rate. |
 | `null` values | A struct is never null: `default` is 0, and `Power?` is `Nullable<Power>`. `Power p = someNullablePower;` needs `.Value`; C# does not allow a conversion from `T?` to `T`. `x!` does not unwrap a struct; use `x!.Value` or `x.Value`. |
 | `UnknownUnit?` → quantity | Math on nullable quantities gives `UnknownUnit?`. `Speed v = nullableFlow / area;` needs `(...)!.Value`. An implicit conversion was tried and rejected: the literal `null` converts to `UnknownUnit?`, so `Power p = null;` would have compiled and thrown at runtime (the analyzer caught it). |
 | `Temperature.FromX(...)` in a **static** method of a class with a `Temperature?` property | ❌ C# picks the instance property, and no library change can alter that. Write `EngineeringUnits.Fast.Temperature.FromX(...)`. |
@@ -226,7 +229,7 @@ Other things to know when porting:
 - `UnknownUnit` fields, parameters, returns and lists → a named quantity, or `[UnitDimension]` on the `UnknownUnit`.
 - A local that changes unit (`x = x * t`) → one variable per unit.
 - `Torque t = energy;` → `(Torque)energy`. Only the 3 alias pairs that EngineeringUnits converts implicitly are implicit here.
-- `Parse`, `UnknownUnit.Parse`/`Eval`, currencies other than USD, `decimal` inputs → keep EngineeringUnits for those, and convert at the boundary with `ToFast()`/`ToClassic()` (below).
+- `Parse`, `UnknownUnit.Parse`/`Eval`, `decimal` inputs → keep EngineeringUnits for those, and convert at the boundary with `ToFast()`/`ToClassic()` (below).
 - JSON saved by EngineeringUnits has a different shape. Old files need a one-off conversion.
 
 **In larger applications** with many nullable quantities, most edits are `T? → T`. These edits are not mechanical: `Temperature t = row.Temperature;` quietly passed a null along in EngineeringUnits, while `.Value` throws right there. Each one is a choice between `.Value` (throw), making the target `T?`, or handling the null.
@@ -295,7 +298,8 @@ Building and testing this turned up these in the original library:
 2. **Duplicate symbols.** `Volume.HectocubicMeter` (100 m³) and `Volume.CubicHectometer` (10⁶ m³) are both `hm³`, and
    `KilocubicMeter`/`CubicKilometer` are both `km³`. `ToString()` can't tell them apart, and the parser reads `hm³` as (hm)³. (Fast's JSON reader rejects these symbols as ambiguous.)
 3. **`ExchangeRates.UpdateRate` has no effect once `CostUnit` has been used.** The rates are read into `static readonly` fields,
-   so 100 USD stays 92.1 EUR after `UpdateRate(Euro, 2)`. The README example only works if it runs first.
+   so 100 USD stays 92.1 EUR after `UpdateRate(Euro, 2)`. The README example only works if it runs first. (Fast's currency units
+   read the rate at every conversion.)
 4. **The analyzer doesn't check `+=` / `-=`.** `q += m * cp` is only caught at runtime (EUF0002 covers it here).
 5. **`ToString(unit)` sometimes prints an equivalent unit's symbol:** `1 g/mm` prints as `1 kg/m` and `1 kt·mm²` as `1 m²·kg`
    (5 units in total).

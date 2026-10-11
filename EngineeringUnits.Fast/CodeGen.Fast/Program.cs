@@ -62,6 +62,10 @@ report.AppendLine("Implicit conversions, like in EngineeringUnits: " + string.Jo
     .Where(a => string.CompareOrdinal(q.Name, a.Name) < 0 && Model.HasImplicitConversion(q, a))
     .Select(a => $"{q.Name} <-> {a.Name}"))) + ". All other aliases convert explicitly.");
 report.AppendLine();
+report.AppendLine("## Currency units: the exchange rate is read at every conversion (ExchangeRates)");
+foreach (var line in Model.CurrencyUnits)
+    report.AppendLine($"- {line}");
+report.AppendLine();
 report.AppendLine("## Skipped / not transferred");
 foreach (var line in Model.Log)
     report.AppendLine($"- {line}");
