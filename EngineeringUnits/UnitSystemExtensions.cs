@@ -19,24 +19,41 @@ public static class UnitSystemExtensions
 
         var NewUnitList = new List<RawUnit>();
 
-        foreach (RawUnit item in local.ListOfUnits.Where(x => x.UnitType is not BaseunitType.CombinedUnit))
+        // Product of the constant factors that can't be halved exactly (odd Count); its root is taken once at the end
+        Fraction leftover = Fraction.One;
+
+        foreach (RawUnit item in local.ListOfUnits)
         {
+            if (item.UnitType is BaseunitType.CombinedUnit)
+            {
+                // A^Count = (A^half)^2 * A^rest, with rest = -1, 0 or 1.
+                // The even part is halved exactly (e.g. lbf² carries g² -> g), so no precision is lost
+                int half = item.Count / 2;
+                int rest = item.Count - (2 * half);
+
+                if (half != 0)
+                    NewUnitList.Add(item with { Count = half, B = 0, Symbol = null });
+
+                if (rest > 0)
+                    leftover *= item.A;
+                else if (rest < 0)
+                    leftover /= item.A;
+
+                continue;
+            }
+
             if (item.Count % 2 != 0)
                 throw new WrongUnitException($"We can't handle taking the square root of your unit! If the resulting unit ends in ex. [meter^0.5] you get this error.");
 
             NewUnitList.Add(item.CloneWithNewCount(item.Count/2));
         }
 
-        RawUnit? combinedUnit = local.ListOfUnits.Where(x => x.UnitType is BaseunitType.CombinedUnit)
-                                                 .FirstOrDefault();
-
-        if (combinedUnit is not null)
+        if (!leftover.IsExactlyOne())
         {
-
             var dimensionless = new RawUnit()
             {
                 Symbol=null,
-                A = combinedUnit.A.Sqrt(),
+                A = leftover.Sqrt(),
                 UnitType = BaseunitType.CombinedUnit,
                 B = 0,
                 Count = 1,
